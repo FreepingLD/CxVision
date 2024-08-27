@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0631DEE4-0041-411E-996B-B5A7F77A09F8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Common</RootNamespace>
+    <AssemblyName>Common</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="halcondotnetxl">
+      <HintPath>C:\Program Files\MVTec\HALCON-20.11-Steady\bin\dotnet35\halcondotnetxl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CpuMonitor.cs" />
+    <Compile Include="MemoryMonitor.cs" />
+    <Compile Include="传感器参数\CameraParam.cs" />
+    <Compile Include="传感器参数\CaliParam.cs" />
+    <Compile Include="传感器参数\CamNPointCalibParam.cs" />
+    <Compile Include="传感器参数\CamSlantCalibParam.cs" />
+    <Compile Include="传感器参数\DaHengCameraSetting.cs" />
+    <Compile Include="传感器参数\HalconParamSetting.cs" />
+    <Compile Include="传感器参数\KeyEnceLJV7000Setting.cs" />
+    <Compile Include="传感器参数\LaserParam.cs" />
+    <Compile Include="传感器参数\LiyiPointSensorSetting.cs" />
+    <Compile Include="传感器参数\NinePointCalibParam.cs" />
+    <Compile Include="传感器参数\SensorParam.cs" />
+    <Compile Include="传感器参数\StilLineSensorSetting.cs" />
+    <Compile Include="传感器参数\StilPointSensorSetting.cs" />
+    <Compile Include="图像数据类\PointCloudData.cs" />
+    <Compile Include="文件操作\BinarySerialize.cs" />
+    <Compile Include="AxisCalibration.cs" />
+    <Compile Include="CalibrationXyPlane%28old%29.cs" />
+    <Compile Include="ConsoleHelper.cs" />
+    <Compile Include="文件操作\DirectoryEx.cs" />
+    <Compile Include="EnumAggregation.cs" />
+    <Compile Include="文件操作\ExcelHelper.cs" />
+    <Compile Include="GlobalVariable.cs" />
+    <Compile Include="类型转换\ObjectConverter.cs" />
+    <Compile Include="日志\Logger.cs" />
+    <Compile Include="日志\LoggerHelper.cs" />
+    <Compile Include="日志\LogManager.cs" />
+    <Compile Include="用户委托\CustomDelegateClass.cs" />
+    <Compile Include="用户委托\CustomEventArgsClass.cs" />
+    <Compile Include="DataInteractionClass.cs" />
+    <Compile Include="dataTableConfig.cs" />
+    <Compile Include="AutoReSizeForm.cs" />
+    <Compile Include="文件操作\FileOporate.cs" />
+    <Compile Include="paramConfigBinary.cs" />
+    <Compile Include="ParamConfig.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="文件操作\Serializition.cs" />
+    <Compile Include="Struct.cs" />
+    <Compile Include="文件操作\XmlCommunication.cs" />
+    <Compile Include="图像数据类\ImageDataClass.cs" />
+    <Compile Include="图像数据类\RegionDataClass.cs" />
+    <Compile Include="图像数据类\XldDataClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

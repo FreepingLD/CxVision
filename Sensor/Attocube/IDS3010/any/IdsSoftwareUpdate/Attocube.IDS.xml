@@ -1,0 +1,2459 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Attocube.IDS</name>
+    </assembly>
+    <members>
+        <member name="T:Attocube.IDS.AttocubeIDS">
+            <summary>
+            AttocubeIDS implementation class; contains the actual code to make the magic of the IAttocubeIDS interface work
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.AttocubeIDS._baseUrl">
+            <summary>
+            Base-URL for the web service call
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.AttocubeIDS.LastRequestJson">
+            <summary>
+            Property that contains the last request (in JSON format) made to the JSON RPC system
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.AttocubeIDS.LastResponseJson">
+            <summary>
+            Property that contains the last response (in JSON format) received from the JSON RPC system
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.#ctor">
+            <summary>
+            Standard, parameter-less constructor - will create a standard, real JsonRpcClient when needed
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.#ctor(Attocube.IDS.JsonRpc.IJsonRpcClient)">
+            <summary>
+            Extended constructor, which takes a pre-made IJsonRpcClient (possibly a mock for testing)
+            and does not internally create a standard, real-life "JsonRpcClient" instance
+            </summary>
+            <param name="rpcClient">Ready-made "IJsonRpcClient" (possibly a mock for unit testing)</param>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_Check">
+            <summary>
+            Discover IDS on the network
+            </summary>
+            <returns>Array of discovery data describing, name, type, serialNumber, ip address, mac address and lock status</returns>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_Connect(System.String,System.Int32)">
+            <summary>
+            Connect to the target with a hostname or IP address and port provided.
+            If a valid port number (> 0) is supplied, the target URL is constructed like this:
+                 http://$(ipAddress):$(port)/api/json
+            If an invalid port number (0 or negative value) is supplied, then the string in "ipAddress" is taken
+            as the literal string for the base service URL (used for e.g. testing)
+            </summary>
+            <param name="ipAddress">IP Address for target system</param>
+            <param name="port">Port</param>
+            <exception cref="T:Attocube.IDS.Error.AlreadyConnectedException">Thrown if the client is already connected</exception>
+            <exception cref="T:System.ArgumentException">Thrown if the supplied IP address is invalid</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_Disconnect">
+            <summary>
+            Disconnect from the target system
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetDllVersion">
+            <summary>
+            Returns the current version of the Attocube IDS DLL
+            </summary>
+            <returns>Version in the form X.Y.Z</returns>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetDllInfo">
+            <summary>
+            Return internal info about the DLL - whether or not it's connected,
+            and if it is connected, what address it's connected to
+            </summary>
+            <returns>String indicating some info on connection status of client DLL</returns>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetLockStatus">
+            <summary>
+            Get information whether the device is locked or not and if access is authorized
+            </summary>
+            <returns>Tuple of bool indicating if the device is locked[0] and/or if the access for this client is authorized[1]</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_Lock(System.String)">
+            <summary>
+            Lock the device so that it will only be possible to call functions by knowing the password
+            </summary>
+            <param name="password">Password to lock the device</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_Unlock">
+            <summary>
+            Unlock the device so that it will be available to all clients
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GrantAccess(System.String)">
+            <summary>
+            Request access to a locked device
+            </summary>
+            <param name="password">Password that was used to lock the device</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_SetIpSettings(System.String,System.String,System.String,System.Int32)">
+            <summary>
+            set IP settings of IDS
+            </summary>
+            <param name="ipaddress">IP address of the IDS in the form XXX.XXX.XXX.XXX as string</param>
+            <param name="subnetmask">Corresponding subnet mask of the network in the form XXX.XXX.XXX.XXX as string</param>
+            <param name="defaultgateway">To the IP address related default gateway in the form XXX.XXX.XXX.XXX as string</param>
+            <param name="setmode">0 = Set input IP address, input subnet mask and input default  gateway, 1 = Set DHCP mode,  2 = Set Client mode</param>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetIpAddress">
+            <summary>
+            Get the IP address of the target
+            </summary>
+            <returns>IP address in the form XXX.XXX.XXX.XXX</returns>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetSubnetMask">
+            <summary>
+            Get the subnet mask of the target
+            </summary>
+            <returns>Subnet mask in the form XXX.XXX.XXX.XXX</returns>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetGateway">
+            <summary>
+            Get the gateway of the target
+            </summary>
+            <returns>Gateway in the form XXX.XXX.XXX.XXX</returns>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_FirmwareUpdate(System.String)">
+            <summary>
+            Loads the specific binary update file and converts it to base64. 
+            </summary>
+            <param name="filePath">Path to the binary update image file</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:System.IO.FileNotFoundException">Thrown if the specified file does not exist or cannot be accessed</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_UploadLicenseFile(System.String)">
+            <summary>
+            Upload license file 
+            </summary>
+            <param name="filePath">Path to the binary update image file</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:System.IO.FileNotFoundException">Thrown if the specified file does not exist or cannot be accessed</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetNumberOfActivatedFeatures">
+            <summary>
+            Get number of activated features
+            </summary>
+            <returns>numberofactivatedfeatures: Gives the number of activated  features</returns>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetFeatureName(System.Int32)">
+             <summary>
+            Get the name of the activated feature number
+             </summary>
+             <param name="featurenumber"> {Number of the dedicated feature}</param>
+             <returns>featurename: Gives back the name of the dedicated feature number</returns>
+             <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+             <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_FactoryReset">
+            <summary>
+            Do a factory reset on next reboot
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_RebootSystem">
+            <summary>
+            Reboot the IDS system
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetFirmwareVersion">
+            <summary>
+            Get the version of the ids firmware
+            </summary>
+            <returns>Version in the form X.Y.Z</returns>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetSerialNumber">
+            <summary>
+            Get the serial number of IDS
+            </summary>
+            <returns>Serial number</returns>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetMacAddress">
+            <summary>
+            Get the Mac address of the device
+            </summary>
+            <returns>Mac address</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetDeviceType">
+            <summary>
+            Get the type of the device
+            </summary>
+            <returns>Device type</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetDeviceName">
+            <summary>
+            Get the friendly name assigned to this device
+            </summary>
+            <returns>Device name</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_SetDeviceName(System.String)">
+            <summary>
+            Set a friendly name to this device
+            </summary>
+            <param name="name">New name of the device</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetFpgaVersion">
+            <summary>
+            Get the version of the current FPGA in use
+            </summary>
+            <returns>Version in the form X.Y.Z</returns>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_ErrorNumberToRecommendation(System.Int32,System.Int32)">
+            <summary>
+            Return a string that gives a human readable recommendation
+            </summary>
+            <param name="language">Language of the error description { 0 = System, 1 = English }</param>
+            <param name="errorNumber">Error number to translate</param>
+            <returns>Corresponding error recommendation to the error number</returns>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_ErrorNumberToString(System.Int32,System.Int32)">
+            <summary>
+            Return a string that represents the error number
+            </summary>
+            <param name="language">Language of the error description { 0 = System, 1 = English }</param>
+            <param name="errorNumber">Error number to translate</param>
+            <returns>String that describes the error</returns>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetRtOutMode">
+            <summary>
+            Get configured mode of the realtime output
+            </summary>
+            <returns>The output mode {0=HSSL (TTL), 1=HSSL (LVDS), 2=AquadB (TTL), 3=AquadB (LVDS), 4=SinCos (TTL Error Signal), 5=SinCos (LVDS Error Signal), 6 Linear (TTL),7 Linear (LVDS), 8 BiSS-C }</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_SetRtOutMode(System.Int32)">
+            <summary>
+            Set the mode of the realtime output
+            </summary>
+            <param name="rtOutMode">Realtime output mode {0=HSSL (TTL), 1=HSSL (LVDS), 2=AquadB (TTL), 3=AquadB (LVDS), 4=SinCos (TTL Error Signal), 5=SinCos (LVDS Error Signal), 6 Linear (TTL),7 Linear (LVDS), 8 BiSS-C}</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetResolutionHsslLow">
+            <summary>
+            The low parameter of the HSSL resolution. The hssl output will be a value between hssl low resolution and HSSL high resolution.
+            </summary>
+            <returns>Resolution { 0 - 46 }</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_SetResolutionHsslLow(System.Int32)">
+            <summary>
+            The low parameter of the HSSL resolution. The hssl output will be a value between hssl low resolution and HSSL high resolution.
+            </summary>
+            <param name="resolution">Resolution { 0-46 }</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetResolutionHsslHigh">
+            <summary>
+            The high parameter of the HSSL resolution. The hssl output will be a value between hssl low resolution and HSSL high resolution.
+            </summary>
+            <returns>Resolution { 1 - 47 }</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_SetResolutionHsslHigh(System.Int32)">
+            <summary>
+            The high parameter of the HSSL resolution. The hssl output will be a value between hssl low resolution and HSSL high resolution.
+            </summary>
+            <param name="resolution">Resolution { 1-47 }</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetPeriodHsslClk">
+            <summary>
+            The period of the hssl clock.
+            </summary>
+            <returns>Period { 40ns to 10200ns }</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_SetPeriodHsslClk(System.Int32)">
+            <summary>
+            The HSSL clock period in ns
+            </summary>
+            <param name="period">Period { 40ns to 10200ns }</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetPeriodHsslGap">
+            <summary>
+            The gap between two values in clocks
+            </summary>
+            <returns>Gap { 0 - 255 [clks] }</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_SetPeriodHsslGap(System.Int32)">
+            <summary>
+            The gap between two values in clocks
+            </summary>
+            <param name="gap">Gap { 0 - 255 [clks] }</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetPeriodSinCosAndAquadBClk">
+            <summary>
+            The period of sin/cos and AquadB update clock in ns.
+            </summary>
+            <returns>Period { 40ns- 10200ns }</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_SetPeriodSinCosAndAquadBClk(System.Int32)">
+            <summary>
+            The period of sin/cos and AquadB update clock in ns.
+            </summary>
+            <param name="period">Period { 40ns to 10200ns }</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetResolutionSinCosAndAquadB">
+            <summary>
+            The resolution of sin/cos and AquadB in 1pm/90°
+            </summary>
+            <returns>Resolution { 1pm to 65535pm }</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_SetResolutionSinCosAndAquadB(System.Int32)">
+            <summary>
+            The resolution of sin/cos and AquadB in 1pm/90°
+            </summary>
+            <param name="resolution">Resolution { 1pm to 65535pm }</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_SetRtDistanceMode(System.Int32)">
+            <summary>
+            Set Distance mode (Available for HSSL and Linear Mode)
+            </summary>
+            <param name="distancemode">1 = Displacement (Available in HSSL mode and Linear Mode) ,2 = Absolute Distance (Available in HSSL mode only), 3= Vibrometry (Available in Linear mode only  (return ERR_INT_RANGE in Linear mode feature not active) * </param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetRtDistanceMode">
+            <summary>
+            Get Distance mode (Available for HSSL and Linear Mode)
+            </summary>
+            <returns>Resolution {  When Linear mode is selected : return  RtDistanceLinear ( Displacement or Vibrometry),   In all other mode:  return  RtDistance ( Displacement or Absolute Distance)}</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_SetRtLinearHighPassFilterNumber(System.Int32)">
+            <summary>
+            Set High Pass Cut-Off frequency filter number
+            </summary>
+            <param name="filternumber">: N, with frequency is 1600/2^N kHz, with	N ∈1,24 </param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetRtLinearHighPassFilterNumber">
+             <summary>
+             Get High Pass Cut-Off frequency filter number
+             </summary>
+            <returns>Resolution {N, with frequency is 1600/2^N kHz, with	N ∈1,24 }</returns>
+             <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+             <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_SetRtLinearRangeNumber(System.Int32)">
+            <summary>
+             Set Linear Analog Output range
+            </summary>
+            <param name="rangenumber">:N, Linear Analog Range is +-2^(N+11)	pm w ith N ∈ 0,34 </param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetRtLinearRangeNumber">
+             <summary>
+              Get Linear Analog Output range
+             </summary>
+            <returns>rangenumber {N, Linear Analog Range is +-2^(N+11)	pm w ith N ∈ 0,34 }</returns>
+             <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+             <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_setAaf(System.Int32,System.Int32,System.Int32)">
+            <summary>
+             Enables the Anti-Aliasing Unit with assigned Filter Window
+            </summary>
+            <param name="set">:[0,1] 0 = disable Anti-Aliasing Filter, 1 = enable Anti-Aliasing Filter </param>
+            <param name="attenuation">:[0,1] 0 = disable Anti-Aliasing Filter, 1 = enable Anti-Aliasing Filter </param>
+            <param name="window">: window : 0 = Rectangular , 1 = Cosine, 2 = Cosine^2, 3 = Hamming, 4 Raised Cosine* </param> 
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetAafEnabled">
+            <summary>
+            Checks if the Anti-Aliasing Unit is enabled
+            </summary>
+            <returns>enabled : true = AAF is enabled , false = AAF is disabled</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetAafAttenuation">
+            <summary>
+            Returns the current Attenuation at f_nyquist of the Anti-Aliasing Unit
+            </summary>
+            <returns>Attenuation : [0 - 33] dB at f_nyquist</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetAafWindow">
+            <summary>
+            Returns the current Filter Window of the Anti-Aliasing Unit
+            </summary>
+            <returns>FilterWindow : 0 = Rectangular , 1 = Cosine, 2 = Cosine^2, 3 = Hamming, 4 Raised Cosine</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_SetResolutionBissC(System.Int32)">
+            <summary>
+             Set the resolution N of Biss C with resolution = 2^N
+            </summary>
+            <param name="resolution">:pointer to result N = 1 to 16, with resolution = 2^N </param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetResolutionBissC">
+             <summary>
+             Get the resolution N of Biss C with resolution = 2^N
+             </summary>
+            <returns>resolution {pointer to result N = 1 to 16, with resolution = 2^N }</returns>
+             <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+             <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_EnableTestChannel">
+            <summary>
+            Enable Test channel (Note enable on channel 0 )
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_DisableTestChannel">
+            <summary>
+            Disable Test channel (Note enable on channel 0 )
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetTestChannelEnabled">
+            <summary>
+            Returns if the Test channel is enabled
+            </summary>
+            <returns>true = test channel enabled, false test channel disabled</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetPassMode">
+            <summary>
+            Returns the pass mode
+            </summary>
+            <returns>Mode { 0->single pass, 1->dual pass }</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_SetPassMode(System.Int32)">
+            <summary>
+            Returns the pass mode, also called the sensor head information
+            </summary>
+            <param name="mode">Mode { 0->single pass, 1->dual pass, 2->xs sensor single pass, 3 -> customized sensor head }</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_SetMasterAxis(System.Int32)">
+            <summary>
+            Sets the master axis of the IDS. This axis is used to adjust the modulation amplitude and must be aligned.
+            </summary>
+            <param name="axis">Axis { 0-2 axis to become master }</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetMasterAxis">
+            <summary>
+            Gets the master axis of the IDS. This axis is used to adjust the modulation amplitude and must be aligned.
+            </summary>
+            <returns>Axis { 0-2 axis which is master }</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetPilotLaserEnabled">
+            <summary>
+            Returns if the red pilot laser is enabled
+            </summary>
+            <returns>true if enabled, false if disabled</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_EnablePilotLaser">
+            <summary>
+            Enable the pilot laser
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_DisablePilotLaser">
+            <summary>
+            Disable the pilot laser
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetAverageN">
+            <summary>
+            Returns the current averaging value. The averaging time is calculated by (2^n)*40ns, where n is the averaging value.
+            </summary>
+            <returns>A value from 0 to 24</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_SetAverageN(System.Int32)">
+            <summary>
+            Sets the averaging value. The averaging time is calculated by (2^n)*40ns, where n is the averaging value.
+            </summary>
+            <param name="averageN">A value from 0 to 24</param>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetAbsolutePosition(System.Int32)">
+            <summary>
+            Get the absolute position of an axis
+            </summary>
+            <param name="axis">Number of the axis (valid values: 0 - 2)</param>
+            <returns>Absolute position of the axis in pm</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetAbsolutePositions">
+            <summary>
+            Get the absolute position of all axis
+            </summary>
+            <returns>Instance of a class with the three absolute positions for the three axes</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetAxisDisplacement(System.Int32)">
+            <summary>
+            Get the displacement of axis n
+            </summary>
+            <param name="axis">Axis to get the relative displacement from {0-2}</param>
+            <returns>Displacement of the axis in pm</returns>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetAxesDisplacement">
+            <summary>
+            Get the displacement of all axes
+            </summary>
+            <returns>A class with the three displacement values requests</returns>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetContrastInPermille(System.Int32)">
+            <summary>
+            Returns the alignment signal contrast in per mill.
+            </summary>
+            <param name="axis">Axis to get the value from {0-2}</param>
+            <returns>The contrast in per mill</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetCurrentMode">
+            <summary>
+            Return a string that describes the current mode in which the IDS currently is
+            </summary>
+            <returns>A short description of the current mode: "system idle", "measurement starting", "measurement running", "optics alignment starting", "optics alignment running", "pilot laser enabled","Test Channel enabled" </returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_StartOpticsAlignment">
+            <summary>
+            Start the optics alignment (Contrast measurement)
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_StopOpticsAlignment">
+            <summary>
+            Stop the optics alignment (Contrast measurement)
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_StartMeasurement">
+            <summary>
+            Start the measurement, this can take a while because the system needs to heat up the laser
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_StopMeasurement">
+            <summary>
+            Stop the measurement
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_ResetAxis(System.Int32)">
+            <summary>
+            Reset the displacement of axis to 0 to start a new measurement on the fly
+            </summary>
+            <param name="axis">Axis to reset {0-2}</param>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_ResetAxes">
+            <summary>
+            Reset the displacement of all axes to 0 to start a new measurement on the fly
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_ResetError(System.Boolean)">
+            <summary>
+            Clear displacment errors (e.g. beam interrupt), while measurement is running.
+            </summary>
+            <param name="performRenormalization">Indicates if a additional renormalization has to be done in case of beam interruption or signal loss</param>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_SetInitMode(System.Int32)">
+            <summary>
+             Sets the Initialization mode
+            </summary>
+            <param name="initmode"> 0-> High Accuracy Initialization,  1-> Quick Initialization</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetInitMode">
+            <summary>
+             Returns the Initialization mode
+            </summary>
+            <returns>mode : 0-> High Accuracy Initialization,  1-> Quick Initialization,</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetAxisSignalQuality(System.Int32)">
+            <summary>
+            Get the signal quality in ‰ during the measurement, this will allow the customer to readjust the measurement setup, if it is too low.
+            </summary>
+            <param name="axis">Axis get the signal quality from {0-2}</param>
+            <returns>The signal quality in permill</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_linProc(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Start linearization procedure
+            </summary>
+            <param name="axis">axis to perform linearization or return linearization table</param>
+            <param name="fringesNbr">Number of fringes to be acquired</param>
+            <param name="samplesPerFringe">Number of samples per fringe</param>
+            <param name="set">0 = evaluate current nonlinear amplitude, 1 = perform linearization and upload look up table,2 = Clear look up table</param>
+            <returns> lintable: String, which contains all 512 phase related correction values</returns>
+            <returns> nonlinearamp: String which contains the residual positive and negative maximal nonlinear amplitudes </returns>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetEcuEnabled">
+            <summary>
+            Returns if the ECU is enabled or disabled
+            </summary>
+            <returns>True if enabled, false if not</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetEcuConnected">
+            <summary>
+            Returns if the ECU is connected. This means it is enabled and recognized by the IDS.
+            </summary>
+            <returns>True if connected, false if not</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_EnableEcu">
+            <summary>
+            Enable the Environment Compensation Unit.
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_DisableEcu">
+            <summary>
+            Disable the Environment Compensation Unit.
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetTemperatureInDegrees">
+            <summary>
+            Get the temperature in Degrees from the ECU
+            </summary>
+            <returns>Temperature in degrees</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetPressureInHPa">
+            <summary>
+            Get the pressure from the ECU in hPa
+            </summary>
+            <returns>Pressure in hPa</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetHumidityInPercent">
+            <summary>
+            Get the humidity from the ECU in Percent
+            </summary>
+            <returns>Humidity in percent</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetRefractiveIndex">
+            <summary>
+            Get the refractive index from the ECU (as index)
+            </summary>
+            <returns>Refractive index</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetSystemError">
+            <summary>
+            Returns the system error if any occured. ERR_OK=0 if no error occured since the last time this method was called. The method
+            automatically resets the system error to ERR_OK.
+            </summary>
+            <returns>System Error</returns>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetFwUpdateProgress">
+            <summary>
+            Get the progress firmware update progress. The values are 0-99 during update and 100 for done.
+            The update first must be startet.
+            </summary>
+            <returns>progress</returns>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetInstalledPackages">
+            <summary>
+            Get a comma separated list of installed packages
+            </summary>
+            <returns>List of installed packages</returns>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.IDS_GetPackageLicense(System.String)">
+            <summary>
+            Get license text to a specific package
+            </summary>
+            <param name="packageName">The name of the package to get the license from</param>
+            <returns>The license text of the package</returns>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.HandleResponseReturnsClass``1(Attocube.IDS.JsonRpc.JsonRpcResponse,System.Boolean)">
+            <summary>
+            Method to handle the JSON response
+            </summary>
+            <typeparam name="T">Expected type of the return value </typeparam>
+            <param name="response">Response of the JSON call to parse</param>
+            <param name="returnsError">If true indicates that no error code has to be evaluated </param>
+            <returns>The actual value of the call - typically an "int", "bool" or "string"</returns>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.HandleResponseTuple``1(Attocube.IDS.JsonRpc.JsonRpcResponse,System.Boolean)">
+            <summary>
+            Method to handle the JSON response containing a tuple of values
+            </summary>
+            <typeparam name="T">Expected type of the return value </typeparam>
+            <param name="response">Response of the JSON call to parse</param>
+            <param name="returnsError">If true indicates that no error code has to be evaluated </param>
+            <returns>A tuple containg the both values of the call - typically "int", "bool" or "string"</returns>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.HandleResponse``1(Attocube.IDS.JsonRpc.JsonRpcResponse,System.Boolean,System.Boolean)">
+            <summary>
+            Method to handle the JSON response
+            </summary>
+            <typeparam name="T">Expected type of the return value </typeparam>
+            <param name="response">Response of the JSON call to parse</param>
+            <param name="returnsVoid">If true indicates a method that doesn't really return any values (other than the error indicator)</param>
+            <param name="returnsError">If true indicates that no error code has to be evaluated </param>
+            <returns>The actual value of the call - typically an "int", "bool" or "string"</returns>
+        </member>
+        <member name="M:Attocube.IDS.AttocubeIDS.HandleResponseCompound``1(Attocube.IDS.JsonRpc.JsonRpcResponse)">
+            <summary>
+            Method to handle the JSON response
+            </summary>
+            <typeparam name="T">Expected type of the return value </typeparam>
+            <param name="response">Response of the JSON call to parse</param>
+            <returns>An object generated from response of type T</returns>
+        </member>
+        <member name="T:Attocube.IDS.Data.DiscoveryData">
+            <summary>
+            Class for handling the data of devices discovered using the discovery protocol
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.Data.DiscoveryData.#ctor">
+            <summary>
+            Default, parameter-less constructor
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.Data.DiscoveryData.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Extended constructor with all parameters needed to create this instance
+            </summary>
+            <param name="deviceName">Name setted by user setDeviceName</param>
+            <param name="modelName">type of device</param>
+            <param name="serialNumber">serial number</param>
+            <param name="lockStatus">lock status (locked or unlocked)</param>
+            <param name="ipAddress">ip address of the device</param>
+            <param name="macAddress">mac address of the device</param>
+        </member>
+        <member name="P:Attocube.IDS.Data.DiscoveryData.DeviceName">
+            <summary>
+            Name setted by user setDeviceName
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Data.DiscoveryData.ModelName">
+            <summary>
+            type of device
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Data.DiscoveryData.SerialNumber">
+            <summary>
+            serial number
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Data.DiscoveryData.LockStatus">
+            <summary>
+            lock status (locked or unlocked)
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Data.DiscoveryData.IpAddress">
+            <summary>
+            ip address of the device
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Data.DiscoveryData.MacAddress">
+            <summary>
+            mac address of the device
+            </summary>
+        </member>
+        <member name="T:Attocube.IDS.Data.AxesPositions">
+            <summary>
+            Class for handling the three axes and their positions returned from IDS_GetAbsolutePositions
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.Data.AxesPositions.#ctor">
+            <summary>
+            Default, parameter-less constructor
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.Data.AxesPositions.#ctor(System.Int32,System.Int64,System.Int64,System.Int64)">
+            <summary>
+            Extended constructor with the three parameters needed to create this instance
+            </summary>
+            <param name="warning">Possible warning value from the embedded system</param>
+            <param name="position0">Value for position no. 0</param>
+            <param name="position1">Value for position no. 1</param>
+            <param name="position2">Value for position no. 2</param>
+        </member>
+        <member name="P:Attocube.IDS.Data.AxesPositions.Warning">
+            <summary>
+            Possible warning value from the embedded system
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Data.AxesPositions.Position0">
+            <summary>
+            Position of axis 0 in pm
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Data.AxesPositions.Position1">
+            <summary>
+            Position of axis 1 in pm
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Data.AxesPositions.Position2">
+            <summary>
+            Position of axis 2 in pm
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.Data.AxesPositions.ToString">
+            <summary>
+            Method to properly display the three values of this class
+            </summary>
+            <returns>String with three positions, comma-separated, in round brackets</returns>
+        </member>
+        <member name="T:Attocube.IDS.Data.AxesDisplacements">
+            <summary>
+            Class for handling the three axes and their displacement values returned from IDS_GetAxesDisplacement
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.Data.AxesDisplacements.#ctor">
+            <summary>
+            Default, parameter-less constructor
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.Data.AxesDisplacements.#ctor(System.Int32,System.Int64,System.Int64,System.Int64)">
+            <summary>
+            Extended constructor with the three parameters needed to create this instance
+            </summary>
+            <param name="warning">Possible warning value from the embedded system</param>
+            <param name="displacement0">Value for displacement of axis no. 0</param>
+            <param name="displacement1">Value for displacement of axis no. 1</param>
+            <param name="displacement2">Value for displacement of axis no. 2</param>
+        </member>
+        <member name="P:Attocube.IDS.Data.AxesDisplacements.Warning">
+            <summary>
+            Possible warning value from the embedded system
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Data.AxesDisplacements.Displacement0">
+            <summary>
+            Displacement of axis 0 in pm
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Data.AxesDisplacements.Displacement1">
+            <summary>
+            Displacement of axis 1 in pm
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Data.AxesDisplacements.Displacement2">
+            <summary>
+            Displacement of axis 2 in pm
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.Data.AxesDisplacements.ToString">
+            <summary>
+            Method to properly display the three values of this class
+            </summary>
+            <returns>String with three displacements, comma-separated, in round brackets</returns>
+        </member>
+        <member name="T:Attocube.IDS.Data.ContrastData">
+            <summary>
+            Class to hold the result and possible warning code for IDS_GetContrastInPromille
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.Data.ContrastData.#ctor">
+            <summary>
+            Standard, parameter-less constructor
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.Data.ContrastData.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Constructor with parameters
+            </summary>
+            <param name="warningCode">Warning code</param>
+            <param name="contrast">Result value - contrast in promille</param>
+            <param name="baseline">Offset of the contrast measurment</param>
+            <param name="mixContrast">lower contrast measurment when measuring a mix contrast(indicated by error code)</param>
+        </member>
+        <member name="P:Attocube.IDS.Data.ContrastData.ContrastInPromille">
+            <summary>
+            Result value of IDS call
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Data.ContrastData.WarningCode">
+            <summary>
+            Warning code - 0 meaning: no warning, no error
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Data.ContrastData.Baseline">
+            <summary>
+            Offset of the contrast measurment
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Data.ContrastData.MixContrast">
+            <summary>
+            lower contrast measurment when measuring a mix contrast(indicated by error code)
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.Data.ContrastData.ToString">
+            <summary>
+            Method to properly display the value of this class
+            </summary>
+            <returns>String with the contrast value</returns>
+        </member>
+        <member name="T:Attocube.IDS.Error.AlreadyConnectedException">
+            <summary>
+            Exception that is thrown if a the IDS_Connect method is called again, after it's been called already
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.Error.AlreadyConnectedException.#ctor">
+            <summary>
+            Standard constructor which sets the default exception message
+            </summary>
+        </member>
+        <member name="T:Attocube.IDS.Error.ErrorCodes">
+            <summary>
+            Attocube.IDS defined error codes
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.Error.ErrorCodes.IsWarning(System.Int32)">
+            <summary>
+            Determines that this error code is really "only" a warning -> do not throw an exception, just return response as is
+            </summary>
+            <param name="errorCode">Error code to be checked</param>
+            <returns>True, if this error code is simply a warning - false if not</returns>
+        </member>
+        <member name="M:Attocube.IDS.Error.ErrorCodes.IsError(System.Int32)">
+            <summary>
+            Determines that this error code truly is an error that necessitates throwing an exception
+            </summary>
+            <param name="errorCode">Error code to be checked</param>
+            <returns>True, if this error code is in fact a "real" error - false if not</returns>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.DllAlreadyConnected">
+            <summary>
+            0x1001 - Client has already been connected 
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.DllNotConnected">
+            <summary>
+            0x1002 - Client is not yet connected
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.JsonRpcCallFailed">
+            <summary>
+            0x1003 - Something else in the process of the JSON RPC call went wrong
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.ResponseIsNull">
+            <summary>
+            0x1004 - Response from JSON RPC call is NULL
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.ResponseErrorAndResultNull">
+            <summary>
+            0x1005 - Call returned a response with both the .Error and
+            .Result property as NULL 
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.ResponseResultIsNotAnArray">
+            <summary>
+            0x1006 - Call returned a response, but the .Result property 
+            is not a valid JSON array
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.ResponseReturnsToFewArguments">
+            <summary>
+            0x1007 - Call returned a response, but the .Result property 
+            is not a valid JSON array
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.NoError">
+            <summary>
+            Indicator for "all OK - no error"
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_WARN_MEASUREMENT_AXIS_0">
+            <summary>
+            Value of axis 0 is invalid (is axis aligned?)
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_WARN_MEASUREMENT_AXIS_1">
+            <summary>
+            Value of axis 1 is invalid (is axis aligned?)
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_WARN_MEASUREMENT_AXIS_01">
+            <summary>
+            Value of axis 2 is invalid (is axis aligned?)
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_WARN_MEASUREMENT_AXIS_2">
+            <summary>
+            Values of axes 0 and 2 are invalid (are axis aligned?)
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_WARN_MEASUREMENT_AXIS_02">
+            <summary>
+            Values of axes 0 and 2 are invalid (are axis aligned?)
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_WARN_MEASUREMENT_AXIS_12">
+            <summary>
+            Values of axes 1 and 2 are invalid (are axis aligned?)
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_WARN_MEASUREMENT_AXIS_123">
+            <summary>
+            Values of axes 0, 1 and 2 are invalid (are axis aligned?)
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_WARN_SIGNAL_OVERDRIVEN">
+            <summary>
+            Signal too strong, overdrives the input
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_INT_RANGE">
+            <summary>
+            Integer range check fails
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_DOUB_RANGE">
+            <summary>
+            Double range check fails
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_INV_IP_ADDR">
+            <summary>
+            IP format is invalid
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_IP_CONF">
+            <summary>
+            IP configuration is invalid
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_HSSL_RESOLUTION">
+            <summary>
+            HSSL resolution is not valid
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_SYSTEM_IS_BUSY">
+            <summary>
+            System is busy
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_STATE_MACHINE_TIMEOUT">
+            <summary>
+            State machine is not responding
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_SWUPDATE_FAILED">
+            <summary>
+            Software update fails with unknown error
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_SWUPDATE_FILE_NOT_FOUND">
+            <summary>
+            Software update can not find file
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_EXTERNAL_PROGRAM_FAILED">
+            <summary>
+            An external program call failed by this action
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_ACTION_DENIED">
+            <summary>
+            This action is currently not permitted (measurement/alignment running?)
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_NOT_AVAILABLE_IN_THIS_VERSION">
+            <summary>
+            This feature is not supported int the current Firmware Version
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_DISPLACEMENT_NOT_ENABLED">
+            <summary>
+            Displacement is currently not enabeld
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_DISPLACEMENT_ERROR">
+            <summary>
+            Displacement error (e.g. beam interrupted?)
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_ADJUST_LASER_TEMPERATURE">
+            <summary>
+            Error during laser temperature adjustment
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_ADJUST_MODULATION_AMPLITUDE">
+            <summary>
+            Error during modulation amplitude adjustment (master axis correct?)
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_ADJUST_MODULATION_PHASE">
+            <summary>
+            Error during modulation phase adjustment
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_START_OPTICS_ALIGNMENT">
+            <summary>
+            Can not start optics alignment
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_SET_MEASUREMENT_ZERO">
+            <summary>
+            Can not set measurement to zero
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_MEASURE_DISPLACEMENT">
+            <summary>
+            Error during displacement measurement
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_STOP_SYSTEM">
+            <summary>
+            Can not stop system
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_ENABLE_PILOT_LASER">
+            <summary>
+            Can not enable pilot laser
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_DISABLE_PILOT_LASER">
+            <summary>
+            Can not disable pilot laser
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_INITIALIZE_FPGA">
+            <summary>
+            Can not initialize FPGA
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_STOP_OPTICS_ALIGNMENT">
+            <summary>
+            Can not stop optics alignment
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_ADJUST_PHOTO_OFFSET">
+            <summary>
+            Can not adjust photo offset
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_ENABLE_WAVELENGTH_STABILIZATION">
+            <summary>
+            Can not enable wavelength stabilization
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_ENABLE_LASER">
+            <summary>
+            Can not enable the laser
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_DISABLE_LASER">
+            <summary>
+            Can not disable the laser
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_GET_ABSOLUTE_DISTANCE">
+            <summary>
+            Can not get the absolute distance
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_SET_DISTANCE_SCALING">
+            <summary>
+            Can not set the distance scaling factor
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_AXIS_NOT_INITIALIZED">
+            <summary>
+            Axis not initialized (axis aligned?)
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_SET_ABS_DISTANCE_SCALING">
+            <summary>
+            Can not set absolute distance scaling
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_SET_DISTANCE_CORRECTION">
+            <summary>
+            Can not set the distance correction callculated by ECU
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_ENABLE_LUA_SYSLOG">
+            <summary>
+            Can not enable syslog for LUA
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_OMEGA_LEVEL_BELOW_MINIMUM">
+            <summary>
+            The omega level is below the minimum threshold (beam interrupted?)
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_OMEGA_AMPLITUDE_BELOW_MINIMUM">
+            <summary>
+            The omega amplitude is below the minimum threshold (beam interrupted?)
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_BASEBAND_AMPLITUDE_BELOW_MINIMUM">
+            <summary>
+            The baseband amplitude is below the minimum threshold (beam interrupted?)
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_WAVELENGTH_NOT_STABILIZED">
+            <summary>
+            Not able to stabilize the wavelength (problem with gas cell?)
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_UNKNOWN_MEASUREMENT_PROBLEM">
+            <summary>
+            Unknown error during measurement (beam interrupted?)
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_REFRACTIVE_INDEX_NOT_AVAILABLE">
+            <summary>
+            Refractive index is not readable from ECU (is ECU connected correctly?)
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_PACKAGE_INEXISTENT">
+            <summary>
+            Specified license package does not exist
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_LICENSE_MISSING">
+            <summary>
+            License text is missing
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_MEASUREMENT_NOT_RUNNING">
+            <summary>
+            Measurement is not running at the moment
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_WORD_LENGTH_TOO_HIGH">
+            <summary>
+            HSSL word length can be in maximum 2000000ns ((HSSL High - HSSL Low + HSSL Gap) * Clk Period)
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.IDS_ERR_RESET_ERROR">
+            <summary>
+            Resetting error reported an error
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.JsonRpcParseError">
+            <summary>
+            JSON RPC 2.0 (-32700 / 0xFFFF8044): Invalid JSON was received by the server. An error occurred on the server while parsing the JSON text.
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.JsonRpcInvalidRequest">
+            <summary>
+            JSON RPC 2.0 (-32600 / 0xFFFF80A8): The JSON sent is not a valid Request object.
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.JsonRpcMethodNotFound">
+            <summary>
+            JSON RPC 2.0 (-32601 / 0xFFFF80A7): The method does not exist / is not available.
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.JsonRpcInvalidParams">
+            <summary>
+            JSON RPC 2.0 (-32602 / 0xFFFF80A6): Invalid method parameter(s).
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.ErrorCodes.JsonRpcInternalError">
+            <summary>
+            JSON RPC 2.0 (-32603 / 0xFFFF80A5): Internal JSON-RPC error.
+            </summary>
+        </member>
+        <member name="T:Attocube.IDS.Error.NotConnectedException">
+            <summary>
+            Exception that is thrown if a method is being executed without the DLL being connected to a host system
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.Error.NotConnectedException.#ctor">
+            <summary>
+            Standard constructor which sets the default exception message
+            </summary>
+        </member>
+        <member name="T:Attocube.IDS.Error.AttocubeIdsException">
+            <summary>
+            Base exception for all custom exceptions in the Attocube IDS library
+            </summary>
+        </member>
+        <member name="F:Attocube.IDS.Error.AttocubeIdsException.ComErrorHighBytes">
+            <summary>
+            High bytes of the COM HResult generated by the Attocube.IDS system
+            Error are returned as 0x8111yyyy where the "yyyy" stands for the IDS internal error number
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Error.AttocubeIdsException.ErrorCode">
+            <summary>
+            Public property for the error code that this exception contains.
+            This can be an IDS-internal error code (warning from 0x000 through 0x7FF, actual errors 0x800 through 0x1000)
+            or it can be an interface-DLL related error as defined in the <seealso cref="T:Attocube.IDS.Error.ErrorCodes">ErrorCodes</seealso> class
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.Error.AttocubeIdsException.#ctor">
+            <summary>
+            Standard, parameter-less constructor
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.Error.AttocubeIdsException.#ctor(System.String)">
+            <summary>
+            Extended constructor which takes an exception message
+            </summary>
+            <param name="message">The exception message</param>
+        </member>
+        <member name="M:Attocube.IDS.Error.AttocubeIdsException.#ctor(System.String,System.Int32)">
+            <summary>
+            Extended constructor which takes an error code and an exception message 
+            </summary>
+            <param name="message">The exception message</param>
+            <param name="errorCode">The numerical error code</param>
+        </member>
+        <member name="M:Attocube.IDS.Error.AttocubeIdsException.#ctor(System.String,System.Exception)">
+            <summary>
+            Extended constructor which takes an exception message and a .NET inner exception
+            </summary>
+            <param name="message">The exception message</param>
+            <param name="innerException">The "inner" .NET exception to pass on</param>
+        </member>
+        <member name="M:Attocube.IDS.Error.AttocubeIdsException.#ctor(System.String,System.Int32,System.Exception)">
+            <summary>
+            Extended constructor which takes an exception message, an error code and a .NET inner exception
+            </summary>
+            <param name="message">The exception message</param>
+            <param name="errorCode">The numerical error code</param>
+            <param name="innerException">The "inner" .NET exception to pass on</param>
+        </member>
+        <member name="T:Attocube.IDS.Error.ErrorMessages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Error.ErrorMessages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Error.ErrorMessages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Error.ErrorMessages.err_AlreadyConnected">
+            <summary>
+              Looks up a localized string similar to Attocube.IDS is already connected.
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Error.ErrorMessages.err_BothResultAndErrorAreNull">
+            <summary>
+              Looks up a localized string similar to Both &apos;.Error&apos; *and* &apos;.Result&apos; are NULL.
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Error.ErrorMessages.err_IDSSignalledError">
+            <summary>
+              Looks up a localized string similar to Embedded system signalled an error condition.
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Error.ErrorMessages.err_InvalidIpAddress">
+            <summary>
+              Looks up a localized string similar to IP address is invalid.
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Error.ErrorMessages.err_NotConnected">
+            <summary>
+              Looks up a localized string similar to Attocube.IDS is not yet connected.
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Error.ErrorMessages.err_ResponseIsNull">
+            <summary>
+              Looks up a localized string similar to The response object is NULL.
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Error.ErrorMessages.err_ResponseStreamIsNull">
+            <summary>
+              Looks up a localized string similar to Response Stream is NULL.
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Error.ErrorMessages.err_ResultIsNotAnArray">
+            <summary>
+              Looks up a localized string similar to The &apos;.Result&apos; property is not a valid JSON array.
+            </summary>
+        </member>
+        <member name="T:Attocube.IDS.IAttocubeIDS">
+            <summary>
+            AttocubeIDS interface - defines the various methods that this interface DLL provides to the calling system
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_Check">
+            <summary>
+            Discover IDS on the network
+            </summary>
+            <returns>Array of discovery data describing, name, type, serialNumber, ip address, mac address and lock status</returns>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_Connect(System.String,System.Int32)">
+            <summary>
+            Connect to the target with a hostname or IP address and port provided
+            </summary>
+            <param name="ipAddress">IP Address for target system</param>
+            <param name="port">Port</param>
+            <exception cref="T:System.ArgumentException">Thrown if the supplied IP address is invalid</exception>
+            <exception cref="T:Attocube.IDS.Error.AlreadyConnectedException">Thrown if the client is already connected to a device</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_Disconnect">
+            <summary>
+            Disconnect from the target system
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetDllVersion">
+            <summary>
+            Returns the current version of the Attocube IDS DLL
+            </summary>
+            <returns>Version in the form X.Y.Z</returns>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetDllInfo">
+            <summary>
+            Return internal info about the DLL - whether or not it's connected,
+            and if it is connected, what address it's connected to
+            </summary>
+            <returns>String indicating some info on connection status of client DLL</returns>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetLockStatus">
+            <summary>
+            Get information whether the device is locked or not and if access is authorized
+            </summary>
+            <returns>Tuple of bool indicating if the device is locked[0] and/or if the access for this client is authorized[1]</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_Lock(System.String)">
+            <summary>
+            Lock the device so that it will only be possible to call functions by knowing the password
+            </summary>
+            <param name="password">Password to lock the device</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_Unlock">
+            <summary>
+            Unlock the device so that it will be available to all clients
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GrantAccess(System.String)">
+            <summary>
+            Request access to a locked device
+            </summary>
+            <param name="password">Password that was used to lock the device</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetIpAddress">
+            <summary>
+            Get the IP address of the target
+            </summary>
+            <returns>IP address in the form XXX.XXX.XXX.XXX</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetSubnetMask">
+            <summary>
+            Get the subnet mask of the target
+            </summary>
+            <returns>Subnet mask in the form XXX.XXX.XXX.XXX</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetGateway">
+            <summary>
+            Get the gateway of the target
+            </summary>
+            <returns>Gateway in the form XXX.XXX.XXX.XXX</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_FirmwareUpdate(System.String)">
+            <summary>
+            Loads the specific binary update file and converts it to base64. 
+            </summary>
+            <param name="filePath">Path to the binary update image file</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:System.IO.FileNotFoundException">Thrown if the specified file does not exist or cannot be accessed</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_FactoryReset">
+            <summary>
+            Do a factory reset on next reboot
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_RebootSystem">
+            <summary>
+            Reboot the IDS system
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetFirmwareVersion">
+            <summary>
+            Get the version of the ids firmware
+            </summary>
+            <returns>Version in the form X.Y.Z</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetSerialNumber">
+            <summary>
+            Get the serial number of the device
+            </summary>
+            <returns>Serial number</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetMacAddress">
+            <summary>
+            Get the Mac address of the device
+            </summary>
+            <returns>Mac address</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetDeviceType">
+            <summary>
+            Get the type of the device
+            </summary>
+            <returns>Device type</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetDeviceName">
+            <summary>
+            Get the friendly name assigned to this device
+            </summary>
+            <returns>Device name</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_SetDeviceName(System.String)">
+            <summary>
+            Set a friendly name to this device
+            </summary>
+            <param name="name">New name of the device</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetFpgaVersion">
+            <summary>
+            Get the version of the current FPGA in use
+            </summary>
+            <returns>Version in the form X.Y.Z</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_ErrorNumberToString(System.Int32,System.Int32)">
+            <summary>
+            Return a string that represents the error number
+            </summary>
+            <param name="language">Language of the error description { 0 = System, 1 = English }</param>
+            <param name="errorNumber">Error number to translate</param>
+            <returns>String that describes the error</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Attocube.IDS.IAttocubeIDS.IDS_ErrorNumberToRecommendation(System.Int32,System.Int32)" -->
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetRtOutMode">
+            <summary>
+            Get configured mode of the realtime output
+            </summary>
+            <returns>The output mode {0=HSSL (TTL), 1=HSSL (LVDS), 2=AquadB (TTL), 3=AquadB (LVDS), 4=SinCos (TTL Error Signal), 5=SinCos (LVDS Error Signal) }</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_SetRtOutMode(System.Int32)">
+            <summary>
+            Set the mode of the realtime output
+            </summary>
+            <param name="rtOutMode">Realtime output mode {0=HSSL (TTL), 1=HSSL (LVDS), 2=AquadB (TTL), 3=AquadB (LVDS), 4=SinCos (TTL Error Signal), 5=SinCos (LVDS Error Signal) }</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetResolutionHsslLow">
+            <summary>
+            The low parameter of the HSSL resolution. The hssl output will be a value between hssl low resolution and HSSL high resolution.
+            </summary>
+            <returns>Resolution { 0 - 47 }</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_SetResolutionHsslLow(System.Int32)">
+            <summary>
+            The low parameter of the HSSL resolution. The hssl output will be a value between hssl low resolution and HSSL high resolution.
+            </summary>
+            <param name="resolution">Resolution { 1-48 }</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetResolutionHsslHigh">
+            <summary>
+            The high parameter of the HSSL resolution. The hssl output will be a value between hssl low resolution and HSSL high resolution.
+            </summary>
+            <returns>Resolution { 1 - 48 }</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_SetResolutionHsslHigh(System.Int32)">
+            <summary>
+            The high parameter of the HSSL resolution. The hssl output will be a value between hssl low resolution and HSSL high resolution.
+            </summary>
+            <param name="resolution">Resolution { 1-48 }</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetPeriodHsslClk">
+            <summary>
+            The period of the hssl clock.
+            </summary>
+            <returns>Period { 40ns to 10200ns }</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_SetPeriodHsslClk(System.Int32)">
+            <summary>
+            The HSSL clock period in ns
+            </summary>
+            <param name="period">Period { 40ns to 10200ns }</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetPeriodHsslGap">
+            <summary>
+            The gap between two values in clock cycles
+            </summary>
+            <returns>Gap { 1 - 255 [clks] }</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_SetPeriodHsslGap(System.Int32)">
+            <summary>
+            The gap between two values in clock cycle
+            </summary>
+            <param name="gap">Gap { 0 - 255 [clks] }</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetPeriodSinCosAndAquadBClk">
+            <summary>
+            The period of sin/cos and AquadB update clock in ns.
+            </summary>
+            <returns>Period { 40ns - 10200ns }</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_SetPeriodSinCosAndAquadBClk(System.Int32)">
+            <summary>
+            The period of sin/cos and AquadB update clock in ns.
+            </summary>
+            <param name="period">Period { 40ns to 10200ns }</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetResolutionSinCosAndAquadB">
+            <summary>
+            The resolution of sin/cos and AquadB in 1pm/90°
+            </summary>
+            <returns>Resolution { 1pm to 65535pm }</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_SetResolutionSinCosAndAquadB(System.Int32)">
+            <summary>
+            The resolution of sin/cos and AquadB in 1pm/90°
+            </summary>
+            <param name="resolution">Resolution { 1pm to 65535pm }</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_SetRtDistanceMode(System.Int32)">
+            <summary>
+            Set Distance mode (Available for HSSL and Linear Mode)
+            </summary>
+            <param name="distancemode">1 = Displacement (Available in HSSL mode and Linear Mode) ,2 = Absolute Distance (Available in HSSL mode only), 3= Vibrometry (Available in Linear mode only  (return ERR_INT_RANGE in Linear mode feature not active) * </param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetRtDistanceMode">
+            <summary>
+            Get Distance mode (Available for HSSL and Linear Mode)
+            </summary>
+            <returns>Resolution {  When Linear mode is selected : return  RtDistanceLinear ( Displacement or Vibrometry),   In all other mode:  return  RtDistance ( Displacement or Absolute Distance)}</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_SetRtLinearHighPassFilterNumber(System.Int32)">
+            <summary>
+            Set High Pass Cut-Off frequency filter number
+            </summary>
+            <param name="filternumber">: N, with frequency is 1600/2^N kHz, with	N ∈1,24 </param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_SetRtLinearRangeNumber(System.Int32)">
+            <summary>
+             Set Linear Analog Output range
+            </summary>
+            <param name="rangenumber">:N, Linear Analog Range is +-2^(N+11)	pm w ith N ∈ 0,34 </param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetRtLinearRangeNumber">
+             <summary>
+              Get Linear Analog Output range
+             </summary>
+            <returns>rangenumber {N, Linear Analog Range is +-2^(N+11)	pm w ith N ∈ 0,34 }</returns>
+             <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+             <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_setAaf(System.Int32,System.Int32,System.Int32)">
+            <summary>
+             Enables the Anti-Aliasing Unit with assigned Filter Window
+            </summary>
+            <param name="set">:[0,1] 0 = disable Anti-Aliasing Filter, 1 = enable Anti-Aliasing Filter </param>
+            <param name="attenuation">:[0,1] 0 = disable Anti-Aliasing Filter, 1 = enable Anti-Aliasing Filter </param>
+            <param name="window">: window : 0 = Rectangular , 1 = Cosine, 2 = Cosine^2, 3 = Hamming, 4 Raised Cosine* </param> 
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetAafEnabled">
+            <summary>
+            Checks if the Anti-Aliasing Unit is enabled
+            </summary>
+            <returns>enabled : true = AAF is enabled , false = AAF is disabled</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetAafAttenuation">
+            <summary>
+            Returns the current Attenuation at f_nyquist of the Anti-Aliasing Unit
+            </summary>
+            <returns>Attenuation : [0 - 33] dB at f_nyquist</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetAafWindow">
+            <summary>
+            Returns the current Filter Window of the Anti-Aliasing Unit
+            </summary>
+            <returns>FilterWindow : 0 = Rectangular , 1 = Cosine, 2 = Cosine^2, 3 = Hamming, 4 Raised Cosine</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetRtLinearHighPassFilterNumber">
+             <summary>
+             Get High Pass Cut-Off frequency filter number
+             </summary>
+            <returns>Resolution {N, with frequency is 1600/2^N kHz, with	N ∈1,24 }</returns>
+             <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+             <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_SetResolutionBissC(System.Int32)">
+            <summary>
+             Set the resolution N of Biss C with resolution = 2^N
+            </summary>
+            <param name="resolution">:pointer to result N = 1 to 16, with resolution = 2^N </param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetResolutionBissC">
+             <summary>
+             Get the resolution N of Biss C with resolution = 2^N
+             </summary>
+            <returns>resolution {pointer to result N = 1 to 16, with resolution = 2^N }</returns>
+             <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+             <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_EnableTestChannel">
+            <summary>
+            Enable Test channel (Note enable on channel 0 )
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_DisableTestChannel">
+            <summary>
+            Disable Test channel (Note enable on channel 0 )
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetTestChannelEnabled">
+            <summary>
+            Returns if the Test channel is enabled
+            </summary>
+            <returns>true = test channel enabled, false test channel disabled</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetPassMode">
+            <summary>
+            Returns the pass mode
+            </summary>
+            <returns>Mode { 0->single pass, 1->dual pass }</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_SetPassMode(System.Int32)">
+            <summary>
+            Returns the pass mode, also called the sensor head information
+            </summary>
+            <param name="mode">Mode { 0->single pass, 1->dual pass, 2->xs sensor single pass, 3 -> customized sensor head }</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetPilotLaserEnabled">
+            <summary>
+            Returns if the red pilot laser is enabled
+            </summary>
+            <returns>true if enabled, false if disabled</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_EnablePilotLaser">
+            <summary>
+            Enable the pilot laser
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_DisablePilotLaser">
+            <summary>
+            Disable the pilot laser
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetAverageN">
+            <summary>
+            Returns the current averaging value. The averaging time is calculated by (2^n)*40ns, where n is the averaging value.
+            </summary>
+            <returns>A value from 0 to 24</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_SetAverageN(System.Int32)">
+            <summary>
+            Sets the averaging value. The averaging time is calculated by (2^n)*40ns, where n is the averaging value.
+            </summary>
+            <param name="averageN">A value from 0 to 24</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetAbsolutePosition(System.Int32)">
+            <summary>
+            Get the absolute position of an axis
+            </summary>
+            <param name="axis">Number of the axis (valid values: 0 - 2)</param>
+            <returns>Absolute position of the axis in pm</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetAbsolutePositions">
+            <summary>
+            Get the absolute position of all axis
+            </summary>
+            <returns>Instance of a class with the three absolute positions for the three axes</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetAxisDisplacement(System.Int32)">
+            <summary>
+            Get the displacement of axis n
+            </summary>
+            <param name="axis">Axis to get the relative displacement from {0-2}</param>
+            <returns>Displacement of the axis in pm</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetAxesDisplacement">
+            <summary>
+            Get the displacement of all axis
+            </summary>
+            <returns>A class with the three displacement values requests</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_linProc(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Start linearization procedure
+            </summary>
+            <param name="axis">axis to perform linearization or return linearization table</param>
+            <param name="fringesNbr">Number of fringes to be acquired</param>
+            <param name="samplesPerFringe">Number of samples per fringe</param>
+            <param name="set">0 = evaluate current nonlinear amplitude, 1 = perform linearization and upload look up table,2 = Clear look up table</param>
+            <returns> lintable: String, which contains all 512 phase related correction values</returns>
+            <returns> nonlinearamp: String which contains the residual positive and negative maximal nonlinear amplitudes </returns>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetContrastInPermille(System.Int32)">
+            <summary>
+            Returns the alignment signal contrast in per mill.
+            </summary>
+            <param name="axis">Axis to get the value from {0-2}</param>
+            <returns>The contrast in per mill</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetCurrentMode">
+            <summary>
+            Return a string that describes the current mode in which the ids currently is
+            </summary>
+            <returns>A short description of the current mode: "system idle", "measurement starting", "measurement running", "optics alignment starting", "optics alignment running", "pilot laser enabled","Test Channel enabled" </returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_StartOpticsAlignment">
+            <summary>
+            Start the optics alignment (Contrast measurement)
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_StopOpticsAlignment">
+            <summary>
+            Stop the optics alignment (Contrast measurement)
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_StartMeasurement">
+            <summary>
+            Start the measurement, this can take a while because the system needs to heat up the laser
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_StopMeasurement">
+            <summary>
+            Stop the measurement
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_ResetAxis(System.Int32)">
+            <summary>
+            Reset axis to 0 to start a new measurement on the fly
+            </summary>
+            <param name="axis">Axis to reset {0-2}</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_ResetAxes">
+            <summary>
+            Reset all axis to 0 to start a new measurement on the fly
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_SetInitMode(System.Int32)">
+            <summary>
+             Sets the Initialization mode
+            </summary>
+            <param name="initmode"> 0-> High Accuracy Initialization,  1-> Quick Initialization</param>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetInitMode">
+            <summary>
+             Returns the Initialization mode
+            </summary>
+            <returns>mode : 0-> High Accuracy Initialization,  1-> Quick Initialization,</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetAxisSignalQuality(System.Int32)">
+            <summary>
+            Get the signal quality in ‰ during the measurement, this will allow the customer to readjust the measurement setup, if it is too low.
+            </summary>
+            <param name="axis">Axis get the signal quality from {0-2}</param>
+            <returns>The signal quality in permille</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetEcuEnabled">
+            <summary>
+            Returns if the ECU is enabled or disabled
+            </summary>
+            <returns>True if enabled, false if not</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_EnableEcu">
+            <summary>
+            Enable the Environment Compensation Unit.
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_DisableEcu">
+            <summary>
+            Disable the Environment Compensation Unit.
+            </summary>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetTemperatureInDegrees">
+            <summary>
+            Get the temperature in Degrees from the ECU
+            </summary>
+            <returns>Temperature in degrees</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetPressureInHPa">
+            <summary>
+            Get the pressure from the ECU in hPa
+            </summary>
+            <returns>Pressure in hPa</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetHumidityInPercent">
+            <summary>
+            Get the humidity from the ECU in Percent
+            </summary>
+            <returns>Humidity in percent</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.IDS.IAttocubeIDS.IDS_GetRefractiveIndex">
+            <summary>
+            Get the refractive index from the ECU (as index)
+            </summary>
+            <returns>Refractive index</returns>
+            <exception cref="T:Attocube.IDS.Error.NotConnectedException">Thrown if the client is not connected</exception>
+            <exception cref="T:Attocube.IDS.Error.AttocubeIdsException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="T:Attocube.IDS.InfoMessages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.InfoMessages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.InfoMessages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.InfoMessages.ConnectedTo">
+            <summary>
+              Looks up a localized string similar to Attocube.IDS connected to: {0}.
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.InfoMessages.NotYetConnected">
+            <summary>
+              Looks up a localized string similar to Attocube.IDS not yet connected.
+            </summary>
+        </member>
+        <member name="T:Attocube.IDS.JsonRpc.IJsonRpcClient">
+            <summary>
+            Interface defining the methods that the JSON RPC client must provide
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.JsonRpc.IJsonRpcClient.ExecuteRpcCall(Attocube.IDS.JsonRpc.JsonRpcRequest,System.Boolean)">
+            <summary>
+            Methode to execute a single JSON RPC call
+            </summary>
+            <param name="jsonRequest">All necessary request parameters</param>
+            <param name="longRequest">Indicates if the timeout timer should be adjusted to wait longer than normal requests</param>
+            <returns>A JsonResponse object containing the result of the operation</returns>
+        </member>
+        <member name="M:Attocube.IDS.JsonRpc.IJsonRpcClient.close">
+            <summary>
+            Close any remaining connection
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.JsonRpc.IJsonRpcClient.LastRequestJson">
+            <summary>
+            Property that contains the last request (in JSON format) made to the JSON RPC system
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.JsonRpc.IJsonRpcClient.LastResponseJson">
+            <summary>
+            Property that contains the last response (in JSON format) received from the JSON RPC system
+            </summary>
+        </member>
+        <member name="T:Attocube.IDS.JsonRpc.JsonRpcClient">
+            <summary>
+            Concrete implementation of the IJsonRpcClient interface
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.JsonRpc.JsonRpcClient.LastRequestJson">
+            <summary>
+            Property that contains the last request (in JSON format) made to the JSON RPC system
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.JsonRpc.JsonRpcClient.close">
+            <summary>
+            Close aany Connection
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.JsonRpc.JsonRpcClient.LastResponseJson">
+            <summary>
+            Property that contains the last response (in JSON format) received from the JSON RPC system
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.JsonRpc.JsonRpcClient.#ctor(System.String)">
+            <summary>
+            Constructor for the client class
+            </summary>
+            <param name="baseUrl">Base URL for the JSON RPC calls</param>
+        </member>
+        <member name="M:Attocube.IDS.JsonRpc.JsonRpcClient.ExecuteRpcCall(Attocube.IDS.JsonRpc.JsonRpcRequest,System.Boolean)">
+            <summary>
+            Execute a single JSON RPC call
+            </summary>
+            <param name="jsonRequest">All the relevant request parameters, bundled up into a request object</param>
+            <param name="longRequest">Indicates if the timeout timer should be adjusted to wait longer than normal requests</param>
+            <returns>A JsonResponse object with the response (and possibly error) from the call made</returns>
+        </member>
+        <member name="T:Attocube.IDS.JsonRpc.JsonRpcError">
+            <summary>
+            Possible JsonRPC error that can occur
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.JsonRpc.JsonRpcError.Code">
+            <summary>
+            A numeric error code
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.JsonRpc.JsonRpcError.Message">
+            <summary>
+            Error message
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.JsonRpc.JsonRpcError.Data">
+            <summary>
+            Additional data for the error (depends on context)
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.JsonRpc.JsonRpcError.InnerException">
+            <summary>
+            Possible inner .NET exception
+            </summary>
+        </member>
+        <member name="T:Attocube.IDS.JsonRpc.JsonRpcRequest">
+            <summary>
+            JSON RPC request class
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.JsonRpc.JsonRpcRequest.#ctor">
+            <summary>
+            Standard constructor - sets the "JsonRpc" property to "2.0" and initializes the "Parameters" array
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.JsonRpc.JsonRpcRequest.#ctor(System.String)">
+            <summary>
+            Extended constructor, which also takes the JSON RPC method to call as a parameter
+            </summary>
+            <param name="methodName">Name of the RPC method to call</param>
+        </member>
+        <member name="P:Attocube.IDS.JsonRpc.JsonRpcRequest.JsonRpc">
+            <summary>
+            "JsonRpc" marker for the requests - must be set to "2.0" for JSON RPC v2.0
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.JsonRpc.JsonRpcRequest.Method">
+            <summary>
+            Method to call - depends on the JSON RPC host being called
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.JsonRpc.JsonRpcRequest.Id">
+            <summary>
+            Internal "id" - should be unique for each request, will be returned in response to allow matching
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.JsonRpc.JsonRpcRequest.Parameters">
+            <summary>
+            Array of positional parameters for the JSON RPC call
+            </summary>
+        </member>
+        <member name="T:Attocube.IDS.JsonRpc.JsonRpcResponse">
+            <summary>
+            JSON RPC response class
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.JsonRpc.JsonRpcResponse.#ctor">
+            <summary>
+            Standard constructor, sets the "JsonRpc" property to "2.0" for JSON RPC v2.0
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.JsonRpc.JsonRpcResponse.JsonRpc">
+            <summary>
+            "JsonRpc" marker for the requests - must be set to "2.0" for JSON RPC v2.0
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.JsonRpc.JsonRpcResponse.Result">
+            <summary>
+            Arbitrary result object - could be a string, an int, an object type - depends on the call
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.JsonRpc.JsonRpcResponse.Id">
+            <summary>
+            Internal "id" received from the request
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.JsonRpc.JsonRpcResponse.Error">
+            <summary>
+            Possible error - if left NULL, then there's no error
+            </summary>
+        </member>
+        <member name="T:Attocube.IDS.JsonRpc.JsonRpcClientTcp">
+            <summary>
+            Concrete implementation of the IJsonRpcClient interface
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.JsonRpc.JsonRpcClientTcp.LastRequestJson">
+            <summary>
+            Property that contains the last request (in JSON format) made to the JSON RPC system
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.JsonRpc.JsonRpcClientTcp.LastResponseJson">
+            <summary>
+            Property that contains the last response (in JSON format) received from the JSON RPC system
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.JsonRpc.JsonRpcClientTcp.#ctor(System.String,System.Int32)">
+            <summary>
+            Constructor for the client class
+            </summary>
+            <param name="ip">Ip address of the target</param>
+            <param name="port">Port to connect to</param>
+        </member>
+        <member name="M:Attocube.IDS.JsonRpc.JsonRpcClientTcp.close">
+            <summary>
+            Close the Client
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.JsonRpc.JsonRpcClientTcp.ExecuteRpcCall(Attocube.IDS.JsonRpc.JsonRpcRequest,System.Boolean)">
+            <summary>
+            Execute a single JSON RPC call
+            </summary>
+            <param name="jsonRequest">All the relevant request parameters, bundled up into a request object</param>
+            <param name="longRequest">Indicates if the timeout timer should be adjusted to wait longer than normal requests</param>
+            <returns>A JsonResponse object with the response (and possibly error) from the call made</returns>
+        </member>
+        <member name="T:Attocube.IDS.Utils.AssemblyInfoGetter">
+            <summary>
+            Helper class to determine the assembly metadata information
+            </summary>
+        </member>
+        <member name="M:Attocube.IDS.Utils.AssemblyInfoGetter.GetAssemblyInfo">
+            <summary>
+                Gathers assembly info for the currently executing assembly (GetExecutingAssembly)
+            </summary>
+            <returns>Metadata information for the currently executing assembly</returns>       
+        </member>
+        <member name="M:Attocube.IDS.Utils.AssemblyInfoGetter.GetAssemblyInfo(System.Reflection.Assembly)">
+            <summary>
+                Gathers assembly info for the assembly being passed in as parameter
+            </summary>
+            <param name="assembly">Assembly to use for metadata discovery</param>
+            <returns>Metadata information for this assembly</returns>
+        </member>
+        <member name="T:Attocube.IDS.Utils.AssemblyMetadata">
+            <summary>
+                Metadata class with the assembly information gathered
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Utils.AssemblyMetadata.Company">
+            <summary>
+                Company name
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Utils.AssemblyMetadata.Configuration">
+            <summary>
+                Assembly configuration
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Utils.AssemblyMetadata.Copyright">
+            <summary>
+                Copyright information
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Utils.AssemblyMetadata.Culture">
+            <summary>
+                "Culture" information
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Utils.AssemblyMetadata.Description">
+            <summary>
+                Description from the assembly
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Utils.AssemblyMetadata.Product">
+            <summary>
+                Product information from the assembly
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Utils.AssemblyMetadata.Title">
+            <summary>
+                Title from the assembly
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Utils.AssemblyMetadata.Trademark">
+            <summary>
+                Trademark info from the assembly
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Utils.AssemblyMetadata.Version2">
+            <summary>
+                Version number of the assembly, to level 2 (e.g. "2.21")
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Utils.AssemblyMetadata.Version3">
+            <summary>
+                Version number of the assembly, to level 3 (e.g. "2.21.4")
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Utils.AssemblyMetadata.Version4">
+            <summary>
+                Version number of the assembly, to level 4 (e.g. "2.21.4.5056")
+            </summary>
+        </member>
+        <member name="P:Attocube.IDS.Utils.AssemblyMetadata.CompleteVersion">
+            <summary>
+                Complete version info from assembly
+            </summary>
+        </member>
+    </members>
+</doc>

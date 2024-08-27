@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A7E81232-57F8-4EDE-A8E3-B9A145C48293}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sensor</RootNamespace>
+    <AssemblyName>Sensor</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Basler.Pylon, Version=1.2.0.0, Culture=neutral, PublicKeyToken=e389355f398382ab, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Admin\Desktop\Basler.Pylon.dll</HintPath>
+    </Reference>
+    <Reference Include="ChromaticConfocalSensorAPI">
+      <HintPath>..\..\高特激光\ChromaticConfocalSensorAPI v3.6.4.1\ChromaticConfocalSensorAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="CSharpAPIDLL">
+      <HintPath>Attocube\IDS3010\CSharpAPIDLL.dll</HintPath>
+    </Reference>
+    <Reference Include="DALSA.SaperaLT.SapClassBasic, Version=8.60.0.2120, Culture=neutral, PublicKeyToken=4d8604101dcb6b58, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CxVision20240202\bin\x64\Debug\DALSA.SaperaLT.SapClassBasic.dll</HintPath>
+    </Reference>
+    <Reference Include="DSComm">
+      <HintPath>..\..\..\..\视觉资料\Omron_DLL开发资料\DSComm.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf">
+      <HintPath>GBS\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="GxIAPINET">
+      <HintPath>..\..\备份\CxVision20220729\Sensor\daHeng\x64\DoNET\.NET3.5\GxIAPINET.dll</HintPath>
+    </Reference>
+    <Reference Include="halcondotnetxl">
+      <HintPath>C:\Program Files\MVTec\HALCON-20.11-Steady\bin\dotnet35\halcondotnetxl.dll</HintPath>
+    </Reference>
+    <Reference Include="IKapC.NET, Version=1.1.0.1, Culture=neutral, PublicKeyToken=700817f6992dd69b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\华硕\Desktop\IKapC.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="LineSensorDotNet">
+      <HintPath>Stil\StilLineSensor\x64\LineSensorDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="MvCameraControl.Net, Version=3.4.0.1, Culture=neutral, PublicKeyToken=52fddfb3f94be800, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\x64\Debug\MvCameraControl.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="MVSDK">
+      <HintPath>MaiDeWeiShi\MVSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="MVSDK_Net">
+      <HintPath>C:\Program Files\HuarayTech\MV Viewer\Development\DOTNET DLL\IMV\DOTNET_4.0\x64\MVSDK_Net.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CxVision\bin\x64\Debug\netstandard.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\激光干涉\IDS_Firmware_V1.7.9\04_C_SHARP_DLLs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NvtLvmSdk">
+      <HintPath>LVMLineLaser\NvtLvmSdk.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="SmartRemoteProxy">
+      <HintPath>GBS\SmartRemoteProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="SRAPI_CSharp-x64">
+      <HintPath>SmartRay\Win_x64_MSVC_19\bin\SRAPI_CSharp-x64.dll</HintPath>
+    </Reference>
+    <Reference Include="STILSensors, Version=3.10.3.1084, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Stil\x64\STILSensors.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attocube\IDS3010\IDS3010.cs" />
+    <Compile Include="Attocube\IDS3010\IDSStreamLibrary.cs" />
+    <Compile Include="Basler\BaslerCam.cs" />
+    <Compile Include="BoMing\结构光\Bmsensor3Dsdk.cs" />
+    <Compile Include="BoMing\结构光\BoMingStructuredLight.cs" />
+    <Compile Include="BoMing\结构光\BoMingStructuredLightParams.cs" />
+    <Compile Include="Dalsa线阵\DalsaLineCam.cs" />
+    <Compile Include="Dalsa线阵\CLDalsa.cs" />
+    <Compile Include="Omron\OmronPointLaser.cs" />
+    <Compile Include="SensorConnectConfigParamManger.cs" />
+    <Compile Include="HalconAcq\HAcqCamClass.cs" />
+    <Compile Include="GBS\GbsFaceWliLocal.cs" />
+    <Compile Include="GBS\GbsFaceWliRemote.cs" />
+    <Compile Include="GBS\smartSharpInterface.cs" />
+    <Compile Include="GBS\smartVISwrap.cs" />
+    <Compile Include="KeyEnce\LJV7000\Define.cs" />
+    <Compile Include="KeyEnce\LJV7000\LJV7000LineLaser.cs" />
+    <Compile Include="KeyEnce\LJV7000\NativeMethods.cs" />
+    <Compile Include="KeyEnce\LJV7000\ThreadSafeBuffer.cs" />
+    <Compile Include="KeyEnce\LJV7000\Utility.cs" />
+    <Compile Include="BoMing\点光谱\BoMingPointLaser.cs" />
+    <Compile Include="BoMing\点光谱\SCDev.cs" />
+    <Compile Include="BoMing\点光谱\SCDev_Native.cs" />
+    <Compile Include="daHeng\DaHengCamera.cs" />
+    <Compile Include="LiYi\LEConfocalDLL.cs" />
+    <Compile Include="LiYi\LiYiAdapter.cs" />
+    <Compile Include="LiYi\LiYiPointLaser.cs" />
+    <Compile Include="LVMLineLaser\LVM_LineLaser.cs" />
+    <Compile Include="MaiDeWeiShi\MdvsCamera.cs" />
+    <Compile Include="SensorBase.cs" />
+    <Compile Include="SensorConnectConfigParamMangerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SensorConnectConfigParamMangerForm.Designer.cs">
+      <DependentUpon>SensorConnectConfigParamMangerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SensorManage.cs" />
+    <Compile Include="SmartRay\PackagedImage.cs" />
+    <Compile Include="SmartRay\SampleRunner.cs" />
+    <Compile Include="SmartRay\SmartRaySensor.cs" />
+    <Compile Include="SmartRay\SensorImageData.cs" />
+    <Compile Include="SmartRay\SensorManager.cs" />
+    <Compile Include="SmartRay\SensorPointCloud.cs" />
+    <Compile Include="SmartRay\SensorPointCloudMSR.cs" />
+    <Compile Include="SmartRay\SensorState.cs" />
+    <Compile Include="SmartRay\SmartRayLineLaser.cs" />
+    <Compile Include="SSZN\SR7LinkFunc.cs" />
+    <Compile Include="SSZN\SSZNLineLaser.cs" />
+    <Compile Include="Stil\StilPointLaserAdaptive.cs" />
+    <Compile Include="Stil\CStil_L.cs" />
+    <Compile Include="Stil\CStil_P.cs" />
+    <Compile Include="SensorFactory.cs" />
+    <Compile Include="ISensor.cs" />
+    <Compile Include="Stil\StilLineLaser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stil\StilPointLaser.cs" />
+    <Compile Include="SensorConnectConfigParam.cs" />
+    <Compile Include="埃科\LineCamera.cs" />
+    <Compile Include="埃科\IKapLineCam.cs" />
+    <Compile Include="大华\IMvCam.cs" />
+    <Compile Include="海康威视\HkVision.cs" />
+    <Compile Include="高特\GaoTePointLaser.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{0631dee4-0041-411e-996b-b5a7f77a09f8}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SensorConnectConfigParamMangerForm.resx">
+      <DependentUpon>SensorConnectConfigParamMangerForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

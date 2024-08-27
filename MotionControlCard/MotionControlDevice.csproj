@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F57E9EDC-A6DE-4661-B660-95D2F84A7813}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MotionControlCard</RootNamespace>
+    <AssemblyName>MotionControlCard</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AdvMotAPI">
+      <HintPath>..\..\..\VS2017\WindowsFormsApp7\WindowsFormsApp7\bin\x64\Debug\AdvMotAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="AxMG17MotorLib">
+      <HintPath>APT平台\AxMG17MotorLib.dll</HintPath>
+    </Reference>
+    <Reference Include="halcondotnetxl, Version=20.11.1.1, Culture=neutral, PublicKeyToken=4973bed59ddbf2b8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\MVTec\HALCON-20.11-Steady\bin\dotnet35\halcondotnetxl.dll</HintPath>
+    </Reference>
+    <Reference Include="HslCommunication">
+      <HintPath>..\..\HslCommunicationDemo\HslCommunication.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.SPIIPLUSCOM660Lib">
+      <HintPath>ACS\Interop.SPIIPLUSCOM660Lib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MG17MotorLib">
+      <HintPath>APT平台\MG17MotorLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ACS\ACSMotionCard.cs" />
+    <Compile Include="AMC100\amc100Library.cs" />
+    <Compile Include="AMC100\Amc100MotionControl.cs" />
+    <Compile Include="APT平台\AptMotionControl.cs" />
+    <Compile Include="Socket\SocketCommand.cs" />
+    <Compile Include="Socket\SocketServerDevice.cs" />
+    <Compile Include="Socket\SocketClientDevice.cs" />
+    <Compile Include="Socket\SocketConnectManager.cs" />
+    <Compile Include="Socket\配置通信指令\CommandConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Socket\配置通信指令\CommandConfigForm.Designer.cs">
+      <DependentUpon>CommandConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Socket\配置通信指令\CommandParam.cs" />
+    <Compile Include="Socket\配置通信指令\CommandConfigManger.cs" />
+    <Compile Include="固高\config.cs" />
+    <Compile Include="固高\gts.cs" />
+    <Compile Include="固高\GtsMotionControl.cs" />
+    <Compile Include="固高\LookAheadEx.cs" />
+    <Compile Include="研华\AdvantechMotionCard.cs" />
+    <Compile Include="设备通信配置\CommunicationConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备通信配置\CommunicationConfigForm.Designer.cs">
+      <DependentUpon>CommunicationConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设备通信配置\CommunicationConfigParamManger.cs" />
+    <Compile Include="设备通信配置\CommunicationConfigParam.cs" />
+    <Compile Include="坐标系配置\CoordSysConfigParamManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="坐标系配置\CoordSysConfigParamManageForm.Designer.cs">
+      <DependentUpon>CoordSysConfigParamManageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="坐标系配置\CoordSysConfigParam.cs" />
+    <Compile Include="DeviceConnectConfigParamManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeviceConnectConfigParamManageForm.Designer.cs">
+      <DependentUpon>DeviceConnectConfigParamManageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IMotionControl.cs" />
+    <Compile Include="MachineParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MachineParamForm.Designer.cs">
+      <DependentUpon>MachineParamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PLC\InovancePlc\InovancePlc.cs" />
+    <Compile Include="Leisai\LeisaiDMC5000MotionCard.cs" />
+    <Compile Include="Leisai\LTDMC.cs" />
+    <Compile Include="PLC\MelsecPlc\MelsecPlc.cs" />
+    <Compile Include="MotionBase.cs" />
+    <Compile Include="MotionCardManage.cs" />
+    <Compile Include="MotionFactory.cs" />
+    <Compile Include="PLC\KeyencePlc\KeyencePlc.cs" />
+    <Compile Include="PLC\SiemensPlc\SiemensPlc.cs" />
+    <Compile Include="DeviceConnectConfigParamManger.cs" />
+    <Compile Include="DeviceConnectConfigParam.cs" />
+    <Compile Include="Socket\ClientSocket.cs" />
+    <Compile Include="Socket\SocketForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Socket\SocketForm.designer.cs">
+      <DependentUpon>SocketForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Socket\ServerSocket.cs" />
+    <Compile Include="Socket\SocketConfigParamManger.cs" />
+    <Compile Include="Socket\SocketParam.cs" />
+    <Compile Include="UWC4000\Uwc4000MotionControl.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UWC4000\UWC4000Library.cs" />
+    <Compile Include="ZMC\Zmcaux.cs" />
+    <Compile Include="ZMC\ZmcMotionCard.cs" />
+    <Compile Include="坐标系配置\CoordSysConfigParamManger.cs" />
+    <Compile Include="自定义控制卡\UserDefinedCard.cs" />
+    <Compile Include="运动控制设备参数\AxisCoordParam.cs" />
+    <Compile Include="运动控制设备参数\ConfigPLc.cs" />
+    <Compile Include="运动控制设备参数\MotionControlCardParamSetting.cs" />
+    <Compile Include="运动控制设备参数\MotionDeviceParam.cs" />
+    <Compile Include="运动控制设备参数\SerialParam.cs" />
+    <Compile Include="高川控制卡\nmc_lib20MotionControl.cs" />
+    <Compile Include="高川控制卡\nmc_lib20Library.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{0631dee4-0041-411e-996b-b5a7f77a09f8}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sensor\Sensor.csproj">
+      <Project>{a7e81232-57f8-4ede-a8e3-b9a145c48293}</Project>
+      <Name>Sensor</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DeviceConnectConfigParamManageForm.resx">
+      <DependentUpon>DeviceConnectConfigParamManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MachineParamForm.resx">
+      <DependentUpon>MachineParamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Socket\SocketForm.resx">
+      <DependentUpon>SocketForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Socket\配置通信指令\CommandConfigForm.resx">
+      <DependentUpon>CommandConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设备通信配置\CommunicationConfigForm.resx">
+      <DependentUpon>CommunicationConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="坐标系配置\CoordSysConfigParamManageForm.resx">
+      <DependentUpon>CoordSysConfigParamManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
