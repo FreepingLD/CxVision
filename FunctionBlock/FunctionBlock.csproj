@@ -720,15 +720,15 @@
     <Compile Include="2D算法工具\区域拟合\拟合矩形区域\FitRect2RegionForm.Designer.cs">
       <DependentUpon>FitRect2RegionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="2D算法工具\变化模型\CompareVariationModelMethod.cs" />
-    <Compile Include="2D算法工具\变化模型\VariationModelParam.cs" />
-    <Compile Include="2D算法工具\变化模型\VariationModelForm.cs">
+    <Compile Include="缺陷检测\变化模型\CompareVariationModelMethod.cs" />
+    <Compile Include="缺陷检测\变化模型\VariationModelParam.cs" />
+    <Compile Include="缺陷检测\变化模型\VariationModelForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="2D算法工具\变化模型\VariationModelForm.Designer.cs">
+    <Compile Include="缺陷检测\变化模型\VariationModelForm.Designer.cs">
       <DependentUpon>VariationModelForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="2D算法工具\变化模型\CreateVariationModelMethod.cs" />
+    <Compile Include="缺陷检测\变化模型\CreateVariationModelMethod.cs" />
     <Compile Include="2D算法工具\变换轮廓\AffineXLDCont2DAlgorith.cs" />
     <Compile Include="2D算法工具\区域变换\AffineHRegionAlgorith.cs" />
     <Compile Include="2D算法工具\区域变换\AffineHRegionForm.cs">
@@ -3590,7 +3590,7 @@
     <EmbeddedResource Include="2D算法工具\区域拟合\拟合矩形区域\FitRect2RegionForm.resx">
       <DependentUpon>FitRect2RegionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="2D算法工具\变化模型\VariationModelForm.resx">
+    <EmbeddedResource Include="缺陷检测\变化模型\VariationModelForm.resx">
       <DependentUpon>VariationModelForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\区域变换\AffineHRegionForm.resx">
@@ -4688,7 +4688,6 @@
     <Folder Include="对位引导\轨迹合并\" />
     <Folder Include="标定\平场校正\激光平场校正\" />
     <Folder Include="缺陷检测\OCV检测\" />
-    <Folder Include="缺陷检测\变化模型\" />
     <Folder Include="缺陷检测\圆形检测\" />
     <Folder Include="缺陷检测\焊珠检测\" />
     <Folder Include="缺陷检测\纹理检测\" />
