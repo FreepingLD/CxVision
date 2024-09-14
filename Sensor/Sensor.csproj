@@ -131,6 +131,10 @@
     <Reference Include="NvtLvmSdk">
       <HintPath>LVMLineLaser\NvtLvmSdk.dll</HintPath>
     </Reference>
+    <Reference Include="OPTExtLibrary, Version=1.0.0.31445, Culture=neutral, PublicKeyToken=407bb547be8622a9, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>OptLine\DLL\OPTExtLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="SmartRemoteProxy">
       <HintPath>GBS\SmartRemoteProxy.dll</HintPath>
@@ -163,6 +167,7 @@
     <Compile Include="Dalsa线阵\DalsaLineCam.cs" />
     <Compile Include="Dalsa线阵\CLDalsa.cs" />
     <Compile Include="Omron\OmronPointLaser.cs" />
+    <Compile Include="OptLineCam\CameraOptCallback.cs" />
     <Compile Include="SensorConnectConfigParamManger.cs" />
     <Compile Include="HalconAcq\HAcqCamClass.cs" />
     <Compile Include="GBS\GbsFaceWliLocal.cs" />
@@ -211,6 +216,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stil\StilPointLaser.cs" />
     <Compile Include="SensorConnectConfigParam.cs" />
+    <Compile Include="OptLineCam\OptLineCam.cs" />
     <Compile Include="埃科\LineCamera.cs" />
     <Compile Include="埃科\IKapLineCam.cs" />
     <Compile Include="大华\IMvCam.cs" />

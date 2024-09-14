@@ -67,6 +67,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentFTP">
+      <HintPath>C:\Users\华硕\Desktop\FluentFTP.dll</HintPath>
+    </Reference>
     <Reference Include="halcondotnetxl">
       <HintPath>C:\Program Files\MVTec\HALCON-20.11-Steady\bin\dotnet35\halcondotnetxl.dll</HintPath>
     </Reference>
@@ -394,6 +397,20 @@
     <Compile Include="2D算法工具\向量合成\VectorCompositionForm.Designer.cs">
       <DependentUpon>VectorCompositionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="2D算法工具\几何测量\圆线交点\IntersectionLineCircleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\几何测量\圆线交点\IntersectionLineCircleForm.Designer.cs">
+      <DependentUpon>IntersectionLineCircleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D算法工具\几何测量\圆线交点\IntersectionLineCirlce.cs" />
+    <Compile Include="2D算法工具\圆弧插值\CircleSectorInterpolation.cs" />
+    <Compile Include="2D算法工具\圆弧插值\CircleSectorInterpolationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\圆弧插值\CircleSectorInterpolationForm.Designer.cs">
+      <DependentUpon>CircleSectorInterpolationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="3D算法工具\三维映射\CoordMap3D.cs" />
     <Compile Include="3D算法工具\三维映射\CoordMapForm3D.cs">
       <SubType>Form</SubType>
@@ -472,6 +489,22 @@
       <DependentUpon>RobotLayOffForm.cs</DependentUpon>
     </Compile>
     <Compile Include="上下料机\下料穴位\RobotLayOffParam.cs" />
+    <Compile Include="其他工具\FtpFluentForm\FtpConfigParam.cs" />
+    <Compile Include="其他工具\FtpFluentForm\FtpConfigParamManger.cs" />
+    <Compile Include="其他工具\FtpFluentForm\FtpFluent.cs" />
+    <Compile Include="其他工具\FtpFluentForm\FtpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他工具\FtpFluentForm\FtpForm.designer.cs">
+      <DependentUpon>FtpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他工具\删图工具\ConfigParam.cs" />
+    <Compile Include="其他工具\删图工具\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他工具\删图工具\Form1.designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="对位引导\坐标转换\CoordTransform.cs" />
     <Compile Include="对位引导\坐标转换\CoordTransformForm.cs">
       <SubType>Form</SubType>
@@ -489,22 +522,37 @@
       <DependentUpon>MapCalibrForm.cs</DependentUpon>
     </Compile>
     <Compile Include="对位引导\标定\圆心标定\CenterCalibParam.cs" />
+    <Compile Include="对位引导\迁移计算\MigrateCalculate.cs" />
+    <Compile Include="对位引导\迁移计算\MigrateCalculateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="对位引导\迁移计算\MigrateCalculateForm.Designer.cs">
+      <DependentUpon>MigrateCalculateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="对位引导\迁移计算\MigrateCalculateParam.cs" />
     <Compile Include="属性结果\ResultJudgeCommand.cs" />
     <Compile Include="属性结果\JudgeCommand.cs" />
-    <Compile Include="工具组\Switch语句\ConditionalSwitch.cs" />
-    <Compile Include="工具组\Switch语句\ConditionaSwitchlForm.cs">
+    <Compile Include="工具组\Switch语句\Switch.cs" />
+    <Compile Include="工具组\Switch语句\SwitchForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="工具组\Switch语句\ConditionaSwitchlForm.Designer.cs">
-      <DependentUpon>ConditionaSwitchlForm.cs</DependentUpon>
+    <Compile Include="工具组\Switch语句\SwitchForm.Designer.cs">
+      <DependentUpon>SwitchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="工具组\Switch语句\标签case\ConditionaCaseForm.cs">
+    <Compile Include="工具组\Switch语句\标签case\CaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="工具组\Switch语句\标签case\ConditionaCaseForm.Designer.cs">
-      <DependentUpon>ConditionaCaseForm.cs</DependentUpon>
+    <Compile Include="工具组\Switch语句\标签case\CaseForm.Designer.cs">
+      <DependentUpon>CaseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="工具组\Switch语句\标签case\ConditionaCase.cs" />
+    <Compile Include="工具组\Switch语句\标签case\Case.cs" />
+    <Compile Include="工具组\并发执行\ConcurrentExecution.cs" />
+    <Compile Include="工具组\并发执行\ConcurrentExecutionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工具组\并发执行\ConcurrentExecutionForm.Designer.cs">
+      <DependentUpon>ConcurrentExecutionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="工具组\条件语句\Conditional.cs" />
     <Compile Include="工具组\条件语句\条件语句else\ConditionaElse.cs" />
     <Compile Include="工具组\条件语句\条件语句If\ConditionaIf.cs" />
@@ -1065,11 +1113,11 @@
     <Compile Include="2D算法工具\几何测量\圆线距离\CircleToLineDist2DForm.Designer.cs">
       <DependentUpon>CircleToLineDist2DForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="2D算法工具\几何测量\圆线交点\IntersectionLineCircleForm.cs">
+    <Compile Include="2D算法工具\直线插值\LineInterpolationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="2D算法工具\几何测量\圆线交点\IntersectionLineCircleForm.Designer.cs">
-      <DependentUpon>IntersectionLineCircleForm.cs</DependentUpon>
+    <Compile Include="2D算法工具\直线插值\LineInterpolationForm.Designer.cs">
+      <DependentUpon>LineInterpolationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="2D算法工具\字符识别\OcrDetectionForm.cs">
       <SubType>Form</SubType>
@@ -1348,14 +1396,7 @@
     </Compile>
     <Compile Include="对位引导\对位计算\AlignCalculate.cs" />
     <Compile Include="对位引导\对位计算\AlignMethod.cs" />
-    <Compile Include="对位引导\引导计算\GuidedCalibParam.cs" />
-    <Compile Include="对位引导\弃用工具\引导计算\GuidedCalculate.cs" />
-    <Compile Include="对位引导\弃用工具\引导计算\GuidedCalculateForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="对位引导\弃用工具\引导计算\GuidedCalculateForm.designer.cs">
-      <DependentUpon>GuidedCalculateForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="对位引导\弃用工具\引导计算\GuidedCalibParam.cs" />
     <Compile Include="对位引导\弃用工具\椭圆变换\EllpiseAffine.cs" />
     <Compile Include="对位引导\弃用工具\椭圆变换\EllpiseAffineForm.cs">
       <SubType>Form</SubType>
@@ -1363,11 +1404,11 @@
     <Compile Include="对位引导\弃用工具\椭圆变换\EllpiseAffineForm.Designer.cs">
       <DependentUpon>EllpiseAffineForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\引导计算\GuidedCalib.cs" />
-    <Compile Include="对位引导\引导计算\GuidedCalibeForm.cs">
+    <Compile Include="对位引导\弃用工具\引导计算\GuidedCalib.cs" />
+    <Compile Include="对位引导\弃用工具\引导计算\GuidedCalibeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\引导计算\GuidedCalibeForm.Designer.cs">
+    <Compile Include="对位引导\弃用工具\引导计算\GuidedCalibeForm.Designer.cs">
       <DependentUpon>GuidedCalibeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="对位引导\弃用工具\矩形变换\Rect2Affine.cs" />
@@ -1536,10 +1577,10 @@
     <Compile Include="标定\相机畸变校正\DistortionCalibForm.Designer.cs">
       <DependentUpon>DistortionCalibForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="系统UI配置\UI视图配置\AlignDataForm.cs">
+    <Compile Include="系统UI配置\对位数据\AlignDataForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="系统UI配置\UI视图配置\AlignDataForm.Designer.cs">
+    <Compile Include="系统UI配置\对位数据\AlignDataForm.Designer.cs">
       <DependentUpon>AlignDataForm.cs</DependentUpon>
     </Compile>
     <Compile Include="系统UI配置\UI视图配置\TabletForm.cs">
@@ -1566,7 +1607,15 @@
     <Compile Include="系统UI配置\上下料机视图\RobotLoadViewForm.Designer.cs">
       <DependentUpon>RobotLoadViewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="系统配置\AlignDataManager.cs" />
+    <Compile Include="系统UI配置\对位数据\AlignDataManager.cs" />
+    <Compile Include="系统UI配置\报表查询\ReportQueryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\报表查询\ReportQueryForm.Designer.cs">
+      <DependentUpon>ReportQueryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\报表查询\ProductInfo.cs" />
+    <Compile Include="系统UI配置\报表查询\StatisticsInfo.cs" />
     <Compile Include="缺陷检测\瑕疵分类\FlawGroup.cs" />
     <Compile Include="缺陷检测\瑕疵分类\FlawGroupForm.cs">
       <SubType>Form</SubType>
@@ -1691,10 +1740,10 @@
       <DependentUpon>MeasureViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="系统UI配置\测量配置\MeasureManager.cs" />
-    <Compile Include="系统UI配置\OKNG判定窗口\OkNgViewForm.cs">
+    <Compile Include="系统UI配置\UI视图配置\OkNgViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="系统UI配置\OKNG判定窗口\OkNgViewForm.Designer.cs">
+    <Compile Include="系统UI配置\UI视图配置\OkNgViewForm.Designer.cs">
       <DependentUpon>OkNgViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="系统UI配置\程序配方\ProgramParam.cs" />
@@ -1808,7 +1857,7 @@
     <Compile Include="2D算法工具\2D几何拟合\椭圆拟合\FitEllipse.cs" />
     <Compile Include="2D算法工具\分割轮廓\SegmentContourAttribXld.cs" />
     <Compile Include="2D算法工具\分割轮廓\SegmentContoursXld.cs" />
-    <Compile Include="2D算法工具\几何测量\圆线交点\IntersectionLineCirlce.cs" />
+    <Compile Include="2D算法工具\直线插值\LineInterpolation.cs" />
     <Compile Include="2D算法工具\几何测量\圆圆交点\IntersectionCircleCircle.cs" />
     <Compile Include="2D算法工具\几何测量\线线交点\IntersectionLineLine.cs" />
     <Compile Include="2D算法工具\几何测量\角平分线\CalculateAngleBisector.cs" />
@@ -2423,7 +2472,7 @@
       <DependentUpon>DefectDetectingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="工具组\过时功能\计算偏移\CalculateOffsetValue.cs" />
-    <Compile Include="工具组\过时功能\计算偏移\CompensationParam.cs" />
+    <Compile Include="对位引导\CompensationParam.cs" />
     <Compile Include="工具组\过时功能\写入文件\WriteFile.cs" />
     <Compile Include="工具组\过时功能\写入文件\WriteFileForm.cs">
       <SubType>Form</SubType>
@@ -2771,11 +2820,11 @@
       <DependentUpon>ForLoopControlForm.cs</DependentUpon>
     </Compile>
     <Compile Include="工具组\循环执行\ForLoopControl.cs" />
-    <Compile Include="工具组\并发执行\ConcurrentExecutionForm.cs">
+    <Compile Include="工具组\异步并发\AsynConcurrentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="工具组\并发执行\ConcurrentExecutionForm.Designer.cs">
-      <DependentUpon>ConcurrentExecutionForm.cs</DependentUpon>
+    <Compile Include="工具组\异步并发\AsynConcurrentForm.Designer.cs">
+      <DependentUpon>AsynConcurrentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="工具组\过时功能\计算偏移\CalculateOffsetValueForm.cs">
       <SubType>Form</SubType>
@@ -2784,7 +2833,7 @@
       <DependentUpon>CalculateOffsetValueForm.cs</DependentUpon>
     </Compile>
     <Compile Include="工具组\过时功能\对齐计算\AlignmentGuidedCalculation.cs" />
-    <Compile Include="工具组\并发执行\ConcurrentExecution.cs" />
+    <Compile Include="工具组\异步并发\AsynConcurrent.cs" />
     <Compile Include="工具组\特征定位\FeatureLocalization.cs" />
     <Compile Include="工具组\特征定位\FeatureLocalizationForm.cs">
       <SubType>Form</SubType>
@@ -3406,6 +3455,12 @@
     <EmbeddedResource Include="2D算法工具\向量合成\VectorCompositionForm.resx">
       <DependentUpon>VectorCompositionForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\几何测量\圆线交点\IntersectionLineCircleForm.resx">
+      <DependentUpon>IntersectionLineCircleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\圆弧插值\CircleSectorInterpolationForm.resx">
+      <DependentUpon>CircleSectorInterpolationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="3D算法工具\三维映射\CoordMapForm3D.resx">
       <DependentUpon>CoordMapForm3D.cs</DependentUpon>
     </EmbeddedResource>
@@ -3439,17 +3494,29 @@
     <EmbeddedResource Include="上下料机\下料穴位\RobotLayOffForm.resx">
       <DependentUpon>RobotLayOffForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="其他工具\FtpFluentForm\FtpForm.resx">
+      <DependentUpon>FtpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他工具\删图工具\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="对位引导\坐标转换\CoordTransformForm.resx">
       <DependentUpon>CoordTransformForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="对位引导\标定\映射标定\MapCalibrForm.resx">
       <DependentUpon>MapCalibrForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="工具组\Switch语句\ConditionaSwitchlForm.resx">
-      <DependentUpon>ConditionaSwitchlForm.cs</DependentUpon>
+    <EmbeddedResource Include="对位引导\迁移计算\MigrateCalculateForm.resx">
+      <DependentUpon>MigrateCalculateForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="工具组\Switch语句\标签case\ConditionaCaseForm.resx">
-      <DependentUpon>ConditionaCaseForm.cs</DependentUpon>
+    <EmbeddedResource Include="工具组\Switch语句\SwitchForm.resx">
+      <DependentUpon>SwitchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工具组\Switch语句\标签case\CaseForm.resx">
+      <DependentUpon>CaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工具组\并发执行\ConcurrentExecutionForm.resx">
+      <DependentUpon>ConcurrentExecutionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="工具组\条件语句\条件语句If\ConditionaIfForm.resx">
       <DependentUpon>ConditionaIfForm.cs</DependentUpon>
@@ -3700,8 +3767,8 @@
     <EmbeddedResource Include="2D算法工具\几何测量\圆线距离\CircleToLineDist2DForm.resx">
       <DependentUpon>CircleToLineDist2DForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="2D算法工具\几何测量\圆线交点\IntersectionLineCircleForm.resx">
-      <DependentUpon>IntersectionLineCircleForm.cs</DependentUpon>
+    <EmbeddedResource Include="2D算法工具\直线插值\LineInterpolationForm.resx">
+      <DependentUpon>LineInterpolationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\字符识别\OcrDetectionForm.resx">
       <DependentUpon>OcrDetectionForm.cs</DependentUpon>
@@ -4062,13 +4129,10 @@
     <EmbeddedResource Include="对位引导\对位计算\AlignCalculateForm.resx">
       <DependentUpon>AlignCalculateForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\弃用工具\引导计算\GuidedCalculateForm.resx">
-      <DependentUpon>GuidedCalculateForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="对位引导\弃用工具\椭圆变换\EllpiseAffineForm.resx">
       <DependentUpon>EllpiseAffineForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\引导计算\GuidedCalibeForm.resx">
+    <EmbeddedResource Include="对位引导\弃用工具\引导计算\GuidedCalibeForm.resx">
       <DependentUpon>GuidedCalibeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="对位引导\弃用工具\矩形变换\Rect2AffineForm.resx">
@@ -4113,7 +4177,7 @@
     <EmbeddedResource Include="标定\相机畸变校正\DistortionCalibForm.resx">
       <DependentUpon>DistortionCalibForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="系统UI配置\UI视图配置\AlignDataForm.resx">
+    <EmbeddedResource Include="系统UI配置\对位数据\AlignDataForm.resx">
       <DependentUpon>AlignDataForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="系统UI配置\UI视图配置\TabletForm.resx">
@@ -4127,6 +4191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="系统UI配置\上下料机视图\RobotLoadViewForm.resx">
       <DependentUpon>RobotLoadViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\报表查询\ReportQueryForm.resx">
+      <DependentUpon>ReportQueryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="缺陷检测\瑕疵分类\FlawGroupForm.resx">
       <DependentUpon>FlawGroupForm.cs</DependentUpon>
@@ -4251,7 +4318,7 @@
     <EmbeddedResource Include="系统UI配置\测量配置\MeasureViewForm.resx">
       <DependentUpon>MeasureViewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="系统UI配置\OKNG判定窗口\OkNgViewForm.resx">
+    <EmbeddedResource Include="系统UI配置\UI视图配置\OkNgViewForm.resx">
       <DependentUpon>OkNgViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="系统UI配置\程序配方\ProgramViewForm.resx">
@@ -4434,8 +4501,8 @@
     <EmbeddedResource Include="工具组\循环执行\ForLoopControlForm.resx">
       <DependentUpon>ForLoopControlForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="工具组\并发执行\ConcurrentExecutionForm.resx">
-      <DependentUpon>ConcurrentExecutionForm.cs</DependentUpon>
+    <EmbeddedResource Include="工具组\异步并发\AsynConcurrentForm.resx">
+      <DependentUpon>AsynConcurrentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="工具组\过时功能\计算偏移\CalculateOffsetValueForm.resx">
       <DependentUpon>CalculateOffsetValueForm.cs</DependentUpon>

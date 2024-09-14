@@ -121,19 +121,19 @@
     <value />
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="buttonMax.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAEBJREFUOE9jeP369X9a4lELCGK8FjAwMBCFsemF4YG3AJs4Mh61AKs4Mh61gCiM
+        TS8M47WAGnjUAoKYxha8/g8A1KvgolmNfpkAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="buttonClose.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACwAAAARCAYAAACmYE5yAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAAAF1JREFUSEvtkjEOACAIA/3/m/gRj8Cpi8HEaDsQueQG0KEhHWYWlezAajuwWlpg
         cLq/lXphsJsZ0iuxkv15UdJhkL29+veFwW5mSAsMTve3SjqstAOrrRfY3aOOHhM50YYyVCjEJgAAAABJ
         RU5ErkJggg==
-</value>
-  </data>
-  <data name="buttonMax.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAEBJREFUOE9jeP369X9a4lELCGK8FjAwMBCFsemF4YG3AJs4Mh61AKs4Mh61gCiM
-        TS8M47WAGnjUAoKYxha8/g8A1KvgolmNfpkAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="buttonMin.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
