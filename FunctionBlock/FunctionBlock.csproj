@@ -3509,6 +3509,9 @@
     <EmbeddedResource Include="对位引导\迁移计算\MigrateCalculateForm.resx">
       <DependentUpon>MigrateCalculateForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="工具\ToolForm.en-US.resx">
+      <DependentUpon>ToolForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="工具组\Switch语句\SwitchForm.resx">
       <DependentUpon>SwitchForm.cs</DependentUpon>
     </EmbeddedResource>

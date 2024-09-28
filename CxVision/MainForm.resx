@@ -117,19 +117,963 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="设备splitContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="设备splitContainer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="设备splitContainer.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
+  </data>
+  <data name="&gt;&gt;设备splitContainer.Panel1.Name" xml:space="preserve">
+    <value>设备splitContainer.Panel1</value>
+  </data>
+  <data name="&gt;&gt;设备splitContainer.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;设备splitContainer.Panel1.Parent" xml:space="preserve">
+    <value>设备splitContainer</value>
+  </data>
+  <data name="&gt;&gt;设备splitContainer.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;设备splitContainer.Panel2.Name" xml:space="preserve">
+    <value>设备splitContainer.Panel2</value>
+  </data>
+  <data name="&gt;&gt;设备splitContainer.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;设备splitContainer.Panel2.Parent" xml:space="preserve">
+    <value>设备splitContainer</value>
+  </data>
+  <data name="&gt;&gt;设备splitContainer.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="设备splitContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>962, 560</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="设备splitContainer.SplitterDistance" type="System.Int32, mscorlib">
+    <value>262</value>
+  </data>
+  <data name="设备splitContainer.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;设备splitContainer.Name" xml:space="preserve">
+    <value>设备splitContainer</value>
+  </data>
+  <data name="&gt;&gt;设备splitContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;设备splitContainer.Parent" xml:space="preserve">
+    <value>DeviceTabPage</value>
+  </data>
+  <data name="&gt;&gt;设备splitContainer.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="menuStrip1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft YaHei UI, 12pt</value>
+  </data>
+  <data name="文件toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 25</value>
+  </data>
+  <data name="文件toolStripMenuItem.Text" xml:space="preserve">
+    <value>文件</value>
+  </data>
+  <data name="编辑toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 25</value>
+  </data>
+  <data name="编辑toolStripMenuItem.Text" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="视图toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 25</value>
+  </data>
+  <data name="视图toolStripMenuItem.Text" xml:space="preserve">
+    <value>视图</value>
+  </data>
+  <data name="工具toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 25</value>
+  </data>
+  <data name="工具toolStripMenuItem.Text" xml:space="preserve">
+    <value>工具</value>
+  </data>
+  <data name="配置toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 25</value>
+  </data>
+  <data name="配置toolStripMenuItem.Text" xml:space="preserve">
+    <value>配置</value>
+  </data>
+  <data name="调试toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 25</value>
+  </data>
+  <data name="调试toolStripMenuItem.Text" xml:space="preserve">
+    <value>调试</value>
+  </data>
+  <data name="参数toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 25</value>
+  </data>
+  <data name="参数toolStripMenuItem.Text" xml:space="preserve">
+    <value>参数</value>
+  </data>
+  <data name="用户toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 25</value>
+  </data>
+  <data name="用户toolStripMenuItem.Text" xml:space="preserve">
+    <value>用户</value>
+  </data>
+  <data name="语言toolStripComboBox.Items" xml:space="preserve">
+    <value>中文(Chinise)</value>
+  </data>
+  <data name="语言toolStripComboBox.Items1" xml:space="preserve">
+    <value>英文(English)</value>
+  </data>
+  <data name="语言toolStripComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 25</value>
+  </data>
+  <data name="语言toolStripComboBox.Text" xml:space="preserve">
+    <value>中文(Chinise)</value>
+  </data>
+  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menuStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 2, 0, 2</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1077, 29</value>
+  </data>
+  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="menuStrip1.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="新建toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 26</value>
+  </data>
+  <data name="新建toolStripMenuItem.Text" xml:space="preserve">
+    <value>新建</value>
+  </data>
+  <data name="打开toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 26</value>
+  </data>
+  <data name="打开toolStripMenuItem.Text" xml:space="preserve">
+    <value>打开</value>
+  </data>
+  <data name="保存toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 26</value>
+  </data>
+  <data name="保存toolStripMenuItem.Text" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="另存为toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 26</value>
+  </data>
+  <data name="另存为toolStripMenuItem.Text" xml:space="preserve">
+    <value>另存为</value>
+  </data>
+  <data name="toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 26</value>
+  </data>
+  <data name="toolStripMenuItem.Text" xml:space="preserve">
+    <value>toolStripMenuItem3</value>
+  </data>
+  <data name="检测工具toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 26</value>
+  </data>
+  <data name="检测工具toolStripMenuItem.Text" xml:space="preserve">
+    <value>检测工具</value>
+  </data>
+  <data name="标定工具toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 26</value>
+  </data>
+  <data name="标定工具toolStripMenuItem.Text" xml:space="preserve">
+    <value>对射标定工具</value>
+  </data>
+  <data name="相机标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 26</value>
+  </data>
+  <data name="相机标定toolStripMenuItem.Text" xml:space="preserve">
+    <value>相机标定</value>
+  </data>
+  <data name="FA相机标定toolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="FA相机标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 26</value>
+  </data>
+  <data name="FA相机标定toolStripMenuItem.Text" xml:space="preserve">
+    <value>FA相机标定</value>
+  </data>
+  <data name="矩阵标定相机toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 26</value>
+  </data>
+  <data name="矩阵标定相机toolStripMenuItem2.Text" xml:space="preserve">
+    <value>矩阵标定相机</value>
+  </data>
+  <data name="N点标定相机toolStripMenuItem3.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="N点标定相机toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 26</value>
+  </data>
+  <data name="N点标定相机toolStripMenuItem3.Text" xml:space="preserve">
+    <value>N点标定相机</value>
+  </data>
+  <data name="标定相机角度toolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="标定相机角度toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 26</value>
+  </data>
+  <data name="标定相机角度toolStripMenuItem.Text" xml:space="preserve">
+    <value>标定相机角度</value>
+  </data>
+  <data name="相机激光标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 26</value>
+  </data>
+  <data name="相机激光标定toolStripMenuItem.Text" xml:space="preserve">
+    <value>相机激光标定</value>
+  </data>
+  <data name="相机点激光toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 26</value>
+  </data>
+  <data name="相机点激光toolStripMenuItem.Text" xml:space="preserve">
+    <value>相机&amp;点激光标定</value>
+  </data>
+  <data name="相机线激光标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 26</value>
+  </data>
+  <data name="相机线激光标定toolStripMenuItem.Text" xml:space="preserve">
+    <value>相机&amp;线激光标定</value>
+  </data>
+  <data name="相机面激光标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 26</value>
+  </data>
+  <data name="相机面激光标定toolStripMenuItem.Text" xml:space="preserve">
+    <value>相机&amp;面激光标定</value>
+  </data>
+  <data name="相机胶枪标定ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 26</value>
+  </data>
+  <data name="相机胶枪标定ToolStripMenuItem.Text" xml:space="preserve">
+    <value>相机&amp;胶枪标定</value>
+  </data>
+  <data name="机器人夹抓标定ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 26</value>
+  </data>
+  <data name="机器人夹抓标定ToolStripMenuItem.Text" xml:space="preserve">
+    <value>机器人&amp;夹抓标定</value>
+  </data>
+  <data name="运动toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 26</value>
+  </data>
+  <data name="运动toolStripMenuItem.Text" xml:space="preserve">
+    <value>运动控制</value>
+  </data>
+  <data name="激光标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 26</value>
+  </data>
+  <data name="激光标定toolStripMenuItem.Text" xml:space="preserve">
+    <value>激光标定</value>
+  </data>
+  <data name="标定线激光toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 26</value>
+  </data>
+  <data name="标定线激光toolStripMenuItem.Text" xml:space="preserve">
+    <value>标定线激光</value>
+  </data>
+  <data name="标定点激光toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 26</value>
+  </data>
+  <data name="标定点激光toolStripMenuItem.Text" xml:space="preserve">
+    <value>标定点激光</value>
+  </data>
+  <data name="标定面激光toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 26</value>
+  </data>
+  <data name="标定面激光toolStripMenuItem.Text" xml:space="preserve">
+    <value>标定面激光</value>
+  </data>
+  <data name="机台校准toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 26</value>
+  </data>
+  <data name="机台校准toolStripMenuItem.Text" xml:space="preserve">
+    <value>机台校准</value>
+  </data>
+  <data name="面阵补偿toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 26</value>
+  </data>
+  <data name="面阵补偿toolStripMenuItem.Text" xml:space="preserve">
+    <value>面阵补偿</value>
+  </data>
+  <data name="线性补偿toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 26</value>
+  </data>
+  <data name="线性补偿toolStripMenuItem.Text" xml:space="preserve">
+    <value>线性补偿</value>
+  </data>
+  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 26</value>
+  </data>
+  <data name="toolStripMenuItem2.Text" xml:space="preserve">
+    <value>9点标定</value>
+  </data>
+  <data name="相机9点标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 26</value>
+  </data>
+  <data name="相机9点标定toolStripMenuItem.Text" xml:space="preserve">
+    <value>相机9点标定</value>
+  </data>
+  <data name="面激光9点标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 26</value>
+  </data>
+  <data name="面激光9点标定toolStripMenuItem.Text" xml:space="preserve">
+    <value>面激光9点标定</value>
+  </data>
+  <data name="线激光9点标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 26</value>
+  </data>
+  <data name="线激光9点标定toolStripMenuItem.Text" xml:space="preserve">
+    <value>线激光9点标定</value>
+  </data>
+  <data name="点激光9点标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 26</value>
+  </data>
+  <data name="点激光9点标定toolStripMenuItem.Text" xml:space="preserve">
+    <value>点激光9点标定</value>
+  </data>
+  <data name="参数配置toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 26</value>
+  </data>
+  <data name="参数配置toolStripMenuItem.Text" xml:space="preserve">
+    <value>参数设置 </value>
+  </data>
+  <data name="传感器配置toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 26</value>
+  </data>
+  <data name="传感器配置toolStripMenuItem.Text" xml:space="preserve">
+    <value>传感器配置</value>
+  </data>
+  <data name="光源配置toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 26</value>
+  </data>
+  <data name="光源配置toolStripMenuItem.Text" xml:space="preserve">
+    <value>光源配置</value>
+  </data>
+  <data name="运动控制卡配置toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 26</value>
+  </data>
+  <data name="运动控制卡配置toolStripMenuItem.Text" xml:space="preserve">
+    <value>运动控制卡配置</value>
+  </data>
+  <data name="采集源配置ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 26</value>
+  </data>
+  <data name="采集源配置ToolStripMenuItem.Text" xml:space="preserve">
+    <value>采集源配置</value>
+  </data>
+  <data name="程序配置ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 26</value>
+  </data>
+  <data name="程序配置ToolStripMenuItem.Text" xml:space="preserve">
+    <value>程序配置</value>
+  </data>
+  <data name="查看点激光toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 26</value>
+  </data>
+  <data name="查看点激光toolStripMenuItem.Text" xml:space="preserve">
+    <value>查看点激光</value>
+  </data>
+  <data name="查看线激光toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 26</value>
+  </data>
+  <data name="查看线激光toolStripMenuItem.Text" xml:space="preserve">
+    <value>查看线激光</value>
+  </data>
+  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 6</value>
+  </data>
+  <data name="保存布局toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 26</value>
+  </data>
+  <data name="保存布局toolStripMenuItem.Text" xml:space="preserve">
+    <value>保存视图布局</value>
+  </data>
+  <data name="重置屏幕参数toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 26</value>
+  </data>
+  <data name="重置屏幕参数toolStripMenuItem.Text" xml:space="preserve">
+    <value>重置屏幕参数</value>
+  </data>
+  <data name="登录toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 26</value>
+  </data>
+  <data name="登录toolStripMenuItem.Text" xml:space="preserve">
+    <value>登录</value>
+  </data>
   <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>137, 17</value>
   </metadata>
+  <data name="toolStripStatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 17</value>
+  </data>
+  <data name="toolStripStatusLabel1.Text" xml:space="preserve">
+    <value>程序路径+名称</value>
+  </data>
+  <data name="toolStripStatusLabel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 17</value>
+  </data>
+  <data name="toolStripStatusLabel2.Text" xml:space="preserve">
+    <value>日期：</value>
+  </data>
+  <data name="日期toolStripStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 17</value>
+  </data>
+  <data name="日期toolStripStatusLabel.Text" xml:space="preserve">
+    <value>toolStripStatusLabel3</value>
+  </data>
+  <data name="toolStripStatusLabel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 17</value>
+  </data>
+  <data name="toolStripStatusLabel4.Text" xml:space="preserve">
+    <value>时间：</value>
+  </data>
+  <data name="时间toolStripStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 17</value>
+  </data>
+  <data name="时间toolStripStatusLabel.Text" xml:space="preserve">
+    <value>toolStripStatusLabel5</value>
+  </data>
+  <data name="toolStripStatusLabel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 17</value>
+  </data>
+  <data name="toolStripStatusLabel3.Text" xml:space="preserve">
+    <value>当前用户：</value>
+  </data>
+  <data name="用户toolStripStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 17</value>
+  </data>
+  <data name="用户toolStripStatusLabel.Text" xml:space="preserve">
+    <value>toolStripStatusLabel5</value>
+  </data>
+  <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 710</value>
+  </data>
+  <data name="statusStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1077, 22</value>
+  </data>
+  <data name="statusStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="statusStrip1.Text" xml:space="preserve">
+    <value>statusStrip1</value>
+  </data>
+  <data name="&gt;&gt;statusStrip1.Name" xml:space="preserve">
+    <value>statusStrip1</value>
+  </data>
+  <data name="&gt;&gt;statusStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;statusStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;statusStrip1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
   <metadata name="运行工具条toolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>368, 17</value>
   </metadata>
+  <data name="运行工具条toolStrip.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="运行工具条toolStrip.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft YaHei UI, 12pt</value>
+  </data>
+  <data name="运行toolStripButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="运行toolStripButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 51</value>
+  </data>
+  <data name="运行toolStripButton.Text" xml:space="preserve">
+    <value>运行(Start)</value>
+  </data>
+  <data name="运行toolStripButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="停止toolStripButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="停止toolStripButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 51</value>
+  </data>
+  <data name="停止toolStripButton.Text" xml:space="preserve">
+    <value>停止(Stop)</value>
+  </data>
+  <data name="停止toolStripButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="循环次数toolStripButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="循环次数toolStripButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 51</value>
+  </data>
+  <data name="循环次数toolStripButton.Text" xml:space="preserve">
+    <value>循环执行</value>
+  </data>
+  <data name="循环次数toolStripButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="联机运行toolStripButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="联机运行toolStripButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 51</value>
+  </data>
+  <data name="联机运行toolStripButton.Text" xml:space="preserve">
+    <value>联机运行</value>
+  </data>
+  <data name="联机运行toolStripButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="断开连机toolStripButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="断开连机toolStripButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 51</value>
+  </data>
+  <data name="断开连机toolStripButton.Text" xml:space="preserve">
+    <value>断开连机</value>
+  </data>
+  <data name="断开连机toolStripButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="视图toolStripButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="视图toolStripButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 51</value>
+  </data>
+  <data name="视图toolStripButton.Text" xml:space="preserve">
+    <value>添加视图</value>
+  </data>
+  <data name="视图toolStripButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="运行工具条toolStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>228, 0</value>
+  </data>
+  <data name="运行工具条toolStrip.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="运行工具条toolStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>595, 54</value>
+  </data>
+  <data name="运行工具条toolStrip.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="运行工具条toolStrip.Text" xml:space="preserve">
+    <value>toolStrip2</value>
+  </data>
+  <data name="&gt;&gt;运行工具条toolStrip.Name" xml:space="preserve">
+    <value>运行工具条toolStrip</value>
+  </data>
+  <data name="&gt;&gt;运行工具条toolStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;运行工具条toolStrip.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;运行工具条toolStrip.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="编辑工具条toolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>258, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="编辑工具条toolStrip.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="编辑工具条toolStrip.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft YaHei UI, 10.5pt</value>
+  </data>
+  <data name="编辑工具条toolStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="编辑工具条toolStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 54</value>
+  </data>
+  <data name="编辑工具条toolStrip.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="编辑工具条toolStrip.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;编辑工具条toolStrip.Name" xml:space="preserve">
+    <value>编辑工具条toolStrip</value>
+  </data>
+  <data name="&gt;&gt;编辑工具条toolStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;编辑工具条toolStrip.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;编辑工具条toolStrip.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="屏蔽checkBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="屏蔽checkBox.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
+    <value>Button</value>
+  </data>
+  <data name="屏蔽checkBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 10.5pt</value>
+  </data>
+  <data name="屏蔽checkBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 0</value>
+  </data>
+  <data name="屏蔽checkBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 54</value>
+  </data>
+  <data name="屏蔽checkBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="屏蔽checkBox.Text" xml:space="preserve">
+    <value>屏蔽检测</value>
+  </data>
+  <data name="屏蔽checkBox.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;屏蔽checkBox.Name" xml:space="preserve">
+    <value>屏蔽checkBox</value>
+  </data>
+  <data name="&gt;&gt;屏蔽checkBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;屏蔽checkBox.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;屏蔽checkBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="连接服务器Btn.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="连接服务器Btn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 10.5pt</value>
+  </data>
+  <data name="连接服务器Btn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>101, 0</value>
+  </data>
+  <data name="连接服务器Btn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 54</value>
+  </data>
+  <data name="连接服务器Btn.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="连接服务器Btn.Text" xml:space="preserve">
+    <value>连接服务器</value>
+  </data>
+  <data name="&gt;&gt;连接服务器Btn.Name" xml:space="preserve">
+    <value>连接服务器Btn</value>
+  </data>
+  <data name="&gt;&gt;连接服务器Btn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;连接服务器Btn.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;连接服务器Btn.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="显示数据checkBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Right</value>
+  </data>
+  <data name="显示数据checkBox.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
+    <value>Button</value>
+  </data>
+  <data name="显示数据checkBox.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="显示数据checkBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>196, 0</value>
+  </data>
+  <data name="显示数据checkBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 54</value>
+  </data>
+  <data name="显示数据checkBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;显示数据checkBox.Name" xml:space="preserve">
+    <value>显示数据checkBox</value>
+  </data>
+  <data name="&gt;&gt;显示数据checkBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;显示数据checkBox.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;显示数据checkBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>823, 0</value>
+  </data>
+  <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 54</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabControl1.Alignment" type="System.Windows.Forms.TabAlignment, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="程序tabPage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 9pt</value>
+  </data>
+  <data name="程序tabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="程序tabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="程序tabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1069, 592</value>
+  </data>
+  <data name="程序tabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="程序tabPage.Text" xml:space="preserve">
+    <value>程序编辑</value>
+  </data>
+  <data name="&gt;&gt;程序tabPage.Name" xml:space="preserve">
+    <value>程序tabPage</value>
+  </data>
+  <data name="&gt;&gt;程序tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;程序tabPage.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;程序tabPage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;工程配置tabControl.Name" xml:space="preserve">
+    <value>工程配置tabControl</value>
+  </data>
+  <data name="&gt;&gt;工程配置tabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;工程配置tabControl.Parent" xml:space="preserve">
+    <value>工程配置tabPage</value>
+  </data>
+  <data name="&gt;&gt;工程配置tabControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="工程配置tabPage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 9pt</value>
+  </data>
+  <data name="工程配置tabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="工程配置tabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="工程配置tabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>976, 592</value>
+  </data>
+  <data name="工程配置tabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="工程配置tabPage.Text" xml:space="preserve">
+    <value>工程配置</value>
+  </data>
+  <data name="&gt;&gt;工程配置tabPage.Name" xml:space="preserve">
+    <value>工程配置tabPage</value>
+  </data>
+  <data name="&gt;&gt;工程配置tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;工程配置tabPage.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;工程配置tabPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tabControl3.Name" xml:space="preserve">
+    <value>tabControl3</value>
+  </data>
+  <data name="&gt;&gt;tabControl3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabControl3.Parent" xml:space="preserve">
+    <value>通讯tabPage</value>
+  </data>
+  <data name="&gt;&gt;tabControl3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="通讯tabPage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 9pt</value>
+  </data>
+  <data name="通讯tabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="通讯tabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>976, 592</value>
+  </data>
+  <data name="通讯tabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="通讯tabPage.Text" xml:space="preserve">
+    <value>连接配置</value>
+  </data>
+  <data name="&gt;&gt;通讯tabPage.Name" xml:space="preserve">
+    <value>通讯tabPage</value>
+  </data>
+  <data name="&gt;&gt;通讯tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;通讯tabPage.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;通讯tabPage.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="系统配置tabPage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 9pt</value>
+  </data>
+  <data name="系统配置tabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="系统配置tabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>976, 592</value>
+  </data>
+  <data name="系统配置tabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="系统配置tabPage.Text" xml:space="preserve">
+    <value>系统配置</value>
+  </data>
+  <data name="&gt;&gt;系统配置tabPage.Name" xml:space="preserve">
+    <value>系统配置tabPage</value>
+  </data>
+  <data name="&gt;&gt;系统配置tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;系统配置tabPage.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;系统配置tabPage.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tabControl1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 15.75pt</value>
+  </data>
+  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 54</value>
+  </data>
+  <data name="tabControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="tabControl1.Padding" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1077, 627</value>
+  </data>
+  <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 29</value>
+  </data>
+  <data name="tableLayoutPanel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1077, 681</value>
+  </data>
+  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="运行工具条toolStrip" Row="0" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="编辑工具条toolStrip" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel1" Row="0" RowSpan="1" Column="3" ColumnSpan="2" /&gt;&lt;Control Name="tabControl1" Row="1" RowSpan="2" Column="0" ColumnSpan="5" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,228,Percent,100,Absolute,176,Absolute,194,Absolute,60" /&gt;&lt;Rows Styles="Absolute,54,Percent,100,Absolute,170" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
   <data name="新建NToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -140,6 +1084,18 @@
         mS9gn2bY4UY/UzQ7E9TqfeTFtnuB+XAfzSHKr11kSl/uBebDiZ89ZCst3OUkdwL28sIVsE83ock+EIQV
         2Mz2wxeg6/UAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="新建NToolStripButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="新建NToolStripButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 51</value>
+  </data>
+  <data name="新建NToolStripButton.Text" xml:space="preserve">
+    <value>新建(&amp;N)</value>
+  </data>
+  <data name="新建NToolStripButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
   </data>
   <data name="打开ToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -157,6 +1113,18 @@
         g6eHO+A/lyD8ARfG3mk9fv1YAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="打开ToolStripButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="打开ToolStripButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 51</value>
+  </data>
+  <data name="打开ToolStripButton.Text" xml:space="preserve">
+    <value>打开(&amp;O)</value>
+  </data>
+  <data name="打开ToolStripButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
   <data name="保存ToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -173,6 +1141,18 @@
         AElFTkSuQmCC
 </value>
   </data>
+  <data name="保存ToolStripButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="保存ToolStripButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 51</value>
+  </data>
+  <data name="保存ToolStripButton.Text" xml:space="preserve">
+    <value>保存(&amp;S)</value>
+  </data>
+  <data name="保存ToolStripButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
   <data name="打印PToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -188,6 +1168,24 @@
         uqob5KjiXwWH/GVl5HPt5zZh37GL2H1EiF1VZ7GDI6CNW5r/TSzWbwHYL0mKJ5czAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="打印PToolStripButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="打印PToolStripButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 49</value>
+  </data>
+  <data name="打印PToolStripButton.Text" xml:space="preserve">
+    <value>打印(&amp;P)</value>
+  </data>
+  <data name="打印PToolStripButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="toolStripSeparator.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 68</value>
+  </data>
+  <data name="剪切UToolStripButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 5.25pt</value>
+  </data>
   <data name="剪切UToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -200,6 +1198,18 @@
         4Df3o4Zfxy7QrdxDRFKol5khkpR2H4qmIOzUQNBGwrsXYxccnNOQqNbQ0KGGZ+eEPVwdeLxvqqrf4wGh
         TNAAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="剪切UToolStripButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="剪切UToolStripButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 36</value>
+  </data>
+  <data name="剪切UToolStripButton.Text" xml:space="preserve">
+    <value>剪切(&amp;U)</value>
+  </data>
+  <data name="剪切UToolStripButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
   </data>
   <data name="复制CToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -214,6 +1224,18 @@
         wfUqyf1eP5U1ptJD/o1LzeNCsHPydtqdr6k4aiwvOHvNSya3ibU/QIdrEkvfhJislc32MfYfuV1eUGPw
         FF7bIVJVZ0N/soPK421UHGstlFvYd/hWecF/Qqf7CR0A5wwgSQA2AAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="复制CToolStripButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="复制CToolStripButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 49</value>
+  </data>
+  <data name="复制CToolStripButton.Text" xml:space="preserve">
+    <value>复制(&amp;C)</value>
+  </data>
+  <data name="复制CToolStripButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
   </data>
   <data name="粘贴PToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -231,6 +1253,21 @@
         PdXm80/AfDokTVu+8DfPXv9XCcIPTvjvLQ8YoakAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="粘贴PToolStripButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="粘贴PToolStripButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 49</value>
+  </data>
+  <data name="粘贴PToolStripButton.Text" xml:space="preserve">
+    <value>粘贴(&amp;P)</value>
+  </data>
+  <data name="粘贴PToolStripButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 54</value>
+  </data>
   <data name="帮助LToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -245,6 +1282,342 @@
         Beqiao58N5NrPluoryJO0QeKU7sNGKPPazh9aRzGo/eYmVvEMk270fTlmzl2N3XW9xL/jv7iaxw7+wAH
         E9ew//AVxE8OItv/9O/Cf0ck8gud2vKswuxNZgAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="帮助LToolStripButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="帮助LToolStripButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 49</value>
+  </data>
+  <data name="帮助LToolStripButton.Text" xml:space="preserve">
+    <value>帮助(&amp;L)</value>
+  </data>
+  <data name="帮助LToolStripButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="工程配置tabControl.Alignment" type="System.Windows.Forms.TabAlignment, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="&gt;&gt;坐标系TabPage.Name" xml:space="preserve">
+    <value>坐标系TabPage</value>
+  </data>
+  <data name="&gt;&gt;坐标系TabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;坐标系TabPage.Parent" xml:space="preserve">
+    <value>工程配置tabControl</value>
+  </data>
+  <data name="&gt;&gt;坐标系TabPage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;标定参数tabPage.Name" xml:space="preserve">
+    <value>标定参数tabPage</value>
+  </data>
+  <data name="&gt;&gt;标定参数tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;标定参数tabPage.Parent" xml:space="preserve">
+    <value>工程配置tabControl</value>
+  </data>
+  <data name="&gt;&gt;标定参数tabPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;夹抓tabPage.Name" xml:space="preserve">
+    <value>夹抓tabPage</value>
+  </data>
+  <data name="&gt;&gt;夹抓tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;夹抓tabPage.Parent" xml:space="preserve">
+    <value>工程配置tabControl</value>
+  </data>
+  <data name="&gt;&gt;夹抓tabPage.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;通信配置tabPage.Name" xml:space="preserve">
+    <value>通信配置tabPage</value>
+  </data>
+  <data name="&gt;&gt;通信配置tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;通信配置tabPage.Parent" xml:space="preserve">
+    <value>工程配置tabControl</value>
+  </data>
+  <data name="&gt;&gt;通信配置tabPage.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="工程配置tabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="工程配置tabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="工程配置tabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>970, 586</value>
+  </data>
+  <data name="工程配置tabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;工程配置tabControl.Name" xml:space="preserve">
+    <value>工程配置tabControl</value>
+  </data>
+  <data name="&gt;&gt;工程配置tabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;工程配置tabControl.Parent" xml:space="preserve">
+    <value>工程配置tabPage</value>
+  </data>
+  <data name="&gt;&gt;工程配置tabControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="坐标系TabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="坐标系TabPage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="坐标系TabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>962, 560</value>
+  </data>
+  <data name="坐标系TabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="坐标系TabPage.Text" xml:space="preserve">
+    <value>坐标系配置</value>
+  </data>
+  <data name="&gt;&gt;坐标系TabPage.Name" xml:space="preserve">
+    <value>坐标系TabPage</value>
+  </data>
+  <data name="&gt;&gt;坐标系TabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;坐标系TabPage.Parent" xml:space="preserve">
+    <value>工程配置tabControl</value>
+  </data>
+  <data name="&gt;&gt;坐标系TabPage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="标定参数tabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="标定参数tabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>962, 560</value>
+  </data>
+  <data name="标定参数tabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="标定参数tabPage.Text" xml:space="preserve">
+    <value>标定管理</value>
+  </data>
+  <data name="&gt;&gt;标定参数tabPage.Name" xml:space="preserve">
+    <value>标定参数tabPage</value>
+  </data>
+  <data name="&gt;&gt;标定参数tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;标定参数tabPage.Parent" xml:space="preserve">
+    <value>工程配置tabControl</value>
+  </data>
+  <data name="&gt;&gt;标定参数tabPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="夹抓tabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="夹抓tabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>962, 560</value>
+  </data>
+  <data name="夹抓tabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="夹抓tabPage.Text" xml:space="preserve">
+    <value>夹抓配置</value>
+  </data>
+  <data name="&gt;&gt;夹抓tabPage.Name" xml:space="preserve">
+    <value>夹抓tabPage</value>
+  </data>
+  <data name="&gt;&gt;夹抓tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;夹抓tabPage.Parent" xml:space="preserve">
+    <value>工程配置tabControl</value>
+  </data>
+  <data name="&gt;&gt;夹抓tabPage.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="通信配置tabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="通信配置tabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>962, 560</value>
+  </data>
+  <data name="通信配置tabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="通信配置tabPage.Text" xml:space="preserve">
+    <value>通信配置</value>
+  </data>
+  <data name="&gt;&gt;通信配置tabPage.Name" xml:space="preserve">
+    <value>通信配置tabPage</value>
+  </data>
+  <data name="&gt;&gt;通信配置tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;通信配置tabPage.Parent" xml:space="preserve">
+    <value>工程配置tabControl</value>
+  </data>
+  <data name="&gt;&gt;通信配置tabPage.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tabControl3.Alignment" type="System.Windows.Forms.TabAlignment, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="&gt;&gt;SensorTabPage.Name" xml:space="preserve">
+    <value>SensorTabPage</value>
+  </data>
+  <data name="&gt;&gt;SensorTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SensorTabPage.Parent" xml:space="preserve">
+    <value>tabControl3</value>
+  </data>
+  <data name="&gt;&gt;SensorTabPage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;DeviceTabPage.Name" xml:space="preserve">
+    <value>DeviceTabPage</value>
+  </data>
+  <data name="&gt;&gt;DeviceTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DeviceTabPage.Parent" xml:space="preserve">
+    <value>tabControl3</value>
+  </data>
+  <data name="&gt;&gt;DeviceTabPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;SocketTabPage.Name" xml:space="preserve">
+    <value>SocketTabPage</value>
+  </data>
+  <data name="&gt;&gt;SocketTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SocketTabPage.Parent" xml:space="preserve">
+    <value>tabControl3</value>
+  </data>
+  <data name="&gt;&gt;SocketTabPage.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabControl3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tabControl3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tabControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>976, 592</value>
+  </data>
+  <data name="tabControl3.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabControl3.Name" xml:space="preserve">
+    <value>tabControl3</value>
+  </data>
+  <data name="&gt;&gt;tabControl3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabControl3.Parent" xml:space="preserve">
+    <value>通讯tabPage</value>
+  </data>
+  <data name="&gt;&gt;tabControl3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="SensorTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="SensorTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>968, 566</value>
+  </data>
+  <data name="SensorTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="SensorTabPage.Text" xml:space="preserve">
+    <value>传感器连接</value>
+  </data>
+  <data name="&gt;&gt;SensorTabPage.Name" xml:space="preserve">
+    <value>SensorTabPage</value>
+  </data>
+  <data name="&gt;&gt;SensorTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SensorTabPage.Parent" xml:space="preserve">
+    <value>tabControl3</value>
+  </data>
+  <data name="&gt;&gt;SensorTabPage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="DeviceTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="DeviceTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="DeviceTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>968, 566</value>
+  </data>
+  <data name="DeviceTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="DeviceTabPage.Text" xml:space="preserve">
+    <value>设备连接</value>
+  </data>
+  <data name="&gt;&gt;DeviceTabPage.Name" xml:space="preserve">
+    <value>DeviceTabPage</value>
+  </data>
+  <data name="&gt;&gt;DeviceTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DeviceTabPage.Parent" xml:space="preserve">
+    <value>tabControl3</value>
+  </data>
+  <data name="&gt;&gt;DeviceTabPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="SocketTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="SocketTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="SocketTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>968, 566</value>
+  </data>
+  <data name="SocketTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="SocketTabPage.Text" xml:space="preserve">
+    <value>Socket连接</value>
+  </data>
+  <data name="&gt;&gt;SocketTabPage.Name" xml:space="preserve">
+    <value>SocketTabPage</value>
+  </data>
+  <data name="&gt;&gt;SocketTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SocketTabPage.Parent" xml:space="preserve">
+    <value>tabControl3</value>
+  </data>
+  <data name="&gt;&gt;SocketTabPage.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1077, 732</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -411,5 +1784,467 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAA=
 </value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>100, 100</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>LD_Vision</value>
+  </data>
+  <data name="&gt;&gt;文件toolStripMenuItem.Name" xml:space="preserve">
+    <value>文件toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;文件toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;新建toolStripMenuItem.Name" xml:space="preserve">
+    <value>新建toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;新建toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;打开toolStripMenuItem.Name" xml:space="preserve">
+    <value>打开toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;打开toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;保存toolStripMenuItem.Name" xml:space="preserve">
+    <value>保存toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;保存toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;另存为toolStripMenuItem.Name" xml:space="preserve">
+    <value>另存为toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;另存为toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;编辑toolStripMenuItem.Name" xml:space="preserve">
+    <value>编辑toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;编辑toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem.Name" xml:space="preserve">
+    <value>toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;视图toolStripMenuItem.Name" xml:space="preserve">
+    <value>视图toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;视图toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;工具toolStripMenuItem.Name" xml:space="preserve">
+    <value>工具toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;工具toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;检测工具toolStripMenuItem.Name" xml:space="preserve">
+    <value>检测工具toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;检测工具toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;标定工具toolStripMenuItem.Name" xml:space="preserve">
+    <value>标定工具toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;标定工具toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;相机标定toolStripMenuItem.Name" xml:space="preserve">
+    <value>相机标定toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;相机标定toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FA相机标定toolStripMenuItem.Name" xml:space="preserve">
+    <value>FA相机标定toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;FA相机标定toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;矩阵标定相机toolStripMenuItem2.Name" xml:space="preserve">
+    <value>矩阵标定相机toolStripMenuItem2</value>
+  </data>
+  <data name="&gt;&gt;矩阵标定相机toolStripMenuItem2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;N点标定相机toolStripMenuItem3.Name" xml:space="preserve">
+    <value>N点标定相机toolStripMenuItem3</value>
+  </data>
+  <data name="&gt;&gt;N点标定相机toolStripMenuItem3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;标定相机角度toolStripMenuItem.Name" xml:space="preserve">
+    <value>标定相机角度toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;标定相机角度toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;相机激光标定toolStripMenuItem.Name" xml:space="preserve">
+    <value>相机激光标定toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;相机激光标定toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;相机点激光toolStripMenuItem.Name" xml:space="preserve">
+    <value>相机点激光toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;相机点激光toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;相机线激光标定toolStripMenuItem.Name" xml:space="preserve">
+    <value>相机线激光标定toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;相机线激光标定toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;相机面激光标定toolStripMenuItem.Name" xml:space="preserve">
+    <value>相机面激光标定toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;相机面激光标定toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;相机胶枪标定ToolStripMenuItem.Name" xml:space="preserve">
+    <value>相机胶枪标定ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;相机胶枪标定ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;机器人夹抓标定ToolStripMenuItem.Name" xml:space="preserve">
+    <value>机器人夹抓标定ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;机器人夹抓标定ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;运动toolStripMenuItem.Name" xml:space="preserve">
+    <value>运动toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;运动toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;激光标定toolStripMenuItem.Name" xml:space="preserve">
+    <value>激光标定toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;激光标定toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;标定线激光toolStripMenuItem.Name" xml:space="preserve">
+    <value>标定线激光toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;标定线激光toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;标定点激光toolStripMenuItem.Name" xml:space="preserve">
+    <value>标定点激光toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;标定点激光toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;标定面激光toolStripMenuItem.Name" xml:space="preserve">
+    <value>标定面激光toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;标定面激光toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;机台校准toolStripMenuItem.Name" xml:space="preserve">
+    <value>机台校准toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;机台校准toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;面阵补偿toolStripMenuItem.Name" xml:space="preserve">
+    <value>面阵补偿toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;面阵补偿toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;线性补偿toolStripMenuItem.Name" xml:space="preserve">
+    <value>线性补偿toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;线性补偿toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem2.Name" xml:space="preserve">
+    <value>toolStripMenuItem2</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;相机9点标定toolStripMenuItem.Name" xml:space="preserve">
+    <value>相机9点标定toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;相机9点标定toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;面激光9点标定toolStripMenuItem.Name" xml:space="preserve">
+    <value>面激光9点标定toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;面激光9点标定toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;线激光9点标定toolStripMenuItem.Name" xml:space="preserve">
+    <value>线激光9点标定toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;线激光9点标定toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;点激光9点标定toolStripMenuItem.Name" xml:space="preserve">
+    <value>点激光9点标定toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;点激光9点标定toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;配置toolStripMenuItem.Name" xml:space="preserve">
+    <value>配置toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;配置toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;参数配置toolStripMenuItem.Name" xml:space="preserve">
+    <value>参数配置toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;参数配置toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;传感器配置toolStripMenuItem.Name" xml:space="preserve">
+    <value>传感器配置toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;传感器配置toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;光源配置toolStripMenuItem.Name" xml:space="preserve">
+    <value>光源配置toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;光源配置toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;运动控制卡配置toolStripMenuItem.Name" xml:space="preserve">
+    <value>运动控制卡配置toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;运动控制卡配置toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;采集源配置ToolStripMenuItem.Name" xml:space="preserve">
+    <value>采集源配置ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;采集源配置ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;程序配置ToolStripMenuItem.Name" xml:space="preserve">
+    <value>程序配置ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;程序配置ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;调试toolStripMenuItem.Name" xml:space="preserve">
+    <value>调试toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;调试toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;查看点激光toolStripMenuItem.Name" xml:space="preserve">
+    <value>查看点激光toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;查看点激光toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;查看线激光toolStripMenuItem.Name" xml:space="preserve">
+    <value>查看线激光toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;查看线激光toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
+    <value>toolStripSeparator2</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;参数toolStripMenuItem.Name" xml:space="preserve">
+    <value>参数toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;参数toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;保存布局toolStripMenuItem.Name" xml:space="preserve">
+    <value>保存布局toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;保存布局toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;重置屏幕参数toolStripMenuItem.Name" xml:space="preserve">
+    <value>重置屏幕参数toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;重置屏幕参数toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;用户toolStripMenuItem.Name" xml:space="preserve">
+    <value>用户toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;用户toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;登录toolStripMenuItem.Name" xml:space="preserve">
+    <value>登录toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;登录toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabel1.Name" xml:space="preserve">
+    <value>toolStripStatusLabel1</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabel2.Name" xml:space="preserve">
+    <value>toolStripStatusLabel2</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;日期toolStripStatusLabel.Name" xml:space="preserve">
+    <value>日期toolStripStatusLabel</value>
+  </data>
+  <data name="&gt;&gt;日期toolStripStatusLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabel4.Name" xml:space="preserve">
+    <value>toolStripStatusLabel4</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabel4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;时间toolStripStatusLabel.Name" xml:space="preserve">
+    <value>时间toolStripStatusLabel</value>
+  </data>
+  <data name="&gt;&gt;时间toolStripStatusLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabel3.Name" xml:space="preserve">
+    <value>toolStripStatusLabel3</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;用户toolStripStatusLabel.Name" xml:space="preserve">
+    <value>用户toolStripStatusLabel</value>
+  </data>
+  <data name="&gt;&gt;用户toolStripStatusLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;运行toolStripButton.Name" xml:space="preserve">
+    <value>运行toolStripButton</value>
+  </data>
+  <data name="&gt;&gt;运行toolStripButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;停止toolStripButton.Name" xml:space="preserve">
+    <value>停止toolStripButton</value>
+  </data>
+  <data name="&gt;&gt;停止toolStripButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;循环次数toolStripButton.Name" xml:space="preserve">
+    <value>循环次数toolStripButton</value>
+  </data>
+  <data name="&gt;&gt;循环次数toolStripButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;联机运行toolStripButton.Name" xml:space="preserve">
+    <value>联机运行toolStripButton</value>
+  </data>
+  <data name="&gt;&gt;联机运行toolStripButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;断开连机toolStripButton.Name" xml:space="preserve">
+    <value>断开连机toolStripButton</value>
+  </data>
+  <data name="&gt;&gt;断开连机toolStripButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;视图toolStripButton.Name" xml:space="preserve">
+    <value>视图toolStripButton</value>
+  </data>
+  <data name="&gt;&gt;视图toolStripButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;新建NToolStripButton.Name" xml:space="preserve">
+    <value>新建NToolStripButton</value>
+  </data>
+  <data name="&gt;&gt;新建NToolStripButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;打开ToolStripButton.Name" xml:space="preserve">
+    <value>打开ToolStripButton</value>
+  </data>
+  <data name="&gt;&gt;打开ToolStripButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;保存ToolStripButton.Name" xml:space="preserve">
+    <value>保存ToolStripButton</value>
+  </data>
+  <data name="&gt;&gt;保存ToolStripButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;打印PToolStripButton.Name" xml:space="preserve">
+    <value>打印PToolStripButton</value>
+  </data>
+  <data name="&gt;&gt;打印PToolStripButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator.Name" xml:space="preserve">
+    <value>toolStripSeparator</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;剪切UToolStripButton.Name" xml:space="preserve">
+    <value>剪切UToolStripButton</value>
+  </data>
+  <data name="&gt;&gt;剪切UToolStripButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;复制CToolStripButton.Name" xml:space="preserve">
+    <value>复制CToolStripButton</value>
+  </data>
+  <data name="&gt;&gt;复制CToolStripButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;粘贴PToolStripButton.Name" xml:space="preserve">
+    <value>粘贴PToolStripButton</value>
+  </data>
+  <data name="&gt;&gt;粘贴PToolStripButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
+    <value>toolStripSeparator1</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;帮助LToolStripButton.Name" xml:space="preserve">
+    <value>帮助LToolStripButton</value>
+  </data>
+  <data name="&gt;&gt;帮助LToolStripButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;语言toolStripComboBox.Name" xml:space="preserve">
+    <value>语言toolStripComboBox</value>
+  </data>
+  <data name="&gt;&gt;语言toolStripComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MainForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

@@ -201,6 +201,9 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DeviceConnectConfigParamManageForm.en-US.resx">
+      <DependentUpon>DeviceConnectConfigParamManageForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DeviceConnectConfigParamManageForm.resx">
       <DependentUpon>DeviceConnectConfigParamManageForm.cs</DependentUpon>
     </EmbeddedResource>

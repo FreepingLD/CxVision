@@ -233,6 +233,9 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="SensorConnectConfigParamMangerForm.en-US.resx">
+      <DependentUpon>SensorConnectConfigParamMangerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SensorConnectConfigParamMangerForm.resx">
       <DependentUpon>SensorConnectConfigParamMangerForm.cs</DependentUpon>
     </EmbeddedResource>
