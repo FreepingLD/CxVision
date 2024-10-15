@@ -505,6 +505,20 @@
     <Compile Include="其他工具\删图工具\Form1.designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="对位引导\向量对位\VectorAlign.cs" />
+    <Compile Include="对位引导\向量对位\VectorAlignForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="对位引导\向量对位\VectorAlignForm.designer.cs">
+      <DependentUpon>VectorAlignForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="对位引导\向量计算\VectorCalculate.cs" />
+    <Compile Include="对位引导\向量计算\VectorCalculateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="对位引导\向量计算\VectorCalculateForm.designer.cs">
+      <DependentUpon>VectorCalculateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="对位引导\坐标转换\CoordTransform.cs" />
     <Compile Include="对位引导\坐标转换\CoordTransformForm.cs">
       <SubType>Form</SubType>
@@ -3499,6 +3513,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="其他工具\删图工具\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="对位引导\向量对位\VectorAlignForm.resx">
+      <DependentUpon>VectorAlignForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="对位引导\向量计算\VectorCalculateForm.resx">
+      <DependentUpon>VectorCalculateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="对位引导\坐标转换\CoordTransformForm.resx">
       <DependentUpon>CoordTransformForm.cs</DependentUpon>
