@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FunctionBlock
+{
+    [Serializable]
+    public class ProgramParam
+    {
+        public ProgramParam(string path)
+        {
+            this.ProgramPath = path;
+        }
+        public ProgramParam()
+        {
+
+        }
+        [DisplayNameAttribute("程序路径")]
+        public string ProgramPath
+        {
+            set;
+            get;
+        }
+        [DisplayNameAttribute("激光活")]
+        public bool IsActive
+        {
+            set;
+            get;
+        } = true;
+        [DisplayNameAttribute("ID描述")]
+        public string Describe
+        {
+            set;
+            get;
+        }
+        [DisplayNameAttribute("预留")]
+        public string NONE
+        {
+            set;
+            get;
+        }
+
+
+    }
+
+
+
+}

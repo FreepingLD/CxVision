@@ -87,6 +87,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ReadWriteINI.cs" />
     <Compile Include="CpuMonitor.cs" />
     <Compile Include="MemoryMonitor.cs" />
     <Compile Include="传感器参数\CameraParam.cs" />
@@ -111,6 +112,7 @@
     <Compile Include="EnumAggregation.cs" />
     <Compile Include="文件操作\ExcelHelper.cs" />
     <Compile Include="GlobalVariable.cs" />
+    <Compile Include="日志\ListBoxTraceListener.cs" />
     <Compile Include="类型转换\ObjectConverter.cs" />
     <Compile Include="日志\Logger.cs" />
     <Compile Include="日志\LoggerHelper.cs" />

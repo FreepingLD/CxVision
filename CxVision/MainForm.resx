@@ -153,11 +153,11 @@
     <value>1</value>
   </data>
   <data name="设备splitContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>962, 560</value>
+    <value>1038, 573</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="设备splitContainer.SplitterDistance" type="System.Int32, mscorlib">
-    <value>262</value>
+    <value>268</value>
   </data>
   <data name="设备splitContainer.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -179,93 +179,6 @@
   </metadata>
   <data name="menuStrip1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft YaHei UI, 12pt</value>
-  </data>
-  <data name="文件toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 25</value>
-  </data>
-  <data name="文件toolStripMenuItem.Text" xml:space="preserve">
-    <value>文件</value>
-  </data>
-  <data name="编辑toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 25</value>
-  </data>
-  <data name="编辑toolStripMenuItem.Text" xml:space="preserve">
-    <value>编辑</value>
-  </data>
-  <data name="视图toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 25</value>
-  </data>
-  <data name="视图toolStripMenuItem.Text" xml:space="preserve">
-    <value>视图</value>
-  </data>
-  <data name="工具toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 25</value>
-  </data>
-  <data name="工具toolStripMenuItem.Text" xml:space="preserve">
-    <value>工具</value>
-  </data>
-  <data name="配置toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 25</value>
-  </data>
-  <data name="配置toolStripMenuItem.Text" xml:space="preserve">
-    <value>配置</value>
-  </data>
-  <data name="调试toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 25</value>
-  </data>
-  <data name="调试toolStripMenuItem.Text" xml:space="preserve">
-    <value>调试</value>
-  </data>
-  <data name="参数toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 25</value>
-  </data>
-  <data name="参数toolStripMenuItem.Text" xml:space="preserve">
-    <value>参数</value>
-  </data>
-  <data name="用户toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 25</value>
-  </data>
-  <data name="用户toolStripMenuItem.Text" xml:space="preserve">
-    <value>用户</value>
-  </data>
-  <data name="语言toolStripComboBox.Items" xml:space="preserve">
-    <value>中文(Chinise)</value>
-  </data>
-  <data name="语言toolStripComboBox.Items1" xml:space="preserve">
-    <value>英文(English)</value>
-  </data>
-  <data name="语言toolStripComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 25</value>
-  </data>
-  <data name="语言toolStripComboBox.Text" xml:space="preserve">
-    <value>中文(Chinise)</value>
-  </data>
-  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="menuStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 2, 0, 2</value>
-  </data>
-  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1077, 29</value>
-  </data>
-  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="menuStrip1.Text" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="新建toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 26</value>
@@ -291,11 +204,29 @@
   <data name="另存为toolStripMenuItem.Text" xml:space="preserve">
     <value>另存为</value>
   </data>
+  <data name="文件toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 25</value>
+  </data>
+  <data name="文件toolStripMenuItem.Text" xml:space="preserve">
+    <value>文件</value>
+  </data>
   <data name="toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>234, 26</value>
   </data>
   <data name="toolStripMenuItem.Text" xml:space="preserve">
     <value>toolStripMenuItem3</value>
+  </data>
+  <data name="编辑toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 25</value>
+  </data>
+  <data name="编辑toolStripMenuItem.Text" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="视图toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 25</value>
+  </data>
+  <data name="视图toolStripMenuItem.Text" xml:space="preserve">
+    <value>视图</value>
   </data>
   <data name="检测工具toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>176, 26</value>
@@ -308,12 +239,6 @@
   </data>
   <data name="标定工具toolStripMenuItem.Text" xml:space="preserve">
     <value>对射标定工具</value>
-  </data>
-  <data name="相机标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 26</value>
-  </data>
-  <data name="相机标定toolStripMenuItem.Text" xml:space="preserve">
-    <value>相机标定</value>
   </data>
   <data name="FA相机标定toolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -348,11 +273,11 @@
   <data name="标定相机角度toolStripMenuItem.Text" xml:space="preserve">
     <value>标定相机角度</value>
   </data>
-  <data name="相机激光标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="相机标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>176, 26</value>
   </data>
-  <data name="相机激光标定toolStripMenuItem.Text" xml:space="preserve">
-    <value>相机激光标定</value>
+  <data name="相机标定toolStripMenuItem.Text" xml:space="preserve">
+    <value>相机标定</value>
   </data>
   <data name="相机点激光toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>192, 26</value>
@@ -384,17 +309,17 @@
   <data name="机器人夹抓标定ToolStripMenuItem.Text" xml:space="preserve">
     <value>机器人&amp;夹抓标定</value>
   </data>
+  <data name="相机激光标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 26</value>
+  </data>
+  <data name="相机激光标定toolStripMenuItem.Text" xml:space="preserve">
+    <value>相机激光标定</value>
+  </data>
   <data name="运动toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>176, 26</value>
   </data>
   <data name="运动toolStripMenuItem.Text" xml:space="preserve">
     <value>运动控制</value>
-  </data>
-  <data name="激光标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 26</value>
-  </data>
-  <data name="激光标定toolStripMenuItem.Text" xml:space="preserve">
-    <value>激光标定</value>
   </data>
   <data name="标定线激光toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 26</value>
@@ -414,11 +339,11 @@
   <data name="标定面激光toolStripMenuItem.Text" xml:space="preserve">
     <value>标定面激光</value>
   </data>
-  <data name="机台校准toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="激光标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>176, 26</value>
   </data>
-  <data name="机台校准toolStripMenuItem.Text" xml:space="preserve">
-    <value>机台校准</value>
+  <data name="激光标定toolStripMenuItem.Text" xml:space="preserve">
+    <value>激光标定</value>
   </data>
   <data name="面阵补偿toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 26</value>
@@ -432,11 +357,11 @@
   <data name="线性补偿toolStripMenuItem.Text" xml:space="preserve">
     <value>线性补偿</value>
   </data>
-  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="机台校准toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>176, 26</value>
   </data>
-  <data name="toolStripMenuItem2.Text" xml:space="preserve">
-    <value>9点标定</value>
+  <data name="机台校准toolStripMenuItem.Text" xml:space="preserve">
+    <value>机台校准</value>
   </data>
   <data name="相机9点标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>185, 26</value>
@@ -461,6 +386,18 @@
   </data>
   <data name="点激光9点标定toolStripMenuItem.Text" xml:space="preserve">
     <value>点激光9点标定</value>
+  </data>
+  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 26</value>
+  </data>
+  <data name="toolStripMenuItem2.Text" xml:space="preserve">
+    <value>9点标定</value>
+  </data>
+  <data name="工具toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 25</value>
+  </data>
+  <data name="工具toolStripMenuItem.Text" xml:space="preserve">
+    <value>工具</value>
   </data>
   <data name="参数配置toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>192, 26</value>
@@ -498,6 +435,12 @@
   <data name="程序配置ToolStripMenuItem.Text" xml:space="preserve">
     <value>程序配置</value>
   </data>
+  <data name="配置toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 25</value>
+  </data>
+  <data name="配置toolStripMenuItem.Text" xml:space="preserve">
+    <value>配置</value>
+  </data>
   <data name="查看点激光toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 26</value>
   </data>
@@ -513,6 +456,12 @@
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 6</value>
   </data>
+  <data name="调试toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 25</value>
+  </data>
+  <data name="调试toolStripMenuItem.Text" xml:space="preserve">
+    <value>调试</value>
+  </data>
   <data name="保存布局toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>176, 26</value>
   </data>
@@ -525,19 +474,70 @@
   <data name="重置屏幕参数toolStripMenuItem.Text" xml:space="preserve">
     <value>重置屏幕参数</value>
   </data>
+  <data name="参数toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 25</value>
+  </data>
+  <data name="参数toolStripMenuItem.Text" xml:space="preserve">
+    <value>参数</value>
+  </data>
   <data name="登录toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>112, 26</value>
   </data>
   <data name="登录toolStripMenuItem.Text" xml:space="preserve">
     <value>登录</value>
   </data>
+  <data name="用户toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 25</value>
+  </data>
+  <data name="用户toolStripMenuItem.Text" xml:space="preserve">
+    <value>用户</value>
+  </data>
+  <data name="语言toolStripComboBox.Items" xml:space="preserve">
+    <value>中文(Chinise)</value>
+  </data>
+  <data name="语言toolStripComboBox.Items1" xml:space="preserve">
+    <value>英文(English)</value>
+  </data>
+  <data name="语言toolStripComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 25</value>
+  </data>
+  <data name="语言toolStripComboBox.Text" xml:space="preserve">
+    <value>中文(Chinise)</value>
+  </data>
+  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menuStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 2, 0, 2</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1060, 29</value>
+  </data>
+  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="menuStrip1.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>137, 17</value>
   </metadata>
-  <data name="toolStripStatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="程序1toolStripStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>89, 17</value>
   </data>
-  <data name="toolStripStatusLabel1.Text" xml:space="preserve">
+  <data name="程序1toolStripStatusLabel.Text" xml:space="preserve">
     <value>程序路径+名称</value>
   </data>
   <data name="toolStripStatusLabel2.Size" type="System.Drawing.Size, System.Drawing">
@@ -576,11 +576,23 @@
   <data name="用户toolStripStatusLabel.Text" xml:space="preserve">
     <value>toolStripStatusLabel5</value>
   </data>
+  <data name="toolStripStatusLabel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 17</value>
+  </data>
+  <data name="toolStripStatusLabel5.Text" xml:space="preserve">
+    <value>屏幕位置:</value>
+  </data>
+  <data name="toolStripStatusLabel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 17</value>
+  </data>
+  <data name="toolStripStatusLabel6.Text" xml:space="preserve">
+    <value>toolStripStatusLabel6</value>
+  </data>
   <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 710</value>
+    <value>0, 723</value>
   </data>
   <data name="statusStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1077, 22</value>
+    <value>1060, 22</value>
   </data>
   <data name="statusStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -691,7 +703,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="运行工具条toolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>595, 54</value>
+    <value>578, 54</value>
   </data>
   <data name="运行工具条toolStrip.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -719,360 +731,6 @@
   </data>
   <data name="编辑工具条toolStrip.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft YaHei UI, 10.5pt</value>
-  </data>
-  <data name="编辑工具条toolStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="编辑工具条toolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>228, 54</value>
-  </data>
-  <data name="编辑工具条toolStrip.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="编辑工具条toolStrip.Text" xml:space="preserve">
-    <value>toolStrip1</value>
-  </data>
-  <data name="&gt;&gt;编辑工具条toolStrip.Name" xml:space="preserve">
-    <value>编辑工具条toolStrip</value>
-  </data>
-  <data name="&gt;&gt;编辑工具条toolStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;编辑工具条toolStrip.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;编辑工具条toolStrip.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="屏蔽checkBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="屏蔽checkBox.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
-    <value>Button</value>
-  </data>
-  <data name="屏蔽checkBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 10.5pt</value>
-  </data>
-  <data name="屏蔽checkBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 0</value>
-  </data>
-  <data name="屏蔽checkBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 54</value>
-  </data>
-  <data name="屏蔽checkBox.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="屏蔽checkBox.Text" xml:space="preserve">
-    <value>屏蔽检测</value>
-  </data>
-  <data name="屏蔽checkBox.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;屏蔽checkBox.Name" xml:space="preserve">
-    <value>屏蔽checkBox</value>
-  </data>
-  <data name="&gt;&gt;屏蔽checkBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;屏蔽checkBox.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;屏蔽checkBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="连接服务器Btn.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="连接服务器Btn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 10.5pt</value>
-  </data>
-  <data name="连接服务器Btn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 0</value>
-  </data>
-  <data name="连接服务器Btn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 54</value>
-  </data>
-  <data name="连接服务器Btn.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="连接服务器Btn.Text" xml:space="preserve">
-    <value>连接服务器</value>
-  </data>
-  <data name="&gt;&gt;连接服务器Btn.Name" xml:space="preserve">
-    <value>连接服务器Btn</value>
-  </data>
-  <data name="&gt;&gt;连接服务器Btn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;连接服务器Btn.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;连接服务器Btn.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="显示数据checkBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Right</value>
-  </data>
-  <data name="显示数据checkBox.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
-    <value>Button</value>
-  </data>
-  <data name="显示数据checkBox.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="显示数据checkBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>196, 0</value>
-  </data>
-  <data name="显示数据checkBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 54</value>
-  </data>
-  <data name="显示数据checkBox.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;显示数据checkBox.Name" xml:space="preserve">
-    <value>显示数据checkBox</value>
-  </data>
-  <data name="&gt;&gt;显示数据checkBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;显示数据checkBox.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;显示数据checkBox.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>823, 0</value>
-  </data>
-  <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>254, 54</value>
-  </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="tabControl1.Alignment" type="System.Windows.Forms.TabAlignment, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="程序tabPage.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 9pt</value>
-  </data>
-  <data name="程序tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 4</value>
-  </data>
-  <data name="程序tabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="程序tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1069, 592</value>
-  </data>
-  <data name="程序tabPage.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="程序tabPage.Text" xml:space="preserve">
-    <value>程序编辑</value>
-  </data>
-  <data name="&gt;&gt;程序tabPage.Name" xml:space="preserve">
-    <value>程序tabPage</value>
-  </data>
-  <data name="&gt;&gt;程序tabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;程序tabPage.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;程序tabPage.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;工程配置tabControl.Name" xml:space="preserve">
-    <value>工程配置tabControl</value>
-  </data>
-  <data name="&gt;&gt;工程配置tabControl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;工程配置tabControl.Parent" xml:space="preserve">
-    <value>工程配置tabPage</value>
-  </data>
-  <data name="&gt;&gt;工程配置tabControl.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="工程配置tabPage.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 9pt</value>
-  </data>
-  <data name="工程配置tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 4</value>
-  </data>
-  <data name="工程配置tabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="工程配置tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>976, 592</value>
-  </data>
-  <data name="工程配置tabPage.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="工程配置tabPage.Text" xml:space="preserve">
-    <value>工程配置</value>
-  </data>
-  <data name="&gt;&gt;工程配置tabPage.Name" xml:space="preserve">
-    <value>工程配置tabPage</value>
-  </data>
-  <data name="&gt;&gt;工程配置tabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;工程配置tabPage.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;工程配置tabPage.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;tabControl3.Name" xml:space="preserve">
-    <value>tabControl3</value>
-  </data>
-  <data name="&gt;&gt;tabControl3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabControl3.Parent" xml:space="preserve">
-    <value>通讯tabPage</value>
-  </data>
-  <data name="&gt;&gt;tabControl3.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="通讯tabPage.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 9pt</value>
-  </data>
-  <data name="通讯tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 4</value>
-  </data>
-  <data name="通讯tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>976, 592</value>
-  </data>
-  <data name="通讯tabPage.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="通讯tabPage.Text" xml:space="preserve">
-    <value>连接配置</value>
-  </data>
-  <data name="&gt;&gt;通讯tabPage.Name" xml:space="preserve">
-    <value>通讯tabPage</value>
-  </data>
-  <data name="&gt;&gt;通讯tabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;通讯tabPage.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;通讯tabPage.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="系统配置tabPage.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 9pt</value>
-  </data>
-  <data name="系统配置tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 4</value>
-  </data>
-  <data name="系统配置tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>976, 592</value>
-  </data>
-  <data name="系统配置tabPage.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="系统配置tabPage.Text" xml:space="preserve">
-    <value>系统配置</value>
-  </data>
-  <data name="&gt;&gt;系统配置tabPage.Name" xml:space="preserve">
-    <value>系统配置tabPage</value>
-  </data>
-  <data name="&gt;&gt;系统配置tabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;系统配置tabPage.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;系统配置tabPage.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tabControl1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 15.75pt</value>
-  </data>
-  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 54</value>
-  </data>
-  <data name="tabControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="tabControl1.Padding" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1077, 627</value>
-  </data>
-  <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 29</value>
-  </data>
-  <data name="tableLayoutPanel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1077, 681</value>
-  </data>
-  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="运行工具条toolStrip" Row="0" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="编辑工具条toolStrip" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel1" Row="0" RowSpan="1" Column="3" ColumnSpan="2" /&gt;&lt;Control Name="tabControl1" Row="1" RowSpan="2" Column="0" ColumnSpan="5" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,228,Percent,100,Absolute,176,Absolute,194,Absolute,60" /&gt;&lt;Rows Styles="Absolute,54,Percent,100,Absolute,170" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="新建NToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1295,80 +953,122 @@
   <data name="帮助LToolStripButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageAboveText</value>
   </data>
-  <data name="工程配置tabControl.Alignment" type="System.Windows.Forms.TabAlignment, System.Windows.Forms">
-    <value>Bottom</value>
+  <data name="编辑工具条toolStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;坐标系TabPage.Name" xml:space="preserve">
-    <value>坐标系TabPage</value>
+  <data name="编辑工具条toolStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 54</value>
   </data>
-  <data name="&gt;&gt;坐标系TabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;坐标系TabPage.Parent" xml:space="preserve">
-    <value>工程配置tabControl</value>
-  </data>
-  <data name="&gt;&gt;坐标系TabPage.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;标定参数tabPage.Name" xml:space="preserve">
-    <value>标定参数tabPage</value>
-  </data>
-  <data name="&gt;&gt;标定参数tabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;标定参数tabPage.Parent" xml:space="preserve">
-    <value>工程配置tabControl</value>
-  </data>
-  <data name="&gt;&gt;标定参数tabPage.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;夹抓tabPage.Name" xml:space="preserve">
-    <value>夹抓tabPage</value>
-  </data>
-  <data name="&gt;&gt;夹抓tabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;夹抓tabPage.Parent" xml:space="preserve">
-    <value>工程配置tabControl</value>
-  </data>
-  <data name="&gt;&gt;夹抓tabPage.ZOrder" xml:space="preserve">
+  <data name="编辑工具条toolStrip.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;通信配置tabPage.Name" xml:space="preserve">
-    <value>通信配置tabPage</value>
+  <data name="编辑工具条toolStrip.Text" xml:space="preserve">
+    <value>toolStrip1</value>
   </data>
-  <data name="&gt;&gt;通信配置tabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;编辑工具条toolStrip.Name" xml:space="preserve">
+    <value>编辑工具条toolStrip</value>
   </data>
-  <data name="&gt;&gt;通信配置tabPage.Parent" xml:space="preserve">
-    <value>工程配置tabControl</value>
+  <data name="&gt;&gt;编辑工具条toolStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;通信配置tabPage.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;编辑工具条toolStrip.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
   </data>
-  <data name="工程配置tabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="&gt;&gt;编辑工具条toolStrip.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="显示数据checkBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Right</value>
+  </data>
+  <data name="显示数据checkBox.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
+    <value>Button</value>
+  </data>
+  <data name="显示数据checkBox.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="显示数据checkBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>196, 0</value>
+  </data>
+  <data name="显示数据checkBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 54</value>
+  </data>
+  <data name="显示数据checkBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;显示数据checkBox.Name" xml:space="preserve">
+    <value>显示数据checkBox</value>
+  </data>
+  <data name="&gt;&gt;显示数据checkBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;显示数据checkBox.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;显示数据checkBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="工程配置tabControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>806, 0</value>
   </data>
-  <data name="工程配置tabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>970, 586</value>
+  <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
   </data>
-  <data name="工程配置tabControl.TabIndex" type="System.Int32, mscorlib">
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 54</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabControl1.Alignment" type="System.Windows.Forms.TabAlignment, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="程序tabPage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 9pt</value>
+  </data>
+  <data name="程序tabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="程序tabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="程序tabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1052, 605</value>
+  </data>
+  <data name="程序tabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="程序tabPage.Text" xml:space="preserve">
+    <value>程序编辑</value>
+  </data>
+  <data name="&gt;&gt;程序tabPage.Name" xml:space="preserve">
+    <value>程序tabPage</value>
+  </data>
+  <data name="&gt;&gt;程序tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;程序tabPage.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;程序tabPage.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;工程配置tabControl.Name" xml:space="preserve">
-    <value>工程配置tabControl</value>
-  </data>
-  <data name="&gt;&gt;工程配置tabControl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;工程配置tabControl.Parent" xml:space="preserve">
-    <value>工程配置tabPage</value>
-  </data>
-  <data name="&gt;&gt;工程配置tabControl.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="工程配置tabControl.Alignment" type="System.Windows.Forms.TabAlignment, System.Windows.Forms">
+    <value>Bottom</value>
   </data>
   <data name="坐标系TabPage.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 4</value>
@@ -1377,7 +1077,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="坐标系TabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>962, 560</value>
+    <value>1038, 573</value>
   </data>
   <data name="坐标系TabPage.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1401,7 +1101,7 @@
     <value>4, 4</value>
   </data>
   <data name="标定参数tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>962, 560</value>
+    <value>1038, 573</value>
   </data>
   <data name="标定参数tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1425,7 +1125,7 @@
     <value>4, 4</value>
   </data>
   <data name="夹抓tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>962, 560</value>
+    <value>1038, 573</value>
   </data>
   <data name="夹抓tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1449,7 +1149,7 @@
     <value>4, 4</value>
   </data>
   <data name="通信配置tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>962, 560</value>
+    <value>1038, 573</value>
   </data>
   <data name="通信配置tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1469,74 +1169,68 @@
   <data name="&gt;&gt;通信配置tabPage.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="tabControl3.Alignment" type="System.Windows.Forms.TabAlignment, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="&gt;&gt;SensorTabPage.Name" xml:space="preserve">
-    <value>SensorTabPage</value>
-  </data>
-  <data name="&gt;&gt;SensorTabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SensorTabPage.Parent" xml:space="preserve">
-    <value>tabControl3</value>
-  </data>
-  <data name="&gt;&gt;SensorTabPage.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;DeviceTabPage.Name" xml:space="preserve">
-    <value>DeviceTabPage</value>
-  </data>
-  <data name="&gt;&gt;DeviceTabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DeviceTabPage.Parent" xml:space="preserve">
-    <value>tabControl3</value>
-  </data>
-  <data name="&gt;&gt;DeviceTabPage.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;SocketTabPage.Name" xml:space="preserve">
-    <value>SocketTabPage</value>
-  </data>
-  <data name="&gt;&gt;SocketTabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SocketTabPage.Parent" xml:space="preserve">
-    <value>tabControl3</value>
-  </data>
-  <data name="&gt;&gt;SocketTabPage.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="tabControl3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="工程配置tabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="tabControl3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="工程配置tabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
   </data>
-  <data name="tabControl3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>976, 592</value>
+  <data name="工程配置tabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1046, 599</value>
   </data>
-  <data name="tabControl3.TabIndex" type="System.Int32, mscorlib">
+  <data name="工程配置tabControl.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;tabControl3.Name" xml:space="preserve">
-    <value>tabControl3</value>
+  <data name="&gt;&gt;工程配置tabControl.Name" xml:space="preserve">
+    <value>工程配置tabControl</value>
   </data>
-  <data name="&gt;&gt;tabControl3.Type" xml:space="preserve">
+  <data name="&gt;&gt;工程配置tabControl.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabControl3.Parent" xml:space="preserve">
-    <value>通讯tabPage</value>
+  <data name="&gt;&gt;工程配置tabControl.Parent" xml:space="preserve">
+    <value>工程配置tabPage</value>
   </data>
-  <data name="&gt;&gt;tabControl3.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;工程配置tabControl.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="工程配置tabPage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 9pt</value>
+  </data>
+  <data name="工程配置tabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="工程配置tabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="工程配置tabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1052, 605</value>
+  </data>
+  <data name="工程配置tabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="工程配置tabPage.Text" xml:space="preserve">
+    <value>工程配置</value>
+  </data>
+  <data name="&gt;&gt;工程配置tabPage.Name" xml:space="preserve">
+    <value>工程配置tabPage</value>
+  </data>
+  <data name="&gt;&gt;工程配置tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;工程配置tabPage.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;工程配置tabPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tabControl3.Alignment" type="System.Windows.Forms.TabAlignment, System.Windows.Forms">
+    <value>Bottom</value>
   </data>
   <data name="SensorTabPage.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 4</value>
   </data>
   <data name="SensorTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>968, 566</value>
+    <value>1044, 579</value>
   </data>
   <data name="SensorTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1563,7 +1257,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="DeviceTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>968, 566</value>
+    <value>1044, 579</value>
   </data>
   <data name="DeviceTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1590,7 +1284,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="SocketTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>968, 566</value>
+    <value>1044, 579</value>
   </data>
   <data name="SocketTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1610,6 +1304,153 @@
   <data name="&gt;&gt;SocketTabPage.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="tabControl3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tabControl3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tabControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1052, 605</value>
+  </data>
+  <data name="tabControl3.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabControl3.Name" xml:space="preserve">
+    <value>tabControl3</value>
+  </data>
+  <data name="&gt;&gt;tabControl3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabControl3.Parent" xml:space="preserve">
+    <value>通讯tabPage</value>
+  </data>
+  <data name="&gt;&gt;tabControl3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="通讯tabPage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 9pt</value>
+  </data>
+  <data name="通讯tabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="通讯tabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1052, 605</value>
+  </data>
+  <data name="通讯tabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="通讯tabPage.Text" xml:space="preserve">
+    <value>连接配置</value>
+  </data>
+  <data name="&gt;&gt;通讯tabPage.Name" xml:space="preserve">
+    <value>通讯tabPage</value>
+  </data>
+  <data name="&gt;&gt;通讯tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;通讯tabPage.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;通讯tabPage.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="系统配置tabPage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 9pt</value>
+  </data>
+  <data name="系统配置tabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="系统配置tabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1052, 605</value>
+  </data>
+  <data name="系统配置tabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="系统配置tabPage.Text" xml:space="preserve">
+    <value>系统配置</value>
+  </data>
+  <data name="&gt;&gt;系统配置tabPage.Name" xml:space="preserve">
+    <value>系统配置tabPage</value>
+  </data>
+  <data name="&gt;&gt;系统配置tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;系统配置tabPage.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;系统配置tabPage.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tabControl1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 15.75pt</value>
+  </data>
+  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 54</value>
+  </data>
+  <data name="tabControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="tabControl1.Padding" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1060, 640</value>
+  </data>
+  <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 29</value>
+  </data>
+  <data name="tableLayoutPanel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1060, 694</value>
+  </data>
+  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="运行工具条toolStrip" Row="0" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="编辑工具条toolStrip" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panel1" Row="0" RowSpan="1" Column="3" ColumnSpan="2" /&gt;&lt;Control Name="tabControl1" Row="1" RowSpan="2" Column="0" ColumnSpan="5" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,228,Percent,100,Absolute,176,Absolute,194,Absolute,60" /&gt;&lt;Rows Styles="Absolute,54,Percent,100,Absolute,170" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <metadata name="eventLog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>533, 17</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -1617,7 +1458,7 @@
     <value>6, 12</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1077, 732</value>
+    <value>1060, 745</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1787,6 +1628,9 @@
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>100, 100</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>Manual</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>LD_Vision</value>
@@ -2097,10 +1941,16 @@
   <data name="&gt;&gt;登录toolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripStatusLabel1.Name" xml:space="preserve">
-    <value>toolStripStatusLabel1</value>
+  <data name="&gt;&gt;语言toolStripComboBox.Name" xml:space="preserve">
+    <value>语言toolStripComboBox</value>
   </data>
-  <data name="&gt;&gt;toolStripStatusLabel1.Type" xml:space="preserve">
+  <data name="&gt;&gt;语言toolStripComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;程序1toolStripStatusLabel.Name" xml:space="preserve">
+    <value>程序1toolStripStatusLabel</value>
+  </data>
+  <data name="&gt;&gt;程序1toolStripStatusLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripStatusLabel2.Name" xml:space="preserve">
@@ -2137,6 +1987,18 @@
     <value>用户toolStripStatusLabel</value>
   </data>
   <data name="&gt;&gt;用户toolStripStatusLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabel5.Name" xml:space="preserve">
+    <value>toolStripStatusLabel5</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabel5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabel6.Name" xml:space="preserve">
+    <value>toolStripStatusLabel6</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabel6.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;运行toolStripButton.Name" xml:space="preserve">
@@ -2235,11 +2097,11 @@
   <data name="&gt;&gt;帮助LToolStripButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;语言toolStripComboBox.Name" xml:space="preserve">
-    <value>语言toolStripComboBox</value>
+  <data name="&gt;&gt;eventLog1.Name" xml:space="preserve">
+    <value>eventLog1</value>
   </data>
-  <data name="&gt;&gt;语言toolStripComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;eventLog1.Type" xml:space="preserve">
+    <value>System.Diagnostics.EventLog, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>
