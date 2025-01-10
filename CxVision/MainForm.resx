@@ -181,25 +181,25 @@
     <value>Microsoft YaHei UI, 12pt</value>
   </data>
   <data name="新建toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 26</value>
+    <value>180, 26</value>
   </data>
   <data name="新建toolStripMenuItem.Text" xml:space="preserve">
     <value>新建</value>
   </data>
   <data name="打开toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 26</value>
+    <value>180, 26</value>
   </data>
   <data name="打开toolStripMenuItem.Text" xml:space="preserve">
     <value>打开</value>
   </data>
   <data name="保存toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 26</value>
+    <value>180, 26</value>
   </data>
   <data name="保存toolStripMenuItem.Text" xml:space="preserve">
     <value>保存</value>
   </data>
   <data name="另存为toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 26</value>
+    <value>180, 26</value>
   </data>
   <data name="另存为toolStripMenuItem.Text" xml:space="preserve">
     <value>另存为</value>

@@ -150,6 +150,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="2D匹配\NCC灰度匹配\App\CreateNccModelSubForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D匹配\NCC灰度匹配\App\CreateNccModelSubForm.Designer.cs">
+      <DependentUpon>CreateNccModelSubForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D匹配\NCC灰度匹配\App\FindNccModelParamSubForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D匹配\NCC灰度匹配\App\FindNccModelParamSubForm.Designer.cs">
+      <DependentUpon>FindNccModelParamSubForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="2D匹配\局部变形匹配\App\CreateLocalDeformableModelForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +208,36 @@
       <DependentUpon>FindNccModelParamForm.cs</DependentUpon>
     </Compile>
     <Compile Include="2D匹配\NCC灰度匹配\DoNccModelMatch.cs" />
+    <Compile Include="2D匹配\形状匹配\创建形状模型UI\CShapeModelSubForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D匹配\形状匹配\创建形状模型UI\CShapeModelSubForm.Designer.cs">
+      <DependentUpon>CShapeModelSubForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D匹配\形状匹配\创建形状模型UI\CShapeModelXLDSubForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D匹配\形状匹配\创建形状模型UI\CShapeModelXLDSubForm.Designer.cs">
+      <DependentUpon>CShapeModelXLDSubForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D匹配\形状匹配\寻找形状模型UI\FShapeModelSubParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D匹配\形状匹配\寻找形状模型UI\FShapeModelSubParamForm.Designer.cs">
+      <DependentUpon>FShapeModelSubParamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D匹配\形状匹配\寻找形状模型UI\Old\CShapeModelFormOld.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D匹配\形状匹配\寻找形状模型UI\Old\CShapeModelFormOld.Designer.cs">
+      <DependentUpon>CShapeModelFormOld.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D匹配\形状匹配\寻找形状模型UI\Old\FShapeModelParamFormOld.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D匹配\形状匹配\寻找形状模型UI\Old\FShapeModelParamFormOld.Designer.cs">
+      <DependentUpon>FShapeModelParamFormOld.cs</DependentUpon>
+    </Compile>
     <Compile Include="2D算法工具\2D几何拟合\圆拟合\FitCircleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -434,6 +476,7 @@
       <DependentUpon>CoordAffineForm3D.cs</DependentUpon>
     </Compile>
     <Compile Include="3D算法工具\三维变换\CoordAffineParam3D.cs" />
+    <Compile Include="FontWesome2\IconHelpper.cs" />
     <Compile Include="PLC操作\结果判断\ResultJudge.cs" />
     <Compile Include="PLC操作\结果判断\ResultJudgeForm.cs">
       <SubType>Form</SubType>
@@ -519,6 +562,20 @@
     <Compile Include="其他工具\删图工具\Form1.designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="对位引导\N点对位2\NPointVectorAlign.cs" />
+    <Compile Include="对位引导\N点对位2\NPointVectorAlignForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="对位引导\N点对位2\NPointVectorAlignForm.Designer.cs">
+      <DependentUpon>NPointVectorAlignForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="对位引导\向量对位2\VectorAlignNew.cs" />
+    <Compile Include="对位引导\向量对位2\VectorAlignNewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="对位引导\向量对位2\VectorAlignNewForm.Designer.cs">
+      <DependentUpon>VectorAlignNewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="对位引导\向量对位\VectorAlign.cs" />
     <Compile Include="对位引导\向量对位\VectorAlignForm.cs">
       <SubType>Form</SubType>
@@ -526,11 +583,11 @@
     <Compile Include="对位引导\向量对位\VectorAlignForm.designer.cs">
       <DependentUpon>VectorAlignForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\向量计算\VectorCalculate.cs" />
-    <Compile Include="对位引导\向量计算\VectorCalculateForm.cs">
+    <Compile Include="2D算法工具\向量计算\VectorCalculate.cs" />
+    <Compile Include="2D算法工具\向量计算\VectorCalculateForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\向量计算\VectorCalculateForm.designer.cs">
+    <Compile Include="2D算法工具\向量计算\VectorCalculateForm.designer.cs">
       <DependentUpon>VectorCalculateForm.cs</DependentUpon>
     </Compile>
     <Compile Include="对位引导\坐标转换\CoordTransform.cs" />
@@ -748,6 +805,30 @@
     <Compile Include="2D算法工具\区域拟合\拟合矩形区域\FitRect2RegionForm.Designer.cs">
       <DependentUpon>FitRect2RegionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="标定\相机9点标定\CaliCaliboardSinmpleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="标定\相机9点标定\CaliCaliboardSinmpleForm.Designer.cs">
+      <DependentUpon>CaliCaliboardSinmpleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="标定\相机9点标定\Cam9PointCalibrateSimpleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="标定\相机9点标定\Cam9PointCalibrateSimpleForm.Designer.cs">
+      <DependentUpon>Cam9PointCalibrateSimpleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="标定\相机9点标定\CamNPointCalibParamSimpleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="标定\相机9点标定\CamNPointCalibParamSimpleForm.Designer.cs">
+      <DependentUpon>CamNPointCalibParamSimpleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="标定\相机9点标定\UpDnCamCaliSimpleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="标定\相机9点标定\UpDnCamCaliSimpleForm.Designer.cs">
+      <DependentUpon>UpDnCamCaliSimpleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="相机采集\相机配置\SensorConfig.cs" />
     <Compile Include="相机采集\相机配置\SensorConfigForm.cs">
       <SubType>Form</SubType>
@@ -756,6 +837,60 @@
       <DependentUpon>SensorConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="相机采集\相机配置\SensorConfigParam.cs" />
+    <Compile Include="系统UI配置\UI视图配置\AddXyThetaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\UI视图配置\AddXyThetaFrm.designer.cs">
+      <DependentUpon>AddXyThetaFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\UI视图配置\SizeControlForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\UI视图配置\SizeControlForm.Designer.cs">
+      <DependentUpon>SizeControlForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\UI视图配置\LogViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\UI视图配置\LogViewForm.Designer.cs">
+      <DependentUpon>LogViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\UI视图配置\AllignViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\UI视图配置\AllignViewForm.Designer.cs">
+      <DependentUpon>AllignViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\UI视图配置\ProgramListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\UI视图配置\ProgramListForm.Designer.cs">
+      <DependentUpon>ProgramListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\对位数据\CompensateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\对位数据\CompensateForm.Designer.cs">
+      <DependentUpon>CompensateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\对位数据\CompensateDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\对位数据\CompensateDataForm.Designer.cs">
+      <DependentUpon>CompensateDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\窗口节点配置\ViewElementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\窗口节点配置\ViewElementForm.Designer.cs">
+      <DependentUpon>ViewElementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\窗口节点配置\WindowConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\窗口节点配置\WindowConfigForm.Designer.cs">
+      <DependentUpon>WindowConfigForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="系统UI配置\对位数据\补偿值记录\CompensationDataForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -763,12 +898,43 @@
       <DependentUpon>CompensationDataForm.cs</DependentUpon>
     </Compile>
     <Compile Include="系统UI配置\对位数据\补偿值记录\CompensationDataManager.cs" />
-    <Compile Include="缺陷检测\FlawMsgManage.cs" />
-    <Compile Include="缺陷检测\FlawClassForm.cs">
+    <Compile Include="系统UI配置\工程配置\ConnectManagerFormNew.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="缺陷检测\FlawClassForm.Designer.cs">
-      <DependentUpon>FlawClassForm.cs</DependentUpon>
+    <Compile Include="系统UI配置\工程配置\ConnectManagerFormNew.Designer.cs">
+      <DependentUpon>ConnectManagerFormNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\工程配置\ConnectManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\工程配置\ConnectManagerForm.Designer.cs">
+      <DependentUpon>ConnectManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\工程配置\ProjectManagerFormNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\工程配置\ProjectManagerFormNew.Designer.cs">
+      <DependentUpon>ProjectManagerFormNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\工程配置\ProjectManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\工程配置\ProjectManagerForm.Designer.cs">
+      <DependentUpon>ProjectManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\程序配方显示\ProgramConfigParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\程序配方显示\ProgramConfigParamForm.Designer.cs">
+      <DependentUpon>ProgramConfigParamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="缺陷检测\分类参数\FlawClassParam.cs" />
+    <Compile Include="缺陷检测\分类参数\FlawClassManage.cs" />
+    <Compile Include="缺陷检测\分类参数\ClassParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="缺陷检测\分类参数\ClassParamForm.Designer.cs">
+      <DependentUpon>ClassParamForm.cs</DependentUpon>
     </Compile>
     <Compile Include="缺陷检测\变化模型\CompareVariationModelMethod.cs" />
     <Compile Include="缺陷检测\变化模型\VariationModelParam.cs" />
@@ -1633,11 +1799,11 @@
     <Compile Include="系统UI配置\对位数据\AlignDataForm.Designer.cs">
       <DependentUpon>AlignDataForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="系统UI配置\UI视图配置\TabletForm.cs">
+    <Compile Include="系统UI配置\UI视图配置\ContentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="系统UI配置\UI视图配置\TabletForm.Designer.cs">
-      <DependentUpon>TabletForm.cs</DependentUpon>
+    <Compile Include="系统UI配置\UI视图配置\ContentForm.Designer.cs">
+      <DependentUpon>ContentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="系统UI配置\UI视图配置\TryPlateParamViewForm.cs">
       <SubType>Form</SubType>
@@ -1673,8 +1839,6 @@
     <Compile Include="缺陷检测\瑕疵分类\FlawGroupForm.Designer.cs">
       <DependentUpon>FlawGroupForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="缺陷检测\瑕疵分类\FlawGroupParam.cs" />
-    <Compile Include="缺陷检测\瑕疵分类\FlawGroupMethod.cs" />
     <Compile Include="轴控制\轨迹运动\LineParamForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1796,12 +1960,12 @@
     <Compile Include="系统UI配置\UI视图配置\OkNgViewForm.Designer.cs">
       <DependentUpon>OkNgViewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="系统UI配置\程序配方\ProgramParam.cs" />
-    <Compile Include="系统UI配置\程序配方\ProgramManager.cs" />
-    <Compile Include="系统UI配置\程序配方\ProgramViewForm.cs">
+    <Compile Include="系统UI配置\程序配方管理\ProgramParam.cs" />
+    <Compile Include="系统UI配置\程序配方管理\ProgramManager.cs" />
+    <Compile Include="系统UI配置\程序配方管理\ProgramViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="系统UI配置\程序配方\ProgramViewForm.Designer.cs">
+    <Compile Include="系统UI配置\程序配方管理\ProgramViewForm.Designer.cs">
       <DependentUpon>ProgramViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="缺陷检测\FlawData.cs" />
@@ -2456,11 +2620,11 @@
     <Compile Include="系统UI配置\UI视图配置\RenameForm.Designer.cs">
       <DependentUpon>RenameForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="系统UI配置\程序任务配置\ProgramConfigParamForm.cs">
+    <Compile Include="系统UI配置\程序配方显示\ProgramConfigParamFormOld.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="系统UI配置\程序任务配置\ProgramConfigParamForm.Designer.cs">
-      <DependentUpon>ProgramConfigParamForm.cs</DependentUpon>
+    <Compile Include="系统UI配置\程序配方显示\ProgramConfigParamFormOld.Designer.cs">
+      <DependentUpon>ProgramConfigParamFormOld.cs</DependentUpon>
     </Compile>
     <Compile Include="系统配置\屏幕参数配置\ScreenConfigParam.cs" />
     <Compile Include="系统配置\屏幕参数配置\ScreenManager.cs" />
@@ -2717,10 +2881,10 @@
       <DependentUpon>ParamConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="数据输出\OutputDataConfigParam.cs" />
-    <Compile Include="系统UI配置\程序任务配置\TaskForm.cs">
+    <Compile Include="系统UI配置\程序配方显示\TaskForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="系统UI配置\程序任务配置\TaskForm.Designer.cs">
+    <Compile Include="系统UI配置\程序配方显示\TaskForm.Designer.cs">
       <DependentUpon>TaskForm.cs</DependentUpon>
     </Compile>
     <Compile Include="2D算法工具\2D卡尺测量\MetrolegyParamForm.cs">
@@ -2845,7 +3009,7 @@
     <Compile Include="系统UI配置\用户配置\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="系统UI配置\程序任务配置\ProgramConfigParam.cs" />
+    <Compile Include="系统UI配置\程序配方显示\ProgramConfigParam.cs" />
     <Compile Include="系统UI配置\视图配置\AddViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2853,7 +3017,7 @@
       <DependentUpon>AddViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="系统UI配置\用户配置\UserLoginParam.cs" />
-    <Compile Include="系统UI配置\程序任务配置\ProgramConfigParamManager.cs" />
+    <Compile Include="系统UI配置\程序配方显示\ProgramConfigParamManager.cs" />
     <Compile Include="系统UI配置\用户配置\UserLoginParamManager.cs" />
     <Compile Include="系统UI配置\视图配置\ViewConfigParam.cs" />
     <Compile Include="系统UI配置\视图配置\ViewConfigParamManager.cs" />
@@ -3397,6 +3561,12 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="2D匹配\NCC灰度匹配\App\CreateNccModelSubForm.resx">
+      <DependentUpon>CreateNccModelSubForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D匹配\NCC灰度匹配\App\FindNccModelParamSubForm.resx">
+      <DependentUpon>FindNccModelParamSubForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="2D匹配\局部变形匹配\App\CreateLocalDeformableModelForm.resx">
       <DependentUpon>CreateLocalDeformableModelForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -3414,6 +3584,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="2D匹配\NCC灰度匹配\App\FindNccModelParamForm.resx">
       <DependentUpon>FindNccModelParamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D匹配\形状匹配\创建形状模型UI\CShapeModelSubForm.resx">
+      <DependentUpon>CShapeModelSubForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D匹配\形状匹配\创建形状模型UI\CShapeModelXLDSubForm.resx">
+      <DependentUpon>CShapeModelXLDSubForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D匹配\形状匹配\寻找形状模型UI\FShapeModelSubParamForm.resx">
+      <DependentUpon>FShapeModelSubParamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D匹配\形状匹配\寻找形状模型UI\Old\CShapeModelFormOld.resx">
+      <DependentUpon>CShapeModelFormOld.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D匹配\形状匹配\寻找形状模型UI\Old\FShapeModelParamFormOld.resx">
+      <DependentUpon>FShapeModelParamFormOld.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\2D几何拟合\圆拟合\FitCircleForm.resx">
       <DependentUpon>FitCircleForm.cs</DependentUpon>
@@ -3553,10 +3738,16 @@
     <EmbeddedResource Include="其他工具\删图工具\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="对位引导\N点对位2\NPointVectorAlignForm.resx">
+      <DependentUpon>NPointVectorAlignForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="对位引导\向量对位2\VectorAlignNewForm.resx">
+      <DependentUpon>VectorAlignNewForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="对位引导\向量对位\VectorAlignForm.resx">
       <DependentUpon>VectorAlignForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\向量计算\VectorCalculateForm.resx">
+    <EmbeddedResource Include="2D算法工具\向量计算\VectorCalculateForm.resx">
       <DependentUpon>VectorCalculateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="对位引导\坐标转换\CoordTransformForm.resx">
@@ -3652,20 +3843,80 @@
     <EmbeddedResource Include="2D算法工具\区域拟合\拟合矩形区域\FitRect2RegionForm.resx">
       <DependentUpon>FitRect2RegionForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="标定\相机9点标定\CaliCaliboardSinmpleForm.en-US.resx">
+      <DependentUpon>CaliCaliboardSinmpleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="标定\相机9点标定\CaliCaliboardSinmpleForm.resx">
+      <DependentUpon>CaliCaliboardSinmpleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="标定\相机9点标定\CaliCaliboardForm.en-US.resx">
       <DependentUpon>CaliCaliboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="标定\相机9点标定\Cam9PointCalibrateSimpleForm.en-US.resx">
+      <DependentUpon>Cam9PointCalibrateSimpleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="标定\相机9点标定\Cam9PointCalibrateSimpleForm.resx">
+      <DependentUpon>Cam9PointCalibrateSimpleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="标定\相机9点标定\Cam9PointCalibrateForm.en-US.resx">
       <DependentUpon>Cam9PointCalibrateForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="标定\相机9点标定\CamNPointCalibParamSimpleForm.resx">
+      <DependentUpon>CamNPointCalibParamSimpleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="标定\相机9点标定\UpDnCamCaliSimpleForm.resx">
+      <DependentUpon>UpDnCamCaliSimpleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="相机采集\相机配置\SensorConfigForm.resx">
       <DependentUpon>SensorConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\UI视图配置\AddXyThetaFrm.resx">
+      <DependentUpon>AddXyThetaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\UI视图配置\SizeControlForm.resx">
+      <DependentUpon>SizeControlForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\UI视图配置\LogViewForm.resx">
+      <DependentUpon>LogViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\UI视图配置\AllignViewForm.resx">
+      <DependentUpon>AllignViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\UI视图配置\ProgramListForm.resx">
+      <DependentUpon>ProgramListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\对位数据\CompensateForm.resx">
+      <DependentUpon>CompensateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\对位数据\CompensateDataForm.resx">
+      <DependentUpon>CompensateDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\窗口节点配置\ViewElementForm.resx">
+      <DependentUpon>ViewElementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\窗口节点配置\WindowConfigForm.resx">
+      <DependentUpon>WindowConfigForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="系统UI配置\对位数据\补偿值记录\CompensationDataForm.resx">
       <DependentUpon>CompensationDataForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="缺陷检测\FlawClassForm.resx">
-      <DependentUpon>FlawClassForm.cs</DependentUpon>
+    <EmbeddedResource Include="系统UI配置\工程配置\ConnectManagerFormNew.resx">
+      <DependentUpon>ConnectManagerFormNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\工程配置\ConnectManagerForm.resx">
+      <DependentUpon>ConnectManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\工程配置\ProjectManagerFormNew.resx">
+      <DependentUpon>ProjectManagerFormNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\工程配置\ProjectManagerForm.resx">
+      <DependentUpon>ProjectManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\程序配方显示\ProgramConfigParamForm.resx">
+      <DependentUpon>ProgramConfigParamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="缺陷检测\分类参数\ClassParamForm.resx">
+      <DependentUpon>ClassParamForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="缺陷检测\变化模型\VariationModelForm.resx">
       <DependentUpon>VariationModelForm.cs</DependentUpon>
@@ -4257,8 +4508,8 @@
     <EmbeddedResource Include="系统UI配置\对位数据\AlignDataForm.resx">
       <DependentUpon>AlignDataForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="系统UI配置\UI视图配置\TabletForm.resx">
-      <DependentUpon>TabletForm.cs</DependentUpon>
+    <EmbeddedResource Include="系统UI配置\UI视图配置\ContentForm.resx">
+      <DependentUpon>ContentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="系统UI配置\UI视图配置\TryPlateParamViewForm.resx">
       <DependentUpon>TryPlateParamViewForm.cs</DependentUpon>
@@ -4398,14 +4649,14 @@
     <EmbeddedResource Include="系统UI配置\UI视图配置\OkNgViewForm.resx">
       <DependentUpon>OkNgViewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="系统UI配置\程序配方\ProgramViewForm.resx">
+    <EmbeddedResource Include="系统UI配置\程序配方管理\ProgramViewForm.resx">
       <DependentUpon>ProgramViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="系统UI配置\缺陷检测\FlawDetecteViewForm.resx">
       <DependentUpon>FlawDetecteViewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="系统UI配置\程序任务配置\ProgramConfigParamForm.resx">
-      <DependentUpon>ProgramConfigParamForm.cs</DependentUpon>
+    <EmbeddedResource Include="系统UI配置\程序配方显示\ProgramConfigParamFormOld.resx">
+      <DependentUpon>ProgramConfigParamFormOld.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="缺陷检测\测量检测\MeasureDetectForm.resx">
       <DependentUpon>MeasureDetectForm.cs</DependentUpon>
@@ -4506,7 +4757,7 @@
     <EmbeddedResource Include="系统UI配置\UI视图配置\ParamConfigForm.resx">
       <DependentUpon>ParamConfigForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="系统UI配置\程序任务配置\TaskForm.resx">
+    <EmbeddedResource Include="系统UI配置\程序配方显示\TaskForm.resx">
       <DependentUpon>TaskForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\2D卡尺测量\MetrolegyParamForm.resx">
@@ -4788,6 +5039,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\删除ROI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\开始20 X 20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\设置20 X 20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\停止20 X 20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\示教20 X 20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\映射20 X 20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\标定 20 X 20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\编辑20 x 20.jpg.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

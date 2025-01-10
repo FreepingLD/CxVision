@@ -181,7 +181,7 @@
     <value>3, 706</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1328, 60</value>
+    <value>1228, 60</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -325,7 +325,7 @@
     <value />
   </data>
   <data name="SetPara.Width" type="System.Int32, mscorlib">
-    <value>50</value>
+    <value>70</value>
   </data>
   <metadata name="DeleteBtn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -334,7 +334,7 @@
     <value />
   </data>
   <data name="DeleteBtn.Width" type="System.Int32, mscorlib">
-    <value>50</value>
+    <value>70</value>
   </data>
   <metadata name="AcqBtn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -343,7 +343,7 @@
     <value />
   </data>
   <data name="AcqBtn.Width" type="System.Int32, mscorlib">
-    <value>50</value>
+    <value>70</value>
   </data>
   <data name="dataGridView1.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
@@ -352,7 +352,7 @@
     <value>5</value>
   </data>
   <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1328, 697</value>
+    <value>1228, 697</value>
   </data>
   <data name="dataGridView1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -382,7 +382,7 @@
     <value>2</value>
   </data>
   <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1334, 769</value>
+    <value>1234, 769</value>
   </data>
   <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -409,7 +409,7 @@
     <value>6, 12</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1334, 769</value>
+    <value>1234, 769</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>传感器连接配置管理</value>

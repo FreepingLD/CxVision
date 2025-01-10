@@ -95,6 +95,10 @@
     <ApplicationIcon>Start.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\x64\Debug\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
     <Reference Include="Google.Protobuf">
       <HintPath>..\Sensor\GBS\Google.Protobuf.dll</HintPath>
     </Reference>
@@ -146,6 +150,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainFormNew2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFormNew2.Designer.cs">
+      <DependentUpon>MainFormNew2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFormNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFormNew.Designer.cs">
+      <DependentUpon>MainFormNew.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +176,24 @@
     <Compile Include="工作流程\AutoRunThreadPlc.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MainFormNew2.en-US.resx">
+      <DependentUpon>MainFormNew2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFormNew2.en.resx">
+      <DependentUpon>MainFormNew2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFormNew2.resx">
+      <DependentUpon>MainFormNew2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFormNew.en-US.resx">
+      <DependentUpon>MainFormNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFormNew.en.resx">
+      <DependentUpon>MainFormNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFormNew.resx">
+      <DependentUpon>MainFormNew.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.en-US.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -708,6 +742,10 @@
   <ItemGroup>
     <None Include="Resources\Close.bmp" />
     <None Include="Resources\max.bmp" />
+    <None Include="Resources\开始2.jpg" />
+    <None Include="Resources\停止.jpg" />
+    <None Include="Resources\开始2 50 X 50.png" />
+    <None Include="Resources\停止 50 X 50.png" />
     <Content Include="Start.ico" />
   </ItemGroup>
   <ItemGroup />

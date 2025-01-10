@@ -131,6 +131,12 @@
     <Compile Include="UserGraphicView.Designer.cs">
       <DependentUpon>UserGraphicView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UsrCtrlCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UsrCtrlCondition.designer.cs">
+      <DependentUpon>UsrCtrlCondition.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CheckSpilit.resx">
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserImageView.resx">
       <DependentUpon>UserImageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsrCtrlCondition.resx">
+      <DependentUpon>UsrCtrlCondition.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
