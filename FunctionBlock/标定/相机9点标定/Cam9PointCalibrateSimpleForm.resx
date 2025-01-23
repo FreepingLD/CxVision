@@ -450,6 +450,9 @@
   <data name="取反Z轴checkBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="取反Z轴checkBox.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="取反Z轴checkBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>256, 304</value>
   </data>
@@ -552,6 +555,9 @@
   <data name="取反X轴checkBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="取反X轴checkBox.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="取反X轴checkBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>256, 260</value>
   </data>
@@ -578,6 +584,9 @@
   </data>
   <data name="归一化原点checkBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="归一化原点checkBox.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="归一化原点checkBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>256, 326</value>
@@ -895,7 +904,7 @@
     <value>115, 203</value>
   </data>
   <data name="旋转方向comboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 20</value>
+    <value>137, 20</value>
   </data>
   <data name="旋转方向comboBox.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -1045,7 +1054,7 @@
     <value>115, 176</value>
   </data>
   <data name="旋转步数numericUpDown.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 21</value>
+    <value>137, 21</value>
   </data>
   <data name="旋转步数numericUpDown.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1117,7 +1126,7 @@
     <value>115, 149</value>
   </data>
   <data name="角度范围numericUpDown.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 21</value>
+    <value>137, 21</value>
   </data>
   <data name="角度范围numericUpDown.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1138,7 +1147,7 @@
     <value>True</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>332, 153</value>
+    <value>258, 153</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>17, 12</value>
@@ -1850,6 +1859,438 @@
   </data>
   <data name="&gt;&gt;tabPage4.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="Rot_Deg_textBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>248, 119</value>
+  </data>
+  <data name="Rot_Deg_textBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="Rot_Deg_textBox.TabIndex" type="System.Int32, mscorlib">
+    <value>47</value>
+  </data>
+  <data name="&gt;&gt;Rot_Deg_textBox.Name" xml:space="preserve">
+    <value>Rot_Deg_textBox</value>
+  </data>
+  <data name="&gt;&gt;Rot_Deg_textBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Rot_Deg_textBox.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;Rot_Deg_textBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label25.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label25.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 124</value>
+  </data>
+  <data name="label25.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 12</value>
+  </data>
+  <data name="label25.TabIndex" type="System.Int32, mscorlib">
+    <value>46</value>
+  </data>
+  <data name="label25.Text" xml:space="preserve">
+    <value>旋转中心Deg:</value>
+  </data>
+  <data name="&gt;&gt;label25.Name" xml:space="preserve">
+    <value>label25</value>
+  </data>
+  <data name="&gt;&gt;label25.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label25.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;label25.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Rot_y_textBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>248, 92</value>
+  </data>
+  <data name="Rot_y_textBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="Rot_y_textBox.TabIndex" type="System.Int32, mscorlib">
+    <value>45</value>
+  </data>
+  <data name="&gt;&gt;Rot_y_textBox.Name" xml:space="preserve">
+    <value>Rot_y_textBox</value>
+  </data>
+  <data name="&gt;&gt;Rot_y_textBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Rot_y_textBox.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;Rot_y_textBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label26.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label26.Location" type="System.Drawing.Point, System.Drawing">
+    <value>181, 97</value>
+  </data>
+  <data name="label26.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 12</value>
+  </data>
+  <data name="label26.TabIndex" type="System.Int32, mscorlib">
+    <value>44</value>
+  </data>
+  <data name="label26.Text" xml:space="preserve">
+    <value>旋转中心Y;</value>
+  </data>
+  <data name="&gt;&gt;label26.Name" xml:space="preserve">
+    <value>label26</value>
+  </data>
+  <data name="&gt;&gt;label26.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label26.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;label26.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="Rot_x_textBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>248, 65</value>
+  </data>
+  <data name="Rot_x_textBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="Rot_x_textBox.TabIndex" type="System.Int32, mscorlib">
+    <value>43</value>
+  </data>
+  <data name="&gt;&gt;Rot_x_textBox.Name" xml:space="preserve">
+    <value>Rot_x_textBox</value>
+  </data>
+  <data name="&gt;&gt;Rot_x_textBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Rot_x_textBox.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;Rot_x_textBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="label27.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label27.Location" type="System.Drawing.Point, System.Drawing">
+    <value>181, 70</value>
+  </data>
+  <data name="label27.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 12</value>
+  </data>
+  <data name="label27.TabIndex" type="System.Int32, mscorlib">
+    <value>42</value>
+  </data>
+  <data name="label27.Text" xml:space="preserve">
+    <value>旋转中心X:</value>
+  </data>
+  <data name="&gt;&gt;label27.Name" xml:space="preserve">
+    <value>label27</value>
+  </data>
+  <data name="&gt;&gt;label27.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label27.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;label27.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="WytextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>58, 93</value>
+  </data>
+  <data name="WytextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="WytextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
+  </data>
+  <data name="&gt;&gt;WytextBox.Name" xml:space="preserve">
+    <value>WytextBox</value>
+  </data>
+  <data name="&gt;&gt;WytextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;WytextBox.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;WytextBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="label28.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label28.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 96</value>
+  </data>
+  <data name="label28.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 12</value>
+  </data>
+  <data name="label28.TabIndex" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="label28.Text" xml:space="preserve">
+    <value>Wy坐标:</value>
+  </data>
+  <data name="&gt;&gt;label28.Name" xml:space="preserve">
+    <value>label28</value>
+  </data>
+  <data name="&gt;&gt;label28.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label28.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;label28.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="WxtextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>58, 66</value>
+  </data>
+  <data name="WxtextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="WxtextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>39</value>
+  </data>
+  <data name="&gt;&gt;WxtextBox.Name" xml:space="preserve">
+    <value>WxtextBox</value>
+  </data>
+  <data name="&gt;&gt;WxtextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;WxtextBox.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;WxtextBox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="label29.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label29.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 69</value>
+  </data>
+  <data name="label29.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 12</value>
+  </data>
+  <data name="label29.TabIndex" type="System.Int32, mscorlib">
+    <value>38</value>
+  </data>
+  <data name="label29.Text" xml:space="preserve">
+    <value>Wx坐标:</value>
+  </data>
+  <data name="&gt;&gt;label29.Name" xml:space="preserve">
+    <value>label29</value>
+  </data>
+  <data name="&gt;&gt;label29.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label29.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;label29.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="VytextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>248, 39</value>
+  </data>
+  <data name="VytextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="VytextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="&gt;&gt;VytextBox.Name" xml:space="preserve">
+    <value>VytextBox</value>
+  </data>
+  <data name="&gt;&gt;VytextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;VytextBox.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;VytextBox.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="label31.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label31.Location" type="System.Drawing.Point, System.Drawing">
+    <value>199, 42</value>
+  </data>
+  <data name="label31.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 12</value>
+  </data>
+  <data name="label31.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="label31.Text" xml:space="preserve">
+    <value>Vy坐标:</value>
+  </data>
+  <data name="&gt;&gt;label31.Name" xml:space="preserve">
+    <value>label31</value>
+  </data>
+  <data name="&gt;&gt;label31.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label31.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;label31.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="VxtextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>248, 12</value>
+  </data>
+  <data name="VxtextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="VxtextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="&gt;&gt;VxtextBox.Name" xml:space="preserve">
+    <value>VxtextBox</value>
+  </data>
+  <data name="&gt;&gt;VxtextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;VxtextBox.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;VxtextBox.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="label32.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label32.Location" type="System.Drawing.Point, System.Drawing">
+    <value>199, 15</value>
+  </data>
+  <data name="label32.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 12</value>
+  </data>
+  <data name="label32.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="label32.Text" xml:space="preserve">
+    <value>Vx坐标:</value>
+  </data>
+  <data name="&gt;&gt;label32.Name" xml:space="preserve">
+    <value>label32</value>
+  </data>
+  <data name="&gt;&gt;label32.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label32.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;label32.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="UytextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>58, 39</value>
+  </data>
+  <data name="UytextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="UytextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="&gt;&gt;UytextBox.Name" xml:space="preserve">
+    <value>UytextBox</value>
+  </data>
+  <data name="&gt;&gt;UytextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UytextBox.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;UytextBox.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="label33.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label33.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 42</value>
+  </data>
+  <data name="label33.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 12</value>
+  </data>
+  <data name="label33.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="label33.Text" xml:space="preserve">
+    <value>Uy坐标:</value>
+  </data>
+  <data name="&gt;&gt;label33.Name" xml:space="preserve">
+    <value>label33</value>
+  </data>
+  <data name="&gt;&gt;label33.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label33.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;label33.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="UxtextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>58, 12</value>
+  </data>
+  <data name="UxtextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="UxtextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="&gt;&gt;UxtextBox.Name" xml:space="preserve">
+    <value>UxtextBox</value>
+  </data>
+  <data name="&gt;&gt;UxtextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UxtextBox.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;UxtextBox.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="label34.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label34.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 15</value>
+  </data>
+  <data name="label34.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 12</value>
+  </data>
+  <data name="label34.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="label34.Text" xml:space="preserve">
+    <value>Ux坐标:</value>
+  </data>
+  <data name="&gt;&gt;label34.Name" xml:space="preserve">
+    <value>label34</value>
+  </data>
+  <data name="&gt;&gt;label34.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label34.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;label34.ZOrder" xml:space="preserve">
+    <value>17</value>
   </data>
   <data name="tabPage3.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>

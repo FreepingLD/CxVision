@@ -198,6 +198,9 @@
   <data name="取反Y轴checkBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="取反Y轴checkBox.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="取反Y轴checkBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>82, 101</value>
   </data>
@@ -224,6 +227,9 @@
   </data>
   <data name="取反X轴checkBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="取反X轴checkBox.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="取反X轴checkBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>82, 76</value>

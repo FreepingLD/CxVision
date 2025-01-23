@@ -617,6 +617,7 @@
     <Compile Include="对位引导\迁移计算\MigrateCalculateParam.cs" />
     <Compile Include="属性结果\ResultJudgeCommand.cs" />
     <Compile Include="属性结果\JudgeCommand.cs" />
+    <Compile Include="1_工作流程\AutoRunThreadPlc.cs" />
     <Compile Include="工具组\Switch语句\Switch.cs" />
     <Compile Include="工具组\Switch语句\SwitchForm.cs">
       <SubType>Form</SubType>
@@ -867,6 +868,7 @@
     <Compile Include="系统UI配置\UI视图配置\ProgramListForm.Designer.cs">
       <DependentUpon>ProgramListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="系统UI配置\ViewTriggerSingle.cs" />
     <Compile Include="系统UI配置\对位数据\CompensateForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -878,6 +880,12 @@
     </Compile>
     <Compile Include="系统UI配置\对位数据\CompensateDataForm.Designer.cs">
       <DependentUpon>CompensateDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\窗口节点配置\ViewTriggerSingleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\窗口节点配置\ViewTriggerSingleForm.Designer.cs">
+      <DependentUpon>ViewTriggerSingleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="系统UI配置\窗口节点配置\ViewElementForm.cs">
       <SubType>Form</SubType>
@@ -928,6 +936,14 @@
     <Compile Include="系统UI配置\程序配方显示\ProgramConfigParamForm.Designer.cs">
       <DependentUpon>ProgramConfigParamForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="系统UI配置\视图管理\ViewManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\视图管理\ViewManageForm.Designer.cs">
+      <DependentUpon>ViewManageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\视图管理\ViewLableParam.cs" />
+    <Compile Include="系统UI配置\视图管理\ViewLableParamManager.cs" />
     <Compile Include="缺陷检测\分类参数\FlawClassParam.cs" />
     <Compile Include="缺陷检测\分类参数\FlawClassManage.cs" />
     <Compile Include="缺陷检测\分类参数\ClassParamForm.cs">
@@ -1450,7 +1466,7 @@
     <Compile Include="2D算法工具\几何测量\线线距离\LineToLineDistParam.cs" />
     <Compile Include="2D算法工具\读取图像\ReadImageParam.cs" />
     <Compile Include="3D算法工具\体积\VolumeParam.cs" />
-    <Compile Include="3D算法工具\保存对象3D\SaveObjectModelParam.cs" />
+    <Compile Include="3D算法工具\保存点云\SaveObjectModelParam.cs" />
     <Compile Include="3D算法工具\创建位姿3D\CreatePose3DParam.cs" />
     <Compile Include="3D算法工具\创建基本体3D\CreatePrimitiveParam.cs" />
     <Compile Include="3D算法工具\厚度\ThicknessParam.cs" />
@@ -1470,14 +1486,14 @@
     </Compile>
     <Compile Include="3D算法工具\拟合工具3D\FitMethod3D.cs" />
     <Compile Include="3D算法工具\拟合工具3D\FitParam3D.cs" />
-    <Compile Include="3D算法工具\裁剪对象3D\CropObjectModel3DForm.cs">
+    <Compile Include="3D算法工具\点云裁剪\CropObjectModel3DForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="3D算法工具\裁剪对象3D\CropObjectModel3DForm.Designer.cs">
+    <Compile Include="3D算法工具\点云裁剪\CropObjectModel3DForm.Designer.cs">
       <DependentUpon>CropObjectModel3DForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="3D算法工具\裁剪对象3D\CropParam.cs" />
-    <Compile Include="3D算法工具\裁剪对象3D\CropObjectModel3D.cs" />
+    <Compile Include="3D算法工具\点云裁剪\CropParam.cs" />
+    <Compile Include="3D算法工具\点云裁剪\CropObjectModel3D.cs" />
     <Compile Include="3D算法工具\平面度\PlanenessParam.cs" />
     <Compile Include="3D算法工具\校平对象3D\RectifyParam.cs" />
     <Compile Include="3D算法工具\点到直线距离3D\PointToLineParam.cs" />
@@ -2118,10 +2134,10 @@
     <Compile Include="3D算法工具\体积\VolumeForm.Designer.cs">
       <DependentUpon>VolumeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="3D算法工具\保存对象3D\Save3dDataForm.cs">
+    <Compile Include="3D算法工具\保存点云\Save3dDataForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="3D算法工具\保存对象3D\Save3dDataForm.Designer.cs">
+    <Compile Include="3D算法工具\保存点云\Save3dDataForm.Designer.cs">
       <DependentUpon>Save3dDataForm.cs</DependentUpon>
     </Compile>
     <Compile Include="3D算法工具\分割对象3D\SegmentObjectModel3DForm.cs">
@@ -2204,16 +2220,16 @@
     <Compile Include="3D算法工具\合并对象3D\UnionObjectModel3DForm.Designer.cs">
       <DependentUpon>UnionObjectModel3DForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="3D算法工具\裁剪对象3D\old\CircleCropForm.cs">
+    <Compile Include="3D算法工具\点云裁剪\old\CircleCropForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="3D算法工具\裁剪对象3D\old\CircleCropForm.Designer.cs">
+    <Compile Include="3D算法工具\点云裁剪\old\CircleCropForm.Designer.cs">
       <DependentUpon>CircleCropForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="3D算法工具\裁剪对象3D\old\CircleCropStanderForm.cs">
+    <Compile Include="3D算法工具\点云裁剪\old\CircleCropStanderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="3D算法工具\裁剪对象3D\old\CircleCropStanderForm.Designer.cs">
+    <Compile Include="3D算法工具\点云裁剪\old\CircleCropStanderForm.Designer.cs">
       <DependentUpon>CircleCropStanderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="3D算法工具\采样对象3D\FixedPointSampleModelForm.cs">
@@ -3325,7 +3341,7 @@
     <Compile Include="3D算法工具\翻转对象3D\OverturnObjectModel3D.cs" />
     <Compile Include="3D算法工具\变换位姿3D\AffinePose3D.cs" />
     <Compile Include="3D算法工具\拟合工具3D\拟合盒子3D\FittingBox3D.cs" />
-    <Compile Include="3D算法工具\裁剪对象3D\old\CircleCropStander.cs" />
+    <Compile Include="3D算法工具\点云裁剪\old\CircleCropStander.cs" />
     <Compile Include="3D算法工具\采样对象3D\FixedPointSampleModel.cs" />
     <Compile Include="3D算法工具\直线长度3D\LineLength3D.cs" />
     <Compile Include="3D算法工具\面面夹角3D\FaceToFaceAngle.cs" />
@@ -3342,7 +3358,7 @@
     <Compile Include="3D算法工具\直线度\Straightness3D.cs" />
     <Compile Include="3D算法工具\校平对象3D\RectifyObjectModel3D.cs" />
     <Compile Include="3D算法工具\创建基本体3D\CreatePrimitive3D.cs" />
-    <Compile Include="3D算法工具\裁剪对象3D\old\CircleCropInterface.cs" />
+    <Compile Include="3D算法工具\点云裁剪\old\CircleCropInterface.cs" />
     <Compile Include="3D算法工具\面面距离3D\FaceToFaceDist.cs" />
     <Compile Include="3D算法工具\取反对象3D\InvertObjectModel3D.cs" />
     <Compile Include="3D算法工具\平面相交3D对象\IntersectPlaneObjectModel3D.cs" />
@@ -3477,7 +3493,7 @@
     <Compile Include="3D算法工具\选择对象3D\SelectObjectModelRange3D.cs" />
     <Compile Include="数据输出\OutputDataOld.cs" />
     <Compile Include="3D算法工具\读取对象3D\ReadObjectModel3D.cs" />
-    <Compile Include="3D算法工具\保存对象3D\SaveObjectModel3D.cs" />
+    <Compile Include="3D算法工具\保存点云\SaveObjectModel3D.cs" />
     <Compile Include="3D算法工具\分割对象3D\SegmentObjectModle3D.cs" />
     <Compile Include="3D算法工具\提取截面\Section.cs" />
     <Compile Include="3D算法工具\合并对象3D\Union3DobjectModel.cs" />
@@ -3891,6 +3907,9 @@
     <EmbeddedResource Include="系统UI配置\对位数据\CompensateDataForm.resx">
       <DependentUpon>CompensateDataForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\窗口节点配置\ViewTriggerSingleForm.resx">
+      <DependentUpon>ViewTriggerSingleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="系统UI配置\窗口节点配置\ViewElementForm.resx">
       <DependentUpon>ViewElementForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -3914,6 +3933,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="系统UI配置\程序配方显示\ProgramConfigParamForm.resx">
       <DependentUpon>ProgramConfigParamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\视图管理\ViewManageForm.resx">
+      <DependentUpon>ViewManageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="缺陷检测\分类参数\ClassParamForm.resx">
       <DependentUpon>ClassParamForm.cs</DependentUpon>
@@ -4197,7 +4219,7 @@
     <EmbeddedResource Include="3D算法工具\体积\VolumeForm.resx">
       <DependentUpon>VolumeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="3D算法工具\保存对象3D\Save3dDataForm.resx">
+    <EmbeddedResource Include="3D算法工具\保存点云\Save3dDataForm.resx">
       <DependentUpon>Save3dDataForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="3D算法工具\分割对象3D\SegmentObjectModel3DForm.resx">
@@ -4245,13 +4267,13 @@
     <EmbeddedResource Include="3D算法工具\对射校准3D\TroughCalibrateFormOld.resx">
       <DependentUpon>TroughCalibrateFormOld.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="3D算法工具\裁剪对象3D\old\CircleCropForm.resx">
+    <EmbeddedResource Include="3D算法工具\点云裁剪\old\CircleCropForm.resx">
       <DependentUpon>CircleCropForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="3D算法工具\裁剪对象3D\old\CircleCropStanderForm.resx">
+    <EmbeddedResource Include="3D算法工具\点云裁剪\old\CircleCropStanderForm.resx">
       <DependentUpon>CircleCropStanderForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="3D算法工具\裁剪对象3D\CropObjectModel3DForm.resx">
+    <EmbeddedResource Include="3D算法工具\点云裁剪\CropObjectModel3DForm.resx">
       <DependentUpon>CropObjectModel3DForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="3D算法工具\采样对象3D\FixedPointSampleModelForm.resx">
@@ -5015,6 +5037,7 @@
     <Folder Include="对位引导\标定\相机初始化\" />
     <Folder Include="对位引导\轨迹合并\" />
     <Folder Include="标定\平场校正\激光平场校正\" />
+    <Folder Include="组合工具\" />
     <Folder Include="缺陷检测\OCV检测\" />
     <Folder Include="缺陷检测\圆形检测\" />
     <Folder Include="缺陷检测\焊珠检测\" />
@@ -5060,6 +5083,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\编辑20 x 20.jpg.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\矩形 20 X 20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\圆形 20 X 20.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
