@@ -868,7 +868,6 @@
     <Compile Include="系统UI配置\UI视图配置\ProgramListForm.Designer.cs">
       <DependentUpon>ProgramListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="系统UI配置\ViewTriggerSingle.cs" />
     <Compile Include="系统UI配置\对位数据\CompensateForm.cs">
       <SubType>Form</SubType>
     </Compile>
