@@ -1611,14 +1611,14 @@
     <Compile Include="对位引导\弃用工具\对位合并\AlignUnionForm.Designer.cs">
       <DependentUpon>AlignUnionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\偏差计算\OffsetCalculate.cs" />
-    <Compile Include="对位引导\偏差计算\OffsetCalculateForm.cs">
+    <Compile Include="对位引导\弃用工具\偏差计算\OffsetCalculate.cs" />
+    <Compile Include="对位引导\弃用工具\偏差计算\OffsetCalculateForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\偏差计算\OffsetCalculateForm.Designer.cs">
+    <Compile Include="对位引导\弃用工具\偏差计算\OffsetCalculateForm.Designer.cs">
       <DependentUpon>OffsetCalculateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\偏差计算\OffsetMethod.cs" />
+    <Compile Include="对位引导\弃用工具\偏差计算\OffsetMethod.cs" />
     <Compile Include="对位引导\对位计算\AlignCalculateForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4472,7 +4472,7 @@
     <EmbeddedResource Include="对位引导\弃用工具\对位合并\AlignUnionForm.resx">
       <DependentUpon>AlignUnionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\偏差计算\OffsetCalculateForm.resx">
+    <EmbeddedResource Include="对位引导\弃用工具\偏差计算\OffsetCalculateForm.resx">
       <DependentUpon>OffsetCalculateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="对位引导\对位计算\AlignCalculateForm.resx">
@@ -5088,6 +5088,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\圆形 20 X 20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\匹配 20 x 20.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
