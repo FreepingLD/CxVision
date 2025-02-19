@@ -460,6 +460,14 @@
     <Compile Include="2D算法工具\圆弧插值\CircleSectorInterpolationForm.Designer.cs">
       <DependentUpon>CircleSectorInterpolationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="2D算法工具\四则运算\FourOperations.cs" />
+    <Compile Include="2D算法工具\四则运算\FourOperationsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\四则运算\FourOperationsForm.Designer.cs">
+      <DependentUpon>FourOperationsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D算法工具\四则运算\FourOperationsParam.cs" />
     <Compile Include="3D算法工具\三维映射\CoordMap3D.cs" />
     <Compile Include="3D算法工具\三维映射\CoordMapForm3D.cs">
       <SubType>Form</SubType>
@@ -3540,15 +3548,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AlgorithmsLibrary\AlgorithmsLibrary.csproj">
-      <Project>{2f1c78e1-b0f5-4a53-9b9f-7e74287ab119}</Project>
+      <Project>{ca264e13-7a80-4896-bc9a-976c569e3a7c}</Project>
       <Name>AlgorithmsLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\Command\Command.csproj">
-      <Project>{338ed5c5-99ed-4517-82d8-e9db92e85897}</Project>
+      <Project>{05ba5aca-313e-4dd3-8ae3-f19b840b0686}</Project>
       <Name>Command</Name>
     </ProjectReference>
     <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{0631dee4-0041-411e-996b-b5a7f77a09f8}</Project>
+      <Project>{96865c17-1291-4b9d-a5ce-c0912dec3412}</Project>
       <Name>Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Light\Light.csproj">
@@ -3710,6 +3718,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\圆弧插值\CircleSectorInterpolationForm.resx">
       <DependentUpon>CircleSectorInterpolationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\四则运算\FourOperationsForm.resx">
+      <DependentUpon>FourOperationsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="3D算法工具\三维映射\CoordMapForm3D.resx">
       <DependentUpon>CoordMapForm3D.cs</DependentUpon>

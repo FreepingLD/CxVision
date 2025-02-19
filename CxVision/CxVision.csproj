@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7DC173CE-1554-4D91-874E-235C3F629E88}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CxVision</RootNamespace>
     <AssemblyName>CxVision</AssemblyName>
@@ -150,6 +150,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainFormNew2Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFormNew2Test.Designer.cs">
+      <DependentUpon>MainFormNew2Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFormNew3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFormNew3.Designer.cs">
+      <DependentUpon>MainFormNew3.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainFormNew2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +187,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MainFormNew2Test.en-US.resx">
+      <DependentUpon>MainFormNew2Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFormNew2Test.en.resx">
+      <DependentUpon>MainFormNew2Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFormNew2Test.resx">
+      <DependentUpon>MainFormNew2Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFormNew3.en-US.resx">
+      <DependentUpon>MainFormNew3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFormNew3.en.resx">
+      <DependentUpon>MainFormNew3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFormNew3.resx">
+      <DependentUpon>MainFormNew3.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainFormNew2.en-US.resx">
       <DependentUpon>MainFormNew2.cs</DependentUpon>
     </EmbeddedResource>
@@ -219,12 +249,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AlgorithmsLibrary\AlgorithmsLibrary.csproj">
-      <Project>{2f1c78e1-b0f5-4a53-9b9f-7e74287ab119}</Project>
-      <Name>AlgorithmsLibrary</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{0631dee4-0041-411e-996b-b5a7f77a09f8}</Project>
+      <Project>{96865c17-1291-4b9d-a5ce-c0912dec3412}</Project>
       <Name>Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\FunctionBlock\FunctionBlock.csproj">

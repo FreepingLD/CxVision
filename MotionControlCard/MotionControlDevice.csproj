@@ -189,7 +189,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{0631dee4-0041-411e-996b-b5a7f77a09f8}</Project>
+      <Project>{96865c17-1291-4b9d-a5ce-c0912dec3412}</Project>
       <Name>Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Sensor\Sensor.csproj">
