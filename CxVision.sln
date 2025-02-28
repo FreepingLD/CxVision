@@ -5,29 +5,25 @@ VisualStudioVersion = 16.0.32002.261
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CxVision", "CxVision\CxVision.csproj", "{7DC173CE-1554-4D91-874E-235C3F629E88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionBlock", "FunctionBlock\FunctionBlock.csproj", "{0258A16C-86E6-4564-8BAF-494D4A8574FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cx.FunctionBlock", "FunctionBlock\Cx.FunctionBlock.csproj", "{0258A16C-86E6-4564-8BAF-494D4A8574FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotionControlDevice", "MotionControlCard\MotionControlDevice.csproj", "{F57E9EDC-A6DE-4661-B660-95D2F84A7813}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cx.MotionControlDevice", "MotionControlCard\Cx.MotionControlDevice.csproj", "{F57E9EDC-A6DE-4661-B660-95D2F84A7813}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sensor", "Sensor\Sensor.csproj", "{A7E81232-57F8-4EDE-A8E3-B9A145C48293}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cx.Sensor", "Sensor\Cx.Sensor.csproj", "{A7E81232-57F8-4EDE-A8E3-B9A145C48293}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "userControl", "UserControl\userControl.csproj", "{A4718EFA-2018-4DA9-9CFD-4C6817B7D190}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cx.userControl", "UserControl\Cx.userControl.csproj", "{A4718EFA-2018-4DA9-9CFD-4C6817B7D190}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Light", "Light\Light.csproj", "{A612B4EE-69AB-400A-8659-A78ACFBB08B7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cx.Light", "Light\Cx.Light.csproj", "{A612B4EE-69AB-400A-8659-A78ACFBB08B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "View\View.csproj", "{304138D5-FF27-402F-9897-742EC846CE2F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cx.View", "View\Cx.View.csproj", "{304138D5-FF27-402F-9897-742EC846CE2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Script", "Script\Script.csproj", "{6F3859DB-E085-4815-ADA9-6694B64813C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cx.AlgorithmsLibrary", "AlgorithmsLibrary\Cx.AlgorithmsLibrary.csproj", "{CA264E13-7A80-4896-BC9A-976C569E3A7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib", "Lib\Lib.csproj", "{A4073F3E-AAA4-497C-860B-DD1320B16837}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cx.Command", "Command\Cx.Command.csproj", "{05BA5ACA-313E-4DD3-8AE3-F19B840B0686}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgorithmsLibrary", "AlgorithmsLibrary\AlgorithmsLibrary.csproj", "{CA264E13-7A80-4896-BC9A-976C569E3A7C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cx.Common", "Common\Cx.Common.csproj", "{96865C17-1291-4B9D-A5CE-C0912DEC3412}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Command", "Command\Command.csproj", "{05BA5ACA-313E-4DD3-8AE3-F19B840B0686}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{96865C17-1291-4B9D-A5CE-C0912DEC3412}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBase", "DataBase\DataBase.csproj", "{EE87FB52-A9C0-4458-BCB1-F9671A1B32D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cx.DataBase", "DataBase\Cx.DataBase.csproj", "{EE87FB52-A9C0-4458-BCB1-F9671A1B32D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -123,30 +119,6 @@ Global
 		{304138D5-FF27-402F-9897-742EC846CE2F}.Release|x64.Build.0 = Release|x64
 		{304138D5-FF27-402F-9897-742EC846CE2F}.Release|x86.ActiveCfg = Release|x86
 		{304138D5-FF27-402F-9897-742EC846CE2F}.Release|x86.Build.0 = Release|x86
-		{6F3859DB-E085-4815-ADA9-6694B64813C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F3859DB-E085-4815-ADA9-6694B64813C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F3859DB-E085-4815-ADA9-6694B64813C5}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{6F3859DB-E085-4815-ADA9-6694B64813C5}.Debug|x64.Build.0 = Debug|Any CPU
-		{6F3859DB-E085-4815-ADA9-6694B64813C5}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{6F3859DB-E085-4815-ADA9-6694B64813C5}.Debug|x86.Build.0 = Debug|Any CPU
-		{6F3859DB-E085-4815-ADA9-6694B64813C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F3859DB-E085-4815-ADA9-6694B64813C5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6F3859DB-E085-4815-ADA9-6694B64813C5}.Release|x64.ActiveCfg = Release|Any CPU
-		{6F3859DB-E085-4815-ADA9-6694B64813C5}.Release|x64.Build.0 = Release|Any CPU
-		{6F3859DB-E085-4815-ADA9-6694B64813C5}.Release|x86.ActiveCfg = Release|Any CPU
-		{6F3859DB-E085-4815-ADA9-6694B64813C5}.Release|x86.Build.0 = Release|Any CPU
-		{A4073F3E-AAA4-497C-860B-DD1320B16837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A4073F3E-AAA4-497C-860B-DD1320B16837}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A4073F3E-AAA4-497C-860B-DD1320B16837}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{A4073F3E-AAA4-497C-860B-DD1320B16837}.Debug|x64.Build.0 = Debug|Any CPU
-		{A4073F3E-AAA4-497C-860B-DD1320B16837}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{A4073F3E-AAA4-497C-860B-DD1320B16837}.Debug|x86.Build.0 = Debug|Any CPU
-		{A4073F3E-AAA4-497C-860B-DD1320B16837}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A4073F3E-AAA4-497C-860B-DD1320B16837}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A4073F3E-AAA4-497C-860B-DD1320B16837}.Release|x64.ActiveCfg = Release|Any CPU
-		{A4073F3E-AAA4-497C-860B-DD1320B16837}.Release|x64.Build.0 = Release|Any CPU
-		{A4073F3E-AAA4-497C-860B-DD1320B16837}.Release|x86.ActiveCfg = Release|Any CPU
-		{A4073F3E-AAA4-497C-860B-DD1320B16837}.Release|x86.Build.0 = Release|Any CPU
 		{CA264E13-7A80-4896-BC9A-976C569E3A7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CA264E13-7A80-4896-BC9A-976C569E3A7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA264E13-7A80-4896-BC9A-976C569E3A7C}.Debug|x64.ActiveCfg = Debug|x64

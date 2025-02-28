@@ -160,9 +160,6 @@
   <data name="LineLineCoord" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LineLineCoord.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="_1606742307_1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1606742307(1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Excel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Excel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -235,8 +232,8 @@
   <data name="中分线" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\中分线.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="closeLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\closeLight.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="line" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\line.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_1606739707_1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1606739707(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -259,14 +256,17 @@
   <data name="ellipseSector" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ellipseSector.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="line" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\line.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="停止 50 X 50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\停止 50 X 50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="开始2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\开始2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="circleToLine" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\circleToLine.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="openLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\openLight.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MoveW_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MoveW+.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -301,6 +301,9 @@
   <data name="circleTocircle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\circleTocircle.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="closeLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\closeLight.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="pointToFace" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pointToFace.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -319,8 +322,11 @@
   <data name="MoveW_minus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MoveW-.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="openLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\openLight.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="_1606742307_1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1606742307(1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="开始2 50 X 50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\开始2 50 X 50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_1606742372_1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1606742372(1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -328,10 +334,10 @@
   <data name="stopRum" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stopRum.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="开始2 50 X 50" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\开始2 50 X 50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="黄色灯炮 25 X 25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\黄色灯炮 25 X 25.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="停止 50 X 50" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\停止 50 X 50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="绿色灯炮 25 X 25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\绿色灯炮 25 X 25.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

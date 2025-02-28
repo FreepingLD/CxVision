@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7DC173CE-1554-4D91-874E-235C3F629E88}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CxVision</RootNamespace>
     <AssemblyName>CxVision</AssemblyName>
@@ -95,6 +95,10 @@
     <ApplicationIcon>Start.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CSScriptLibrary, Version=3.30.5.1, Culture=neutral, PublicKeyToken=70fcc3d18c749033, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\x64\Debug\CSScriptLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\x64\Debug\FontAwesome.Sharp.dll</HintPath>
@@ -150,29 +154,17 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainFormNew2Test.cs">
+    <Compile Include="MainFormEmbed.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainFormNew2Test.Designer.cs">
-      <DependentUpon>MainFormNew2Test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainFormNew3.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainFormNew3.Designer.cs">
-      <DependentUpon>MainFormNew3.cs</DependentUpon>
+    <Compile Include="MainFormEmbed.designer.cs">
+      <DependentUpon>MainFormEmbed.cs</DependentUpon>
     </Compile>
     <Compile Include="MainFormNew2.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainFormNew2.Designer.cs">
       <DependentUpon>MainFormNew2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainFormNew.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainFormNew.Designer.cs">
-      <DependentUpon>MainFormNew.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -187,23 +179,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MainFormNew2Test.en-US.resx">
-      <DependentUpon>MainFormNew2Test.cs</DependentUpon>
+    <EmbeddedResource Include="MainFormEmbed.en-US.resx">
+      <DependentUpon>MainFormEmbed.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFormNew2Test.en.resx">
-      <DependentUpon>MainFormNew2Test.cs</DependentUpon>
+    <EmbeddedResource Include="MainFormEmbed.en.resx">
+      <DependentUpon>MainFormEmbed.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFormNew2Test.resx">
-      <DependentUpon>MainFormNew2Test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainFormNew3.en-US.resx">
-      <DependentUpon>MainFormNew3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainFormNew3.en.resx">
-      <DependentUpon>MainFormNew3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainFormNew3.resx">
-      <DependentUpon>MainFormNew3.cs</DependentUpon>
+    <EmbeddedResource Include="MainFormEmbed.resx">
+      <DependentUpon>MainFormEmbed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFormNew2.en-US.resx">
       <DependentUpon>MainFormNew2.cs</DependentUpon>
@@ -213,15 +196,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainFormNew2.resx">
       <DependentUpon>MainFormNew2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainFormNew.en-US.resx">
-      <DependentUpon>MainFormNew.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainFormNew.en.resx">
-      <DependentUpon>MainFormNew.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainFormNew.resx">
-      <DependentUpon>MainFormNew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.en-US.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -249,33 +223,33 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
+    <ProjectReference Include="..\Common\Cx.Common.csproj">
       <Project>{96865c17-1291-4b9d-a5ce-c0912dec3412}</Project>
-      <Name>Common</Name>
+      <Name>Cx.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FunctionBlock\FunctionBlock.csproj">
+    <ProjectReference Include="..\FunctionBlock\Cx.FunctionBlock.csproj">
       <Project>{0258a16c-86e6-4564-8baf-494d4a8574fd}</Project>
-      <Name>FunctionBlock</Name>
+      <Name>Cx.FunctionBlock</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Light\Light.csproj">
+    <ProjectReference Include="..\Light\Cx.Light.csproj">
       <Project>{a612b4ee-69ab-400a-8659-a78acfbb08b7}</Project>
-      <Name>Light</Name>
+      <Name>Cx.Light</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MotionControlCard\MotionControlDevice.csproj">
+    <ProjectReference Include="..\MotionControlCard\Cx.MotionControlDevice.csproj">
       <Project>{f57e9edc-a6de-4661-b660-95d2f84a7813}</Project>
-      <Name>MotionControlDevice</Name>
+      <Name>Cx.MotionControlDevice</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Sensor\Sensor.csproj">
+    <ProjectReference Include="..\Sensor\Cx.Sensor.csproj">
       <Project>{a7e81232-57f8-4ede-a8e3-b9a145c48293}</Project>
-      <Name>Sensor</Name>
+      <Name>Cx.Sensor</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UserControl\userControl.csproj">
+    <ProjectReference Include="..\UserControl\Cx.userControl.csproj">
       <Project>{A4718EFA-2018-4DA9-9CFD-4C6817B7D190}</Project>
-      <Name>userControl</Name>
+      <Name>Cx.userControl</Name>
     </ProjectReference>
-    <ProjectReference Include="..\View\View.csproj">
+    <ProjectReference Include="..\View\Cx.View.csproj">
       <Project>{304138d5-ff27-402f-9897-742ec846ce2f}</Project>
-      <Name>View</Name>
+      <Name>Cx.View</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -771,6 +745,8 @@
     <None Include="Resources\停止.jpg" />
     <None Include="Resources\开始2 50 X 50.png" />
     <None Include="Resources\停止 50 X 50.png" />
+    <None Include="Resources\黄色灯炮 25 X 25.jpg" />
+    <None Include="Resources\绿色灯炮 25 X 25.jpg" />
     <Content Include="Start.ico" />
   </ItemGroup>
   <ItemGroup />
