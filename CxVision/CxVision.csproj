@@ -160,6 +160,12 @@
     <Compile Include="MainFormEmbed.designer.cs">
       <DependentUpon>MainFormEmbed.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainFormNew3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFormNew3.Designer.cs">
+      <DependentUpon>MainFormNew3.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainFormNew2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainFormEmbed.resx">
       <DependentUpon>MainFormEmbed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFormNew3.en-US.resx">
+      <DependentUpon>MainFormNew3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFormNew3.en.resx">
+      <DependentUpon>MainFormNew3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFormNew3.resx">
+      <DependentUpon>MainFormNew3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFormNew2.en-US.resx">
       <DependentUpon>MainFormNew2.cs</DependentUpon>

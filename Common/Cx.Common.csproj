@@ -90,7 +90,9 @@
     <Compile Include="ReadWriteINI.cs" />
     <Compile Include="CpuMonitor.cs" />
     <Compile Include="MemoryMonitor.cs" />
+    <Compile Include="ReadWriteShareFile.cs" />
     <Compile Include="UvwPlatformParam.cs" />
+    <Compile Include="传感器参数\CameraParamOld.cs" />
     <Compile Include="传感器参数\CameraParam.cs" />
     <Compile Include="传感器参数\CaliParam.cs" />
     <Compile Include="传感器参数\CamNPointCalibParam.cs" />
@@ -105,6 +107,11 @@
     <Compile Include="传感器参数\StilLineSensorSetting.cs" />
     <Compile Include="传感器参数\StilPointSensorSetting.cs" />
     <Compile Include="图像数据类\PointCloudData.cs" />
+    <Compile Include="扩展类\DataGridViewExtend.cs" />
+    <Compile Include="扩展类\TabControlExtend.cs" />
+    <Compile Include="扩展类\TabPageExtend.cs" />
+    <Compile Include="扩展类\TreeViewExtend.cs" />
+    <Compile Include="扩展类\ListViewExtend.cs" />
     <Compile Include="文件操作\BinarySerialize.cs" />
     <Compile Include="AxisCalibration.cs" />
     <Compile Include="CalibrationXyPlane%28old%29.cs" />

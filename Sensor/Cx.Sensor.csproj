@@ -104,6 +104,9 @@
     <Reference Include="halcondotnetxl">
       <HintPath>C:\Program Files\MVTec\HALCON-20.11-Steady\bin\dotnet35\halcondotnetxl.dll</HintPath>
     </Reference>
+    <Reference Include="IKapBoardClassLibrary">
+      <HintPath>埃科\CameraLink\IKapBoardClassLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="IKapC.NET, Version=1.1.0.1, Culture=neutral, PublicKeyToken=700817f6992dd69b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Users\华硕\Desktop\IKapC.NET.dll</HintPath>
@@ -136,9 +139,6 @@
       <HintPath>OptLine\DLL\OPTExtLibrary.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
-    <Reference Include="SmartRemoteProxy">
-      <HintPath>GBS\SmartRemoteProxy.dll</HintPath>
-    </Reference>
     <Reference Include="SRAPI_CSharp-x64">
       <HintPath>SmartRay\Win_x64_MSVC_19\bin\SRAPI_CSharp-x64.dll</HintPath>
     </Reference>
@@ -217,9 +217,12 @@
     <Compile Include="Stil\StilPointLaser.cs" />
     <Compile Include="SensorConnectConfigParam.cs" />
     <Compile Include="OptLineCam\OptLineCam.cs" />
-    <Compile Include="埃科\LineCamera.cs" />
-    <Compile Include="埃科\IKapLineCam.cs" />
+    <Compile Include="埃科\CameraLink\IKapLineCameraLink.cs" />
+    <Compile Include="埃科\CameraLink\CameraLinkLine.cs" />
+    <Compile Include="埃科\GIGE\GigeCameraLine.cs" />
+    <Compile Include="埃科\GIGE\IKapLineGige.cs" />
     <Compile Include="大华\IMvCam.cs" />
+    <Compile Include="屏幕\ScreenCam.cs" />
     <Compile Include="海康威视\HkVision.cs" />
     <Compile Include="高特\GaoTePointLaser.cs" />
   </ItemGroup>
@@ -240,6 +243,7 @@
       <Name>Cx.Common</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

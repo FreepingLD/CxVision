@@ -703,129 +703,6 @@
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="视图TabControl.Alignment" type="System.Windows.Forms.TabAlignment, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="程序tabPage.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 9pt</value>
-  </data>
-  <data name="程序tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 4</value>
-  </data>
-  <data name="程序tabPage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="程序tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1133, 578</value>
-  </data>
-  <data name="程序tabPage.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="程序tabPage.Text" xml:space="preserve">
-    <value>程序编辑</value>
-  </data>
-  <data name="&gt;&gt;程序tabPage.Name" xml:space="preserve">
-    <value>程序tabPage</value>
-  </data>
-  <data name="&gt;&gt;程序tabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;程序tabPage.Parent" xml:space="preserve">
-    <value>视图TabControl</value>
-  </data>
-  <data name="&gt;&gt;程序tabPage.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="系统配置tabPage.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 9pt</value>
-  </data>
-  <data name="系统配置tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 4</value>
-  </data>
-  <data name="系统配置tabPage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="系统配置tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1133, 578</value>
-  </data>
-  <data name="系统配置tabPage.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="系统配置tabPage.Text" xml:space="preserve">
-    <value>系统配置</value>
-  </data>
-  <data name="&gt;&gt;系统配置tabPage.Name" xml:space="preserve">
-    <value>系统配置tabPage</value>
-  </data>
-  <data name="&gt;&gt;系统配置tabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;系统配置tabPage.Parent" xml:space="preserve">
-    <value>视图TabControl</value>
-  </data>
-  <data name="&gt;&gt;系统配置tabPage.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="视图TabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="视图TabControl.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 15.75pt</value>
-  </data>
-  <data name="视图TabControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="视图TabControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="视图TabControl.Padding" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="视图TabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1141, 613</value>
-  </data>
-  <data name="视图TabControl.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;视图TabControl.Name" xml:space="preserve">
-    <value>视图TabControl</value>
-  </data>
-  <data name="&gt;&gt;视图TabControl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;视图TabControl.Parent" xml:space="preserve">
-    <value>视图Panel</value>
-  </data>
-  <data name="&gt;&gt;视图TabControl.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="视图Panel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="视图Panel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 86</value>
-  </data>
-  <data name="视图Panel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="视图Panel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1141, 613</value>
-  </data>
-  <data name="视图Panel.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="&gt;&gt;视图Panel.Name" xml:space="preserve">
-    <value>视图Panel</value>
-  </data>
-  <data name="&gt;&gt;视图Panel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;视图Panel.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;视图Panel.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <metadata name="运行工具条toolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>932, 17</value>
   </metadata>
@@ -1902,13 +1779,13 @@
     <value>ImageAboveText</value>
   </data>
   <data name="toolStripMenuItem52.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>155, 24</value>
   </data>
   <data name="toolStripMenuItem52.Text" xml:space="preserve">
     <value>Ftp数据上传</value>
   </data>
   <data name="toolStripMenuItem53.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>155, 24</value>
   </data>
   <data name="toolStripMenuItem53.Text" xml:space="preserve">
     <value>图像删除</value>
@@ -2749,7 +2626,7 @@
     <value>tableLayoutPanel1</value>
   </data>
   <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="用户label.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -2878,7 +2755,7 @@
     <value>tableLayoutPanel1</value>
   </data>
   <data name="&gt;&gt;用户panel.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="运行状态checkBox.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
     <value>Button</value>
@@ -2914,6 +2791,102 @@
     <value>tableLayoutPanel1</value>
   </data>
   <data name="&gt;&gt;运行状态checkBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="视图TabControl.Alignment" type="System.Windows.Forms.TabAlignment, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="程序tabPage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 9pt</value>
+  </data>
+  <data name="程序tabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="程序tabPage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="程序tabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1133, 600</value>
+  </data>
+  <data name="程序tabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="程序tabPage.Text" xml:space="preserve">
+    <value>程序编辑</value>
+  </data>
+  <data name="&gt;&gt;程序tabPage.Name" xml:space="preserve">
+    <value>程序tabPage</value>
+  </data>
+  <data name="&gt;&gt;程序tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;程序tabPage.Parent" xml:space="preserve">
+    <value>视图TabControl</value>
+  </data>
+  <data name="&gt;&gt;程序tabPage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="系统配置tabPage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 9pt</value>
+  </data>
+  <data name="系统配置tabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="系统配置tabPage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="系统配置tabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1133, 578</value>
+  </data>
+  <data name="系统配置tabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="系统配置tabPage.Text" xml:space="preserve">
+    <value>系统配置</value>
+  </data>
+  <data name="&gt;&gt;系统配置tabPage.Name" xml:space="preserve">
+    <value>系统配置tabPage</value>
+  </data>
+  <data name="&gt;&gt;系统配置tabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;系统配置tabPage.Parent" xml:space="preserve">
+    <value>视图TabControl</value>
+  </data>
+  <data name="&gt;&gt;系统配置tabPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="视图TabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="视图TabControl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 15.75pt</value>
+  </data>
+  <data name="视图TabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 86</value>
+  </data>
+  <data name="视图TabControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="视图TabControl.Padding" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="视图TabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1141, 635</value>
+  </data>
+  <data name="视图TabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;视图TabControl.Name" xml:space="preserve">
+    <value>视图TabControl</value>
+  </data>
+  <data name="&gt;&gt;视图TabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;视图TabControl.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;视图TabControl.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
   <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -2947,13 +2920,13 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="项目名称label" Row="1" RowSpan="1" Column="2" ColumnSpan="4" /&gt;&lt;Control Name="statusStrip2" Row="6" RowSpan="1" Column="0" ColumnSpan="6" /&gt;&lt;Control Name="menuStrip1" Row="0" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="statusStrip1" Row="5" RowSpan="1" Column="0" ColumnSpan="6" /&gt;&lt;Control Name="视图Panel" Row="2" RowSpan="3" Column="0" ColumnSpan="6" /&gt;&lt;Control Name="panel2" Row="1" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="用户panel" Row="0" RowSpan="1" Column="2" ColumnSpan="3" /&gt;&lt;Control Name="运行状态checkBox" Row="0" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,74,Percent,100,Absolute,107,Absolute,31,Absolute,29,Absolute,36" /&gt;&lt;Rows Styles="Absolute,30,AutoSize,0,Absolute,179,Percent,100,Absolute,20,AutoSize,0,Absolute,24" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="项目名称label" Row="1" RowSpan="1" Column="2" ColumnSpan="4" /&gt;&lt;Control Name="statusStrip2" Row="6" RowSpan="1" Column="0" ColumnSpan="6" /&gt;&lt;Control Name="menuStrip1" Row="0" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="statusStrip1" Row="5" RowSpan="1" Column="0" ColumnSpan="6" /&gt;&lt;Control Name="panel2" Row="1" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="用户panel" Row="0" RowSpan="1" Column="2" ColumnSpan="3" /&gt;&lt;Control Name="运行状态checkBox" Row="0" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="视图TabControl" Row="2" RowSpan="4" Column="0" ColumnSpan="6" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,74,Percent,100,Absolute,107,Absolute,31,Absolute,29,Absolute,36" /&gt;&lt;Rows Styles="Absolute,30,AutoSize,0,Absolute,179,Percent,100,Absolute,20,AutoSize,0,Absolute,24,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="statusStrip1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="toolStripStatusLabel11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 17</value>
+    <value>35, 19</value>
   </data>
   <data name="toolStripStatusLabel11.Text" xml:space="preserve">
     <value>日期:</value>
@@ -2962,148 +2935,151 @@
     <value>MiddleRight</value>
   </data>
   <data name="日期toolStripStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 17</value>
+    <value>74, 19</value>
   </data>
   <data name="日期toolStripStatusLabel.Text" xml:space="preserve">
     <value>2024/12/30</value>
   </data>
   <data name="toolStripStatusLabel13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 17</value>
+    <value>35, 19</value>
   </data>
   <data name="toolStripStatusLabel13.Text" xml:space="preserve">
     <value>时间:</value>
   </data>
   <data name="时间toolStripStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 17</value>
+    <value>39, 19</value>
   </data>
   <data name="时间toolStripStatusLabel.Text" xml:space="preserve">
     <value>18.59</value>
   </data>
   <data name="toolStripStatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>11, 17</value>
+    <value>11, 19</value>
   </data>
   <data name="toolStripStatusLabel1.Text" xml:space="preserve">
     <value>|</value>
   </data>
   <data name="程序1toolStripStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 17</value>
+    <value>70, 19</value>
   </data>
   <data name="程序1toolStripStatusLabel.Text" xml:space="preserve">
     <value>Cpu分辨率:</value>
   </data>
   <data name="Cpu分辨率toolStripStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 17</value>
+    <value>26, 19</value>
   </data>
   <data name="Cpu分辨率toolStripStatusLabel.Text" xml:space="preserve">
     <value>0%</value>
   </data>
   <data name="toolStripStatusLabel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 17</value>
+    <value>47, 19</value>
   </data>
   <data name="toolStripStatusLabel2.Text" xml:space="preserve">
     <value>总内存:</value>
   </data>
   <data name="总内存toolStripStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 17</value>
+    <value>28, 19</value>
   </data>
   <data name="总内存toolStripStatusLabel.Text" xml:space="preserve">
     <value>0 G</value>
   </data>
   <data name="toolStripStatusLabel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 17</value>
+    <value>71, 19</value>
   </data>
   <data name="toolStripStatusLabel3.Text" xml:space="preserve">
     <value>内存利用率:</value>
   </data>
   <data name="内存利用率toolStripStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 17</value>
+    <value>26, 19</value>
   </data>
   <data name="内存利用率toolStripStatusLabel.Text" xml:space="preserve">
     <value>0%</value>
   </data>
   <data name="toolStripStatusLabel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>11, 17</value>
+    <value>11, 19</value>
   </data>
   <data name="toolStripStatusLabel5.Text" xml:space="preserve">
     <value>|</value>
   </data>
   <data name="toolStripStatusLabel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 17</value>
+    <value>31, 19</value>
   </data>
   <data name="toolStripStatusLabel4.Text" xml:space="preserve">
     <value>C盘:</value>
   </data>
   <data name="C盘大小toolStripStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 17</value>
+    <value>28, 19</value>
   </data>
   <data name="C盘大小toolStripStatusLabel.Text" xml:space="preserve">
     <value>0 G</value>
   </data>
   <data name="toolStripStatusLabel8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>11, 17</value>
+    <value>11, 19</value>
   </data>
   <data name="toolStripStatusLabel8.Text" xml:space="preserve">
     <value>|</value>
   </data>
   <data name="toolStripStatusLabel6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 17</value>
+    <value>32, 19</value>
   </data>
   <data name="toolStripStatusLabel6.Text" xml:space="preserve">
     <value>D盘:</value>
   </data>
   <data name="D盘大小toolStripStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 17</value>
+    <value>28, 19</value>
   </data>
   <data name="D盘大小toolStripStatusLabel.Text" xml:space="preserve">
     <value>0 G</value>
   </data>
   <data name="toolStripStatusLabel10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>11, 17</value>
+    <value>11, 19</value>
   </data>
   <data name="toolStripStatusLabel10.Text" xml:space="preserve">
     <value>|</value>
   </data>
   <data name="toolStripStatusLabel7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 17</value>
+    <value>30, 19</value>
   </data>
   <data name="toolStripStatusLabel7.Text" xml:space="preserve">
     <value>E盘:</value>
   </data>
   <data name="E盘大小toolStripStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 17</value>
+    <value>32, 19</value>
   </data>
   <data name="E盘大小toolStripStatusLabel.Text" xml:space="preserve">
     <value>0 G </value>
   </data>
   <data name="分隔toolStripStatusLabel12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>11, 17</value>
+    <value>11, 19</value>
   </data>
   <data name="分隔toolStripStatusLabel12.Text" xml:space="preserve">
     <value>|</value>
   </data>
   <data name="toolStripStatusLabel9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 17</value>
+    <value>29, 19</value>
   </data>
   <data name="toolStripStatusLabel9.Text" xml:space="preserve">
     <value>F盘:</value>
   </data>
   <data name="F盘大小toolStripStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 17</value>
+    <value>28, 19</value>
   </data>
   <data name="F盘大小toolStripStatusLabel.Text" xml:space="preserve">
     <value>0 G</value>
   </data>
   <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 699</value>
+    <value>0, 701</value>
   </data>
   <data name="statusStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1141, 22</value>
+    <value>1141, 24</value>
   </data>
   <data name="statusStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="statusStrip1.Text" xml:space="preserve">
     <value>statusStrip1</value>
+  </data>
+  <data name="statusStrip1.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;statusStrip1.Name" xml:space="preserve">
     <value>statusStrip1</value>

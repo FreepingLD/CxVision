@@ -168,29 +168,65 @@
     <Compile Include="2D匹配\NCC灰度匹配\App\FindNccModelParamSubForm.Designer.cs">
       <DependentUpon>FindNccModelParamSubForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="2D匹配\局部变形匹配\App\CreateLocalDeformableModelForm.cs">
+    <Compile Include="2D匹配\变形匹配\App\CreateLocalDeformableXLDSubParamForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="2D匹配\局部变形匹配\App\CreateLocalDeformableModelForm.Designer.cs">
+    <Compile Include="2D匹配\变形匹配\App\CreateLocalDeformableXLDSubParamForm.Designer.cs">
+      <DependentUpon>CreateLocalDeformableXLDSubParamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D匹配\变形匹配\App\CreateLocalDeformableXLDParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D匹配\变形匹配\App\CreateLocalDeformableXLDParamForm.Designer.cs">
+      <DependentUpon>CreateLocalDeformableXLDParamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D匹配\变形匹配\App\CreateLocalDeformableSubParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D匹配\变形匹配\App\CreateLocalDeformableSubParamForm.Designer.cs">
+      <DependentUpon>CreateLocalDeformableSubParamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D匹配\变形匹配\App\CreateLocalDeformableParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D匹配\变形匹配\App\CreateLocalDeformableParamForm.Designer.cs">
+      <DependentUpon>CreateLocalDeformableParamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D匹配\变形匹配\App\FindDeformableModelSubParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D匹配\变形匹配\App\FindDeformableModelSubParamForm.Designer.cs">
+      <DependentUpon>FindDeformableModelSubParamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D匹配\变形匹配\App\FindDeformableModelParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D匹配\变形匹配\App\FindDeformableModelParamForm.Designer.cs">
+      <DependentUpon>FindDeformableModelParamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D匹配\变形匹配\App\Old\CreateLocalDeformableModelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D匹配\变形匹配\App\Old\CreateLocalDeformableModelForm.Designer.cs">
       <DependentUpon>CreateLocalDeformableModelForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="2D匹配\局部变形匹配\LocalDeformableMatchForm.cs">
+    <Compile Include="2D匹配\变形匹配\LocalDeformableMatchForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="2D匹配\局部变形匹配\LocalDeformableMatchForm.Designer.cs">
+    <Compile Include="2D匹配\变形匹配\LocalDeformableMatchForm.Designer.cs">
       <DependentUpon>LocalDeformableMatchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="2D匹配\局部变形匹配\CreateLocalDeformableModelMethod.cs" />
-    <Compile Include="2D匹配\局部变形匹配\LocalDeformableModelMatch.cs" />
-    <Compile Include="2D匹配\局部变形匹配\FindLocalDeformableModelMethod.cs" />
-    <Compile Include="2D匹配\局部变形匹配\App\FindLocalDeformableModelParamForm.cs">
+    <Compile Include="2D匹配\变形匹配\CreateLocalDeformableModelMethod.cs" />
+    <Compile Include="2D匹配\变形匹配\LocalDeformableModelMatch.cs" />
+    <Compile Include="2D匹配\变形匹配\FindLocalDeformableModelMethod.cs" />
+    <Compile Include="2D匹配\变形匹配\App\Old\FindLocalDeformableModelParamForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="2D匹配\局部变形匹配\App\FindLocalDeformableModelParamForm.Designer.cs">
+    <Compile Include="2D匹配\变形匹配\App\Old\FindLocalDeformableModelParamForm.Designer.cs">
       <DependentUpon>FindLocalDeformableModelParamForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="2D匹配\局部变形匹配\DoLocalDeformableModelMatch.cs" />
-    <Compile Include="2D匹配\局部变形匹配\LocalDeformableModelParam.cs" />
+    <Compile Include="2D匹配\变形匹配\DoLocalDeformableModelMatch.cs" />
+    <Compile Include="2D匹配\变形匹配\LocalDeformableModelParam.cs" />
     <Compile Include="2D匹配\NCC灰度匹配\CreateNccModelMethod.cs" />
     <Compile Include="2D匹配\NCC灰度匹配\NccModelMatch.cs" />
     <Compile Include="2D匹配\NCC灰度匹配\FindNccModelMethod.cs" />
@@ -301,6 +337,36 @@
     </Compile>
     <Compile Include="2D算法工具\2D卡尺测量\圆弧测量\CircleSectorMeasureForm.designer.cs">
       <DependentUpon>CircleSectorMeasureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D算法工具\2D卡尺测量\手动测量窗体\ManualMeasureRect2Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\2D卡尺测量\手动测量窗体\ManualMeasureRect2Form.Designer.cs">
+      <DependentUpon>ManualMeasureRect2Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D算法工具\2D卡尺测量\手动测量窗体\ManualMeasureLineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\2D卡尺测量\手动测量窗体\ManualMeasureLineForm.Designer.cs">
+      <DependentUpon>ManualMeasureLineForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D算法工具\2D卡尺测量\手动测量窗体\ManualMeasureCircleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\2D卡尺测量\手动测量窗体\ManualMeasureCircleForm.Designer.cs">
+      <DependentUpon>ManualMeasureCircleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D算法工具\2D卡尺测量\手动测量窗体\ManualMeasureEllipseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\2D卡尺测量\手动测量窗体\ManualMeasureEllipseForm.Designer.cs">
+      <DependentUpon>ManualMeasureEllipseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D算法工具\2D卡尺测量\手动测量窗体\ManualMeasurePolyLineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\2D卡尺测量\手动测量窗体\ManualMeasurePolyLineForm.Designer.cs">
+      <DependentUpon>ManualMeasurePolyLineForm.cs</DependentUpon>
     </Compile>
     <Compile Include="2D算法工具\2D卡尺测量\椭圆测量\EllipseMeasureForm.cs">
       <SubType>Form</SubType>
@@ -438,6 +504,13 @@
     <Compile Include="2D算法工具\光源配置\LightConfigForm.Designer.cs">
       <DependentUpon>LightConfigForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="2D算法工具\几何测量\直线轮廓交点\IntersectionLineContour.cs" />
+    <Compile Include="2D算法工具\几何测量\直线轮廓交点\IntersectionLineContourForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\几何测量\直线轮廓交点\IntersectionLineContourForm.Designer.cs">
+      <DependentUpon>IntersectionLineContourForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="2D算法工具\几何测量\轮廓到线距离\ContToLineDist2D.cs" />
     <Compile Include="2D算法工具\几何测量\轮廓到线距离\ContToLineDist2DForm.cs">
       <SubType>Form</SubType>
@@ -467,6 +540,167 @@
       <DependentUpon>IntersectionLineCircleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="2D算法工具\几何测量\圆线交点\IntersectionLineCirlce.cs" />
+    <Compile Include="2D算法工具\2D卡尺测量\手动测量窗体\ManualMeasurePointForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\2D卡尺测量\手动测量窗体\ManualMeasurePointForm.Designer.cs">
+      <DependentUpon>ManualMeasurePointForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D算法工具\图像分解\ImageDecompose.cs" />
+    <Compile Include="2D算法工具\图像分解\ImageDecomposeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\图像分解\ImageDecomposeForm.Designer.cs">
+      <DependentUpon>ImageDecomposeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D算法工具\图像分解\DecomposeParam.cs" />
+    <Compile Include="2D算法工具\图像处理\图像操作\App\ImageRotateParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\图像处理\图像操作\App\ImageRotateParamForm.Designer.cs">
+      <DependentUpon>ImageRotateParamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D算法工具\图像处理\图像操作\App\ImageMirrorParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\图像处理\图像操作\App\ImageMirrorParamForm.Designer.cs">
+      <DependentUpon>ImageMirrorParamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D算法工具\图像拼接\TileImageFormOld.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\图像拼接\TileImageFormOld.Designer.cs">
+      <DependentUpon>TileImageFormOld.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D算法工具\图像拼接\TileImageParamOld.cs" />
+    <Compile Include="2D算法工具\图像镜像\ImageMirror.cs" />
+    <Compile Include="2D算法工具\图像镜像\ImageMirrorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\图像镜像\ImageMirrorForm.Designer.cs">
+      <DependentUpon>ImageMirrorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D算法工具\图像镜像\ImageMirrorParam.cs" />
+    <Compile Include="2D算法工具\字符识别\App\CreateDeepOcrForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\字符识别\App\CreateDeepOcrForm.Designer.cs">
+      <DependentUpon>CreateDeepOcrForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D算法工具\字符识别\App\FindDeepOcrForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\字符识别\App\FindDeepOcrForm.Designer.cs">
+      <DependentUpon>FindDeepOcrForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D算法工具\字符识别\App\FindDeepOcrSubForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\字符识别\App\FindDeepOcrSubForm.Designer.cs">
+      <DependentUpon>FindDeepOcrSubForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D算法工具\字符识别\DeepOcrParams.cs" />
+    <Compile Include="其他工具\TestApi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他工具\鼠标操作\API.cs" />
+    <Compile Include="其他工具\鼠标操作\Win32 Api.cs" />
+    <Compile Include="其他工具\鼠标操作\初始化文本\InitText.cs" />
+    <Compile Include="其他工具\鼠标操作\初始化文本\InitTextForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他工具\鼠标操作\初始化文本\InitTextForm.Designer.cs">
+      <DependentUpon>InitTextForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他工具\鼠标操作\初始化文本\InitTextParam.cs" />
+    <Compile Include="其他工具\鼠标操作\写入文本\WriteText.cs" />
+    <Compile Include="其他工具\鼠标操作\写入文本\WriteTextForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他工具\鼠标操作\写入文本\WriteTextForm.Designer.cs">
+      <DependentUpon>WriteTextForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他工具\鼠标操作\写入文本\WriteTextParam.cs" />
+    <Compile Include="其他工具\鼠标操作\等待文本\WaitText.cs" />
+    <Compile Include="其他工具\鼠标操作\等待文本\WaitTextForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他工具\鼠标操作\等待文本\WaitTextForm.Designer.cs">
+      <DependentUpon>WaitTextForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他工具\鼠标操作\等待文本\WaitTextParam.cs" />
+    <Compile Include="其他工具\鼠标操作\键盘点击\KeyBoardClick.cs" />
+    <Compile Include="其他工具\鼠标操作\键盘点击\KeyBoardClickForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他工具\鼠标操作\键盘点击\KeyBoardClickForm.Designer.cs">
+      <DependentUpon>KeyBoardClickForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他工具\鼠标操作\键盘点击\KeyBoardClickParam.cs" />
+    <Compile Include="其他工具\鼠标操作\读取文本\ReadText.cs" />
+    <Compile Include="其他工具\鼠标操作\读取文本\ReadTextForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他工具\鼠标操作\读取文本\ReadTextForm.Designer.cs">
+      <DependentUpon>ReadTextForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他工具\鼠标操作\读取文本\ReadTextParam.cs" />
+    <Compile Include="其他工具\鼠标操作\设置光标\SetCursorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他工具\鼠标操作\设置光标\SetCursorForm.Designer.cs">
+      <DependentUpon>SetCursorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他工具\鼠标操作\设置光标\SetCursorParam.cs" />
+    <Compile Include="其他工具\鼠标操作\设置光标\SetCursor.cs" />
+    <Compile Include="其他工具\鼠标操作\点击鼠标\ClickMouseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他工具\鼠标操作\点击鼠标\ClickMouseForm.Designer.cs">
+      <DependentUpon>ClickMouseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他工具\鼠标操作\点击鼠标\ClickMouseParam.cs" />
+    <Compile Include="其他工具\鼠标操作\点击鼠标\ClickMouses.cs" />
+    <Compile Include="其他工具\鼠标操作\鼠标点击\MouseClickParam.cs" />
+    <Compile Include="其他工具\鼠标操作\鼠标点击\MousesClick.cs" />
+    <Compile Include="其他工具\鼠标操作\鼠标点击\MouseClickForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他工具\鼠标操作\鼠标点击\MouseClickForm.Designer.cs">
+      <DependentUpon>MouseClickForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他工具\鼠标操作\鼠标点击\MouseClickMethod.cs" />
+    <Compile Include="上下料机\放料计算\RobotLayOff.cs" />
+    <Compile Include="上下料机\放料计算\RobotLayOffForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="上下料机\放料计算\RobotLayOffForm.Designer.cs">
+      <DependentUpon>RobotLayOffForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="公共窗体\LookTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="公共窗体\LookTableForm.Designer.cs">
+      <DependentUpon>LookTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="公共窗体\WcsCircleParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="公共窗体\WcsCircleParamForm.Designer.cs">
+      <DependentUpon>WcsCircleParamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="公共窗体\WcsRet2ParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="公共窗体\WcsRet2ParamForm.Designer.cs">
+      <DependentUpon>WcsRet2ParamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="公共窗体\WcsRet1ParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="公共窗体\WcsRet1ParamForm.Designer.cs">
+      <DependentUpon>WcsRet1ParamForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="2D算法工具\圆弧插值\CircleSectorInterpolation.cs" />
     <Compile Include="2D算法工具\圆弧插值\CircleSectorInterpolationForm.cs">
       <SubType>Form</SubType>
@@ -482,6 +716,12 @@
       <DependentUpon>FourOperationsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="2D算法工具\四则运算\FourOperationsParam.cs" />
+    <Compile Include="2D算法工具\直线中点\LineMiddlePointFormOld.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\直线中点\LineMiddlePointFormOld.Designer.cs">
+      <DependentUpon>LineMiddlePointFormOld.cs</DependentUpon>
+    </Compile>
     <Compile Include="3D算法工具\三维映射\CoordMap3D.cs" />
     <Compile Include="3D算法工具\三维映射\CoordMapForm3D.cs">
       <SubType>Form</SubType>
@@ -568,6 +808,12 @@
     <Compile Include="上下料机\取料计算\RobotGrabForm.designer.cs">
       <DependentUpon>RobotGrabForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="传感器参数\CameraParamFormOld.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="传感器参数\CameraParamFormOld.Designer.cs">
+      <DependentUpon>CameraParamFormOld.cs</DependentUpon>
+    </Compile>
     <Compile Include="其他工具\FtpFluentForm\FtpConfigParam.cs" />
     <Compile Include="其他工具\FtpFluentForm\FtpConfigParamManger.cs" />
     <Compile Include="其他工具\FtpFluentForm\FtpFluent.cs" />
@@ -584,11 +830,17 @@
     <Compile Include="其他工具\删图工具\Form1.designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\N点对位2\NPointVectorAlign.cs" />
-    <Compile Include="对位引导\N点对位2\NPointVectorAlignForm.cs">
+    <Compile Include="对位引导\N点对位\NPointVectorAlign.cs" />
+    <Compile Include="对位引导\N点对位\NPointVectorAlignFormOld.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\N点对位2\NPointVectorAlignForm.Designer.cs">
+    <Compile Include="对位引导\N点对位\NPointVectorAlignFormOld.Designer.cs">
+      <DependentUpon>NPointVectorAlignFormOld.cs</DependentUpon>
+    </Compile>
+    <Compile Include="对位引导\N点对位\NPointVectorAlignForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="对位引导\N点对位\NPointVectorAlignForm.Designer.cs">
       <DependentUpon>NPointVectorAlignForm.cs</DependentUpon>
     </Compile>
     <Compile Include="对位引导\向量对位2\VectorAlignNew.cs" />
@@ -599,6 +851,12 @@
       <DependentUpon>VectorAlignNewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="对位引导\向量对位\VectorAlign.cs" />
+    <Compile Include="对位引导\向量对位\VectorAlignFormOld.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="对位引导\向量对位\VectorAlignFormOld.designer.cs">
+      <DependentUpon>VectorAlignFormOld.cs</DependentUpon>
+    </Compile>
     <Compile Include="对位引导\向量对位\VectorAlignForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -612,14 +870,20 @@
     <Compile Include="2D算法工具\向量计算\VectorCalculateForm.designer.cs">
       <DependentUpon>VectorCalculateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\坐标转换\CoordTransform.cs" />
-    <Compile Include="对位引导\坐标转换\CoordTransformForm.cs">
+    <Compile Include="2D算法工具\坐标转换\CoordTransform.cs" />
+    <Compile Include="2D算法工具\坐标转换\CoordTransformForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\坐标转换\CoordTransformForm.Designer.cs">
+    <Compile Include="2D算法工具\坐标转换\CoordTransformForm.Designer.cs">
       <DependentUpon>CoordTransformForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\坐标转换\CoordTransformParam.cs" />
+    <Compile Include="2D算法工具\坐标转换\CoordTransformParam.cs" />
+    <Compile Include="对位引导\对位计算\AlignCalculateFormOld.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="对位引导\对位计算\AlignCalculateFormOld.Designer.cs">
+      <DependentUpon>AlignCalculateFormOld.cs</DependentUpon>
+    </Compile>
     <Compile Include="对位引导\标定\映射标定\MapCalibParam.cs" />
     <Compile Include="对位引导\标定\映射标定\MapCalib.cs" />
     <Compile Include="对位引导\标定\映射标定\MapCalibrForm.cs">
@@ -629,7 +893,47 @@
       <DependentUpon>MapCalibrForm.cs</DependentUpon>
     </Compile>
     <Compile Include="对位引导\标定\圆心标定\CenterCalibParam.cs" />
+    <Compile Include="对位引导\轨迹偏置\TrackOffset.cs" />
+    <Compile Include="对位引导\轨迹偏置\TrackOffsetFormOld.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="对位引导\轨迹偏置\TrackOffsetFormOld.Designer.cs">
+      <DependentUpon>TrackOffsetFormOld.cs</DependentUpon>
+    </Compile>
+    <Compile Include="对位引导\轨迹偏置\TrackOffsetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="对位引导\轨迹偏置\TrackOffsetForm.Designer.cs">
+      <DependentUpon>TrackOffsetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="对位引导\轨迹偏置\TrackOffsetParam.cs" />
+    <Compile Include="对位引导\轨迹提取\TrackExtractForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="对位引导\轨迹提取\TrackExtractForm.Designer.cs">
+      <DependentUpon>TrackExtractForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="对位引导\轨迹提取\TrackExtractFormNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="对位引导\轨迹提取\TrackExtractFormNew.Designer.cs">
+      <DependentUpon>TrackExtractFormNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="对位引导\轨迹提取\TrackExtract.cs" />
+    <Compile Include="对位引导\轨迹提取\TrackExtractParam.cs" />
+    <Compile Include="对位引导\轨迹计算\TrackCalculateFormOld.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="对位引导\轨迹计算\TrackCalculateFormOld.Designer.cs">
+      <DependentUpon>TrackCalculateFormOld.cs</DependentUpon>
+    </Compile>
     <Compile Include="对位引导\迁移计算\MigrateCalculate.cs" />
+    <Compile Include="对位引导\迁移计算\MigrateCalculateFormOld.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="对位引导\迁移计算\MigrateCalculateFormOld.Designer.cs">
+      <DependentUpon>MigrateCalculateFormOld.cs</DependentUpon>
+    </Compile>
     <Compile Include="对位引导\迁移计算\MigrateCalculateForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -640,6 +944,12 @@
     <Compile Include="属性结果\ResultJudgeCommand.cs" />
     <Compile Include="属性结果\JudgeCommand.cs" />
     <Compile Include="1_工作流程\AutoRunThreadPlc.cs" />
+    <Compile Include="公共窗体\CopyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="公共窗体\CopyForm.Designer.cs">
+      <DependentUpon>CopyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="工具组\Switch语句\Switch.cs" />
     <Compile Include="工具组\Switch语句\SwitchForm.cs">
       <SubType>Form</SubType>
@@ -655,6 +965,12 @@
     </Compile>
     <Compile Include="工具组\Switch语句\标签case\Case.cs" />
     <Compile Include="工具组\并发执行\ConcurrentExecution.cs" />
+    <Compile Include="工具组\并发执行\ConcurrentExecutionFormOld.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工具组\并发执行\ConcurrentExecutionFormOld.Designer.cs">
+      <DependentUpon>ConcurrentExecutionFormOld.cs</DependentUpon>
+    </Compile>
     <Compile Include="工具组\并发执行\ConcurrentExecutionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -761,7 +1077,7 @@
       <DependentUpon>ImageRotateForm.cs</DependentUpon>
     </Compile>
     <Compile Include="2D算法工具\图像旋转\ImageRotateParam.cs" />
-    <Compile Include="2D算法工具\图像平铺\TileImageMethod.cs" />
+    <Compile Include="2D算法工具\图像拼接\TileImageMethod.cs" />
     <Compile Include="2D算法工具\图像缩放\ImageZoom.cs" />
     <Compile Include="2D算法工具\图像缩放\ImageZoomForm.cs">
       <SubType>Form</SubType>
@@ -828,11 +1144,23 @@
     <Compile Include="2D算法工具\区域拟合\拟合矩形区域\FitRect2RegionForm.Designer.cs">
       <DependentUpon>FitRect2RegionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="工具组\特征定位\FeatureLocalizationFormOld.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工具组\特征定位\FeatureLocalizationFormOld.Designer.cs">
+      <DependentUpon>FeatureLocalizationFormOld.cs</DependentUpon>
+    </Compile>
     <Compile Include="标定\相机9点标定\CaliCaliboardSinmpleForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="标定\相机9点标定\CaliCaliboardSinmpleForm.Designer.cs">
       <DependentUpon>CaliCaliboardSinmpleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="标定\相机9点标定\CamNPointMapCalibrateSimpleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="标定\相机9点标定\CamNPointMapCalibrateSimpleForm.Designer.cs">
+      <DependentUpon>CamNPointMapCalibrateSimpleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="标定\相机9点标定\Cam9PointCalibrateSimpleForm.cs">
       <SubType>Form</SubType>
@@ -858,6 +1186,12 @@
     <Compile Include="标定\相机9点标定\UpDnCamCaliSimpleForm.Designer.cs">
       <DependentUpon>UpDnCamCaliSimpleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="标定\相机激光标定\CameraGlueGunCalibrateFormNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="标定\相机激光标定\CameraGlueGunCalibrateFormNew.Designer.cs">
+      <DependentUpon>CameraGlueGunCalibrateFormNew.cs</DependentUpon>
+    </Compile>
     <Compile Include="相机采集\相机配置\SensorConfig.cs" />
     <Compile Include="相机采集\相机配置\SensorConfigForm.cs">
       <SubType>Form</SubType>
@@ -871,6 +1205,12 @@
     </Compile>
     <Compile Include="系统UI配置\UI视图配置\AddXyThetaFrm.designer.cs">
       <DependentUpon>AddXyThetaFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\API复判系统\ApiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\API复判系统\ApiForm.designer.cs">
+      <DependentUpon>ApiForm.cs</DependentUpon>
     </Compile>
     <Compile Include="系统UI配置\UI视图配置\SizeControlForm.cs">
       <SubType>Form</SubType>
@@ -890,10 +1230,28 @@
     <Compile Include="系统UI配置\UI视图配置\AllignViewForm.Designer.cs">
       <DependentUpon>AllignViewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="系统UI配置\UI视图配置\ProgramListForm.cs">
+    <Compile Include="系统UI配置\UI视图配置\InspectionModeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="系统UI配置\UI视图配置\ProgramListForm.Designer.cs">
+    <Compile Include="系统UI配置\UI视图配置\InspectionModeForm.Designer.cs">
+      <DependentUpon>InspectionModeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\UI视图配置\MoveViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\UI视图配置\MoveViewForm.Designer.cs">
+      <DependentUpon>MoveViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\UI视图配置\TouchPanelTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\UI视图配置\TouchPanelTestForm.Designer.cs">
+      <DependentUpon>TouchPanelTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\窗口节点配置\ProgramListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\窗口节点配置\ProgramListForm.Designer.cs">
       <DependentUpon>ProgramListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="系统UI配置\对位数据\CompensateForm.cs">
@@ -919,6 +1277,12 @@
     </Compile>
     <Compile Include="系统UI配置\窗口节点配置\ViewElementForm.Designer.cs">
       <DependentUpon>ViewElementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\窗口节点配置\ImageBindingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\窗口节点配置\ImageBindingForm.Designer.cs">
+      <DependentUpon>ImageBindingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="系统UI配置\窗口节点配置\WindowConfigForm.cs">
       <SubType>Form</SubType>
@@ -971,15 +1335,29 @@
     </Compile>
     <Compile Include="系统UI配置\视图管理\ViewLableParam.cs" />
     <Compile Include="系统UI配置\视图管理\ViewLableParamManager.cs" />
-    <Compile Include="缺陷检测\分类参数\FlawClassParam.cs" />
-    <Compile Include="缺陷检测\分类参数\FlawClassManage.cs" />
-    <Compile Include="缺陷检测\分类参数\ClassParamForm.cs">
+    <Compile Include="缺陷检测\DetectParam.cs" />
+    <Compile Include="系统UI配置\缺陷检测\分类参数\FlawClassParam.cs" />
+    <Compile Include="系统UI配置\缺陷检测\分类参数\FlawClassManage.cs" />
+    <Compile Include="系统UI配置\缺陷检测\分类参数\ClassParamForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="缺陷检测\分类参数\ClassParamForm.Designer.cs">
+    <Compile Include="系统UI配置\缺陷检测\分类参数\ClassParamForm.Designer.cs">
       <DependentUpon>ClassParamForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="缺陷检测\变化模型\CompareVariationModelMethod.cs" />
+    <Compile Include="缺陷检测\变化模型\App\CreateVariationModelParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="缺陷检测\变化模型\App\CreateVariationModelParamForm.Designer.cs">
+      <DependentUpon>CreateVariationModelParamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="缺陷检测\变化模型\App\CompareVariationModelParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="缺陷检测\变化模型\App\CompareVariationModelParamForm.Designer.cs">
+      <DependentUpon>CompareVariationModelParamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="缺陷检测\变化模型\DoVariationModel.cs" />
+    <Compile Include="缺陷检测\变化模型\VariationModeDetect.cs" />
     <Compile Include="缺陷检测\变化模型\VariationModelParam.cs" />
     <Compile Include="缺陷检测\变化模型\VariationModelForm.cs">
       <SubType>Form</SubType>
@@ -987,7 +1365,6 @@
     <Compile Include="缺陷检测\变化模型\VariationModelForm.Designer.cs">
       <DependentUpon>VariationModelForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="缺陷检测\变化模型\CreateVariationModelMethod.cs" />
     <Compile Include="2D算法工具\变换轮廓\AffineXLDCont2DAlgorith.cs" />
     <Compile Include="2D算法工具\区域变换\AffineHRegionAlgorith.cs" />
     <Compile Include="2D算法工具\区域变换\AffineHRegionForm.cs">
@@ -1346,12 +1723,12 @@
     <Compile Include="2D算法工具\Blob分析\区域分割\ThresholdMethod.cs" />
     <Compile Include="2D算法工具\Blob分析\区域分割\SegmentParam.cs" />
     <Compile Include="2D算法工具\Blob分析\区域选择\SelectRegionMethod.cs" />
-    <Compile Include="2D算法工具\图像平铺\TileImageParam.cs" />
-    <Compile Include="2D算法工具\图像平铺\TileImage.cs" />
-    <Compile Include="2D算法工具\图像平铺\TileImageForm.cs">
+    <Compile Include="2D算法工具\图像拼接\TileImageParam.cs" />
+    <Compile Include="2D算法工具\图像拼接\TileImage.cs" />
+    <Compile Include="2D算法工具\图像拼接\TileImageForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="2D算法工具\图像平铺\TileImageForm.Designer.cs">
+    <Compile Include="2D算法工具\图像拼接\TileImageForm.Designer.cs">
       <DependentUpon>TileImageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="2D算法工具\几何测量\圆圆交点\IntersectionCircleCircleForm.cs">
@@ -1626,10 +2003,10 @@
     <Compile Include="属性结果\PlcCommunicateInfo.cs" />
     <Compile Include="属性结果\WaiteCommunicateCommand.cs" />
     <Compile Include="属性结果\SendDataCommand.cs" />
-    <Compile Include="工具\ResetNameForm.cs">
+    <Compile Include="公共窗体\ResetNameForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="工具\ResetNameForm.Designer.cs">
+    <Compile Include="公共窗体\ResetNameForm.Designer.cs">
       <DependentUpon>ResetNameForm.cs</DependentUpon>
     </Compile>
     <Compile Include="对位引导\弃用工具\对位合并\AlignUnion.cs" />
@@ -1875,12 +2252,45 @@
     </Compile>
     <Compile Include="系统UI配置\报表查询\ProductInfo.cs" />
     <Compile Include="系统UI配置\报表查询\StatisticsInfo.cs" />
+    <Compile Include="缺陷检测\宽度检测\WidthDetectFormNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="缺陷检测\宽度检测\WidthDetectFormNew.Designer.cs">
+      <DependentUpon>WidthDetectFormNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="缺陷检测\宽度检测\WidthDetectFormOLd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="缺陷检测\宽度检测\WidthDetectFormOLd.Designer.cs">
+      <DependentUpon>WidthDetectFormOLd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="缺陷检测\瑕疵分类\GroupParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="缺陷检测\瑕疵分类\GroupParamForm.Designer.cs">
+      <DependentUpon>GroupParamForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="缺陷检测\瑕疵分类\FlawGroup.cs" />
     <Compile Include="缺陷检测\瑕疵分类\FlawGroupForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="缺陷检测\瑕疵分类\FlawGroupForm.Designer.cs">
       <DependentUpon>FlawGroupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="缺陷检测\高度检测\HeightDetect.cs" />
+    <Compile Include="缺陷检测\高度检测\HeightDetectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="缺陷检测\高度检测\HeightDetectForm.Designer.cs">
+      <DependentUpon>HeightDetectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="缺陷检测\DetectMethod.cs" />
+    <Compile Include="缺陷检测\宽度检测\WidthDetect.cs" />
+    <Compile Include="缺陷检测\宽度检测\WidthDetectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="缺陷检测\宽度检测\WidthDetectForm.Designer.cs">
+      <DependentUpon>WidthDetectForm.cs</DependentUpon>
     </Compile>
     <Compile Include="轴控制\轨迹运动\LineParamForm.cs">
       <SubType>Form</SubType>
@@ -2738,22 +3148,22 @@
       <DependentUpon>WriteFileForm.cs</DependentUpon>
     </Compile>
     <Compile Include="工具组\过时功能\写入文件\WriteFileParam.cs" />
-    <Compile Include="工具组\坐标变换\CoordAffine.cs" />
-    <Compile Include="工具组\坐标变换\CoordAffineForm.cs">
+    <Compile Include="2D算法工具\坐标变换\CoordAffine.cs" />
+    <Compile Include="2D算法工具\坐标变换\CoordAffineForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="工具组\坐标变换\CoordAffineForm.designer.cs">
+    <Compile Include="2D算法工具\坐标变换\CoordAffineForm.designer.cs">
       <DependentUpon>CoordAffineForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="工具组\坐标变换\CoordAffineParam.cs" />
-    <Compile Include="工具组\坐标映射\CoordMap.cs" />
-    <Compile Include="工具组\坐标映射\CoordMapForm.cs">
+    <Compile Include="2D算法工具\坐标变换\CoordAffineParam.cs" />
+    <Compile Include="2D算法工具\坐标映射\CoordMap.cs" />
+    <Compile Include="2D算法工具\坐标映射\CoordMapForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="工具组\坐标映射\CoordMapForm.designer.cs">
+    <Compile Include="2D算法工具\坐标映射\CoordMapForm.designer.cs">
       <DependentUpon>CoordMapForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="工具组\坐标映射\CoordMapParam.cs" />
+    <Compile Include="2D算法工具\坐标映射\CoordMapParam.cs" />
     <Compile Include="工具组\过时功能\数据读取\DataReadForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2936,10 +3346,10 @@
     <Compile Include="2D算法工具\2D卡尺测量\MetrolegyParamForm.Designer.cs">
       <DependentUpon>MetrolegyParamForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="工具\CircleArrayForm.cs">
+    <Compile Include="公共窗体\CircleArrayForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="工具\CircleArrayForm.Designer.cs">
+    <Compile Include="公共窗体\CircleArrayForm.Designer.cs">
       <DependentUpon>CircleArrayForm.cs</DependentUpon>
     </Compile>
     <Compile Include="系统UI配置\UI视图配置\ProgramForm.cs">
@@ -3553,16 +3963,16 @@
     </Compile>
     <Compile Include="采集源\AcqSource.cs" />
     <Compile Include="采集源\AcqSourceManage.cs" />
-    <Compile Include="工具\CircleArrayDataForm.cs">
+    <Compile Include="公共窗体\CircleArrayDataForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="工具\CircleArrayDataForm.Designer.cs">
+    <Compile Include="公共窗体\CircleArrayDataForm.Designer.cs">
       <DependentUpon>CircleArrayDataForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="工具\RectArrayDataForm.cs">
+    <Compile Include="公共窗体\RectArrayDataForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="工具\RectArrayDataForm.Designer.cs">
+    <Compile Include="公共窗体\RectArrayDataForm.Designer.cs">
       <DependentUpon>RectArrayDataForm.cs</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -3610,13 +4020,31 @@
     <EmbeddedResource Include="2D匹配\NCC灰度匹配\App\FindNccModelParamSubForm.resx">
       <DependentUpon>FindNccModelParamSubForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="2D匹配\局部变形匹配\App\CreateLocalDeformableModelForm.resx">
+    <EmbeddedResource Include="2D匹配\变形匹配\App\CreateLocalDeformableXLDSubParamForm.resx">
+      <DependentUpon>CreateLocalDeformableXLDSubParamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D匹配\变形匹配\App\CreateLocalDeformableXLDParamForm.resx">
+      <DependentUpon>CreateLocalDeformableXLDParamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D匹配\变形匹配\App\CreateLocalDeformableSubParamForm.resx">
+      <DependentUpon>CreateLocalDeformableSubParamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D匹配\变形匹配\App\CreateLocalDeformableParamForm.resx">
+      <DependentUpon>CreateLocalDeformableParamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D匹配\变形匹配\App\FindDeformableModelSubParamForm.resx">
+      <DependentUpon>FindDeformableModelSubParamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D匹配\变形匹配\App\FindDeformableModelParamForm.resx">
+      <DependentUpon>FindDeformableModelParamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D匹配\变形匹配\App\Old\CreateLocalDeformableModelForm.resx">
       <DependentUpon>CreateLocalDeformableModelForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="2D匹配\局部变形匹配\LocalDeformableMatchForm.resx">
+    <EmbeddedResource Include="2D匹配\变形匹配\LocalDeformableMatchForm.resx">
       <DependentUpon>LocalDeformableMatchForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="2D匹配\局部变形匹配\App\FindLocalDeformableModelParamForm.resx">
+    <EmbeddedResource Include="2D匹配\变形匹配\App\Old\FindLocalDeformableModelParamForm.resx">
       <DependentUpon>FindLocalDeformableModelParamForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="2D匹配\NCC灰度匹配\NccMatchForm.resx">
@@ -3669,6 +4097,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\2D卡尺测量\圆弧测量\CircleSectorMeasureForm.resx">
       <DependentUpon>CircleSectorMeasureForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\2D卡尺测量\手动测量窗体\ManualMeasurePointForm.resx">
+      <DependentUpon>ManualMeasurePointForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\2D卡尺测量\手动测量窗体\ManualMeasureRect2Form.resx">
+      <DependentUpon>ManualMeasureRect2Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\2D卡尺测量\手动测量窗体\ManualMeasureCircleForm.resx">
+      <DependentUpon>ManualMeasureCircleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\2D卡尺测量\手动测量窗体\ManualMeasureEllipseForm.resx">
+      <DependentUpon>ManualMeasureEllipseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\2D卡尺测量\手动测量窗体\ManualMeasureLineForm.resx">
+      <DependentUpon>ManualMeasureLineForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\2D卡尺测量\手动测量窗体\ManualMeasurePolyLineForm.resx">
+      <DependentUpon>ManualMeasurePolyLineForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\2D卡尺测量\椭圆测量\EllipseMeasureForm.resx">
       <DependentUpon>EllipseMeasureForm.cs</DependentUpon>
@@ -3727,6 +4173,9 @@
     <EmbeddedResource Include="2D算法工具\光源配置\LightConfigForm.resx">
       <DependentUpon>LightConfigForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\几何测量\直线轮廓交点\IntersectionLineContourForm.resx">
+      <DependentUpon>IntersectionLineContourForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\几何测量\轮廓到线距离\ContToLineDist2DForm.resx">
       <DependentUpon>ContToLineDist2DForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -3739,11 +4188,77 @@
     <EmbeddedResource Include="2D算法工具\几何测量\圆线交点\IntersectionLineCircleForm.resx">
       <DependentUpon>IntersectionLineCircleForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\图像分解\ImageDecomposeForm.resx">
+      <DependentUpon>ImageDecomposeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\图像处理\图像操作\App\ImageRotateParamForm.resx">
+      <DependentUpon>ImageRotateParamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\图像处理\图像操作\App\ImageMirrorParamForm.resx">
+      <DependentUpon>ImageMirrorParamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\图像拼接\TileImageFormOld.resx">
+      <DependentUpon>TileImageFormOld.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\图像镜像\ImageMirrorForm.resx">
+      <DependentUpon>ImageMirrorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\字符识别\App\CreateDeepOcrForm.resx">
+      <DependentUpon>CreateDeepOcrForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\字符识别\App\FindDeepOcrForm.resx">
+      <DependentUpon>FindDeepOcrForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\字符识别\App\FindDeepOcrSubForm.resx">
+      <DependentUpon>FindDeepOcrSubForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他工具\鼠标操作\初始化文本\InitTextForm.resx">
+      <DependentUpon>InitTextForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他工具\鼠标操作\写入文本\WriteTextForm.resx">
+      <DependentUpon>WriteTextForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他工具\鼠标操作\等待文本\WaitTextForm.resx">
+      <DependentUpon>WaitTextForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他工具\鼠标操作\键盘点击\KeyBoardClickForm.resx">
+      <DependentUpon>KeyBoardClickForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他工具\鼠标操作\读取文本\ReadTextForm.resx">
+      <DependentUpon>ReadTextForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他工具\鼠标操作\设置光标\SetCursorForm.resx">
+      <DependentUpon>SetCursorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他工具\鼠标操作\点击鼠标\ClickMouseForm.resx">
+      <DependentUpon>ClickMouseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他工具\鼠标操作\鼠标点击\MouseClickForm.resx">
+      <DependentUpon>MouseClickForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="上下料机\放料计算\RobotLayOffForm.resx">
+      <DependentUpon>RobotLayOffForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="公共窗体\LookTableForm.resx">
+      <DependentUpon>LookTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="公共窗体\WcsCircleParamForm.resx">
+      <DependentUpon>WcsCircleParamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="公共窗体\WcsRet2ParamForm.resx">
+      <DependentUpon>WcsRet2ParamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="公共窗体\WcsRet1ParamForm.resx">
+      <DependentUpon>WcsRet1ParamForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\圆弧插值\CircleSectorInterpolationForm.resx">
       <DependentUpon>CircleSectorInterpolationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\四则运算\FourOperationsForm.resx">
       <DependentUpon>FourOperationsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\直线中点\LineMiddlePointFormOld.resx">
+      <DependentUpon>LineMiddlePointFormOld.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="3D算法工具\三维映射\CoordMapForm3D.resx">
       <DependentUpon>CoordMapForm3D.cs</DependentUpon>
@@ -3781,17 +4296,26 @@
     <EmbeddedResource Include="上下料机\取料计算\RobotGrabForm.resx">
       <DependentUpon>RobotGrabForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="传感器参数\CameraParamFormOld.resx">
+      <DependentUpon>CameraParamFormOld.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="其他工具\FtpFluentForm\FtpForm.resx">
       <DependentUpon>FtpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="其他工具\删图工具\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\N点对位2\NPointVectorAlignForm.resx">
+    <EmbeddedResource Include="对位引导\N点对位\NPointVectorAlignFormOld.resx">
+      <DependentUpon>NPointVectorAlignFormOld.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="对位引导\N点对位\NPointVectorAlignForm.resx">
       <DependentUpon>NPointVectorAlignForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="对位引导\向量对位2\VectorAlignNewForm.resx">
       <DependentUpon>VectorAlignNewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="对位引导\向量对位\VectorAlignFormOld.resx">
+      <DependentUpon>VectorAlignFormOld.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="对位引导\向量对位\VectorAlignForm.resx">
       <DependentUpon>VectorAlignForm.cs</DependentUpon>
@@ -3799,14 +4323,38 @@
     <EmbeddedResource Include="2D算法工具\向量计算\VectorCalculateForm.resx">
       <DependentUpon>VectorCalculateForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\坐标转换\CoordTransformForm.resx">
+    <EmbeddedResource Include="2D算法工具\坐标转换\CoordTransformForm.resx">
       <DependentUpon>CoordTransformForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="对位引导\对位计算\AlignCalculateFormOld.resx">
+      <DependentUpon>AlignCalculateFormOld.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="对位引导\标定\映射标定\MapCalibrForm.resx">
       <DependentUpon>MapCalibrForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="对位引导\轨迹偏置\TrackOffsetFormOld.resx">
+      <DependentUpon>TrackOffsetFormOld.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="对位引导\轨迹偏置\TrackOffsetForm.resx">
+      <DependentUpon>TrackOffsetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="对位引导\轨迹提取\TrackExtractForm.resx">
+      <DependentUpon>TrackExtractForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="对位引导\轨迹提取\TrackExtractFormNew.resx">
+      <DependentUpon>TrackExtractFormNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="对位引导\轨迹计算\TrackCalculateFormOld.resx">
+      <DependentUpon>TrackCalculateFormOld.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="对位引导\迁移计算\MigrateCalculateFormOld.resx">
+      <DependentUpon>MigrateCalculateFormOld.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="对位引导\迁移计算\MigrateCalculateForm.resx">
       <DependentUpon>MigrateCalculateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="公共窗体\CopyForm.resx">
+      <DependentUpon>CopyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="工具\ToolForm.en-US.resx">
       <DependentUpon>ToolForm.cs</DependentUpon>
@@ -3816,6 +4364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="工具组\Switch语句\标签case\CaseForm.resx">
       <DependentUpon>CaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工具组\并发执行\ConcurrentExecutionFormOld.resx">
+      <DependentUpon>ConcurrentExecutionFormOld.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="工具组\并发执行\ConcurrentExecutionForm.resx">
       <DependentUpon>ConcurrentExecutionForm.cs</DependentUpon>
@@ -3892,6 +4443,9 @@
     <EmbeddedResource Include="2D算法工具\区域拟合\拟合矩形区域\FitRect2RegionForm.resx">
       <DependentUpon>FitRect2RegionForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="工具组\特征定位\FeatureLocalizationFormOld.resx">
+      <DependentUpon>FeatureLocalizationFormOld.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="标定\相机9点标定\CaliCaliboardSinmpleForm.en-US.resx">
       <DependentUpon>CaliCaliboardSinmpleForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -3900,6 +4454,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="标定\相机9点标定\CaliCaliboardForm.en-US.resx">
       <DependentUpon>CaliCaliboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="标定\相机9点标定\CamNPointMapCalibrateSimpleForm.en-US.resx">
+      <DependentUpon>CamNPointMapCalibrateSimpleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="标定\相机9点标定\CamNPointMapCalibrateSimpleForm.resx">
+      <DependentUpon>CamNPointMapCalibrateSimpleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="标定\相机9点标定\Cam9PointCalibrateSimpleForm.en-US.resx">
       <DependentUpon>Cam9PointCalibrateSimpleForm.cs</DependentUpon>
@@ -3919,11 +4479,17 @@
     <EmbeddedResource Include="标定\相机9点标定\UpDnCamCaliSimpleForm.resx">
       <DependentUpon>UpDnCamCaliSimpleForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="标定\相机激光标定\CameraGlueGunCalibrateFormNew.resx">
+      <DependentUpon>CameraGlueGunCalibrateFormNew.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="相机采集\相机配置\SensorConfigForm.resx">
       <DependentUpon>SensorConfigForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="系统UI配置\UI视图配置\AddXyThetaFrm.resx">
       <DependentUpon>AddXyThetaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\API复判系统\ApiForm.resx">
+      <DependentUpon>ApiForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="系统UI配置\UI视图配置\SizeControlForm.resx">
       <DependentUpon>SizeControlForm.cs</DependentUpon>
@@ -3934,7 +4500,16 @@
     <EmbeddedResource Include="系统UI配置\UI视图配置\AllignViewForm.resx">
       <DependentUpon>AllignViewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="系统UI配置\UI视图配置\ProgramListForm.resx">
+    <EmbeddedResource Include="系统UI配置\UI视图配置\InspectionModeForm.resx">
+      <DependentUpon>InspectionModeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\UI视图配置\MoveViewForm.resx">
+      <DependentUpon>MoveViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\UI视图配置\TouchPanelTestForm.resx">
+      <DependentUpon>TouchPanelTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\窗口节点配置\ProgramListForm.resx">
       <DependentUpon>ProgramListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="系统UI配置\对位数据\CompensateForm.resx">
@@ -3948,6 +4523,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="系统UI配置\窗口节点配置\ViewElementForm.resx">
       <DependentUpon>ViewElementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\窗口节点配置\ImageBindingForm.resx">
+      <DependentUpon>ImageBindingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="系统UI配置\窗口节点配置\WindowConfigForm.resx">
       <DependentUpon>WindowConfigForm.cs</DependentUpon>
@@ -3973,8 +4551,14 @@
     <EmbeddedResource Include="系统UI配置\视图管理\ViewManageForm.resx">
       <DependentUpon>ViewManageForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="缺陷检测\分类参数\ClassParamForm.resx">
+    <EmbeddedResource Include="系统UI配置\缺陷检测\分类参数\ClassParamForm.resx">
       <DependentUpon>ClassParamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="缺陷检测\变化模型\App\CreateVariationModelParamForm.resx">
+      <DependentUpon>CreateVariationModelParamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="缺陷检测\变化模型\App\CompareVariationModelParamForm.resx">
+      <DependentUpon>CompareVariationModelParamForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="缺陷检测\变化模型\VariationModelForm.resx">
       <DependentUpon>VariationModelForm.cs</DependentUpon>
@@ -4141,7 +4725,7 @@
     <EmbeddedResource Include="2D算法工具\Blob分析\区域选择\SelectRegionForm.resx">
       <DependentUpon>SelectRegionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="2D算法工具\图像平铺\TileImageForm.resx">
+    <EmbeddedResource Include="2D算法工具\图像拼接\TileImageForm.resx">
       <DependentUpon>TileImageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\几何测量\圆圆交点\IntersectionCircleCircleForm.resx">
@@ -4581,8 +5165,23 @@
     <EmbeddedResource Include="系统UI配置\报表查询\ReportQueryForm.resx">
       <DependentUpon>ReportQueryForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="缺陷检测\宽度检测\WidthDetectFormNew.resx">
+      <DependentUpon>WidthDetectFormNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="缺陷检测\宽度检测\WidthDetectFormOLd.resx">
+      <DependentUpon>WidthDetectFormOLd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="缺陷检测\瑕疵分类\GroupParamForm.resx">
+      <DependentUpon>GroupParamForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="缺陷检测\瑕疵分类\FlawGroupForm.resx">
       <DependentUpon>FlawGroupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="缺陷检测\高度检测\HeightDetectForm.resx">
+      <DependentUpon>HeightDetectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="缺陷检测\宽度检测\WidthDetectForm.resx">
+      <DependentUpon>WidthDetectForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="轴控制\轨迹运动\LineParamForm.resx">
       <DependentUpon>LineParamForm.cs</DependentUpon>
@@ -4608,7 +5207,7 @@
     <EmbeddedResource Include="2D算法工具\字符识别\OcrDetectionFormOld.resx">
       <DependentUpon>OcrDetectionFormOld.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="工具\ResetNameForm.resx">
+    <EmbeddedResource Include="公共窗体\ResetNameForm.resx">
       <DependentUpon>ResetNameForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="工具组\过时功能\对射测厚\ThicknessMeasureForm.resx">
@@ -4737,10 +5336,10 @@
     <EmbeddedResource Include="工具组\过时功能\写入文件\WriteFileForm.resx">
       <DependentUpon>WriteFileForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="工具组\坐标变换\CoordAffineForm.resx">
+    <EmbeddedResource Include="2D算法工具\坐标变换\CoordAffineForm.resx">
       <DependentUpon>CoordAffineForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="工具组\坐标映射\CoordMapForm.resx">
+    <EmbeddedResource Include="2D算法工具\坐标映射\CoordMapForm.resx">
       <DependentUpon>CoordMapForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="工具组\过时功能\缺陷检测\DefectDetectingForm.resx">
@@ -4821,7 +5420,7 @@
     <EmbeddedResource Include="2D算法工具\2D卡尺测量\MetrolegyParamForm.resx">
       <DependentUpon>MetrolegyParamForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="工具\CircleArrayForm.resx">
+    <EmbeddedResource Include="公共窗体\CircleArrayForm.resx">
       <DependentUpon>CircleArrayForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="系统UI配置\UI视图配置\ProgramForm.resx">
@@ -5061,17 +5660,16 @@
     <EmbeddedResource Include="运动面板App\JogXYMotionControlForm.resx">
       <DependentUpon>JogXYMotionControlForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="工具\CircleArrayDataForm.resx">
+    <EmbeddedResource Include="公共窗体\CircleArrayDataForm.resx">
       <DependentUpon>CircleArrayDataForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="工具\RectArrayDataForm.resx">
+    <EmbeddedResource Include="公共窗体\RectArrayDataForm.resx">
       <DependentUpon>RectArrayDataForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PLC操作\保存数据Ftp\Ftp配置\" />
     <Folder Include="对位引导\标定\相机初始化\" />
-    <Folder Include="对位引导\轨迹合并\" />
     <Folder Include="标定\平场校正\激光平场校正\" />
     <Folder Include="组合工具\" />
     <Folder Include="缺陷检测\OCV检测\" />

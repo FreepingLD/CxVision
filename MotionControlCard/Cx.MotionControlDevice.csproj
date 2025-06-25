@@ -70,11 +70,23 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AdvancedMotionApi_CLRLib">
+      <HintPath>C:\Users\chenxh\Desktop\AdvancedMotionApi_CLRLib.dll</HintPath>
+    </Reference>
     <Reference Include="AdvMotAPI">
       <HintPath>..\..\..\VS2017\WindowsFormsApp7\WindowsFormsApp7\bin\x64\Debug\AdvMotAPI.dll</HintPath>
     </Reference>
     <Reference Include="AxMG17MotorLib">
       <HintPath>APT平台\AxMG17MotorLib.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.5.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreMotionApi_CLRLib">
+      <HintPath>C:\Users\chenxh\Desktop\CoreMotionApi_CLRLib.dll</HintPath>
+    </Reference>
+    <Reference Include="EventApi_CLRLib">
+      <HintPath>C:\Users\chenxh\Desktop\EventApi_CLRLib.dll</HintPath>
     </Reference>
     <Reference Include="halcondotnetxl, Version=20.11.1.1, Culture=neutral, PublicKeyToken=4973bed59ddbf2b8, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -87,25 +99,79 @@
       <HintPath>ACS\Interop.SPIIPLUSCOM660Lib.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="IOApi_CLRLib">
+      <HintPath>C:\Users\chenxh\Desktop\IOApi_CLRLib.dll</HintPath>
+    </Reference>
     <Reference Include="MG17MotorLib">
       <HintPath>APT平台\MG17MotorLib.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.6.0.0\lib\net462\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=6.0.0.4, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.4\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Opc.Ua.Client, Version=1.3.341.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>OPCUA\Opc.Ua.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Opc.Ua.Core, Version=1.3.341.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>OPCUA\Opc.Ua.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.6.0.2\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Formats.Asn1, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Formats.Asn1.8.0.1\lib\net462\System.Formats.Asn1.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WMX3Api_CLRLib">
+      <HintPath>C:\Users\chenxh\Desktop\WMX3Api_CLRLib.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ACS\ACSMotionCard.cs" />
     <Compile Include="AMC100\amc100Library.cs" />
     <Compile Include="AMC100\Amc100MotionControl.cs" />
     <Compile Include="APT平台\AptMotionControl.cs" />
+    <Compile Include="Common\AxisInfo.cs" />
+    <Compile Include="Common\AxisState.cs" />
+    <Compile Include="Common\SetupIO.cs" />
+    <Compile Include="IControlPlc.cs" />
+    <Compile Include="IControlBoard.cs" />
+    <Compile Include="OPCUA\OPCUAClient.cs" />
+    <Compile Include="OPCUA\UAClientHelperAPI.cs" />
     <Compile Include="Socket\SocketCommand.cs" />
     <Compile Include="Socket\SocketServerDevice.cs" />
     <Compile Include="Socket\SocketClientDevice.cs" />
@@ -118,10 +184,17 @@
     </Compile>
     <Compile Include="Socket\配置通信指令\CommandParam.cs" />
     <Compile Include="Socket\配置通信指令\CommandConfigManger.cs" />
+    <Compile Include="WMX3\WMX3Control.cs" />
     <Compile Include="固高\config.cs" />
     <Compile Include="固高\gts.cs" />
     <Compile Include="固高\GtsMotionControl.cs" />
     <Compile Include="固高\LookAheadEx.cs" />
+    <Compile Include="坐标系轴配置\AxisInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="坐标系轴配置\AxisInfoForm.Designer.cs">
+      <DependentUpon>AxisInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="研华\AdvantechMotionCard.cs" />
     <Compile Include="设备通信配置\CommunicationConfigForm.cs">
       <SubType>Form</SubType>
@@ -131,13 +204,13 @@
     </Compile>
     <Compile Include="设备通信配置\CommunicationConfigParamManger.cs" />
     <Compile Include="设备通信配置\CommunicationConfigParam.cs" />
-    <Compile Include="坐标系配置\CoordSysConfigParamManageForm.cs">
+    <Compile Include="坐标系轴配置\CoordSysConfigParamManageForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="坐标系配置\CoordSysConfigParamManageForm.Designer.cs">
+    <Compile Include="坐标系轴配置\CoordSysConfigParamManageForm.Designer.cs">
       <DependentUpon>CoordSysConfigParamManageForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="坐标系配置\CoordSysConfigParam.cs" />
+    <Compile Include="坐标系轴配置\CoordAxisConfigParam.cs" />
     <Compile Include="DeviceConnectConfigParamManageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,9 +250,9 @@
     <Compile Include="UWC4000\UWC4000Library.cs" />
     <Compile Include="ZMC\Zmcaux.cs" />
     <Compile Include="ZMC\ZmcMotionCard.cs" />
-    <Compile Include="坐标系配置\CoordSysConfigParamManger.cs" />
+    <Compile Include="坐标系轴配置\CoordSysConfigParamManger.cs" />
     <Compile Include="自定义控制卡\UserDefinedCard.cs" />
-    <Compile Include="运动控制设备参数\AxisCoordParam.cs" />
+    <Compile Include="运动控制设备参数\CoordSysAxisPosParam.cs" />
     <Compile Include="运动控制设备参数\ConfigPLc.cs" />
     <Compile Include="运动控制设备参数\MotionControlCardParamSetting.cs" />
     <Compile Include="运动控制设备参数\MotionDeviceParam.cs" />
@@ -199,6 +272,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DeviceConnectConfigParamManageForm.en-US.resx">
@@ -216,14 +290,19 @@
     <EmbeddedResource Include="Socket\配置通信指令\CommandConfigForm.resx">
       <DependentUpon>CommandConfigForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="坐标系轴配置\AxisInfoForm.resx">
+      <DependentUpon>AxisInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="设备通信配置\CommunicationConfigForm.resx">
       <DependentUpon>CommunicationConfigForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="坐标系配置\CoordSysConfigParamManageForm.resx">
+    <EmbeddedResource Include="坐标系轴配置\CoordSysConfigParamManageForm.resx">
       <DependentUpon>CoordSysConfigParamManageForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="WMX3\DLL\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

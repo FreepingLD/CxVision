@@ -1,0 +1,578 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Common;
+using HslCommunication.Core;
+using HslCommunication.Profinet.Keyence;
+using HslCommunication.Profinet.Siemens;
+using Opc.Ua;
+using Opc.Ua.Client;
+using Siemens.UAClientHelper;
+
+namespace MotionControlCard
+{
+    public class OPCUAClient : MotionBase
+    {
+        private string address;
+        private string sign = "OPCUAClient";
+        private Session mySession;
+        private Subscription mySubscription;
+        private UAClientHelperAPI myClientHelperAPI;
+        private EndpointDescription mySelectedEndpoint;
+        private MonitoredItem myMonitoredItem;
+        private List<String> myRegisteredNodeIdStrings;
+        private ReferenceDescriptionCollection myReferenceDescriptionCollection;
+        private List<string[]> myStructList;
+        private Int16 itemCount;
+        //private UAClientCertForm myCertForm;
+
+
+        public override bool Init(DeviceConnectConfigParam param)
+        {
+            bool result = false;
+            try
+            {
+                //this.sign = param.ToString();
+                this.ConnectParam = param;
+                this.name = param.DeviceName;
+                switch (param.ConnectType)
+                {
+                    default:
+                    case enUserConnectType.TcpIp:
+                    case enUserConnectType.Network:
+                        this.address = param.IpAdress;
+                        switch (param.DeviceModel)
+                        {
+                            case enDeviceModel.KeyenceMcAsciiNet:
+                                if (mySession != null && !mySession.Disposed)
+                                {
+                                    try
+                                    {
+                                        mySubscription.Delete(true);
+                                    }
+                                    catch { }
+                                    myClientHelperAPI.Disconnect();
+                                    mySession = myClientHelperAPI.Session;
+                                }
+                                if (mySelectedEndpoint != null)
+                                {
+                                    //Call connect
+                                    myClientHelperAPI.Connect(mySelectedEndpoint, true, "userName", "userPassword");
+                                    //Extract the session object for further direct session interactions
+                                    mySession = myClientHelperAPI.Session;
+
+                                }
+                                result = true;
+                                if (result)
+                                {
+
+                                    LoggerHelper.Info(this.sign + param.IpAdress + "打开成功");
+                                }
+                                else
+                                {
+                                    LoggerHelper.Warn(this.sign + param.IpAdress + "打开失败");
+                                }
+                                break;
+                        }
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                result = false;
+                LoggerHelper.Error(this.sign + param.IpAdress + "打开报错" + ex.ToString());
+            }
+            param.ConnectState = result;
+            return result;
+        }
+        public override void UnInit()
+        {
+            try
+            {
+                switch (this.ConnectParam.ConnectType)
+                {
+                    case enUserConnectType.TcpIp:
+                    case enUserConnectType.Network:
+                        this.address = this.ConnectParam.IpAdress;
+                        switch (this.ConnectParam.DeviceModel)
+                        {
+                            default:
+                            case enDeviceModel.KeyenceMcAsciiNet:
+                                if (mySession != null && !mySession.Disposed)
+                                {
+                                    try
+                                    {
+                                        mySubscription.Delete(true);
+                                    }
+                                    catch
+                                    {
+                                        ;
+                                    }
+                                    myClientHelperAPI.Disconnect();
+                                    mySession = myClientHelperAPI.Session;
+                                }
+                                break;
+                        }
+
+                        break;
+                }
+                LoggerHelper.Info(this.sign + this.address + "关闭成功");
+            }
+            catch (Exception ex)
+            {
+                LoggerHelper.Error(this.sign + this.address + "关闭报错" + ex.ToString());
+            }
+        }
+        public override object ReadValue(enDataTypes dataType, string address, int length)
+        {
+            object value = null;
+            List<String> nodeIdStrings = new List<String>();
+            List<String> values = new List<String>();
+            nodeIdStrings.Add(address);
+            values = myClientHelperAPI.ReadValues(nodeIdStrings);
+            value = values.ElementAt<String>(0);
+            //switch (dataType)
+            //{
+            //    case enDataTypes.Bool:
+            //        value = Convert.ToBoolean(values.ElementAt<String>(0));
+            //        break;
+            //    case enDataTypes.BoolArray:
+            //        value = Convert.ToBoolean(values.ElementAt<String>(0));
+            //        break;
+            //    ////////////////
+            //    case enDataTypes.Byte:
+            //    case enDataTypes.ByteArray:
+            //        value = Convert.ToByte(values.ElementAt<String>(0));
+            //        break;
+            //    ///////////////////////////////////
+            //    case enDataTypes.Short:
+            //        value = Convert.ToUInt16(values.ElementAt<String>(0));
+            //        break;
+            //    ///////////////////////////////////
+            //    case enDataTypes.Ushort:
+            //        value = Convert.ToUInt16(values.ElementAt<String>(0));
+            //        break;
+            //    ///////////////////////////////////
+            //    case enDataTypes.Int:
+            //        value = Convert.ToInt32(values.ElementAt<String>(0));
+            //        break;
+            //    ///////////////////////////////////
+            //    case enDataTypes.UInt:
+            //        value = Convert.ToUInt32(values.ElementAt<String>(0));
+            //        break;
+            //    ///////////////////////////////////
+            //    case enDataTypes.Long:
+            //        value = Convert.ToInt64(values.ElementAt<String>(0));
+            //        break;
+            //    ///////////////////////////////////
+            //    case enDataTypes.ULong:
+            //        value = Convert.ToUInt64(values.ElementAt<String>(0));
+            //        break;
+            //    ///////////////////////////////////
+            //    case enDataTypes.Float:
+            //        value = Convert.ToSingle(values.ElementAt<String>(0));
+            //        break;
+            //    ///////////////////////////////////
+            //    case enDataTypes.Double:
+            //        value = Convert.ToDouble(values.ElementAt<String>(0));
+            //        break;
+            //    ///////////////////////////////////
+            //    case enDataTypes.String:
+            //    case enDataTypes.StringArray:
+
+            //        if (value != null)
+            //            value = value.ToString().Replace("\0", "");
+            //        break;
+            //    ///////////////////////////////////
+            //    default:
+            //        return null;
+            //}
+            return value;
+        }
+        public override bool WriteValue(enDataTypes dataType, string address, object value)
+        {
+            bool result = false;
+            List<String> values = new List<string>();
+            List<String> nodeIdStrings = new List<string>();
+            values.Add(value.ToString());
+            nodeIdStrings.Add(address);
+            myClientHelperAPI.WriteValues(values, nodeIdStrings);
+            result = true;
+            //////////////////////////
+            if (result)
+                LoggerHelper.Info(this.sign + this.address + "数据写入成功");
+            else
+                LoggerHelper.Info(this.sign + this.address + "数据写入失败");
+            return result;
+        }
+        public override bool WaiteValue(enDataTypes dataType, string address, object waitValue, int readInterval, int waitTimeout)
+        {
+            bool result = false;
+            List<String> values = new List<string>();
+            List<String> nodeIdStrings = new List<string>();
+            values.Add(waitValue.ToString());
+            nodeIdStrings.Add(address);
+            myClientHelperAPI.WriteValues(values, nodeIdStrings);
+            result = true;
+            if (result)
+                LoggerHelper.Info(sign + this.address + "数据写入成功");
+            else
+                LoggerHelper.Info(sign + this.address + "数据写入失败");
+            return result;
+        }
+
+        public override void GetAxisPosition(enCoordSysName CoordSysName, enAxisName axisName, out double position)
+        {
+            position = 0;
+            CoordSysConfigParam coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, axisName);
+            if (coordSysParam == null) return;
+            double pos = Convert.ToDouble(this.ReadValue(coordSysParam.DataType,coordSysParam.AxisAddress.ToString(), coordSysParam.DataLength)); // coordSysParam.AdressPrefix + 
+            if (coordSysParam.InvertAxisFeedBack)
+                position = pos * coordSysParam.PulseEquiv * -1;
+            else
+                position = pos * coordSysParam.PulseEquiv;
+        }
+
+        public override void MoveMultyAxis(enCoordSysName CoordSysName, enAxisName axisName, double speed, CoordSysAxisParam axisPosition)
+        {
+            CoordSysConfigParam coordSysParam;                      //= CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(nameof(CoordSysName));
+            double targetPose_x, targetPose_y, targetPose_z, targetPose_u, targetPose_v, targetPose_theta;
+            switch (axisName)
+            {
+                case enAxisName.X轴:
+                case enAxisName.Compensation_X轴:
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, axisName);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_x = (axisPosition.X / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_x = axisPosition.X / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AxisAddress.ToString(), targetPose_x);  //coordSysParam.AdressPrefix + 
+                    break;
+                case enAxisName.Y轴:
+                case enAxisName.Compensation_Y轴:
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, axisName);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_y = (axisPosition.Y / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_y = axisPosition.Y / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AxisAddress.ToString(), targetPose_y); //coordSysParam.AdressPrefix + 
+                    break;
+                case enAxisName.Z轴:
+                case enAxisName.Compensation_Z轴:
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, axisName);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_z = (axisPosition.Z / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_z = axisPosition.Z / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AxisAddress.ToString(), targetPose_z); //coordSysParam.AdressPrefix + 
+                    break;
+                case enAxisName.Theta轴:
+                case enAxisName.Compensation_Theta轴:
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, axisName);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_theta = (axisPosition.Theta / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_theta = axisPosition.Theta / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AxisAddress.ToString(), targetPose_theta); //coordSysParam.AdressPrefix + 
+                    break;
+                case enAxisName.U轴:
+                case enAxisName.Compensation_U轴:
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, axisName);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_u = (axisPosition.U / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_u = axisPosition.U / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType,coordSysParam.AxisAddress.ToString(), targetPose_u); // coordSysParam.AdressPrefix + 
+                    break;
+                case enAxisName.V轴:
+                case enAxisName.Compensation_V轴:
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, axisName);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_v = (axisPosition.V / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_v = axisPosition.V / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AxisAddress.ToString(), targetPose_v); //coordSysParam.AdressPrefix + 
+                    break;
+                case enAxisName.XYZTheta轴:
+                    ///////1
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.X轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_x = (axisPosition.X / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_x = axisPosition.X / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AxisAddress.ToString(), targetPose_x); // coordSysParam.AdressPrefix +
+                    //////2
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Y轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_y = (axisPosition.Y / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_y = axisPosition.Y / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AxisAddress.ToString(), targetPose_y); //coordSysParam.AdressPrefix + 
+                    ///////////3
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Z轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_z = (axisPosition.Z / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_z = axisPosition.Z / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AxisAddress.ToString(), targetPose_z); // coordSysParam.AdressPrefix + 
+                    //////////4
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Theta轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_theta = (axisPosition.Theta / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_theta = axisPosition.Theta / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AxisAddress.ToString(), targetPose_theta); //coordSysParam.AdressPrefix + 
+                    break;
+                case enAxisName.Compensation_XYZTheta轴:
+                    ///////1
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Compensation_X轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_x = (axisPosition.X / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_x = axisPosition.X / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType,  coordSysParam.AxisAddress.ToString(), targetPose_x); //coordSysParam.AdressPrefix +
+                    //////2
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Compensation_Y轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_y = (axisPosition.Y / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_y = axisPosition.Y / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType,  coordSysParam.AxisAddress.ToString(), targetPose_y);  //coordSysParam.AdressPrefix +
+                    ///////////3
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Compensation_Z轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_z = (axisPosition.Z / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_z = axisPosition.Z / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType,  coordSysParam.AxisAddress.ToString(), targetPose_z);  //coordSysParam.AdressPrefix +
+                    //////////4
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Compensation_Theta轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_theta = (axisPosition.Theta / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_theta = axisPosition.Theta / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType,  coordSysParam.AxisAddress.ToString(), targetPose_theta); //coordSysParam.AdressPrefix +
+                    break;
+                default:
+                case enAxisName.XYTheta轴:
+                    ////////// 1
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.X轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_x = (axisPosition.X / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_x = axisPosition.X / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AxisAddress.ToString(), targetPose_x); // coordSysParam.AdressPrefix +
+                    //////2
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Y轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_y = (axisPosition.Y / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_y = axisPosition.Y / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType,  coordSysParam.AxisAddress.ToString(), targetPose_y); //coordSysParam.AdressPrefix +
+                    ///////////3
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Theta轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_theta = (axisPosition.Theta / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_theta = axisPosition.Theta / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType,  coordSysParam.AxisAddress.ToString(), targetPose_theta); //coordSysParam.AdressPrefix +
+                    break;
+                case enAxisName.Compensation_XYTheta轴:
+                    ////////// 1
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Compensation_X轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_x = (axisPosition.X / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_x = axisPosition.X / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType,  coordSysParam.AxisAddress.ToString(), targetPose_x);  //coordSysParam.AdressPrefix +
+                    //////2
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Compensation_Y轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_y = (axisPosition.Y / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_y = axisPosition.Y / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AxisAddress.ToString(), targetPose_y); //coordSysParam.AdressPrefix + 
+                    ///////////3
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Compensation_Theta轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_theta = (axisPosition.Theta / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_theta = axisPosition.Theta / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AxisAddress.ToString(), targetPose_theta); // coordSysParam.AdressPrefix +
+                    break;
+                case enAxisName.XYZUVW轴:
+                    ///////1
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.X轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_x = (axisPosition.X / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_x = axisPosition.X / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AxisAddress.ToString(), targetPose_x); // coordSysParam.AdressPrefix +
+                    //////2
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Y轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_y = (axisPosition.Y / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_y = axisPosition.Y / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType,  coordSysParam.AxisAddress.ToString(), targetPose_y); //coordSysParam.AdressPrefix +
+                    ///////////3
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Z轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_z = (axisPosition.Z / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_z = axisPosition.Z / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType,  coordSysParam.AxisAddress.ToString(), targetPose_z); //coordSysParam.AdressPrefix +
+                    //////////4
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Theta轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_theta = (axisPosition.Theta / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_theta = axisPosition.Theta / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType,  coordSysParam.AxisAddress.ToString(), targetPose_theta); //coordSysParam.AdressPrefix +
+                    ///////////3
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.U轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_u = (axisPosition.U / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_u = axisPosition.U / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType,  coordSysParam.AxisAddress.ToString(), targetPose_u);  //coordSysParam.AdressPrefix +
+                    ///////////3
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.V轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_v = (axisPosition.V / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_v = axisPosition.V / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType,  coordSysParam.AxisAddress.ToString(), targetPose_v);  //coordSysParam.AdressPrefix +
+                    break;
+                case enAxisName.Compensation_XYZUVW轴:
+                    ///////1
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Compensation_X轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_x = (axisPosition.X / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_x = axisPosition.X / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AxisAddress.ToString(), targetPose_x); //coordSysParam.AdressPrefix + 
+                    //////2
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Compensation_Y轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_y = (axisPosition.Y / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_y = axisPosition.Y / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AxisAddress.ToString(), targetPose_y); //coordSysParam.AdressPrefix + 
+                    ///////////3
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Compensation_Z轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_z = (axisPosition.Z / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_z = axisPosition.Z / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType,  coordSysParam.AxisAddress.ToString(), targetPose_z); //coordSysParam.AdressPrefix +
+                    //////////4
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Compensation_Theta轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_theta = (axisPosition.Theta / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_theta = axisPosition.Theta / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType,  coordSysParam.AxisAddress.ToString(), targetPose_theta); //coordSysParam.AdressPrefix +
+                    ///////////3
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Compensation_U轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_u = (axisPosition.U / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_u = axisPosition.U / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType,  coordSysParam.AxisAddress.ToString(), targetPose_u); //coordSysParam.AdressPrefix +
+                    ///////////3
+                    coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Compensation_V轴);
+                    if (coordSysParam == null) return;
+                    //// 转换数据
+                    if (coordSysParam.InvertAxisFeedBack)
+                        targetPose_v = (axisPosition.V / coordSysParam.PulseEquiv) * -1;
+                    else
+                        targetPose_v = axisPosition.V / coordSysParam.PulseEquiv;
+                    this.WriteValue(coordSysParam.DataType,  coordSysParam.AxisAddress.ToString(), targetPose_v); //coordSysParam.AdressPrefix +
+                    break;
+            }
+
+        }
+
+        public override void MoveSingleAxis(enCoordSysName CoordSysName, enAxisName axisName, double speed, double axisPosition)
+        {
+            CoordSysConfigParam coordSysParam;
+            double targetPose = 0;
+            coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, axisName);
+            if (coordSysParam == null) return;
+            //// 转换数据
+            if (coordSysParam.InvertAxisFeedBack)
+                targetPose = (axisPosition / coordSysParam.PulseEquiv) * -1;
+            else
+                targetPose = axisPosition / coordSysParam.PulseEquiv;
+            this.WriteValue(coordSysParam.DataType, coordSysParam.AxisAddress.ToString(), targetPose);  //coordSysParam.AdressPrefix + 
+        }
+
+    }
+
+
+}

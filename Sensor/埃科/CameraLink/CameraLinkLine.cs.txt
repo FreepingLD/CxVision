@@ -1,0 +1,781 @@
+using HalconDotNet;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using Common;
+using System.Windows.Forms;
+using System.IO;
+using System.Collections.Concurrent;
+using IKapBoardClassLibrary;
+
+namespace Sensor
+{
+    internal class CameraLinkLine
+    {
+        private bool StreamGrabIsOpen = false;
+        private Stopwatch stopwatch = new Stopwatch();
+        // 采集卡句柄。
+        public IntPtr m_hBoard = new IntPtr(-1);
+        // 当前帧索引。
+        private int m_nCurFrameIndex = 0;
+        // 图像缓冲区申请的帧数。
+        private int m_nTotalFrameCount = 50;
+        // 图像宽度。
+        public int _frameWidth = 2048;
+        // 图像高度。
+        public int _frameHeight = 1000;
+        private Dictionary<int, ImageByteData> dicImage = new Dictionary<int, ImageByteData>();
+        private int m_CurImageIndex = 0; //
+        private int dataFrameIndex = 0;
+        private int imageBufferCount = 100; // 图像绶存数量即字典的个数
+        private int m_FrameNumByImage = 0;
+        private int rowIndex = 0;
+        public CameraParam CamParam { get; set; }
+        private enImageAcqMethod _imageAcqMethod = enImageAcqMethod.明场;
+        public enImageAcqMethod ImageAcqMethod { get => _imageAcqMethod; set => _imageAcqMethod = value; }
+
+
+        delegate void IKapCallBackProc(IntPtr pParam);
+        /* @brief：本函数被注册为一个回调函数。当图像采集开始时，函数被调用。
+         *
+         * @brief：This function is registered as a callback function. When starting grabbing images, the function will be called. */
+        private IKapCallBackProc OnGrabStartProc;
+        /* @brief：本函数被注册为一个回调函数。当采集丢帧时，函数被调用。
+         *
+         * @brief：This function is registered as a callback function. When grabbing frame lost, the function will be called. */
+        private IKapCallBackProc OnFrameLostProc;
+        /* @brief：本函数被注册为一个回调函数。当图像采集超时时，函数被调用。
+         *
+         * @brief：This function is registered as a callback function. When grabbing images time out, the function will be called. */
+        private IKapCallBackProc OnTimeoutProc;
+        /* @brief：本函数被注册为一个回调函数。当一帧图像采集完成时，函数被调用。
+         *
+         * @brief：This function is registered as a callback function. When a frame of image grabbing ready, the function will be called. */
+        private IKapCallBackProc OnFrameReadyProc;
+        /* @brief：本函数被注册为一个回调函数。当图像采集停止时，函数被调用。
+         *
+         * @brief：This function is registered as a callback function. When stopping grabbing images, the function will be called. */
+        private IKapCallBackProc OnGrabStopProc;
+
+       /* @brief：判断 IKapBoard 函数是否成功调用。
+        * @param[in] ret：函数返回值。
+        *
+        * @brief：Determine whether the IKapBoard function is called successfully.
+        * @param[in] ret：Function return value. */
+        void CheckIKapBoard(int ret)
+        {
+            if (ret != (int)ErrorCode.IK_RTN_OK)
+            {
+                string sErrMsg = "";
+                IKapBoard.IKAPERRORINFO tIKei = new IKapBoardClassLibrary.IKapBoard.IKAPERRORINFO();
+
+                // 获取错误码信息。
+                //
+                // Get error code message.
+                IKapBoard.IKapGetLastError(ref tIKei, true);
+
+                // 打印错误信息。
+                //
+                // Print error message.
+                sErrMsg = string.Concat("Error",
+                                        sErrMsg,
+                                        "Board Type\t = 0x", tIKei.uBoardType.ToString("X4"), "\n",
+                                        "Board Index\t = 0x", tIKei.uBoardIndex.ToString("X4"), "\n",
+                                        "Error Code\t = 0x", tIKei.uErrorCode.ToString("X4"), "\n"
+                                        );
+                Console.Write(sErrMsg);
+                Console.ReadLine();
+                Environment.Exit(1);
+            }
+        }
+
+        #region CallbackFunction
+
+       /* @brief：本函数被注册为一个回调函数。当图像采集开始时，函数被调用。
+        * @param[in] pParam：输入参数。
+        *
+        * @brief：This function is registered as a callback function. When starting grabbing images, the function will be called.
+        * @param[in] pParam：Input parameter. */
+        public void OnGrabStartFunc(IntPtr pParam)
+        {
+            Console.WriteLine("Start grabbing image");
+        }
+
+        /* @brief：本函数被注册为一个回调函数。当采集丢帧时，函数被调用。
+         * @param[in] pParam：输入参数。
+         *
+         * @brief：This function is registered as a callback function. When grabbing frame lost, the function will be called.
+         * @param[in] pParam：Input parameter. */
+        public void OnFrameLostFunc(IntPtr pParam)
+        {
+            Console.WriteLine("Image frame lost");
+        }
+
+        /* @brief：本函数被注册为一个回调函数。当图像采集超时时，函数被调用。
+         * @param[in] pParam：输入参数。
+         *
+         * @brief：This function is registered as a callback function. When grabbing images time out, the function will be called.
+         * @param[in] pParam：Input parameter. */
+        public void OnTimeoutFunc(IntPtr pParam)
+        {
+            Console.WriteLine("Grab image timeout");
+        }
+
+        /* @brief：本函数被注册为一个回调函数。当一帧图像采集完成时，函数被调用。
+         * @param[in] pParam：输入参数。
+         *
+         * @brief：This function is registered as a callback function. When a frame of image grabbing ready, the function will be called.
+         * @param[in] pParam：Input parameter. */
+        public void OnFrameReadyFunc(IntPtr pParam)
+        {
+            int ret = (int)ErrorCode.IK_RTN_OK;
+            IntPtr pUserBuffer = IntPtr.Zero;
+            int nFrameSize = 0;
+            IKapBoard.IKAPBUFFERSTATUS nStatus = new IKapBoard.IKAPBUFFERSTATUS();
+            IKapBoard.IKapGetBufferStatus(this.m_hBoard, m_nCurFrameIndex, ref nStatus);
+            // 当图像缓冲区满或者图像缓冲区非满但是无法采集完整的一帧图像时。
+            if (nStatus.uFull == 1)
+            {
+                // 读取缓冲区数据。
+                ret = IKapBoard.IKapGetInfo(this.m_hBoard, (uint)INFO_ID.IKP_FRAME_SIZE, ref nFrameSize);
+                CheckIKapBoard(ret);
+                // 获取缓冲区地址。
+                IKapBoard.IKapGetBufferAddress(this.m_hBoard, m_nCurFrameIndex, ref pUserBuffer);
+                CheckIKapBoard(ret);
+                // 将数据添加到绶存中
+                int result = 0;
+                int value = Math.DivRem(this.dataFrameIndex, this.m_FrameNumByImage, out result);
+                if (!this.dicImage.ContainsKey(value)) // 用商值来判断键，用余数来判断 
+                    this.dicImage.Add(value, new ImageByteData(this._frameHeight * this._frameWidth * this.m_FrameNumByImage));
+                if (this.dicImage[value] == null)
+                    this.dicImage[value] = new ImageByteData(this._frameHeight * this._frameWidth * this.m_FrameNumByImage);
+                Marshal.Copy(pUserBuffer, this.dicImage[value].Data, result * this._frameWidth * this._frameHeight, this._frameWidth * this._frameHeight);
+                if (result == (this.m_FrameNumByImage - 1)) // 表示完成了一幅图像的数据采集 
+                    this.dicImage[value].State = "finish";
+                ///////////////////////////////////////////////
+                this.dataFrameIndex++; // 每增加一帧 ，索引 + 1
+                this.dataFrameIndex = this.dataFrameIndex % (this.m_FrameNumByImage * this.imageBufferCount); // this.imageBufferCount : 表示每采集1000张图，循环一次
+                LoggerHelper.Debug("获取缓冲区数据成功，当前 nStatus.uFull =：" + nStatus.uFull.ToString());
+            }
+            if (nStatus.uEmpty == 1)
+                LoggerHelper.Debug("图像缓冲区为空，当前 nStatus.uEmpty =：" + nStatus.uEmpty.ToString());
+            if (nStatus.uOverflow == 1)
+                LoggerHelper.Debug("图像缓冲区覆盖，当前 nStatus.uOverflow =：" + nStatus.uOverflow.ToString());
+            if (nStatus.uLineNum == 1)
+                LoggerHelper.Debug("图像缓冲区未存满，当前 nStatus.uLineNum =：" + nStatus.uLineNum.ToString());
+            /////////////////////////////////
+            this.m_nCurFrameIndex++;
+            this.m_nCurFrameIndex = this.m_nCurFrameIndex % this.m_nTotalFrameCount;
+            LoggerHelper.Debug("当前数据帧索引 = " + dataFrameIndex.ToString());
+        }
+
+        /* @brief：本函数被注册为一个回调函数。当图像采集停止时，函数被调用。
+         * @param[in] pParam：输入参数。
+         *
+         * @brief：This function is registered as a callback function. When stopping grabbing images, the function will be called.
+         * @param[in] pParam：Input parameter. */
+        public void OnGrabStopFunc(IntPtr pParam)
+        {
+            Console.WriteLine("Stop grabbing image");
+        }
+        #endregion
+
+        // 注册回调函数.Register callback functions.
+        private void RegisterCallback()
+        {
+            int ret = (int)ErrorCode.IK_RTN_OK;
+            OnGrabStartProc = new IKapCallBackProc(OnGrabStartFunc);
+            ret = IKapBoard.IKapRegisterCallback(m_hBoard, (uint)CallBackEvents.IKEvent_GrabStart, Marshal.GetFunctionPointerForDelegate(OnGrabStartProc), m_hBoard);
+            CheckIKapBoard(ret);
+            OnFrameReadyProc = new IKapCallBackProc(OnFrameReadyFunc);
+            ret = IKapBoard.IKapRegisterCallback(m_hBoard, (uint)CallBackEvents.IKEvent_FrameReady, Marshal.GetFunctionPointerForDelegate(OnFrameReadyProc), m_hBoard);
+            CheckIKapBoard(ret);
+            OnFrameLostProc = new IKapCallBackProc(OnFrameLostFunc);
+            ret = IKapBoard.IKapRegisterCallback(m_hBoard, (uint)CallBackEvents.IKEvent_FrameLost, Marshal.GetFunctionPointerForDelegate(OnFrameLostProc), m_hBoard);
+            CheckIKapBoard(ret);
+            OnTimeoutProc = new IKapCallBackProc(OnTimeoutFunc);
+            ret = IKapBoard.IKapRegisterCallback(m_hBoard, (uint)CallBackEvents.IKEvent_TimeOut, Marshal.GetFunctionPointerForDelegate(OnTimeoutProc), m_hBoard);
+            CheckIKapBoard(ret);
+            OnGrabStopProc = new IKapCallBackProc(OnGrabStopFunc);
+            ret = IKapBoard.IKapRegisterCallback(m_hBoard, (uint)CallBackEvents.IKEvent_GrabStop, Marshal.GetFunctionPointerForDelegate(OnGrabStopProc), m_hBoard);
+            CheckIKapBoard(ret);
+        }
+
+        /* @brief：清除回调函数。
+         * @brief：Unregister callback functions. */
+        private void UnRegisterCallback()
+        {
+            int ret = (int)ErrorCode.IK_RTN_OK;
+            ret = IKapBoard.IKapUnRegisterCallback(m_hBoard, (uint)CallBackEvents.IKEvent_GrabStart);
+            ret = IKapBoard.IKapUnRegisterCallback(m_hBoard, (uint)CallBackEvents.IKEvent_FrameReady);
+            ret = IKapBoard.IKapUnRegisterCallback(m_hBoard, (uint)CallBackEvents.IKEvent_FrameLost);
+            ret = IKapBoard.IKapUnRegisterCallback(m_hBoard, (uint)CallBackEvents.IKEvent_TimeOut);
+            ret = IKapBoard.IKapUnRegisterCallback(m_hBoard, (uint)CallBackEvents.IKEvent_GrabStop);
+        }
+
+
+        /// <summary>
+        /// 打开相机
+        /// </summary>
+        /// <returns></returns>
+        public bool Open(string connectAdress)
+        {
+            bool result = false;
+            try
+            {
+                int ret = (int)ErrorCode.IK_RTN_OK;
+                uint nPCIeDevCount = 0;
+                StringBuilder resourceName;
+                uint resourceNameSize = 0;
+                IKapBoard.IKAPERRORINFO tIKei = new IKapBoard.IKAPERRORINFO();
+                // 获取连接的采集卡数量
+                ret = IKapBoard.IKapGetBoardCount((int)BoardType.IKBoardPCIE, ref nPCIeDevCount);
+                CheckIKapBoard(ret);
+                if (nPCIeDevCount == 0)
+                {
+                    Console.WriteLine("Get board count 0");
+                    Console.ReadLine();
+                    Environment.Exit(1);
+                    return result;
+                }
+                /////////////////////////////////////////////////////////////////////////
+                for (uint i = 0; i < nPCIeDevCount; i++)
+                {
+                    resourceNameSize = 0;
+                    resourceName = new StringBuilder(0);
+                    IKapBoard.IKapGetBoardName((uint)BoardType.IKBoardPCIE, i, resourceName, ref resourceNameSize);
+                    IKapBoard.IKapGetLastError(ref tIKei, true);
+                    if (tIKei.uErrorCode == (uint)ErrorCode.IKStatus_BufferTooSmall)
+                    {
+                        resourceName = new StringBuilder((int)resourceNameSize);
+                        IKapBoard.IKapGetBoardName((uint)BoardType.IKBoardPCIE, i, resourceName, ref resourceNameSize);
+                        IKapBoard.IKapGetLastError(ref tIKei, true);
+                        if (tIKei.uErrorCode == (uint)ErrorCode.IKStatus_Success)
+                        {
+                            if (resourceName.ToString().Trim() == connectAdress)
+                            {
+                                m_hBoard = IKapBoard.IKapOpen((int)BoardType.IKBoardPCIE, i);
+                                if (m_hBoard.Equals(-1))
+                                {
+                                    Console.WriteLine("Open device failure");
+                                    Console.ReadLine();
+                                    Environment.Exit(1);
+                                }
+                                else
+                                {
+                                    result = true;
+                                }
+                                    
+                            }
+                        }
+                        else
+                            Console.WriteLine("Get Device Name Fail. Error Code:", tIKei.uErrorCode);
+                    }
+                }
+            }
+            catch
+            {
+                result = false;
+            }
+            if (this.m_hBoard.ToInt64() != -1)
+                result = true;
+            else
+                result = false;
+            return result;
+        }
+
+        public bool LoadConfigFile(string path)
+        {
+            int ret = (int)ErrorCode.IK_RTN_OK;
+            if (path != null && File.Exists(path))
+                ret = IKapBoard.IKapLoadConfigurationFromFile(this.m_hBoard, path);
+            else
+            {
+                if (path != null && path.Length > 0 && File.Exists(new FileInfo(path).Name)) // 如果指定路径中不存在，则从执行目录中寻找
+                    ret = IKapBoard.IKapLoadConfigurationFromFile(this.m_hBoard, new FileInfo(path).Name);
+            }
+            CheckIKapBoard(ret);
+            if (ret == (int)ErrorCode.IK_RTN_OK)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// 设置图像参数
+        /// </summary>
+        public void SetCamPara(bool isTrigger = true)
+        {
+            int ret = (int)ErrorCode.IK_RTN_OK;
+            // 设置图像缓冲区帧数。Set frame count of buffer.
+            ret = IKapBoard.IKapSetInfo(this.m_hBoard, (uint)INFO_ID.IKP_FRAME_COUNT, this.m_nTotalFrameCount);
+            CheckIKapBoard(ret);
+            // 设置超时时间。Set time out time.
+            int timeout = -1;
+            ret = IKapBoard.IKapSetInfo(this.m_hBoard, (uint)INFO_ID.IKP_TIME_OUT, timeout);
+            CheckIKapBoard(ret);
+            // 设置采集模式。Set grab mode.
+            int grab_mode = (int)GrabMode.IKP_GRAB_NON_BLOCK;
+            ret = IKapBoard.IKapSetInfo(this.m_hBoard, (uint)INFO_ID.IKP_GRAB_MODE, grab_mode);
+            CheckIKapBoard(ret);
+            // 设置传输模式。Set transfer mode.
+            int transfer_mode = (int)FrameTransferMode.IKP_FRAME_TRANSFER_SYNCHRONOUS_NEXT_EMPTY_WITH_PROTECT;
+            ret = IKapBoard.IKapSetInfo(this.m_hBoard, (uint)INFO_ID.IKP_FRAME_TRANSFER_MODE, transfer_mode);
+            CheckIKapBoard(ret);
+            /// 获取图像帧宽度和高度
+            ret = IKapBoard.IKapGetInfo(this.m_hBoard, (uint)INFO_ID.IKP_IMAGE_WIDTH, ref this._frameWidth);
+            CheckIKapBoard(ret);
+            ret = IKapBoard.IKapGetInfo(this.m_hBoard, (uint)INFO_ID.IKP_IMAGE_HEIGHT, ref this._frameHeight);
+            CheckIKapBoard(ret);
+        }
+
+        public bool StartGrab()
+        {
+            bool reault = false;
+            int ret = (int)ErrorCode.IK_RTN_OK;
+            if (this.m_hBoard.ToInt64() != -1)
+            {
+                this.m_nCurFrameIndex = 0;
+                this.m_CurImageIndex = 0;
+                this.dataFrameIndex = 0; // 统计在一次采集中帧的总数量
+                this.rowIndex = 0;
+                this.dicImage?.Clear();
+                switch (this._imageAcqMethod)
+                {
+                    case enImageAcqMethod.明暗场:
+                        this.m_FrameNumByImage = (this.CamParam.DataHeight / this._frameHeight) * 2;  
+                        break;
+                    default:
+                    case enImageAcqMethod.明场:
+                    case enImageAcqMethod.暗场:
+                        this.m_FrameNumByImage = (this.CamParam.DataHeight / this._frameHeight); 
+                        break;
+                }
+                if (this.StreamGrabIsOpen) // 如果流是打开的，先停止再启动
+                    ret = IKapBoard.IKapStopGrab(this.m_hBoard);
+                ///////
+                ret = IKapBoard.IKapStartGrab(this.m_hBoard, 0);
+                CheckIKapBoard(ret);
+                if (ret == 0)
+                {
+                    reault = true;
+                    this.StreamGrabIsOpen = true;
+                    LoggerHelper.Info("开始图像采集成功！");
+                }
+                else
+                {
+                    LoggerHelper.Error("开始图像采集失败！");
+                }
+            }
+            return reault;
+        }
+
+        /// <summary>
+        /// 停止采集
+        /// </summary>
+        /// <returns></returns>
+        public bool StopGrab()
+        {
+            bool result = false;
+            try
+            {
+                int ret = (int)ErrorCode.IK_RTN_OK;
+                if (this.m_hBoard.ToInt64() != -1)
+                {
+                    this.StreamGrabIsOpen = false;
+                    ///////////// 流停止时将缓冲区状态都设置为空 /////////////////////////
+                    int res = (int)ErrorCode.IK_RTN_OK;
+                    ret = IKapBoard.IKapStopGrab(this.m_hBoard);
+                    if (res == 0)
+                    {
+                        result = true;
+                        LoggerHelper.Info("停止相机采集成功！");
+                    }
+                    else
+                    {
+                        LoggerHelper.Error("停止相机流采集失败！");
+                        result = false;
+                    }
+                    this.StreamGrabIsOpen = false;
+                }
+            }
+            catch (Exception e0)
+            {
+                LoggerHelper.Fatal(e0.Message);
+                result = false;
+            }
+            return result;
+        }
+
+
+        /// <summary>
+        /// 关闭设备
+        /// </summary>
+        /// <returns></returns>
+        public bool Close() //关闭相机
+        {
+            try
+            {
+                //停止采集
+                StopGrab();
+                //清除回调函数
+                UnRegisterCallback();
+                // 关闭采集卡设备。
+                // Close frame grabber device.
+                if (!m_hBoard.Equals(-1))
+                {
+                    IKapBoard.IKapClose(m_hBoard);
+                    m_hBoard = (IntPtr)(-1);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                LoggerHelper.Error("关闭相机出错" + ex.ToString());
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 测试采图
+        /// </summary>
+        public double GetExpos()
+        {
+            double ExposTime = 0;
+            try
+            {
+                //设置曝光时间
+                if (this.m_hBoard.ToInt64() != -1)
+                {
+                    //IKapBoard.IKapGetInfo(this.m_hBoard, INFO_ID.e, ref ExposTime);
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggerHelper.Error("获取相机曝光参数出错" + ex.ToString());
+            }
+            return ExposTime;
+        }
+        public int GetGain()
+        {
+            double Gain = 0;
+            try
+            {
+                //设置曝光时间
+                if (this.m_hBoard.ToInt64() != -1)
+                {
+                    //IKapBoard.IKapGetInfo(this.m_hBoard, "Gain", ref Gain);
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggerHelper.Error("获取相机增益参数出错" + ex.ToString());
+            }
+            return (int)Gain;
+        }
+        public bool SetGain(int Gain)
+        {
+            try
+            {
+                //设置曝光时间
+                if (this.m_hBoard.ToInt64() != -1)
+                {
+                    //IKapBoard.IKapSetInfo(this.m_hBoard, "Gain", Gain);
+                    return true;
+                }
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                LoggerHelper.Error("设置相机增益参数出错" + ex.ToString());
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 测试采图
+        /// </summary>
+        public bool SetExpos(int ExposTime)
+        {
+            try
+            {
+                //设置曝光时间
+                if (this.m_hBoard.ToInt64() != -1)
+                {
+                    //IKapBoard.IKapSetInfo(this.m_hBoard, "ExposureTime", ExposTime);
+                    return true;
+                }
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                LoggerHelper.Error("设置相机曝光参数出错" + ex.ToString());
+                return false;
+            }
+        }
+
+        public bool GetHImage(int imageWidth, int imageHeight, string type, int timeout, out HImage hImage, out HImage darkImage, out enAcqState state)
+        {
+            state = enAcqState.Continue;
+            hImage = new HImage();
+            darkImage = new HImage();
+            if (imageWidth != this._frameWidth)
+                imageWidth = this._frameWidth; // 不管是线阵还是面阵，图像宽度都是一样的
+            #region //等待数据是否有更新
+            int result = 0, value = 0;
+            value = Math.DivRem(this.m_CurImageIndex + 1, this.imageBufferCount, out result); // 用余数来判断下一图像的索引
+            this.stopwatch.Restart();
+            switch (this.CamParam.AcqMode)
+            {
+                case enAcqMode.移动平均2:
+                    while (true)
+                    {
+                        if (this.dicImage.Count > 0 && this.dicImage.ContainsKey(this.m_CurImageIndex) && this.dicImage[this.m_CurImageIndex] != null && this.dicImage[this.m_CurImageIndex].State == "finish"
+                            && this.dicImage.ContainsKey(result) && this.dicImage[result] != null && this.dicImage[result].State == "finish")
+                            break; // 表示采集了一幅图像
+                        else
+                            if (this.stopwatch.ElapsedMilliseconds > timeout)
+                        {
+                            this.stopwatch.Stop();
+                            return false; // 大于指定的时间没有获取到图像，返回超时
+                        }
+                        Thread.Sleep(10);
+                    }
+                    break;
+                default:
+                    while (true)
+                    {
+                        if (this.dicImage.Count > 0 && this.dicImage.ContainsKey(this.m_CurImageIndex) && this.dicImage[this.m_CurImageIndex] != null && this.dicImage[this.m_CurImageIndex].State == "finish")
+                            break; // 表示采集了一幅图像
+                        else
+                        {
+                            if (this.stopwatch.ElapsedMilliseconds > timeout)
+                            {
+                                this.stopwatch.Stop();
+                                return false; // 大于指定的时间没有获取到图像，返回超时
+                            }
+                        }
+                        Thread.Sleep(10);
+                    }
+                    break;
+            }
+            this.stopwatch.Stop();
+            LoggerHelper.Debug("获取图像等待时间 = " + this.stopwatch.ElapsedMilliseconds.ToString());
+            #endregion
+            switch (this._imageAcqMethod)
+            {
+                case enImageAcqMethod.明暗场:
+                    this.rowIndex = 0;
+                    byte[] lightData = new byte[imageWidth * imageHeight];// 
+                    byte[] darkData = new byte[imageWidth * imageHeight];// 
+                    /////////////////////////////////////
+                    for (int i = 0; i < this.dicImage[this.m_CurImageIndex].Data.Length; i++)
+                    {
+                        if (this.rowIndex % 2 == 0) // 偶数行，明场采集 ,这个用与分时频闪取图
+                        {
+                            lightData[i] = this.dicImage[this.m_CurImageIndex].Data[i];
+                        }
+                        else // 奇数行，暗场采集
+                        {
+                            darkData[i] = this.dicImage[this.m_CurImageIndex].Data[i];
+                        }
+                        if (i > 0 && i % this._frameWidth == 0) this.rowIndex++; // 每取完一行的数据，递增一次行索引
+                    }
+                    IntPtr pixPtr2 = IntPtr.Zero;
+                    pixPtr2 = Marshal.AllocHGlobal(lightData.Length);
+                    Marshal.Copy(lightData, 0, pixPtr2, lightData.Length);
+                    hImage.GenImage1(type, imageWidth, imageHeight, pixPtr2);
+                    ///// 生成暗场图片 /////
+                    Marshal.Copy(darkData, 0, pixPtr2, darkData.Length);
+                    darkImage.GenImage1(type, imageWidth, imageHeight, pixPtr2);
+                    //////////////////////////
+                    Marshal.FreeHGlobal(pixPtr2);
+                    if (this.dicImage.ContainsKey(this.m_CurImageIndex) && this.dicImage[this.m_CurImageIndex] != null)
+                    {
+                        this.dicImage[this.m_CurImageIndex].State = "wait";
+                        this.dicImage[this.m_CurImageIndex] = null; // 获取图像数据后，赋值为空以方便GC回收
+                    }
+                    LoggerHelper.Debug("获取图像数据成功，图像索引 = " + this.m_CurImageIndex.ToString());
+                    break;
+                default:
+                case enImageAcqMethod.明场:
+                case enImageAcqMethod.暗场:
+                    /////////////////////////////////////
+                    IntPtr pixPtr = IntPtr.Zero;
+                    switch (this.CamParam.AcqMode)
+                    {
+                        case enAcqMode.移动平均2:
+                            byte[] data = new byte[this.dicImage[this.m_CurImageIndex].Data.Length + this.dicImage[result].Data.Length];
+                            Array.Copy(this.dicImage[this.m_CurImageIndex].Data, 0, data, 0, this.dicImage[this.m_CurImageIndex].Data.Length);
+                            Array.Copy(this.dicImage[result].Data, 0, data, this.dicImage[this.m_CurImageIndex].Data.Length, this.dicImage[result].Data.Length);
+                            pixPtr = Marshal.AllocHGlobal(data.Length);
+                            Marshal.Copy(data, 0, pixPtr, data.Length);
+                            hImage.GenImage1(type, imageWidth, imageHeight * 2, pixPtr);
+                            data = null;
+                            break;
+                        default:
+                            pixPtr = Marshal.AllocHGlobal(this.dicImage[this.m_CurImageIndex].Data.Length);
+                            Marshal.Copy(this.dicImage[this.m_CurImageIndex].Data, 0, pixPtr, this.dicImage[this.m_CurImageIndex].Data.Length);
+                            hImage.GenImage1(type, imageWidth, imageHeight, pixPtr);
+                            break;
+                    }
+                    Marshal.FreeHGlobal(pixPtr);
+                    if (this.dicImage.ContainsKey(this.m_CurImageIndex) && this.dicImage[this.m_CurImageIndex] != null)
+                    {
+                        this.dicImage[this.m_CurImageIndex].State = "wait";
+                        this.dicImage[this.m_CurImageIndex] = null; // 获取图像数据后，赋值为空以方便GC回收
+                    }
+                    LoggerHelper.Debug("获取图像数据成功，图像索引 = " + this.m_CurImageIndex.ToString());
+                    break;
+            }
+            /////////////////////////////////////////////////
+            this.m_CurImageIndex++; // 获取一次图像后，当前图像索引增 1 
+            this.m_CurImageIndex = this.m_CurImageIndex % this.imageBufferCount;  // 用余数来做索引
+            return true;
+        }
+
+        public HImage GetHImage2(int imageWidth, int imageHeight, string type, int timeout, out HImage darkImage, out enAcqState state)
+        {
+            state = enAcqState.Continue;
+            HImage hImage = new HImage();
+            darkImage = new HImage();
+            if (imageWidth != this._frameWidth)
+                imageWidth = this._frameWidth; // 不管是线阵还是面阵，图像宽度都是一样的
+            #region //等待数据是否有更新
+            int result = 0, value = 0;
+            value = Math.DivRem(this.m_CurImageIndex + 1, this.imageBufferCount, out result); // 用余数来判断下一图像的索引
+            this.stopwatch.Restart();
+            switch (this.CamParam.AcqMode)
+            {
+                case enAcqMode.移动平均2:
+                    while (true)
+                    {
+                        if (this.dicImage.ContainsKey(this.m_CurImageIndex) && this.dicImage[this.m_CurImageIndex] != null && this.dicImage[this.m_CurImageIndex].State == "finish"
+                            && this.dicImage.ContainsKey(result) && this.dicImage[result] != null && this.dicImage[result].State == "finish")
+                            break; // 表示采集了一幅图像
+                        if (this.stopwatch.ElapsedMilliseconds >= timeout)
+                        {
+                            if (!this.dicImage.ContainsKey(this.m_CurImageIndex))
+                                this.dicImage.Add(this.m_CurImageIndex, new ImageByteData(imageWidth * imageHeight, enPixFormat.Byte, "finish"));
+                            if (this.dicImage[this.m_CurImageIndex] == null)
+                                this.dicImage[this.m_CurImageIndex] = new ImageByteData(imageWidth * imageHeight, enPixFormat.Byte, "finish");
+                            ////////////////////////////////
+                            if (!this.dicImage.ContainsKey(result))
+                                this.dicImage.Add(result, new ImageByteData(imageWidth * imageHeight, enPixFormat.Byte, "finish"));
+                            if (this.dicImage[result] == null)
+                                this.dicImage[result] = new ImageByteData(imageWidth * imageHeight, enPixFormat.Byte, "finish");
+                            break; // 超过指定时间还没有采集到完整图像，那么将结束采图
+                        }
+                    }
+                    break;
+                default:
+                    while (true)
+                    {
+                        if (this.dicImage.ContainsKey(this.m_CurImageIndex) && this.dicImage[this.m_CurImageIndex] != null && this.dicImage[this.m_CurImageIndex].State == "finish") break; // 表示采集了一幅图像
+                        if (this.stopwatch.ElapsedMilliseconds >= timeout)
+                        {
+                            if (!this.dicImage.ContainsKey(this.m_CurImageIndex))
+                                this.dicImage.Add(this.m_CurImageIndex, new ImageByteData(imageWidth * imageHeight, enPixFormat.Byte, "finish"));
+                            if (this.dicImage[this.m_CurImageIndex] == null)
+                                this.dicImage[this.m_CurImageIndex] = new ImageByteData(imageWidth * imageHeight, enPixFormat.Byte, "finish");
+                            break; // 超过指定时间还没有采集到完整图像，那么将结束采图
+                        }
+                    }
+                    break;
+            }
+            this.stopwatch.Stop();
+            LoggerHelper.Debug("获取图像等待时间 = " + this.stopwatch.ElapsedMilliseconds.ToString());
+            #endregion
+            switch (this._imageAcqMethod)
+            {
+                case enImageAcqMethod.明暗场:
+                    this.rowIndex = 0;
+                    byte[] lightData = new byte[imageWidth * imageHeight];// 
+                    byte[] darkData = new byte[imageWidth * imageHeight];// 
+                    /////////////////////////////////////
+                    for (int i = 0; i < this.dicImage[this.m_CurImageIndex].Data.Length; i++)
+                    {
+                        if (this.rowIndex % 2 == 0) // 偶数行，明场采集 ,这个用与分时频闪取图
+                        {
+                            lightData[i] = this.dicImage[this.m_CurImageIndex].Data[i];
+                        }
+                        else // 奇数行，暗场采集
+                        {
+                            darkData[i] = this.dicImage[this.m_CurImageIndex].Data[i];
+                        }
+                        if (i > 0 && i % this._frameWidth == 0) this.rowIndex++; // 每取完一行的数据，递增一次行索引
+                    }
+                    IntPtr pixPtr2 = IntPtr.Zero;
+                    pixPtr2 = Marshal.AllocHGlobal(lightData.Length);
+                    Marshal.Copy(lightData, 0, pixPtr2, lightData.Length);
+                    hImage.GenImage1(type, imageWidth, imageHeight, pixPtr2);
+                    ///// 生成暗场图片 /////
+                    Marshal.Copy(darkData, 0, pixPtr2, darkData.Length);
+                    darkImage.GenImage1(type, imageWidth, imageHeight, pixPtr2);
+                    //////////////////////////
+                    Marshal.FreeHGlobal(pixPtr2);
+                    if (this.dicImage.ContainsKey(this.m_CurImageIndex) && this.dicImage[this.m_CurImageIndex] != null)
+                    {
+                        this.dicImage[this.m_CurImageIndex].State = "wait";
+                        this.dicImage[this.m_CurImageIndex] = null; // 获取图像数据后，赋值为空以方便GC回收
+                    }
+                    LoggerHelper.Debug("获取图像数据成功，图像索引 = " + this.m_CurImageIndex.ToString());
+                    break;
+                default:
+                case enImageAcqMethod.明场:
+                case enImageAcqMethod.暗场:
+                    /////////////////////////////////////
+                    IntPtr pixPtr = IntPtr.Zero;
+                    switch (this.CamParam.AcqMode)
+                    {
+                        case enAcqMode.移动平均2:
+                            byte[] data = new byte[this.dicImage[this.m_CurImageIndex].Data.Length + this.dicImage[result].Data.Length];
+                            Array.Copy(this.dicImage[this.m_CurImageIndex].Data, 0, data, 0, this.dicImage[this.m_CurImageIndex].Data.Length);
+                            Array.Copy(this.dicImage[result].Data, 0, data, this.dicImage[this.m_CurImageIndex].Data.Length, this.dicImage[result].Data.Length);
+                            pixPtr = Marshal.AllocHGlobal(data.Length);
+                            Marshal.Copy(data, 0, pixPtr, data.Length);
+                            hImage.GenImage1(type, imageWidth, imageHeight * 2, pixPtr);
+                            data = null;
+                            break;
+                        default:
+                            pixPtr = Marshal.AllocHGlobal(this.dicImage[this.m_CurImageIndex].Data.Length);
+                            Marshal.Copy(this.dicImage[this.m_CurImageIndex].Data, 0, pixPtr, this.dicImage[this.m_CurImageIndex].Data.Length);
+                            hImage.GenImage1(type, imageWidth, imageHeight, pixPtr);
+                            break;
+                    }
+                    Marshal.FreeHGlobal(pixPtr);
+                    if (this.dicImage.ContainsKey(this.m_CurImageIndex) && this.dicImage[this.m_CurImageIndex] != null)
+                    {
+                        this.dicImage[this.m_CurImageIndex].State = "wait";
+                        this.dicImage[this.m_CurImageIndex] = null; // 获取图像数据后，赋值为空以方便GC回收
+                    }
+                    LoggerHelper.Debug("获取图像数据成功，图像索引 = " + this.m_CurImageIndex.ToString());
+                    break;
+            }
+            /////////////////////////////////////////////////
+            this.m_CurImageIndex++; // 获取一次图像后，当前图像索引增 1 
+            this.m_CurImageIndex = this.m_CurImageIndex % this.imageBufferCount;  // 用余数来做索引
+            return hImage;
+        }
+
+        public void ClearData()
+        {
+            this.dicImage?.Clear();
+        }
+
+
+
+
+    }
+
+
+
+}
+

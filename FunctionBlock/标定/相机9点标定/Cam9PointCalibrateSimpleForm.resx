@@ -139,7 +139,7 @@
     <value>51</value>
   </data>
   <data name="C轴旋转坐标dataGridView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>352, 334</value>
+    <value>337, 297</value>
   </data>
   <data name="C轴旋转坐标dataGridView.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -163,7 +163,7 @@
     <value>0, 0</value>
   </data>
   <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>358, 354</value>
+    <value>343, 317</value>
   </data>
   <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -205,7 +205,7 @@
     <value>51</value>
   </data>
   <data name="V轴旋转dataGridView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>352, 333</value>
+    <value>337, 297</value>
   </data>
   <data name="V轴旋转dataGridView.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -229,7 +229,7 @@
     <value>0, 0</value>
   </data>
   <data name="groupBox10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>358, 353</value>
+    <value>343, 317</value>
   </data>
   <data name="groupBox10.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -264,6 +264,39 @@
   <data name="tableLayoutPanel2.ColumnCount" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
+  <data name="迭代调整圆心checkBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="迭代调整圆心checkBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="迭代调整圆心checkBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>247, 348</value>
+  </data>
+  <data name="迭代调整圆心checkBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 16</value>
+  </data>
+  <data name="迭代调整圆心checkBox.TabIndex" type="System.Int32, mscorlib">
+    <value>61</value>
+  </data>
+  <data name="迭代调整圆心checkBox.Text" xml:space="preserve">
+    <value>高精度计算圆心</value>
+  </data>
+  <data name="&gt;&gt;迭代调整圆心checkBox.Name" xml:space="preserve">
+    <value>迭代调整圆心checkBox</value>
+  </data>
+  <data name="&gt;&gt;迭代调整圆心checkBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;迭代调整圆心checkBox.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;迭代调整圆心checkBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 414</value>
   </data>
@@ -286,13 +319,16 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
+  </data>
+  <data name="映射方法comboBox.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="映射方法comboBox.Items" xml:space="preserve">
-    <value>WcsToWcs</value>
+    <value>PixToWcs</value>
   </data>
   <data name="映射方法comboBox.Items1" xml:space="preserve">
-    <value>PixToWcs</value>
+    <value>WcsToWcs</value>
   </data>
   <data name="映射方法comboBox.Items2" xml:space="preserve">
     <value>PixToPix</value>
@@ -322,7 +358,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;映射方法comboBox.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="label24.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -349,7 +385,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;label24.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="Y轴偏移_textBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>116, 98</value>
@@ -370,7 +406,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;Y轴偏移_textBox.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="label23.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -397,7 +433,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;label23.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="X轴偏移_textBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>116, 70</value>
@@ -418,7 +454,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;X轴偏移_textBox.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="label22.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -445,7 +481,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;label22.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="取反Z轴checkBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -454,7 +490,7 @@
     <value>False</value>
   </data>
   <data name="取反Z轴checkBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>256, 304</value>
+    <value>247, 304</value>
   </data>
   <data name="取反Z轴checkBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 16</value>
@@ -475,7 +511,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;取反Z轴checkBox.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="相机轴坐标textBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>116, 233</value>
@@ -496,7 +532,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;相机轴坐标textBox.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="label18.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -523,13 +559,16 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;label18.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="取反Y轴checkBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="取反Y轴checkBox.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="取反Y轴checkBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>256, 282</value>
+    <value>247, 282</value>
   </data>
   <data name="取反Y轴checkBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 16</value>
@@ -550,7 +589,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;取反Y轴checkBox.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="取反X轴checkBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -559,7 +598,7 @@
     <value>False</value>
   </data>
   <data name="取反X轴checkBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>256, 260</value>
+    <value>247, 260</value>
   </data>
   <data name="取反X轴checkBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 16</value>
@@ -580,7 +619,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;取反X轴checkBox.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="归一化原点checkBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -589,7 +628,7 @@
     <value>False</value>
   </data>
   <data name="归一化原点checkBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>256, 326</value>
+    <value>247, 326</value>
   </data>
   <data name="归一化原点checkBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>84, 16</value>
@@ -610,7 +649,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;归一化原点checkBox.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="列数numericUpDown.Location" type="System.Drawing.Point, System.Drawing">
     <value>116, 43</value>
@@ -631,7 +670,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;列数numericUpDown.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="行数numericUpDown.Location" type="System.Drawing.Point, System.Drawing">
     <value>116, 17</value>
@@ -652,7 +691,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;行数numericUpDown.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="label30.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -679,7 +718,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;label30.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="label41.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -706,7 +745,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;label41.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="标定轴comboBox.Items" xml:space="preserve">
     <value>XY轴,</value>
@@ -739,7 +778,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;标定轴comboBox.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -766,7 +805,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>19</value>
   </data>
   <data name="终止点textBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>116, 206</value>
@@ -787,7 +826,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;终止点textBox.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>20</value>
   </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -814,7 +853,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>21</value>
   </data>
   <data name="起始点textBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>116, 179</value>
@@ -835,7 +874,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;起始点textBox.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>22</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -862,7 +901,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>23</value>
   </data>
   <data name="groupBox2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -871,7 +910,7 @@
     <value>3, 274</value>
   </data>
   <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>356, 440</value>
+    <value>356, 367</value>
   </data>
   <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1860,6 +1899,33 @@
   <data name="&gt;&gt;tabPage4.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="启用UVW平台checkBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="启用UVW平台checkBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 170</value>
+  </data>
+  <data name="启用UVW平台checkBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 16</value>
+  </data>
+  <data name="启用UVW平台checkBox.TabIndex" type="System.Int32, mscorlib">
+    <value>48</value>
+  </data>
+  <data name="启用UVW平台checkBox.Text" xml:space="preserve">
+    <value>启用UVW平台</value>
+  </data>
+  <data name="&gt;&gt;启用UVW平台checkBox.Name" xml:space="preserve">
+    <value>启用UVW平台checkBox</value>
+  </data>
+  <data name="&gt;&gt;启用UVW平台checkBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;启用UVW平台checkBox.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;启用UVW平台checkBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="Rot_Deg_textBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>248, 119</value>
   </data>
@@ -1879,7 +1945,7 @@
     <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;Rot_Deg_textBox.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="label25.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1906,7 +1972,7 @@
     <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;label25.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="Rot_y_textBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>248, 92</value>
@@ -1927,7 +1993,7 @@
     <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;Rot_y_textBox.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="label26.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1954,7 +2020,7 @@
     <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;label26.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="Rot_x_textBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>248, 65</value>
@@ -1975,7 +2041,7 @@
     <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;Rot_x_textBox.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="label27.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2002,7 +2068,7 @@
     <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;label27.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="WytextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>58, 93</value>
@@ -2023,7 +2089,7 @@
     <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;WytextBox.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="label28.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2050,7 +2116,7 @@
     <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;label28.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="WxtextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>58, 66</value>
@@ -2071,7 +2137,7 @@
     <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;WxtextBox.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="label29.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2098,7 +2164,7 @@
     <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;label29.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="VytextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>248, 39</value>
@@ -2119,7 +2185,7 @@
     <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;VytextBox.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="label31.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2146,7 +2212,7 @@
     <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;label31.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="VxtextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>248, 12</value>
@@ -2167,7 +2233,7 @@
     <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;VxtextBox.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="label32.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2194,7 +2260,7 @@
     <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;label32.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="UytextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>58, 39</value>
@@ -2215,7 +2281,7 @@
     <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;UytextBox.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="label33.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2242,7 +2308,7 @@
     <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;label33.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="UxtextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>58, 12</value>
@@ -2263,7 +2329,7 @@
     <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;UxtextBox.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="label34.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2290,7 +2356,7 @@
     <value>tabPage3</value>
   </data>
   <data name="&gt;&gt;label34.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="tabPage3.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -2350,7 +2416,7 @@
     <value>Fill</value>
   </data>
   <data name="splitContainer3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>729, 3</value>
+    <value>714, 3</value>
   </data>
   <data name="splitContainer3.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
     <value>Horizontal</value>
@@ -2365,7 +2431,7 @@
     <value>51</value>
   </data>
   <data name="N点坐标dataGridView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>352, 334</value>
+    <value>337, 297</value>
   </data>
   <data name="N点坐标dataGridView.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2389,7 +2455,7 @@
     <value>0, 0</value>
   </data>
   <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>358, 354</value>
+    <value>343, 317</value>
   </data>
   <data name="groupBox4.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -2431,7 +2497,7 @@
     <value>51</value>
   </data>
   <data name="U轴旋转dataGridView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>352, 333</value>
+    <value>337, 297</value>
   </data>
   <data name="U轴旋转dataGridView.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2455,7 +2521,7 @@
     <value>0, 0</value>
   </data>
   <data name="groupBox11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>358, 353</value>
+    <value>343, 317</value>
   </data>
   <data name="groupBox11.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2488,10 +2554,10 @@
     <value>1</value>
   </data>
   <data name="splitContainer3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>358, 711</value>
+    <value>343, 638</value>
   </data>
   <data name="splitContainer3.SplitterDistance" type="System.Int32, mscorlib">
-    <value>354</value>
+    <value>317</value>
   </data>
   <data name="splitContainer3.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -2518,7 +2584,7 @@
     <value>5</value>
   </data>
   <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1090, 717</value>
+    <value>1060, 644</value>
   </data>
   <data name="tableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2539,10 +2605,10 @@
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="groupBox2" Row="1" RowSpan="4" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tabControl2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="splitContainer2" Row="0" RowSpan="5" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="splitContainer3" Row="0" RowSpan="5" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,362,Percent,50,Percent,50" /&gt;&lt;Rows Styles="Absolute,271,Absolute,280,Percent,50,Percent,50,Absolute,99" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="splitContainer2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>358, 711</value>
+    <value>343, 638</value>
   </data>
   <data name="splitContainer2.SplitterDistance" type="System.Int32, mscorlib">
-    <value>354</value>
+    <value>317</value>
   </data>
   <data name="splitContainer2.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -2587,7 +2653,7 @@
     <value>51</value>
   </data>
   <data name="N点像素坐标dataGridView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>363, 630</value>
+    <value>353, 557</value>
   </data>
   <data name="N点像素坐标dataGridView.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2611,7 +2677,7 @@
     <value>0, 0</value>
   </data>
   <data name="groupBox13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>369, 650</value>
+    <value>359, 577</value>
   </data>
   <data name="groupBox13.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2665,7 +2731,7 @@
     <value>51</value>
   </data>
   <data name="旋转坐标dataGridView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>372, 630</value>
+    <value>382, 557</value>
   </data>
   <data name="旋转坐标dataGridView.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2689,7 +2755,7 @@
     <value>0, 0</value>
   </data>
   <data name="groupBox14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>378, 650</value>
+    <value>388, 577</value>
   </data>
   <data name="groupBox14.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2722,10 +2788,10 @@
     <value>1</value>
   </data>
   <data name="splitContainer4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>751, 650</value>
+    <value>751, 577</value>
   </data>
   <data name="splitContainer4.SplitterDistance" type="System.Int32, mscorlib">
-    <value>369</value>
+    <value>359</value>
   </data>
   <data name="splitContainer4.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2788,7 +2854,7 @@
     <value>51</value>
   </data>
   <data name="世界坐标dataGridView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1084, 335</value>
+    <value>1054, 298</value>
   </data>
   <data name="世界坐标dataGridView.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2812,7 +2878,7 @@
     <value>0, 0</value>
   </data>
   <data name="groupBox7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1090, 355</value>
+    <value>1060, 318</value>
   </data>
   <data name="groupBox7.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2881,7 +2947,7 @@
     <value>51</value>
   </data>
   <data name="拍照点世界坐标dataGridView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1084, 338</value>
+    <value>1054, 302</value>
   </data>
   <data name="拍照点世界坐标dataGridView.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2905,7 +2971,7 @@
     <value>0, 0</value>
   </data>
   <data name="groupBox8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1090, 358</value>
+    <value>1060, 322</value>
   </data>
   <data name="groupBox8.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2938,10 +3004,10 @@
     <value>1</value>
   </data>
   <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1090, 717</value>
+    <value>1060, 644</value>
   </data>
   <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
-    <value>355</value>
+    <value>318</value>
   </data>
   <data name="splitContainer1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2968,7 +3034,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="标定参数tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1096, 723</value>
+    <value>1066, 650</value>
   </data>
   <data name="标定参数tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3001,7 +3067,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="N点treeView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>313, 668</value>
+    <value>313, 595</value>
   </data>
   <data name="N点treeView.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3028,7 +3094,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="groupBox5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>319, 688</value>
+    <value>319, 615</value>
   </data>
   <data name="groupBox5.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -3097,7 +3163,7 @@
     <value>……</value>
   </data>
   <data name="statusStrip3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>319, 688</value>
+    <value>319, 615</value>
   </data>
   <data name="statusStrip3.Size" type="System.Drawing.Size, System.Drawing">
     <value>771, 29</value>
@@ -3124,7 +3190,7 @@
     <value>Fill</value>
   </data>
   <data name="保存参数button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 688</value>
+    <value>0, 615</value>
   </data>
   <data name="保存参数button.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -3190,7 +3256,7 @@
     <value>0, 0</value>
   </data>
   <data name="hWindowControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>751, 650</value>
+    <value>751, 577</value>
   </data>
   <data name="hWindowControl1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -3214,7 +3280,7 @@
     <value>3, 3</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>751, 650</value>
+    <value>751, 577</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -3238,7 +3304,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPage5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>757, 656</value>
+    <value>757, 583</value>
   </data>
   <data name="tabPage5.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3265,7 +3331,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPage6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>757, 656</value>
+    <value>757, 583</value>
   </data>
   <data name="tabPage6.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -3292,7 +3358,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="元素tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>757, 656</value>
+    <value>757, 583</value>
   </data>
   <data name="元素tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -3319,7 +3385,7 @@
     <value>322, 3</value>
   </data>
   <data name="tabControl3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>765, 682</value>
+    <value>765, 609</value>
   </data>
   <data name="tabControl3.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -3346,7 +3412,7 @@
     <value>5</value>
   </data>
   <data name="tableLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1090, 717</value>
+    <value>1090, 644</value>
   </data>
   <data name="tableLayoutPanel3.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3373,7 +3439,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="标定程序tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1096, 723</value>
+    <value>1066, 650</value>
   </data>
   <data name="标定程序tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -3400,7 +3466,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1096, 723</value>
+    <value>1066, 650</value>
   </data>
   <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -3430,7 +3496,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1104, 752</value>
+    <value>1074, 679</value>
   </data>
   <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3520,7 +3586,7 @@
     <value>0, 0</value>
   </data>
   <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1104, 43</value>
+    <value>1074, 43</value>
   </data>
   <data name="toolStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -3550,7 +3616,7 @@
     <value>2</value>
   </data>
   <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1104, 795</value>
+    <value>1074, 722</value>
   </data>
   <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3577,7 +3643,7 @@
     <value>6, 12</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1104, 795</value>
+    <value>1074, 722</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

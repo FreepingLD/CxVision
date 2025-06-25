@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using HalconDotNet;
+using Sensor;
+using MotionControlCard;
+using System.Windows.Forms;
+using System.IO;
+using AlgorithmsLibrary;
+using System.ComponentModel;
+using Common;
+using System.Data;
+using System.Runtime.InteropServices;
+
+namespace FunctionBlock
+{
+
+    /// <summary>
+    /// </summary>
+    [Serializable]
+    public class KeyBoardClickParam
+    {
+        public int Y { get; set; }
+        public int X { get; set; }
+
+        public string WinName { get; set; }
+
+        public enKeyBoard KeyBoard { get; set; }
+        public KeyBoardClickParam()
+        {
+            this.Y = 0;
+            this.X = 0;
+            this.WinName = "21CY TEST TOOL Ver 1.0.0";
+            this.KeyBoard = enKeyBoard.Enter;
+        }
+
+    }
+
+    public enum enKeyBoard
+    {
+        Enter,
+        Shift,
+    }
+}

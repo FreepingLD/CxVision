@@ -1,0 +1,185 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using HalconDotNet;
+using Sensor;
+using MotionControlCard;
+using System.Windows.Forms;
+using System.IO;
+using AlgorithmsLibrary;
+using System.ComponentModel;
+using Common;
+using System.Data;
+using System.Diagnostics;
+using System.Drawing;
+using System.Threading;
+
+namespace FunctionBlock
+{
+
+    /// <summary>
+    /// 将点去数据生成3D对象模型，以便于后续算子操作
+    /// </summary>
+    [Serializable]
+    [DefaultProperty(nameof(WaitContent))]
+    public class WaitText : BaseFunction, IFunction
+    {
+        private string _readContent;
+        public WaitTextParam Param { get; set; }
+
+        [DisplayName("窗体坐标")]
+        [DescriptionAttribute("输出属性")]
+        public string WaitContent { get => _readContent; set => _readContent = value; }
+
+        public WaitText()
+        {
+            this.Param = new WaitTextParam();
+            this.ResultInfo = new BindingList<OcrResultInfo>();
+            ((BindingList<OcrResultInfo>)this.ResultInfo).Add(new OcrResultInfo());
+            ((BindingList<OcrResultInfo>)this.ResultInfo).Add(new OcrResultInfo());
+        }
+
+
+        #region 实现接口
+
+        public OperateResult Execute(params object[] param)
+        {
+            this.Result.Succss = true;
+            this.Result.ExcuteState = enExcuteState.NONE;
+            this.Result.ErrorMessage = "";
+            string index = "";
+            try
+            {
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+                ////////////////// 检测传入的参数是否包含有图像 ///////////////////////
+                if (param != null)
+                {
+                    foreach (var item in param)
+                    {
+                        if (item != null)
+                        {
+                            switch (item.GetType().Name)
+                            {
+                                case nameof(Int32):
+                                    int result = 0;
+                                    if (int.TryParse(item.ToString(), out result))
+                                        index = result.ToString();
+                                    break;
+                                case nameof(String):
+                                    if (item.ToString().Split('=').Last().Length > 0)
+                                    {
+                                        if (int.TryParse(item.ToString().Split('=').Last(), out result))
+                                            index = result.ToString();
+                                    }
+                                    break;
+                            }
+                        }
+                    }
+                }
+                /////////////////////////////////////////
+                this._readContent = "";
+                RECT_INFO rect2 = new RECT_INFO();
+                IntPtr winPtr = API.FindWindow(null, this.Param.WinName); // 
+                if (winPtr != IntPtr.Zero)
+                {
+                    API.GetWindowRect(winPtr, ref rect2); // 获取窗体的左上角
+                    IntPtr ptr = API.WindowFromPoint(new Point(rect2.Left + this.Param.X, rect2.Top + this.Param.Y));
+                    StringBuilder builder = new StringBuilder(100);
+                    ///// 等待内容变更 ////////////////
+                    while(true)
+                    {
+                        API.SendMessage(ptr, API.WM_GETTEXT, 100, builder);
+                        if (stopwatch.ElapsedMilliseconds > this.Param.Timeout) break;
+                        if (builder.ToString().Trim() == "NG" || builder.ToString().Trim() == "OK") break;
+                        Application.DoEvents();
+                    }
+                    this._readContent = builder.ToString();
+                    this.Result.Succss = true;
+                }
+                else
+                {
+                    IntPtr ptr = API.WindowFromPoint(new Point(rect2.Left + this.Param.X, rect2.Top + this.Param.Y));
+                    StringBuilder builder = new StringBuilder(100);
+                    ///// 等待内容变更 ////////////////
+                    while (true)
+                    {
+                        API.SendMessage(ptr, API.WM_GETTEXT, 100, builder);
+                        if (stopwatch.ElapsedMilliseconds > this.Param.Timeout) break;
+                        if (builder.ToString().Trim() == "NG" || builder.ToString().Trim() == "OK") break;
+                        Application.DoEvents();
+                    }
+                    this._readContent = builder.ToString();
+                    this.Result.Succss = true;
+                }
+                stopwatch.Stop();
+                ///////////////////////////////////////////
+                this.CreateResultInfo(4);
+                ((BindingList<OcrResultInfo>)this.ResultInfo)[0].SetValue(this.name, "读取文本", this._readContent);
+                ((BindingList<OcrResultInfo>)this.ResultInfo)[1].SetValue(this.name, "读取坐标_X", (rect2.Left + this.Param.X).ToString());
+                ((BindingList<OcrResultInfo>)this.ResultInfo)[2].SetValue(this.name, "读取坐标_Y", (rect2.Top + this.Param.Y).ToString());
+                ((BindingList<OcrResultInfo>)this.ResultInfo)[3].SetValue(this.name, "时间(ms)", stopwatch.ElapsedMilliseconds.ToString());
+            }
+            catch (Exception ex)
+            {
+                LoggerHelper.Error(this.name + "->执行错误", ex);
+                this.Result.Succss = false;
+            }
+            if (this.Result.Succss)
+                LoggerHelper.Info(this.name + "->执行成功：" + $"读取文本:{this._readContent}");
+            else
+                LoggerHelper.Error(this.name + "->执行失败：" + $"读取文本:{this._readContent}");
+            // 更改UI字体　
+            UpdataNodeElementStyle(param, this.Result.Succss);
+            return this.Result;
+        }
+        public object GetPropertyValues(string propertyName)
+        {
+            switch (propertyName)
+            {
+                default:
+                case "名称":
+                case nameof(this.Name):
+                    return this.name;
+            }
+        }
+        public bool SetPropertyValues(string propertyName, params object[] value)
+        {
+            switch (propertyName)
+            {
+                case "名称":
+                    this.name = value[0].ToString();
+                    return true;
+                default:
+                    return true;
+            }
+        }
+        public void ReleaseHandle()
+        {
+            try
+            {
+                OnItemDeleteEvent(this, this.name);
+            }
+            catch
+            {
+                LoggerHelper.Error(this.name + "->删除该对象报错");
+            }
+        }
+        public void Read(string path)
+        {
+            //throw new NotImplementedException();
+        }
+        public void Save(string path)
+        {
+            //throw new NotImplementedException();
+        }
+
+        #endregion
+
+
+
+
+    }
+}
