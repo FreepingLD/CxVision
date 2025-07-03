@@ -76,8 +76,9 @@
     <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.6.6.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
-    <Reference Include="halcondotnetxl">
-      <HintPath>C:\Program Files\MVTec\HALCON-20.11-Steady\bin\dotnet35\halcondotnetxl.dll</HintPath>
+    <Reference Include="halcondotnetxl, Version=20.11.1.1, Culture=neutral, PublicKeyToken=4973bed59ddbf2b8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Program Files\MVTec\HALCON-20.11-Steady\bin\dotnet35\halcondotnetxl.dll</HintPath>
     </Reference>
     <Reference Include="hdevenginedotnetxl">
       <HintPath>C:\Program Files\MVTec\HALCON-20.11-Steady\bin\dotnet35\hdevenginedotnetxl.dll</HintPath>
@@ -573,6 +574,12 @@
       <DependentUpon>TileImageFormOld.cs</DependentUpon>
     </Compile>
     <Compile Include="2D算法工具\图像拼接\TileImageParamOld.cs" />
+    <Compile Include="2D算法工具\图像裁剪\ImageReduceFormNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\图像裁剪\ImageReduceFormNew.Designer.cs">
+      <DependentUpon>ImageReduceFormNew.cs</DependentUpon>
+    </Compile>
     <Compile Include="2D算法工具\图像镜像\ImageMirror.cs" />
     <Compile Include="2D算法工具\图像镜像\ImageMirrorForm.cs">
       <SubType>Form</SubType>
@@ -1144,12 +1151,27 @@
     <Compile Include="2D算法工具\区域拟合\拟合矩形区域\FitRect2RegionForm.Designer.cs">
       <DependentUpon>FitRect2RegionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="工具组\缺陷检测\FlawDetectFormNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工具组\缺陷检测\FlawDetectFormNew.Designer.cs">
+      <DependentUpon>FlawDetectFormNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工具组\缺陷检测\FlawDetect.cs" />
+    <Compile Include="工具组\缺陷检测\FlawDetectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工具组\缺陷检测\FlawDetectForm.Designer.cs">
+      <DependentUpon>FlawDetectForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="工具组\特征定位\FeatureLocalizationFormOld.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="工具组\特征定位\FeatureLocalizationFormOld.Designer.cs">
       <DependentUpon>FeatureLocalizationFormOld.cs</DependentUpon>
     </Compile>
+    <Compile Include="工具组\缺陷检测\FilterMethod.cs" />
+    <Compile Include="工具组\缺陷检测\FilterParam.cs" />
     <Compile Include="标定\相机9点标定\CaliCaliboardSinmpleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4200,6 +4222,9 @@
     <EmbeddedResource Include="2D算法工具\图像拼接\TileImageFormOld.resx">
       <DependentUpon>TileImageFormOld.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\图像裁剪\ImageReduceFormNew.resx">
+      <DependentUpon>ImageReduceFormNew.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\图像镜像\ImageMirrorForm.resx">
       <DependentUpon>ImageMirrorForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -4442,6 +4467,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\区域拟合\拟合矩形区域\FitRect2RegionForm.resx">
       <DependentUpon>FitRect2RegionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工具组\缺陷检测\FlawDetectFormNew.resx">
+      <DependentUpon>FlawDetectFormNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工具组\缺陷检测\FlawDetectForm.resx">
+      <DependentUpon>FlawDetectForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="工具组\特征定位\FeatureLocalizationFormOld.resx">
       <DependentUpon>FeatureLocalizationFormOld.cs</DependentUpon>
