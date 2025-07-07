@@ -1151,17 +1151,18 @@
     <Compile Include="2D算法工具\区域拟合\拟合矩形区域\FitRect2RegionForm.Designer.cs">
       <DependentUpon>FitRect2RegionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="工具组\缺陷检测\FlawDetectFormNew.cs">
+    <Compile Include="检测工具\缺陷检测\FlawDetectParam.cs" />
+    <Compile Include="检测工具\缺陷检测\FlawDetectFormNew.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="工具组\缺陷检测\FlawDetectFormNew.Designer.cs">
+    <Compile Include="检测工具\缺陷检测\FlawDetectFormNew.Designer.cs">
       <DependentUpon>FlawDetectFormNew.cs</DependentUpon>
     </Compile>
-    <Compile Include="工具组\缺陷检测\FlawDetect.cs" />
-    <Compile Include="工具组\缺陷检测\FlawDetectForm.cs">
+    <Compile Include="检测工具\缺陷检测\FlawDetect.cs" />
+    <Compile Include="检测工具\缺陷检测\FlawDetectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="工具组\缺陷检测\FlawDetectForm.Designer.cs">
+    <Compile Include="检测工具\缺陷检测\FlawDetectForm.Designer.cs">
       <DependentUpon>FlawDetectForm.cs</DependentUpon>
     </Compile>
     <Compile Include="工具组\特征定位\FeatureLocalizationFormOld.cs">
@@ -1170,8 +1171,154 @@
     <Compile Include="工具组\特征定位\FeatureLocalizationFormOld.Designer.cs">
       <DependentUpon>FeatureLocalizationFormOld.cs</DependentUpon>
     </Compile>
-    <Compile Include="工具组\缺陷检测\FilterMethod.cs" />
-    <Compile Include="工具组\缺陷检测\FilterParam.cs" />
+    <Compile Include="检测工具\缺陷检测\检测操作\DetectParam.cs" />
+    <Compile Include="检测工具\缺陷检测\检测操作\FlawDetectMethod.cs" />
+    <Compile Include="检测工具\缺陷检测\检测操作\DetectFlawForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\DetectFlawForm.Designer.cs">
+      <DependentUpon>DetectFlawForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\AutoThresholdDetectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\AutoThresholdDetectForm.Designer.cs">
+      <DependentUpon>AutoThresholdDetectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\BinaryThresholdDetectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\BinaryThresholdDetectForm.Designer.cs">
+      <DependentUpon>BinaryThresholdDetectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\CharThresholdDetectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\CharThresholdDetectForm.Designer.cs">
+      <DependentUpon>CharThresholdDetectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\DualThresholdDetectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\DualThresholdDetectForm.Designer.cs">
+      <DependentUpon>DualThresholdDetectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\DynThresholdDetectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\DynThresholdDetectForm.Designer.cs">
+      <DependentUpon>DynThresholdDetectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\FastThresholdDetectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\FastThresholdDetectForm.Designer.cs">
+      <DependentUpon>FastThresholdDetectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\HysteresisThresholdDetectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\HysteresisThresholdDetectForm.Designer.cs">
+      <DependentUpon>HysteresisThresholdDetectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\LocalThresholdDetectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\LocalThresholdDetectForm.Designer.cs">
+      <DependentUpon>LocalThresholdDetectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\ThresholdDetectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\ThresholdDetectForm.Designer.cs">
+      <DependentUpon>ThresholdDetectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\VarThresholdDetectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\VarThresholdDetectForm.Designer.cs">
+      <DependentUpon>VarThresholdDetectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\WatershedsThresholdDetectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\WatershedsThresholdDetectForm.Designer.cs">
+      <DependentUpon>WatershedsThresholdDetectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\BilateralFilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\BilateralFilterForm.Designer.cs">
+      <DependentUpon>BilateralFilterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\BinomialFilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\BinomialFilterForm.Designer.cs">
+      <DependentUpon>BinomialFilterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\GaussFilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\GaussFilterForm.Designer.cs">
+      <DependentUpon>GaussFilterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\GuidedFilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\GuidedFilterForm.Designer.cs">
+      <DependentUpon>GuidedFilterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\MeanFilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\MeanFilterForm.Designer.cs">
+      <DependentUpon>MeanFilterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\MeanNFilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\MeanNFilterForm.Designer.cs">
+      <DependentUpon>MeanNFilterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\MedianFilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\MedianFilterForm.Designer.cs">
+      <DependentUpon>MedianFilterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\MedianRectFilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\MedianRectFilterForm.Designer.cs">
+      <DependentUpon>MedianRectFilterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\MedianSeparateFilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\MedianSeparateFilterForm.Designer.cs">
+      <DependentUpon>MedianSeparateFilterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\MedianWeightedFilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\MedianWeightedFilterForm.Designer.cs">
+      <DependentUpon>MedianWeightedFilterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\SmoothImageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\SmoothImageForm.Designer.cs">
+      <DependentUpon>SmoothImageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\FilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\FilterForm.Designer.cs">
+      <DependentUpon>FilterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\FilterMethod.cs" />
+    <Compile Include="检测工具\缺陷检测\滤波操作\FilterParam.cs" />
     <Compile Include="标定\相机9点标定\CaliCaliboardSinmpleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1222,11 +1369,11 @@
       <DependentUpon>SensorConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="相机采集\相机配置\SensorConfigParam.cs" />
-    <Compile Include="系统UI配置\UI视图配置\AddXyThetaFrm.cs">
+    <Compile Include="系统UI配置\UI视图配置\AddXyThetaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="系统UI配置\UI视图配置\AddXyThetaFrm.designer.cs">
-      <DependentUpon>AddXyThetaFrm.cs</DependentUpon>
+    <Compile Include="系统UI配置\UI视图配置\AddXyThetaForm.designer.cs">
+      <DependentUpon>AddXyThetaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="系统UI配置\API复判系统\ApiForm.cs">
       <SubType>Form</SubType>
@@ -1357,7 +1504,7 @@
     </Compile>
     <Compile Include="系统UI配置\视图管理\ViewLableParam.cs" />
     <Compile Include="系统UI配置\视图管理\ViewLableParamManager.cs" />
-    <Compile Include="缺陷检测\DetectParam.cs" />
+    <Compile Include="检测工具\DetectParam.cs" />
     <Compile Include="系统UI配置\缺陷检测\分类参数\FlawClassParam.cs" />
     <Compile Include="系统UI配置\缺陷检测\分类参数\FlawClassManage.cs" />
     <Compile Include="系统UI配置\缺陷检测\分类参数\ClassParamForm.cs">
@@ -1366,25 +1513,25 @@
     <Compile Include="系统UI配置\缺陷检测\分类参数\ClassParamForm.Designer.cs">
       <DependentUpon>ClassParamForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="缺陷检测\变化模型\App\CreateVariationModelParamForm.cs">
+    <Compile Include="检测工具\变化模型\App\CreateVariationModelParamForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="缺陷检测\变化模型\App\CreateVariationModelParamForm.Designer.cs">
+    <Compile Include="检测工具\变化模型\App\CreateVariationModelParamForm.Designer.cs">
       <DependentUpon>CreateVariationModelParamForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="缺陷检测\变化模型\App\CompareVariationModelParamForm.cs">
+    <Compile Include="检测工具\变化模型\App\CompareVariationModelParamForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="缺陷检测\变化模型\App\CompareVariationModelParamForm.Designer.cs">
+    <Compile Include="检测工具\变化模型\App\CompareVariationModelParamForm.Designer.cs">
       <DependentUpon>CompareVariationModelParamForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="缺陷检测\变化模型\DoVariationModel.cs" />
-    <Compile Include="缺陷检测\变化模型\VariationModeDetect.cs" />
-    <Compile Include="缺陷检测\变化模型\VariationModelParam.cs" />
-    <Compile Include="缺陷检测\变化模型\VariationModelForm.cs">
+    <Compile Include="检测工具\变化模型\DoVariationModel.cs" />
+    <Compile Include="检测工具\变化模型\VariationModeDetect.cs" />
+    <Compile Include="检测工具\变化模型\VariationModelParam.cs" />
+    <Compile Include="检测工具\变化模型\VariationModelForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="缺陷检测\变化模型\VariationModelForm.Designer.cs">
+    <Compile Include="检测工具\变化模型\VariationModelForm.Designer.cs">
       <DependentUpon>VariationModelForm.cs</DependentUpon>
     </Compile>
     <Compile Include="2D算法工具\变换轮廓\AffineXLDCont2DAlgorith.cs" />
@@ -2274,44 +2421,44 @@
     </Compile>
     <Compile Include="系统UI配置\报表查询\ProductInfo.cs" />
     <Compile Include="系统UI配置\报表查询\StatisticsInfo.cs" />
-    <Compile Include="缺陷检测\宽度检测\WidthDetectFormNew.cs">
+    <Compile Include="检测工具\宽度检测\WidthDetectFormNew.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="缺陷检测\宽度检测\WidthDetectFormNew.Designer.cs">
+    <Compile Include="检测工具\宽度检测\WidthDetectFormNew.Designer.cs">
       <DependentUpon>WidthDetectFormNew.cs</DependentUpon>
     </Compile>
-    <Compile Include="缺陷检测\宽度检测\WidthDetectFormOLd.cs">
+    <Compile Include="检测工具\宽度检测\WidthDetectFormOLd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="缺陷检测\宽度检测\WidthDetectFormOLd.Designer.cs">
+    <Compile Include="检测工具\宽度检测\WidthDetectFormOLd.Designer.cs">
       <DependentUpon>WidthDetectFormOLd.cs</DependentUpon>
     </Compile>
-    <Compile Include="缺陷检测\瑕疵分类\GroupParamForm.cs">
+    <Compile Include="检测工具\瑕疵分类\GroupParamForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="缺陷检测\瑕疵分类\GroupParamForm.Designer.cs">
+    <Compile Include="检测工具\瑕疵分类\GroupParamForm.Designer.cs">
       <DependentUpon>GroupParamForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="缺陷检测\瑕疵分类\FlawGroup.cs" />
-    <Compile Include="缺陷检测\瑕疵分类\FlawGroupForm.cs">
+    <Compile Include="检测工具\瑕疵分类\FlawGroup.cs" />
+    <Compile Include="检测工具\瑕疵分类\FlawGroupForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="缺陷检测\瑕疵分类\FlawGroupForm.Designer.cs">
+    <Compile Include="检测工具\瑕疵分类\FlawGroupForm.Designer.cs">
       <DependentUpon>FlawGroupForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="缺陷检测\高度检测\HeightDetect.cs" />
-    <Compile Include="缺陷检测\高度检测\HeightDetectForm.cs">
+    <Compile Include="检测工具\高度检测\HeightDetect.cs" />
+    <Compile Include="检测工具\高度检测\HeightDetectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="缺陷检测\高度检测\HeightDetectForm.Designer.cs">
+    <Compile Include="检测工具\高度检测\HeightDetectForm.Designer.cs">
       <DependentUpon>HeightDetectForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="缺陷检测\DetectMethod.cs" />
-    <Compile Include="缺陷检测\宽度检测\WidthDetect.cs" />
-    <Compile Include="缺陷检测\宽度检测\WidthDetectForm.cs">
+    <Compile Include="检测工具\DetectMethod.cs" />
+    <Compile Include="检测工具\宽度检测\WidthDetect.cs" />
+    <Compile Include="检测工具\宽度检测\WidthDetectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="缺陷检测\宽度检测\WidthDetectForm.Designer.cs">
+    <Compile Include="检测工具\宽度检测\WidthDetectForm.Designer.cs">
       <DependentUpon>WidthDetectForm.cs</DependentUpon>
     </Compile>
     <Compile Include="轴控制\轨迹运动\LineParamForm.cs">
@@ -2443,7 +2590,7 @@
     <Compile Include="系统UI配置\程序配方管理\ProgramViewForm.Designer.cs">
       <DependentUpon>ProgramViewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="缺陷检测\FlawData.cs" />
+    <Compile Include="检测工具\FlawData.cs" />
     <Compile Include="系统UI配置\缺陷检测\FlawDetecteViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3105,24 +3252,24 @@
     <Compile Include="系统配置\屏幕参数配置\ScreenManager.cs" />
     <Compile Include="系统配置\系统参数\SystemParam.cs" />
     <Compile Include="系统配置\系统参数\SystemParamManager.cs" />
-    <Compile Include="缺陷检测\测量检测\MeasureDetect.cs" />
-    <Compile Include="缺陷检测\测量检测\MeasureDetectForm.cs">
+    <Compile Include="检测工具\测量检测\MeasureDetect.cs" />
+    <Compile Include="检测工具\测量检测\MeasureDetectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="缺陷检测\测量检测\MeasureDetectForm.Designer.cs">
+    <Compile Include="检测工具\测量检测\MeasureDetectForm.Designer.cs">
       <DependentUpon>MeasureDetectForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="缺陷检测\测量检测\MeasureDetectParam.cs" />
-    <Compile Include="缺陷检测\测量检测\MeasureMethod.cs" />
-    <Compile Include="缺陷检测\直线检测\LineMethod.cs" />
-    <Compile Include="缺陷检测\直线检测\LineDetectParam.cs" />
-    <Compile Include="缺陷检测\直线检测\LineDetectForm.cs">
+    <Compile Include="检测工具\测量检测\MeasureDetectParam.cs" />
+    <Compile Include="检测工具\测量检测\MeasureMethod.cs" />
+    <Compile Include="检测工具\直线检测\LineMethod.cs" />
+    <Compile Include="检测工具\直线检测\LineDetectParam.cs" />
+    <Compile Include="检测工具\直线检测\LineDetectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="缺陷检测\直线检测\LineDetectForm.Designer.cs">
+    <Compile Include="检测工具\直线检测\LineDetectForm.Designer.cs">
       <DependentUpon>LineDetectForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="缺陷检测\直线检测\LineDetect.cs" />
+    <Compile Include="检测工具\直线检测\LineDetect.cs" />
     <Compile Include="工具组\过时功能\保存数据\SaveDataForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3206,49 +3353,49 @@
       <DependentUpon>ReadFileForm.cs</DependentUpon>
     </Compile>
     <Compile Include="工具组\过时功能\读取文件\ReadFileParam.cs" />
-    <Compile Include="缺陷检测\矩形检测\Rect2Detect.cs" />
-    <Compile Include="缺陷检测\矩形检测\Rect2DetectForm.cs">
+    <Compile Include="检测工具\矩形检测\Rect2Detect.cs" />
+    <Compile Include="检测工具\矩形检测\Rect2DetectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="缺陷检测\矩形检测\Rect2DetectForm.Designer.cs">
+    <Compile Include="检测工具\矩形检测\Rect2DetectForm.Designer.cs">
       <DependentUpon>Rect2DetectForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="缺陷检测\矩形检测\Rect2DetectParam.cs" />
-    <Compile Include="缺陷检测\矩形检测\Rect2Method.cs" />
-    <Compile Include="缺陷检测\破片检测\GapDetect.cs" />
-    <Compile Include="缺陷检测\破片检测\GapDetectForm%28old%29.cs">
+    <Compile Include="检测工具\矩形检测\Rect2DetectParam.cs" />
+    <Compile Include="检测工具\矩形检测\Rect2Method.cs" />
+    <Compile Include="检测工具\破片检测\GapDetect.cs" />
+    <Compile Include="检测工具\破片检测\GapDetectForm%28old%29.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="缺陷检测\破片检测\GapDetectForm%28old%29.Designer.cs">
+    <Compile Include="检测工具\破片检测\GapDetectForm%28old%29.Designer.cs">
       <DependentUpon>GapDetectForm%28old%29.cs</DependentUpon>
     </Compile>
-    <Compile Include="缺陷检测\破片检测\GapDetectParam.cs" />
-    <Compile Include="缺陷检测\破片检测\GapMethod.cs" />
-    <Compile Include="缺陷检测\破片检测\GapDetectForm.cs">
+    <Compile Include="检测工具\破片检测\GapDetectParam.cs" />
+    <Compile Include="检测工具\破片检测\GapMethod.cs" />
+    <Compile Include="检测工具\破片检测\GapDetectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="缺陷检测\破片检测\GapDetectForm.Designer.cs">
+    <Compile Include="检测工具\破片检测\GapDetectForm.Designer.cs">
       <DependentUpon>GapDetectForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="缺陷检测\破片检测\GapShapeParam.cs" />
-    <Compile Include="缺陷检测\裂纹检测\CrackDetect.cs" />
-    <Compile Include="缺陷检测\裂纹检测\CrackDetectMethod.cs" />
-    <Compile Include="缺陷检测\裂纹检测\CrackDetectParam.cs" />
-    <Compile Include="缺陷检测\裂纹检测\CrackDetectForm.cs">
+    <Compile Include="检测工具\破片检测\GapShapeParam.cs" />
+    <Compile Include="检测工具\裂纹检测\CrackDetect.cs" />
+    <Compile Include="检测工具\裂纹检测\CrackDetectMethod.cs" />
+    <Compile Include="检测工具\裂纹检测\CrackDetectParam.cs" />
+    <Compile Include="检测工具\裂纹检测\CrackDetectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="缺陷检测\裂纹检测\CrackDetectForm.Designer.cs">
+    <Compile Include="检测工具\裂纹检测\CrackDetectForm.Designer.cs">
       <DependentUpon>CrackDetectForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="缺陷检测\脚本工具\HalconScript.cs" />
-    <Compile Include="缺陷检测\脚本工具\ScriptTool.cs" />
-    <Compile Include="缺陷检测\脚本工具\ScriptToolForm.cs">
+    <Compile Include="检测工具\脚本工具\HalconScript.cs" />
+    <Compile Include="检测工具\脚本工具\ScriptTool.cs" />
+    <Compile Include="检测工具\脚本工具\ScriptToolForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="缺陷检测\脚本工具\ScriptToolForm.Designer.cs">
+    <Compile Include="检测工具\脚本工具\ScriptToolForm.Designer.cs">
       <DependentUpon>ScriptToolForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="缺陷检测\脚本工具\ScriptParam.cs" />
+    <Compile Include="检测工具\脚本工具\ScriptParam.cs" />
     <Compile Include="轴控制\MoveParam.cs" />
     <Compile Include="轴控制\点位运动\PointTrackParam.cs" />
     <Compile Include="轴控制\点位运动\PointMoveParam.cs" />
@@ -4468,14 +4615,86 @@
     <EmbeddedResource Include="2D算法工具\区域拟合\拟合矩形区域\FitRect2RegionForm.resx">
       <DependentUpon>FitRect2RegionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="工具组\缺陷检测\FlawDetectFormNew.resx">
+    <EmbeddedResource Include="检测工具\缺陷检测\FlawDetectFormNew.resx">
       <DependentUpon>FlawDetectFormNew.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="工具组\缺陷检测\FlawDetectForm.resx">
+    <EmbeddedResource Include="检测工具\缺陷检测\FlawDetectForm.resx">
       <DependentUpon>FlawDetectForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="工具组\特征定位\FeatureLocalizationFormOld.resx">
       <DependentUpon>FeatureLocalizationFormOld.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\检测操作\DetectFlawForm.resx">
+      <DependentUpon>DetectFlawForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\检测操作\App\AutoThresholdDetectForm.resx">
+      <DependentUpon>AutoThresholdDetectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\检测操作\App\BinaryThresholdDetectForm.resx">
+      <DependentUpon>BinaryThresholdDetectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\检测操作\App\CharThresholdDetectForm.resx">
+      <DependentUpon>CharThresholdDetectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\检测操作\App\DualThresholdDetectForm.resx">
+      <DependentUpon>DualThresholdDetectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\检测操作\App\DynThresholdDetectForm.resx">
+      <DependentUpon>DynThresholdDetectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\检测操作\App\FastThresholdDetectForm.resx">
+      <DependentUpon>FastThresholdDetectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\检测操作\App\HysteresisThresholdDetectForm.resx">
+      <DependentUpon>HysteresisThresholdDetectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\检测操作\App\LocalThresholdDetectForm.resx">
+      <DependentUpon>LocalThresholdDetectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\检测操作\App\ThresholdDetectForm.resx">
+      <DependentUpon>ThresholdDetectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\检测操作\App\VarThresholdDetectForm.resx">
+      <DependentUpon>VarThresholdDetectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\检测操作\App\WatershedsThresholdDetectForm.resx">
+      <DependentUpon>WatershedsThresholdDetectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\滤波操作\App\BilateralFilterForm.resx">
+      <DependentUpon>BilateralFilterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\滤波操作\App\BinomialFilterForm.resx">
+      <DependentUpon>BinomialFilterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\滤波操作\App\GaussFilterForm.resx">
+      <DependentUpon>GaussFilterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\滤波操作\App\GuidedFilterForm.resx">
+      <DependentUpon>GuidedFilterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\滤波操作\App\MeanFilterForm.resx">
+      <DependentUpon>MeanFilterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\滤波操作\App\MeanNFilterForm.resx">
+      <DependentUpon>MeanNFilterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\滤波操作\App\MedianFilterForm.resx">
+      <DependentUpon>MedianFilterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\滤波操作\App\MedianRectFilterForm.resx">
+      <DependentUpon>MedianRectFilterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\滤波操作\App\MedianSeparateFilterForm.resx">
+      <DependentUpon>MedianSeparateFilterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\滤波操作\App\MedianWeightedFilterForm.resx">
+      <DependentUpon>MedianWeightedFilterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\滤波操作\App\SmoothImageForm.resx">
+      <DependentUpon>SmoothImageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\滤波操作\FilterForm.resx">
+      <DependentUpon>FilterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="标定\相机9点标定\CaliCaliboardSinmpleForm.en-US.resx">
       <DependentUpon>CaliCaliboardSinmpleForm.cs</DependentUpon>
@@ -4516,8 +4735,8 @@
     <EmbeddedResource Include="相机采集\相机配置\SensorConfigForm.resx">
       <DependentUpon>SensorConfigForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="系统UI配置\UI视图配置\AddXyThetaFrm.resx">
-      <DependentUpon>AddXyThetaFrm.cs</DependentUpon>
+    <EmbeddedResource Include="系统UI配置\UI视图配置\AddXyThetaForm.resx">
+      <DependentUpon>AddXyThetaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="系统UI配置\API复判系统\ApiForm.resx">
       <DependentUpon>ApiForm.cs</DependentUpon>
@@ -4585,13 +4804,13 @@
     <EmbeddedResource Include="系统UI配置\缺陷检测\分类参数\ClassParamForm.resx">
       <DependentUpon>ClassParamForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="缺陷检测\变化模型\App\CreateVariationModelParamForm.resx">
+    <EmbeddedResource Include="检测工具\变化模型\App\CreateVariationModelParamForm.resx">
       <DependentUpon>CreateVariationModelParamForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="缺陷检测\变化模型\App\CompareVariationModelParamForm.resx">
+    <EmbeddedResource Include="检测工具\变化模型\App\CompareVariationModelParamForm.resx">
       <DependentUpon>CompareVariationModelParamForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="缺陷检测\变化模型\VariationModelForm.resx">
+    <EmbeddedResource Include="检测工具\变化模型\VariationModelForm.resx">
       <DependentUpon>VariationModelForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\区域变换\AffineHRegionForm.resx">
@@ -5196,22 +5415,22 @@
     <EmbeddedResource Include="系统UI配置\报表查询\ReportQueryForm.resx">
       <DependentUpon>ReportQueryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="缺陷检测\宽度检测\WidthDetectFormNew.resx">
+    <EmbeddedResource Include="检测工具\宽度检测\WidthDetectFormNew.resx">
       <DependentUpon>WidthDetectFormNew.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="缺陷检测\宽度检测\WidthDetectFormOLd.resx">
+    <EmbeddedResource Include="检测工具\宽度检测\WidthDetectFormOLd.resx">
       <DependentUpon>WidthDetectFormOLd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="缺陷检测\瑕疵分类\GroupParamForm.resx">
+    <EmbeddedResource Include="检测工具\瑕疵分类\GroupParamForm.resx">
       <DependentUpon>GroupParamForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="缺陷检测\瑕疵分类\FlawGroupForm.resx">
+    <EmbeddedResource Include="检测工具\瑕疵分类\FlawGroupForm.resx">
       <DependentUpon>FlawGroupForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="缺陷检测\高度检测\HeightDetectForm.resx">
+    <EmbeddedResource Include="检测工具\高度检测\HeightDetectForm.resx">
       <DependentUpon>HeightDetectForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="缺陷检测\宽度检测\WidthDetectForm.resx">
+    <EmbeddedResource Include="检测工具\宽度检测\WidthDetectForm.resx">
       <DependentUpon>WidthDetectForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="轴控制\轨迹运动\LineParamForm.resx">
@@ -5346,10 +5565,10 @@
     <EmbeddedResource Include="系统UI配置\程序配方显示\ProgramConfigParamFormOld.resx">
       <DependentUpon>ProgramConfigParamFormOld.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="缺陷检测\测量检测\MeasureDetectForm.resx">
+    <EmbeddedResource Include="检测工具\测量检测\MeasureDetectForm.resx">
       <DependentUpon>MeasureDetectForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="缺陷检测\直线检测\LineDetectForm.resx">
+    <EmbeddedResource Include="检测工具\直线检测\LineDetectForm.resx">
       <DependentUpon>LineDetectForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="工具组\过时功能\保存数据\SaveDataForm.resx">
@@ -5385,19 +5604,19 @@
     <EmbeddedResource Include="工具组\过时功能\读取文件\ReadFileForm.resx">
       <DependentUpon>ReadFileForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="缺陷检测\矩形检测\Rect2DetectForm.resx">
+    <EmbeddedResource Include="检测工具\矩形检测\Rect2DetectForm.resx">
       <DependentUpon>Rect2DetectForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="缺陷检测\破片检测\GapDetectForm%28old%29.resx">
+    <EmbeddedResource Include="检测工具\破片检测\GapDetectForm%28old%29.resx">
       <DependentUpon>GapDetectForm%28old%29.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="缺陷检测\破片检测\GapDetectForm.resx">
+    <EmbeddedResource Include="检测工具\破片检测\GapDetectForm.resx">
       <DependentUpon>GapDetectForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="缺陷检测\裂纹检测\CrackDetectForm.resx">
+    <EmbeddedResource Include="检测工具\裂纹检测\CrackDetectForm.resx">
       <DependentUpon>CrackDetectForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="缺陷检测\脚本工具\ScriptToolForm.resx">
+    <EmbeddedResource Include="检测工具\脚本工具\ScriptToolForm.resx">
       <DependentUpon>ScriptToolForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="轴控制\轨迹运动\TrackMoveForm.resx">
@@ -5702,11 +5921,11 @@
     <Folder Include="PLC操作\保存数据Ftp\Ftp配置\" />
     <Folder Include="对位引导\标定\相机初始化\" />
     <Folder Include="标定\平场校正\激光平场校正\" />
+    <Folder Include="检测工具\OCV检测\" />
+    <Folder Include="检测工具\圆形检测\" />
+    <Folder Include="检测工具\焊珠检测\" />
+    <Folder Include="检测工具\纹理检测\" />
     <Folder Include="组合工具\" />
-    <Folder Include="缺陷检测\OCV检测\" />
-    <Folder Include="缺陷检测\圆形检测\" />
-    <Folder Include="缺陷检测\焊珠检测\" />
-    <Folder Include="缺陷检测\纹理检测\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
