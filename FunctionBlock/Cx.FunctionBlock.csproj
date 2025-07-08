@@ -251,6 +251,12 @@
       <DependentUpon>FindNccModelParamForm.cs</DependentUpon>
     </Compile>
     <Compile Include="2D匹配\NCC灰度匹配\DoNccModelMatch.cs" />
+    <Compile Include="2D匹配\形状匹配\ShapeModelMatch2DSimpleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D匹配\形状匹配\ShapeModelMatch2DSimpleForm.Designer.cs">
+      <DependentUpon>ShapeModelMatch2DSimpleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="2D匹配\形状匹配\创建形状模型UI\CShapeModelSubForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1151,6 +1157,12 @@
     <Compile Include="2D算法工具\区域拟合\拟合矩形区域\FitRect2RegionForm.Designer.cs">
       <DependentUpon>FitRect2RegionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="工具组\特征定位\FeatureLocalizationSimpleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工具组\特征定位\FeatureLocalizationSimpleForm.Designer.cs">
+      <DependentUpon>FeatureLocalizationSimpleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="检测工具\缺陷检测\FlawDetectParam.cs" />
     <Compile Include="检测工具\缺陷检测\FlawDetectFormNew.cs">
       <SubType>Form</SubType>
@@ -1170,6 +1182,18 @@
     </Compile>
     <Compile Include="工具组\特征定位\FeatureLocalizationFormOld.Designer.cs">
       <DependentUpon>FeatureLocalizationFormOld.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\ScriptDetectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\ScriptDetectForm.Designer.cs">
+      <DependentUpon>ScriptDetectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\CallipersDetectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\CallipersDetectForm.Designer.cs">
+      <DependentUpon>CallipersDetectForm.cs</DependentUpon>
     </Compile>
     <Compile Include="检测工具\缺陷检测\检测操作\DetectParam.cs" />
     <Compile Include="检测工具\缺陷检测\检测操作\FlawDetectMethod.cs" />
@@ -1305,6 +1329,12 @@
     <Compile Include="检测工具\缺陷检测\滤波操作\App\MedianWeightedFilterForm.Designer.cs">
       <DependentUpon>MedianWeightedFilterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\ConvolFilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\滤波操作\App\ConvolFilterForm.Designer.cs">
+      <DependentUpon>ConvolFilterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="检测工具\缺陷检测\滤波操作\App\SmoothImageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1360,6 +1390,12 @@
     </Compile>
     <Compile Include="标定\相机激光标定\CameraGlueGunCalibrateFormNew.Designer.cs">
       <DependentUpon>CameraGlueGunCalibrateFormNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="相机采集\ImageAcqSimpleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="相机采集\ImageAcqSimpleForm.Designer.cs">
+      <DependentUpon>ImageAcqSimpleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="相机采集\相机配置\SensorConfig.cs" />
     <Compile Include="相机采集\相机配置\SensorConfigForm.cs">
@@ -4225,6 +4261,9 @@
     <EmbeddedResource Include="2D匹配\NCC灰度匹配\App\FindNccModelParamForm.resx">
       <DependentUpon>FindNccModelParamForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="2D匹配\形状匹配\ShapeModelMatch2DSimpleForm.resx">
+      <DependentUpon>ShapeModelMatch2DSimpleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="2D匹配\形状匹配\创建形状模型UI\CShapeModelSubForm.resx">
       <DependentUpon>CShapeModelSubForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -4615,6 +4654,9 @@
     <EmbeddedResource Include="2D算法工具\区域拟合\拟合矩形区域\FitRect2RegionForm.resx">
       <DependentUpon>FitRect2RegionForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="工具组\特征定位\FeatureLocalizationSimpleForm.resx">
+      <DependentUpon>FeatureLocalizationSimpleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="检测工具\缺陷检测\FlawDetectFormNew.resx">
       <DependentUpon>FlawDetectFormNew.cs</DependentUpon>
     </EmbeddedResource>
@@ -4623,6 +4665,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="工具组\特征定位\FeatureLocalizationFormOld.resx">
       <DependentUpon>FeatureLocalizationFormOld.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\检测操作\App\ScriptDetectForm.resx">
+      <DependentUpon>ScriptDetectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\检测操作\App\CallipersDetectForm.resx">
+      <DependentUpon>CallipersDetectForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="检测工具\缺陷检测\检测操作\DetectFlawForm.resx">
       <DependentUpon>DetectFlawForm.cs</DependentUpon>
@@ -4690,6 +4738,9 @@
     <EmbeddedResource Include="检测工具\缺陷检测\滤波操作\App\MedianWeightedFilterForm.resx">
       <DependentUpon>MedianWeightedFilterForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\滤波操作\App\ConvolFilterForm.resx">
+      <DependentUpon>ConvolFilterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="检测工具\缺陷检测\滤波操作\App\SmoothImageForm.resx">
       <DependentUpon>SmoothImageForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -4731,6 +4782,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="标定\相机激光标定\CameraGlueGunCalibrateFormNew.resx">
       <DependentUpon>CameraGlueGunCalibrateFormNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="相机采集\ImageAcqSimpleForm.resx">
+      <DependentUpon>ImageAcqSimpleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="相机采集\相机配置\SensorConfigForm.resx">
       <DependentUpon>SensorConfigForm.cs</DependentUpon>
