@@ -1183,6 +1183,12 @@
     <Compile Include="工具组\特征定位\FeatureLocalizationFormOld.Designer.cs">
       <DependentUpon>FeatureLocalizationFormOld.cs</DependentUpon>
     </Compile>
+    <Compile Include="检测工具\缺陷检测\SelectParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\SelectParamForm.Designer.cs">
+      <DependentUpon>SelectParamForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="检测工具\缺陷检测\检测操作\App\ScriptDetectForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4665,6 +4671,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="工具组\特征定位\FeatureLocalizationFormOld.resx">
       <DependentUpon>FeatureLocalizationFormOld.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\SelectParamForm.resx">
+      <DependentUpon>SelectParamForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="检测工具\缺陷检测\检测操作\App\ScriptDetectForm.resx">
       <DependentUpon>ScriptDetectForm.cs</DependentUpon>

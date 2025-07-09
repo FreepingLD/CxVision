@@ -172,6 +172,7 @@
     <Compile Include="IControlBoard.cs" />
     <Compile Include="OPCUA\OPCUAClient.cs" />
     <Compile Include="OPCUA\UAClientHelperAPI.cs" />
+    <Compile Include="Socket\ServerSocketMultiple.cs" />
     <Compile Include="Socket\SocketCommand.cs" />
     <Compile Include="Socket\SocketServerDevice.cs" />
     <Compile Include="Socket\SocketClientDevice.cs" />
