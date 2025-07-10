@@ -1435,12 +1435,6 @@
     <Compile Include="系统UI配置\UI视图配置\LogViewForm.Designer.cs">
       <DependentUpon>LogViewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="系统UI配置\UI视图配置\AllignViewForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="系统UI配置\UI视图配置\AllignViewForm.Designer.cs">
-      <DependentUpon>AllignViewForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="系统UI配置\UI视图配置\InspectionModeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1458,6 +1452,12 @@
     </Compile>
     <Compile Include="系统UI配置\UI视图配置\TouchPanelTestForm.Designer.cs">
       <DependentUpon>TouchPanelTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\UI视图配置\AllignViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\UI视图配置\AllignViewForm.Designer.cs">
+      <DependentUpon>AllignViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="系统UI配置\窗口节点配置\ProgramListForm.cs">
       <SubType>Form</SubType>
@@ -4810,9 +4810,6 @@
     <EmbeddedResource Include="系统UI配置\UI视图配置\LogViewForm.resx">
       <DependentUpon>LogViewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="系统UI配置\UI视图配置\AllignViewForm.resx">
-      <DependentUpon>AllignViewForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="系统UI配置\UI视图配置\InspectionModeForm.resx">
       <DependentUpon>InspectionModeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -4821,6 +4818,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="系统UI配置\UI视图配置\TouchPanelTestForm.resx">
       <DependentUpon>TouchPanelTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\UI视图配置\AllignViewForm.resx">
+      <DependentUpon>AllignViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="系统UI配置\窗口节点配置\ProgramListForm.resx">
       <DependentUpon>ProgramListForm.cs</DependentUpon>

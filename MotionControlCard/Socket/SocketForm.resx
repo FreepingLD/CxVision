@@ -222,6 +222,15 @@
   <data name="Column2.HeaderText" xml:space="preserve">
     <value>数据长度</value>
   </data>
+  <metadata name="CountColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="CountColumn.HeaderText" xml:space="preserve">
+    <value>客户端连接数量</value>
+  </data>
+  <data name="CountColumn.Width" type="System.Int32, mscorlib">
+    <value>120</value>
+  </data>
   <metadata name="btnSendServer.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -268,7 +277,7 @@
     <value>3, 3</value>
   </data>
   <data name="dgvServer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1464, 281</value>
+    <value>1626, 281</value>
   </data>
   <data name="dgvServer.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -292,7 +301,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1470, 287</value>
+    <value>1632, 287</value>
   </data>
   <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -319,7 +328,7 @@
     <value>0, 0</value>
   </data>
   <data name="tabControl2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1478, 313</value>
+    <value>1640, 313</value>
   </data>
   <data name="tabControl2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -453,6 +462,12 @@
   <data name="dataGridViewTextBoxColumn11.HeaderText" xml:space="preserve">
     <value>数据长度</value>
   </data>
+  <metadata name="dataGridViewTextBoxColumn12.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="dataGridViewTextBoxColumn12.HeaderText" xml:space="preserve">
+    <value>连接数量</value>
+  </data>
   <metadata name="btnSendClient.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -499,7 +514,7 @@
     <value>3, 3</value>
   </data>
   <data name="dgvClient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1458, 305</value>
+    <value>1620, 305</value>
   </data>
   <data name="dgvClient.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -523,7 +538,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1464, 311</value>
+    <value>1626, 311</value>
   </data>
   <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -550,7 +565,7 @@
     <value>0, 0</value>
   </data>
   <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1472, 337</value>
+    <value>1634, 337</value>
   </data>
   <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -739,7 +754,7 @@
     <value>1</value>
   </data>
   <data name="splitContainer2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1472, 394</value>
+    <value>1634, 394</value>
   </data>
   <data name="splitContainer2.SplitterDistance" type="System.Int32, mscorlib">
     <value>337</value>
@@ -769,7 +784,7 @@
     <value>1</value>
   </data>
   <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1478, 400</value>
+    <value>1640, 400</value>
   </data>
   <data name="tableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -805,7 +820,7 @@
     <value>1</value>
   </data>
   <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1478, 717</value>
+    <value>1640, 717</value>
   </data>
   <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
     <value>313</value>
@@ -833,7 +848,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAB8
-        CQAAAk1TRnQBSQFMAgEBBAEAARwBAwEcAQMBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CQAAAk1TRnQBSQFMAgEBBAEAASQBAwEkAQMBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAASADAAEBAQABCAYAAQgYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -889,7 +904,7 @@
     <value>6, 12</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1478, 717</value>
+    <value>1640, 717</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3175,100 +3190,28 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Socket配置</value>
   </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn1.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn1</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn2.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn2</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ServerSocketTypeColumn.Name" xml:space="preserve">
-    <value>ServerSocketTypeColumn</value>
-  </data>
-  <data name="&gt;&gt;ServerSocketTypeColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewComboBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Column1.Name" xml:space="preserve">
-    <value>Column1</value>
-  </data>
-  <data name="&gt;&gt;Column1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn5.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn5</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn6.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn6</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Column3.Name" xml:space="preserve">
-    <value>Column3</value>
-  </data>
-  <data name="&gt;&gt;Column3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn8.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn8</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn9.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn9</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn10.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn10</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Column2.Name" xml:space="preserve">
-    <value>Column2</value>
-  </data>
-  <data name="&gt;&gt;Column2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnSendServer.Name" xml:space="preserve">
-    <value>btnSendServer</value>
-  </data>
-  <data name="&gt;&gt;btnSendServer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ConBtnServer.Name" xml:space="preserve">
-    <value>ConBtnServer</value>
-  </data>
-  <data name="&gt;&gt;ConBtnServer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DisConBtnServer.Name" xml:space="preserve">
-    <value>DisConBtnServer</value>
-  </data>
-  <data name="&gt;&gt;DisConBtnServer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnDeleteS.Name" xml:space="preserve">
-    <value>btnDeleteS</value>
-  </data>
-  <data name="&gt;&gt;btnDeleteS.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;socketSItemBindingSource.Name" xml:space="preserve">
     <value>socketSItemBindingSource</value>
   </data>
   <data name="&gt;&gt;socketSItemBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;socketCItemBindingSource.Name" xml:space="preserve">
+    <value>socketCItemBindingSource</value>
+  </data>
+  <data name="&gt;&gt;socketCItemBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;imageList1.Name" xml:space="preserve">
+    <value>imageList1</value>
+  </data>
+  <data name="&gt;&gt;imageList1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cameradeviceBindingSource.Name" xml:space="preserve">
+    <value>cameradeviceBindingSource</value>
+  </data>
+  <data name="&gt;&gt;cameradeviceBindingSource.Type" xml:space="preserve">
     <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;iP.Name" xml:space="preserve">
@@ -3337,6 +3280,12 @@
   <data name="&gt;&gt;dataGridViewTextBoxColumn11.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn12.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn12</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;btnSendClient.Name" xml:space="preserve">
     <value>btnSendClient</value>
   </data>
@@ -3361,23 +3310,101 @@
   <data name="&gt;&gt;btnDelete.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;socketCItemBindingSource.Name" xml:space="preserve">
-    <value>socketCItemBindingSource</value>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn1.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn1</value>
   </data>
-  <data name="&gt;&gt;socketCItemBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;imageList1.Name" xml:space="preserve">
-    <value>imageList1</value>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn2.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn2</value>
   </data>
-  <data name="&gt;&gt;imageList1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;cameradeviceBindingSource.Name" xml:space="preserve">
-    <value>cameradeviceBindingSource</value>
+  <data name="&gt;&gt;ServerSocketTypeColumn.Name" xml:space="preserve">
+    <value>ServerSocketTypeColumn</value>
   </data>
-  <data name="&gt;&gt;cameradeviceBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;ServerSocketTypeColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewComboBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Column1.Name" xml:space="preserve">
+    <value>Column1</value>
+  </data>
+  <data name="&gt;&gt;Column1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn5.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn5</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn6.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn6</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Column3.Name" xml:space="preserve">
+    <value>Column3</value>
+  </data>
+  <data name="&gt;&gt;Column3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn8.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn8</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn9.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn9</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn10.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn10</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Column2.Name" xml:space="preserve">
+    <value>Column2</value>
+  </data>
+  <data name="&gt;&gt;Column2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CountColumn.Name" xml:space="preserve">
+    <value>CountColumn</value>
+  </data>
+  <data name="&gt;&gt;CountColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSendServer.Name" xml:space="preserve">
+    <value>btnSendServer</value>
+  </data>
+  <data name="&gt;&gt;btnSendServer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ConBtnServer.Name" xml:space="preserve">
+    <value>ConBtnServer</value>
+  </data>
+  <data name="&gt;&gt;ConBtnServer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DisConBtnServer.Name" xml:space="preserve">
+    <value>DisConBtnServer</value>
+  </data>
+  <data name="&gt;&gt;DisConBtnServer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnDeleteS.Name" xml:space="preserve">
+    <value>btnDeleteS</value>
+  </data>
+  <data name="&gt;&gt;btnDeleteS.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>SocketForm</value>
