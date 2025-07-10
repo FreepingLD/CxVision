@@ -174,9 +174,11 @@
     <Compile Include="OPCUA\UAClientHelperAPI.cs" />
     <Compile Include="Socket\ServerSocketMultiple.cs" />
     <Compile Include="Socket\SocketCommand.cs" />
+    <Compile Include="Socket\SocketMessage.cs" />
     <Compile Include="Socket\SocketServerDevice.cs" />
     <Compile Include="Socket\SocketClientDevice.cs" />
     <Compile Include="Socket\SocketConnectManager.cs" />
+    <Compile Include="Socket\SocketMesgManager.cs" />
     <Compile Include="Socket\配置通信指令\CommandConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +187,7 @@
     </Compile>
     <Compile Include="Socket\配置通信指令\CommandParam.cs" />
     <Compile Include="Socket\配置通信指令\CommandConfigManger.cs" />
+    <Compile Include="Socket\SocketBase.cs" />
     <Compile Include="WMX3\WMX3Control.cs" />
     <Compile Include="固高\config.cs" />
     <Compile Include="固高\gts.cs" />
