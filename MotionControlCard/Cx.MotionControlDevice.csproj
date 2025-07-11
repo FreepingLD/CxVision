@@ -178,7 +178,6 @@
     <Compile Include="Socket\SocketServerDevice.cs" />
     <Compile Include="Socket\SocketClientDevice.cs" />
     <Compile Include="Socket\SocketConnectManager.cs" />
-    <Compile Include="Socket\SocketMesgManager.cs" />
     <Compile Include="Socket\配置通信指令\CommandConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>

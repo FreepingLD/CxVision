@@ -157,6 +157,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="1_工作流程\SocketMessageThread.cs" />
     <Compile Include="2D匹配\NCC灰度匹配\App\CreateNccModelSubForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -613,6 +614,13 @@
       <DependentUpon>FindDeepOcrSubForm.cs</DependentUpon>
     </Compile>
     <Compile Include="2D算法工具\字符识别\DeepOcrParams.cs" />
+    <Compile Include="2D算法工具\发送图像\SendHWindowImage.cs" />
+    <Compile Include="2D算法工具\发送图像\SendHWindowImageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\发送图像\SendHWindowImageForm.Designer.cs">
+      <DependentUpon>SendHWindowImageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="其他工具\TestApi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4428,6 +4436,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\字符识别\App\FindDeepOcrSubForm.resx">
       <DependentUpon>FindDeepOcrSubForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\发送图像\SendHWindowImageForm.resx">
+      <DependentUpon>SendHWindowImageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="其他工具\鼠标操作\初始化文本\InitTextForm.resx">
       <DependentUpon>InitTextForm.cs</DependentUpon>
