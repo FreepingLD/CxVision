@@ -4685,6 +4685,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="检测工具\缺陷检测\SelectParamForm.resx">
       <DependentUpon>SelectParamForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="检测工具\缺陷检测\检测操作\App\ScriptDetectForm.resx">
       <DependentUpon>ScriptDetectForm.cs</DependentUpon>
@@ -5497,6 +5498,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="检测工具\瑕疵分类\GroupParamForm.resx">
       <DependentUpon>GroupParamForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="检测工具\瑕疵分类\FlawGroupForm.resx">
       <DependentUpon>FlawGroupForm.cs</DependentUpon>
@@ -6050,12 +6052,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\匹配 20 x 20.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\green.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\red.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\green1.png" />

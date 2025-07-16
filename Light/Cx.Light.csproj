@@ -66,6 +66,7 @@
     <Compile Include="LightParam.cs" />
     <Compile Include="LightParamManage.cs" />
     <Compile Include="OPT\OPTControllerAPI.cs" />
+    <Compile Include="拓视达\TsdLight.cs" />
     <Compile Include="PPX\PpxLight.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LightFactory.cs" />
