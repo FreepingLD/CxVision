@@ -1,0 +1,190 @@
+using Common;
+using HalconDotNet;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FunctionBlock
+{
+    public class TileImageMethod
+    {
+        public static bool TileImage(ImageDataClass[] listImage, TileImageParamOld param, out ImageDataClass tiledImage)
+        {
+            bool result = false;
+            tiledImage = null;
+            if (listImage == null) throw new ArgumentNullException("listImage");
+            if (param == null) throw new ArgumentNullException("param");
+            if (listImage.Length != param.RowCount * param.ColCount) throw new ArgumentException("图像的数量不等于 RowCount * ColCount");
+            int imageWidth, imageHeight;
+            listImage.Last().Image.GetImageSize(out imageWidth, out imageHeight);
+            int totalImageWidth = param.Width;
+            int totalImageHeight = param.Height;
+            HTuple offsetRow = new HTuple();
+            HTuple offsetCol = new HTuple();
+            HTuple row1 = new HTuple();
+            HTuple col1 = new HTuple();
+            HTuple row2 = new HTuple();
+            HTuple col2 = new HTuple();
+            //////////////////////////////////////////////////
+            HImage grayImages = new HImage();
+            grayImages.GenEmptyObj();
+            for (int i = 0; i < param.RowCount; i++)
+            {
+                for (int j = 0; j < param.ColCount; j++)
+                {
+                    grayImages = grayImages.ConcatObj(listImage[i * param.ColCount + j].Image);
+                    offsetCol.Append(((imageWidth)) * j + param.OffsetCol);
+                    offsetRow.Append(((imageHeight)) * i + param.OffsetRow);
+                    row1.Append(-1);
+                    col1.Append(-1);
+                    row2.Append(-1);
+                    col2.Append(-1);
+                }
+            }
+            ///////////////////////////////////
+            HImage tiledImagesGray = grayImages.TileImagesOffset(offsetRow, offsetCol, row1, col1, row2, col2, totalImageWidth, totalImageHeight);
+            // 计算拼接图像的相机内外参
+            tiledImage = new ImageDataClass(tiledImagesGray);
+            result = true;
+            return result;
+        }
+
+
+        public static bool TileImage2(ImageDataClass[] listImage, TileImageParam param, out ImageDataClass tiledImage)
+        {
+            bool result = false;
+            tiledImage = null;
+            if (listImage == null) throw new ArgumentNullException("listImage");
+            if (param == null) throw new ArgumentNullException("param");
+            HImage mapImage = new HImage(); ;
+            int imageWidth, imageHeight;
+            userCamParam camParam;
+            userCamPose camPose;
+            double Quality = 0, leftUp_x = 0, leftUp_y = 0, rightDn_x = 0, rightDn_y = 0, refPoint_x = 0, refPoint_y = 0, PixelSize = 1;
+            List<double> list_x = new List<double>();
+            List<double> list_y = new List<double>();
+            foreach (ImageDataClass item in listImage)
+            {
+                list_x.Add(item.Grab_X);
+                list_y.Add(item.Grab_Y);
+            }
+            refPoint_x = list_x.Min();
+            refPoint_y = list_y.Max();
+            double x_range = Math.Abs(list_x.Max() - list_x.Min()); // 机台的移动范围 X
+            double y_range = Math.Abs(list_y.Max() - list_y.Min()); // 机台的移动范围 Y
+            string ViewWindow = "";
+            string camName = "";
+            //////////////////////////////////////////////////////////////////////////////
+            MapValuePairs[] valuePairs = new MapValuePairs[listImage.Length];
+            int index = 0;
+            foreach (ImageDataClass item in listImage)
+            {
+                if (index == 0)
+                {
+                    /// 只有同一个相机采集的图像才能拼接 
+                    ViewWindow = item.ViewWindow;
+                    camName = item.CamName;
+                    item.Image.GetImageSize(out imageWidth, out imageHeight);
+                    HHomMat2DToCamPos(item.CamParams.HomMat2D.GetHHomMat(), imageWidth, imageHeight, param.Magnification, out camParam, out camPose, out Quality);
+                    int leftUpRow = (int)(imageHeight * param.BorderInPercent);
+                    int leftUpCol = (int)(imageWidth * param.BorderInPercent);
+                    int rightDnRow = (int)(imageHeight * (1 - param.BorderInPercent));
+                    int rightDnCol = (int)(imageWidth * (1 - param.BorderInPercent));
+                    leftUp_x = item.CamParams.HomMat2D.GetHHomMat().AffineTransPoint2d(leftUpCol, leftUpRow, out leftUp_y);
+                    rightDn_x = item.CamParams.HomMat2D.GetHHomMat().AffineTransPoint2d(rightDnCol, rightDnRow, out rightDn_y);
+                    PixelSize = (Math.Abs(item.CamParams.HomMat2D.c00) + Math.Abs(item.CamParams.HomMat2D.c11)) * 0.5;
+                    int widthMapped = (int)(Math.Abs(rightDn_x - leftUp_x) / PixelSize);
+                    int heightMapped = (int)(Math.Abs(rightDn_y - leftUp_y) / PixelSize);
+                    HCamPar hCamPar = camParam.GetHCamPar();
+                    HPose hPose = camPose.getHPose();
+                    HPose hPoseNew = hPose.SetOriginPose(leftUp_x, leftUp_y, 0); // 把原点移动到左上角位置
+                    mapImage.GenImageToWorldPlaneMap(hCamPar, hPoseNew, imageWidth, imageHeight, widthMapped, heightMapped, new HTuple(PixelSize), "bilinear");
+                }
+                HImage hImage = mapImage.MapImage(item.Image);
+                int row = (int)((item.Grab_Y - refPoint_y) / PixelSize);
+                int col = (int)((item.Grab_X - refPoint_x) / PixelSize);
+                valuePairs[index] = new MapValuePairs(row, col, hImage.Clone());
+                index++;
+            }
+            mapImage?.Dispose();
+            //////////////////////// 将图像拼接在一起 /////////////////////////////////////
+            int totalImageWidth = (int)((x_range + Math.Abs(rightDn_x - leftUp_x)) / PixelSize);
+            int totalImageHeight = (int)((y_range + Math.Abs(rightDn_y - leftUp_y)) / PixelSize);
+            HTuple offsetRow = new HTuple();
+            HTuple offsetCol = new HTuple();
+            HTuple row1 = new HTuple();
+            HTuple col1 = new HTuple();
+            HTuple row2 = new HTuple();
+            HTuple col2 = new HTuple();
+            //////////////////////////////////////////////////////////////
+            HImage grayImages = new HImage();
+            grayImages.GenEmptyObj();
+            foreach (var item in valuePairs)
+            {
+                grayImages = grayImages.ConcatObj(item.Image);
+                offsetCol.Append(item.col);
+                offsetRow.Append(item.row);
+                row1.Append(-1);
+                col1.Append(-1);
+                row2.Append(-1);
+                col2.Append(-1);
+            }
+            ////////////////////////////////////////////////////////////////
+            HImage tiledImagesGray = grayImages.TileImagesOffset(offsetRow, offsetCol, row1, col1, row2, col2, totalImageWidth, totalImageHeight);
+            // 计算拼接图像的相机内外参
+            tiledImage = new ImageDataClass(tiledImagesGray);
+            tiledImage.CamParams.HomMat2D = new UserHomMat2D(PixelSize, PixelSize);
+            leftUp_x = tiledImage.CamParams.HomMat2D.GetHHomMat().AffineTransPoint2d(0, 0, out leftUp_y);
+            tiledImage.CamParams.HomMat2D.c02 -= leftUp_x;
+            tiledImage.CamParams.HomMat2D.c12 -= leftUp_y;
+            tiledImage.Grab_X = refPoint_x;
+            tiledImage.Grab_Y = refPoint_y;
+            tiledImage.CamName = camName;
+            tiledImage.ViewWindow = ViewWindow;
+            ///////////////////////////////////
+            result = true;
+            return result;
+        }
+
+
+        /// <summary>
+        ///  将9点标定矩阵转换为相机的内外参形式
+        /// </summary>
+        /// <param name="hHomMat2D">N点标定矩阵</param>
+        /// <param name="imageWidth">图像宽</param>
+        /// <param name="imageHeight">图像高</param>
+        /// <param name="Magnification">镜头放大倍率</param>
+        /// <param name="camParam">相机内参</param>
+        /// <param name="camPose">相机外参</param>
+        /// <param name="Quality">质量</param>
+        private static void HHomMat2DToCamPos(HHomMat2D hHomMat2D, int imageWidth, int imageHeight, double Magnification, out userCamParam camParam, out userCamPose camPose, out double Quality)
+        {
+            camParam = new userCamParam();
+            camPose = new userCamPose();
+            Quality = -1;
+            if (hHomMat2D == null) throw new ArgumentNullException("hHomMat2D");
+            double Sx, Sy, Phi, Theta, Tx, Ty;
+            Sx = hHomMat2D.HomMat2dToAffinePar(out Sy, out Phi, out Theta, out Tx, out Ty);
+            camParam.CameraModel = enCameraModel.area_scan_telecentric_division.ToString();
+            camParam.Focus = Magnification; // 这个值应该为镜头的倍率
+            camParam.Sx = Math.Abs(Sx);
+            camParam.Sy = Math.Abs(Sy);
+            camParam.Cx = imageWidth * 0.5;
+            camParam.Cy = imageHeight * 0.5;
+            camParam.Width = imageWidth;
+            camParam.Height = imageHeight;
+            // 利用图像4个角点的世界坐标来计算位姿
+            HTuple Qx, Qy, Quality2;
+            HTuple Rows = new HTuple(0, imageHeight, imageHeight, 0);
+            HTuple Columns = new HTuple(0, 0, imageWidth, imageWidth);
+            Qx = hHomMat2D.AffineTransPoint2d(Columns, Rows, out Qy);
+            HPose pose = HImage.VectorToPose(Qx, Qy, new HTuple(), Rows, Columns, camParam.GetHCamPar(), "telecentric_planar_robust", "error", out Quality2);
+            Quality = Quality2[0].D;
+            camPose = new userCamPose(pose);
+            camPose.Tz = 100;
+        }
+
+    }
+}

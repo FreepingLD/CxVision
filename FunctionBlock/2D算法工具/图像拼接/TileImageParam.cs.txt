@@ -1,0 +1,48 @@
+using Common;
+using HalconDotNet;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FunctionBlock
+{
+
+    [Serializable]
+    public class TileImageParam
+    {
+
+        public double Magnification { get; set; }
+
+        public double BorderInPercent { get; set; }
+
+
+        public TileImageParam()
+        {
+            this.Magnification = 0.5;
+            this.BorderInPercent = 0.05;
+        }
+
+
+
+    }
+
+
+    [Serializable]
+    public struct MapValuePairs
+    {
+        public double row { get; set; }
+        public double col { get; set; }
+        public HImage Image { get; set; }
+        public MapValuePairs(double row, double col, HImage hImage)
+        {
+            this.Image = hImage;
+            this.row = row;
+            this.col = col;
+        }
+    }
+
+
+
+}
