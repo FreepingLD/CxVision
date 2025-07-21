@@ -621,6 +621,14 @@
     <Compile Include="2D算法工具\发送图像\SendHWindowImageForm.Designer.cs">
       <DependentUpon>SendHWindowImageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="2D算法工具\点偏置\PointOffset.cs" />
+    <Compile Include="2D算法工具\点偏置\PointOffsetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\点偏置\PointOffsetForm.Designer.cs">
+      <DependentUpon>PointOffsetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D算法工具\点偏置\PointOffsetParam.cs" />
     <Compile Include="其他工具\TestApi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4439,6 +4447,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\发送图像\SendHWindowImageForm.resx">
       <DependentUpon>SendHWindowImageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\点偏置\PointOffsetForm.resx">
+      <DependentUpon>PointOffsetForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="其他工具\鼠标操作\初始化文本\InitTextForm.resx">
       <DependentUpon>InitTextForm.cs</DependentUpon>
