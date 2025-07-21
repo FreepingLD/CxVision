@@ -177,6 +177,24 @@
   <data name="statusStrip2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
+  <data name="toolStripStatusLabel12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 19</value>
+  </data>
+  <data name="toolStripStatusLabel12.Text" xml:space="preserve">
+    <value>配方:</value>
+  </data>
+  <data name="配方toolStripStatusLabel.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>No</value>
+  </data>
+  <data name="配方toolStripStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 19</value>
+  </data>
+  <data name="配方toolStripStatusLabel.Text" xml:space="preserve">
+    <value>程序路径</value>
+  </data>
+  <data name="配方toolStripStatusLabel.ToolTipText" xml:space="preserve">
+    <value>点击可切换用户</value>
+  </data>
   <data name="statusStrip2.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 721</value>
   </data>
@@ -207,11 +225,65 @@
   <data name="menuStrip1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft YaHei UI, 10.5pt</value>
   </data>
+  <data name="新建toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 24</value>
+  </data>
+  <data name="新建toolStripMenuItem.Text" xml:space="preserve">
+    <value>新建</value>
+  </data>
+  <data name="打开toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 24</value>
+  </data>
+  <data name="打开toolStripMenuItem.Text" xml:space="preserve">
+    <value>打开</value>
+  </data>
+  <data name="保存toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 24</value>
+  </data>
+  <data name="保存toolStripMenuItem.Text" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="另存为toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 24</value>
+  </data>
+  <data name="另存为toolStripMenuItem.Text" xml:space="preserve">
+    <value>另存为</value>
+  </data>
+  <data name="软件退出ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 24</value>
+  </data>
+  <data name="软件退出ToolStripMenuItem.Text" xml:space="preserve">
+    <value>软件退出</value>
+  </data>
   <data name="文件toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 25</value>
   </data>
   <data name="文件toolStripMenuItem.Text" xml:space="preserve">
     <value>文件(F)</value>
+  </data>
+  <data name="添加视图toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 24</value>
+  </data>
+  <data name="添加视图toolStripMenuItem.Text" xml:space="preserve">
+    <value>添加视图</value>
+  </data>
+  <data name="保存视图toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 24</value>
+  </data>
+  <data name="保存视图toolStripMenuItem.Text" xml:space="preserve">
+    <value>保存视图布局</value>
+  </data>
+  <data name="编辑视图项toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 24</value>
+  </data>
+  <data name="编辑视图项toolStripMenuItem.Text" xml:space="preserve">
+    <value>编辑视图项</value>
+  </data>
+  <data name="清空视图配置ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 24</value>
+  </data>
+  <data name="清空视图配置ToolStripMenuItem.Text" xml:space="preserve">
+    <value>清空视图配置</value>
   </data>
   <data name="视图toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 25</value>
@@ -219,11 +291,206 @@
   <data name="视图toolStripMenuItem.Text" xml:space="preserve">
     <value>视图(V)</value>
   </data>
+  <data name="检测工具toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 24</value>
+  </data>
+  <data name="检测工具toolStripMenuItem.Text" xml:space="preserve">
+    <value>检测工具</value>
+  </data>
+  <data name="对射标定工具toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 24</value>
+  </data>
+  <data name="对射标定工具toolStripMenuItem.Text" xml:space="preserve">
+    <value>对射标定工具</value>
+  </data>
+  <data name="toolStripMenuItem14.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="toolStripMenuItem14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 24</value>
+  </data>
+  <data name="toolStripMenuItem14.Text" xml:space="preserve">
+    <value>FA相机标定</value>
+  </data>
+  <data name="toolStripMenuItem15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 24</value>
+  </data>
+  <data name="toolStripMenuItem15.Text" xml:space="preserve">
+    <value>矩阵标定相机</value>
+  </data>
+  <data name="toolStripMenuItem16.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="toolStripMenuItem16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 24</value>
+  </data>
+  <data name="toolStripMenuItem16.Text" xml:space="preserve">
+    <value>N点标定相机</value>
+  </data>
+  <data name="toolStripMenuItem17.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="toolStripMenuItem17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 24</value>
+  </data>
+  <data name="toolStripMenuItem17.Text" xml:space="preserve">
+    <value>标定相机角度</value>
+  </data>
+  <data name="相机标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 24</value>
+  </data>
+  <data name="相机标定toolStripMenuItem.Text" xml:space="preserve">
+    <value>相机标定</value>
+  </data>
+  <data name="toolStripMenuItem19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 24</value>
+  </data>
+  <data name="toolStripMenuItem19.Text" xml:space="preserve">
+    <value>相机&amp;点激光标定</value>
+  </data>
+  <data name="toolStripMenuItem20.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 24</value>
+  </data>
+  <data name="toolStripMenuItem20.Text" xml:space="preserve">
+    <value>相机&amp;线激光标定</value>
+  </data>
+  <data name="toolStripMenuItem21.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 24</value>
+  </data>
+  <data name="toolStripMenuItem21.Text" xml:space="preserve">
+    <value>相机&amp;面激光标定</value>
+  </data>
+  <data name="toolStripMenuItem22.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 24</value>
+  </data>
+  <data name="toolStripMenuItem22.Text" xml:space="preserve">
+    <value>相机&amp;胶枪标定</value>
+  </data>
+  <data name="toolStripMenuItem23.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 24</value>
+  </data>
+  <data name="toolStripMenuItem23.Text" xml:space="preserve">
+    <value>机器人&amp;夹抓标定</value>
+  </data>
+  <data name="相机激光标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 24</value>
+  </data>
+  <data name="相机激光标定toolStripMenuItem.Text" xml:space="preserve">
+    <value>相机激光标定</value>
+  </data>
+  <data name="运动控制toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 24</value>
+  </data>
+  <data name="运动控制toolStripMenuItem.Text" xml:space="preserve">
+    <value>运动控制</value>
+  </data>
+  <data name="toolStripMenuItem26.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 24</value>
+  </data>
+  <data name="toolStripMenuItem26.Text" xml:space="preserve">
+    <value>标定线激光</value>
+  </data>
+  <data name="toolStripMenuItem27.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 24</value>
+  </data>
+  <data name="toolStripMenuItem27.Text" xml:space="preserve">
+    <value>标定点激光</value>
+  </data>
+  <data name="toolStripMenuItem28.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 24</value>
+  </data>
+  <data name="toolStripMenuItem28.Text" xml:space="preserve">
+    <value>标定面激光</value>
+  </data>
+  <data name="激光标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 24</value>
+  </data>
+  <data name="激光标定toolStripMenuItem.Text" xml:space="preserve">
+    <value>激光标定</value>
+  </data>
+  <data name="toolStripMenuItem30.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 24</value>
+  </data>
+  <data name="toolStripMenuItem30.Text" xml:space="preserve">
+    <value>面阵补偿</value>
+  </data>
+  <data name="toolStripMenuItem31.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 24</value>
+  </data>
+  <data name="toolStripMenuItem31.Text" xml:space="preserve">
+    <value>线性补偿</value>
+  </data>
+  <data name="机台校准toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 24</value>
+  </data>
+  <data name="机台校准toolStripMenuItem.Text" xml:space="preserve">
+    <value>机台校准</value>
+  </data>
+  <data name="toolStripMenuItem33.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 24</value>
+  </data>
+  <data name="toolStripMenuItem33.Text" xml:space="preserve">
+    <value>相机9点标定</value>
+  </data>
+  <data name="toolStripMenuItem34.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 24</value>
+  </data>
+  <data name="toolStripMenuItem34.Text" xml:space="preserve">
+    <value>面激光9点标定</value>
+  </data>
+  <data name="toolStripMenuItem35.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 24</value>
+  </data>
+  <data name="toolStripMenuItem35.Text" xml:space="preserve">
+    <value>线激光9点标定</value>
+  </data>
+  <data name="toolStripMenuItem36.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 24</value>
+  </data>
+  <data name="toolStripMenuItem36.Text" xml:space="preserve">
+    <value>点激光9点标定</value>
+  </data>
+  <data name="Nine标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 24</value>
+  </data>
+  <data name="Nine标定toolStripMenuItem.Text" xml:space="preserve">
+    <value>9点标定</value>
+  </data>
   <data name="工具toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 25</value>
   </data>
   <data name="工具toolStripMenuItem.Text" xml:space="preserve">
     <value>工具(T)</value>
+  </data>
+  <data name="参数配置toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 24</value>
+  </data>
+  <data name="参数配置toolStripMenuItem.Text" xml:space="preserve">
+    <value>参数设置 </value>
+  </data>
+  <data name="采集源配置toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 24</value>
+  </data>
+  <data name="采集源配置toolStripMenuItem.Text" xml:space="preserve">
+    <value>采集源配置</value>
+  </data>
+  <data name="程序配置toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 24</value>
+  </data>
+  <data name="程序配置toolStripMenuItem.Text" xml:space="preserve">
+    <value>程序配置</value>
+  </data>
+  <data name="工程配置ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 24</value>
+  </data>
+  <data name="工程配置ToolStripMenuItem.Text" xml:space="preserve">
+    <value>工程配置</value>
+  </data>
+  <data name="连接配置ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 24</value>
+  </data>
+  <data name="连接配置ToolStripMenuItem.Text" xml:space="preserve">
+    <value>连接配置</value>
   </data>
   <data name="配置toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 25</value>
@@ -231,17 +498,156 @@
   <data name="配置toolStripMenuItem.Text" xml:space="preserve">
     <value>配置(C)</value>
   </data>
+  <data name="开始ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 26</value>
+  </data>
+  <data name="开始ToolStripMenuItem.Text" xml:space="preserve">
+    <value>联机运行</value>
+  </data>
+  <data name="查看点激光toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 26</value>
+  </data>
+  <data name="查看点激光toolStripMenuItem.Text" xml:space="preserve">
+    <value>查看点激光</value>
+  </data>
+  <data name="查看线激光toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 26</value>
+  </data>
+  <data name="查看线激光toolStripMenuItem.Text" xml:space="preserve">
+    <value>查看线激光</value>
+  </data>
+  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 6</value>
+  </data>
   <data name="调试toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 25</value>
   </data>
   <data name="调试toolStripMenuItem.Text" xml:space="preserve">
     <value>调试(D)</value>
   </data>
+  <data name="保存视图布局toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 24</value>
+  </data>
+  <data name="保存视图布局toolStripMenuItem.Text" xml:space="preserve">
+    <value>保存视图布局</value>
+  </data>
+  <data name="重置屏幕参数toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 24</value>
+  </data>
+  <data name="重置屏幕参数toolStripMenuItem.Text" xml:space="preserve">
+    <value>重置屏幕参数</value>
+  </data>
   <data name="参数toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 25</value>
   </data>
   <data name="参数toolStripMenuItem.Text" xml:space="preserve">
     <value>参数(P)</value>
+  </data>
+  <data name="用户登录toolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        jS1jAc+SqxybhwDh4pWxPo+jqLlzNR5zfFZpPOMupZ0uhpx+pljeNzwWO6rhZapyXWx3SMEo2i53vzzl
+        OZLEcDm9FVfo7SLP/ne4WuHRFrwRw1TfqXgaeqGdPODxik7lZFFpaE+JHM3jDJ/+Spa2nRtrv+ZVQ6kY
+        O1HI3wt9ApAJOBB+vFVOQqfkJ/spO5HI1PyE/wBlJ3K5r6d313qf3I19O7671P7kj7tF3X/xHulgu2jm
+        qfIVPyE/2UncjkKn5Cf7KTuVzlNO7671P7kcpp3fXfVf3I+7Rd1/8R7pYc7dzVPkKn5Cf7KTuRyFT8hP
+        9k/uVzlNO7636ru5HKad3131X9yT91h7sn8R7pwOdtbzVZtLWv8AJpqg/wAt4HrIVj9G1QAdKYqdtvKq
+        JGj/AItuboI03JgfDTwJeB2gJN0bpGQ3dGG3+FK9vsuU9HSNN0cL3HfcPIHqvS+y9z2jz9fRO2iqfEl9
+        ZIMhYxU4PH4RXlNU1VW5kWJb/pwQtswW3NHtWhFoZuBnmJ/ZiGqPrOx6loxU9PTttDG1l87Zu+k44q5g
+        yNWTjNksiZsGJ46z4nwUV9ZBGbW2vdtP10CzaTROLZKux2iEG4/3kdi18BYDIYC25CFraKggomZkI4nW
+        eKqZ53zuznlNCSM8PWpyYRmiw3IQhCDmbIUtU7SD1I1TwQhRQpap4I1TwQhRQpap4I1TwQhRywSc62Wd
+        7cxUnNdY2tdRbGPK3i/rQhMX25oUtU8Eap4IQopp6p4I1TwQhJLLmUtU8Eap4IQooG/1DvRqP1iS4ath
+        YetS1TwQhRQpap4I1TwQhJCeqeCNU8EIUebp4ouLX2KWqeCgWOc7VJG8dCEJNLiThgMMcwVJMMsABbBP
+        VPBCFFClqngjVPBCF//Z
+</value>
+  </data>
+  <data name="用户登录toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 26</value>
+  </data>
+  <data name="用户登录toolStripMenuItem.Text" xml:space="preserve">
+    <value>用户登录</value>
   </data>
   <data name="用户toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 25</value>
@@ -1924,6 +2330,18 @@
   <data name="统计分析toolStripButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageAboveText</value>
   </data>
+  <data name="toolStripMenuItem52.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 24</value>
+  </data>
+  <data name="toolStripMenuItem52.Text" xml:space="preserve">
+    <value>Ftp数据上传</value>
+  </data>
+  <data name="toolStripMenuItem53.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 24</value>
+  </data>
+  <data name="toolStripMenuItem53.Text" xml:space="preserve">
+    <value>图像删除</value>
+  </data>
   <data name="toolStripDropDownButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMIAAADCCAYAAAAb4R0xAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -2894,6 +3312,24 @@
   <data name="视图TabControl.Alignment" type="System.Windows.Forms.TabAlignment, System.Windows.Forms">
     <value>Bottom</value>
   </data>
+  <data name="程序tabPage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 9pt</value>
+  </data>
+  <data name="程序tabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="程序tabPage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="程序tabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1133, 599</value>
+  </data>
+  <data name="程序tabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="程序tabPage.Text" xml:space="preserve">
+    <value>程序编辑</value>
+  </data>
   <data name="&gt;&gt;程序tabPage.Name" xml:space="preserve">
     <value>程序tabPage</value>
   </data>
@@ -2905,6 +3341,24 @@
   </data>
   <data name="&gt;&gt;程序tabPage.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="系统配置tabPage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 9pt</value>
+  </data>
+  <data name="系统配置tabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="系统配置tabPage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="系统配置tabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1133, 599</value>
+  </data>
+  <data name="系统配置tabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="系统配置tabPage.Text" xml:space="preserve">
+    <value>系统配置</value>
   </data>
   <data name="&gt;&gt;系统配置tabPage.Name" xml:space="preserve">
     <value>系统配置tabPage</value>
@@ -3155,487 +3609,6 @@
   <data name="&gt;&gt;statusStrip1.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="toolStripStatusLabel12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 19</value>
-  </data>
-  <data name="toolStripStatusLabel12.Text" xml:space="preserve">
-    <value>配方:</value>
-  </data>
-  <data name="配方toolStripStatusLabel.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>No</value>
-  </data>
-  <data name="配方toolStripStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 19</value>
-  </data>
-  <data name="配方toolStripStatusLabel.Text" xml:space="preserve">
-    <value>程序路径</value>
-  </data>
-  <data name="配方toolStripStatusLabel.ToolTipText" xml:space="preserve">
-    <value>点击可切换用户</value>
-  </data>
-  <data name="新建toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 24</value>
-  </data>
-  <data name="新建toolStripMenuItem.Text" xml:space="preserve">
-    <value>新建</value>
-  </data>
-  <data name="打开toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 24</value>
-  </data>
-  <data name="打开toolStripMenuItem.Text" xml:space="preserve">
-    <value>打开</value>
-  </data>
-  <data name="保存toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 24</value>
-  </data>
-  <data name="保存toolStripMenuItem.Text" xml:space="preserve">
-    <value>保存</value>
-  </data>
-  <data name="另存为toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 24</value>
-  </data>
-  <data name="另存为toolStripMenuItem.Text" xml:space="preserve">
-    <value>另存为</value>
-  </data>
-  <data name="软件退出ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 24</value>
-  </data>
-  <data name="软件退出ToolStripMenuItem.Text" xml:space="preserve">
-    <value>软件退出</value>
-  </data>
-  <data name="添加视图toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 24</value>
-  </data>
-  <data name="添加视图toolStripMenuItem.Text" xml:space="preserve">
-    <value>添加视图</value>
-  </data>
-  <data name="保存视图toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 24</value>
-  </data>
-  <data name="保存视图toolStripMenuItem.Text" xml:space="preserve">
-    <value>保存视图布局</value>
-  </data>
-  <data name="编辑视图项toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 24</value>
-  </data>
-  <data name="编辑视图项toolStripMenuItem.Text" xml:space="preserve">
-    <value>编辑视图项</value>
-  </data>
-  <data name="清空视图配置ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 24</value>
-  </data>
-  <data name="清空视图配置ToolStripMenuItem.Text" xml:space="preserve">
-    <value>清空视图配置</value>
-  </data>
-  <data name="检测工具toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 24</value>
-  </data>
-  <data name="检测工具toolStripMenuItem.Text" xml:space="preserve">
-    <value>检测工具</value>
-  </data>
-  <data name="对射标定工具toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 24</value>
-  </data>
-  <data name="对射标定工具toolStripMenuItem.Text" xml:space="preserve">
-    <value>对射标定工具</value>
-  </data>
-  <data name="相机标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 24</value>
-  </data>
-  <data name="相机标定toolStripMenuItem.Text" xml:space="preserve">
-    <value>相机标定</value>
-  </data>
-  <data name="toolStripMenuItem14.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="toolStripMenuItem14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 24</value>
-  </data>
-  <data name="toolStripMenuItem14.Text" xml:space="preserve">
-    <value>FA相机标定</value>
-  </data>
-  <data name="toolStripMenuItem15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 24</value>
-  </data>
-  <data name="toolStripMenuItem15.Text" xml:space="preserve">
-    <value>矩阵标定相机</value>
-  </data>
-  <data name="toolStripMenuItem16.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="toolStripMenuItem16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 24</value>
-  </data>
-  <data name="toolStripMenuItem16.Text" xml:space="preserve">
-    <value>N点标定相机</value>
-  </data>
-  <data name="toolStripMenuItem17.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="toolStripMenuItem17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 24</value>
-  </data>
-  <data name="toolStripMenuItem17.Text" xml:space="preserve">
-    <value>标定相机角度</value>
-  </data>
-  <data name="相机激光标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 24</value>
-  </data>
-  <data name="相机激光标定toolStripMenuItem.Text" xml:space="preserve">
-    <value>相机激光标定</value>
-  </data>
-  <data name="toolStripMenuItem19.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 24</value>
-  </data>
-  <data name="toolStripMenuItem19.Text" xml:space="preserve">
-    <value>相机&amp;点激光标定</value>
-  </data>
-  <data name="toolStripMenuItem20.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 24</value>
-  </data>
-  <data name="toolStripMenuItem20.Text" xml:space="preserve">
-    <value>相机&amp;线激光标定</value>
-  </data>
-  <data name="toolStripMenuItem21.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 24</value>
-  </data>
-  <data name="toolStripMenuItem21.Text" xml:space="preserve">
-    <value>相机&amp;面激光标定</value>
-  </data>
-  <data name="toolStripMenuItem22.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 24</value>
-  </data>
-  <data name="toolStripMenuItem22.Text" xml:space="preserve">
-    <value>相机&amp;胶枪标定</value>
-  </data>
-  <data name="toolStripMenuItem23.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 24</value>
-  </data>
-  <data name="toolStripMenuItem23.Text" xml:space="preserve">
-    <value>机器人&amp;夹抓标定</value>
-  </data>
-  <data name="运动控制toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 24</value>
-  </data>
-  <data name="运动控制toolStripMenuItem.Text" xml:space="preserve">
-    <value>运动控制</value>
-  </data>
-  <data name="激光标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 24</value>
-  </data>
-  <data name="激光标定toolStripMenuItem.Text" xml:space="preserve">
-    <value>激光标定</value>
-  </data>
-  <data name="toolStripMenuItem26.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 24</value>
-  </data>
-  <data name="toolStripMenuItem26.Text" xml:space="preserve">
-    <value>标定线激光</value>
-  </data>
-  <data name="toolStripMenuItem27.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 24</value>
-  </data>
-  <data name="toolStripMenuItem27.Text" xml:space="preserve">
-    <value>标定点激光</value>
-  </data>
-  <data name="toolStripMenuItem28.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 24</value>
-  </data>
-  <data name="toolStripMenuItem28.Text" xml:space="preserve">
-    <value>标定面激光</value>
-  </data>
-  <data name="机台校准toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 24</value>
-  </data>
-  <data name="机台校准toolStripMenuItem.Text" xml:space="preserve">
-    <value>机台校准</value>
-  </data>
-  <data name="toolStripMenuItem30.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 24</value>
-  </data>
-  <data name="toolStripMenuItem30.Text" xml:space="preserve">
-    <value>面阵补偿</value>
-  </data>
-  <data name="toolStripMenuItem31.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 24</value>
-  </data>
-  <data name="toolStripMenuItem31.Text" xml:space="preserve">
-    <value>线性补偿</value>
-  </data>
-  <data name="Nine标定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 24</value>
-  </data>
-  <data name="Nine标定toolStripMenuItem.Text" xml:space="preserve">
-    <value>9点标定</value>
-  </data>
-  <data name="toolStripMenuItem33.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 24</value>
-  </data>
-  <data name="toolStripMenuItem33.Text" xml:space="preserve">
-    <value>相机9点标定</value>
-  </data>
-  <data name="toolStripMenuItem34.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 24</value>
-  </data>
-  <data name="toolStripMenuItem34.Text" xml:space="preserve">
-    <value>面激光9点标定</value>
-  </data>
-  <data name="toolStripMenuItem35.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 24</value>
-  </data>
-  <data name="toolStripMenuItem35.Text" xml:space="preserve">
-    <value>线激光9点标定</value>
-  </data>
-  <data name="toolStripMenuItem36.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 24</value>
-  </data>
-  <data name="toolStripMenuItem36.Text" xml:space="preserve">
-    <value>点激光9点标定</value>
-  </data>
-  <data name="参数配置toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 24</value>
-  </data>
-  <data name="参数配置toolStripMenuItem.Text" xml:space="preserve">
-    <value>参数设置 </value>
-  </data>
-  <data name="采集源配置toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 24</value>
-  </data>
-  <data name="采集源配置toolStripMenuItem.Text" xml:space="preserve">
-    <value>采集源配置</value>
-  </data>
-  <data name="程序配置toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 24</value>
-  </data>
-  <data name="程序配置toolStripMenuItem.Text" xml:space="preserve">
-    <value>程序配置</value>
-  </data>
-  <data name="工程配置ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 24</value>
-  </data>
-  <data name="工程配置ToolStripMenuItem.Text" xml:space="preserve">
-    <value>工程配置</value>
-  </data>
-  <data name="连接配置ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 24</value>
-  </data>
-  <data name="连接配置ToolStripMenuItem.Text" xml:space="preserve">
-    <value>连接配置</value>
-  </data>
-  <data name="开始ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 26</value>
-  </data>
-  <data name="开始ToolStripMenuItem.Text" xml:space="preserve">
-    <value>联机运行</value>
-  </data>
-  <data name="查看点激光toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 26</value>
-  </data>
-  <data name="查看点激光toolStripMenuItem.Text" xml:space="preserve">
-    <value>查看点激光</value>
-  </data>
-  <data name="查看线激光toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 26</value>
-  </data>
-  <data name="查看线激光toolStripMenuItem.Text" xml:space="preserve">
-    <value>查看线激光</value>
-  </data>
-  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
-  </data>
-  <data name="保存视图布局toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 24</value>
-  </data>
-  <data name="保存视图布局toolStripMenuItem.Text" xml:space="preserve">
-    <value>保存视图布局</value>
-  </data>
-  <data name="重置屏幕参数toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 24</value>
-  </data>
-  <data name="重置屏幕参数toolStripMenuItem.Text" xml:space="preserve">
-    <value>重置屏幕参数</value>
-  </data>
-  <data name="用户登录toolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        jS1jAc+SqxybhwDh4pWxPo+jqLlzNR5zfFZpPOMupZ0uhpx+pljeNzwWO6rhZapyXWx3SMEo2i53vzzl
-        OZLEcDm9FVfo7SLP/ne4WuHRFrwRw1TfqXgaeqGdPODxik7lZFFpaE+JHM3jDJ/+Spa2nRtrv+ZVQ6kY
-        O1HI3wt9ApAJOBB+vFVOQqfkJ/spO5HI1PyE/wBlJ3K5r6d313qf3I19O7671P7kj7tF3X/xHulgu2jm
-        qfIVPyE/2UncjkKn5Cf7KTuVzlNO7671P7kcpp3fXfVf3I+7Rd1/8R7pYc7dzVPkKn5Cf7KTuRyFT8hP
-        9k/uVzlNO7636ru5HKad3131X9yT91h7sn8R7pwOdtbzVZtLWv8AJpqg/wAt4HrIVj9G1QAdKYqdtvKq
-        JGj/AItuboI03JgfDTwJeB2gJN0bpGQ3dGG3+FK9vsuU9HSNN0cL3HfcPIHqvS+y9z2jz9fRO2iqfEl9
-        ZIMhYxU4PH4RXlNU1VW5kWJb/pwQtswW3NHtWhFoZuBnmJ/ZiGqPrOx6loxU9PTttDG1l87Zu+k44q5g
-        yNWTjNksiZsGJ46z4nwUV9ZBGbW2vdtP10CzaTROLZKux2iEG4/3kdi18BYDIYC25CFraKggomZkI4nW
-        eKqZ53zuznlNCSM8PWpyYRmiw3IQhCDmbIUtU7SD1I1TwQhRQpap4I1TwQhRQpap4I1TwQhRywSc62Wd
-        7cxUnNdY2tdRbGPK3i/rQhMX25oUtU8Eap4IQopp6p4I1TwQhJLLmUtU8Eap4IQooG/1DvRqP1iS4ath
-        YetS1TwQhRQpap4I1TwQhJCeqeCNU8EIUebp4ouLX2KWqeCgWOc7VJG8dCEJNLiThgMMcwVJMMsABbBP
-        VPBCFFClqngjVPBCF//Z
-</value>
-  </data>
-  <data name="用户登录toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 26</value>
-  </data>
-  <data name="用户登录toolStripMenuItem.Text" xml:space="preserve">
-    <value>用户登录</value>
-  </data>
-  <data name="toolStripMenuItem52.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 24</value>
-  </data>
-  <data name="toolStripMenuItem52.Text" xml:space="preserve">
-    <value>Ftp数据上传</value>
-  </data>
-  <data name="toolStripMenuItem53.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 24</value>
-  </data>
-  <data name="toolStripMenuItem53.Text" xml:space="preserve">
-    <value>图像删除</value>
-  </data>
-  <data name="程序tabPage.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 9pt</value>
-  </data>
-  <data name="程序tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 4</value>
-  </data>
-  <data name="程序tabPage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="程序tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1133, 599</value>
-  </data>
-  <data name="程序tabPage.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="程序tabPage.Text" xml:space="preserve">
-    <value>程序编辑</value>
-  </data>
-  <data name="&gt;&gt;程序tabPage.Name" xml:space="preserve">
-    <value>程序tabPage</value>
-  </data>
-  <data name="&gt;&gt;程序tabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;程序tabPage.Parent" xml:space="preserve">
-    <value>视图TabControl</value>
-  </data>
-  <data name="&gt;&gt;程序tabPage.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="系统配置tabPage.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 9pt</value>
-  </data>
-  <data name="系统配置tabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 4</value>
-  </data>
-  <data name="系统配置tabPage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="系统配置tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1133, 599</value>
-  </data>
-  <data name="系统配置tabPage.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="系统配置tabPage.Text" xml:space="preserve">
-    <value>系统配置</value>
-  </data>
-  <data name="&gt;&gt;系统配置tabPage.Name" xml:space="preserve">
-    <value>系统配置tabPage</value>
-  </data>
-  <data name="&gt;&gt;系统配置tabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;系统配置tabPage.Parent" xml:space="preserve">
-    <value>视图TabControl</value>
-  </data>
-  <data name="&gt;&gt;系统配置tabPage.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <metadata name="eventLog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>533, 17</value>
-  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -4362,12 +4335,6 @@
   </data>
   <data name="&gt;&gt;保存ToolStripButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;eventLog1.Name" xml:space="preserve">
-    <value>eventLog1</value>
-  </data>
-  <data name="&gt;&gt;eventLog1.Type" xml:space="preserve">
-    <value>System.Diagnostics.EventLog, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainFormNew2</value>

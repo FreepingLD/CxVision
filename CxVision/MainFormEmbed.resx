@@ -2836,7 +2836,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="系统配置tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1133, 578</value>
+    <value>1133, 600</value>
   </data>
   <data name="系统配置tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -3093,9 +3093,6 @@
   <data name="&gt;&gt;statusStrip1.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <metadata name="eventLog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>533, 17</value>
-  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -3828,12 +3825,6 @@
   </data>
   <data name="&gt;&gt;保存ToolStripButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;eventLog1.Name" xml:space="preserve">
-    <value>eventLog1</value>
-  </data>
-  <data name="&gt;&gt;eventLog1.Type" xml:space="preserve">
-    <value>System.Diagnostics.EventLog, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainFormEmbed</value>

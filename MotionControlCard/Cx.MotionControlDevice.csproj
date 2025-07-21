@@ -268,10 +268,6 @@
       <Project>{96865c17-1291-4b9d-a5ce-c0912dec3412}</Project>
       <Name>Cx.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Sensor\Cx.Sensor.csproj">
-      <Project>{a7e81232-57f8-4ede-a8e3-b9a145c48293}</Project>
-      <Name>Cx.Sensor</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

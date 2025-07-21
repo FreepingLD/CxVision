@@ -242,6 +242,10 @@
       <Project>{96865c17-1291-4b9d-a5ce-c0912dec3412}</Project>
       <Name>Cx.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MotionControlCard\Cx.MotionControlDevice.csproj">
+      <Project>{f57e9edc-a6de-4661-b660-95d2f84a7813}</Project>
+      <Name>Cx.MotionControlDevice</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
