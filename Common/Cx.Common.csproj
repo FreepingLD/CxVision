@@ -92,7 +92,6 @@
     <Compile Include="MemoryMonitor.cs" />
     <Compile Include="ReadWriteShareFile.cs" />
     <Compile Include="UvwPlatformParam.cs" />
-    <Compile Include="传感器参数\CameraParamOld.cs" />
     <Compile Include="传感器参数\CameraParam.cs" />
     <Compile Include="传感器参数\CaliParam.cs" />
     <Compile Include="传感器参数\CamNPointCalibParam.cs" />
