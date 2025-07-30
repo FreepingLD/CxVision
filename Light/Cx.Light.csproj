@@ -63,6 +63,12 @@
     <Compile Include="LightConnectConfigManageForm.Designer.cs">
       <DependentUpon>LightConnectConfigManageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LightControlForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LightControlForm.Designer.cs">
+      <DependentUpon>LightControlForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LightParam.cs" />
     <Compile Include="LightParamManage.cs" />
     <Compile Include="OPT\OPTControllerAPI.cs" />
@@ -79,6 +85,9 @@
   <ItemGroup>
     <EmbeddedResource Include="LightConnectConfigManageForm.resx">
       <DependentUpon>LightConnectConfigManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LightControlForm.resx">
+      <DependentUpon>LightControlForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
