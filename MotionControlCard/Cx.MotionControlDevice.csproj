@@ -174,7 +174,6 @@
     <Compile Include="OPCUA\UAClientHelperAPI.cs" />
     <Compile Include="Socket\ServerSocketMultiple.cs" />
     <Compile Include="Socket\SocketCommand.cs" />
-    <Compile Include="Socket\SocketMessage.cs" />
     <Compile Include="Socket\SocketServerDevice.cs" />
     <Compile Include="Socket\SocketClientDevice.cs" />
     <Compile Include="Socket\SocketConnectManager.cs" />

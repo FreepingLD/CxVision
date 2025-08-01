@@ -160,6 +160,8 @@
   <ItemGroup>
     <Compile Include="Attocube\IDS3010\IDS3010.cs" />
     <Compile Include="Attocube\IDS3010\IDSStreamLibrary.cs" />
+    <Compile Include="Socket\Client.cs" />
+    <Compile Include="Socket\SocketClientCam.cs" />
     <Compile Include="Basler\BaslerCam.cs" />
     <Compile Include="BoMing\结构光\Bmsensor3Dsdk.cs" />
     <Compile Include="BoMing\结构光\BoMingStructuredLight.cs" />

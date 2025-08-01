@@ -3021,7 +3021,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="运行工具条toolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>365, 52</value>
+    <value>396, 52</value>
   </data>
   <data name="运行工具条toolStrip.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
