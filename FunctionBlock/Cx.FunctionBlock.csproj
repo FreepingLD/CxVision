@@ -3474,6 +3474,12 @@
       <DependentUpon>AxisMoveForm.cs</DependentUpon>
     </Compile>
     <Compile Include="轴控制\轴运动\AxisMove.cs" />
+    <Compile Include="采集源\AcqSourceConfigFormOld.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="采集源\AcqSourceConfigFormOld.Designer.cs">
+      <DependentUpon>AcqSourceConfigFormOld.cs</DependentUpon>
+    </Compile>
     <Compile Include="采集源\AcqSourceConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4889,6 +4895,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="系统UI配置\缺陷检测\分类参数\ClassParamForm.resx">
       <DependentUpon>ClassParamForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="检测工具\变化模型\App\CreateVariationModelParamForm.resx">
       <DependentUpon>CreateVariationModelParamForm.cs</DependentUpon>
@@ -5711,6 +5718,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="轴控制\轴运动\AxisMoveForm.resx">
       <DependentUpon>AxisMoveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="采集源\AcqSourceConfigFormOld.resx">
+      <DependentUpon>AcqSourceConfigFormOld.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="采集源\AcqSourceConfigForm.resx">
       <DependentUpon>AcqSourceConfigForm.cs</DependentUpon>

@@ -181,21 +181,18 @@
     <Compile Include="IControlBoard.cs" />
     <Compile Include="OPCUA\OPCUAClient.cs" />
     <Compile Include="OPCUA\UAClientHelperAPI.cs" />
-    <Compile Include="Socket\ServerSocketMultiple.cs" />
-    <Compile Include="Socket\SocketCommand.cs" />
-    <Compile Include="Socket\SocketServerDeviceRFID.cs" />
-    <Compile Include="Socket\SocketServerDevice.cs" />
-    <Compile Include="Socket\SocketClientDevice.cs" />
-    <Compile Include="Socket\SocketConnectManager.cs" />
-    <Compile Include="Socket\配置通信指令\CommandConfigForm.cs">
+    <Compile Include="SocketDevice\SocketCommand.cs" />
+    <Compile Include="SocketDevice\SocketServerDeviceRFID.cs" />
+    <Compile Include="SocketDevice\SocketServerDevice.cs" />
+    <Compile Include="SocketDevice\SocketClientDevice.cs" />
+    <Compile Include="SocketDevice\配置通信指令\CommandConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Socket\配置通信指令\CommandConfigForm.Designer.cs">
+    <Compile Include="SocketDevice\配置通信指令\CommandConfigForm.Designer.cs">
       <DependentUpon>CommandConfigForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Socket\配置通信指令\CommandParam.cs" />
-    <Compile Include="Socket\配置通信指令\CommandConfigManger.cs" />
-    <Compile Include="Socket\SocketBase.cs" />
+    <Compile Include="SocketDevice\配置通信指令\CommandParam.cs" />
+    <Compile Include="SocketDevice\配置通信指令\CommandConfigManger.cs" />
     <Compile Include="WMX3\WMX3Control.cs" />
     <Compile Include="固高\config.cs" />
     <Compile Include="固高\gts.cs" />
@@ -247,16 +244,6 @@
     <Compile Include="PLC\SiemensPlc\SiemensPlc.cs" />
     <Compile Include="DeviceConnectConfigParamManger.cs" />
     <Compile Include="DeviceConnectConfigParam.cs" />
-    <Compile Include="Socket\ClientSocket.cs" />
-    <Compile Include="Socket\SocketForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Socket\SocketForm.designer.cs">
-      <DependentUpon>SocketForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Socket\ServerSocket.cs" />
-    <Compile Include="Socket\SocketConfigParamManger.cs" />
-    <Compile Include="Socket\SocketParam.cs" />
     <Compile Include="UWC4000\Uwc4000MotionControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UWC4000\UWC4000Library.cs" />
@@ -292,10 +279,7 @@
     <EmbeddedResource Include="MachineParamForm.resx">
       <DependentUpon>MachineParamForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Socket\SocketForm.resx">
-      <DependentUpon>SocketForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Socket\配置通信指令\CommandConfigForm.resx">
+    <EmbeddedResource Include="SocketDevice\配置通信指令\CommandConfigForm.resx">
       <DependentUpon>CommandConfigForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="坐标系轴配置\AxisInfoForm.resx">
