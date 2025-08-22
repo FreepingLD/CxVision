@@ -182,6 +182,7 @@
     <Compile Include="OPCUA\OPCUAClient.cs" />
     <Compile Include="OPCUA\UAClientHelperAPI.cs" />
     <Compile Include="SocketDevice\SocketCommand.cs" />
+    <Compile Include="SocketDevice\SocketClientDeviceRFID.cs" />
     <Compile Include="SocketDevice\SocketServerDeviceRFID.cs" />
     <Compile Include="SocketDevice\SocketServerDevice.cs" />
     <Compile Include="SocketDevice\SocketClientDevice.cs" />
