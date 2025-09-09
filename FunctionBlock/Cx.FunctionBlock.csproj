@@ -71,7 +71,7 @@
       <HintPath>..\packages\CS-Script.bin.3.30.5.1\lib\net45\CSScriptLibrary.dll</HintPath>
     </Reference>
     <Reference Include="FluentFTP">
-      <HintPath>C:\Users\华硕\Desktop\FluentFTP.dll</HintPath>
+      <HintPath>..\bin\x64\Debug\FluentFTP.dll</HintPath>
     </Reference>
     <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.6.6.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
@@ -81,7 +81,7 @@
       <HintPath>D:\Program Files\MVTec\HALCON-20.11-Steady\bin\dotnet35\halcondotnetxl.dll</HintPath>
     </Reference>
     <Reference Include="hdevenginedotnetxl">
-      <HintPath>C:\Program Files\MVTec\HALCON-20.11-Steady\bin\dotnet35\hdevenginedotnetxl.dll</HintPath>
+      <HintPath>..\bin\x64\Debug\hdevenginedotnetxl.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeAnalysis, Version=4.9.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeAnalysis.Common.4.9.2\lib\netstandard2.0\Microsoft.CodeAnalysis.dll</HintPath>
@@ -98,24 +98,20 @@
     <Reference Include="Mono.CSharp, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\packages\CS-Script.bin.3.30.5.1\lib\net45\Mono.CSharp.dll</HintPath>
     </Reference>
-    <Reference Include="MVSDK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\CxVision20220825 - 副本\Sensor\MaiDeWeiShi\MVSDK.dll</HintPath>
+    <Reference Include="MVSDK">
+      <HintPath>..\bin\x64\Debug\MVSDK.dll</HintPath>
     </Reference>
     <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="SmartRemoteProxy, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\CxVision20220825 - 副本\Sensor\GBS\SmartRemoteProxy.dll</HintPath>
+    <Reference Include="SmartRemoteProxy">
+      <HintPath>..\bin\x64\Debug\SmartRemoteProxy.dll</HintPath>
     </Reference>
-    <Reference Include="SRAPI_CSharp-x64, Version=0.0.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\CxVision20220825 - 副本\Sensor\SmartRay\Win_x64_MSVC_19\bin\SRAPI_CSharp-x64.dll</HintPath>
+    <Reference Include="SRAPI_CSharp-x64">
+      <HintPath>..\bin\x64\Debug\SRAPI_CSharp-x64.dll</HintPath>
     </Reference>
-    <Reference Include="STILSensors, Version=3.8.6.967, Culture=neutral, PublicKeyToken=65d6c7efbb0a6ff1, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\CxVision20220825 - 副本\Sensor\Stil\x64\STILSensors.dll</HintPath>
+    <Reference Include="STILSensors">
+      <HintPath>..\bin\x64\Debug\STILSensors.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">

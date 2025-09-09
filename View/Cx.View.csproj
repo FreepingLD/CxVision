@@ -70,7 +70,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="halcondotnetxl">
-      <HintPath>C:\Program Files\MVTec\HALCON-20.11-Steady\bin\dotnet35\halcondotnetxl.dll</HintPath>
+      <HintPath>D:\Program Files\MVTec\HALCON-20.11-Steady\bin\dotnet35\halcondotnetxl.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

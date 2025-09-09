@@ -142,7 +142,7 @@
     <value>NoControl</value>
   </data>
   <data name="项目名称label.Location" type="System.Drawing.Point, System.Drawing">
-    <value>491, 31</value>
+    <value>573, 31</value>
   </data>
   <data name="项目名称label.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -196,7 +196,7 @@
     <value>0, 721</value>
   </data>
   <data name="statusStrip2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1330, 24</value>
+    <value>1412, 24</value>
   </data>
   <data name="statusStrip2.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
@@ -674,7 +674,7 @@
     <value>4, 2, 0, 2</value>
   </data>
   <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>417, 29</value>
+    <value>499, 29</value>
   </data>
   <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -944,7 +944,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonClose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1298, 0</value>
+    <value>1380, 0</value>
   </data>
   <data name="buttonClose.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -1032,7 +1032,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1268, 0</value>
+    <value>1350, 0</value>
   </data>
   <data name="buttonMax.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -1091,7 +1091,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1238, 0</value>
+    <value>1320, 0</value>
   </data>
   <data name="buttonMin.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -1127,7 +1127,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="程序tabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1322, 619</value>
+    <value>1404, 619</value>
   </data>
   <data name="程序tabPage.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1193,7 +1193,7 @@
     <value>0, 0</value>
   </data>
   <data name="视图TabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1330, 654</value>
+    <value>1412, 654</value>
   </data>
   <data name="视图TabControl.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -1220,7 +1220,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="视图Panel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1330, 654</value>
+    <value>1412, 654</value>
   </data>
   <data name="视图Panel.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -1247,7 +1247,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>491, 8</value>
+    <value>573, 8</value>
   </data>
   <data name="panel2.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
@@ -3268,7 +3268,7 @@
     <value>Fill</value>
   </data>
   <data name="用户panel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>491, 0</value>
+    <value>573, 0</value>
   </data>
   <data name="用户panel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -3304,7 +3304,7 @@
     <value>7</value>
   </data>
   <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1330, 745</value>
+    <value>1412, 745</value>
   </data>
   <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -3472,7 +3472,7 @@
     <value>0, 693</value>
   </data>
   <data name="statusStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1330, 28</value>
+    <value>1412, 28</value>
   </data>
   <data name="statusStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -3499,7 +3499,7 @@
     <value>6, 12</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1330, 745</value>
+    <value>1412, 745</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

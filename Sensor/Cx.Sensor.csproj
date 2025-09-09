@@ -93,23 +93,22 @@
       <HintPath>..\..\CxVision20240202\bin\x64\Debug\DALSA.SaperaLT.SapClassBasic.dll</HintPath>
     </Reference>
     <Reference Include="DSComm">
-      <HintPath>..\..\..\..\视觉资料\Omron_DLL开发资料\DSComm.dll</HintPath>
+      <HintPath>Omron\DSComm.dll</HintPath>
     </Reference>
     <Reference Include="Google.Protobuf">
       <HintPath>GBS\Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="GxIAPINET">
-      <HintPath>..\..\备份\CxVision20220729\Sensor\daHeng\x64\DoNET\.NET3.5\GxIAPINET.dll</HintPath>
+      <HintPath>..\bin\x64\Debug\GxIAPINET.dll</HintPath>
     </Reference>
     <Reference Include="halcondotnetxl">
-      <HintPath>C:\Program Files\MVTec\HALCON-20.11-Steady\bin\dotnet35\halcondotnetxl.dll</HintPath>
+      <HintPath>..\bin\x64\Debug\halcondotnetxl.dll</HintPath>
     </Reference>
     <Reference Include="IKapBoardClassLibrary">
       <HintPath>埃科\CameraLink\IKapBoardClassLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="IKapC.NET, Version=1.1.0.1, Culture=neutral, PublicKeyToken=700817f6992dd69b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\华硕\Desktop\IKapC.NET.dll</HintPath>
+    <Reference Include="IKapC.NET">
+      <HintPath>..\bin\x64\Debug\IKapC.NET.dll</HintPath>
     </Reference>
     <Reference Include="LineSensorDotNet">
       <HintPath>Stil\StilLineSensor\x64\LineSensorDotNet.dll</HintPath>
@@ -122,7 +121,7 @@
       <HintPath>MaiDeWeiShi\MVSDK.dll</HintPath>
     </Reference>
     <Reference Include="MVSDK_Net">
-      <HintPath>C:\Program Files\HuarayTech\MV Viewer\Development\DOTNET DLL\IMV\DOTNET_4.0\x64\MVSDK_Net.dll</HintPath>
+      <HintPath>..\bin\x64\Debug\MVSDK_Net.dll</HintPath>
     </Reference>
     <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -134,9 +133,8 @@
     <Reference Include="NvtLvmSdk">
       <HintPath>LVMLineLaser\NvtLvmSdk.dll</HintPath>
     </Reference>
-    <Reference Include="OPTExtLibrary, Version=1.0.0.31445, Culture=neutral, PublicKeyToken=407bb547be8622a9, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>OptLine\DLL\OPTExtLibrary.dll</HintPath>
+    <Reference Include="OPTExtLibrary">
+      <HintPath>..\bin\x64\Debug\OPTExtLibrary.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="SRAPI_CSharp-x64">

@@ -106,9 +106,8 @@
     <Reference Include="Google.Protobuf">
       <HintPath>..\Sensor\GBS\Google.Protobuf.dll</HintPath>
     </Reference>
-    <Reference Include="halcondotnetxl, Version=20.11.1.1, Culture=neutral, PublicKeyToken=4973bed59ddbf2b8, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\MVTec\HALCON-20.11-Steady\bin\dotnet35\halcondotnetxl.dll</HintPath>
+    <Reference Include="halcondotnetxl">
+      <HintPath>D:\Program Files\MVTec\HALCON-20.11-Steady\bin\dotnet35\halcondotnetxl.dll</HintPath>
     </Reference>
     <Reference Include="HslCommunication, Version=11.6.2.0, Culture=neutral, PublicKeyToken=3d72ad3b6b5ec0e3, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
