@@ -70,14 +70,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AdvancedMotionApi_CLRLib">
+    <Reference Include="AdvancedMotionApi_CLRLib, Version=1.0.7915.33611, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\x64\Debug\AdvancedMotionApi_CLRLib.dll</HintPath>
-    </Reference>
-    <Reference Include="AdvMotAPI">
-      <HintPath>..\bin\x64\Debug\AdvMotAPI.dll</HintPath>
-    </Reference>
-    <Reference Include="AxMG17MotorLib">
-      <HintPath>APT平台\AxMG17MotorLib.dll</HintPath>
     </Reference>
     <Reference Include="CoreMotionApi_CLRLib">
       <HintPath>..\bin\x64\Debug\CoreMotionApi_CLRLib.dll</HintPath>
@@ -155,10 +150,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ACS\ACSMotionCard.cs" />
-    <Compile Include="AMC100\amc100Library.cs" />
-    <Compile Include="AMC100\Amc100MotionControl.cs" />
-    <Compile Include="APT平台\AptMotionControl.cs" />
     <Compile Include="Common\AxisInfo.cs" />
     <Compile Include="Common\AxisState.cs" />
     <Compile Include="Common\SetupIO.cs" />
@@ -190,7 +181,6 @@
     <Compile Include="坐标系轴配置\AxisInfoForm.Designer.cs">
       <DependentUpon>AxisInfoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="研华\AdvantechMotionCard.cs" />
     <Compile Include="设备通信配置\CommunicationConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,8 +223,6 @@
     <Compile Include="UWC4000\Uwc4000MotionControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UWC4000\UWC4000Library.cs" />
-    <Compile Include="ZMC\Zmcaux.cs" />
-    <Compile Include="ZMC\ZmcMotionCard.cs" />
     <Compile Include="坐标系轴配置\CoordSysConfigParamManger.cs" />
     <Compile Include="自定义控制卡\UserDefinedCard.cs" />
     <Compile Include="运动控制设备参数\CoordSysAxisPosParam.cs" />
@@ -242,8 +230,6 @@
     <Compile Include="运动控制设备参数\MotionControlCardParamSetting.cs" />
     <Compile Include="运动控制设备参数\MotionDeviceParam.cs" />
     <Compile Include="运动控制设备参数\SerialParam.cs" />
-    <Compile Include="高川控制卡\nmc_lib20MotionControl.cs" />
-    <Compile Include="高川控制卡\nmc_lib20Library.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Cx.Common.csproj">

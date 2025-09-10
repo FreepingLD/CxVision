@@ -3598,24 +3598,6 @@
     <Compile Include="夹抓\RobotJawParaManagerForm.designer.cs">
       <DependentUpon>RobotJawParaManagerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="标定\相机9点标定\UpDnCamCaliForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="标定\相机9点标定\UpDnCamCaliForm.Designer.cs">
-      <DependentUpon>UpDnCamCaliForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="标定\相机9点标定\CaliCaliboardForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="标定\相机9点标定\CaliCaliboardForm.Designer.cs">
-      <DependentUpon>CaliCaliboardForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="标定\相机9点标定\Cam9PointCalibrateForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="标定\相机9点标定\Cam9PointCalibrateForm.Designer.cs">
-      <DependentUpon>Cam9PointCalibrateForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="标定\相机标定\标定参数窗体\DivisionParamForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3627,12 +3609,6 @@
     </Compile>
     <Compile Include="标定\相机标定\MatrixCalibrateCameraParamForm.Designer.cs">
       <DependentUpon>MatrixCalibrateCameraParamForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="标定\相机9点标定\CamNPointCalibParamForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="标定\相机9点标定\CamNPointCalibParamForm.Designer.cs">
-      <DependentUpon>CamNPointCalibParamForm.cs</DependentUpon>
     </Compile>
     <Compile Include="标定\相机标定\标定参数窗体\PolynomialParamForm.cs">
       <SubType>Form</SubType>
@@ -3723,24 +3699,6 @@
     <Compile Include="采集源\AcqSourceForm.Designer.cs">
       <DependentUpon>AcqSourceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="传感器参数APP\BoMingPointLaserForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="传感器参数APP\BoMingPointLaserForm.Designer.cs">
-      <DependentUpon>BoMingPointLaserForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="传感器参数APP\BoMingStructuredLightFrom.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="传感器参数APP\BoMingStructuredLightFrom.designer.cs">
-      <DependentUpon>BoMingStructuredLightFrom.cs</DependentUpon>
-    </Compile>
-    <Compile Include="传感器参数APP\DaHengCameraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="传感器参数APP\DaHengCameraForm.Designer.cs">
-      <DependentUpon>DaHengCameraForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="传感器参数APP\GBSWliParamForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3759,23 +3717,11 @@
     <Compile Include="传感器参数APP\LiYiPointLaserParamForm.Designer.cs">
       <DependentUpon>LiYiPointLaserParamForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="传感器参数APP\LVMLineLaserForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="传感器参数APP\LVMLineLaserForm.Designer.cs">
-      <DependentUpon>LVMLineLaserForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="传感器参数APP\MindVisionCameraForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="传感器参数APP\MindVisionCameraForm.Designer.cs">
       <DependentUpon>MindVisionCameraForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="传感器参数APP\SmartRayLineLaserForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="传感器参数APP\SmartRayLineLaserForm.Designer.cs">
-      <DependentUpon>SmartRayLineLaserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="传感器参数APP\StilLineLaserParamForm.cs">
       <SubType>Form</SubType>
@@ -4760,9 +4706,6 @@
     <EmbeddedResource Include="标定\相机9点标定\CaliCaliboardSinmpleForm.resx">
       <DependentUpon>CaliCaliboardSinmpleForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="标定\相机9点标定\CaliCaliboardForm.en-US.resx">
-      <DependentUpon>CaliCaliboardForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="标定\相机9点标定\CamNPointMapCalibrateSimpleForm.en-US.resx">
       <DependentUpon>CamNPointMapCalibrateSimpleForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -4774,9 +4717,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="标定\相机9点标定\Cam9PointCalibrateSimpleForm.resx">
       <DependentUpon>Cam9PointCalibrateSimpleForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="标定\相机9点标定\Cam9PointCalibrateForm.en-US.resx">
-      <DependentUpon>Cam9PointCalibrateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="标定\相机9点标定\CamNPointCalibParamSimpleForm.resx">
       <DependentUpon>CamNPointCalibParamSimpleForm.cs</DependentUpon>
@@ -5760,23 +5700,11 @@
     <EmbeddedResource Include="夹抓\RobotJawParaManagerForm.resx">
       <DependentUpon>RobotJawParaManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="标定\相机9点标定\UpDnCamCaliForm.resx">
-      <DependentUpon>UpDnCamCaliForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="标定\相机9点标定\CaliCaliboardForm.resx">
-      <DependentUpon>CaliCaliboardForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="标定\相机9点标定\Cam9PointCalibrateForm.resx">
-      <DependentUpon>Cam9PointCalibrateForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="标定\相机标定\标定参数窗体\DivisionParamForm.resx">
       <DependentUpon>DivisionParamForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="标定\相机标定\MatrixCalibrateCameraParamForm.resx">
       <DependentUpon>MatrixCalibrateCameraParamForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="标定\相机9点标定\CamNPointCalibParamForm.resx">
-      <DependentUpon>CamNPointCalibParamForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="标定\相机标定\标定参数窗体\PolynomialParamForm.resx">
       <DependentUpon>PolynomialParamForm.cs</DependentUpon>
@@ -5817,15 +5745,6 @@
     <EmbeddedResource Include="采集源\AcqSourceForm.resx">
       <DependentUpon>AcqSourceForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="传感器参数APP\BoMingPointLaserForm.resx">
-      <DependentUpon>BoMingPointLaserForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="传感器参数APP\BoMingStructuredLightFrom.resx">
-      <DependentUpon>BoMingStructuredLightFrom.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="传感器参数APP\DaHengCameraForm.resx">
-      <DependentUpon>DaHengCameraForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="传感器参数APP\GBSWliParamForm.resx">
       <DependentUpon>GBSWliParamForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -5835,14 +5754,8 @@
     <EmbeddedResource Include="传感器参数APP\LiYiPointLaserParamForm.resx">
       <DependentUpon>LiYiPointLaserParamForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="传感器参数APP\LVMLineLaserForm.resx">
-      <DependentUpon>LVMLineLaserForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="传感器参数APP\MindVisionCameraForm.resx">
       <DependentUpon>MindVisionCameraForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="传感器参数APP\SmartRayLineLaserForm.resx">
-      <DependentUpon>SmartRayLineLaserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="传感器参数APP\StilLineLaserParamForm.resx">
       <DependentUpon>StilLineLaserParamForm.cs</DependentUpon>

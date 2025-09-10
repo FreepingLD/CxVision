@@ -137,9 +137,6 @@
       <HintPath>..\bin\x64\Debug\OPTExtLibrary.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
-    <Reference Include="SRAPI_CSharp-x64">
-      <HintPath>SmartRay\Win_x64_MSVC_19\bin\SRAPI_CSharp-x64.dll</HintPath>
-    </Reference>
     <Reference Include="STILSensors, Version=3.10.3.1084, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Stil\x64\STILSensors.dll</HintPath>
@@ -161,9 +158,6 @@
     <Compile Include="Socket\Client.cs" />
     <Compile Include="Socket\SocketClientCam.cs" />
     <Compile Include="Basler\BaslerCam.cs" />
-    <Compile Include="BoMing\结构光\Bmsensor3Dsdk.cs" />
-    <Compile Include="BoMing\结构光\BoMingStructuredLight.cs" />
-    <Compile Include="BoMing\结构光\BoMingStructuredLightParams.cs" />
     <Compile Include="Dalsa线阵\DalsaLineCam.cs" />
     <Compile Include="Dalsa线阵\CLDalsa.cs" />
     <Compile Include="Omron\OmronPointLaser.cs" />
@@ -179,14 +173,10 @@
     <Compile Include="KeyEnce\LJV7000\NativeMethods.cs" />
     <Compile Include="KeyEnce\LJV7000\ThreadSafeBuffer.cs" />
     <Compile Include="KeyEnce\LJV7000\Utility.cs" />
-    <Compile Include="BoMing\点光谱\BoMingPointLaser.cs" />
-    <Compile Include="BoMing\点光谱\SCDev.cs" />
-    <Compile Include="BoMing\点光谱\SCDev_Native.cs" />
     <Compile Include="daHeng\DaHengCamera.cs" />
     <Compile Include="LiYi\LEConfocalDLL.cs" />
     <Compile Include="LiYi\LiYiAdapter.cs" />
     <Compile Include="LiYi\LiYiPointLaser.cs" />
-    <Compile Include="LVMLineLaser\LVM_LineLaser.cs" />
     <Compile Include="MaiDeWeiShi\MdvsCamera.cs" />
     <Compile Include="SensorBase.cs" />
     <Compile Include="SensorConnectConfigParamMangerForm.cs">
@@ -196,15 +186,6 @@
       <DependentUpon>SensorConnectConfigParamMangerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SensorManage.cs" />
-    <Compile Include="SmartRay\PackagedImage.cs" />
-    <Compile Include="SmartRay\SampleRunner.cs" />
-    <Compile Include="SmartRay\SmartRaySensor.cs" />
-    <Compile Include="SmartRay\SensorImageData.cs" />
-    <Compile Include="SmartRay\SensorManager.cs" />
-    <Compile Include="SmartRay\SensorPointCloud.cs" />
-    <Compile Include="SmartRay\SensorPointCloudMSR.cs" />
-    <Compile Include="SmartRay\SensorState.cs" />
-    <Compile Include="SmartRay\SmartRayLineLaser.cs" />
     <Compile Include="SSZN\SR7LinkFunc.cs" />
     <Compile Include="SSZN\SSZNLineLaser.cs" />
     <Compile Include="Stil\StilPointLaserAdaptive.cs" />
@@ -241,10 +222,6 @@
     <ProjectReference Include="..\Common\Cx.Common.csproj">
       <Project>{96865c17-1291-4b9d-a5ce-c0912dec3412}</Project>
       <Name>Cx.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MotionControlCard\Cx.MotionControlDevice.csproj">
-      <Project>{f57e9edc-a6de-4661-b660-95d2f84a7813}</Project>
-      <Name>Cx.MotionControlDevice</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
