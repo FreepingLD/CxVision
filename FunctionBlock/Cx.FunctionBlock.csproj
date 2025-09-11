@@ -68,14 +68,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FluentFTP">
-      <HintPath>..\bin\x64\Debug\FluentFTP.dll</HintPath>
+      <HintPath>..\..\CxVision20240904 - 20250910\bin\x64\Debug\FluentFTP.dll</HintPath>
     </Reference>
     <Reference Include="halcondotnetxl, Version=20.11.1.1, Culture=neutral, PublicKeyToken=4973bed59ddbf2b8, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>D:\Program Files\MVTec\HALCON-20.11-Steady\bin\dotnet35\halcondotnetxl.dll</HintPath>
     </Reference>
     <Reference Include="hdevenginedotnetxl">
-      <HintPath>..\bin\x64\Debug\hdevenginedotnetxl.dll</HintPath>
+      <HintPath>..\..\CxVision20240904 - 20250910\bin\x64\Debug\hdevenginedotnetxl.dll</HintPath>
     </Reference>
     <Reference Include="MVSDK">
       <HintPath>..\bin\x64\Debug\MVSDK.dll</HintPath>
@@ -84,13 +84,13 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="SmartRemoteProxy">
-      <HintPath>..\bin\x64\Debug\SmartRemoteProxy.dll</HintPath>
+      <HintPath>..\..\CxVision20240904 - 20250910\bin\x64\Debug\SmartRemoteProxy.dll</HintPath>
     </Reference>
-    <Reference Include="SRAPI_CSharp-x64">
-      <HintPath>..\bin\x64\Debug\SRAPI_CSharp-x64.dll</HintPath>
+    <Reference Include="SRAPI_CSharp">
+      <HintPath>..\..\CxVision20240904 - 20250910\bin\x64\Debug\SRAPI_CSharp.dll</HintPath>
     </Reference>
     <Reference Include="STILSensors">
-      <HintPath>..\bin\x64\Debug\STILSensors.dll</HintPath>
+      <HintPath>..\..\CxVision20240904 - 20250910\bin\x64\Debug\STILSensors.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">

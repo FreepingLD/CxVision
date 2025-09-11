@@ -74,6 +74,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\x64\Debug\AdvancedMotionApi_CLRLib.dll</HintPath>
     </Reference>
+    <Reference Include="AxMG17MotorLib">
+      <HintPath>..\..\CxVision20240904 - 20250910\bin\x64\Debug\AxMG17MotorLib.dll</HintPath>
+    </Reference>
     <Reference Include="CoreMotionApi_CLRLib">
       <HintPath>..\bin\x64\Debug\CoreMotionApi_CLRLib.dll</HintPath>
     </Reference>
@@ -85,18 +88,14 @@
       <HintPath>..\bin\x64\Debug\halcondotnetxl.dll</HintPath>
     </Reference>
     <Reference Include="HslCommunication">
-      <HintPath>..\bin\x64\Debug\HslCommunication.dll</HintPath>
+      <HintPath>..\..\CxVision20240904 - 20250910\bin\x64\Debug\HslCommunication.dll</HintPath>
     </Reference>
     <Reference Include="Interop.SPIIPLUSCOM660Lib">
-      <HintPath>ACS\Interop.SPIIPLUSCOM660Lib.dll</HintPath>
+      <HintPath>..\..\CxVision20240904 - 20250910\bin\x64\Debug\Interop.SPIIPLUSCOM660Lib.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="IOApi_CLRLib">
       <HintPath>..\bin\x64\Debug\IOApi_CLRLib.dll</HintPath>
-    </Reference>
-    <Reference Include="MG17MotorLib">
-      <HintPath>APT平台\MG17MotorLib.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
