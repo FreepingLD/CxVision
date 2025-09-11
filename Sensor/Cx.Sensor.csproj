@@ -80,7 +80,7 @@
   <ItemGroup>
     <Reference Include="Basler.Pylon, Version=1.2.0.0, Culture=neutral, PublicKeyToken=e389355f398382ab, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\Admin\Desktop\Basler.Pylon.dll</HintPath>
+      <HintPath>..\bin\x64\Debug\Basler.Pylon.dll</HintPath>
     </Reference>
     <Reference Include="ChromaticConfocalSensorAPI">
       <HintPath>..\..\高特激光\ChromaticConfocalSensorAPI v3.6.4.1\ChromaticConfocalSensorAPI.dll</HintPath>

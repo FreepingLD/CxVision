@@ -531,6 +531,14 @@
       <DependentUpon>ImageDecomposeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="2D算法工具\图像分解\DecomposeParam.cs" />
+    <Compile Include="2D算法工具\图像校正\ImageRectifyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\图像校正\ImageRectifyForm.Designer.cs">
+      <DependentUpon>ImageRectifyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D算法工具\图像校正\ImageRectify.cs" />
+    <Compile Include="2D算法工具\图像校正\ImageRectifyMethod.cs" />
     <Compile Include="2D算法工具\图像处理\图像操作\App\ImageRotateParamForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4350,6 +4358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\图像拼接\TileImageFormOld.resx">
       <DependentUpon>TileImageFormOld.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\图像校正\ImageRectifyForm.resx">
+      <DependentUpon>ImageRectifyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\图像裁剪\ImageReduceFormNew.resx">
       <DependentUpon>ImageReduceFormNew.cs</DependentUpon>
