@@ -92,6 +92,7 @@
     <Compile Include="绘图工具\2D测量类绘图工具\DrawingBaseMeasure.cs" />
     <Compile Include="绘图工具\2D测量类绘图工具\userDrawCircleMeasure.cs" />
     <Compile Include="绘图工具\2D测量类绘图工具\userDrawCircleSectorMeasure.cs" />
+    <Compile Include="绘图工具\2D测量类绘图工具\userDrawManualPointMeasure.cs" />
     <Compile Include="绘图工具\2D测量类绘图工具\userDrawEllipseMeasure.cs" />
     <Compile Include="绘图工具\2D测量类绘图工具\userDrawEllipseSectorMeasure.cs" />
     <Compile Include="绘图工具\2D测量类绘图工具\userDrawCrossMeasure.cs" />

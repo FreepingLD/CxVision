@@ -303,6 +303,14 @@
     </Compile>
     <Compile Include="2D算法工具\2D卡尺测量\CalliperMethod.cs" />
     <Compile Include="2D算法工具\2D卡尺测量\CalliperParam.cs" />
+    <Compile Include="2D算法工具\2D卡尺测量\手动取点\ManualPointMeasure.cs" />
+    <Compile Include="2D算法工具\2D卡尺测量\手动取点\ManualPointMeasureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\2D卡尺测量\手动取点\ManualPointMeasureForm.Designer.cs">
+      <DependentUpon>ManualPointMeasureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D算法工具\2D卡尺测量\手动取点\FindManualPoint.cs" />
     <Compile Include="2D算法工具\2D卡尺测量\圆测量\CircleMeasureForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -550,12 +558,6 @@
     </Compile>
     <Compile Include="2D算法工具\图像处理\图像操作\App\ImageMirrorParamForm.Designer.cs">
       <DependentUpon>ImageMirrorParamForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="2D算法工具\图像拼接\TileImageFormOld.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="2D算法工具\图像拼接\TileImageFormOld.Designer.cs">
-      <DependentUpon>TileImageFormOld.cs</DependentUpon>
     </Compile>
     <Compile Include="2D算法工具\图像拼接\TileImageParamOld.cs" />
     <Compile Include="2D算法工具\图像裁剪\ImageReduceFormNew.cs">
@@ -4251,6 +4253,9 @@
     <EmbeddedResource Include="2D算法工具\2D几何拟合\矩形拟合\FitRect2Form.resx">
       <DependentUpon>FitRect2Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\2D卡尺测量\手动取点\ManualPointMeasureForm.resx">
+      <DependentUpon>ManualPointMeasureForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\2D卡尺测量\圆测量\CircleMeasureForm.resx">
       <DependentUpon>CircleMeasureForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -4355,9 +4360,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\图像处理\图像操作\App\ImageMirrorParamForm.resx">
       <DependentUpon>ImageMirrorParamForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="2D算法工具\图像拼接\TileImageFormOld.resx">
-      <DependentUpon>TileImageFormOld.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\图像校正\ImageRectifyForm.resx">
       <DependentUpon>ImageRectifyForm.cs</DependentUpon>
