@@ -1184,10 +1184,10 @@
     <Compile Include="检测工具\缺陷检测\SelectParamForm.Designer.cs">
       <DependentUpon>SelectParamForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="检测工具\缺陷检测\检测操作\App\ScriptDetectForm.cs">
+    <Compile Include="检测工具\缺陷检测\检测操作\App\脚本\ScriptDetectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="检测工具\缺陷检测\检测操作\App\ScriptDetectForm.Designer.cs">
+    <Compile Include="检测工具\缺陷检测\检测操作\App\脚本\ScriptDetectForm.Designer.cs">
       <DependentUpon>ScriptDetectForm.cs</DependentUpon>
     </Compile>
     <Compile Include="检测工具\缺陷检测\检测操作\App\CallipersDetectForm.cs">
@@ -1196,7 +1196,19 @@
     <Compile Include="检测工具\缺陷检测\检测操作\App\CallipersDetectForm.Designer.cs">
       <DependentUpon>CallipersDetectForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="检测工具\缺陷检测\检测操作\DetectParam.cs" />
+    <Compile Include="检测工具\缺陷检测\检测操作\App\脚本\OutParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\脚本\OutParamForm.Designer.cs">
+      <DependentUpon>OutParamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\脚本\InParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\App\脚本\InParamForm.Designer.cs">
+      <DependentUpon>InParamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="检测工具\缺陷检测\检测操作\ThresholParam.cs" />
     <Compile Include="检测工具\缺陷检测\检测操作\FlawDetectMethod.cs" />
     <Compile Include="检测工具\缺陷检测\检测操作\DetectFlawForm.cs">
       <SubType>Form</SubType>
@@ -4632,7 +4644,7 @@
       <DependentUpon>SelectParamForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="检测工具\缺陷检测\检测操作\App\ScriptDetectForm.resx">
+    <EmbeddedResource Include="检测工具\缺陷检测\检测操作\App\脚本\ScriptDetectForm.resx">
       <DependentUpon>ScriptDetectForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="检测工具\缺陷检测\检测操作\App\CallipersDetectForm.resx">
@@ -4673,6 +4685,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="检测工具\缺陷检测\检测操作\App\WatershedsThresholdDetectForm.resx">
       <DependentUpon>WatershedsThresholdDetectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\检测操作\App\脚本\OutParamForm.resx">
+      <DependentUpon>OutParamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="检测工具\缺陷检测\检测操作\App\脚本\InParamForm.resx">
+      <DependentUpon>InParamForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="检测工具\缺陷检测\滤波操作\App\BilateralFilterForm.resx">
       <DependentUpon>BilateralFilterForm.cs</DependentUpon>
@@ -5970,6 +5988,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\red1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\展开25X25.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\展开20X20.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\折叠20X20.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

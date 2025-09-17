@@ -130,14 +130,14 @@
   <data name="MoveY_minus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MoveY-.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="匹配 20 x 20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\匹配 20 x 20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="设置20 X 20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\设置20 X 20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Home1.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Stop.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="red1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\red1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="清除" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\清除.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,11 +154,11 @@
   <data name="线线夹角" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\线线夹角.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="展开20X20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\展开20X20.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ellipse" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ellipse.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="faceToFace" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\faceToFace.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="circleSector" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\circleSector.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,8 +205,8 @@
   <data name="PointLineCoord" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PointLineCoord.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LineToLine" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LineToLine.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="_1606742524_1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1606742524(1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="match" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\match.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -229,8 +229,8 @@
   <data name="Home" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Home.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="圆形 20 X 20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\圆形 20 X 20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MoveU_minus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MoveU-.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MoveU_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MoveU+.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -244,23 +244,23 @@
   <data name="停止20 X 20" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\停止20 X 20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <!--<data name="red" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>-->
   <data name="矩形 20 X 20" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\矩形 20 X 20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="展开25X25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\展开25X25.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="线线交点" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\线线交点.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="设置20 X 20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\设置20 X 20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="匹配 20 x 20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\匹配 20 x 20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MoveV_minus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MoveV-.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MoveU_minus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MoveU-.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="移动光标" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\移动光标.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="选择光标" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\选择光标.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -280,8 +280,11 @@
   <data name="DoubleLaser" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DoubleLaser.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="_1606742307_1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1606742307(1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="green1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\green1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Stop.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Start" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Start.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -292,8 +295,11 @@
   <data name="ellipseSector" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ellipseSector.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="移动光标" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\移动光标.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PointToPoint" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PointToPoint.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="圆形 20 X 20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\圆形 20 X 20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="绘图" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\绘图.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -303,6 +309,9 @@
   </data>
   <data name="circleToLine" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\circleToLine.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="openLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\openLight.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="标定 20 X 20" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\标定 20 X 20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -319,8 +328,8 @@
   <data name="LaserPoint" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LaserPoint.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PointToPoint" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PointToPoint.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="faceToFace" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\faceToFace.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_1606739697_1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1606739697(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -358,23 +367,20 @@
   <data name="MoveY_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MoveY+.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LineToLine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LineToLine.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="删除ROI" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\删除ROI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_1606739819_1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1606739819(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <!--<data name="green" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>-->
   <data name="MoveW_minus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MoveW-.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="openLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\openLight.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_1606742524_1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1606742524(1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="_1606742307_1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1606742307(1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_1606742372_1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1606742372(1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -382,10 +388,7 @@
   <data name="stopRum" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stopRum.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="green1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\green1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="red1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\red1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="折叠20X20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\折叠20X20.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
