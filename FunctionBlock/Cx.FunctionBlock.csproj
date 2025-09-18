@@ -600,6 +600,14 @@
     <Compile Include="2D算法工具\发送图像\SendHWindowImageForm.Designer.cs">
       <DependentUpon>SendHWindowImageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="2D算法工具\字符识别\DoOcrNew.cs" />
+    <Compile Include="2D算法工具\字符识别\OcrMethod.cs" />
+    <Compile Include="2D算法工具\字符识别\OcrDetectionNewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\字符识别\OcrDetectionNewForm.designer.cs">
+      <DependentUpon>OcrDetectionNewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="2D算法工具\点偏置\PointOffset.cs" />
     <Compile Include="2D算法工具\点偏置\PointOffsetForm.cs">
       <SubType>Form</SubType>
@@ -4393,6 +4401,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\发送图像\SendHWindowImageForm.resx">
       <DependentUpon>SendHWindowImageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\字符识别\OcrDetectionNewForm.resx">
+      <DependentUpon>OcrDetectionNewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\点偏置\PointOffsetForm.resx">
       <DependentUpon>PointOffsetForm.cs</DependentUpon>
