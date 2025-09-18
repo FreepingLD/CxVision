@@ -560,12 +560,6 @@
       <DependentUpon>ImageMirrorParamForm.cs</DependentUpon>
     </Compile>
     <Compile Include="2D算法工具\图像拼接\TileImageParamOld.cs" />
-    <Compile Include="2D算法工具\图像裁剪\ImageReduceFormNew.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="2D算法工具\图像裁剪\ImageReduceFormNew.Designer.cs">
-      <DependentUpon>ImageReduceFormNew.cs</DependentUpon>
-    </Compile>
     <Compile Include="2D算法工具\图像镜像\ImageMirror.cs" />
     <Compile Include="2D算法工具\图像镜像\ImageMirrorForm.cs">
       <SubType>Form</SubType>
@@ -601,7 +595,7 @@
       <DependentUpon>SendHWindowImageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="2D算法工具\字符识别\DoOcrNew.cs" />
-    <Compile Include="2D算法工具\字符识别\OcrMethod.cs" />
+    <Compile Include="2D算法工具\字符识别\OcrMethod2.cs" />
     <Compile Include="2D算法工具\字符识别\OcrDetectionNewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1411,6 +1405,14 @@
     </Compile>
     <Compile Include="标定\相机激光标定\CameraGlueGunCalibrateFormNew.Designer.cs">
       <DependentUpon>CameraGlueGunCalibrateFormNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="点胶操作\轨迹捨取\TrackPullParam.cs" />
+    <Compile Include="点胶操作\轨迹捨取\TrackPull.cs" />
+    <Compile Include="点胶操作\轨迹捨取\TrackPullForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="点胶操作\轨迹捨取\TrackPullForm.Designer.cs">
+      <DependentUpon>TrackPullForm.cs</DependentUpon>
     </Compile>
     <Compile Include="相机采集\ImageAcqSimpleForm.cs">
       <SubType>Form</SubType>
@@ -2661,7 +2663,7 @@
     <Compile Include="2D算法工具\二维码识别\DataCodeParam.cs" />
     <Compile Include="2D算法工具\二维码识别\DoDataCodeDetection.cs" />
     <Compile Include="2D算法工具\字符识别\Ocr.cs" />
-    <Compile Include="2D算法工具\字符识别\DoOcr.cs" />
+    <Compile Include="2D算法工具\字符识别\OcrMethod.cs" />
     <Compile Include="2D算法工具\字符识别\OcrDetectionFormOld.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4384,9 +4386,6 @@
     <EmbeddedResource Include="2D算法工具\图像校正\ImageRectifyForm.resx">
       <DependentUpon>ImageRectifyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="2D算法工具\图像裁剪\ImageReduceFormNew.resx">
-      <DependentUpon>ImageReduceFormNew.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\图像镜像\ImageMirrorForm.resx">
       <DependentUpon>ImageMirrorForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -4771,6 +4770,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="标定\相机激光标定\CameraGlueGunCalibrateFormNew.resx">
       <DependentUpon>CameraGlueGunCalibrateFormNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="点胶操作\轨迹捨取\TrackPullForm.resx">
+      <DependentUpon>TrackPullForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="相机采集\ImageAcqSimpleForm.resx">
       <DependentUpon>ImageAcqSimpleForm.cs</DependentUpon>
@@ -5946,6 +5948,7 @@
     <Folder Include="检测工具\圆形检测\" />
     <Folder Include="检测工具\焊珠检测\" />
     <Folder Include="检测工具\纹理检测\" />
+    <Folder Include="点胶操作\轨迹导出\" />
     <Folder Include="组合工具\" />
   </ItemGroup>
   <ItemGroup>
