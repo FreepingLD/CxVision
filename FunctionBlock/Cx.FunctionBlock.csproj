@@ -924,6 +924,7 @@
     <Compile Include="点胶操作\轨迹合并\TrackComposeForm.Designer.cs">
       <DependentUpon>TrackComposeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="点胶操作\轨迹合并\TrackComposeMethod.cs" />
     <Compile Include="点胶操作\轨迹合并\TrackComposeParam.cs" />
     <Compile Include="点胶操作\轨迹堆叠\TrackStack.cs" />
     <Compile Include="点胶操作\轨迹堆叠\TrackStackForm.cs">
