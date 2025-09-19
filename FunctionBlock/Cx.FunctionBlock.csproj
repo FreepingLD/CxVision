@@ -903,55 +903,65 @@
       <DependentUpon>MapCalibrForm.cs</DependentUpon>
     </Compile>
     <Compile Include="对位引导\标定\圆心标定\CenterCalibParam.cs" />
-    <Compile Include="点胶操作\轨迹偏置\TrackOffset.cs" />
-    <Compile Include="点胶操作\轨迹偏置\TrackOffsetFormOld.cs">
+    <Compile Include="点胶功能\轨迹偏置\TrackOffset.cs" />
+    <Compile Include="点胶功能\轨迹偏置\TrackOffsetFormOld.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="点胶操作\轨迹偏置\TrackOffsetFormOld.Designer.cs">
+    <Compile Include="点胶功能\轨迹偏置\TrackOffsetFormOld.Designer.cs">
       <DependentUpon>TrackOffsetFormOld.cs</DependentUpon>
     </Compile>
-    <Compile Include="点胶操作\轨迹偏置\TrackOffsetForm.cs">
+    <Compile Include="点胶功能\轨迹偏置\TrackOffsetForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="点胶操作\轨迹偏置\TrackOffsetForm.Designer.cs">
+    <Compile Include="点胶功能\轨迹偏置\TrackOffsetForm.Designer.cs">
       <DependentUpon>TrackOffsetForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="点胶操作\轨迹偏置\TrackOffsetParam.cs" />
-    <Compile Include="点胶操作\轨迹合并\TrackCompose.cs" />
-    <Compile Include="点胶操作\轨迹合并\TrackComposeForm.cs">
+    <Compile Include="点胶功能\轨迹偏置\TrackOffsetParam.cs" />
+    <Compile Include="点胶功能\轨迹合并\TrackCompose.cs" />
+    <Compile Include="点胶功能\轨迹合并\TrackComposeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="点胶操作\轨迹合并\TrackComposeForm.Designer.cs">
+    <Compile Include="点胶功能\轨迹合并\TrackComposeForm.Designer.cs">
       <DependentUpon>TrackComposeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="点胶操作\轨迹合并\TrackComposeMethod.cs" />
-    <Compile Include="点胶操作\轨迹合并\TrackComposeParam.cs" />
-    <Compile Include="点胶操作\轨迹堆叠\TrackStack.cs" />
-    <Compile Include="点胶操作\轨迹堆叠\TrackStackForm.cs">
+    <Compile Include="点胶功能\轨迹合并\TrackComposeMethod.cs" />
+    <Compile Include="点胶功能\轨迹合并\TrackComposeParam.cs" />
+    <Compile Include="点胶功能\轨迹堆叠\TrackStackMethod.cs" />
+    <Compile Include="点胶功能\轨迹堆叠\TrackStack.cs" />
+    <Compile Include="点胶功能\轨迹堆叠\TrackStackForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="点胶操作\轨迹堆叠\TrackStackForm.Designer.cs">
+    <Compile Include="点胶功能\轨迹堆叠\TrackStackForm.Designer.cs">
       <DependentUpon>TrackStackForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="点胶操作\轨迹堆叠\TrackStackParam.cs" />
-    <Compile Include="点胶操作\轨迹提取\TrackExtractForm.cs">
+    <Compile Include="点胶功能\轨迹堆叠\TrackStackParam.cs" />
+    <Compile Include="点胶功能\轨迹导出\TrackExport.cs" />
+    <Compile Include="点胶功能\轨迹导出\TrackExportForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="点胶操作\轨迹提取\TrackExtractForm.Designer.cs">
+    <Compile Include="点胶功能\轨迹导出\TrackExportForm.Designer.cs">
+      <DependentUpon>TrackExportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="点胶功能\轨迹导出\TrackExportMethod.cs" />
+    <Compile Include="点胶功能\轨迹导出\TrackExportParam.cs" />
+    <Compile Include="点胶功能\轨迹提取\TrackExtractForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="点胶功能\轨迹提取\TrackExtractForm.Designer.cs">
       <DependentUpon>TrackExtractForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="点胶操作\轨迹提取\TrackExtractFormNew.cs">
+    <Compile Include="点胶功能\轨迹提取\TrackExtractFormNew.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="点胶操作\轨迹提取\TrackExtractFormNew.Designer.cs">
+    <Compile Include="点胶功能\轨迹提取\TrackExtractFormNew.Designer.cs">
       <DependentUpon>TrackExtractFormNew.cs</DependentUpon>
     </Compile>
-    <Compile Include="点胶操作\轨迹提取\TrackExtract.cs" />
-    <Compile Include="点胶操作\轨迹提取\TrackExtractParam.cs" />
-    <Compile Include="点胶操作\轨迹计算\TrackCalculateFormOld.cs">
+    <Compile Include="点胶功能\轨迹提取\TrackExtract.cs" />
+    <Compile Include="点胶功能\轨迹提取\TrackExtractParam.cs" />
+    <Compile Include="点胶功能\轨迹计算\TrackCalculateFormOld.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="点胶操作\轨迹计算\TrackCalculateFormOld.Designer.cs">
+    <Compile Include="点胶功能\轨迹计算\TrackCalculateFormOld.Designer.cs">
       <DependentUpon>TrackCalculateFormOld.cs</DependentUpon>
     </Compile>
     <Compile Include="对位引导\迁移计算\MigrateCalculate.cs" />
@@ -1423,28 +1433,31 @@
     <Compile Include="标定\相机激光标定\CameraGlueGunCalibrateFormNew.Designer.cs">
       <DependentUpon>CameraGlueGunCalibrateFormNew.cs</DependentUpon>
     </Compile>
-    <Compile Include="点胶操作\轨迹捨取\TrackPullParam.cs" />
-    <Compile Include="点胶操作\轨迹捨取\TrackPull.cs" />
-    <Compile Include="点胶操作\轨迹捨取\TrackPullForm.cs">
+    <Compile Include="点胶功能\轨迹捨取\TrackPullParam.cs" />
+    <Compile Include="点胶功能\轨迹捨取\TrackPull.cs" />
+    <Compile Include="点胶功能\轨迹捨取\TrackPullForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="点胶操作\轨迹捨取\TrackPullForm.Designer.cs">
+    <Compile Include="点胶功能\轨迹捨取\TrackPullForm.Designer.cs">
       <DependentUpon>TrackPullForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="点胶操作\轨迹读取\TrackReadForm.cs">
+    <Compile Include="点胶功能\轨迹读取\TrackReadMethod.cs" />
+    <Compile Include="点胶功能\轨迹读取\TrackReadParam.cs" />
+    <Compile Include="点胶功能\轨迹读取\TrackReadForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="点胶操作\轨迹读取\TrackReadForm.Designer.cs">
+    <Compile Include="点胶功能\轨迹读取\TrackReadForm.Designer.cs">
       <DependentUpon>TrackReadForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="点胶操作\轨迹转换\TrackTrans.cs" />
-    <Compile Include="点胶操作\轨迹转换\TrackTransForm.cs">
+    <Compile Include="点胶功能\轨迹转换\TrackTransMethod.cs" />
+    <Compile Include="点胶功能\轨迹转换\TrackTrans.cs" />
+    <Compile Include="点胶功能\轨迹转换\TrackTransForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="点胶操作\轨迹转换\TrackTransForm.Designer.cs">
+    <Compile Include="点胶功能\轨迹转换\TrackTransForm.Designer.cs">
       <DependentUpon>TrackTransForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="点胶操作\轨迹转换\TrackTransParam.cs" />
+    <Compile Include="点胶功能\轨迹转换\TrackTransParam.cs" />
     <Compile Include="相机采集\ImageAcqSimpleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2244,7 +2257,7 @@
       <DependentUpon>CalibRotateCenterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="对位引导\标定\圆心标定\CalculateMethod.cs" />
-    <Compile Include="点胶操作\轨迹读取\TrackRead.cs" />
+    <Compile Include="点胶功能\轨迹读取\TrackRead.cs" />
     <Compile Include="属性结果\CommunicateInfo.cs" />
     <Compile Include="属性结果\ReadDataCommand.cs" />
     <Compile Include="属性结果\AlignResultInfo.cs" />
@@ -2379,15 +2392,15 @@
     <Compile Include="对位引导\弃用工具\轨迹变换\TrackAffineForm.Designer.cs">
       <DependentUpon>TrackAffineForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="点胶操作\轨迹计算\TrackCalculate.cs" />
-    <Compile Include="点胶操作\轨迹计算\TrackCalculateForm.cs">
+    <Compile Include="点胶功能\轨迹计算\TrackCalculate.cs" />
+    <Compile Include="点胶功能\轨迹计算\TrackCalculateForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="点胶操作\轨迹计算\TrackCalculateForm.Designer.cs">
+    <Compile Include="点胶功能\轨迹计算\TrackCalculateForm.Designer.cs">
       <DependentUpon>TrackCalculateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="点胶操作\轨迹计算\TrackCalculateMethod.cs" />
-    <Compile Include="点胶操作\轨迹计算\TrackCalculateParam.cs" />
+    <Compile Include="点胶功能\轨迹计算\TrackCalculateMethod.cs" />
+    <Compile Include="点胶功能\轨迹计算\TrackCalculateParam.cs" />
     <Compile Include="数据输出\DataItem.cs" />
     <Compile Include="PLC操作\过时功能\保存数据PLC\SaveDataPlc.cs" />
     <Compile Include="PLC操作\过时功能\保存数据PLC\SaveDataPlcForm.cs">
@@ -4552,25 +4565,28 @@
     <EmbeddedResource Include="对位引导\标定\映射标定\MapCalibrForm.resx">
       <DependentUpon>MapCalibrForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="点胶操作\轨迹偏置\TrackOffsetFormOld.resx">
+    <EmbeddedResource Include="点胶功能\轨迹偏置\TrackOffsetFormOld.resx">
       <DependentUpon>TrackOffsetFormOld.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="点胶操作\轨迹偏置\TrackOffsetForm.resx">
+    <EmbeddedResource Include="点胶功能\轨迹偏置\TrackOffsetForm.resx">
       <DependentUpon>TrackOffsetForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="点胶操作\轨迹合并\TrackComposeForm.resx">
+    <EmbeddedResource Include="点胶功能\轨迹合并\TrackComposeForm.resx">
       <DependentUpon>TrackComposeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="点胶操作\轨迹堆叠\TrackStackForm.resx">
+    <EmbeddedResource Include="点胶功能\轨迹堆叠\TrackStackForm.resx">
       <DependentUpon>TrackStackForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="点胶操作\轨迹提取\TrackExtractForm.resx">
+    <EmbeddedResource Include="点胶功能\轨迹导出\TrackExportForm.resx">
+      <DependentUpon>TrackExportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="点胶功能\轨迹提取\TrackExtractForm.resx">
       <DependentUpon>TrackExtractForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="点胶操作\轨迹提取\TrackExtractFormNew.resx">
+    <EmbeddedResource Include="点胶功能\轨迹提取\TrackExtractFormNew.resx">
       <DependentUpon>TrackExtractFormNew.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="点胶操作\轨迹计算\TrackCalculateFormOld.resx">
+    <EmbeddedResource Include="点胶功能\轨迹计算\TrackCalculateFormOld.resx">
       <DependentUpon>TrackCalculateFormOld.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="对位引导\迁移计算\MigrateCalculateFormOld.resx">
@@ -4802,13 +4818,13 @@
     <EmbeddedResource Include="标定\相机激光标定\CameraGlueGunCalibrateFormNew.resx">
       <DependentUpon>CameraGlueGunCalibrateFormNew.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="点胶操作\轨迹捨取\TrackPullForm.resx">
+    <EmbeddedResource Include="点胶功能\轨迹捨取\TrackPullForm.resx">
       <DependentUpon>TrackPullForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="点胶操作\轨迹读取\TrackReadForm.resx">
+    <EmbeddedResource Include="点胶功能\轨迹读取\TrackReadForm.resx">
       <DependentUpon>TrackReadForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="点胶操作\轨迹转换\TrackTransForm.resx">
+    <EmbeddedResource Include="点胶功能\轨迹转换\TrackTransForm.resx">
       <DependentUpon>TrackTransForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="相机采集\ImageAcqSimpleForm.resx">
@@ -5453,7 +5469,7 @@
     <EmbeddedResource Include="对位引导\弃用工具\轨迹变换\TrackAffineForm.resx">
       <DependentUpon>TrackAffineForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="点胶操作\轨迹计算\TrackCalculateForm.resx">
+    <EmbeddedResource Include="点胶功能\轨迹计算\TrackCalculateForm.resx">
       <DependentUpon>TrackCalculateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="上下料机\下料Try盘\TryForm.resx">
@@ -5982,7 +5998,6 @@
     <Folder Include="检测工具\圆形检测\" />
     <Folder Include="检测工具\焊珠检测\" />
     <Folder Include="检测工具\纹理检测\" />
-    <Folder Include="点胶操作\轨迹导出\" />
     <Folder Include="组合工具\" />
   </ItemGroup>
   <ItemGroup>
