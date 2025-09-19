@@ -958,6 +958,15 @@
     </Compile>
     <Compile Include="点胶功能\轨迹提取\TrackExtract.cs" />
     <Compile Include="点胶功能\轨迹提取\TrackExtractParam.cs" />
+    <Compile Include="点胶功能\轨迹自检\TrackSelfCheck.cs" />
+    <Compile Include="点胶功能\轨迹自检\TrackSelfCheckForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="点胶功能\轨迹自检\TrackSelfCheckForm.Designer.cs">
+      <DependentUpon>TrackSelfCheckForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="点胶功能\轨迹自检\TrackSelfCheckMethod.cs" />
+    <Compile Include="点胶功能\轨迹自检\TrackSelfCheckParam.cs" />
     <Compile Include="点胶功能\轨迹计算\TrackCalculateFormOld.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4585,6 +4594,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="点胶功能\轨迹提取\TrackExtractFormNew.resx">
       <DependentUpon>TrackExtractFormNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="点胶功能\轨迹自检\TrackSelfCheckForm.resx">
+      <DependentUpon>TrackSelfCheckForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="点胶功能\轨迹计算\TrackCalculateFormOld.resx">
       <DependentUpon>TrackCalculateFormOld.cs</DependentUpon>
