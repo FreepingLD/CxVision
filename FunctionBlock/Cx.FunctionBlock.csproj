@@ -840,37 +840,37 @@
     <Compile Include="其他工具\删图工具\Form1.designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\N点对位\NPointVectorAlign.cs" />
-    <Compile Include="对位引导\N点对位\NPointVectorAlignFormOld.cs">
+    <Compile Include="对位功能\N点对位\NPointVectorAlign.cs" />
+    <Compile Include="对位功能\N点对位\NPointVectorAlignFormOld.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\N点对位\NPointVectorAlignFormOld.Designer.cs">
+    <Compile Include="对位功能\N点对位\NPointVectorAlignFormOld.Designer.cs">
       <DependentUpon>NPointVectorAlignFormOld.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\N点对位\NPointVectorAlignForm.cs">
+    <Compile Include="对位功能\N点对位\NPointVectorAlignForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\N点对位\NPointVectorAlignForm.Designer.cs">
+    <Compile Include="对位功能\N点对位\NPointVectorAlignForm.Designer.cs">
       <DependentUpon>NPointVectorAlignForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\向量对位2\VectorAlignNew.cs" />
-    <Compile Include="对位引导\向量对位2\VectorAlignNewForm.cs">
+    <Compile Include="对位功能\向量对位2\VectorAlignNew.cs" />
+    <Compile Include="对位功能\向量对位2\VectorAlignNewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\向量对位2\VectorAlignNewForm.Designer.cs">
+    <Compile Include="对位功能\向量对位2\VectorAlignNewForm.Designer.cs">
       <DependentUpon>VectorAlignNewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\向量对位\VectorAlign.cs" />
-    <Compile Include="对位引导\向量对位\VectorAlignFormOld.cs">
+    <Compile Include="对位功能\向量对位\VectorAlign.cs" />
+    <Compile Include="对位功能\向量对位\VectorAlignFormOld.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\向量对位\VectorAlignFormOld.designer.cs">
+    <Compile Include="对位功能\向量对位\VectorAlignFormOld.designer.cs">
       <DependentUpon>VectorAlignFormOld.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\向量对位\VectorAlignForm.cs">
+    <Compile Include="对位功能\向量对位\VectorAlignForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\向量对位\VectorAlignForm.designer.cs">
+    <Compile Include="对位功能\向量对位\VectorAlignForm.designer.cs">
       <DependentUpon>VectorAlignForm.cs</DependentUpon>
     </Compile>
     <Compile Include="2D算法工具\向量计算\VectorCalculate.cs" />
@@ -888,21 +888,21 @@
       <DependentUpon>CoordTransformForm.cs</DependentUpon>
     </Compile>
     <Compile Include="2D算法工具\坐标转换\CoordTransformParam.cs" />
-    <Compile Include="对位引导\对位计算\AlignCalculateFormOld.cs">
+    <Compile Include="对位功能\对位计算\AlignCalculateFormOld.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\对位计算\AlignCalculateFormOld.Designer.cs">
+    <Compile Include="对位功能\对位计算\AlignCalculateFormOld.Designer.cs">
       <DependentUpon>AlignCalculateFormOld.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\标定\映射标定\MapCalibParam.cs" />
-    <Compile Include="对位引导\标定\映射标定\MapCalib.cs" />
-    <Compile Include="对位引导\标定\映射标定\MapCalibrForm.cs">
+    <Compile Include="对位功能\标定\映射标定\MapCalibParam.cs" />
+    <Compile Include="对位功能\标定\映射标定\MapCalib.cs" />
+    <Compile Include="对位功能\标定\映射标定\MapCalibrForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\标定\映射标定\MapCalibrForm.Designer.cs">
+    <Compile Include="对位功能\标定\映射标定\MapCalibrForm.Designer.cs">
       <DependentUpon>MapCalibrForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\标定\圆心标定\CenterCalibParam.cs" />
+    <Compile Include="对位功能\标定\圆心标定\CenterCalibParam.cs" />
     <Compile Include="点胶功能\轨迹偏置\TrackOffset.cs" />
     <Compile Include="点胶功能\轨迹偏置\TrackOffsetFormOld.cs">
       <SubType>Form</SubType>
@@ -973,20 +973,20 @@
     <Compile Include="点胶功能\轨迹计算\TrackCalculateFormOld.Designer.cs">
       <DependentUpon>TrackCalculateFormOld.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\迁移计算\MigrateCalculate.cs" />
-    <Compile Include="对位引导\迁移计算\MigrateCalculateFormOld.cs">
+    <Compile Include="对位功能\迁移计算\MigrateCalculate.cs" />
+    <Compile Include="对位功能\迁移计算\MigrateCalculateFormOld.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\迁移计算\MigrateCalculateFormOld.Designer.cs">
+    <Compile Include="对位功能\迁移计算\MigrateCalculateFormOld.Designer.cs">
       <DependentUpon>MigrateCalculateFormOld.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\迁移计算\MigrateCalculateForm.cs">
+    <Compile Include="对位功能\迁移计算\MigrateCalculateForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\迁移计算\MigrateCalculateForm.Designer.cs">
+    <Compile Include="对位功能\迁移计算\MigrateCalculateForm.Designer.cs">
       <DependentUpon>MigrateCalculateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\迁移计算\MigrateCalculateParam.cs" />
+    <Compile Include="对位功能\迁移计算\MigrateCalculateParam.cs" />
     <Compile Include="属性结果\ResultJudgeCommand.cs" />
     <Compile Include="属性结果\JudgeCommand.cs" />
     <Compile Include="1_工作流程\AutoRunThreadPlc.cs" />
@@ -2251,21 +2251,21 @@
     <Compile Include="坐标系\坐标系-矩形\CoordSystemRect2Form.Designer.cs">
       <DependentUpon>CoordSystemRect2Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\弃用工具\像素圆心标定\CalibRotateCenterPix.cs" />
-    <Compile Include="对位引导\弃用工具\像素圆心标定\CalibRotateCenterPixForm.cs">
+    <Compile Include="对位功能\弃用工具\像素圆心标定\CalibRotateCenterPix.cs" />
+    <Compile Include="对位功能\弃用工具\像素圆心标定\CalibRotateCenterPixForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\弃用工具\像素圆心标定\CalibRotateCenterPixForm.Designer.cs">
+    <Compile Include="对位功能\弃用工具\像素圆心标定\CalibRotateCenterPixForm.Designer.cs">
       <DependentUpon>CalibRotateCenterPixForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\标定\圆心标定\CalibRotateCenter.cs" />
-    <Compile Include="对位引导\标定\圆心标定\CalibRotateCenterForm.cs">
+    <Compile Include="对位功能\标定\圆心标定\CalibRotateCenter.cs" />
+    <Compile Include="对位功能\标定\圆心标定\CalibRotateCenterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\标定\圆心标定\CalibRotateCenterForm.Designer.cs">
+    <Compile Include="对位功能\标定\圆心标定\CalibRotateCenterForm.Designer.cs">
       <DependentUpon>CalibRotateCenterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\标定\圆心标定\CalculateMethod.cs" />
+    <Compile Include="对位功能\标定\圆心标定\CalculateMethod.cs" />
     <Compile Include="点胶功能\轨迹读取\TrackRead.cs" />
     <Compile Include="属性结果\CommunicateInfo.cs" />
     <Compile Include="属性结果\ReadDataCommand.cs" />
@@ -2284,70 +2284,70 @@
     <Compile Include="公共窗体\ResetNameForm.Designer.cs">
       <DependentUpon>ResetNameForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\弃用工具\对位合并\AlignUnion.cs" />
-    <Compile Include="对位引导\弃用工具\对位合并\AlignUnionForm.cs">
+    <Compile Include="对位功能\弃用工具\对位合并\AlignUnion.cs" />
+    <Compile Include="对位功能\弃用工具\对位合并\AlignUnionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\弃用工具\对位合并\AlignUnionForm.Designer.cs">
+    <Compile Include="对位功能\弃用工具\对位合并\AlignUnionForm.Designer.cs">
       <DependentUpon>AlignUnionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\弃用工具\偏差计算\OffsetCalculate.cs" />
-    <Compile Include="对位引导\弃用工具\偏差计算\OffsetCalculateForm.cs">
+    <Compile Include="对位功能\弃用工具\偏差计算\OffsetCalculate.cs" />
+    <Compile Include="对位功能\弃用工具\偏差计算\OffsetCalculateForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\弃用工具\偏差计算\OffsetCalculateForm.Designer.cs">
+    <Compile Include="对位功能\弃用工具\偏差计算\OffsetCalculateForm.Designer.cs">
       <DependentUpon>OffsetCalculateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\弃用工具\偏差计算\OffsetMethod.cs" />
-    <Compile Include="对位引导\对位计算\AlignCalculateForm.cs">
+    <Compile Include="对位功能\弃用工具\偏差计算\OffsetMethod.cs" />
+    <Compile Include="对位功能\对位计算\AlignCalculateForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\对位计算\AlignCalculateForm.Designer.cs">
+    <Compile Include="对位功能\对位计算\AlignCalculateForm.Designer.cs">
       <DependentUpon>AlignCalculateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\对位计算\AlignCalculate.cs" />
-    <Compile Include="对位引导\对位计算\AlignMethod.cs" />
-    <Compile Include="对位引导\弃用工具\引导计算\GuidedCalibParam.cs" />
-    <Compile Include="对位引导\弃用工具\椭圆变换\EllpiseAffine.cs" />
-    <Compile Include="对位引导\弃用工具\椭圆变换\EllpiseAffineForm.cs">
+    <Compile Include="对位功能\对位计算\AlignCalculate.cs" />
+    <Compile Include="对位功能\对位计算\AlignMethod.cs" />
+    <Compile Include="对位功能\弃用工具\引导计算\GuidedCalibParam.cs" />
+    <Compile Include="对位功能\弃用工具\椭圆变换\EllpiseAffine.cs" />
+    <Compile Include="对位功能\弃用工具\椭圆变换\EllpiseAffineForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\弃用工具\椭圆变换\EllpiseAffineForm.Designer.cs">
+    <Compile Include="对位功能\弃用工具\椭圆变换\EllpiseAffineForm.Designer.cs">
       <DependentUpon>EllpiseAffineForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\弃用工具\引导计算\GuidedCalib.cs" />
-    <Compile Include="对位引导\弃用工具\引导计算\GuidedCalibeForm.cs">
+    <Compile Include="对位功能\弃用工具\引导计算\GuidedCalib.cs" />
+    <Compile Include="对位功能\弃用工具\引导计算\GuidedCalibeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\弃用工具\引导计算\GuidedCalibeForm.Designer.cs">
+    <Compile Include="对位功能\弃用工具\引导计算\GuidedCalibeForm.Designer.cs">
       <DependentUpon>GuidedCalibeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\弃用工具\矩形变换\Rect2Affine.cs" />
-    <Compile Include="对位引导\弃用工具\矩形变换\Rect2AffineForm.cs">
+    <Compile Include="对位功能\弃用工具\矩形变换\Rect2Affine.cs" />
+    <Compile Include="对位功能\弃用工具\矩形变换\Rect2AffineForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\弃用工具\矩形变换\Rect2AffineForm.Designer.cs">
+    <Compile Include="对位功能\弃用工具\矩形变换\Rect2AffineForm.Designer.cs">
       <DependentUpon>Rect2AffineForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\弃用工具\圆变换\CircleAffine.cs" />
-    <Compile Include="对位引导\弃用工具\圆变换\CircleGuidedForm.cs">
+    <Compile Include="对位功能\弃用工具\圆变换\CircleAffine.cs" />
+    <Compile Include="对位功能\弃用工具\圆变换\CircleGuidedForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\弃用工具\圆变换\CircleGuidedForm.Designer.cs">
+    <Compile Include="对位功能\弃用工具\圆变换\CircleGuidedForm.Designer.cs">
       <DependentUpon>CircleGuidedForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\弃用工具\直线变换\LineAffine.cs" />
-    <Compile Include="对位引导\弃用工具\直线变换\LineGuidedForm.cs">
+    <Compile Include="对位功能\弃用工具\直线变换\LineAffine.cs" />
+    <Compile Include="对位功能\弃用工具\直线变换\LineGuidedForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\弃用工具\直线变换\LineGuidedForm.Designer.cs">
+    <Compile Include="对位功能\弃用工具\直线变换\LineGuidedForm.Designer.cs">
       <DependentUpon>LineGuidedForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="对位引导\弃用工具\点变换\PointAffine.cs" />
-    <Compile Include="对位引导\弃用工具\点变换\PointAffineForm.cs">
+    <Compile Include="对位功能\弃用工具\点变换\PointAffine.cs" />
+    <Compile Include="对位功能\弃用工具\点变换\PointAffineForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\弃用工具\点变换\PointAffineForm.Designer.cs">
+    <Compile Include="对位功能\弃用工具\点变换\PointAffineForm.Designer.cs">
       <DependentUpon>PointAffineForm.cs</DependentUpon>
     </Compile>
     <Compile Include="上下料机\下料Try盘\TryForm.cs">
@@ -2394,11 +2394,11 @@
       <DependentUpon>ToolBlockForm.cs</DependentUpon>
     </Compile>
     <Compile Include="工具组\过时功能\计算偏移\AlignmentMethod.cs" />
-    <Compile Include="对位引导\弃用工具\轨迹变换\TrackAffine.cs" />
-    <Compile Include="对位引导\弃用工具\轨迹变换\TrackAffineForm.cs">
+    <Compile Include="对位功能\弃用工具\轨迹变换\TrackAffine.cs" />
+    <Compile Include="对位功能\弃用工具\轨迹变换\TrackAffineForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="对位引导\弃用工具\轨迹变换\TrackAffineForm.Designer.cs">
+    <Compile Include="对位功能\弃用工具\轨迹变换\TrackAffineForm.Designer.cs">
       <DependentUpon>TrackAffineForm.cs</DependentUpon>
     </Compile>
     <Compile Include="点胶功能\轨迹计算\TrackCalculate.cs" />
@@ -3414,7 +3414,7 @@
       <DependentUpon>DefectDetectingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="工具组\过时功能\计算偏移\CalculateOffsetValue.cs" />
-    <Compile Include="对位引导\CompensationParam.cs" />
+    <Compile Include="对位功能\CompensationParam.cs" />
     <Compile Include="工具组\过时功能\写入文件\WriteFile.cs" />
     <Compile Include="工具组\过时功能\写入文件\WriteFileForm.cs">
       <SubType>Form</SubType>
@@ -4547,19 +4547,19 @@
     <EmbeddedResource Include="其他工具\删图工具\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\N点对位\NPointVectorAlignFormOld.resx">
+    <EmbeddedResource Include="对位功能\N点对位\NPointVectorAlignFormOld.resx">
       <DependentUpon>NPointVectorAlignFormOld.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\N点对位\NPointVectorAlignForm.resx">
+    <EmbeddedResource Include="对位功能\N点对位\NPointVectorAlignForm.resx">
       <DependentUpon>NPointVectorAlignForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\向量对位2\VectorAlignNewForm.resx">
+    <EmbeddedResource Include="对位功能\向量对位2\VectorAlignNewForm.resx">
       <DependentUpon>VectorAlignNewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\向量对位\VectorAlignFormOld.resx">
+    <EmbeddedResource Include="对位功能\向量对位\VectorAlignFormOld.resx">
       <DependentUpon>VectorAlignFormOld.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\向量对位\VectorAlignForm.resx">
+    <EmbeddedResource Include="对位功能\向量对位\VectorAlignForm.resx">
       <DependentUpon>VectorAlignForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\向量计算\VectorCalculateForm.resx">
@@ -4568,10 +4568,10 @@
     <EmbeddedResource Include="2D算法工具\坐标转换\CoordTransformForm.resx">
       <DependentUpon>CoordTransformForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\对位计算\AlignCalculateFormOld.resx">
+    <EmbeddedResource Include="对位功能\对位计算\AlignCalculateFormOld.resx">
       <DependentUpon>AlignCalculateFormOld.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\标定\映射标定\MapCalibrForm.resx">
+    <EmbeddedResource Include="对位功能\标定\映射标定\MapCalibrForm.resx">
       <DependentUpon>MapCalibrForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="点胶功能\轨迹偏置\TrackOffsetFormOld.resx">
@@ -4601,10 +4601,10 @@
     <EmbeddedResource Include="点胶功能\轨迹计算\TrackCalculateFormOld.resx">
       <DependentUpon>TrackCalculateFormOld.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\迁移计算\MigrateCalculateFormOld.resx">
+    <EmbeddedResource Include="对位功能\迁移计算\MigrateCalculateFormOld.resx">
       <DependentUpon>MigrateCalculateFormOld.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\迁移计算\MigrateCalculateForm.resx">
+    <EmbeddedResource Include="对位功能\迁移计算\MigrateCalculateForm.resx">
       <DependentUpon>MigrateCalculateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="公共窗体\CopyForm.resx">
@@ -5445,40 +5445,40 @@
     <EmbeddedResource Include="坐标系\坐标系-表面匹配\寻找形状模型UI\FindSurfaceModelForm.resx">
       <DependentUpon>FindSurfaceModelForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\弃用工具\像素圆心标定\CalibRotateCenterPixForm.resx">
+    <EmbeddedResource Include="对位功能\弃用工具\像素圆心标定\CalibRotateCenterPixForm.resx">
       <DependentUpon>CalibRotateCenterPixForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\标定\圆心标定\CalibRotateCenterForm.resx">
+    <EmbeddedResource Include="对位功能\标定\圆心标定\CalibRotateCenterForm.resx">
       <DependentUpon>CalibRotateCenterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\弃用工具\对位合并\AlignUnionForm.resx">
+    <EmbeddedResource Include="对位功能\弃用工具\对位合并\AlignUnionForm.resx">
       <DependentUpon>AlignUnionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\弃用工具\偏差计算\OffsetCalculateForm.resx">
+    <EmbeddedResource Include="对位功能\弃用工具\偏差计算\OffsetCalculateForm.resx">
       <DependentUpon>OffsetCalculateForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\对位计算\AlignCalculateForm.resx">
+    <EmbeddedResource Include="对位功能\对位计算\AlignCalculateForm.resx">
       <DependentUpon>AlignCalculateForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\弃用工具\椭圆变换\EllpiseAffineForm.resx">
+    <EmbeddedResource Include="对位功能\弃用工具\椭圆变换\EllpiseAffineForm.resx">
       <DependentUpon>EllpiseAffineForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\弃用工具\引导计算\GuidedCalibeForm.resx">
+    <EmbeddedResource Include="对位功能\弃用工具\引导计算\GuidedCalibeForm.resx">
       <DependentUpon>GuidedCalibeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\弃用工具\矩形变换\Rect2AffineForm.resx">
+    <EmbeddedResource Include="对位功能\弃用工具\矩形变换\Rect2AffineForm.resx">
       <DependentUpon>Rect2AffineForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\弃用工具\圆变换\CircleGuidedForm.resx">
+    <EmbeddedResource Include="对位功能\弃用工具\圆变换\CircleGuidedForm.resx">
       <DependentUpon>CircleGuidedForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\弃用工具\直线变换\LineGuidedForm.resx">
+    <EmbeddedResource Include="对位功能\弃用工具\直线变换\LineGuidedForm.resx">
       <DependentUpon>LineGuidedForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\弃用工具\点变换\PointAffineForm.resx">
+    <EmbeddedResource Include="对位功能\弃用工具\点变换\PointAffineForm.resx">
       <DependentUpon>PointAffineForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="对位引导\弃用工具\轨迹变换\TrackAffineForm.resx">
+    <EmbeddedResource Include="对位功能\弃用工具\轨迹变换\TrackAffineForm.resx">
       <DependentUpon>TrackAffineForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="点胶功能\轨迹计算\TrackCalculateForm.resx">
@@ -6004,7 +6004,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PLC操作\保存数据Ftp\Ftp配置\" />
-    <Folder Include="对位引导\标定\相机初始化\" />
+    <Folder Include="对位功能\标定\相机初始化\" />
     <Folder Include="标定\平场校正\激光平场校正\" />
     <Folder Include="检测工具\OCV检测\" />
     <Folder Include="检测工具\圆形检测\" />
