@@ -1442,13 +1442,13 @@
     <Compile Include="标定\相机激光标定\CameraGlueGunCalibrateFormNew.Designer.cs">
       <DependentUpon>CameraGlueGunCalibrateFormNew.cs</DependentUpon>
     </Compile>
-    <Compile Include="点胶功能\轨迹捨取\TrackPullParam.cs" />
-    <Compile Include="点胶功能\轨迹捨取\TrackPull.cs" />
-    <Compile Include="点胶功能\轨迹捨取\TrackPullForm.cs">
+    <Compile Include="点胶功能\轨迹捨取\TrackPickParam.cs" />
+    <Compile Include="点胶功能\轨迹捨取\TrackPick.cs" />
+    <Compile Include="点胶功能\轨迹捨取\TrackPickForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="点胶功能\轨迹捨取\TrackPullForm.Designer.cs">
-      <DependentUpon>TrackPullForm.cs</DependentUpon>
+    <Compile Include="点胶功能\轨迹捨取\TrackPickForm.Designer.cs">
+      <DependentUpon>TrackPickForm.cs</DependentUpon>
     </Compile>
     <Compile Include="点胶功能\轨迹读取\TrackReadMethod.cs" />
     <Compile Include="点胶功能\轨迹读取\TrackReadParam.cs" />
@@ -4830,8 +4830,8 @@
     <EmbeddedResource Include="标定\相机激光标定\CameraGlueGunCalibrateFormNew.resx">
       <DependentUpon>CameraGlueGunCalibrateFormNew.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="点胶功能\轨迹捨取\TrackPullForm.resx">
-      <DependentUpon>TrackPullForm.cs</DependentUpon>
+    <EmbeddedResource Include="点胶功能\轨迹捨取\TrackPickForm.resx">
+      <DependentUpon>TrackPickForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="点胶功能\轨迹读取\TrackReadForm.resx">
       <DependentUpon>TrackReadForm.cs</DependentUpon>

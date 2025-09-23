@@ -111,6 +111,7 @@
     <Compile Include="绘图工具\ROI 绘制\userDrawLineROI.cs" />
     <Compile Include="绘图工具\ROI 绘制\userDrawRect1ROI.cs" />
     <Compile Include="绘图工具\ROI 绘制\userDrawRect2ROI.cs" />
+    <Compile Include="绘图工具\vtkVisualizeView.cs" />
     <Compile Include="绘图工具\VisualizeView.cs" />
   </ItemGroup>
   <ItemGroup>
