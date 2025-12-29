@@ -165,6 +165,12 @@
   <data name="ServerSocketTypeColumn.HeaderText" xml:space="preserve">
     <value>类型</value>
   </data>
+  <metadata name="ServerSerializeTypeCol.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="ServerSerializeTypeCol.HeaderText" xml:space="preserve">
+    <value>序列化类型</value>
+  </data>
   <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -280,7 +286,7 @@
     <value>5</value>
   </data>
   <data name="dgvServer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1632, 281</value>
+    <value>1590, 281</value>
   </data>
   <data name="dgvServer.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -304,7 +310,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1638, 287</value>
+    <value>1596, 287</value>
   </data>
   <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -331,7 +337,7 @@
     <value>0, 0</value>
   </data>
   <data name="tabControl2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1646, 313</value>
+    <value>1604, 313</value>
   </data>
   <data name="tabControl2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -407,6 +413,12 @@
   </metadata>
   <data name="ClientSocketTypeColumn.HeaderText" xml:space="preserve">
     <value>类型</value>
+  </data>
+  <metadata name="ClientSerializeTypeCol.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="ClientSerializeTypeCol.HeaderText" xml:space="preserve">
+    <value>序列化类型</value>
   </data>
   <metadata name="dataGridViewCheckBoxColumn2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -523,7 +535,7 @@
     <value>5</value>
   </data>
   <data name="dgvClient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1626, 305</value>
+    <value>1584, 305</value>
   </data>
   <data name="dgvClient.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -547,7 +559,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1632, 311</value>
+    <value>1590, 311</value>
   </data>
   <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -574,7 +586,7 @@
     <value>0, 0</value>
   </data>
   <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1640, 337</value>
+    <value>1598, 337</value>
   </data>
   <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -763,7 +775,7 @@
     <value>1</value>
   </data>
   <data name="splitContainer2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1640, 394</value>
+    <value>1598, 394</value>
   </data>
   <data name="splitContainer2.SplitterDistance" type="System.Int32, mscorlib">
     <value>337</value>
@@ -793,7 +805,7 @@
     <value>1</value>
   </data>
   <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1646, 400</value>
+    <value>1604, 400</value>
   </data>
   <data name="tableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -829,7 +841,7 @@
     <value>1</value>
   </data>
   <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1646, 717</value>
+    <value>1604, 717</value>
   </data>
   <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
     <value>313</value>
@@ -857,7 +869,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAB8
-        CQAAAk1TRnQBSQFMAgEBBAEAATwBAwE8AQMBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CQAAAk1TRnQBSQFMAgEBBAEAAUwBAwFMAQMBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAASADAAEBAQABCAYAAQgYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -913,7 +925,7 @@
     <value>6, 12</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1646, 717</value>
+    <value>1604, 717</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3199,30 +3211,6 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Socket配置</value>
   </data>
-  <data name="&gt;&gt;socketSItemBindingSource.Name" xml:space="preserve">
-    <value>socketSItemBindingSource</value>
-  </data>
-  <data name="&gt;&gt;socketSItemBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;socketCItemBindingSource.Name" xml:space="preserve">
-    <value>socketCItemBindingSource</value>
-  </data>
-  <data name="&gt;&gt;socketCItemBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;imageList1.Name" xml:space="preserve">
-    <value>imageList1</value>
-  </data>
-  <data name="&gt;&gt;imageList1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cameradeviceBindingSource.Name" xml:space="preserve">
-    <value>cameradeviceBindingSource</value>
-  </data>
-  <data name="&gt;&gt;cameradeviceBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;dataGridViewTextBoxColumn9.Name" xml:space="preserve">
     <value>dataGridViewTextBoxColumn9</value>
   </data>
@@ -3245,6 +3233,12 @@
     <value>ServerSocketTypeColumn</value>
   </data>
   <data name="&gt;&gt;ServerSocketTypeColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewComboBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ServerSerializeTypeCol.Name" xml:space="preserve">
+    <value>ServerSerializeTypeCol</value>
+  </data>
+  <data name="&gt;&gt;ServerSerializeTypeCol.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewComboBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Column1.Name" xml:space="preserve">
@@ -3319,6 +3313,12 @@
   <data name="&gt;&gt;btnDeleteS.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;socketSItemBindingSource.Name" xml:space="preserve">
+    <value>socketSItemBindingSource</value>
+  </data>
+  <data name="&gt;&gt;socketSItemBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;descrip.Name" xml:space="preserve">
     <value>descrip</value>
   </data>
@@ -3341,6 +3341,12 @@
     <value>ClientSocketTypeColumn</value>
   </data>
   <data name="&gt;&gt;ClientSocketTypeColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewComboBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ClientSerializeTypeCol.Name" xml:space="preserve">
+    <value>ClientSerializeTypeCol</value>
+  </data>
+  <data name="&gt;&gt;ClientSerializeTypeCol.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewComboBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;dataGridViewCheckBoxColumn2.Name" xml:space="preserve">
@@ -3414,6 +3420,24 @@
   </data>
   <data name="&gt;&gt;btnDelete.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;socketCItemBindingSource.Name" xml:space="preserve">
+    <value>socketCItemBindingSource</value>
+  </data>
+  <data name="&gt;&gt;socketCItemBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;imageList1.Name" xml:space="preserve">
+    <value>imageList1</value>
+  </data>
+  <data name="&gt;&gt;imageList1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cameradeviceBindingSource.Name" xml:space="preserve">
+    <value>cameradeviceBindingSource</value>
+  </data>
+  <data name="&gt;&gt;cameradeviceBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>SocketForm</value>

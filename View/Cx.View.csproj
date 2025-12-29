@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\x64\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -70,7 +70,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="halcondotnetxl">
-      <HintPath>D:\Program Files\MVTec\HALCON-20.11-Steady\bin\dotnet35\halcondotnetxl.dll</HintPath>
+      <HintPath>..\bin\x64\Debug\halcondotnetxl.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -90,16 +90,22 @@
     <Compile Include="TexBoxView.cs" />
     <Compile Include="ViewBase.cs" />
     <Compile Include="绘图工具\2D测量类绘图工具\DrawingBaseMeasure.cs" />
+    <Compile Include="绘图工具\2D测量类绘图工具\userDrawManualCircleSectorMeasure.cs" />
+    <Compile Include="绘图工具\2D测量类绘图工具\userDrawManualCircleMeasure.cs" />
     <Compile Include="绘图工具\2D测量类绘图工具\userDrawCircleMeasure.cs" />
     <Compile Include="绘图工具\2D测量类绘图工具\userDrawCircleSectorMeasure.cs" />
+    <Compile Include="绘图工具\2D测量类绘图工具\userDrawManualLineMeasure.cs" />
     <Compile Include="绘图工具\2D测量类绘图工具\userDrawManualPointMeasure.cs" />
     <Compile Include="绘图工具\2D测量类绘图工具\userDrawEllipseMeasure.cs" />
     <Compile Include="绘图工具\2D测量类绘图工具\userDrawEllipseSectorMeasure.cs" />
     <Compile Include="绘图工具\2D测量类绘图工具\userDrawCrossMeasure.cs" />
     <Compile Include="绘图工具\2D测量类绘图工具\userDrawLineMeasure.cs" />
     <Compile Include="绘图工具\2D测量类绘图工具\userDrawPointMeasure.cs" />
+    <Compile Include="绘图工具\2D测量类绘图工具\userDrawManualPolygonMeasure.cs" />
     <Compile Include="绘图工具\2D测量类绘图工具\userDrawPolygonMeasure.cs" />
+    <Compile Include="绘图工具\2D测量类绘图工具\userDrawManualPolyLineMeasure.cs" />
     <Compile Include="绘图工具\2D测量类绘图工具\userDrawPolyLineMeasure.cs" />
+    <Compile Include="绘图工具\2D测量类绘图工具\userDrawManualRect2Measure.cs" />
     <Compile Include="绘图工具\2D测量类绘图工具\userDrawWidthMeasure.cs" />
     <Compile Include="绘图工具\2D测量类绘图工具\userDrawRect2Measure.cs" />
     <Compile Include="绘图工具\ChartDrawingBase.cs" />
@@ -115,13 +121,13 @@
     <Compile Include="绘图工具\VisualizeView.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Common\Cx.Common.csproj">
       <Project>{96865c17-1291-4b9d-a5ce-c0912dec3412}</Project>
       <Name>Cx.Common</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

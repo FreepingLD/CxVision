@@ -33,7 +33,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>……bin\Debug\</OutputPath>
+    <OutputPath>..\bin\x64\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -95,22 +95,15 @@
     <ApplicationIcon>Start.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CSScriptLibrary, Version=3.30.5.1, Culture=neutral, PublicKeyToken=70fcc3d18c749033, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\x64\Debug\CSScriptLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\x64\Debug\FontAwesome.Sharp.dll</HintPath>
-    </Reference>
     <Reference Include="Google.Protobuf">
-      <HintPath>..\Sensor\GBS\Google.Protobuf.dll</HintPath>
+      <HintPath>..\bin\x64\Debug\Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="halcondotnetxl">
-      <HintPath>D:\Program Files\MVTec\HALCON-20.11-Steady\bin\dotnet35\halcondotnetxl.dll</HintPath>
+      <HintPath>..\bin\x64\Debug\halcondotnetxl.dll</HintPath>
     </Reference>
-    <Reference Include="HslCommunication">
-      <HintPath>..\..\CxVision20240904 - 20250910\bin\x64\Debug\HslCommunication.dll</HintPath>
+    <Reference Include="HslCommunication, Version=11.6.2.0, Culture=neutral, PublicKeyToken=3d72ad3b6b5ec0e3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\安裝+備份\HslCommunicationDemo\HslCommunication.dll</HintPath>
     </Reference>
     <Reference Include="MVSDK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -125,16 +118,6 @@
     <Reference Include="SerialCommunicate, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Light\活德谱\SerialCommunicate.dll</HintPath>
-    </Reference>
-    <Reference Include="SmartRemoteProxy">
-      <HintPath>..\Sensor\GBS\SmartRemoteProxy.dll</HintPath>
-    </Reference>
-    <Reference Include="SRAPI_CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Sensor\SmartRay\Win_x86_MSVC_19\bin\SRAPI_CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="STILSensors">
-      <HintPath>..\Sensor\Stil\x64\STILSensors.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -158,23 +141,11 @@
     <Compile Include="MainFormEmbed.designer.cs">
       <DependentUpon>MainFormEmbed.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFormNew3.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainFormNew3.Designer.cs">
-      <DependentUpon>MainFormNew3.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainFormNew2.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainFormNew2.Designer.cs">
       <DependentUpon>MainFormNew2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -192,15 +163,6 @@
     <EmbeddedResource Include="MainFormEmbed.resx">
       <DependentUpon>MainFormEmbed.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainFormNew3.en-US.resx">
-      <DependentUpon>MainFormNew3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainFormNew3.en.resx">
-      <DependentUpon>MainFormNew3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainFormNew3.resx">
-      <DependentUpon>MainFormNew3.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainFormNew2.en-US.resx">
       <DependentUpon>MainFormNew2.cs</DependentUpon>
     </EmbeddedResource>
@@ -209,15 +171,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainFormNew2.resx">
       <DependentUpon>MainFormNew2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.en-US.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.en.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

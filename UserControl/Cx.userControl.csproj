@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\x64\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -72,7 +72,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="halcondotnetxl">
-      <HintPath>D:\Program Files\MVTec\HALCON-20.11-Steady\bin\dotnet35\halcondotnetxl.dll</HintPath>
+      <HintPath>..\bin\x64\Debug\halcondotnetxl.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -167,15 +167,15 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\展开.png" />
+    <None Include="Resources\收起.png" />
+    <Content Include="展开.bmp" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\View\Cx.View.csproj">
       <Project>{304138d5-ff27-402f-9897-742ec846ce2f}</Project>
       <Name>Cx.View</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\展开.png" />
-    <None Include="Resources\收起.png" />
-    <Content Include="展开.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

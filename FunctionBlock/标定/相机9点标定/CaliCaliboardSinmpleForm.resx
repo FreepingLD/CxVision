@@ -1399,7 +1399,7 @@
     <value>1</value>
   </data>
   <data name="tableLayoutPanel4.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="statusStrip3" Row="4" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="groupBox2" Row="0" RowSpan="2" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="标定执行button" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tabControl2" Row="0" RowSpan="4" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="groupBox1" Row="2" RowSpan="2" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,326,Percent,66.66666,Percent,33.33333" /&gt;&lt;Rows Styles="Absolute,50,Absolute,97,Percent,100,Absolute,206,Absolute,32" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="statusStrip3" Row="4" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="groupBox2" Row="0" RowSpan="2" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="标定执行button" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tabControl2" Row="0" RowSpan="4" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="groupBox1" Row="2" RowSpan="2" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,326,Percent,66.66666,Percent,33.33333" /&gt;&lt;Rows Styles="Absolute,50,Absolute,97,Percent,100,Absolute,206,Absolute,32,Absolute,20,Absolute,20,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1510,7 +1510,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="toolStrip1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel4" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,41,Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="toolStrip1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel4" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,41,Percent,100,Absolute,20,Absolute,20,Absolute,20,Absolute,20,Absolute,20,Absolute,20,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

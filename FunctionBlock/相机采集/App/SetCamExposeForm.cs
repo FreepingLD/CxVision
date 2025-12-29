@@ -1,0 +1,108 @@
+﻿using Common;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml.Linq;
+
+namespace FunctionBlock
+{
+    public partial class SetCamExposeForm : Form
+    {
+        public string ReName { get; set; }
+        private string _camName = "";
+
+        public SetCamExposeForm()
+        {
+            InitializeComponent();
+        }
+        public SetCamExposeForm(string name)
+        {
+            InitializeComponent();
+            this.ReName = name;
+            this._camName = name;
+        }
+
+        private void ResetParamForm_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                string value = AcqSourceManage.Instance.GetAcqSource(this._camName)?.Sensor?.GetParam("曝光").ToString();
+                this.textBox1.Text = value;
+                int result = 0;
+                int.TryParse(this.textBox1.Text, out result);
+                this.trackBar1.Value = result;
+            }
+            catch (Exception ex)
+            {
+               new Common.UserMessageForm(ex.ToString()).ShowDialog();;
+            }
+        }
+
+        //public SetCamExposeForm(string name)
+        //{
+        //    InitializeComponent();
+        //    this.ReName = name;
+        //    this.textBox1.Text = name;
+        //    int result = 0;
+        //    int.TryParse(this.textBox1.Text, out result);
+        //    this.trackBar1.Value = result;
+        //}
+
+        public SetCamExposeForm(string name, string formName)
+        {
+            InitializeComponent();
+            this.ReName = name;
+            this.textBox1.Text = name;
+            this.Text = formName;
+        }
+        private void 确定button_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ReName = this.textBox1.Text;
+                int result = 0;
+                int.TryParse(this.textBox1.Text, out result);
+                this.trackBar1.Value = result;
+                AcqSourceManage.Instance.GetAcqSource(this._camName)?.Sensor?.SetParam("曝光", result);
+            }
+            catch (Exception ex)
+            {
+               new Common.UserMessageForm(ex.ToString()).ShowDialog();;
+            }
+        }
+
+        private void 取消Btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.DialogResult = DialogResult.Cancel;
+        }
+
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            try
+            {
+                this.textBox1.Text = this.trackBar1.Value.ToString();
+                AcqSourceManage.Instance.GetAcqSource(this._camName)?.Sensor?.SetParam("曝光", this.textBox1.Text);
+            }
+            catch (Exception ex)
+            {
+               new Common.UserMessageForm(ex.ToString()).ShowDialog();;
+            }
+        }
+
+
+    }
+}

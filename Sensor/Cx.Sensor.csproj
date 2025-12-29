@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\x64\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -82,24 +82,20 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\x64\Debug\Basler.Pylon.dll</HintPath>
     </Reference>
-    <Reference Include="ChromaticConfocalSensorAPI">
-      <HintPath>..\..\高特激光\ChromaticConfocalSensorAPI v3.6.4.1\ChromaticConfocalSensorAPI.dll</HintPath>
-    </Reference>
     <Reference Include="CSharpAPIDLL">
-      <HintPath>Attocube\IDS3010\CSharpAPIDLL.dll</HintPath>
+      <HintPath>..\bin\x64\Debug\CSharpAPIDLL.dll</HintPath>
     </Reference>
-    <Reference Include="DALSA.SaperaLT.SapClassBasic, Version=8.60.0.2120, Culture=neutral, PublicKeyToken=4d8604101dcb6b58, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\CxVision20240202\bin\x64\Debug\DALSA.SaperaLT.SapClassBasic.dll</HintPath>
+    <Reference Include="DALSA.SaperaLT.SapClassBasic">
+      <HintPath>..\bin\x64\Debug\DALSA.SaperaLT.SapClassBasic.dll</HintPath>
     </Reference>
     <Reference Include="DSComm">
       <HintPath>Omron\DSComm.dll</HintPath>
     </Reference>
     <Reference Include="Google.Protobuf">
-      <HintPath>GBS\Google.Protobuf.dll</HintPath>
+      <HintPath>..\bin\x64\Debug\Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="GxIAPINET">
-      <HintPath>..\..\CxVision20240904 - 20250910\bin\x64\Debug\GxIAPINET.dll</HintPath>
+      <HintPath>..\bin\x64\Debug\GxIAPINET.dll</HintPath>
     </Reference>
     <Reference Include="halcondotnetxl">
       <HintPath>..\bin\x64\Debug\halcondotnetxl.dll</HintPath>
@@ -108,14 +104,10 @@
       <HintPath>埃科\CameraLink\IKapBoardClassLibrary.dll</HintPath>
     </Reference>
     <Reference Include="IKapC.NET">
-      <HintPath>..\..\CxVision20240904 - 20250910\bin\x64\Debug\IKapC.NET.dll</HintPath>
+      <HintPath>..\bin\x64\Debug\IKapC.NET.dll</HintPath>
     </Reference>
-    <Reference Include="LineSensorDotNet">
-      <HintPath>Stil\StilLineSensor\x64\LineSensorDotNet.dll</HintPath>
-    </Reference>
-    <Reference Include="MvCameraControl.Net, Version=3.4.0.1, Culture=neutral, PublicKeyToken=52fddfb3f94be800, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\CxVision20240904 - 20250910\bin\x64\Debug\MvCameraControl.Net.dll</HintPath>
+    <Reference Include="MvCameraControl.Net">
+      <HintPath>..\bin\x64\Debug\MvCameraControl.Net.dll</HintPath>
     </Reference>
     <Reference Include="MVSDK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -123,27 +115,19 @@
     </Reference>
     <Reference Include="MVSDK_Net, Version=1.3.0.9252, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\CxVision20240904 - 20250910\bin\x64\Debug\MVSDK_Net.dll</HintPath>
+      <HintPath>..\bin\x64\Debug\MVSDK_Net.dll</HintPath>
     </Reference>
     <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\CxVision\bin\x64\Debug\netstandard.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\激光干涉\IDS_Firmware_V1.7.9\04_C_SHARP_DLLs\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\bin\x64\Debug\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="OPTExtLibrary">
-      <HintPath>..\..\CxVision20240904 - 20250910\bin\x64\Debug\OPTExtLibrary.dll</HintPath>
+      <HintPath>..\bin\x64\Debug\OPTExtLibrary.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
-    <Reference Include="SRAPI_CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\CxVision20240904 - 20250910\bin\x64\Debug\SRAPI_CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="STILSensors, Version=3.10.3.1084, Culture=neutral, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Stil\x64\STILSensors.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -156,8 +140,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attocube\IDS3010\IDS3010.cs" />
-    <Compile Include="Attocube\IDS3010\IDSStreamLibrary.cs" />
     <Compile Include="Socket\Client.cs" />
     <Compile Include="Socket\SocketClientCam.cs" />
     <Compile Include="Basler\BaslerCam.cs" />
@@ -167,19 +149,12 @@
     <Compile Include="OptLineCam\CameraOptCallback.cs" />
     <Compile Include="SensorConnectConfigParamManger.cs" />
     <Compile Include="HalconAcq\HAcqCamClass.cs" />
-    <Compile Include="GBS\GbsFaceWliLocal.cs" />
-    <Compile Include="GBS\GbsFaceWliRemote.cs" />
-    <Compile Include="GBS\smartSharpInterface.cs" />
-    <Compile Include="GBS\smartVISwrap.cs" />
     <Compile Include="KeyEnce\LJV7000\Define.cs" />
     <Compile Include="KeyEnce\LJV7000\LJV7000LineLaser.cs" />
     <Compile Include="KeyEnce\LJV7000\NativeMethods.cs" />
     <Compile Include="KeyEnce\LJV7000\ThreadSafeBuffer.cs" />
     <Compile Include="KeyEnce\LJV7000\Utility.cs" />
     <Compile Include="daHeng\DaHengCamera.cs" />
-    <Compile Include="LiYi\LEConfocalDLL.cs" />
-    <Compile Include="LiYi\LiYiAdapter.cs" />
-    <Compile Include="LiYi\LiYiPointLaser.cs" />
     <Compile Include="MaiDeWeiShi\MdvsCamera.cs" />
     <Compile Include="SensorBase.cs" />
     <Compile Include="SensorConnectConfigParamMangerForm.cs">
@@ -189,16 +164,9 @@
       <DependentUpon>SensorConnectConfigParamMangerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SensorManage.cs" />
-    <Compile Include="SSZN\SR7LinkFunc.cs" />
-    <Compile Include="SSZN\SSZNLineLaser.cs" />
-    <Compile Include="Stil\StilPointLaserAdaptive.cs" />
-    <Compile Include="Stil\CStil_L.cs" />
-    <Compile Include="Stil\CStil_P.cs" />
     <Compile Include="SensorFactory.cs" />
     <Compile Include="ISensor.cs" />
-    <Compile Include="Stil\StilLineLaser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Stil\StilPointLaser.cs" />
     <Compile Include="SensorConnectConfigParam.cs" />
     <Compile Include="OptLineCam\OptLineCam.cs" />
     <Compile Include="埃科\CameraLink\IKapLineCameraLink.cs" />
@@ -227,7 +195,6 @@
       <Name>Cx.Common</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

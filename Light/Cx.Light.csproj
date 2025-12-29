@@ -63,11 +63,11 @@
     <Compile Include="LightConnectConfigManageForm.Designer.cs">
       <DependentUpon>LightConnectConfigManageForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LightControlForm.cs">
+    <Compile Include="LightPanelForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LightControlForm.Designer.cs">
-      <DependentUpon>LightControlForm.cs</DependentUpon>
+    <Compile Include="LightPanelForm.Designer.cs">
+      <DependentUpon>LightPanelForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LightParam.cs" />
     <Compile Include="LightParamManage.cs" />
@@ -86,9 +86,12 @@
     <EmbeddedResource Include="LightConnectConfigManageForm.resx">
       <DependentUpon>LightConnectConfigManageForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LightControlForm.resx">
-      <DependentUpon>LightControlForm.cs</DependentUpon>
+    <EmbeddedResource Include="LightPanelForm.resx">
+      <DependentUpon>LightPanelForm.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Cx.Common.csproj">
@@ -99,9 +102,6 @@
       <Project>{f57e9edc-a6de-4661-b660-95d2f84a7813}</Project>
       <Name>Cx.MotionControlDevice</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

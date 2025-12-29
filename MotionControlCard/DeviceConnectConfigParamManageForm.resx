@@ -145,6 +145,12 @@
   <data name="connectType.HeaderText" xml:space="preserve">
     <value>连接类型</value>
   </data>
+  <metadata name="SerializeTypeCol.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="SerializeTypeCol.HeaderText" xml:space="preserve">
+    <value>序列化类型</value>
+  </data>
   <metadata name="ConnectAddress.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -295,7 +301,7 @@
     <value>5</value>
   </data>
   <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1767, 630</value>
+    <value>1598, 630</value>
   </data>
   <data name="dataGridView1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -334,7 +340,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;SaveButton.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>1</value>
   </data>
   <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
@@ -352,7 +358,7 @@
     <value>3, 0</value>
   </data>
   <data name="设备连接配置label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1767, 50</value>
+    <value>1598, 50</value>
   </data>
   <data name="设备连接配置label.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -374,114 +380,6 @@
   </data>
   <data name="&gt;&gt;设备连接配置label.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="服务器comboBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="服务器comboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1233, 22</value>
-  </data>
-  <data name="服务器comboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>276, 20</value>
-  </data>
-  <data name="服务器comboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;服务器comboBox.Name" xml:space="preserve">
-    <value>服务器comboBox</value>
-  </data>
-  <data name="&gt;&gt;服务器comboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;服务器comboBox.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;服务器comboBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1180, 26</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 12</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>服务器:</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="加载服务器配置Btn.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="加载服务器配置Btn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1666, 7</value>
-  </data>
-  <data name="加载服务器配置Btn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 52</value>
-  </data>
-  <data name="加载服务器配置Btn.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="加载服务器配置Btn.Text" xml:space="preserve">
-    <value>加载服务器配置</value>
-  </data>
-  <data name="&gt;&gt;加载服务器配置Btn.Name" xml:space="preserve">
-    <value>加载服务器配置Btn</value>
-  </data>
-  <data name="&gt;&gt;加载服务器配置Btn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;加载服务器配置Btn.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;加载服务器配置Btn.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="下载到服务器Btn.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="下载到服务器Btn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1516, 7</value>
-  </data>
-  <data name="下载到服务器Btn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 52</value>
-  </data>
-  <data name="下载到服务器Btn.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="下载到服务器Btn.Text" xml:space="preserve">
-    <value>下载到服务器</value>
-  </data>
-  <data name="&gt;&gt;下载到服务器Btn.Name" xml:space="preserve">
-    <value>下载到服务器Btn</value>
-  </data>
-  <data name="&gt;&gt;下载到服务器Btn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;下载到服务器Btn.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;下载到服务器Btn.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="清空Btn.Location" type="System.Drawing.Point, System.Drawing">
     <value>194, 7</value>
@@ -505,7 +403,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;清空Btn.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>0</value>
   </data>
   <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -514,7 +412,7 @@
     <value>3, 689</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1767, 64</value>
+    <value>1598, 64</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -541,7 +439,7 @@
     <value>4</value>
   </data>
   <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1773, 756</value>
+    <value>1604, 756</value>
   </data>
   <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -568,7 +466,7 @@
     <value>6, 12</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1773, 756</value>
+    <value>1604, 756</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>设备连接配置管理</value>
@@ -595,6 +493,12 @@
     <value>connectType</value>
   </data>
   <data name="&gt;&gt;connectType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewComboBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SerializeTypeCol.Name" xml:space="preserve">
+    <value>SerializeTypeCol</value>
+  </data>
+  <data name="&gt;&gt;SerializeTypeCol.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewComboBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ConnectAddress.Name" xml:space="preserve">

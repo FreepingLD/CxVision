@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\x64\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -70,32 +70,13 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AdvancedMotionApi_CLRLib, Version=1.0.7915.33611, Culture=neutral, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\x64\Debug\AdvancedMotionApi_CLRLib.dll</HintPath>
-    </Reference>
-    <Reference Include="AxMG17MotorLib">
-      <HintPath>..\..\CxVision20240904 - 20250910\bin\x64\Debug\AxMG17MotorLib.dll</HintPath>
-    </Reference>
-    <Reference Include="CoreMotionApi_CLRLib">
-      <HintPath>..\bin\x64\Debug\CoreMotionApi_CLRLib.dll</HintPath>
-    </Reference>
-    <Reference Include="EventApi_CLRLib">
-      <HintPath>..\bin\x64\Debug\EventApi_CLRLib.dll</HintPath>
-    </Reference>
     <Reference Include="halcondotnetxl, Version=20.11.1.1, Culture=neutral, PublicKeyToken=4973bed59ddbf2b8, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\x64\Debug\halcondotnetxl.dll</HintPath>
     </Reference>
-    <Reference Include="HslCommunication">
-      <HintPath>..\..\CxVision20240904 - 20250910\bin\x64\Debug\HslCommunication.dll</HintPath>
-    </Reference>
-    <Reference Include="Interop.SPIIPLUSCOM660Lib">
-      <HintPath>..\..\CxVision20240904 - 20250910\bin\x64\Debug\Interop.SPIIPLUSCOM660Lib.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="IOApi_CLRLib">
-      <HintPath>..\bin\x64\Debug\IOApi_CLRLib.dll</HintPath>
+    <Reference Include="HslCommunication, Version=11.6.2.0, Culture=neutral, PublicKeyToken=3d72ad3b6b5ec0e3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\安裝+備份\HslCommunicationDemo\HslCommunication.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -144,9 +125,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WMX3Api_CLRLib">
-      <HintPath>..\bin\x64\Debug\WMX3Api_CLRLib.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\AxisInfo.cs" />
@@ -156,6 +134,9 @@
     <Compile Include="IControlBoard.cs" />
     <Compile Include="OPCUA\OPCUAClient.cs" />
     <Compile Include="OPCUA\UAClientHelperAPI.cs" />
+    <Compile Include="PLC\OmronPlc\OmronFinsTcpClient.cs" />
+    <Compile Include="PLC\OmronPlc\OmronPlc.cs" />
+    <Compile Include="PLC\ModbusTcpClient\ModbusTcpClient.cs" />
     <Compile Include="SocketDevice\SocketCommand.cs" />
     <Compile Include="SocketDevice\SocketClientDeviceRFID.cs" />
     <Compile Include="SocketDevice\SocketServerDeviceRFID.cs" />
@@ -169,7 +150,6 @@
     </Compile>
     <Compile Include="SocketDevice\配置通信指令\CommandParam.cs" />
     <Compile Include="SocketDevice\配置通信指令\CommandConfigManger.cs" />
-    <Compile Include="WMX3\WMX3Control.cs" />
     <Compile Include="固高\config.cs" />
     <Compile Include="固高\gts.cs" />
     <Compile Include="固高\GtsMotionControl.cs" />
@@ -231,12 +211,6 @@
     <Compile Include="运动控制设备参数\SerialParam.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Cx.Common.csproj">
-      <Project>{96865c17-1291-4b9d-a5ce-c0912dec3412}</Project>
-      <Name>Cx.Common</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
@@ -263,8 +237,12 @@
       <DependentUpon>CoordSysConfigParamManageForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="WMX3\DLL\" />
+    <ProjectReference Include="..\Common\Cx.Common.csproj">
+      <Project>{96865c17-1291-4b9d-a5ce-c0912dec3412}</Project>
+      <Name>Cx.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
