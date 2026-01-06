@@ -3239,10 +3239,10 @@ namespace FunctionBlock
                         {
                             default:
                             case "zh-CN":
-                                rootNode = this._treeViewTarget.AddItems(rectify, "纠偏计算", nameof(rectify.WcsCoordSystem), nameof(rectify.AddXYTheta), nameof(rectify.CurWcsVector), nameof(rectify.TeachWcsVector), nameof(rectify.WcsRectifyCoordSystem));
+                                rootNode = this._treeViewTarget.AddItems(rectify, "纠偏计算", nameof(rectify.WcsCoordSystem), nameof(rectify.AddXYTheta), nameof(rectify.CurWcsVector), nameof(rectify.TeachWcsVector)); //, nameof(rectify.WcsRectifyCoordSystem)
                                 break;
                             case "en-US":
-                                rootNode = this._treeViewTarget.AddItems(rectify, "RectifyCalculate", nameof(rectify.WcsCoordSystem), nameof(rectify.AddXYTheta), nameof(rectify.CurWcsVector), nameof(rectify.TeachWcsVector), nameof(rectify.WcsRectifyCoordSystem));
+                                rootNode = this._treeViewTarget.AddItems(rectify, "RectifyCalculate", nameof(rectify.WcsCoordSystem), nameof(rectify.AddXYTheta), nameof(rectify.CurWcsVector), nameof(rectify.TeachWcsVector)); //, nameof(rectify.WcsRectifyCoordSystem)
                                 break;
                         }
                     }

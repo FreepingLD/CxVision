@@ -285,9 +285,9 @@ namespace FunctionBlock
                     }
                 }
                 if (this._pixCoordSystem == null)
-                    this.Result.Succss = this._findCrossPoint.FindCrossPointMethod(this.ImageData, this.PixCoordSystem, offsetCoordSys);
+                    this.Result.Succss = this._findCrossPoint.FindManualPointMethod(this.ImageData, this.PixCoordSystem, offsetCoordSys);
                 else
-                    this.Result.Succss = this._findCrossPoint.FindCrossPointMethod(this.ImageData, this._pixCoordSystem, offsetCoordSys);
+                    this.Result.Succss = this._findCrossPoint.FindManualPointMethod(this.ImageData, this._pixCoordSystem, offsetCoordSys);
                 this.WcsPoint = this._findCrossPoint.FitPoint.Clone();
                 ///////////////////////////////////////////////
                 this.CreateResultInfo(13);

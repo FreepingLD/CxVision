@@ -186,7 +186,7 @@ namespace FunctionBlock
                     this.cts = new CancellationTokenSource();
                     Task.Run(() =>
                     {
-                        if (this._function.Execute(this._clickNode).Succss)
+                        if (this._function.Execute(this._refNode).Succss)
                         {
                             if (!this.cts.IsCancellationRequested)
                             {

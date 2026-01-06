@@ -249,38 +249,27 @@ namespace FunctionBlock
                             break;
                     }
                 }
-                Result.Succss = AlignMethod.CalculateAlign2(this.TargetPoint, this.SourcePoint, this.Param, out _affinePoint, out this._addXYTheta);
+                Result.Succss = AlignMethod.CalculateAlign2(this.TargetPoint, this.SourcePoint, this.Param, out _affinePoint, out this._addXYTheta);               
                 ////////////////////////// 补偿值 //////////////////////////////////////////////////////////////////
                 if (this._targetPoint != null && this._targetPoint.Length > 0)
                 {
-                    int minLength = Math.Min(this.TargetPoint.Length, this.SourcePoint.Length);
+                    int minLength = Math.Min(this._targetPoint.Length, this._sourcePoint.Length);
                     for (int i = 0; i < minLength; i++)
                     {
                         // 这里不能更新目标点的拍照坐标，映射的坐标计算要在别的地方计算
-                        LoggerHelper.Info(this.name + "->目标点坐标Pix：" + this._targetPoint[i].ToString());
-                        LoggerHelper.Info(this.name + "->源点坐标Pix：" + this._sourcePoint[i].ToString());
-                        switch (Param.RefObject)
-                        {
-                            case enRefObject.视野中心:
-                            case enRefObject.示教点:
-                            case enRefObject.目标点:
-                            default:
-                                LoggerHelper.Info(this.name + "->目标点坐标Wcs：" + this._targetPoint[i].GetWcsVector(this._sourcePoint[i].Grab_x, this._sourcePoint[i].Grab_y).ToString());
-                                break;
-                            case enRefObject.映射相机: // 如果是坐标映射，因为是两个不同的相机，所以这里不需要使用当前位置坐标来计算目标位置 
-                                LoggerHelper.Info(this.name + "->目标点坐标Wcs：" + this._targetPoint[i].GetWcsVector().ToString());
-                                break;
-                        }
-                        LoggerHelper.Info(this.name + "->源点坐标Wcs：" + this._sourcePoint[i].GetWcsVector().ToString());
+                        LoggerHelper.Info(this.name + "->目标点坐标Pix：" + this._targetPoint[i].ToString(), this._targetPoint[i].CamName);
+                        LoggerHelper.Info(this.name + "->目标点坐标Wcs：" + this._targetPoint[i].GetWcsVector().ToString(), this._targetPoint[i].CamName);
+                        LoggerHelper.Info(this.name + "->源点坐标Pix：" + this._sourcePoint[i].ToString(), this._sourcePoint[i].CamName);
+                        LoggerHelper.Info(this.name + "->源点坐标Wcs：" + this._sourcePoint[i].GetWcsVector().ToString(), this._sourcePoint[i].CamName);
                     }
                 }
                 else
                 {
-                    for (int i = 0; i < this.SourcePoint.Length; i++)
+                    for (int i = 0; i < this._sourcePoint.Length; i++)
                     {
                         // 这里不能更新目标点的拍照坐标，映射的坐标计算要在别的地方计算
-                        LoggerHelper.Info(this.name + "->源点坐标Pix：" + this._sourcePoint[i].ToString());
-                        LoggerHelper.Info(this.name + "->源点坐标Wcs：" + this._sourcePoint[i].GetWcsVector().ToString());
+                        LoggerHelper.Info(this.name + "->源点坐标Pix：" + this._sourcePoint[i].ToString(), this._sourcePoint[i].CamName);
+                        LoggerHelper.Info(this.name + "->源点坐标Wcs：" + this._sourcePoint[i].GetWcsVector().ToString(), this._sourcePoint[i].CamName);
                     }
                 }
                 this.CreateResultInfo(4);

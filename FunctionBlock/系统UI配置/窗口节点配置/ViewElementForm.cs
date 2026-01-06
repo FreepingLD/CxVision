@@ -19,6 +19,8 @@ namespace FunctionBlock
             InitializeComponent();
             this.TopMost = true;
             this.ShowInTaskbar = true;
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             foreach (var item in ViewConfigParamManager.Instance.ViewParamList)
             {
                 this.listBox1.Items.Add(item.ViewName);
@@ -29,6 +31,8 @@ namespace FunctionBlock
             InitializeComponent();
             this.TopMost = true;
             this.ShowInTaskbar = true;
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             if (viewConfigParam == null)
                 this._viewConfigParam = new ViewConfigParam();
             else

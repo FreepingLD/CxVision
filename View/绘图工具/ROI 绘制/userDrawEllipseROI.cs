@@ -501,17 +501,7 @@ namespace View
             double dist2 = Math.Sqrt((y - this.ellipse.upMiddlePointRow) * (y - this.ellipse.upMiddlePointRow) + (x - this.ellipse.upMiddlePointCol) * (x - this.ellipse.upMiddlePointCol));
             double dist3 = Math.Sqrt((y - this.ellipse.rightPointRow) * (y - this.ellipse.rightPointRow) + (x - this.ellipse.rightPointCol) * (x - this.ellipse.rightPointCol));
             double dist4 = Math.Sqrt((y - this.ellipse.downMiddlePointRow) * (y - this.ellipse.downMiddlePointRow) + (x - this.ellipse.downMiddlePointCol) * (x - this.ellipse.downMiddlePointCol));
-            //HXLDCont innerXLD = CreateEllipseObject(this.ellipse.diffRadius * -1);
-            //HXLDCont outXLD = CreateEllipseObject(this.ellipse.diffRadius);
-            //double min1Dist = 0, min2Dist = 0, max1Dist = 0, max2Dist = 0;
-            //if (innerXLD.Key.ToInt64() > 0)
-            //    innerXLD.DistancePc(y, x, out min1Dist, out max1Dist);
-            //if (outXLD.Key.ToInt64() > 0)
-            //    outXLD.DistancePc(y, x, out min2Dist, out max2Dist);
-            //////////////////////////////////
-            //if (dist < (Math.Min(this.ellipse.radius1,this.ellipse.radius2) * 0.7)) // 表示移动 - Math.Abs(this.ellipse.diffRadius)
-            //    selectNode = PosSizableRect.CircleCenter;
-
+            ///////////////////////////////////////////////////////////////////
             if (this.ellipse.GetHXLD(this.nodeSizeRect).TestXldPoint(y, x) > 0)
                 selectNode = PosSizableRect.CircleCenter;
             //////////////////////////////////////////////////
@@ -526,7 +516,6 @@ namespace View
             ////////////////////////////////////////////////// 第一点
             if (dist4 <= this.nodeSizeRect)  //Math.Abs(0.1 * this.ellipse.radius1)
                 selectNode = PosSizableRect.DownMiddleNode;
-
             //////////////////////////
             return selectNode;
 
@@ -552,7 +541,7 @@ namespace View
                 case PosSizableRect.RightBottomNode:
                 case PosSizableRect.UpMiddleNode:  //MovePos
                 case PosSizableRect.DownMiddleNode:  //MovePos
-                    return Cursors.Cross;
+                    return Cursors.Default;
                 default:
                     return Cursors.Default;
             }

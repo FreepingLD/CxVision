@@ -477,6 +477,16 @@ namespace FunctionBlock
             }
             return list;
         }
+        public List<TreeNode> GetTreeViewLableNode()
+        {
+            List<TreeNode> list = new List<TreeNode>();
+            for (int i = 0; i < this.treeView.Nodes.Count; i++)
+            {
+                if(this.treeView.Nodes[i].Tag is UserLable)
+                list.Add(this.treeView.Nodes[i]);
+            }
+            return list;
+        }
         private void GetTag(TreeNode node)
         {
             if (node.Name.Contains("Tool"))
@@ -2492,15 +2502,17 @@ namespace FunctionBlock
                     //else
                     //    form.Text = node.FullPath.Replace("\\", ".");
                     break;  // 
-                            //case "胶路检测":
-                            //case nameof(GlueDetect):
-                            //    form = new GlueDetectForm(node, imageData, treeViewName);
-                            //    form.Owner = this.parentForm;
-                            //if (treeViewName != null && treeViewName.Length > 0)
-                            //    form.Text = treeViewName + "." + node.FullPath.Replace("\\", ".");
-                            //else
-                            //    form.Text = node.FullPath.Replace("\\", ".");
-                            // break;  // 
+
+                case "Mark定位":
+                case nameof(MarkLocalization):
+                    form = new MarkLocalizationForm(node, imageData, treeViewName);
+                    form.Owner = this.parentForm;
+                    //if (treeViewName != null && treeViewName.Length > 0)
+                    //    form.Text = treeViewName + "." + node.FullPath.Replace("\\", ".");
+                    //else
+                    //    form.Text = node.FullPath.Replace("\\", ".");
+                    break;  // 
+
                 case "并发执行":
                 case nameof(ConcurrentExecution):
                     form = new ConcurrentExecutionForm(node, imageData, treeViewName);

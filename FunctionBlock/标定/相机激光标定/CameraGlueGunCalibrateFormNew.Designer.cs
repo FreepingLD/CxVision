@@ -511,7 +511,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 12);
             this.label5.TabIndex = 66;
-            this.label5.Text = "胶枪_Z:";
+            this.label5.Text = "目标_Z:";
             // 
             // 胶枪_Y_textBox
             // 
@@ -529,7 +529,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 12);
             this.label4.TabIndex = 64;
-            this.label4.Text = "胶枪_Y:";
+            this.label4.Text = "目标_Y:";
             // 
             // 胶枪_X_textBox
             // 
@@ -558,7 +558,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 12);
             this.label1.TabIndex = 62;
-            this.label1.Text = "胶枪_X:";
+            this.label1.Text = "目标_X:";
             // 
             // panel2
             // 
@@ -599,7 +599,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CameraGlueGunCalibrateFormNew";
             this.ShowIcon = false;
-            this.Text = "相机&针头&激光标定";
+            this.Text = "相机&针头/激光标定";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CameraGlueGunCalibrateForm_FormClosing);
             this.Load += new System.EventHandler(this.CameraGlueGunCalibrateFormNew_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

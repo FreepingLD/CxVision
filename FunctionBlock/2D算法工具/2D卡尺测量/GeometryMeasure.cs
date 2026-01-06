@@ -45,7 +45,7 @@ namespace FunctionBlock
         private string _callipersCount = "auto"; //0：表示自动确认的卡尺数量来寻边，非0值，表示使用指定的卡尺数量来寻边
         private enMeasureDirection measure_direction = enMeasureDirection.从左到右;
         private string _fillUpInvalidData = "false";
-        private double _dataPercent = 0.7;
+        private double _dataPercent = 0.8;
         private string type;
         private int _fitPointNum = 10;
         private enPointFilterMethod _pointFilterMethod;
@@ -1223,6 +1223,12 @@ namespace FunctionBlock
             this.rect2RowPoints = null;
             this.rect2ColPoints = null;
             this.rect2PhiPoints = null;
+            // 多边形和多段线测量默认滤波为最小点数
+            //if (this.PointFilterMethod == enPointFilterMethod.NONE)
+            //{
+            //    this.PointFilterMethod = enPointFilterMethod.最小点数;
+            //    this.PointFilterParam = "3";
+            //}
             List<double> listRow = new List<double>();
             List<double> listCol = new List<double>();
             List<double> listPhi = new List<double>();
@@ -1236,15 +1242,19 @@ namespace FunctionBlock
                     num += count;
                     ///////////////////////////////
                     double distMea = HMisc.DistancePp(RowList[i], ColList[i], RowList[i + 1], ColList[i + 1]) / count; // 计算测量区域的步长
+                    double linePhi = Math.Atan2(RowList[i + 1] - RowList[i], ColList[i + 1] - ColList[i]);  // 这里用的是像素坐标，Y值没有取反，所以后面计算时可以直接用 + 
                     for (int ii = 0; ii < count; ii++)
                     {
-                        GetPointLine(RowList[i], ColList[i], RowList[i + 1], ColList[i + 1], distMea * ii, out row, out col);
+                        row = RowList[i] + Math.Sin(linePhi) * distMea * ii;
+                        col = ColList[i] + Math.Cos(linePhi) * distMea * ii;
+                        //GetPointLine(RowList[i], ColList[i], RowList[i + 1], ColList[i + 1], distMea * ii, out row, out col);
                         listRow.Add(row);
                         listCol.Add(col);
                         listPhi.Add(normalPhi[i * 1]); // 
                     }
                 }
                 //////////////////////////////////////////////
+                this.num_measures = (int)num;
                 this.rect2RowPoints = listRow.ToArray();
                 this.rect2ColPoints = listCol.ToArray();
                 this.rect2PhiPoints = listPhi.ToArray();
@@ -1293,6 +1303,12 @@ namespace FunctionBlock
             this.rect2RowPoints = null;
             this.rect2ColPoints = null;
             this.rect2PhiPoints = null;
+            // 多边形和多段线测量默认滤波为最小点数
+            //if (this.PointFilterMethod == enPointFilterMethod.NONE)
+            //{
+            //    this.PointFilterMethod = enPointFilterMethod.NONE;
+            //    this.PointFilterParam = "3";
+            //}
             List<double> listRow = new List<double>();
             List<double> listCol = new List<double>();
             List<double> listPhi = new List<double>();
@@ -1311,16 +1327,19 @@ namespace FunctionBlock
                 double count = (int)(HMisc.DistancePp(listTempRow[i], listTempCol[i], listTempRow[i + 1], listTempCol[i + 1]) / (this.measure_length2 * 2));// 自动计算第一条直线上的测量区域数量
                 num += count;
                 ///////////////////////////////
-                double distMea = HMisc.DistancePp(listTempRow[i], listTempCol[i], listTempRow[i + 1], listTempCol[i + 1]) / count; // 计算测量区域的步长
+                double distMea = HMisc.DistancePp(listTempRow[i], listTempCol[i], listTempRow[i + 1], listTempCol[i + 1]) / (count); // 计算测量区域的步长
+                double linePhi = Math.Atan2(listTempRow[i + 1] - listTempRow[i], listTempCol[i + 1] - listTempCol[i]);  // 这里用的是像素坐标，Y值没有取反，所以后面计算时可以直接用 + 
                 for (int ii = 0; ii < count; ii++)
                 {
-                    GetPointLine(listTempRow[i], listTempCol[i], listTempRow[i + 1], listTempCol[i + 1], distMea * ii, out row, out col);
+                    row = listTempRow[i] + Math.Sin(linePhi) * distMea * ii;
+                    col = listTempCol[i] + Math.Cos(linePhi) * distMea * ii;
+                    //GetPointLine(listTempRow[i], listTempCol[i], listTempRow[i + 1], listTempCol[i + 1], distMea * ii, out row, out col);
                     listRow.Add(row);
                     listCol.Add(col);
                     listPhi.Add(normalPhi[i * 1]); // 
                 }
             }
-            //this.num_measures = (int)num;
+            this.num_measures = (int)num;
             this.rect2RowPoints = listRow.ToArray();
             this.rect2ColPoints = listCol.ToArray();
             this.rect2PhiPoints = listPhi.ToArray();
@@ -3533,6 +3552,8 @@ namespace FunctionBlock
         最小原点距,
         灰度低通滤波,
         灰度高通滤波,
+        平滑滤波,
+        最小点数,
     }
 
 

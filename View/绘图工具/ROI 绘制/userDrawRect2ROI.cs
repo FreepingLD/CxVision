@@ -585,39 +585,39 @@ namespace View
             double dist3 = Math.Sqrt((y - this.rect2.rightDownCornerPointRow) * (y - this.rect2.rightDownCornerPointRow) + (x - this.rect2.rightDownCornerPointCol) * (x - this.rect2.rightDownCornerPointCol));
             double dist4 = Math.Sqrt((y - this.rect2.leftDownCornerPointRow) * (y - this.rect2.leftDownCornerPointRow) + (x - this.rect2.leftDownCornerPointCol) * (x - this.rect2.leftDownCornerPointCol));
             //////////////////////////////////
-            double dist5 = HMisc.DistancePl(y, x, this.rect2.leftUpCornerPointRow, this.rect2.leftUpCornerPointCol, this.rect2.rightUpCornerPointRow, this.rect2.rightUpCornerPointCol);
-            double dist6 = HMisc.DistancePl(y, x, this.rect2.rightUpCornerPointRow, this.rect2.rightUpCornerPointCol, this.rect2.rightDownCornerPointRow, this.rect2.rightDownCornerPointCol);
-            double dist7 = HMisc.DistancePl(y, x, this.rect2.rightDownCornerPointRow, this.rect2.rightDownCornerPointCol, this.rect2.leftDownCornerPointRow, this.rect2.leftDownCornerPointCol);
-            double dist8 = HMisc.DistancePl(y, x, this.rect2.leftDownCornerPointRow, this.rect2.leftDownCornerPointCol, this.rect2.leftUpCornerPointRow, this.rect2.leftUpCornerPointCol);
+            double dist5 = Math.Sqrt((y - (this.rect2.leftUpCornerPointRow + this.rect2.rightUpCornerPointRow) * 0.5) * (y - (this.rect2.leftUpCornerPointRow + this.rect2.rightUpCornerPointRow) * 0.5) + (x - (this.rect2.leftUpCornerPointCol + this.rect2.rightUpCornerPointCol) * 0.5) * (x - (this.rect2.leftUpCornerPointCol + this.rect2.rightUpCornerPointCol) * 0.5));
+            double dist6 = Math.Sqrt((y - (this.rect2.rightUpCornerPointRow + this.rect2.rightDownCornerPointRow) * 0.5) * (y - (this.rect2.rightUpCornerPointRow + this.rect2.rightDownCornerPointRow) * 0.5) + (x - (this.rect2.rightUpCornerPointCol + this.rect2.rightDownCornerPointCol) * 0.5) * (x - (this.rect2.rightUpCornerPointCol + this.rect2.rightDownCornerPointCol) * 0.5));
+            double dist7 = Math.Sqrt((y - (this.rect2.rightDownCornerPointRow + this.rect2.leftDownCornerPointRow) * 0.5) * (y - (this.rect2.rightDownCornerPointRow + this.rect2.leftDownCornerPointRow) * 0.5) + (x - (this.rect2.rightDownCornerPointCol + this.rect2.leftDownCornerPointCol) * 0.5) * (x - (this.rect2.rightDownCornerPointCol + this.rect2.leftDownCornerPointCol) * 0.5));
+            double dist8 = Math.Sqrt((y - (this.rect2.leftDownCornerPointRow + this.rect2.leftUpCornerPointRow) * 0.5) * (y - (this.rect2.leftDownCornerPointRow + this.rect2.leftUpCornerPointRow) * 0.5) + (x - (this.rect2.leftDownCornerPointCol + this.rect2.leftUpCornerPointCol) * 0.5) * (x - (this.rect2.leftDownCornerPointCol + this.rect2.leftUpCornerPointCol) * 0.5));
             /////////////////////////////////////////////////////////
             //if (minDist < 10) // 表示移动
             //    selectNode = PosSizableRect.Rect2Over;
             if (this.rect2.GetHXLD(this.nodeSizeRect).TestXldPoint(y, x) > 0)
                 selectNode = PosSizableRect.Rect2Inside;
-            if (minDist < 10 && dist5 < 10) // 表示移动
+            if (dist5 < this.nodeSizeRect) // 表示移动 minDist < 10 && 
                 selectNode = PosSizableRect.UpMidlleCorner;
-            if (minDist < 10 && dist6 < 10) // 表示移动
+            if (dist6 < this.nodeSizeRect) // 表示移动 minDist < 10 && 
                 selectNode = PosSizableRect.RightMidlleCorner;
             /////////////////////////////
-            if (minDist < 10 && dist7 < 10) // 表示移动
+            if (dist7 < this.nodeSizeRect) // 表示移动 minDist < 10 &&
                 selectNode = PosSizableRect.DownMidlleCorner;
             ///////////////////////////////
-            if (minDist < 10 && dist8 < 10) // 表示移动
+            if (dist8 < this.nodeSizeRect) // 表示移动 minDist < 10 && 
                 selectNode = PosSizableRect.LeftMidlleCorner;
             //////////////////////////////////////////////////第二点
             //if (dist < Math.Abs((Math.Min(this.rect2.length1, this.rect2.length2))) * 0.7) //  - Math.Abs(this.rect2.diffRadius
             //    selectNode = PosSizableRect.Rect2Inside;
             //////////////////////////////////////////////////第二点
-            if (dist1 < 10)
+            if (dist1 < this.nodeSizeRect)
                 selectNode = PosSizableRect.LeftUpCorner;
             //////////////////////////////////////////////////第二点
-            if (dist2 < 10)
+            if (dist2 < this.nodeSizeRect)
                 selectNode = PosSizableRect.RightUpCorner;
             //////////////////////////////////////////////////第二点
-            if (dist3 < 10)
+            if (dist3 < this.nodeSizeRect)
                 selectNode = PosSizableRect.RightDownCorner;
             //////////////////////////////////////////////////第二点
-            if (dist4 < 10)
+            if (dist4 < this.nodeSizeRect)
                 selectNode = PosSizableRect.LeftDownCorner;
             //////////////////////////////////////////////////第三点
             //if (Math.Abs(this.rect2.diffRadius) * 0.9 < minDist && minDist < Math.Abs(this.rect2.diffRadius) * 1.1)
@@ -640,16 +640,16 @@ namespace View
             switch (p)
             {
                 case PosSizableRect.RightDownCorner: //SizeNWSE
-                    return Cursors.Cross;
+                    return Cursors.Default;
 
                 case PosSizableRect.RightUpCorner:
-                    return Cursors.Cross;
+                    return Cursors.Default;
 
                 case PosSizableRect.LeftDownCorner: //SizeNESW
-                    return Cursors.Cross;
+                    return Cursors.Default;
 
                 case PosSizableRect.LeftUpCorner:
-                    return Cursors.Cross;
+                    return Cursors.Default;
 
                 case PosSizableRect.Rect2Inside:
                     return Cursors.Hand;

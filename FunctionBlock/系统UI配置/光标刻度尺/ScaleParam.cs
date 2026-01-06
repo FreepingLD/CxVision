@@ -21,7 +21,7 @@ namespace FunctionBlock
             this.IsShowCrossMark = true;
             this.IsShowCircleMark = false;
             this.IsShowScaleMark = false;
-            this.Color = enColor.green;
+            this.Color = enColor.orange;
         }
 
         public enColor Color

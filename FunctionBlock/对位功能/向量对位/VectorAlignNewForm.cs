@@ -28,7 +28,7 @@ namespace FunctionBlock
         {
             this._function = function;
             InitializeComponent();
-            this.titleLabel.Text = function.GetPropertyValues("名称").ToString();
+            this.Text = function.GetPropertyValues("名称").ToString();
             //new ListBoxWrapClass().InitListBox(this.listBox1, function);
             new ListBoxWrapClass().InitListBox(this.listBox2, function, 2);
             //new ListBoxWrapClass().InitListBox(this.listBox3, function, 3);
@@ -39,7 +39,7 @@ namespace FunctionBlock
             this._refNode = node;
             this._function = this._refNode.Tag as IFunction;
             InitializeComponent();
-            this.titleLabel.Text = node.Text;
+            this.Text = node.Text;
             //new ListBoxWrapClass().InitListBox(this.listBox1, node);
             new ListBoxWrapClass().InitListBox(this.listBox2, node, 2);
             //new ListBoxWrapClass().InitListBox(this.listBox3, node, 3);
@@ -58,7 +58,7 @@ namespace FunctionBlock
                 foreach (var item in ((VectorAlignNew)this._function).SourcePixCoordSystem)
                 {
                     userWcsVector wcsCurPoint = item.CurrentPoint.GetWcsVector();
-                    userWcsVector wcsTeachPoint = item.CurrentPoint.GetWcsVector();
+                    userWcsVector wcsTeachPoint = item.CurrentPoint.GetWcsVector(wcsCurPoint.Grab_x, wcsCurPoint.Grab_y);
                     PlateCurVector.Add(new drawWcsPoint(wcsCurPoint.X, wcsCurPoint.Y, wcsCurPoint.Z));
                     PlateTeachVector.Add(new drawWcsPoint(wcsTeachPoint.X, wcsTeachPoint.Y, wcsTeachPoint.Z));
                 }
@@ -68,7 +68,7 @@ namespace FunctionBlock
                 foreach (var item in ((VectorAlignNew)this._function).TargetPixCoordSystem)
                 {
                     userWcsVector wcsCurPoint = item.CurrentPoint.GetWcsVector();
-                    userWcsVector wcsTeachPoint = item.CurrentPoint.GetWcsVector();
+                    userWcsVector wcsTeachPoint = item.CurrentPoint.GetWcsVector(wcsCurPoint.Grab_x, wcsCurPoint.Grab_y);
                     BandCurVector.Add(new drawWcsPoint(wcsCurPoint.X, wcsCurPoint.Y, wcsCurPoint.Z));
                     BandTeachVector.Add(new drawWcsPoint(wcsTeachPoint.X, wcsTeachPoint.Y, wcsTeachPoint.Z));
                 }
@@ -304,45 +304,45 @@ namespace FunctionBlock
         #endregion
 
         #region  窗体绽放功能 
-        private const int Guying_HTLEFT = 10;
-        private const int Guying_HTRIGHT = 11;
-        private const int Guying_HTTOP = 12;
-        private const int Guying_HTTOPLEFT = 13;
-        private const int Guying_HTTOPRIGHT = 14;
-        private const int Guying_HTBOTTOM = 15;
-        private const int Guying_HTBOTTOMLEFT = 0x10;
-        private const int Guying_HTBOTTOMRIGHT = 17;
-        protected override void WndProc(ref Message m)
-        {
-            switch (m.Msg)
-            {
-                case 0x0084:
-                    base.WndProc(ref m);
-                    Point vPoint = new Point((int)m.LParam & 0xFFFF,
-                        (int)m.LParam >> 16 & 0xFFFF);
-                    vPoint = PointToClient(vPoint);
-                    if (vPoint.X <= 5)
-                        if (vPoint.Y <= 5)
-                            m.Result = (IntPtr)Guying_HTTOPLEFT;
-                        else if (vPoint.Y >= ClientSize.Height - 5)
-                            m.Result = (IntPtr)Guying_HTBOTTOMLEFT;
-                        else m.Result = (IntPtr)Guying_HTLEFT;
-                    else if (vPoint.X >= ClientSize.Width - 5)
-                        if (vPoint.Y <= 5)
-                            m.Result = (IntPtr)Guying_HTTOPRIGHT;
-                        else if (vPoint.Y >= ClientSize.Height - 5)
-                            m.Result = (IntPtr)Guying_HTBOTTOMRIGHT;
-                        else m.Result = (IntPtr)Guying_HTRIGHT;
-                    else if (vPoint.Y <= 2)
-                        m.Result = (IntPtr)Guying_HTTOP;
-                    else if (vPoint.Y >= ClientSize.Height - 5)
-                        m.Result = (IntPtr)Guying_HTBOTTOM;
-                    break;
-                default:
-                    base.WndProc(ref m);
-                    break;
-            }
-        }
+        //private const int Guying_HTLEFT = 10;
+        //private const int Guying_HTRIGHT = 11;
+        //private const int Guying_HTTOP = 12;
+        //private const int Guying_HTTOPLEFT = 13;
+        //private const int Guying_HTTOPRIGHT = 14;
+        //private const int Guying_HTBOTTOM = 15;
+        //private const int Guying_HTBOTTOMLEFT = 0x10;
+        //private const int Guying_HTBOTTOMRIGHT = 17;
+        //protected override void WndProc(ref Message m)
+        //{
+        //    switch (m.Msg)
+        //    {
+        //        case 0x0084:
+        //            base.WndProc(ref m);
+        //            Point vPoint = new Point((int)m.LParam & 0xFFFF,
+        //                (int)m.LParam >> 16 & 0xFFFF);
+        //            vPoint = PointToClient(vPoint);
+        //            if (vPoint.X <= 5)
+        //                if (vPoint.Y <= 5)
+        //                    m.Result = (IntPtr)Guying_HTTOPLEFT;
+        //                else if (vPoint.Y >= ClientSize.Height - 5)
+        //                    m.Result = (IntPtr)Guying_HTBOTTOMLEFT;
+        //                else m.Result = (IntPtr)Guying_HTLEFT;
+        //            else if (vPoint.X >= ClientSize.Width - 5)
+        //                if (vPoint.Y <= 5)
+        //                    m.Result = (IntPtr)Guying_HTTOPRIGHT;
+        //                else if (vPoint.Y >= ClientSize.Height - 5)
+        //                    m.Result = (IntPtr)Guying_HTBOTTOMRIGHT;
+        //                else m.Result = (IntPtr)Guying_HTRIGHT;
+        //            else if (vPoint.Y <= 2)
+        //                m.Result = (IntPtr)Guying_HTTOP;
+        //            else if (vPoint.Y >= ClientSize.Height - 5)
+        //                m.Result = (IntPtr)Guying_HTBOTTOM;
+        //            break;
+        //        default:
+        //            base.WndProc(ref m);
+        //            break;
+        //    }
+        //}
         #endregion
 
         #region 防止改变窗口大小时控件闪烁功能
@@ -393,13 +393,13 @@ namespace FunctionBlock
         private void titleLabel_MouseEnter(object sender, EventArgs e)
         {
             this.Cursor = Cursors.Hand;
-            this.titleLabel.BackColor = System.Drawing.Color.Orange;
+            //this.titleLabel.BackColor = System.Drawing.Color.Orange;
         }
 
         private void titleLabel_MouseLeave(object sender, EventArgs e)
         {
             this.Cursor = Cursors.Default;
-            this.titleLabel.BackColor = System.Drawing.Color.Orange;
+            //this.titleLabel.BackColor = System.Drawing.Color.Orange;
             //this.titleLabel.BackColor = System.Drawing.Color.LightGray;
         }
 

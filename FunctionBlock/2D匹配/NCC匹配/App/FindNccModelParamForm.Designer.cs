@@ -43,7 +43,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.最小得分textBox.Location = new System.Drawing.Point(64, 2);
             this.最小得分textBox.Name = "最小得分textBox";
-            this.最小得分textBox.Size = new System.Drawing.Size(294, 21);
+            this.最小得分textBox.Size = new System.Drawing.Size(286, 21);
             this.最小得分textBox.TabIndex = 110;
             // 
             // 匹配个数textBox
@@ -52,7 +52,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.匹配个数textBox.Location = new System.Drawing.Point(64, 27);
             this.匹配个数textBox.Name = "匹配个数textBox";
-            this.匹配个数textBox.Size = new System.Drawing.Size(294, 21);
+            this.匹配个数textBox.Size = new System.Drawing.Size(286, 21);
             this.匹配个数textBox.TabIndex = 109;
             // 
             // label21
@@ -80,7 +80,7 @@
             this.匹配模式comboBox.FormattingEnabled = true;
             this.匹配模式comboBox.Location = new System.Drawing.Point(64, 54);
             this.匹配模式comboBox.Name = "匹配模式comboBox";
-            this.匹配模式comboBox.Size = new System.Drawing.Size(294, 20);
+            this.匹配模式comboBox.Size = new System.Drawing.Size(286, 20);
             this.匹配模式comboBox.TabIndex = 133;
             // 
             // label16
@@ -95,7 +95,7 @@
             // 更多参数button
             // 
             this.更多参数button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.更多参数button.Location = new System.Drawing.Point(294, 78);
+            this.更多参数button.Location = new System.Drawing.Point(286, 78);
             this.更多参数button.Name = "更多参数button";
             this.更多参数button.Size = new System.Drawing.Size(64, 20);
             this.更多参数button.TabIndex = 134;
@@ -108,7 +108,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(370, 104);
+            this.ClientSize = new System.Drawing.Size(362, 104);
             this.Controls.Add(this.更多参数button);
             this.Controls.Add(this.匹配模式comboBox);
             this.Controls.Add(this.label16);

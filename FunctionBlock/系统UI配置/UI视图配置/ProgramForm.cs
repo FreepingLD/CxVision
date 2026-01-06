@@ -127,8 +127,8 @@ namespace FunctionBlock
                         this.编辑toolStripButton.Enabled = false;
                         break;
                     case enUserName.工程师:
-                        this.添加toolStripButton.Enabled = true;
-                        this.删除toolStripButton.Enabled = true;
+                        this.添加toolStripButton.Enabled = false;
+                        this.删除toolStripButton.Enabled = false;
                         this.编辑toolStripButton.Enabled = false;
                         break;
                     case enUserName.开发人员:

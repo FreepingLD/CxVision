@@ -20,10 +20,14 @@ namespace FunctionBlock
         public SetCamExposeForm()
         {
             InitializeComponent();
+            this.TopMost = true;    
+            this.ShowInTaskbar = true; 
         }
         public SetCamExposeForm(string name)
         {
             InitializeComponent();
+            this.TopMost = true;
+            this.ShowInTaskbar = true;
             this.ReName = name;
             this._camName = name;
         }
@@ -102,6 +106,8 @@ namespace FunctionBlock
                new Common.UserMessageForm(ex.ToString()).ShowDialog();;
             }
         }
+
+
 
 
     }

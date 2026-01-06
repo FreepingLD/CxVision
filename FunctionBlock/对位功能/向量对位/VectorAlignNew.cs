@@ -160,6 +160,17 @@ namespace FunctionBlock
                 Result.Succss = AlignMethod.CalculateAlign(this.SourcePixCoordSystem, this.TargetPixCoordSystem, this.Param, out this._addXYTheta);
                 ////////////////////////// 补偿值 //////////////////////////////////////////////////////////////////
                 stopwatch.Stop();
+                for (int i = 0; i < this._sourcePixCoordSystem.Length; i++)
+                {
+                    LoggerHelper.Info(this.name + "->目标点当前坐标Pix：" + this._targetPixCoordSystem[i].CurrentPoint.ToString(), this._targetPixCoordSystem[i].CurrentPoint.CamName);
+                    LoggerHelper.Info(this.name + "->目标点当前坐标Wcs：" + this._targetPixCoordSystem[i].CurrentPoint.GetWcsVector().ToString(), this._targetPixCoordSystem[i].CurrentPoint.CamName);
+                    LoggerHelper.Info(this.name + "->目标点示教坐标Pix：" + this._targetPixCoordSystem[i].ReferencePoint.ToString(), this._targetPixCoordSystem[i].ReferencePoint.CamName);
+                    LoggerHelper.Info(this.name + "->目标点示教坐标Wcs：" + this._targetPixCoordSystem[i].ReferencePoint.GetWcsVector().ToString(), this._targetPixCoordSystem[i].ReferencePoint.CamName);
+                    LoggerHelper.Info(this.name + "->源点当前坐标Pix：" + this._sourcePixCoordSystem[i].CurrentPoint.ToString(), this._sourcePixCoordSystem[i].CurrentPoint.CamName);
+                    LoggerHelper.Info(this.name + "->源点当前坐标Wcs：" + this._sourcePixCoordSystem[i].CurrentPoint.GetWcsVector().ToString(), this._sourcePixCoordSystem[i].CurrentPoint.CamName);
+                    LoggerHelper.Info(this.name + "->源点示教坐标Pix：" + this._sourcePixCoordSystem[i].ReferencePoint.ToString(), this._sourcePixCoordSystem[i].ReferencePoint.CamName);
+                    LoggerHelper.Info(this.name + "->源点示教坐标Wcs：" + this._sourcePixCoordSystem[i].ReferencePoint.GetWcsVector().ToString(), this._sourcePixCoordSystem[i].ReferencePoint.CamName);
+                }
                 this.CreateResultInfo(4);
                 /////////////////////偏移值 //////////////////////////////////////////////////////////////////
                 ((BindingList<MeasureResultInfo>)this.ResultInfo)[0].SetValue(this.name, "Add_x", this.AddXYTheta.X);

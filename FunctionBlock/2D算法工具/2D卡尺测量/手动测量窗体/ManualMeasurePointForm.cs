@@ -17,9 +17,10 @@ namespace FunctionBlock
         private IFunction _function;
         private userDrawPointROI drawObject;
         private drawPixPoint _pixPoint;
+        private drawWcsPoint _wcsPoint;
 
         public drawPixPoint PixPoint { get => _pixPoint; set => _pixPoint = value; }
-
+        public drawWcsPoint WcsPoint { get => _wcsPoint; set => _wcsPoint = value; }
 
         public ManualMeasurePointForm(ImageDataClass imageData, drawPixPoint pixPoint)
         {
@@ -275,6 +276,7 @@ namespace FunctionBlock
             try
             {
                 this._pixPoint = this.drawObject.GetDrawPixPointParam();
+                this._wcsPoint = this._pixPoint.GetWcsPoint(this.drawObject.CameraParam);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

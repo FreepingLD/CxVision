@@ -67,7 +67,7 @@ namespace FunctionBlock
         }
 
 
-        public bool FindCrossPointMethod(ImageDataClass image, userPixCoordSystem pixCoordSystem, userPixCoordSystem offsetCoordSystem = null)
+        public bool FindManualPointMethod(ImageDataClass image, userPixCoordSystem pixCoordSystem, userPixCoordSystem offsetCoordSystem = null)
         {
             bool result = false;
             HTuple Parameter, x, y, z;
@@ -94,7 +94,6 @@ namespace FunctionBlock
             HTuple homMat2DCompose;
             HOperatorSet.HomMat2dCompose(this.pixCoordSystem?.GetVariationHomMat2D(), offsetCoordSystem?.GetVariationHomMat2D(), out homMat2DCompose); // 合并变换矩阵
             userPixPoint pointPixPosition = this.PointPixPosition.AffineTransPixPoint(homMat2DCompose); // 经坐标变换后的像素位置
-            //userPixLine linePixPosition = this.LinePixPosition.AffinePixLine2D(this.pixCoordSystem.GetVariationHomMat2D()); // 经坐标变换后的像素位置
             if (this.lineGeometry.FillUpInvalidData == "origin_坐标原点") // 以相机坐标系的原点为捨取点
             {
                 double zeroRow, zeroCol;

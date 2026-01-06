@@ -40,6 +40,8 @@ namespace FunctionBlock
         public LineSensorCalibrateForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             camLineMeasure = new LineMeasure();
             laserLineMeasure = new LineMeasure();
             drawCamObject = new userDrawLineMeasure(this.相机视图hWindowControl);

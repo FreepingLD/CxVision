@@ -16,7 +16,6 @@ namespace FunctionBlock
         public WindowConfigForm()
         {
             InitializeComponent();
-
         }
         public WindowConfigForm(ViewConfigParam viewConfigParam)
         {
@@ -32,12 +31,12 @@ namespace FunctionBlock
             this.对位节点comboBox.Text = this._viewConfigParam.AlignNode;
             this.拍照位comboBox.Text = this._viewConfigParam.GrabNo.ToString();
             //////////////////////////////////////////
-            this.Socket配置comboBox.Items.Clear();
-            foreach (var item in Common.SocketConnectManager.Instance.GetSocketName())
-            {
-                this.Socket配置comboBox.Items.Add(item);
-            }
-            this.Socket配置comboBox.Text = this._viewConfigParam.SocketName;
+            //this.Socket配置comboBox.Items.Clear();
+            //foreach (var item in Common.SocketConnectManager.Instance.GetSocketName())
+            //{
+            //    this.Socket配置comboBox.Items.Add(item);
+            //}
+            //this.Socket配置comboBox.Text = this._viewConfigParam.SocketName;
         }
         private void WindowConfigForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -53,17 +52,6 @@ namespace FunctionBlock
 
         private void 程序节点comboBox_DropDown(object sender, EventArgs e)
         {
-            //int a = 10;
-            //this.程序节点comboBox.Items.Clear();
-            //this.程序节点comboBox.Width = 200;
-            //foreach (KeyValuePair<string, TreeViewWrapClass> item in ProgramForm.Instance.ProgramDic)
-            //{
-            //    foreach (TreeNode item2 in item.Value.TreeView.Nodes)
-            //    {
-            //        GetToolNode(item2, this.程序节点comboBox);
-            //    }
-            //}
-
             ProgramListForm form = new ProgramListForm();
             if (form.ShowDialog() == DialogResult.OK)
             {

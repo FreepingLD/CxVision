@@ -31,6 +31,8 @@ namespace FunctionBlock
         {
             calibrateCamera = new SpaceCalibrateCameraParam();
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
         }
 
         private void CalibrateCameraParamForm_Load(object sender, EventArgs e)

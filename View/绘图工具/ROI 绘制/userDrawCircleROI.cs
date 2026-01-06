@@ -467,7 +467,7 @@ namespace View
                 case PosSizableRect.MiddleCircle:  //MovePos
                 case PosSizableRect.InnerCircle:  //MovePos
                     //return Cursors.SizeNWSE;//SizeNS
-                    cursors = Cursors.Arrow;
+                    cursors = Cursors.Default;
                     break;
 
                 case PosSizableRect.CircleCenter:
@@ -477,13 +477,13 @@ namespace View
 
                 case PosSizableRect.UpMiddleNode:
                 case PosSizableRect.DownMiddleNode:
-                    cursors = Cursors.Arrow;
+                    cursors = Cursors.Default;
                     break;
                 //return Cursors.SizeNS;
 
                 case PosSizableRect.LeftBottomNode:
                 case PosSizableRect.RightBottomNode:
-                    cursors = Cursors.Arrow;
+                    cursors = Cursors.Default;
                     break;
                 //return Cursors.SizeWE;
 

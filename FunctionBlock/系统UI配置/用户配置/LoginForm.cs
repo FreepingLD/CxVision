@@ -34,7 +34,9 @@ namespace FunctionBlock
         public LoginForm()
         {
             InitializeComponent();
-            //this.TopMost = true;
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
+            this.TopMost = true;
             this.ShowInTaskbar = true;
             this.用户名comboBox.Items.Clear();
             this.用户名comboBox.DataSource = Enum.GetValues(typeof(enUserName));

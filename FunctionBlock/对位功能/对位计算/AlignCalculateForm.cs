@@ -30,7 +30,7 @@ namespace FunctionBlock
             InitializeComponent();
             this._function = function;
             this._function.SetPropertyValues(nameof(TreeNode), this._refNode);
-            this.titleLabel.Text = function.GetPropertyValues("名称").ToString();
+            this.Text = function.GetPropertyValues("名称").ToString();
             new ListBoxWrapClass().InitListBox(this.listBox1, function);
             new ListBoxWrapClass().InitListBox(this.listBox2, function, 2);
         }
@@ -40,7 +40,7 @@ namespace FunctionBlock
             this._refNode = node;
             this._function = this._refNode.Tag as IFunction;
             this._function.SetPropertyValues(nameof(TreeNode), this._refNode);
-            this.titleLabel.Text = node.Text;
+            this.Text = node.Text;
             new ListBoxWrapClass().InitListBox(this.listBox1, node);
             new ListBoxWrapClass().InitListBox(this.listBox2, node, 2);
         }
@@ -97,8 +97,9 @@ namespace FunctionBlock
                 this.补偿YtextBox.DataBindings.Add("Text", param, nameof(param.Add_Y), true, DataSourceUpdateMode.OnPropertyChanged);
                 this.补偿ThetatextBox.DataBindings.Add("Text", param, nameof(param.Add_Angle), true, DataSourceUpdateMode.OnPropertyChanged);  
                 this.视图窗口comboBox.DataBindings.Add("Text", param, nameof(param.ViewWindow), true, DataSourceUpdateMode.OnPropertyChanged);
-                this.坐标系comboBox .DataBindings.Add("Text", param, nameof(param.CoordSysName), true, DataSourceUpdateMode.OnPropertyChanged);
-                this.启用分区补偿checkBox.DataBindings.Add(nameof(this.启用分区补偿checkBox.Checked), param, nameof(param.IsZoneCompensation), true, DataSourceUpdateMode.OnPropertyChanged);  
+                this.坐标系comboBox .DataBindings.Add("Text", param, nameof(param.CoordSysName), true, DataSourceUpdateMode.OnPropertyChanged); 
+                this.启用分区补偿checkBox.DataBindings.Add(nameof(this.启用分区补偿checkBox.Checked), param, nameof(param.IsZoneCompensation), true, DataSourceUpdateMode.OnPropertyChanged);
+                this.输出UVW坐标checkBox.DataBindings.Add(nameof(this.输出UVW坐标checkBox.Checked), param, nameof(param.IsOutputUvw), true, DataSourceUpdateMode.OnPropertyChanged);
             }
             catch
             {
@@ -307,45 +308,45 @@ namespace FunctionBlock
         #endregion
 
         #region  窗体绽放功能 
-        private const int Guying_HTLEFT = 10;
-        private const int Guying_HTRIGHT = 11;
-        private const int Guying_HTTOP = 12;
-        private const int Guying_HTTOPLEFT = 13;
-        private const int Guying_HTTOPRIGHT = 14;
-        private const int Guying_HTBOTTOM = 15;
-        private const int Guying_HTBOTTOMLEFT = 0x10;
-        private const int Guying_HTBOTTOMRIGHT = 17;
-        protected override void WndProc(ref Message m)
-        {
-            switch (m.Msg)
-            {
-                case 0x0084:
-                    base.WndProc(ref m);
-                    Point vPoint = new Point((int)m.LParam & 0xFFFF,
-                        (int)m.LParam >> 16 & 0xFFFF);
-                    vPoint = PointToClient(vPoint);
-                    if (vPoint.X <= 5)
-                        if (vPoint.Y <= 5)
-                            m.Result = (IntPtr)Guying_HTTOPLEFT;
-                        else if (vPoint.Y >= ClientSize.Height - 5)
-                            m.Result = (IntPtr)Guying_HTBOTTOMLEFT;
-                        else m.Result = (IntPtr)Guying_HTLEFT;
-                    else if (vPoint.X >= ClientSize.Width - 5)
-                        if (vPoint.Y <= 5)
-                            m.Result = (IntPtr)Guying_HTTOPRIGHT;
-                        else if (vPoint.Y >= ClientSize.Height - 5)
-                            m.Result = (IntPtr)Guying_HTBOTTOMRIGHT;
-                        else m.Result = (IntPtr)Guying_HTRIGHT;
-                    else if (vPoint.Y <= 2)
-                        m.Result = (IntPtr)Guying_HTTOP;
-                    else if (vPoint.Y >= ClientSize.Height - 5)
-                        m.Result = (IntPtr)Guying_HTBOTTOM;
-                    break;
-                default:
-                    base.WndProc(ref m);
-                    break;
-            }
-        }
+        //private const int Guying_HTLEFT = 10;
+        //private const int Guying_HTRIGHT = 11;
+        //private const int Guying_HTTOP = 12;
+        //private const int Guying_HTTOPLEFT = 13;
+        //private const int Guying_HTTOPRIGHT = 14;
+        //private const int Guying_HTBOTTOM = 15;
+        //private const int Guying_HTBOTTOMLEFT = 0x10;
+        //private const int Guying_HTBOTTOMRIGHT = 17;
+        //protected override void WndProc(ref Message m)
+        //{
+        //    switch (m.Msg)
+        //    {
+        //        case 0x0084:
+        //            base.WndProc(ref m);
+        //            Point vPoint = new Point((int)m.LParam & 0xFFFF,
+        //                (int)m.LParam >> 16 & 0xFFFF);
+        //            vPoint = PointToClient(vPoint);
+        //            if (vPoint.X <= 5)
+        //                if (vPoint.Y <= 5)
+        //                    m.Result = (IntPtr)Guying_HTTOPLEFT;
+        //                else if (vPoint.Y >= ClientSize.Height - 5)
+        //                    m.Result = (IntPtr)Guying_HTBOTTOMLEFT;
+        //                else m.Result = (IntPtr)Guying_HTLEFT;
+        //            else if (vPoint.X >= ClientSize.Width - 5)
+        //                if (vPoint.Y <= 5)
+        //                    m.Result = (IntPtr)Guying_HTTOPRIGHT;
+        //                else if (vPoint.Y >= ClientSize.Height - 5)
+        //                    m.Result = (IntPtr)Guying_HTBOTTOMRIGHT;
+        //                else m.Result = (IntPtr)Guying_HTRIGHT;
+        //            else if (vPoint.Y <= 2)
+        //                m.Result = (IntPtr)Guying_HTTOP;
+        //            else if (vPoint.Y >= ClientSize.Height - 5)
+        //                m.Result = (IntPtr)Guying_HTBOTTOM;
+        //            break;
+        //        default:
+        //            base.WndProc(ref m);
+        //            break;
+        //    }
+        //}
         #endregion
 
         #region 防止改变窗口大小时控件闪烁功能
@@ -397,14 +398,14 @@ namespace FunctionBlock
         private void titleLabel_MouseEnter(object sender, EventArgs e)
         {
             this.Cursor = Cursors.Hand;
-            this.titleLabel.BackColor = System.Drawing.Color.Orange;
+            //this.titleLabel.BackColor = System.Drawing.Color.Orange;
         }
 
         private void titleLabel_MouseLeave(object sender, EventArgs e)
         {
             this.Cursor = Cursors.Default;
             //this.titleLabel.BackColor = System.Drawing.Color.Orange;
-            this.titleLabel.BackColor = System.Drawing.Color.LightGray;
+            //this.titleLabel.BackColor = System.Drawing.Color.LightGray;
         }
 
         private void AlignCalculateForm_MouseDown(object sender, MouseEventArgs e)

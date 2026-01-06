@@ -16,16 +16,20 @@ namespace FunctionBlock
         private VisualizeView drawObject;
         private HImage sourceImage;
         private HWindowControl hWindowControl1;
+        private ToolStripStatusLabel executeStatusLabel;
+        public VisualizeView DrawObject { get => drawObject; set => drawObject = value; }
+
+
         public NccMatchAppForm(IFunction function)
         {
             InitializeComponent();
             this._function = function;
             this.drawObject = new userDrawRect1ROI(this.hWindowControl1, false);
-            new ListBoxWrapClass().InitListBox(this.listBox1, function);
+            //new ListBoxWrapClass().InitListBox(this.listBox1, function);
             // 注册事件
-            this.drawObject.GrayValueInfo += new GrayValueInfoEventHandler(GetGrayValueInfo);
-            BaseFunction.ExcuteCompleted += new ExcuteCompletedEventHandler(this.DisplayObjectModel);
-            ListBoxWrapClass.ItemsChangeToForm += new ItemsChangeEventHandler(listbox_AddItems);
+            //this.drawObject.GrayValueInfo += new GrayValueInfoEventHandler(GetGrayValueInfo);
+            //BaseFunction.ExcuteCompleted += new ExcuteCompletedEventHandler(this.DisplayObjectModel);
+            //ListBoxWrapClass.ItemsChangeToForm += new ItemsChangeEventHandler(listbox_AddItems);
             addContextMenu(this.模型区域dataGridView);
             addContextMenu(this.搜索区域dataGridView);
         }
@@ -34,7 +38,7 @@ namespace FunctionBlock
             InitializeComponent();
             this._function = node.Tag as IFunction;
             this.drawObject = new userDrawRect1ROI(this.hWindowControl1, false);
-            new ListBoxWrapClass().InitListBox(this.listBox1, node);
+            //new ListBoxWrapClass().InitListBox(this.listBox1, node);
             // 注册事件
             this.drawObject.GrayValueInfo += new GrayValueInfoEventHandler(GetGrayValueInfo);
             BaseFunction.ExcuteCompleted += new ExcuteCompletedEventHandler(this.DisplayObjectModel);
@@ -47,9 +51,9 @@ namespace FunctionBlock
         {
             InitializeComponent();
             this._function = node.Tag as IFunction;
-            this.hWindowControl1 = hWindowControl;
+            this.hWindowControl1 = hWindowControl; 
             this.drawObject = new userDrawRect1ROI(this.hWindowControl1, false);
-            new ListBoxWrapClass().InitListBox(this.listBox1, node);
+            //new ListBoxWrapClass().InitListBox(this.listBox1, node);
             // 注册事件
             this.drawObject.GrayValueInfo += new GrayValueInfoEventHandler(GetGrayValueInfo);
             BaseFunction.ExcuteCompleted += new ExcuteCompletedEventHandler(this.DisplayObjectModel);
@@ -327,47 +331,6 @@ namespace FunctionBlock
 
             }
         }
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-            try
-            {
-                switch (e.ClickedItem.Text)
-                {
-                    case "执行":
-                        if (this.toolStripStatusLabel2.Text == "等待……") break;
-                        this.toolStripStatusLabel2.Text = "等待……";
-                        this.toolStripStatusLabel2.ForeColor = Color.Yellow;
-                        Task.Run(() =>
-                        {
-                            if (this._function.Execute(null).Succss)
-                            {
-                                this.Invoke(new Action(() =>
-                                {
-                                    this.toolStripStatusLabel1.Text = "执行结果:";
-                                    this.toolStripStatusLabel2.Text = "成功";
-                                    this.toolStripStatusLabel2.ForeColor = Color.Green;
-                                }));
-                            }
-                            else
-                            {
-                                this.Invoke(new Action(() =>
-                                {
-                                    this.toolStripStatusLabel1.Text = "执行结果:";
-                                    this.toolStripStatusLabel2.Text = "失败";
-                                    this.toolStripStatusLabel2.ForeColor = Color.Red;
-                                }));
-                            }
-                        }
-                        );
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                new Common.UserMessageForm(ex.ToString()).ShowDialog();
-                //new UserMessageForm().ShowDialog(ex.ToString());
-            }
-        }
 
         // 获取鼠标位置处的高度值
         private void GetGrayValueInfo(object sender, GrayValueInfoEventArgs e)
@@ -398,9 +361,10 @@ namespace FunctionBlock
                 if (this.drawObject != null)
                     this.drawObject.ClearDrawingObject();
                 // 注消事件
-                this.drawObject.GrayValueInfo -= new GrayValueInfoEventHandler(GetGrayValueInfo);
-                ListBoxWrapClass.ItemsChangeToForm -= new ItemsChangeEventHandler(listbox_AddItems);
-                BaseFunction.ExcuteCompleted -= new ExcuteCompletedEventHandler(this.DisplayObjectModel);
+                //this.drawObject.GrayValueInfo -= new GrayValueInfoEventHandler(GetGrayValueInfo);
+                //ListBoxWrapClass.ItemsChangeToForm -= new ItemsChangeEventHandler(listbox_AddItems);
+                //BaseFunction.ExcuteCompleted -= new ExcuteCompletedEventHandler(this.DisplayObjectModel);
+                //this.drawObject.Uninit();
             }
             catch
             {
@@ -916,6 +880,41 @@ namespace FunctionBlock
             }
         }
 
+        public void Execute(object sender, EventArgs e)
+        {
+            try
+            {
+                //if (this.toolStripStatusLabel1.Text == "等待……") break;
+                this.executeStatusLabel.Text = "等待……";
+                this.executeStatusLabel.ForeColor = Color.Yellow;
+                Task.Run(() =>
+                {
+                    if (this._function.Execute(null).Succss)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            //this.toolStripStatusLabel1.Text = "执行结果:";
+                            this.executeStatusLabel.Text = "成功";
+                            this.executeStatusLabel.ForeColor = Color.Green;
+                        }));
+                    }
+                    else
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            //this.toolStripStatusLabel1.Text = "执行结果:";
+                            this.executeStatusLabel.Text = "失败";
+                            this.executeStatusLabel.ForeColor = Color.Red;
+                        }));
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                new Common.UserMessageForm(ex.ToString()).ShowDialog();
+            }
+        }
+
         public enum enShowItems
         {
             输入对象,
@@ -926,6 +925,7 @@ namespace FunctionBlock
             参考点,
             匹配点
         }
+
 
 
     }

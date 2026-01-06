@@ -55,6 +55,8 @@
             this.绘制矩形toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.绘制圆形ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.绘制点ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.绘制椭圆ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.绘制直线ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStrip3.SuspendLayout();
             this.标定工具栏toolStrip.SuspendLayout();
@@ -89,7 +91,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(601, 538);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(597, 534);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // hWindowControl1
@@ -104,9 +106,9 @@
             this.hWindowControl1.Margin = new System.Windows.Forms.Padding(0);
             this.hWindowControl1.Name = "hWindowControl1";
             this.tableLayoutPanel1.SetRowSpan(this.hWindowControl1, 2);
-            this.hWindowControl1.Size = new System.Drawing.Size(601, 473);
+            this.hWindowControl1.Size = new System.Drawing.Size(597, 469);
             this.hWindowControl1.TabIndex = 30;
-            this.hWindowControl1.WindowSize = new System.Drawing.Size(601, 473);
+            this.hWindowControl1.WindowSize = new System.Drawing.Size(597, 469);
             // 
             // label1
             // 
@@ -124,7 +126,7 @@
             this.buttonClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonClose.BackgroundImage")));
             this.buttonClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonClose.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonClose.Location = new System.Drawing.Point(576, 0);
+            this.buttonClose.Location = new System.Drawing.Point(572, 0);
             this.buttonClose.Margin = new System.Windows.Forms.Padding(0);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(25, 20);
@@ -137,7 +139,7 @@
             this.buttonMax.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonMax.BackgroundImage")));
             this.buttonMax.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonMax.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonMax.Location = new System.Drawing.Point(551, 0);
+            this.buttonMax.Location = new System.Drawing.Point(547, 0);
             this.buttonMax.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMax.Name = "buttonMax";
             this.buttonMax.Size = new System.Drawing.Size(25, 20);
@@ -151,7 +153,7 @@
             this.buttonMin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonMin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonMin.Enabled = false;
-            this.buttonMin.Location = new System.Drawing.Point(526, 0);
+            this.buttonMin.Location = new System.Drawing.Point(522, 0);
             this.buttonMin.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMin.Name = "buttonMin";
             this.buttonMin.Size = new System.Drawing.Size(25, 20);
@@ -168,7 +170,7 @@
             this.titleLabel.Location = new System.Drawing.Point(2, 2);
             this.titleLabel.Margin = new System.Windows.Forms.Padding(2);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(522, 16);
+            this.titleLabel.Size = new System.Drawing.Size(518, 16);
             this.titleLabel.TabIndex = 25;
             this.titleLabel.Text = "CxVision";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -189,9 +191,9 @@
             this.toolStripStatusLabel9,
             this.行坐标Label,
             this.列坐标Label});
-            this.statusStrip3.Location = new System.Drawing.Point(271, 513);
+            this.statusStrip3.Location = new System.Drawing.Point(271, 509);
             this.statusStrip3.Name = "statusStrip3";
-            this.statusStrip3.Size = new System.Drawing.Size(330, 25);
+            this.statusStrip3.Size = new System.Drawing.Size(326, 25);
             this.statusStrip3.TabIndex = 22;
             this.statusStrip3.Text = "statusStrip3";
             // 
@@ -204,19 +206,19 @@
             // 灰度值1Label
             // 
             this.灰度值1Label.Name = "灰度值1Label";
-            this.灰度值1Label.Size = new System.Drawing.Size(26, 20);
+            this.灰度值1Label.Size = new System.Drawing.Size(28, 20);
             this.灰度值1Label.Text = "……";
             // 
             // 灰度值2Label
             // 
             this.灰度值2Label.Name = "灰度值2Label";
-            this.灰度值2Label.Size = new System.Drawing.Size(26, 20);
+            this.灰度值2Label.Size = new System.Drawing.Size(28, 20);
             this.灰度值2Label.Text = "……";
             // 
             // 灰度值3Label
             // 
             this.灰度值3Label.Name = "灰度值3Label";
-            this.灰度值3Label.Size = new System.Drawing.Size(26, 20);
+            this.灰度值3Label.Size = new System.Drawing.Size(28, 20);
             this.灰度值3Label.Text = "……";
             // 
             // toolStripStatusLabel9
@@ -228,13 +230,13 @@
             // 行坐标Label
             // 
             this.行坐标Label.Name = "行坐标Label";
-            this.行坐标Label.Size = new System.Drawing.Size(26, 20);
+            this.行坐标Label.Size = new System.Drawing.Size(28, 20);
             this.行坐标Label.Text = "……";
             // 
             // 列坐标Label
             // 
             this.列坐标Label.Name = "列坐标Label";
-            this.列坐标Label.Size = new System.Drawing.Size(26, 20);
+            this.列坐标Label.Size = new System.Drawing.Size(28, 20);
             this.列坐标Label.Text = "……";
             // 
             // 实时采集checkBox
@@ -263,7 +265,7 @@
             this.传感器comboBox.Location = new System.Drawing.Point(59, 20);
             this.传感器comboBox.Margin = new System.Windows.Forms.Padding(0);
             this.传感器comboBox.Name = "传感器comboBox";
-            this.传感器comboBox.Size = new System.Drawing.Size(542, 20);
+            this.传感器comboBox.Size = new System.Drawing.Size(538, 20);
             this.传感器comboBox.TabIndex = 3;
             this.传感器comboBox.SelectionChangeCommitted += new System.EventHandler(this.传感器comboBox_SelectionChangeCommitted);
             // 
@@ -275,7 +277,7 @@
             this.标定toolStripButton,
             this.相机toolStripDropDownButton,
             this.Roi绘制toolStripDropDownButton});
-            this.标定工具栏toolStrip.Location = new System.Drawing.Point(0, 513);
+            this.标定工具栏toolStrip.Location = new System.Drawing.Point(0, 509);
             this.标定工具栏toolStrip.Name = "标定工具栏toolStrip";
             this.标定工具栏toolStrip.Size = new System.Drawing.Size(271, 25);
             this.标定工具栏toolStrip.TabIndex = 31;
@@ -318,7 +320,9 @@
             this.Roi绘制toolStripDropDownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.绘制矩形toolStripMenuItem,
             this.绘制圆形ToolStripMenuItem,
-            this.绘制点ToolStripMenuItem});
+            this.绘制点ToolStripMenuItem,
+            this.绘制椭圆ToolStripMenuItem,
+            this.绘制直线ToolStripMenuItem});
             this.Roi绘制toolStripDropDownButton.Image = global::FunctionBlock.Properties.Resources.绘图;
             this.Roi绘制toolStripDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Roi绘制toolStripDropDownButton.Name = "Roi绘制toolStripDropDownButton";
@@ -330,27 +334,39 @@
             // 
             this.绘制矩形toolStripMenuItem.Image = global::FunctionBlock.Properties.Resources.矩形_20_X_20;
             this.绘制矩形toolStripMenuItem.Name = "绘制矩形toolStripMenuItem";
-            this.绘制矩形toolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.绘制矩形toolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.绘制矩形toolStripMenuItem.Text = "绘制矩形";
             // 
             // 绘制圆形ToolStripMenuItem
             // 
             this.绘制圆形ToolStripMenuItem.Image = global::FunctionBlock.Properties.Resources.圆形_20_X_20;
             this.绘制圆形ToolStripMenuItem.Name = "绘制圆形ToolStripMenuItem";
-            this.绘制圆形ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.绘制圆形ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.绘制圆形ToolStripMenuItem.Text = "绘制圆形";
             // 
             // 绘制点ToolStripMenuItem
             // 
             this.绘制点ToolStripMenuItem.Name = "绘制点ToolStripMenuItem";
-            this.绘制点ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.绘制点ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.绘制点ToolStripMenuItem.Text = "绘制点";
+            // 
+            // 绘制椭圆ToolStripMenuItem
+            // 
+            this.绘制椭圆ToolStripMenuItem.Name = "绘制椭圆ToolStripMenuItem";
+            this.绘制椭圆ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.绘制椭圆ToolStripMenuItem.Text = "绘制椭圆";
+            // 
+            // 绘制直线ToolStripMenuItem
+            // 
+            this.绘制直线ToolStripMenuItem.Name = "绘制直线ToolStripMenuItem";
+            this.绘制直线ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.绘制直线ToolStripMenuItem.Text = "绘制直线";
             // 
             // ImageViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(601, 538);
+            this.ClientSize = new System.Drawing.Size(597, 534);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -399,5 +415,7 @@
         private System.Windows.Forms.ToolStripMenuItem 绘制矩形toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 绘制圆形ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 绘制点ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 绘制椭圆ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 绘制直线ToolStripMenuItem;
     }
 }

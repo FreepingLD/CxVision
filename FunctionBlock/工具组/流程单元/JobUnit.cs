@@ -16,8 +16,8 @@ namespace FunctionBlock
     public class JobUnit : BaseFunction, IFunction
     {
         [NonSerialized]
-        private TreeNode _ParentNode;
-        public TreeNode ParentNode { get { return _ParentNode; } set { this._ParentNode = value; } }
+        private TreeNode _parentNode;
+        public TreeNode ParentNode { get { return _parentNode; } set { this._parentNode = value; } }
 
         public BindingList<MeasureResultInfo> MeasInfo;
 
@@ -66,7 +66,7 @@ namespace FunctionBlock
                                     break;
                                 case nameof(TreeNode):
                                     treeView = ((TreeNode)item).TreeView; // 获取树控件
-                                    this.ParentNode = ((TreeNode)item);
+                                    this._parentNode = ((TreeNode)item);
                                     break;
                             }
                         }
@@ -92,12 +92,12 @@ namespace FunctionBlock
                     return this.Result;
                 }
                 ///////////////////////////////////////////////
-                if (this.ParentNode != null)
+                if (this._parentNode != null)
                 {
                     bool isRun = true;
                     OperateResult tempResult = new OperateResult();
                     lableText = CommunicationConfigParamManger.Instance.ReadValue(coordSysName, enCommunicationCommand.GrabNo)?.ToString();
-                    foreach (TreeNode item in ParentNode.Nodes)
+                    foreach (TreeNode item in _parentNode.Nodes)
                     {
                         if (item.Checked) continue; // 如果节点是禁用的，该属性为 true，该节点也将不再执行;
                         if (item.Tag != null)
@@ -106,11 +106,11 @@ namespace FunctionBlock
                             {
                                 case nameof(UserLable):
                                     isContainLable = true;
-                                    if (item.Text == lableText)
+                                    if (item.Text == lableText || $"{this._parentNode.Text}.{item.Text}" == lableText)
                                     {
-                                        isExcuteLable = true;
                                         isRun = true;
-                                        LoggerHelper.Info(this.name + $"->执行标签:{item.Text}", camName);
+                                        isExcuteLable = true;
+                                        LoggerHelper.Info(this.name + $"->执行标签:{lableText}", camName);
                                     }
                                     else
                                         isRun = false;
@@ -119,7 +119,7 @@ namespace FunctionBlock
                                 default:
                                     if (isRun)
                                     {
-                                        LoggerHelper.Info(this.name + $"->执行节点:{item.Text}", camName);
+                                        LoggerHelper.Info(this.name + $"->执行节点:{item.FullPath.Replace("\\", ".")}", camName);
                                         treeView.Invoke(new Action(() => treeView.SelectedNode = item));
                                         tempResult = ((IFunction)item.Tag).Execute(item, _imageData);
                                     }
@@ -138,14 +138,14 @@ namespace FunctionBlock
                             //////////////////////////
                             CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.ResultToPlc, 2); // 发送NG信号
                             CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.ResultToSocket, "NG"); // 发送NG信号
-                            LoggerHelper.Error(this.name + $"->节点:{item.Text}执行失败,并写入结果NG", camName);
+                            LoggerHelper.Error(this.name + $"->节点:{item.FullPath.Replace("\\", ".")} 执行失败,并写入结果NG", camName);
 
                         }
                     }
                 }
                 this.Result.Succss = IsOk;
-                if (this.ParentNode != null)
-                    treeView?.Invoke(new Action(() => this.ParentNode.Collapse()));
+                if (this._parentNode != null)
+                    treeView?.Invoke(new Action(() => this._parentNode.Collapse()));
                 stopwatch.Stop();
                 if (this.MeasInfo == null)
                 {

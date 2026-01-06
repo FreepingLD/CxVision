@@ -171,77 +171,79 @@ namespace FunctionBlock
 
         private void 运行工具条toolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            ToolStripItem item = e.ClickedItem;
-            string name = item.Name;
-            //int count = 1;
-            switch (name)
+            try
             {
-                case "运行toolStripButton":
-                    //this.运行toolStripButton.Enabled = false;
-                    //this.停止toolStripButton.Enabled = true;
-                    //this.treeViewWrapClass.RunSyn(this.运行toolStripButton, 1);
-                    //this.停止toolStripButton.Enabled = true;
-                    //this.运行toolStripButton.Enabled = true;
-                    if (this.toolStripStatusLabel2.Text == "等待……") break;
-                    this.toolStripStatusLabel2.Text = "等待……";
-                    this.toolStripStatusLabel2.ForeColor = Color.Yellow;
-                    this.cts = new CancellationTokenSource();
-                    Task.Run(() =>
-                    {
-                        if (this._function.Execute(this._clickNode).Succss)
+                ToolStripItem item = e.ClickedItem;
+                string name = item.Name;
+                switch (name)
+                {
+                    case "运行toolStripButton":
+                        if (this.toolStripStatusLabel2.Text == "等待……") break;
+                        this.toolStripStatusLabel2.Text = "等待……";
+                        this.toolStripStatusLabel2.ForeColor = Color.Yellow;
+                        this.cts = new CancellationTokenSource();
+                        Task.Run(() =>
                         {
-                            if (!this.cts.IsCancellationRequested)
+                            if (this._function.Execute(this._refNode).Succss)
                             {
-                                this.Invoke(new Action(() =>
+                                if (!this.cts.IsCancellationRequested)
                                 {
-                                    //this.toolStripStatusLabel1.Text = "执行结果:";
-                                    this.toolStripStatusLabel2.Text = "成功";
-                                    this.toolStripStatusLabel2.ForeColor = Color.Green;
-                                }));
+                                    this.Invoke(new Action(() =>
+                                    {
+                                        //this.toolStripStatusLabel1.Text = "执行结果:";
+                                        this.toolStripStatusLabel2.Text = "成功";
+                                        this.toolStripStatusLabel2.ForeColor = Color.Green;
+                                    }));
+                                }
+                            }
+                            else
+                            {
+                                if (!this.cts.IsCancellationRequested)
+                                {
+                                    this.Invoke(new Action(() =>
+                                    {
+                                        //this.toolStripStatusLabel1.Text = "执行结果:";
+                                        this.toolStripStatusLabel2.Text = "失败";
+                                        this.toolStripStatusLabel2.ForeColor = Color.Red;
+                                    }));
+                                }
                             }
                         }
-                        else
+                        );
+                        break;
+
+                    case "停止toolStripButton":
+                        this.cts?.Cancel();
+                        this.treeViewWrapClass.Stop();
+                        this.运行toolStripButton.Enabled = true;
+                        this.停止toolStripButton.Enabled = false;
+                        break;
+
+                    case "检测工具toolStripButton":
+                        ToolForm tool = new ToolForm(this.treeViewWrapClass, this._refNode.Name.Replace(".Tool", ""));
+                        tool.Owner = this;
+                        tool.Show();
+                        break;
+
+                    case "保存配置toolStripButton":
+                        this._refNode?.Nodes.Clear();
+                        foreach (TreeNode item1 in this.treeView1.Nodes)
                         {
-                            if (!this.cts.IsCancellationRequested)
-                            {
-                                this.Invoke(new Action(() =>
-                                {
-                                    //this.toolStripStatusLabel1.Text = "执行结果:";
-                                    this.toolStripStatusLabel2.Text = "失败";
-                                    this.toolStripStatusLabel2.ForeColor = Color.Red;
-                                }));
-                            }
+                            this._refNode?.Nodes.Add(item1.Clone() as TreeNode);
+                            //if (this._refNode.Nodes.Contains(item1))
+                            //    this._refNode?.Nodes.Add(item1);
                         }
-                    }
-                    );
-                    break;
-
-                case "停止toolStripButton":
-                    this.treeViewWrapClass.Stop();
-                    this.运行toolStripButton.Enabled = true;
-                    this.停止toolStripButton.Enabled = false;
-                    break;
-
-                case "检测工具toolStripButton":
-                    ToolForm tool = new ToolForm(this.treeViewWrapClass, this._refNode.Name.Replace(".Tool", ""));
-                    tool.Owner = this;
-                    tool.Show();
-                    break;
-
-                case "保存配置toolStripButton":
-                    this._refNode?.Nodes.Clear();
-                    foreach (TreeNode item1 in this.treeView1.Nodes)
-                    {
-                        this._refNode?.Nodes.Add(item1.Clone() as TreeNode);
-                        //if (this._refNode.Nodes.Contains(item1))
-                        //    this._refNode?.Nodes.Add(item1);
-                    }
-                    //((FeatureLocalization)_refNode.Tag).ParentNode = _refNode;
-                    new Common.UserMessageForm("保存成功").ShowDialog();
-                    break;
-                //////////////////////////////////////
-                default:
-                    break;
+                        //((FeatureLocalization)_refNode.Tag).ParentNode = _refNode;
+                        new Common.UserMessageForm("保存成功").ShowDialog();
+                        break;
+                    //////////////////////////////////////
+                    default:
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 

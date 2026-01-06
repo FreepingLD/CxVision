@@ -34,6 +34,8 @@ namespace FunctionBlock
         public CameraFaceLaserCalibrateForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             this.drawObject = new userDrawLineMeasure(this.相机视图hWindowControl);
         }
         private void CameraFaceLaserCalibrateForm_Load(object sender, EventArgs e)

@@ -17,8 +17,10 @@ namespace FunctionBlock
         private IFunction _function;
         private userDrawEllipseROI drawObject;
         private drawPixEllipse _pixEllipse;
+        private drawWcsEllipse _wcsEllipse;
 
         public drawPixEllipse PixEllipse { get => _pixEllipse; set => _pixEllipse = value; }
+        public drawWcsEllipse WcsEllipse { get => _wcsEllipse; set => _wcsEllipse = value; }
 
 
         public ManualMeasureEllipseForm(ImageDataClass imageData, drawPixEllipse pixEllipse)
@@ -130,6 +132,7 @@ namespace FunctionBlock
             try
             {
                 this._pixEllipse = this.drawObject.GetDrawPixEllipseParam();
+                this._wcsEllipse = this._pixEllipse.GetWcsEllipse(this.drawObject.CameraParam);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

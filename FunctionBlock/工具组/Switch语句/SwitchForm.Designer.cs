@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SwitchForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonMax = new System.Windows.Forms.Button();
@@ -103,7 +103,7 @@
             this.tableLayoutPanel1.Controls.Add(this.运行工具条toolStrip, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.statusStrip1, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.tabControl1, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.tabControl2, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tabControl2, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -235,7 +235,6 @@
             // 
             // 运行工具条toolStrip
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.运行工具条toolStrip, 6);
             this.运行工具条toolStrip.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.运行工具条toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.运行工具条toolStrip.ImageScalingSize = new System.Drawing.Size(25, 25);
@@ -246,7 +245,7 @@
             this.脚本配置toolStripButton});
             this.运行工具条toolStrip.Location = new System.Drawing.Point(0, 25);
             this.运行工具条toolStrip.Name = "运行工具条toolStrip";
-            this.运行工具条toolStrip.Size = new System.Drawing.Size(1047, 48);
+            this.运行工具条toolStrip.Size = new System.Drawing.Size(305, 48);
             this.运行工具条toolStrip.TabIndex = 20;
             this.运行工具条toolStrip.Text = "toolStrip2";
             this.运行工具条toolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.运行工具条toolStrip_ItemClicked);
@@ -379,12 +378,12 @@
             this.tabControl2.Controls.Add(this.PLC交互信息tabPage);
             this.tabControl2.Controls.Add(this.元素信息tabPage);
             this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl2.Location = new System.Drawing.Point(305, 73);
+            this.tabControl2.Location = new System.Drawing.Point(305, 25);
             this.tabControl2.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl2.Name = "tabControl2";
-            this.tableLayoutPanel1.SetRowSpan(this.tabControl2, 3);
+            this.tableLayoutPanel1.SetRowSpan(this.tabControl2, 4);
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(742, 628);
+            this.tabControl2.Size = new System.Drawing.Size(742, 676);
             this.tabControl2.TabIndex = 23;
             // 
             // 视图tabPage
@@ -394,7 +393,7 @@
             this.视图tabPage.Location = new System.Drawing.Point(4, 22);
             this.视图tabPage.Name = "视图tabPage";
             this.视图tabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.视图tabPage.Size = new System.Drawing.Size(734, 602);
+            this.视图tabPage.Size = new System.Drawing.Size(734, 650);
             this.视图tabPage.TabIndex = 0;
             this.视图tabPage.Text = "视图";
             // 
@@ -407,9 +406,9 @@
             this.hWindowControl1.Location = new System.Drawing.Point(3, 3);
             this.hWindowControl1.Margin = new System.Windows.Forms.Padding(0);
             this.hWindowControl1.Name = "hWindowControl1";
-            this.hWindowControl1.Size = new System.Drawing.Size(728, 596);
+            this.hWindowControl1.Size = new System.Drawing.Size(728, 644);
             this.hWindowControl1.TabIndex = 0;
-            this.hWindowControl1.WindowSize = new System.Drawing.Size(728, 596);
+            this.hWindowControl1.WindowSize = new System.Drawing.Size(728, 644);
             // 
             // PLC交互信息tabPage
             // 
@@ -484,9 +483,9 @@
             // 
             // InsertBtn
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "插入";
-            this.InsertBtn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.NullValue = "插入";
+            this.InsertBtn.DefaultCellStyle = dataGridViewCellStyle5;
             this.InsertBtn.HeaderText = "插入";
             this.InsertBtn.MinimumWidth = 6;
             this.InsertBtn.Name = "InsertBtn";
@@ -495,9 +494,9 @@
             // UpMoveCol
             // 
             this.UpMoveCol.DataPropertyName = "NONE";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = "上移";
-            this.UpMoveCol.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.NullValue = "上移";
+            this.UpMoveCol.DefaultCellStyle = dataGridViewCellStyle6;
             this.UpMoveCol.HeaderText = "上移";
             this.UpMoveCol.Name = "UpMoveCol";
             this.UpMoveCol.Width = 60;
@@ -505,18 +504,18 @@
             // DownMoveCol
             // 
             this.DownMoveCol.DataPropertyName = "NONE";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.NullValue = "下移";
-            this.DownMoveCol.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.NullValue = "下移";
+            this.DownMoveCol.DefaultCellStyle = dataGridViewCellStyle7;
             this.DownMoveCol.HeaderText = "下移";
             this.DownMoveCol.Name = "DownMoveCol";
             this.DownMoveCol.Width = 60;
             // 
             // DeleteBtn
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.NullValue = "删除";
-            this.DeleteBtn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.NullValue = "删除";
+            this.DeleteBtn.DefaultCellStyle = dataGridViewCellStyle8;
             this.DeleteBtn.HeaderText = "删除";
             this.DeleteBtn.MinimumWidth = 6;
             this.DeleteBtn.Name = "DeleteBtn";

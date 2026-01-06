@@ -47,6 +47,63 @@ namespace FunctionBlock
             }
         }
 
+        public string[] GetLableName(int index)
+        {
+            string[] lables = new string[0];
+            List<string> listLable = new List<string>();
+            List<TreeNode> listTreeNode = new List<TreeNode>();
+            List<TreeNode> listToolNode = new List<TreeNode>();
+            foreach (var item in ProgramForm.Instance.ProgramDic.Values)
+            {
+                listTreeNode.AddRange(item.GetTreeViewNodeTag());
+            }
+            foreach (TreeNode item in listTreeNode)
+            {
+                switch (item.Tag?.GetType().Name)
+                {
+                    case nameof(JobUnit):
+                        BindingList<PlcCommunicateInfo> plcInfo = ((BaseFunction)item.Tag).ResultInfo as BindingList<PlcCommunicateInfo>;
+                        if (plcInfo.Count > 0 && (int)plcInfo[0].CoordSysName == index)
+                        {
+                            foreach (TreeNode node in item.Nodes)
+                            {
+                                switch (node.Tag?.GetType().Name)
+                                {
+                                    case nameof(UserLable):
+                                        listLable.Add(node.Text);
+                                        break;
+                                    default:
+                                        if (node.Name.Contains("Tool"))
+                                            listToolNode.Add(node);
+                                        break;
+                                }
+                            }
+                        }
+                        else
+                            continue;
+                        break;
+                }
+            }
+            foreach (TreeNode item in listToolNode)
+            {
+                foreach (TreeNode node in item.Nodes)
+                {
+                    switch (node?.Tag?.GetType().Name)
+                    {
+                        case nameof(UserLable):
+                            listLable.Add($"{item.Text}.{node.Text}");
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            lables = listLable.ToArray();
+            return lables;
+        }
+
+
+
 
         public void Init()
         {
@@ -56,7 +113,13 @@ namespace FunctionBlock
             {
                 listTreeNode.AddRange(item.GetTreeViewNodeTag());
             }
-            if (listTreeNode.Count == 0) new UserMessageForm().ShowDialog("程序面板节点数量为 0");
+            if (listTreeNode.Count == 0)
+            {
+                new UserMessageForm().ShowDialog("程序面板节点数量为 0");
+                return;
+            }
+            
+            //string[] name = GetLableName(1);
             /////////////////////////////////////////////////////
             string info;
             SystemParamManager.Instance.SysConfigParam.IsAutoRun = true;
@@ -134,9 +197,6 @@ namespace FunctionBlock
                 }
             }
             #endregion
-
-
-
 
 
             #region Method2
@@ -543,6 +603,13 @@ namespace FunctionBlock
                             LoggerHelper.Error("收到用户登录信号：" + item.CoordSysName + "-" + item.Address);
                             RecipeInfo?.Invoke(new RecipeEventArgs(item.CoordSysName, FunctionNo));
                             break;
+
+                        case "Lable":
+                        case "lable":
+                            CommunicationConfigParamManger.Instance.WriteValue(item, 0); // 清零触发信号   
+                            LoggerHelper.Error("收到获取标签信号：" + item.CoordSysName + "-" + item.Address);
+                            RecipeInfo?.Invoke(new RecipeEventArgs(item.CoordSysName, FunctionNo));
+                            break;
                     }
                 }
                 Thread.Sleep(100);
@@ -556,7 +623,7 @@ namespace FunctionBlock
         /// <param name="coordSysName"></param>
         /// <param name="Info"></param>
         /// <returns></returns>
-        private TreeNode GetExecuteNode(enCoordSysName coordSysName, string cameName, out string Info)
+        public TreeNode GetExecuteNode(enCoordSysName coordSysName, string cameName, out string Info)
         {
             TreeNode node = null;
             Info = "";
@@ -614,7 +681,7 @@ namespace FunctionBlock
                                             {
                                                 IsOk = IsOk && false;
                                                 LoggerHelper.Error($"当前值与目标值不相等,获取执行节点失败!", cameName);
-                                            }   
+                                            }
                                         }
                                         else
                                             LoggerHelper.Debug("没有启用地址值比较", cameName);

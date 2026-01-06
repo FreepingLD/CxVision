@@ -31,12 +31,16 @@ namespace FunctionBlock
         public CameraGlueGunCalibrateForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             drawObject = new userDrawPointROI(this.hWindowControl1, false);
         }
 
         public CameraGlueGunCalibrateForm(CameraParam CamParam)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             this.CamParam = CamParam;
             drawObject = new userDrawPointROI(this.hWindowControl1, false);
         }

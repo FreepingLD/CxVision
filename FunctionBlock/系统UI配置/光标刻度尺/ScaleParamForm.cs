@@ -45,8 +45,17 @@ namespace FunctionBlock
             ScaleParamManager.Instance.Read();
             this.ShowInTaskbar = true;
             this.TopMost = true;
+            this.StartPosition = FormStartPosition.Manual;
         }
-
+        public ScaleParamForm(Point point)
+        {
+            InitializeComponent();
+            ScaleParamManager.Instance.Read();
+            this.ShowInTaskbar = true;
+            this.TopMost = true;
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = point;
+        }
 
         private void ScaleParamForm_FormClosing(object sender, FormClosingEventArgs e)
         {

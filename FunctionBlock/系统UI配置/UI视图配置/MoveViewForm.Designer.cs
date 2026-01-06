@@ -121,7 +121,7 @@
             this.titleLabel.Location = new System.Drawing.Point(2, 2);
             this.titleLabel.Margin = new System.Windows.Forms.Padding(2);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(332, 16);
+            this.titleLabel.Size = new System.Drawing.Size(328, 16);
             this.titleLabel.TabIndex = 22;
             this.titleLabel.Text = "CxVision";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -157,7 +157,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 231F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(417, 508);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(413, 504);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // buttonMax
@@ -165,7 +165,7 @@
             this.buttonMax.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonMax.BackgroundImage")));
             this.buttonMax.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonMax.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonMax.Location = new System.Drawing.Point(363, 0);
+            this.buttonMax.Location = new System.Drawing.Point(359, 0);
             this.buttonMax.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMax.Name = "buttonMax";
             this.buttonMax.Size = new System.Drawing.Size(27, 20);
@@ -178,7 +178,7 @@
             this.buttonClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonClose.BackgroundImage")));
             this.buttonClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonClose.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonClose.Location = new System.Drawing.Point(390, 0);
+            this.buttonClose.Location = new System.Drawing.Point(386, 0);
             this.buttonClose.Margin = new System.Windows.Forms.Padding(0);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(27, 20);
@@ -192,7 +192,7 @@
             this.buttonMin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonMin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonMin.Enabled = false;
-            this.buttonMin.Location = new System.Drawing.Point(336, 0);
+            this.buttonMin.Location = new System.Drawing.Point(332, 0);
             this.buttonMin.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMin.Name = "buttonMin";
             this.buttonMin.Size = new System.Drawing.Size(27, 20);
@@ -209,7 +209,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tableLayoutPanel2.SetRowSpan(this.tabControl1, 3);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(411, 251);
+            this.tabControl1.Size = new System.Drawing.Size(407, 247);
             this.tabControl1.TabIndex = 30;
             // 
             // tabPage1
@@ -218,7 +218,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(403, 225);
+            this.tabPage1.Size = new System.Drawing.Size(399, 221);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "点位设置";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -254,7 +254,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 60;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(397, 219);
+            this.dataGridView1.Size = new System.Drawing.Size(393, 215);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.DataSourceChanged += new System.EventHandler(this.dataGridView1_DataSourceChanged);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -323,10 +323,10 @@
             this.tabControl2.Controls.Add(this.操作页面tabPage);
             this.tabControl2.Controls.Add(this.程序编辑tabPage);
             this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl2.Location = new System.Drawing.Point(3, 280);
+            this.tabControl2.Location = new System.Drawing.Point(3, 276);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(411, 225);
+            this.tabControl2.Size = new System.Drawing.Size(407, 225);
             this.tabControl2.TabIndex = 31;
             // 
             // 操作页面tabPage
@@ -353,7 +353,7 @@
             this.操作页面tabPage.Location = new System.Drawing.Point(4, 22);
             this.操作页面tabPage.Name = "操作页面tabPage";
             this.操作页面tabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.操作页面tabPage.Size = new System.Drawing.Size(403, 199);
+            this.操作页面tabPage.Size = new System.Drawing.Size(399, 199);
             this.操作页面tabPage.TabIndex = 0;
             this.操作页面tabPage.Text = "操作页面";
             // 
@@ -429,7 +429,7 @@
             // readDirectoryButton
             // 
             this.readDirectoryButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.readDirectoryButton.Location = new System.Drawing.Point(371, 135);
+            this.readDirectoryButton.Location = new System.Drawing.Point(367, 135);
             this.readDirectoryButton.Name = "readDirectoryButton";
             this.readDirectoryButton.Size = new System.Drawing.Size(23, 21);
             this.readDirectoryButton.TabIndex = 54;
@@ -456,7 +456,7 @@
             this.多文件目录textBox.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.多文件目录textBox.Location = new System.Drawing.Point(291, 133);
             this.多文件目录textBox.Name = "多文件目录textBox";
-            this.多文件目录textBox.Size = new System.Drawing.Size(74, 26);
+            this.多文件目录textBox.Size = new System.Drawing.Size(70, 26);
             this.多文件目录textBox.TabIndex = 52;
             // 
             // 保存button
@@ -464,7 +464,7 @@
             this.保存button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.保存button.BackColor = System.Drawing.SystemColors.Control;
             this.保存button.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.保存button.Location = new System.Drawing.Point(299, 35);
+            this.保存button.Location = new System.Drawing.Point(295, 35);
             this.保存button.Name = "保存button";
             this.保存button.Size = new System.Drawing.Size(95, 54);
             this.保存button.TabIndex = 51;
@@ -538,7 +538,7 @@
             this.产品标识号textBox.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.产品标识号textBox.Location = new System.Drawing.Point(291, 165);
             this.产品标识号textBox.Name = "产品标识号textBox";
-            this.产品标识号textBox.Size = new System.Drawing.Size(74, 26);
+            this.产品标识号textBox.Size = new System.Drawing.Size(70, 26);
             this.产品标识号textBox.TabIndex = 45;
             // 
             // label3
@@ -581,7 +581,7 @@
             this.程序编辑tabPage.Location = new System.Drawing.Point(4, 22);
             this.程序编辑tabPage.Name = "程序编辑tabPage";
             this.程序编辑tabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.程序编辑tabPage.Size = new System.Drawing.Size(407, 199);
+            this.程序编辑tabPage.Size = new System.Drawing.Size(403, 199);
             this.程序编辑tabPage.TabIndex = 1;
             this.程序编辑tabPage.Text = "程序编辑";
             // 
@@ -602,7 +602,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(401, 193);
+            this.panel3.Size = new System.Drawing.Size(397, 193);
             this.panel3.TabIndex = 27;
             // 
             // groupBox4
@@ -622,7 +622,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.厚度系数textBox.Location = new System.Drawing.Point(65, 20);
             this.厚度系数textBox.Name = "厚度系数textBox";
-            this.厚度系数textBox.Size = new System.Drawing.Size(94, 22);
+            this.厚度系数textBox.Size = new System.Drawing.Size(94, 21);
             this.厚度系数textBox.TabIndex = 41;
             // 
             // label17
@@ -630,7 +630,7 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(0, 24);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(56, 12);
+            this.label17.Size = new System.Drawing.Size(59, 12);
             this.label17.TabIndex = 42;
             this.label17.Text = "厚度补偿:";
             // 
@@ -653,7 +653,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.中心XtextBox.Location = new System.Drawing.Point(50, 20);
             this.中心XtextBox.Name = "中心XtextBox";
-            this.中心XtextBox.Size = new System.Drawing.Size(109, 22);
+            this.中心XtextBox.Size = new System.Drawing.Size(109, 21);
             this.中心XtextBox.TabIndex = 41;
             // 
             // label14
@@ -661,7 +661,7 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(5, 25);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(40, 12);
+            this.label14.Size = new System.Drawing.Size(41, 12);
             this.label14.TabIndex = 42;
             this.label14.Text = "中心X:";
             // 
@@ -671,7 +671,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.中心YtextBox.Location = new System.Drawing.Point(50, 47);
             this.中心YtextBox.Name = "中心YtextBox";
-            this.中心YtextBox.Size = new System.Drawing.Size(109, 22);
+            this.中心YtextBox.Size = new System.Drawing.Size(109, 21);
             this.中心YtextBox.TabIndex = 43;
             // 
             // label15
@@ -679,7 +679,7 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(5, 52);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(40, 12);
+            this.label15.Size = new System.Drawing.Size(41, 12);
             this.label15.TabIndex = 44;
             this.label15.Text = "中心Y:";
             // 
@@ -703,7 +703,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.校准值textBox.Location = new System.Drawing.Point(80, 47);
             this.校准值textBox.Name = "校准值textBox";
-            this.校准值textBox.Size = new System.Drawing.Size(98, 22);
+            this.校准值textBox.Size = new System.Drawing.Size(98, 21);
             this.校准值textBox.TabIndex = 44;
             // 
             // label11
@@ -711,7 +711,7 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(27, 52);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(44, 12);
+            this.label11.Size = new System.Drawing.Size(47, 12);
             this.label11.TabIndex = 45;
             this.label11.Text = "校准值:";
             // 
@@ -731,7 +731,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.校准块厚度textBox.Location = new System.Drawing.Point(80, 20);
             this.校准块厚度textBox.Name = "校准块厚度textBox";
-            this.校准块厚度textBox.Size = new System.Drawing.Size(98, 22);
+            this.校准块厚度textBox.Size = new System.Drawing.Size(98, 21);
             this.校准块厚度textBox.TabIndex = 41;
             // 
             // label12
@@ -739,7 +739,7 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(3, 25);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(68, 12);
+            this.label12.Size = new System.Drawing.Size(71, 12);
             this.label12.TabIndex = 42;
             this.label12.Text = "校准块厚度:";
             // 
@@ -764,7 +764,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.标准值textBox.Location = new System.Drawing.Point(50, 20);
             this.标准值textBox.Name = "标准值textBox";
-            this.标准值textBox.Size = new System.Drawing.Size(109, 22);
+            this.标准值textBox.Size = new System.Drawing.Size(109, 21);
             this.标准值textBox.TabIndex = 41;
             // 
             // label10
@@ -772,7 +772,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(3, 78);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 12);
+            this.label10.Size = new System.Drawing.Size(47, 12);
             this.label10.TabIndex = 46;
             this.label10.Text = "下偏差:";
             // 
@@ -781,7 +781,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(3, 25);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 12);
+            this.label8.Size = new System.Drawing.Size(47, 12);
             this.label8.TabIndex = 42;
             this.label8.Text = "标准值:";
             // 
@@ -791,7 +791,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.下偏差textBox.Location = new System.Drawing.Point(50, 73);
             this.下偏差textBox.Name = "下偏差textBox";
-            this.下偏差textBox.Size = new System.Drawing.Size(109, 22);
+            this.下偏差textBox.Size = new System.Drawing.Size(109, 21);
             this.下偏差textBox.TabIndex = 45;
             // 
             // 上偏差textBox
@@ -800,7 +800,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.上偏差textBox.Location = new System.Drawing.Point(50, 47);
             this.上偏差textBox.Name = "上偏差textBox";
-            this.上偏差textBox.Size = new System.Drawing.Size(109, 22);
+            this.上偏差textBox.Size = new System.Drawing.Size(109, 21);
             this.上偏差textBox.TabIndex = 43;
             // 
             // label9
@@ -808,7 +808,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(3, 52);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 12);
+            this.label9.Size = new System.Drawing.Size(47, 12);
             this.label9.TabIndex = 44;
             this.label9.Text = "上偏差:";
             // 
@@ -825,7 +825,7 @@
             // 采集图片Btn
             // 
             this.采集图片Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.采集图片Btn.Location = new System.Drawing.Point(236, 122);
+            this.采集图片Btn.Location = new System.Drawing.Point(232, 122);
             this.采集图片Btn.Name = "采集图片Btn";
             this.采集图片Btn.Size = new System.Drawing.Size(75, 32);
             this.采集图片Btn.TabIndex = 20;
@@ -836,7 +836,7 @@
             // LocadImageButton
             // 
             this.LocadImageButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.LocadImageButton.Location = new System.Drawing.Point(236, 84);
+            this.LocadImageButton.Location = new System.Drawing.Point(232, 84);
             this.LocadImageButton.Name = "LocadImageButton";
             this.LocadImageButton.Size = new System.Drawing.Size(75, 32);
             this.LocadImageButton.TabIndex = 17;
@@ -847,7 +847,7 @@
             // 清空button
             // 
             this.清空button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.清空button.Location = new System.Drawing.Point(319, 157);
+            this.清空button.Location = new System.Drawing.Point(315, 157);
             this.清空button.Name = "清空button";
             this.清空button.Size = new System.Drawing.Size(75, 32);
             this.清空button.TabIndex = 5;
@@ -858,7 +858,7 @@
             // 删除button
             // 
             this.删除button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.删除button.Location = new System.Drawing.Point(319, 119);
+            this.删除button.Location = new System.Drawing.Point(315, 119);
             this.删除button.Name = "删除button";
             this.删除button.Size = new System.Drawing.Size(75, 32);
             this.删除button.TabIndex = 3;
@@ -869,7 +869,7 @@
             // 插入button
             // 
             this.插入button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.插入button.Location = new System.Drawing.Point(319, 81);
+            this.插入button.Location = new System.Drawing.Point(315, 81);
             this.插入button.Name = "插入button";
             this.插入button.Size = new System.Drawing.Size(75, 32);
             this.插入button.TabIndex = 2;
@@ -880,7 +880,7 @@
             // 添加线button
             // 
             this.添加线button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.添加线button.Location = new System.Drawing.Point(319, 45);
+            this.添加线button.Location = new System.Drawing.Point(315, 45);
             this.添加线button.Name = "添加线button";
             this.添加线button.Size = new System.Drawing.Size(75, 32);
             this.添加线button.TabIndex = 1;
@@ -891,7 +891,7 @@
             // 添加点button
             // 
             this.添加点button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.添加点button.Location = new System.Drawing.Point(319, 7);
+            this.添加点button.Location = new System.Drawing.Point(315, 7);
             this.添加点button.Name = "添加点button";
             this.添加点button.Size = new System.Drawing.Size(75, 32);
             this.添加点button.TabIndex = 0;
@@ -904,7 +904,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(417, 508);
+            this.ClientSize = new System.Drawing.Size(413, 504);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel2);
             this.ForeColor = System.Drawing.SystemColors.ControlText;

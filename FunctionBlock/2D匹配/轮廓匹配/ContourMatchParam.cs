@@ -20,20 +20,23 @@ using System.Diagnostics;
 
 namespace FunctionBlock
 {
+
     [Serializable]
     public class ContourMatchParam
     {
         public double StartPercent { get; set; }
         public double EndPercent { get; set; }
         public  enTransformationType TransformationType { get; set; }
+        public string ResampleDist { get; set; }
+
 
         public ContourMatchParam()
         {
-            this.StartPercent = 0;
+            this.StartPercent = 0.1;
             this.EndPercent = 0.7;
-            this.TransformationType = enTransformationType.rigid;
+            this.TransformationType = enTransformationType.affine;
+            this.ResampleDist = "auto";// 自动模式下不采样
         }
-
 
     }
 

@@ -36,29 +36,29 @@ namespace FunctionBlock
             if (Param == null)
                 throw new ArgumentNullException(" Param ");
             ////////////////////////// 将像素坐标转换成世界坐标 ////////////////////////
-            userWcsVector[] SourcePoint = new userWcsVector[SourcePixVector.Length];
+            userWcsVector[] SourceWcsPoint = new userWcsVector[SourcePixVector.Length];
             for (int i = 0; i < SourcePixVector.Length; i++)
             {
-                SourcePoint[i] = SourcePixVector[i].GetWcsVector();
+                SourceWcsPoint[i] = SourcePixVector[i].GetWcsVector();
             }
             if (TargetPixVector == null) TargetPixVector = new userPixVector[0];
-            userWcsVector[] TargetPoint = new userWcsVector[TargetPixVector.Length];
+            userWcsVector[] TargetWcsPoint = new userWcsVector[TargetPixVector.Length];
             for (int i = 0; i < TargetPixVector.Length; i++)
             {
                 switch (Param.RefObject)
                 {
                     case enRefObject.视野中心:
                     case enRefObject.示教点: // 示教点常用的单相机的校正
-                    case enRefObject.目标点:
                     default:
-                        TargetPoint[i] = TargetPixVector[i].GetWcsVector(SourcePixVector[i].Grab_x, SourcePixVector[i].Grab_y); //
+                        TargetWcsPoint[i] = TargetPixVector[i].GetWcsVector(SourcePixVector[i].Grab_x, SourcePixVector[i].Grab_y); //
                         break;
+                    case enRefObject.目标点:
                     case enRefObject.映射相机: // 如果是坐标映射，因为是两个不同的相机，所以这里不需要使用源相机的当前拍照位置坐标来计算目标位置 
-                        TargetPoint[i] = TargetPixVector[i].GetWcsVector();
+                        TargetWcsPoint[i] = TargetPixVector[i].GetWcsVector();
                         break;
                 }
             }
-            ////////////////////////////////////////////////////////////////////////////
+            ///////////// 补偿值 ///////////////////////////////////////////////////////////////
             addVector.X = Param.Add_X;
             addVector.Y = Param.Add_Y;
             addVector.Angle = Param.Add_Angle;
@@ -66,30 +66,30 @@ namespace FunctionBlock
             {
                 case enAlignmentMethod.单点对齐:
                     affinePoints = new userWcsVector[1];
-                    if (TargetPoint.Length < 1)
+                    if (TargetWcsPoint.Length < 1)
                         throw new ArgumentException("RefPoint 的长度小于1 ");
-                    if (SourcePoint.Length < 1)
+                    if (SourceWcsPoint.Length < 1)
                         throw new ArgumentException("CurPoint 的长度小于1 ");
-                    AddXYTheta.X = (TargetPoint[0].X - SourcePoint[0].X) + addVector.X;
-                    AddXYTheta.Y = (TargetPoint[0].Y - SourcePoint[0].Y) + addVector.Y;
+                    AddXYTheta.X = (TargetWcsPoint[0].X - SourceWcsPoint[0].X) + addVector.X;
+                    AddXYTheta.Y = (TargetWcsPoint[0].Y - SourceWcsPoint[0].Y) + addVector.Y;
                     AddXYTheta.Angle = 0;
                     //////////////////////////////////////////////////
                     affinePoints[0] = new userWcsVector();
-                    affinePoints[0].X = SourcePoint[0].X + AddXYTheta.X;
-                    affinePoints[0].Y = SourcePoint[0].Y + AddXYTheta.Y;
+                    affinePoints[0].X = SourceWcsPoint[0].X + AddXYTheta.X;
+                    affinePoints[0].Y = SourceWcsPoint[0].Y + AddXYTheta.Y;
                     result = true;
                     break;
                 case enAlignmentMethod.向量对齐:
-                    if (TargetPoint.Length < 1)
+                    if (TargetWcsPoint.Length < 1)
                         throw new ArgumentException("TargetPoint 的长度小于1 ");
-                    if (SourcePoint.Length < 1)
+                    if (SourceWcsPoint.Length < 1)
                         throw new ArgumentException("SourcePoint 的长度小于1 ");
-                    refVectorPoint.X = TargetPoint[0].X + addVector.X;
-                    refVectorPoint.Y = TargetPoint[0].Y + addVector.Y;
-                    refVectorPoint.Angle = TargetPoint[0].Angle + addVector.Angle;
-                    currentVectorPoint.X = (SourcePoint[0].X);
-                    currentVectorPoint.Y = (SourcePoint[0].Y);
-                    currentVectorPoint.Angle = SourcePoint[0].Angle;
+                    refVectorPoint.X = TargetWcsPoint[0].X + addVector.X;
+                    refVectorPoint.Y = TargetWcsPoint[0].Y + addVector.Y;
+                    refVectorPoint.Angle = TargetWcsPoint[0].Angle + addVector.Angle;
+                    currentVectorPoint.X = (SourceWcsPoint[0].X);
+                    currentVectorPoint.Y = (SourceWcsPoint[0].Y);
+                    currentVectorPoint.Angle = SourceWcsPoint[0].Angle;
                     hHomMat2D = ha.GetHomMat2D(currentVectorPoint, refVectorPoint);
                     AddXYTheta = ha.GetHomMat2DXYTheta(hHomMat2D);
                     //////////////////////////////////////////////////
@@ -106,24 +106,24 @@ namespace FunctionBlock
                     result = true;
                     break;
                 case enAlignmentMethod.向量对位_放料计算:
-                    if (TargetPoint.Length < 1)
+                    if (TargetWcsPoint.Length < 1)
                         throw new ArgumentException("TargetPoint 的长度小于1 ");
-                    if (SourcePoint.Length < 1)
+                    if (SourceWcsPoint.Length < 1)
                         throw new ArgumentException("SourcePoint 的长度小于1 ");
-                    refVectorPoint.X = TargetPoint[0].X + addVector.X;
-                    refVectorPoint.Y = TargetPoint[0].Y + addVector.Y;
-                    refVectorPoint.Angle = TargetPoint[0].Angle + addVector.Angle;
-                    currentVectorPoint.X = (SourcePoint[0].X);
-                    currentVectorPoint.Y = (SourcePoint[0].Y);
-                    currentVectorPoint.Angle = SourcePoint[0].Angle;
+                    refVectorPoint.X = TargetWcsPoint[0].X + addVector.X;
+                    refVectorPoint.Y = TargetWcsPoint[0].Y + addVector.Y;
+                    refVectorPoint.Angle = TargetWcsPoint[0].Angle + addVector.Angle;
+                    currentVectorPoint.X = (SourceWcsPoint[0].X);
+                    currentVectorPoint.Y = (SourceWcsPoint[0].Y);
+                    currentVectorPoint.Angle = SourceWcsPoint[0].Angle;
                     //////////////////////////////////////////////////
                     hHomMat2D = ha.GetHomMat2D(currentVectorPoint, refVectorPoint);
                     AddXYTheta = ha.GetHomMat2DXYTheta(hHomMat2D);
                     /////////////////////  ////////////////////////////////
                     CoordSysAxisPosParam axisParam = new CoordSysAxisPosParam();
-                    axisParam.UpdataAxisPosition(SourcePoint[0].CamParams.CaliParam.CoordSysName);
-                    AddXYTheta.X += (SourcePoint[0].Grab_x - axisParam.X);
-                    AddXYTheta.Y += (SourcePoint[0].Grab_y - axisParam.Y);
+                    axisParam.UpdataAxisPosition(SourceWcsPoint[0].CamParams.CaliParam.CoordSysName);
+                    AddXYTheta.X += (SourceWcsPoint[0].Grab_x - axisParam.X);
+                    AddXYTheta.Y += (SourceWcsPoint[0].Grab_y - axisParam.Y);
                     //////////////////////////////////////////
                     if (AddXYTheta != null)
                     {
@@ -138,16 +138,16 @@ namespace FunctionBlock
                     result = true;
                     break;
                 case enAlignmentMethod.两点对齐_起点角度:
-                    if (TargetPoint.Length < 2)
+                    if (TargetWcsPoint.Length < 2)
                         throw new ArgumentException("TargetPoint 的长度小于2 ");
-                    if (SourcePoint.Length < 2)
+                    if (SourceWcsPoint.Length < 2)
                         throw new ArgumentException("SourcePoint 的长度小于2 ");
-                    refVectorPoint.X = TargetPoint[0].X + addVector.X;
-                    refVectorPoint.Y = TargetPoint[0].Y + addVector.Y;
-                    refVectorPoint.Angle = Math.Atan2(TargetPoint[1].Y - TargetPoint[0].Y, TargetPoint[1].X - TargetPoint[0].X) * 180 / Math.PI + addVector.Angle;  //这里需要将补偿值转换成弧度
-                    currentVectorPoint.X = (SourcePoint[0].X);
-                    currentVectorPoint.Y = (SourcePoint[0].Y);
-                    currentVectorPoint.Angle = Math.Atan2(SourcePoint[1].Y - SourcePoint[0].Y, SourcePoint[1].X - SourcePoint[0].X) * 180 / Math.PI;
+                    refVectorPoint.X = TargetWcsPoint[0].X + addVector.X;
+                    refVectorPoint.Y = TargetWcsPoint[0].Y + addVector.Y;
+                    refVectorPoint.Angle = Math.Atan2(TargetWcsPoint[1].Y - TargetWcsPoint[0].Y, TargetWcsPoint[1].X - TargetWcsPoint[0].X) * 180 / Math.PI + addVector.Angle;  //这里需要将补偿值转换成弧度
+                    currentVectorPoint.X = (SourceWcsPoint[0].X);
+                    currentVectorPoint.Y = (SourceWcsPoint[0].Y);
+                    currentVectorPoint.Angle = Math.Atan2(SourceWcsPoint[1].Y - SourceWcsPoint[0].Y, SourceWcsPoint[1].X - SourceWcsPoint[0].X) * 180 / Math.PI;
                     hHomMat2D = ha.GetHomMat2D(currentVectorPoint, refVectorPoint);
                     AddXYTheta = ha.GetHomMat2DXYTheta(hHomMat2D);
                     //////////////////////////////////////////////////
@@ -164,79 +164,79 @@ namespace FunctionBlock
                     result = true;
                     break;
                 case enAlignmentMethod.两点对齐:
-                    if (TargetPoint.Length < 2)
+                    if (TargetWcsPoint.Length < 2)
                         throw new ArgumentException("TargetPoint 的长度小于2 ");
-                    if (SourcePoint.Length < 2)
+                    if (SourceWcsPoint.Length < 2)
                         throw new ArgumentException("SourcePoint 的长度小于2 ");
-                    hHomMat2D = ha.GetHomMat2D(SourcePoint, TargetPoint, null);
-                    AddXYTheta = ha.GetHomMat2DXYTheta(hHomMat2D) + addVector;
+                    hHomMat2D = ha.GetHomMat2D(SourceWcsPoint, TargetWcsPoint, addVector);
+                    AddXYTheta = ha.GetHomMat2DXYTheta(hHomMat2D);
                     //////////////////////////////////////////////
                     if (AddXYTheta != null)
-                        affinePoints = ha.AffineTransPoint2d(AddXYTheta.GetHomMat2D(), SourcePoint);
+                        affinePoints = ha.AffineTransPoint2d(AddXYTheta.GetHomMat2D(), SourceWcsPoint);
                     result = true;
                     break;
                 case enAlignmentMethod.三点对齐:
-                    if (TargetPoint.Length < 3)
+                    if (TargetWcsPoint.Length < 3)
                         throw new ArgumentException("TargetPoint 的长度小于3 ");
-                    if (SourcePoint.Length < 3)
+                    if (SourceWcsPoint.Length < 3)
                         throw new ArgumentException("SourcePoint 的长度小于3 ");
-                    hHomMat2D = ha.GetHomMat2D(SourcePoint, TargetPoint, null);
-                    AddXYTheta = ha.GetHomMat2DXYTheta(hHomMat2D) + addVector;
+                    hHomMat2D = ha.GetHomMat2D(SourceWcsPoint, TargetWcsPoint, addVector);
+                    AddXYTheta = ha.GetHomMat2DXYTheta(hHomMat2D);
                     ///////////////////////////////
                     if (AddXYTheta != null)
-                        affinePoints = ha.AffineTransPoint2d(AddXYTheta.GetHomMat2D(), SourcePoint);
+                        affinePoints = ha.AffineTransPoint2d(AddXYTheta.GetHomMat2D(), SourceWcsPoint);
                     result = true;
                     break;
 
                 case enAlignmentMethod.四点对齐:
-                    if (TargetPoint.Length < 4)
+                    if (TargetWcsPoint.Length < 4)
                         throw new ArgumentException("TargetPoint 的长度小于4 ");
-                    if (SourcePoint.Length < 4)
+                    if (SourceWcsPoint.Length < 4)
                         throw new ArgumentException("SourcePoint 的长度小于4 ");
-                    hHomMat2D = ha.GetHomMat2D(SourcePoint, TargetPoint, null);
-                    AddXYTheta = ha.GetHomMat2DXYTheta(hHomMat2D) + addVector;
+                    hHomMat2D = ha.GetHomMat2D(SourceWcsPoint, TargetWcsPoint, addVector);
+                    AddXYTheta = ha.GetHomMat2DXYTheta(hHomMat2D);
                     //////////////////////////////////////////////////////////
                     if (AddXYTheta != null)
-                        affinePoints = ha.AffineTransPoint2d(AddXYTheta.GetHomMat2D(), SourcePoint);
+                        affinePoints = ha.AffineTransPoint2d(AddXYTheta.GetHomMat2D(), SourceWcsPoint);
                     result = true;
                     break;
                 case enAlignmentMethod.四点对齐_两点平移:
-                    if (TargetPoint.Length < 4)
+                    if (TargetWcsPoint.Length < 4)
                         throw new ArgumentException("TargetPoint 的长度小于4 ");
-                    if (SourcePoint.Length < 4)
+                    if (SourceWcsPoint.Length < 4)
                         throw new ArgumentException("SourcePoint 的长度小于4 ");
-                    hHomMat2D = ha.GetHomMat2D(SourcePoint, TargetPoint, null);
-                    AddXYTheta = ha.GetHomMat2DXYTheta(hHomMat2D) + addVector;
-                    affinePoints = ha.AffineTransPoint2d(AddXYTheta.GetHomMat2D(), SourcePoint);
-                    double Tx = (TargetPoint[0].X + TargetPoint[1].X) * 0.5 - (affinePoints[0].X + affinePoints[1].X) * 0.5;
-                    double Ty = (TargetPoint[0].Y + TargetPoint[1].Y) * 0.5 - (affinePoints[0].Y + affinePoints[1].Y) * 0.5;
+                    hHomMat2D = ha.GetHomMat2D(SourceWcsPoint, TargetWcsPoint, addVector);
+                    AddXYTheta = ha.GetHomMat2DXYTheta(hHomMat2D);
+                    affinePoints = ha.AffineTransPoint2d(AddXYTheta.GetHomMat2D(), SourceWcsPoint);
+                    double Tx = (TargetWcsPoint[0].X + TargetWcsPoint[1].X) * 0.5 - (affinePoints[0].X + affinePoints[1].X) * 0.5;
+                    double Ty = (TargetWcsPoint[0].Y + TargetWcsPoint[1].Y) * 0.5 - (affinePoints[0].Y + affinePoints[1].Y) * 0.5;
                     userWcsVector userVector = new userWcsVector(Tx, Ty);
                     AddXYTheta = ha.GetHomMat2DXYTheta(hHomMat2D) + userVector;
                     ///////////////////////////////////////////////
                     if (AddXYTheta != null)
-                        affinePoints = ha.AffineTransPoint2d(AddXYTheta.GetHomMat2D(), SourcePoint);
+                        affinePoints = ha.AffineTransPoint2d(AddXYTheta.GetHomMat2D(), SourceWcsPoint);
                     result = true;
                     break;
                 case enAlignmentMethod.四点对齐_Rigid:
-                    if (TargetPoint.Length < 4)
+                    if (TargetWcsPoint.Length < 4)
                         throw new ArgumentException("TargetPoint 的长度小于4 ");
-                    if (SourcePoint.Length < 4)
+                    if (SourceWcsPoint.Length < 4)
                         throw new ArgumentException("SourcePoint 的长度小于4 ");
-                    hHomMat2D = ha.GetRigidHomMat2D(SourcePoint, TargetPoint, null);
-                    AddXYTheta = ha.GetHomMat2DXYTheta(hHomMat2D) + addVector;
+                    hHomMat2D = ha.GetRigidHomMat2D(SourceWcsPoint, TargetWcsPoint, addVector);
+                    AddXYTheta = ha.GetHomMat2DXYTheta(hHomMat2D);
                     ///////////////////////////////////////////////
                     if (AddXYTheta != null)
-                        affinePoints = ha.AffineTransPoint2d(AddXYTheta.GetHomMat2D(), SourcePoint);
+                        affinePoints = ha.AffineTransPoint2d(AddXYTheta.GetHomMat2D(), SourceWcsPoint);
                     result = true;
                     break;
                 case enAlignmentMethod.N点对齐:
-                    if (TargetPoint.Length != SourcePoint.Length)
+                    if (TargetWcsPoint.Length != SourceWcsPoint.Length)
                         throw new ArgumentException("TargetPoint 的长度与 SourcePoint 的长度不相等 ");
-                    hHomMat2D = ha.GetHomMat2D(SourcePoint, TargetPoint, null); // 计算源点到目标点间的变换，
-                    AddXYTheta = ha.GetHomMat2DXYTheta(hHomMat2D) + addVector;
+                    hHomMat2D = ha.GetHomMat2D(SourceWcsPoint, TargetWcsPoint, addVector); // 计算源点到目标点间的变换，
+                    AddXYTheta = ha.GetHomMat2DXYTheta(hHomMat2D);
                     ///////////////////////////////////////////////////////////
                     if (AddXYTheta != null)
-                        affinePoints = ha.AffineTransPoint2d(AddXYTheta.GetHomMat2D(), SourcePoint);
+                        affinePoints = ha.AffineTransPoint2d(AddXYTheta.GetHomMat2D(), SourceWcsPoint);
                     result = true;
                     break;
                 default:
@@ -382,26 +382,26 @@ namespace FunctionBlock
             HalconLibrary ha = new HalconLibrary();
             HalconDotNet.HHomMat2D hHomMat2DSource = null, hHomMat2DTarget = null;
             /////// 将像素坐标转换为世界坐标,平台数据转换 ///////////////////////////////////////
-            userWcsVector[] sourceCurPoint = new userWcsVector[sourcePixCoordSystem.Length];
-            userWcsVector[] sourceTeachPoint = new userWcsVector[sourcePixCoordSystem.Length];
-            userWcsVector[] targetCurPoint = new userWcsVector[targetPixCoordSystem.Length];
-            userWcsVector[] targetTeachPoint = new userWcsVector[targetPixCoordSystem.Length];
+            userWcsVector[] sourceWcsCurPoint = new userWcsVector[sourcePixCoordSystem.Length];
+            userWcsVector[] sourceWcsTeachPoint = new userWcsVector[sourcePixCoordSystem.Length];
+            userWcsVector[] targetWcsCurPoint = new userWcsVector[targetPixCoordSystem.Length];
+            userWcsVector[] targetWcsTeachPoint = new userWcsVector[targetPixCoordSystem.Length];
             for (int i = 0; i < sourcePixCoordSystem.Length; i++)
             {
-                sourceCurPoint[i] = sourcePixCoordSystem[i].CurrentPoint.GetWcsVector();
-                sourceTeachPoint[i] = sourcePixCoordSystem[i].ReferencePoint.GetWcsVector();
+                sourceWcsCurPoint[i] = sourcePixCoordSystem[i].CurrentPoint.GetWcsVector();
+                sourceWcsTeachPoint[i] = sourcePixCoordSystem[i].ReferencePoint.GetWcsVector(sourceWcsCurPoint[i].Grab_x, sourceWcsCurPoint[i].Grab_y);
             }
             /////////////////////////////////////////////
             for (int i = 0; i < targetPixCoordSystem.Length; i++)
             {
-                targetCurPoint[i] = targetPixCoordSystem[i].CurrentPoint.GetWcsVector();
-                targetTeachPoint[i] = targetPixCoordSystem[i].ReferencePoint.GetWcsVector();
+                targetWcsCurPoint[i] = targetPixCoordSystem[i].CurrentPoint.GetWcsVector();
+                targetWcsTeachPoint[i] = targetPixCoordSystem[i].ReferencePoint.GetWcsVector(targetWcsCurPoint[i].Grab_x, targetWcsCurPoint[i].Grab_y);
             }
             ////////////////////////// 用4点计算角度
-            hHomMat2DSource = ha.GetHomMat2D(sourceTeachPoint, sourceCurPoint, null); // 计算源点到目标点间的变换，
-            hHomMat2DTarget = ha.GetHomMat2D(targetTeachPoint, targetCurPoint, null);  // 计算源点到目标点间的变换，
+            hHomMat2DSource = ha.GetHomMat2D(sourceWcsTeachPoint, sourceWcsCurPoint, null); // 计算源点到目标点间的变换，
+            hHomMat2DTarget = ha.GetHomMat2D(targetWcsTeachPoint, targetWcsCurPoint, null);  // 计算源点到目标点间的变换，
             userWcsVector sourceVector = ha.GetHomMat2DXYTheta(hHomMat2DSource);
-            userWcsVector targetVector = ha.GetHomMat2DXYTheta(hHomMat2DTarget); // 用4点来算角度
+            userWcsVector targetVector = ha.GetHomMat2DXYTheta(hHomMat2DTarget); // 用N点来算角度
             ////// 计算中心点 
             List<double> sourceTeach_x = new List<double>();
             List<double> sourceTeach_y = new List<double>();
@@ -411,22 +411,22 @@ namespace FunctionBlock
             List<double> targetTeach_y = new List<double>();
             List<double> targetCur_x = new List<double>();
             List<double> targetCur_y = new List<double>();
-            foreach (var item in sourceTeachPoint)
+            foreach (var item in sourceWcsTeachPoint)
             {
                 sourceTeach_x.Add(item.X);
                 sourceTeach_y.Add(item.Y);
             }
-            foreach (var item in sourceCurPoint)
+            foreach (var item in sourceWcsCurPoint)
             {
                 sourceCur_x.Add(item.X);
                 sourceCur_y.Add(item.Y);
             }
-            foreach (var item in targetTeachPoint)
+            foreach (var item in targetWcsTeachPoint)
             {
                 targetTeach_x.Add(item.X);
                 targetTeach_y.Add(item.Y);
             }
-            foreach (var item in targetCurPoint)
+            foreach (var item in targetWcsCurPoint)
             {
                 targetCur_x.Add(item.X);
                 targetCur_y.Add(item.Y);
@@ -695,6 +695,18 @@ namespace FunctionBlock
                             //curWcsVector = new userWcsVector(plateCur_x[0], plateCur_y[0], 0, plateCur_angle[0]);
                             //teachWcsVector = new userWcsVector(plateTeach_x[0], plateTeach_y[0], 0, plateTeach_angle[0]);
                             break;
+                        case "视野中心":
+                            hHomMat2DAdd.VectorAngleToRigid(plateTeach_x[0], plateTeach_y[0], param.Angle * Math.PI / 180, plateCur_x[0], plateCur_y[0], plateCur_angle[0] * Math.PI / 180);
+                            //////////////////////////////////////////////////////////////////////////////////
+                            curWcsVector.X = plateCur_x[0];
+                            curWcsVector.Y = plateCur_y[0];
+                            curWcsVector.Angle = plateCur_angle[0];
+                            teachWcsVector.X = plateTeach_x[0];
+                            teachWcsVector.Y = plateTeach_y[0];
+                            teachWcsVector.Angle = plateTeach_angle[0];
+                            //curWcsVector = new userWcsVector(plateCur_x[0], plateCur_y[0], 0, plateCur_angle[0]);
+                            //teachWcsVector = new userWcsVector(plateTeach_x[0], plateTeach_y[0], 0, plateTeach_angle[0]);
+                            break;
                         case "当前坐标系":
                         case "参考坐标系":
                             hHomMat2DAdd.VectorAngleToRigid(0, 0, 0, plateCur_x[0], plateCur_y[0], plateCur_angle[0] * Math.PI / 180);
@@ -782,30 +794,6 @@ namespace FunctionBlock
                             HTuple dist = HMisc.DistancePp(hTuple_x, hTuple_y, Qx, Qy);
                             maxError = Math.Round(dist.TupleMax().D);
                             break;
-                            //case "当前坐标系":
-                            //    if (plateCur_x.Length == 4)
-                            //    {
-                            //        affine_x = new HTuple();
-                            //        affine_y = new HTuple();
-                            //        Px = new double[4] { -1, 1, 1, -1 };
-                            //        Py = new double[4] { 1, 1, -1, -1 };
-                            //        Qx = new double[4];
-                            //        Qy = new double[4];
-                            //        for (int i = 0; i < plateCur_x.Length; i++)
-                            //        {
-                            //            Qx[i] = plateCur_x[i];
-                            //            Qy[i] = plateCur_y[i];
-                            //        }
-                            //        hHomMat2DAdd.VectorToHomMat2d(Qx, Qy, Px, Py);
-                            //        double Sx2, Sy2, Phi2, Theta2, Tx2, Ty2;
-                            //        Sx2 = hHomMat2DAdd.HomMat2dInvert().HomMat2dToAffinePar(out Sy2, out Phi2, out Theta2, out Tx2, out Ty2);
-                            //        meanCur_x = new HTuple(Qx).TupleMean().D;
-                            //        meanCur_y = new HTuple(Qy).TupleMean().D;
-                            //        hHomMat2DAdd.VectorAngleToRigid(meanCur_x, meanCur_y, Phi2, 0, 0, 0);
-                            //    }
-                            //    else
-                            //        hHomMat2DAdd = new HHomMat2D();
-                            //break;
                     }
                     break;
             }

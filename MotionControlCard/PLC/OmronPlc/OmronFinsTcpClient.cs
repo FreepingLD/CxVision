@@ -258,8 +258,8 @@ namespace MotionControlCard
                 ///////////////////////////////////
                 case enDataTypes.String:
                 case enDataTypes.StringArray:
-                    string [] valueTemp = new string [length];
-                    for (int i = 0; i < length; i++)
+                    string [] valueTemp = new string [length*2]; // 一个字里包含两个字符‘\0’,所以这里需要乘以 2 
+                    for (int i = 0; i < length*2; i++)
                     {
                         valueTemp [i] = "\0";
                     }

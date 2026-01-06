@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConcurrentExecutionForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonMax = new System.Windows.Forms.Button();
@@ -62,6 +62,7 @@
             this.运行toolStripButton = new System.Windows.Forms.ToolStripButton();
             this.停止toolStripButton = new System.Windows.Forms.ToolStripButton();
             this.检测工具toolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.脚本配置toolStripButton = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -69,7 +70,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.脚本配置toolStripButton = new System.Windows.Forms.ToolStripButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.视图tabPage.SuspendLayout();
@@ -96,7 +96,7 @@
             this.tableLayoutPanel1.Controls.Add(this.buttonMax, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.buttonMin, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.titleLabel, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tabControl2, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tabControl2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.statusStrip3, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.运行工具条toolStrip, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.statusStrip1, 0, 5);
@@ -178,12 +178,12 @@
             this.tabControl2.Controls.Add(this.Plc交互信息tabPage);
             this.tabControl2.Controls.Add(this.元素属性tabPage);
             this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl2.Location = new System.Drawing.Point(290, 73);
+            this.tabControl2.Location = new System.Drawing.Point(290, 25);
             this.tabControl2.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl2.Name = "tabControl2";
-            this.tableLayoutPanel1.SetRowSpan(this.tabControl2, 3);
+            this.tableLayoutPanel1.SetRowSpan(this.tabControl2, 4);
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(790, 643);
+            this.tabControl2.Size = new System.Drawing.Size(790, 691);
             this.tabControl2.TabIndex = 23;
             // 
             // 视图tabPage
@@ -192,7 +192,7 @@
             this.视图tabPage.Location = new System.Drawing.Point(4, 22);
             this.视图tabPage.Name = "视图tabPage";
             this.视图tabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.视图tabPage.Size = new System.Drawing.Size(782, 617);
+            this.视图tabPage.Size = new System.Drawing.Size(782, 665);
             this.视图tabPage.TabIndex = 0;
             this.视图tabPage.Text = "视图";
             this.视图tabPage.UseVisualStyleBackColor = true;
@@ -206,9 +206,9 @@
             this.hWindowControl1.Location = new System.Drawing.Point(3, 3);
             this.hWindowControl1.Margin = new System.Windows.Forms.Padding(0);
             this.hWindowControl1.Name = "hWindowControl1";
-            this.hWindowControl1.Size = new System.Drawing.Size(776, 611);
+            this.hWindowControl1.Size = new System.Drawing.Size(776, 659);
             this.hWindowControl1.TabIndex = 0;
-            this.hWindowControl1.WindowSize = new System.Drawing.Size(776, 611);
+            this.hWindowControl1.WindowSize = new System.Drawing.Size(776, 659);
             // 
             // Plc交互信息tabPage
             // 
@@ -216,7 +216,7 @@
             this.Plc交互信息tabPage.Location = new System.Drawing.Point(4, 22);
             this.Plc交互信息tabPage.Name = "Plc交互信息tabPage";
             this.Plc交互信息tabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.Plc交互信息tabPage.Size = new System.Drawing.Size(782, 621);
+            this.Plc交互信息tabPage.Size = new System.Drawing.Size(782, 617);
             this.Plc交互信息tabPage.TabIndex = 1;
             this.Plc交互信息tabPage.Text = "PLC交互信息";
             this.Plc交互信息tabPage.UseVisualStyleBackColor = true;
@@ -238,7 +238,7 @@
             this.数据读取dataGridView.Name = "数据读取dataGridView";
             this.数据读取dataGridView.RowHeadersWidth = 5;
             this.数据读取dataGridView.RowTemplate.Height = 23;
-            this.数据读取dataGridView.Size = new System.Drawing.Size(776, 615);
+            this.数据读取dataGridView.Size = new System.Drawing.Size(776, 611);
             this.数据读取dataGridView.TabIndex = 2;
             this.数据读取dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.数据读取dataGridView_CellContentClick);
             // 
@@ -289,9 +289,9 @@
             // 
             // InseterBtn
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.NullValue = "插入";
-            this.InseterBtn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = "插入";
+            this.InseterBtn.DefaultCellStyle = dataGridViewCellStyle1;
             this.InseterBtn.HeaderText = "插入";
             this.InseterBtn.MinimumWidth = 6;
             this.InseterBtn.Name = "InseterBtn";
@@ -299,9 +299,9 @@
             // 
             // DeleteBtn
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.NullValue = "删除";
-            this.DeleteBtn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = "删除";
+            this.DeleteBtn.DefaultCellStyle = dataGridViewCellStyle2;
             this.DeleteBtn.HeaderText = "删除";
             this.DeleteBtn.MinimumWidth = 6;
             this.DeleteBtn.Name = "DeleteBtn";
@@ -312,7 +312,7 @@
             this.元素属性tabPage.Location = new System.Drawing.Point(4, 22);
             this.元素属性tabPage.Name = "元素属性tabPage";
             this.元素属性tabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.元素属性tabPage.Size = new System.Drawing.Size(782, 621);
+            this.元素属性tabPage.Size = new System.Drawing.Size(782, 617);
             this.元素属性tabPage.TabIndex = 2;
             this.元素属性tabPage.Text = "元素属性";
             this.元素属性tabPage.UseVisualStyleBackColor = true;
@@ -379,7 +379,6 @@
             // 
             // 运行工具条toolStrip
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.运行工具条toolStrip, 6);
             this.运行工具条toolStrip.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.运行工具条toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.运行工具条toolStrip.ImageScalingSize = new System.Drawing.Size(25, 25);
@@ -390,7 +389,7 @@
             this.脚本配置toolStripButton});
             this.运行工具条toolStrip.Location = new System.Drawing.Point(0, 25);
             this.运行工具条toolStrip.Name = "运行工具条toolStrip";
-            this.运行工具条toolStrip.Size = new System.Drawing.Size(1080, 48);
+            this.运行工具条toolStrip.Size = new System.Drawing.Size(290, 48);
             this.运行工具条toolStrip.TabIndex = 20;
             this.运行工具条toolStrip.Text = "toolStrip2";
             this.运行工具条toolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.运行工具条toolStrip_ItemClicked);
@@ -401,7 +400,7 @@
             this.运行toolStripButton.Image = global::FunctionBlock.Properties.Resources.Start;
             this.运行toolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.运行toolStripButton.Name = "运行toolStripButton";
-            this.运行toolStripButton.Size = new System.Drawing.Size(36, 41);
+            this.运行toolStripButton.Size = new System.Drawing.Size(36, 45);
             this.运行toolStripButton.Text = "运行";
             this.运行toolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -411,7 +410,7 @@
             this.停止toolStripButton.Image = global::FunctionBlock.Properties.Resources.Stop;
             this.停止toolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.停止toolStripButton.Name = "停止toolStripButton";
-            this.停止toolStripButton.Size = new System.Drawing.Size(36, 41);
+            this.停止toolStripButton.Size = new System.Drawing.Size(36, 45);
             this.停止toolStripButton.Text = "停止";
             this.停止toolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -421,9 +420,19 @@
             this.检测工具toolStripButton.Image = global::FunctionBlock.Properties.Resources._1606742307_1_;
             this.检测工具toolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.检测工具toolStripButton.Name = "检测工具toolStripButton";
-            this.检测工具toolStripButton.Size = new System.Drawing.Size(60, 41);
+            this.检测工具toolStripButton.Size = new System.Drawing.Size(60, 45);
             this.检测工具toolStripButton.Text = "检测工具";
             this.检测工具toolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // 脚本配置toolStripButton
+            // 
+            this.脚本配置toolStripButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.脚本配置toolStripButton.Image = global::FunctionBlock.Properties.Resources.脚本25_X_25_png;
+            this.脚本配置toolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.脚本配置toolStripButton.Name = "脚本配置toolStripButton";
+            this.脚本配置toolStripButton.Size = new System.Drawing.Size(60, 45);
+            this.脚本配置toolStripButton.Text = "脚本配置";
+            this.脚本配置toolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // statusStrip1
             // 
@@ -505,16 +514,6 @@
             this.tableLayoutPanel2.SetRowSpan(this.treeView1, 4);
             this.treeView1.Size = new System.Drawing.Size(276, 611);
             this.treeView1.TabIndex = 0;
-            // 
-            // 脚本配置toolStripButton
-            // 
-            this.脚本配置toolStripButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.脚本配置toolStripButton.Image = global::FunctionBlock.Properties.Resources.脚本25_X_25_png;
-            this.脚本配置toolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.脚本配置toolStripButton.Name = "脚本配置toolStripButton";
-            this.脚本配置toolStripButton.Size = new System.Drawing.Size(60, 41);
-            this.脚本配置toolStripButton.Text = "脚本配置";
-            this.脚本配置toolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // ConcurrentExecutionForm
             // 

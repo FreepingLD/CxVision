@@ -41,6 +41,8 @@ namespace FunctionBlock
         public MatrixCalibrateCameraParamForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             this._acqSource = new AcqSource(SensorManage.CurrentCamSensor);
             calibrateCamera = new CameraCalibrateTool();
             this.drawObject = new VisualizeView(this.hWindowControl1);

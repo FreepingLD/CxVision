@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
@@ -37,6 +38,7 @@ namespace FunctionBlock
         private RectifyCalculateParam _rectifyParam = null;
         private ZoneRectifyParam _zoneRectifyeParam = null;
         private PixROI _pixROI = null;
+        private WcsROI _wcsROI = null;
         private System.Threading.Timer HeartTimer;
         private SocketBase _socket;
         private ISensor _sensor = null;
@@ -154,7 +156,7 @@ namespace FunctionBlock
                 {
                     case enUserName.操作员:
                         this.传感器comboBox1.Enabled = false;
-                        this.程序节点comboBox.Enabled = false;
+                        this.程序节点comboBox.Enabled = true;
                         this.buttonClose.Enabled = false;
                         //this.标定工具栏toolStrip.Enabled = false;
                         this.执行toolStripButton.Enabled = true;
@@ -762,6 +764,7 @@ namespace FunctionBlock
                     {
                      new ToolStripMenuItem("自适应图像(Auto)",null,null,"自适应图像(Auto)"),
                      new ToolStripMenuItem("移动到当前位",null,null,"移动到当前位"),
+                     new ToolStripMenuItem("发送当前坐标",null,null,"发送当前坐标"),
                      //new ToolStripMenuItem("执行程序",null,null,"执行程序"),
                      new ToolStripMenuItem("配置程序节点",null,null,"配置程序节点"),
                      //new ToolStripMenuItem("编辑程序节点",null,null,"编辑程序节点"),
@@ -790,29 +793,29 @@ namespace FunctionBlock
                      new ToolStripMenuItem("设置光标参数",null,null,"设置光标参数"),
                     };
                     if (this._viewConfigParam.IsShowCross)
-                        items[3].Text = "隐藏十字线";
+                        items[4].Text = "隐藏十字线";
                     else
-                        items[3].Text = "显示十字线";
+                        items[4].Text = "显示十字线";
                     if (this._viewConfigParam.IsRunLiveTime)
-                        items[4].Text = "禁用运行实时";
+                        items[5].Text = "禁用运行实时";
                     else
-                        items[4].Text = "启用运行实时";
+                        items[5].Text = "启用运行实时";
                     if (this._viewConfigParam.IsExtendLine)
-                        items[5].Text = "隐藏延长直线";
+                        items[6].Text = "隐藏延长直线";
                     else
-                        items[5].Text = "显示延长直线";
+                        items[6].Text = "显示延长直线";
                     if (this._viewConfigParam.IsNodeBindingExcute)
-                        items[6].Text = "禁用绑定节点执行";
+                        items[7].Text = "禁用绑定节点执行";
                     else
-                        items[6].Text = "启用绑定节点执行";
+                        items[7].Text = "启用绑定节点执行";
                     if (this._viewConfigParam.EnableTriggerSingleBinding)
-                        items[7].Text = "禁用触发信号绑定";
+                        items[8].Text = "禁用触发信号绑定";
                     else
-                        items[7].Text = "启用触发信号绑定";
+                        items[8].Text = "启用触发信号绑定";
                     if (this._viewConfigParam.EnableSocketSingleBinding)
-                        items[8].Text = "禁用Socket信号绑定";
+                        items[9].Text = "禁用Socket信号绑定";
                     else
-                        items[8].Text = "启用Socket信号绑定";
+                        items[9].Text = "启用Socket信号绑定";
                     break;
                 case "en-US":
                     // 添加右键菜单 
@@ -1275,6 +1278,7 @@ namespace FunctionBlock
                     case "设置相机参数":
                         new CameraParamForm(AcqSourceManage.Instance.GetAcqSource(this._viewConfigParam.CamName).Sensor.CameraParam).Show();
                         break;
+
                     case "读取图像":
                     case "加载图像":
                         OpenFileDialog ofd = new OpenFileDialog();
@@ -1283,7 +1287,7 @@ namespace FunctionBlock
                         ofd.FilterIndex = 0;
                         if (ofd.ShowDialog() == DialogResult.OK)
                         {
-                            this.drawObject.BackImage = new ImageDataClass(new HImage(ofd.FileName)); //, this._acqSource.Sensor.CameraParam
+                            this.drawObject.BackImage = new ImageDataClass(new HImage(ofd.FileName), AcqSourceManage.Instance.GetAcqSource(this._viewConfigParam.CamName)?.Sensor?.CameraParam); //, this._acqSource.Sensor.CameraParam
                             this.drawObject.BackImage.ViewWindow = this._viewConfigParam.ViewName;
                             this.drawObject.BackImage.Tag = 1;
                         }
@@ -1299,6 +1303,7 @@ namespace FunctionBlock
                             CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.FunctionNoToPlc, "Move");
                             CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.ResultToSocket, "NG");
                             CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.TriggerToSocket, 1);
+                            CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.TriggerToPlc, 1);
                             return;
                         }
                         double x, y, z;
@@ -1309,12 +1314,61 @@ namespace FunctionBlock
                         CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.FunctionNoToPlc, "Move");
                         CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.ResultToSocket, "OK");
                         CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.TriggerToSocket, 1);
+                        CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.TriggerToPlc, 1);
                         LoggerHelper.Info(this._viewConfigParam.ViewName + "->功能位置写入:Move", AcqSourceManage.Instance.GetAcqSource(this.传感器comboBox1.SelectedItem.ToString())?.Sensor?.Name);
                         LoggerHelper.Info(this._viewConfigParam.ViewName + $"->移动到目标位置:x={Math.Round(x, 5)},y={Math.Round(y, 5)}", AcqSourceManage.Instance.GetAcqSource(this.传感器comboBox1.SelectedItem.ToString())?.Sensor?.Name);
                         break;
+
+                    case "发送当前坐标":
+                        coordSysName = AcqSourceManage.Instance.GetAcqSource(this.传感器comboBox1.SelectedItem.ToString()).CoordSysName;
+                        switch (this._wcsROI?.GetType().Name)
+                        {
+                            case nameof(drawWcsCircle):
+                                drawWcsCircle wcsCircle = this._wcsROI as drawWcsCircle;
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.Compensation_X, wcsCircle.X);
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.Compensation_Y, wcsCircle.Y);
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.ResultToSocket, "OK");
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.ResultToPlc, 1);
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.TriggerToSocket, 1);
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.TriggerToPlc, 1);
+                                LoggerHelper.Info(this._viewConfigParam.ViewName + $"->发送当前位置:x={Math.Round(wcsCircle.X, 5)},y={Math.Round(wcsCircle.Y, 5)}", AcqSourceManage.Instance.GetAcqSource(this.传感器comboBox1.SelectedItem.ToString())?.Sensor?.Name);
+                                break;
+                            case nameof(drawWcsRect2):
+                                drawWcsRect2 wcsRect2 = this._wcsROI as drawWcsRect2;
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.Compensation_X, wcsRect2.X);
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.Compensation_Y, wcsRect2.Y);
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.ResultToSocket, "OK");
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.ResultToPlc, 1);
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.TriggerToSocket, 1);
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.TriggerToPlc, 1);
+                                LoggerHelper.Info(this._viewConfigParam.ViewName + $"->发送当前位置:x={Math.Round(wcsRect2.X, 5)},y={Math.Round(wcsRect2.Y, 5)}", AcqSourceManage.Instance.GetAcqSource(this.传感器comboBox1.SelectedItem.ToString())?.Sensor?.Name);
+                                break;
+                            case nameof(drawWcsPoint):
+                                drawWcsPoint wcsPoint = this._wcsROI as drawWcsPoint;
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.Compensation_X, wcsPoint.X);
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.Compensation_Y, wcsPoint.Y);
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.ResultToSocket, "OK");
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.ResultToPlc, 1);
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.TriggerToSocket, 1);
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.TriggerToPlc, 1);
+                                LoggerHelper.Info(this._viewConfigParam.ViewName + $"->发送当前位置:x={Math.Round(wcsPoint.X, 5)},y={Math.Round(wcsPoint.Y, 5)}", AcqSourceManage.Instance.GetAcqSource(this.传感器comboBox1.SelectedItem.ToString())?.Sensor?.Name);
+                                break;
+                            case nameof(drawWcsEllipse):
+                                drawWcsEllipse wcsEllipse = this._wcsROI as drawWcsEllipse;
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.Compensation_X, wcsEllipse.X);
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.Compensation_Y, wcsEllipse.Y);
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.ResultToSocket, "OK");
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.ResultToPlc, 1);
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.TriggerToSocket, 1);
+                                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.TriggerToPlc, 1);
+                                LoggerHelper.Info(this._viewConfigParam.ViewName + $"->发送当前位置:x={Math.Round(wcsEllipse.X, 5)},y={Math.Round(wcsEllipse.Y, 5)}", AcqSourceManage.Instance.GetAcqSource(this.传感器comboBox1.SelectedItem.ToString())?.Sensor?.Name);
+                                break;
+                        }
+                        break;
+
                     case "设置光标参数":
-                        new ScaleParamForm().Show();
-                        //ScaleParamForm.Instance.Show();
+                        Point point = this.hWindowControl1.PointToScreen(new Point((int)this._curCol, (int)this._curRow));
+                        new ScaleParamForm(point).Show();
                         break; //
                 }
             }
@@ -1574,35 +1628,7 @@ namespace FunctionBlock
                             new UserMessageForm().ShowDialog("未获取到可执行节点!!");
                         break;
                     case nameof(this.标定toolStripDropDownButton):
-                        //switch (NowCaliPara.CaliParam.CamCaliModel)
-                        //{
-                        //    case enCamCaliModel.UpDnCamCalibWcs:
-                        //    case enCamCaliModel.UpDnCamCalibPix:
-                        //        MapTargetNowCaliPara = AcqSourceManage.Instance.GetAcqSource(NowCaliPara.SensorName)?.Sensor?.CameraParam;
-                        //        if (MapTargetNowCaliPara == null)
-                        //        {
-                        //            new UserMessageForm().ShowDialog("未指定目标相机，不能进行映射标定!");
-                        //            return;
-                        //        }
-                        //        UpDnCamCalibSimpleForm frmCaliNow = new UpDnCamCalibSimpleForm(NowCaliPara, MapTargetNowCaliPara);
-                        //        frmCaliNow.ShowDialog();
-                        //        break;
-                        //    case enCamCaliModel.NPointCali:
-                        //        CamNPointCalibParamSimpleForm Instance = new CamNPointCalibParamSimpleForm(NowCaliPara);
-                        //        Instance.ShowDialog();
-                        //        break;
-                        //    case enCamCaliModel.HomMat2D:
-                        //    case enCamCaliModel.HandEyeCali:
-                        //    case enCamCaliModel.Cali9PtCali:
-                        //        Cam9PointCalibrateSimpleForm Instance2 = new Cam9PointCalibrateSimpleForm(NowCaliPara);
-                        //        Instance2.ShowDialog();
-                        //        break;
 
-                        //    case enCamCaliModel.CaliCaliBoard:
-                        //        CaliCaliboardSimpleForm Instance3 = new CaliCaliboardSimpleForm(NowCaliPara);
-                        //        Instance3.ShowDialog();
-                        //        break;
-                        //}
                         break;
                     case nameof(this.编辑toolStripButton):
                         isSucess = false;
@@ -1615,16 +1641,16 @@ namespace FunctionBlock
                                 if (node != null)
                                 {
                                     isSucess = true;
-                                    if (this._socket != null && this._socket.Type == enSocketType.客户端) // 如果相机连接类型是Socket，那么编辑时将从 Socket 网络获取图像
-                                    {
-                                        SocketMessage message = new SocketMessage(enSocketInfo.获取窗口图像, this._sensor?.Name);
-                                        message.ViewName = this._viewConfigParam.ViewName;
-                                        object value = this._socket.GetDataAsync(message, true);
-                                        message = value as SocketMessage;
-                                        item.Value.treeView1_Edite(this, node, item.Key, message.MesContent as ImageDataClass);
-                                    }
-                                    else
-                                        item.Value.treeView1_Edite(this, node, item.Key, this.drawObject.BackImage);
+                                    //if (this._socket != null && this._socket.Type == enSocketType.客户端) // 如果相机连接类型是Socket，那么编辑时将从 Socket 网络获取图像
+                                    //{
+                                    //    SocketMessage message = new SocketMessage(enSocketInfo.获取窗口图像, this._sensor?.Name);
+                                    //    message.ViewName = this._viewConfigParam.ViewName;
+                                    //    object value = this._socket.GetDataAsync(message, true);
+                                    //    message = value as SocketMessage;
+                                    //    item.Value.treeView1_Edite(this, node, item.Key, message.MesContent as ImageDataClass);
+                                    //}
+                                    //else
+                                    item.Value.treeView1_Edite(this, node, item.Key, this.drawObject.BackImage);
                                     return;
                                 }
                             }
@@ -1693,48 +1719,158 @@ namespace FunctionBlock
                 switch (e.ClickedItem.Name)
                 {
                     case nameof(this.绘制矩形toolStripMenuItem):
-                        drawPixRect2 pixRect2 = new drawPixRect2(height * 0.5, width * 0.5, 0, 100, 50);
+                        drawPixRect2 pixRect2 = new drawPixRect2(height * 0.5, width * 0.5, 0, 100, 100);
+                        if (this._pixROI != null && this._pixROI is drawPixRect2)
+                        {
+                            drawPixRect2 pixRect21 = this._pixROI as drawPixRect2;
+                            pixRect2 = new drawPixRect2(pixRect21.Row, pixRect21.Col, pixRect21.Rad, pixRect21.Length1, pixRect21.Length2);
+                        }
+                        else
+                            pixRect2 = new drawPixRect2(height * 0.5, width * 0.5, 0, 100, 100);
                         ManualMeasureRect2Form manualMeasureRect2Form = new ManualMeasureRect2Form(this.drawObject.BackImage, pixRect2);
+                        manualMeasureRect2Form.StartPosition = FormStartPosition.Manual;
+                        manualMeasureRect2Form.Location = this.Location;
                         if (manualMeasureRect2Form.ShowDialog() == DialogResult.OK)
                         {
                             this._pixROI = manualMeasureRect2Form.PixRect2;
+                            this.drawObject.ClearViewObject();
+                            this.drawObject.DrawingGraphicObject();
                             this.drawObject.AddViewObject(new ViewData(this._pixROI.GetXLD(), "red"));
+                            //////////////////////// 显示测量值 ////////////////////////////
+                            CoordSysAxisPosParam coordSysAxisPos = new CoordSysAxisPosParam();
+                            coordSysAxisPos.UpdataAxisPosition(AcqSourceManage.Instance.GetAcqSource(this._viewConfigParam.CamName).CoordSysName);
+                            drawWcsRect2 wcsRect2 = manualMeasureRect2Form.PixRect2.GetWcsRect2(this.drawObject.CameraParam, coordSysAxisPos.X, coordSysAxisPos.Y);
+                            this._wcsROI = wcsRect2;
+                            string content = string.Join("", $"X:{Math.Round(wcsRect2.X, 3)},Y:{Math.Round(wcsRect2.Y, 3)},Len1:{Math.Round(wcsRect2.Length1, 3)},Len2:{Math.Round(wcsRect2.Length2, 3)}");
+                            userTextLable textLable = new userTextLable(content, "red");
+                            textLable.X = manualMeasureRect2Form.PixRect2.Col + manualMeasureRect2Form.PixRect2.Length1 + 20;
+                            textLable.Y = manualMeasureRect2Form.PixRect2.Row - manualMeasureRect2Form.PixRect2.Length2;
+                            textLable.LablePose = enLablePosition.用户定义;
+                            this.drawObject.AddViewObject(new ViewData(textLable, "red"));
                         }
                         break;
                     case nameof(this.绘制圆形ToolStripMenuItem):
-                        drawPixCircle pixCircle = new drawPixCircle(height * 0.5, width * 0.5, 50);
+                        drawPixCircle pixCircle = new drawPixCircle(height * 0.5, width * 0.5, 100);
+                        if (this._pixROI != null && this._pixROI is drawPixCircle)
+                        {
+                            drawPixCircle pixCircle1 = this._pixROI as drawPixCircle;
+                            pixCircle = new drawPixCircle(pixCircle1.Row, pixCircle1.Col, pixCircle1.Radius);
+                        }
+                        else
+                            pixCircle = new drawPixCircle(height * 0.5, width * 0.5, 100);
                         ManualMeasureCircleForm manualMeasureCircleForm = new ManualMeasureCircleForm(this.drawObject.BackImage, pixCircle);
+                        manualMeasureCircleForm.StartPosition = FormStartPosition.Manual;
+                        manualMeasureCircleForm.Location = this.Location;
                         if (manualMeasureCircleForm.ShowDialog() == DialogResult.OK)
                         {
                             this._pixROI = manualMeasureCircleForm.PixCircle;
+                            this.drawObject.ClearViewObject();
+                            this.drawObject.DrawingGraphicObject();
                             this.drawObject.AddViewObject(new ViewData(this._pixROI.GetXLD(), "red"));
+                            //////////////////////// 显示测量值 ////////////////////////////
+                            CoordSysAxisPosParam coordSysAxisPos = new CoordSysAxisPosParam();
+                            coordSysAxisPos.UpdataAxisPosition(AcqSourceManage.Instance.GetAcqSource(this._viewConfigParam.CamName).CoordSysName);
+                            drawWcsCircle wcsCircle = manualMeasureCircleForm.PixCircle.GetWcsCircle(this.drawObject.CameraParam, coordSysAxisPos.X, coordSysAxisPos.Y);
+                            this._wcsROI = wcsCircle;
+                            string content = string.Join("", $"X:{Math.Round(wcsCircle.X, 3)},Y:{Math.Round(wcsCircle.Y, 3)},Radius:{Math.Round(wcsCircle.Radius, 3)}");
+                            userTextLable textLable = new userTextLable(content, "red");
+                            textLable.X = manualMeasureCircleForm.PixCircle.Col + manualMeasureCircleForm.PixCircle.Radius + 20;
+                            textLable.Y = manualMeasureCircleForm.PixCircle.Row - manualMeasureCircleForm.PixCircle.Radius;
+                            textLable.LablePose = enLablePosition.用户定义;
+                            this.drawObject.AddViewObject(new ViewData(textLable, "red"));
                         }
                         break;
                     case nameof(this.绘制椭圆ToolStripMenuItem):
-                        drawPixEllipse pixEllipse = new drawPixEllipse(height * 0.5, width * 0.5, 0, 50, 50);
+                        drawPixEllipse pixEllipse = new drawPixEllipse(height * 0.5, width * 0.5, 0, 100, 100);
+                        if (this._pixROI != null && this._pixROI is drawPixEllipse)
+                        {
+                            drawPixEllipse pixEllipse1 = this._pixROI as drawPixEllipse;
+                            pixEllipse = new drawPixEllipse(pixEllipse1.Row, pixEllipse1.Col, pixEllipse1.Rad, pixEllipse1.Radius1, pixEllipse1.Radius2);
+                        }
+                        else
+                            pixEllipse = new drawPixEllipse(height * 0.5, width * 0.5, 0, 100, 100);
                         ManualMeasureEllipseForm manualMeasureEllipseForm = new ManualMeasureEllipseForm(this.drawObject.BackImage, pixEllipse);
+                        manualMeasureEllipseForm.StartPosition = FormStartPosition.Manual;
+                        manualMeasureEllipseForm.Location = this.Location;
                         if (manualMeasureEllipseForm.ShowDialog() == DialogResult.OK)
                         {
                             this._pixROI = manualMeasureEllipseForm.PixEllipse;
+                            this.drawObject.ClearViewObject();
+                            this.drawObject.DrawingGraphicObject();
                             this.drawObject.AddViewObject(new ViewData(this._pixROI.GetXLD(), "red"));
+                            //////////////////////// 显示测量值 ////////////////////////////
+                            CoordSysAxisPosParam coordSysAxisPos = new CoordSysAxisPosParam();
+                            coordSysAxisPos.UpdataAxisPosition(AcqSourceManage.Instance.GetAcqSource(this._viewConfigParam.CamName).CoordSysName);
+                            drawWcsEllipse wcsEllipse = manualMeasureEllipseForm.PixEllipse.GetWcsEllipse(this.drawObject.CameraParam, coordSysAxisPos.X, coordSysAxisPos.Y);
+                            this._wcsROI = wcsEllipse;
+                            string content = string.Join("", $"X:{Math.Round(wcsEllipse.X, 3)},Y:{Math.Round(wcsEllipse.Y, 3)},Radius1:{Math.Round(wcsEllipse.Radius1, 3)},Radius2:{Math.Round(wcsEllipse.Radius2, 3)}");
+                            userTextLable textLable = new userTextLable(content, "red");
+                            textLable.X = manualMeasureEllipseForm.PixEllipse.Col + manualMeasureEllipseForm.PixEllipse.Radius1 + 20;
+                            textLable.Y = manualMeasureEllipseForm.PixEllipse.Row - manualMeasureEllipseForm.PixEllipse.Radius2;
+                            textLable.LablePose = enLablePosition.用户定义;
+                            this.drawObject.AddViewObject(new ViewData(textLable, "red"));
                         }
                         break;
                     case nameof(this.绘制直线ToolStripMenuItem):
-                        drawPixLine pixLine = new drawPixLine(height * 0.5, width * 0.5, height * 0.5 + 100, width * 0.5);
+                        drawPixLine pixLine = new drawPixLine(height * 0.5, width * 0.5, height * 0.5 + 200, width * 0.5);
+                        if (this._pixROI != null && this._pixROI is drawPixLine)
+                        {
+                            drawPixLine pixLine1 = this._pixROI as drawPixLine;
+                            pixLine = new drawPixLine(pixLine1.Row1, pixLine1.Col1, pixLine1.Row2, pixLine1.Col2);
+                        }
+                        else
+                            pixLine = new drawPixLine(height * 0.5, width * 0.5, height * 0.5 + 200, width * 0.5);
                         ManualMeasureLineForm manualMeasureLineForm = new ManualMeasureLineForm(this.drawObject.BackImage, pixLine);
+                        manualMeasureLineForm.StartPosition = FormStartPosition.Manual;
+                        manualMeasureLineForm.Location = this.Location;
                         if (manualMeasureLineForm.ShowDialog() == DialogResult.OK)
                         {
                             this._pixROI = manualMeasureLineForm.PixLine;
+                            this.drawObject.ClearViewObject();
+                            this.drawObject.DrawingGraphicObject();
                             this.drawObject.AddViewObject(new ViewData(this._pixROI.GetXLD(), "red"));
+                            //////////////////////// 显示测量值 ////////////////////////////
+                            CoordSysAxisPosParam coordSysAxisPos = new CoordSysAxisPosParam();
+                            coordSysAxisPos.UpdataAxisPosition(AcqSourceManage.Instance.GetAcqSource(this._viewConfigParam.CamName).CoordSysName);
+                            drawWcsLine wcsLine = manualMeasureLineForm.PixLine.GetWcsLine(this.drawObject.CameraParam, coordSysAxisPos.X, coordSysAxisPos.Y);
+                            this._wcsROI = wcsLine;
+                            string content = string.Join("", $"X1:{Math.Round(wcsLine.X1, 3)},Y1:{Math.Round(wcsLine.Y1, 3)},X2:{Math.Round(wcsLine.X2, 3)},Y2:{Math.Round(wcsLine.Y2, 3)}");
+                            userTextLable textLable = new userTextLable(content, "red");
+                            textLable.X = manualMeasureLineForm.PixLine.Col1 + 20;
+                            textLable.Y = manualMeasureLineForm.PixLine.Row1;
+                            textLable.LablePose = enLablePosition.用户定义;
+                            this.drawObject.AddViewObject(new ViewData(textLable, "red"));
                         }
                         break;
                     case nameof(this.绘制点ToolStripMenuItem):
                         drawPixPoint pixPoint = new drawPixPoint(height * 0.5, width * 0.5);
+                        if (this._pixROI != null && this._pixROI is drawPixPoint)
+                        {
+                            drawPixPoint pixPoint1 = this._pixROI as drawPixPoint;
+                            pixPoint = new drawPixPoint(pixPoint1.Row, pixPoint1.Col);
+                        }
+                        else
+                            pixPoint = new drawPixPoint(height * 0.5, width * 0.5);
                         ManualMeasurePointForm manualMeasurePointForm = new ManualMeasurePointForm(this.drawObject.BackImage, pixPoint);
+                        manualMeasurePointForm.StartPosition = FormStartPosition.Manual;
+                        manualMeasurePointForm.Location = this.Location;
                         if (manualMeasurePointForm.ShowDialog() == DialogResult.OK)
                         {
                             this._pixROI = manualMeasurePointForm.PixPoint;
+                            this.drawObject.ClearViewObject();
+                            this.drawObject.DrawingGraphicObject();
                             this.drawObject.AddViewObject(new ViewData(this._pixROI.GetXLD(), "red"));
+                            //////////////////////// 显示测量值 ////////////////////////////
+                            CoordSysAxisPosParam coordSysAxisPos = new CoordSysAxisPosParam();
+                            coordSysAxisPos.UpdataAxisPosition(AcqSourceManage.Instance.GetAcqSource(this._viewConfigParam.CamName).CoordSysName);
+                            drawWcsPoint wcsPoint = manualMeasurePointForm.PixPoint.GetWcsPoint(this.drawObject.CameraParam, coordSysAxisPos.X, coordSysAxisPos.Y);
+                            this._wcsROI = wcsPoint;
+                            string content = string.Join("", $"X:{Math.Round(wcsPoint.X, 3)},Y:{Math.Round(wcsPoint.Y, 3)}");
+                            userTextLable textLable = new userTextLable(content, "red");
+                            textLable.X = manualMeasurePointForm.PixPoint.Col + 20;
+                            textLable.Y = manualMeasurePointForm.PixPoint.Row;
+                            textLable.LablePose = enLablePosition.用户定义;
+                            this.drawObject.AddViewObject(new ViewData(textLable, "red"));
                         }
                         break;
                 }
@@ -2245,6 +2381,44 @@ namespace FunctionBlock
             {
 
             }
+        }
+
+        private void 程序节点comboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void 程序节点comboBox_Click(object sender, EventArgs e)
+        {
+            //List<TreeNode> listTreeNode = new List<TreeNode>();
+            //// 获取面板上的节点
+            //foreach (var item in ProgramForm.Instance.ProgramDic.Values)
+            //{
+            //    listTreeNode.AddRange(item.GetTreeViewNodeTag());
+            //}
+            //// 获取流程单元下的标签
+            //foreach (TreeNode item in listTreeNode)
+            //{
+            //    switch (item.Tag?.GetType().Name)
+            //    {
+            //        case nameof(JobUnit):
+            //            BindingList<PlcCommunicateInfo> plcInfo = ((BaseFunction)item.Tag).ResultInfo as BindingList<PlcCommunicateInfo>;
+            //            if (plcInfo.Count > 0)
+            //            {
+            //                this.程序节点comboBox.Items.Clear();
+            //                this.程序节点comboBox.Items.Add("NONE");
+            //                foreach (TreeNode node in item.Nodes)
+            //                {
+            //                    if (node.Name.Contains("Tool"))
+            //                        this.程序节点comboBox.Items.Add(node.Text);
+            //                }
+            //            }
+            //            else
+            //                continue;
+            //            break;
+            //    }
+            //}
         }
 
         /// <summary>

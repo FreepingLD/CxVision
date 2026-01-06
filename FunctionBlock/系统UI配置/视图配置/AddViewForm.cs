@@ -25,11 +25,15 @@ namespace FunctionBlock
             InitializeComponent();
             this.TopMost = true;
             this.ShowInTaskbar = true;
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             this.listForm = listForm;
         }
         public AddViewForm(string viewType = "NONE")
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             this.TopMost = true;
             this.ShowInTaskbar = true;
             this.窗体类型comboBox.DataSource = Enum.GetValues(typeof(enViewForm));

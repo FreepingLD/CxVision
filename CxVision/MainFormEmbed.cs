@@ -5,12 +5,14 @@ using MotionControlCard;
 using Sensor;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.IO;
-using System.Threading;
-using System.Windows.Forms;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Security;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace CxVision
 {
@@ -334,12 +336,14 @@ namespace CxVision
                             CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToPlc, 1);
                             CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToSocket, "OK");
                             CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.TriggerToPlc, 1);
+                            LoggerHelper.Info("配方另存为成功");
                         }
                         else
                         {
                             CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToPlc, 2);
                             CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToSocket, "NG");
                             CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.TriggerToPlc, 1);
+                            LoggerHelper.Info("配方另存为失败");
                         }
                         /////////////////////////////////////////
                         if (this.programPath.Contains("任务")) // 只打开对应的任务
@@ -371,17 +375,18 @@ namespace CxVision
                                     CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToPlc, 1);
                                     CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToSocket, "OK");
                                     CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.TriggerToPlc, 1);
+                                    LoggerHelper.Info("配方切换成功");
                                 }
                                 else
                                 {
                                     this.programPath = ProgramForm.Instance.ProgramPath;
                                     this.程序1toolStripStatusLabel.Text = ProgramForm.Instance.ProgramPath;
-                                    LoggerHelper.Error("指定的程序路径不存在(Program Path No Exist!!!)");
                                     /////////////////////////////////////////////////////////////////////////
                                     CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ProgramNoToPlc, path);
                                     CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToPlc, 2);
                                     CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToSocket, "NG");
                                     CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.TriggerToPlc, 1);
+                                    LoggerHelper.Error("配方切换失败,指定的程序路径不存在(Program Path No Exist!!!)");
                                 }
                             }));
                             ///////////////////////////////
@@ -400,6 +405,7 @@ namespace CxVision
                             CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToPlc, 2);
                             CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToSocket, "NG");
                             CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.TriggerToPlc, 1);
+                            LoggerHelper.Info("配方切换失败,路径为空");
                         }
                         break;
 
@@ -422,6 +428,7 @@ namespace CxVision
                                 CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToPlc, 1);
                                 CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToSocket, "OK");
                                 CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ProgramNoToPlc, 1);
+                                LoggerHelper.Info("操作员登录成功");
                                 break;
                             case "supper":
                             case "Supper":
@@ -435,7 +442,27 @@ namespace CxVision
                                 CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToPlc, 1);
                                 CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToSocket, "OK");
                                 CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ProgramNoToPlc, 1);
+                                LoggerHelper.Info("开发人员登录成功");
                                 break;
+                        }
+                        break;
+
+                    case "Lable":
+                    case "lable":
+                        int index = 1;
+                        int.TryParse(path, out index);
+                        string[] lable = this.GetLableName(index);
+                        if (lable != null && lable.Length > 0)
+                        {
+                            CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ProgramNo, string.Join(",", lable));
+                            CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToPlc, 1);
+                            CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToSocket, "OK");
+                            CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ProgramNoToPlc, 1);
+                            LoggerHelper.Info("必送标签成功");
+                        }
+                        else
+                        {
+                            LoggerHelper.Info("获取标签名称失败,标签名称为空或长度为0");
                         }
                         break;
                 }
@@ -946,6 +973,8 @@ namespace CxVision
                 case "传感器配置":
                     // form = new SensorConfigForm();
                     form = new SensorConnectConfigParamMangerForm();
+                    form.StartPosition = FormStartPosition.Manual;
+                    form.Location = System.Windows.Forms.Cursor.Position;
                     form.Owner = this;
                     form.TopMost = true;
                     form.ShowInTaskbar = true;
@@ -954,6 +983,8 @@ namespace CxVision
                 //////////////////////////////////
                 case "参数设置":
                     form = new ParamConfigForm();
+                    form.StartPosition = FormStartPosition.Manual;
+                    form.Location = System.Windows.Forms.Cursor.Position;
                     form.Owner = this;
                     form.TopMost = true;
                     form.ShowInTaskbar = true;
@@ -962,6 +993,8 @@ namespace CxVision
                 //////////////////////////////////
                 case "光源配置":
                     form = new LightConnectConfigManageForm();
+                    form.StartPosition = FormStartPosition.Manual;
+                    form.Location = System.Windows.Forms.Cursor.Position;
                     form.Owner = this;
                     form.TopMost = true;
                     form.ShowInTaskbar = true;
@@ -970,6 +1003,8 @@ namespace CxVision
                 //////////////////////////////////
                 case "运动控制卡配置":
                     form = new DeviceConnectConfigParamManageForm();
+                    form.StartPosition = FormStartPosition.Manual;
+                    form.Location = System.Windows.Forms.Cursor.Position;
                     form.Owner = this;
                     form.TopMost = true;
                     form.ShowInTaskbar = true;
@@ -977,6 +1012,8 @@ namespace CxVision
                     break;
                 case "采集源配置":
                     form = new AcqSourceConfigForm();
+                    form.StartPosition = FormStartPosition.Manual;
+                    form.Location = System.Windows.Forms.Cursor.Position;
                     form.Owner = this;
                     form.TopMost = true;
                     form.ShowInTaskbar = true;
@@ -984,6 +1021,8 @@ namespace CxVision
                     break;
                 case "程序配置":
                     form = new ProgramConfigParamForm();
+                    form.StartPosition = FormStartPosition.Manual;
+                    form.Location = System.Windows.Forms.Cursor.Position;
                     form.Owner = this;
                     form.TopMost = true;
                     form.ShowInTaskbar = true;
@@ -1658,8 +1697,75 @@ namespace CxVision
                     break;
             }
         }
-
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public string[] GetLableName(int index)
+        {
+            string[] lables = new string[0];
+            try
+            {
+                List<string> listLable = new List<string>();
+                List<TreeNode> listTreeNode = new List<TreeNode>();
+                List<TreeNode> listToolNode = new List<TreeNode>();
+                // 获取面板上的节点
+                foreach (var item in ProgramForm.Instance.ProgramDic.Values)
+                {
+                    listTreeNode.AddRange(item.GetTreeViewNodeTag());
+                }
+                // 获取流程单元下的标签
+                foreach (TreeNode item in listTreeNode)
+                {
+                    switch (item.Tag?.GetType().Name)
+                    {
+                        case nameof(JobUnit):
+                            BindingList<PlcCommunicateInfo> plcInfo = ((BaseFunction)item.Tag).ResultInfo as BindingList<PlcCommunicateInfo>;
+                            if (plcInfo.Count > 0 && (int)plcInfo[0].CoordSysName == index)
+                            {
+                                foreach (TreeNode node in item.Nodes)
+                                {
+                                    switch (node.Tag?.GetType().Name)
+                                    {
+                                        case nameof(UserLable):
+                                            listLable.Add(node.Text);
+                                            break;
+                                        default:
+                                            if (node.Name.Contains("Tool"))
+                                                listToolNode.Add(node);
+                                            break;
+                                    }
+                                }
+                            }
+                            else
+                                continue;
+                            break;
+                    }
+                }
+                // 获取特征定位下的标签
+                foreach (TreeNode item in listToolNode)
+                {
+                    foreach (TreeNode node in item.Nodes)
+                    {
+                        switch (node?.Tag?.GetType().Name)
+                        {
+                            case nameof(UserLable):
+                                listLable.Add($"{item.Text}.{node.Text}");
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                lables = listLable.ToArray();
+            }
+            catch (Exception ex)
+            {
+                LoggerHelper.Error("获取程序标签失败:", ex);
+            }
+            return lables;
+        }
 
         #endregion
 

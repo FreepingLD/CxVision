@@ -41,14 +41,18 @@ namespace FunctionBlock
         public MachineCalibForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             this.drawObject = new DrawingBaseMeasure(this.hWindowControl1);
             this._treeViewWrapClass = new TreeViewWrapClass(this.treeView1, this);
             this.metrolegyParamForm = new MetrolegyParamForm(this.drawObject);
         }
         public MachineCalibForm(CameraParam CamParam)
         {
-            this.CamParam = CamParam;
             InitializeComponent();
+            this.CamParam = CamParam;
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             this.drawObject = new DrawingBaseMeasure(this.hWindowControl1);
             this._treeViewWrapClass = new TreeViewWrapClass(this.treeView1, this);
             this.metrolegyParamForm = new MetrolegyParamForm(this.drawObject);

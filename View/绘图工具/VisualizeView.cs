@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -279,6 +280,15 @@ namespace View
             }
             initBufferWindow(this.hWindowControl); // 初始化时要创建Buffer窗口
         }
+        public void Uninit()
+        {
+            this.hWindowControl.HMouseDown -= new HalconDotNet.HMouseEventHandler(hWindowControl_HMouseDown);
+            this.hWindowControl.HMouseUp -= new HalconDotNet.HMouseEventHandler(hWindowControl_HMouseUp);
+            this.hWindowControl.HMouseWheel -= new HalconDotNet.HMouseEventHandler(hWindowControl_HMouseWheel);
+            this.hWindowControl.HMouseMove -= new HalconDotNet.HMouseEventHandler(hWindowControl_HMouseMove);
+            this.hWindowControl.SizeChanged -= new System.EventHandler(hWindowControl_SizeChanged);
+        }
+
         public virtual void DrawingGraphicObject()
         {
             try

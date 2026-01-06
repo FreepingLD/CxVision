@@ -30,10 +30,11 @@ namespace FunctionBlock
         private HObjectModel3D hObjectModel3D1 = null, hObjectModel3D2 = null;
         public ContourModelMatch2DForm(TreeNode node)
         {
+            InitializeComponent();
             this._refNode = node;
             this._function = node.Tag as IFunction;
-            InitializeComponent();
             this.Text = this._function.GetPropertyValues("名称").ToString();
+            this._function.SetPropertyValues(nameof(TreeNode), this._refNode);
             this.drawObject = new VisualizeView(this.hWindowControl1, false);
             new ListBoxWrapClass().InitListBox(this.listBox1, node);
             //new ListBoxWrapClass().InitListBox(this.listBox2, node, 2);
@@ -55,6 +56,8 @@ namespace FunctionBlock
                 this.变换类型comboBox.DataBindings.Add(nameof(this.变换类型comboBox.Text), param, nameof(param.TransformationType), true, DataSourceUpdateMode.OnPropertyChanged);
                 this.起始点百分比textBox.DataBindings.Add(nameof(this.起始点百分比textBox.Text), param, nameof(param.StartPercent), true, DataSourceUpdateMode.OnPropertyChanged);
                 this.结束点百分比textBox.DataBindings.Add(nameof(this.结束点百分比textBox.Text), param, nameof(param.EndPercent), true, DataSourceUpdateMode.OnPropertyChanged);
+                this.采样间隔textBox.DataBindings.Add(nameof(this.采样间隔textBox.Text), param, nameof(param.ResampleDist), true, DataSourceUpdateMode.OnPropertyChanged);
+                
                 /////////////////////////
             }
             catch (Exception ex)
@@ -360,7 +363,7 @@ namespace FunctionBlock
                     case "输出轨迹":
                     case nameof(enShowItemContourMatch.匹配轨迹):
                         this.drawObject.PointCloudModel3D?.ClearObjectModel3d();
-                        wcsPoints = ((ContourModelMatch2D)this._function).StdTrackPoint; // 基准轨迹
+                        wcsPoints = ((ContourModelMatch2D)this._function).CurTrackPoint; // 基准轨迹
                         if (wcsPoints != null)
                         {
                             double[] x = new double[wcsPoints.Length];
@@ -391,17 +394,10 @@ namespace FunctionBlock
                             hObjectModel3D2?.ClearObjectModel3d();
                             hObjectModel3D2 = new HObjectModel3D(x, y, z);
                         }
-                        this.drawObject.PointCloudModel3D = new PointCloudData(new HObjectModel3D[] { hObjectModel3D1, hObjectModel3D2 });
-                        ///////////////////////// 显示误差值 /////////////////////////
-                        this.dataGridView1.Rows.Clear();
-                        if (((ContourModelMatch2D)this._function).DataError != null)
-                        {
-                            foreach (var item in ((ContourModelMatch2D)this._function).DataError)
-                            {
-                                int index = this.dataGridView1.Rows.Add(item);
-                                this.dataGridView1.Rows[index].HeaderCell.Value = (index + 1).ToString();
-                            }
-                        }
+                        if (hObjectModel3D1 != null && hObjectModel3D1.IsInitialized())
+                            this.drawObject.PointCloudModel3D = new PointCloudData(new HObjectModel3D[] { hObjectModel3D1, hObjectModel3D2 });
+                        else
+                            this.drawObject.PointCloudModel3D = new PointCloudData(new HObjectModel3D[] { hObjectModel3D2 });
                         break;
                 }
             }

@@ -32,12 +32,16 @@ namespace FunctionBlock
         public CameraPointLaserCalibrateForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             drawObject = new userDrawPointROI(this.hWindowControl1, false);
         }
         public CameraPointLaserCalibrateForm(CameraParam CamParam)
         {
             InitializeComponent();
             this.CamParam = CamParam;
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             drawObject = new userDrawPointROI(this.hWindowControl1, false);
         }
         private void LaserCameraCalibrateForm_Load(object sender, EventArgs e)

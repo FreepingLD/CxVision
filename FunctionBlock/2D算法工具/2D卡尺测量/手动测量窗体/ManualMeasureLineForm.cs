@@ -17,9 +17,10 @@ namespace FunctionBlock
         private IFunction _function;
         private userDrawLineROI drawObject;
         private drawPixLine _pixLine;
+        private drawWcsLine _wcsLine;
 
         public drawPixLine PixLine { get => _pixLine; set => _pixLine = value; }
-
+        public drawWcsLine WcsLine { get => _wcsLine; set => _wcsLine = value; }
 
         public ManualMeasureLineForm(ImageDataClass imageData, drawPixLine pixLine)
         {
@@ -125,6 +126,7 @@ namespace FunctionBlock
             try
             {
                 this._pixLine = this.drawObject.GetDrawPixLineParam();
+                this._wcsLine = this._pixLine.GetWcsLine(this.drawObject.CameraParam);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

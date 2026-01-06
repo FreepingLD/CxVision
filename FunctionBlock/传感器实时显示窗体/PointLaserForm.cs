@@ -22,11 +22,15 @@ namespace FunctionBlock
         public PointLaserForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
         }
         public PointLaserForm(AcqSource acqSource)
         {
             this._acqSource = acqSource;
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
         }
         private void PointLaserForm_Load(object sender, EventArgs e)
         {

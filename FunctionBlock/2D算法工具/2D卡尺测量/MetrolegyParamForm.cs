@@ -89,8 +89,9 @@ namespace FunctionBlock
                     this.数据百分比comboBox.DataBindings.Add("Text", ((CircleMeasure)this._function).FindCircle.Geometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.输出拟合点comboBox.DataBindings.Add("Text", ((CircleMeasure)this._function).FindCircle.Geometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波方法comboBox.DataBindings.Add("Text", ((CircleMeasure)this._function).FindCircle.Geometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                    this.矩形方向comboBox.DataBindings.Add("Text", ((CircleMeasure)this._function).FindCircle.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                    //this.矩形方向comboBox.DataBindings.Add("Text", ((CircleMeasure)this._function).FindCircle.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波参数textBox.DataBindings.Add("Text", ((CircleMeasure)this._function).FindCircle.Geometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                    this.矩形方向comboBox.Enabled = false;
                     break;
                 case nameof(CircleSectorMeasure):
                     this.边缘振幅texBox.DataBindings.Clear();
@@ -109,15 +110,15 @@ namespace FunctionBlock
                     this.平滑系数textBox.DataBindings.Add("Text", ((CircleSectorMeasure)this._function).FindCircleSector.Geometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.边缘选择comboBox.DataBindings.Add("Text", ((CircleSectorMeasure)this._function).FindCircleSector.Geometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.极性选择comboBox.DataBindings.Add("Text", ((CircleSectorMeasure)this._function).FindCircleSector.Geometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                    //this.测量方向comboBox.DataBindings.Add("Text", ((CircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺数量textBox.DataBindings.Add("Text", ((CircleSectorMeasure)this._function).FindCircleSector.Geometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺宽度textBox.DataBindings.Add("Text", ((CircleSectorMeasure)this._function).FindCircleSector.Geometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.无效数据填充comboBox.DataBindings.Add("Text", ((CircleSectorMeasure)this._function).FindCircleSector.Geometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.数据百分比comboBox.DataBindings.Add("Text", ((CircleSectorMeasure)this._function).FindCircleSector.Geometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.输出拟合点comboBox.DataBindings.Add("Text", ((CircleSectorMeasure)this._function).FindCircleSector.Geometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波方法comboBox.DataBindings.Add("Text", ((CircleSectorMeasure)this._function).FindCircleSector.Geometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                    this.矩形方向comboBox.DataBindings.Add("Text", ((CircleSectorMeasure)this._function).FindCircleSector.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                    //this.矩形方向comboBox.DataBindings.Add("Text", ((CircleSectorMeasure)this._function).FindCircleSector.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波参数textBox.DataBindings.Add("Text", ((CircleSectorMeasure)this._function).FindCircleSector.Geometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                    this.矩形方向comboBox.Enabled = false;
                     break;
                 case nameof(EllipseMeasure):
                     this.边缘振幅texBox.DataBindings.Clear();
@@ -136,15 +137,15 @@ namespace FunctionBlock
                     this.平滑系数textBox.DataBindings.Add("Text", ((EllipseMeasure)this._function).FindEllipse.Geometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.边缘选择comboBox.DataBindings.Add("Text", ((EllipseMeasure)this._function).FindEllipse.Geometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.极性选择comboBox.DataBindings.Add("Text", ((EllipseMeasure)this._function).FindEllipse.Geometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                    //this.测量方向comboBox.DataBindings.Add("Text", ((EllipseMeasure)this._function).FindEllipse.EllipseGeometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺数量textBox.DataBindings.Add("Text", ((EllipseMeasure)this._function).FindEllipse.Geometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺宽度textBox.DataBindings.Add("Text", ((EllipseMeasure)this._function).FindEllipse.Geometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.无效数据填充comboBox.DataBindings.Add("Text", ((EllipseMeasure)this._function).FindEllipse.Geometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.数据百分比comboBox.DataBindings.Add("Text", ((EllipseMeasure)this._function).FindEllipse.Geometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.输出拟合点comboBox.DataBindings.Add("Text", ((EllipseMeasure)this._function).FindEllipse.Geometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波方法comboBox.DataBindings.Add("Text", ((EllipseMeasure)this._function).FindEllipse.Geometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                    this.矩形方向comboBox.DataBindings.Add("Text", ((EllipseMeasure)this._function).FindEllipse.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                    //this.矩形方向comboBox.DataBindings.Add("Text", ((EllipseMeasure)this._function).FindEllipse.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波参数textBox.DataBindings.Add("Text", ((EllipseMeasure)this._function).FindEllipse.Geometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                    this.矩形方向comboBox.Enabled = false;
                     break;
                 case nameof(EllipseSectorMeasure):
                     this.边缘振幅texBox.DataBindings.Clear();
@@ -170,8 +171,9 @@ namespace FunctionBlock
                     this.数据百分比comboBox.DataBindings.Add("Text", ((EllipseSectorMeasure)this._function).FindEllipseSector.Geometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.输出拟合点comboBox.DataBindings.Add("Text", ((EllipseSectorMeasure)this._function).FindEllipseSector.Geometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波方法comboBox.DataBindings.Add("Text", ((EllipseSectorMeasure)this._function).FindEllipseSector.Geometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                    this.矩形方向comboBox.DataBindings.Add("Text", ((EllipseSectorMeasure)this._function).FindEllipseSector.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                    //this.矩形方向comboBox.DataBindings.Add("Text", ((EllipseSectorMeasure)this._function).FindEllipseSector.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波参数textBox.DataBindings.Add("Text", ((EllipseSectorMeasure)this._function).FindEllipseSector.Geometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                    this.矩形方向comboBox.Enabled = false;
                     break;
                 case nameof(LineMeasure):
                     this.边缘振幅texBox.DataBindings.Clear();
@@ -190,15 +192,15 @@ namespace FunctionBlock
                     this.平滑系数textBox.DataBindings.Add("Text", ((LineMeasure)this._function).FindLine.Geometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.边缘选择comboBox.DataBindings.Add("Text", ((LineMeasure)this._function).FindLine.Geometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.极性选择comboBox.DataBindings.Add("Text", ((LineMeasure)this._function).FindLine.Geometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                    //this.测量方向comboBox.DataBindings.Add("Text", ((LineMeasure)this._function).FindLine.LineGeometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺数量textBox.DataBindings.Add("Text", ((LineMeasure)this._function).FindLine.Geometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺宽度textBox.DataBindings.Add("Text", ((LineMeasure)this._function).FindLine.Geometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.无效数据填充comboBox.DataBindings.Add("Text", ((LineMeasure)this._function).FindLine.Geometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.数据百分比comboBox.DataBindings.Add("Text", ((LineMeasure)this._function).FindLine.Geometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.输出拟合点comboBox.DataBindings.Add("Text", ((LineMeasure)this._function).FindLine.Geometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波方法comboBox.DataBindings.Add("Text", ((LineMeasure)this._function).FindLine.Geometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                    this.矩形方向comboBox.DataBindings.Add("Text", ((LineMeasure)this._function).FindLine.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                    //this.矩形方向comboBox.DataBindings.Add("Text", ((LineMeasure)this._function).FindLine.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波参数textBox.DataBindings.Add("Text", ((LineMeasure)this._function).FindLine.Geometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                    this.矩形方向comboBox.Enabled = false;
                     break;
                 case nameof(PointMeasure):
                     this.边缘振幅texBox.DataBindings.Clear();
@@ -217,17 +219,18 @@ namespace FunctionBlock
                     this.平滑系数textBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.Geometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.边缘选择comboBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.Geometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.极性选择comboBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.Geometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                    //this.测量方向comboBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.LineGeometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺数量textBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.Geometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺宽度textBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.Geometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.无效数据填充comboBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.Geometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.数据百分比comboBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.Geometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.输出拟合点comboBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.Geometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波方法comboBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.Geometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                    this.矩形方向comboBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                    //this.矩形方向comboBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波参数textBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.Geometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                    this.矩形方向comboBox.Enabled = false;
                     break;
                 case nameof(Rectangle2Measure):
+                    this.矩形方向comboBox.Enabled = true;
                     this.边缘振幅texBox.DataBindings.Clear();
                     this.平滑系数textBox.DataBindings.Clear();
                     this.边缘选择comboBox.DataBindings.Clear();
@@ -244,7 +247,6 @@ namespace FunctionBlock
                     this.平滑系数textBox.DataBindings.Add("Text", ((Rectangle2Measure)this._function).FindRect2.Geometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.边缘选择comboBox.DataBindings.Add("Text", ((Rectangle2Measure)this._function).FindRect2.Geometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.极性选择comboBox.DataBindings.Add("Text", ((Rectangle2Measure)this._function).FindRect2.Geometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                    //this.测量方向comboBox.DataBindings.Add("Text", ((Rectangle2Measure)this._function).FindRect2.Rect2Geometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺数量textBox.DataBindings.Add("Text", ((Rectangle2Measure)this._function).FindRect2.Geometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺宽度textBox.DataBindings.Add("Text", ((Rectangle2Measure)this._function).FindRect2.Geometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.无效数据填充comboBox.DataBindings.Add("Text", ((Rectangle2Measure)this._function).FindRect2.Geometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -271,15 +273,15 @@ namespace FunctionBlock
                     this.平滑系数textBox.DataBindings.Add("Text", ((WidthMeasure)this._function).FindWidth.Geometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.边缘选择comboBox.DataBindings.Add("Text", ((WidthMeasure)this._function).FindWidth.Geometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.极性选择comboBox.DataBindings.Add("Text", ((WidthMeasure)this._function).FindWidth.Geometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                    //this.测量方向comboBox.DataBindings.Add("Text", ((Rectangle2Measure)this._function).FindRect2.Rect2Geometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺数量textBox.DataBindings.Add("Text", ((WidthMeasure)this._function).FindWidth.Geometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺宽度textBox.DataBindings.Add("Text", ((WidthMeasure)this._function).FindWidth.Geometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.无效数据填充comboBox.DataBindings.Add("Text", ((WidthMeasure)this._function).FindWidth.Geometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.数据百分比comboBox.DataBindings.Add("Text", ((WidthMeasure)this._function).FindWidth.Geometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.输出拟合点comboBox.DataBindings.Add("Text", ((WidthMeasure)this._function).FindWidth.Geometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波方法comboBox.DataBindings.Add("Text", ((WidthMeasure)this._function).FindWidth.Geometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                    this.矩形方向comboBox.DataBindings.Add("Text", ((WidthMeasure)this._function).FindWidth.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                    //this.矩形方向comboBox.DataBindings.Add("Text", ((WidthMeasure)this._function).FindWidth.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波参数textBox.DataBindings.Add("Text", ((WidthMeasure)this._function).FindWidth.Geometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                    this.矩形方向comboBox.Enabled = false;
                     break;
                 case nameof(CrossPointMeasure):
                     this.边缘振幅texBox.DataBindings.Clear();
@@ -298,15 +300,15 @@ namespace FunctionBlock
                     this.平滑系数textBox.DataBindings.Add("Text", ((CrossPointMeasure)this._function).FindCrossPoint.Geometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.边缘选择comboBox.DataBindings.Add("Text", ((CrossPointMeasure)this._function).FindCrossPoint.Geometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.极性选择comboBox.DataBindings.Add("Text", ((CrossPointMeasure)this._function).FindCrossPoint.Geometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                    //this.测量方向comboBox.DataBindings.Add("Text", ((Rectangle2Measure)this._function).FindRect2.Rect2Geometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺数量textBox.DataBindings.Add("Text", ((CrossPointMeasure)this._function).FindCrossPoint.Geometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺宽度textBox.DataBindings.Add("Text", ((CrossPointMeasure)this._function).FindCrossPoint.Geometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.无效数据填充comboBox.DataBindings.Add("Text", ((CrossPointMeasure)this._function).FindCrossPoint.Geometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.数据百分比comboBox.DataBindings.Add("Text", ((CrossPointMeasure)this._function).FindCrossPoint.Geometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.输出拟合点comboBox.DataBindings.Add("Text", ((CrossPointMeasure)this._function).FindCrossPoint.Geometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波方法comboBox.DataBindings.Add("Text", ((CrossPointMeasure)this._function).FindCrossPoint.Geometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                    this.矩形方向comboBox.DataBindings.Add("Text", ((CrossPointMeasure)this._function).FindCrossPoint.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                    //this.矩形方向comboBox.DataBindings.Add("Text", ((CrossPointMeasure)this._function).FindCrossPoint.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波参数textBox.DataBindings.Add("Text", ((CrossPointMeasure)this._function).FindCrossPoint.Geometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                    this.矩形方向comboBox.Enabled = false;
                     break;
                 case nameof(PolyLineMeasure):
                     this.边缘振幅texBox.DataBindings.Clear();
@@ -325,15 +327,15 @@ namespace FunctionBlock
                     this.平滑系数textBox.DataBindings.Add("Text", ((PolyLineMeasure)this._function).FindPolyLine.Geometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.边缘选择comboBox.DataBindings.Add("Text", ((PolyLineMeasure)this._function).FindPolyLine.Geometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.极性选择comboBox.DataBindings.Add("Text", ((PolyLineMeasure)this._function).FindPolyLine.Geometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                    //this.测量方向comboBox.DataBindings.Add("Text", ((Rectangle2Measure)this._function).FindRect2.Rect2Geometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺数量textBox.DataBindings.Add("Text", ((PolyLineMeasure)this._function).FindPolyLine.Geometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺宽度textBox.DataBindings.Add("Text", ((PolyLineMeasure)this._function).FindPolyLine.Geometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.无效数据填充comboBox.DataBindings.Add("Text", ((PolyLineMeasure)this._function).FindPolyLine.Geometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.数据百分比comboBox.DataBindings.Add("Text", ((PolyLineMeasure)this._function).FindPolyLine.Geometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.输出拟合点comboBox.DataBindings.Add("Text", ((PolyLineMeasure)this._function).FindPolyLine.Geometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波方法comboBox.DataBindings.Add("Text", ((PolyLineMeasure)this._function).FindPolyLine.Geometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                    this.矩形方向comboBox.DataBindings.Add("Text", ((PolyLineMeasure)this._function).FindPolyLine.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                    //this.矩形方向comboBox.DataBindings.Add("Text", ((PolyLineMeasure)this._function).FindPolyLine.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波参数textBox.DataBindings.Add("Text", ((PolyLineMeasure)this._function).FindPolyLine.Geometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                    this.矩形方向comboBox.Enabled = false;
                     break;
                 case nameof(PolygonMeasure):
                     this.边缘振幅texBox.DataBindings.Clear();
@@ -352,15 +354,15 @@ namespace FunctionBlock
                     this.平滑系数textBox.DataBindings.Add("Text", ((PolygonMeasure)this._function).FindPolygon.Geometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.边缘选择comboBox.DataBindings.Add("Text", ((PolygonMeasure)this._function).FindPolygon.Geometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.极性选择comboBox.DataBindings.Add("Text", ((PolygonMeasure)this._function).FindPolygon.Geometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                    //this.测量方向comboBox.DataBindings.Add("Text", ((Rectangle2Measure)this._function).FindRect2.Rect2Geometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺数量textBox.DataBindings.Add("Text", ((PolygonMeasure)this._function).FindPolygon.Geometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺宽度textBox.DataBindings.Add("Text", ((PolygonMeasure)this._function).FindPolygon.Geometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.无效数据填充comboBox.DataBindings.Add("Text", ((PolygonMeasure)this._function).FindPolygon.Geometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.数据百分比comboBox.DataBindings.Add("Text", ((PolygonMeasure)this._function).FindPolygon.Geometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.输出拟合点comboBox.DataBindings.Add("Text", ((PolygonMeasure)this._function).FindPolygon.Geometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波方法comboBox.DataBindings.Add("Text", ((PolygonMeasure)this._function).FindPolygon.Geometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                    this.矩形方向comboBox.DataBindings.Add("Text", ((PolygonMeasure)this._function).FindPolygon.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                    //this.矩形方向comboBox.DataBindings.Add("Text", ((PolygonMeasure)this._function).FindPolygon.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波参数textBox.DataBindings.Add("Text", ((PolygonMeasure)this._function).FindPolygon.Geometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                    this.矩形方向comboBox.Enabled = false;
                     break;
                 case nameof(ManualPointMeasure):
                     this.边缘振幅texBox.DataBindings.Clear();
@@ -379,15 +381,15 @@ namespace FunctionBlock
                     this.平滑系数textBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.边缘选择comboBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.极性选择comboBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                    //this.测量方向comboBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.LineGeometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺数量textBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺宽度textBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.无效数据填充comboBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.数据百分比comboBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.输出拟合点comboBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波方法comboBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                    this.矩形方向comboBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                    //this.矩形方向comboBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波参数textBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                    this.矩形方向comboBox.Enabled = false;
                     break;
                 case nameof(ManualPolygonMeasure):
                     this.边缘振幅texBox.DataBindings.Clear();
@@ -406,15 +408,15 @@ namespace FunctionBlock
                     this.平滑系数textBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.边缘选择comboBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.极性选择comboBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                    //this.测量方向comboBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.FindPolygon, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺数量textBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺宽度textBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.无效数据填充comboBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.数据百分比comboBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.输出拟合点comboBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波方法comboBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                    this.矩形方向comboBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                    //this.矩形方向comboBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波参数textBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                    this.矩形方向comboBox.Enabled = false;
                     break;
                 case nameof(ManualCircleSectorMeasure):
                     this.边缘振幅texBox.DataBindings.Clear();
@@ -433,15 +435,15 @@ namespace FunctionBlock
                     this.平滑系数textBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.边缘选择comboBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.极性选择comboBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                    //this.测量方向comboBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.LineGeometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺数量textBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺宽度textBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.无效数据填充comboBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.数据百分比comboBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.输出拟合点comboBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波方法comboBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                    this.矩形方向comboBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                    //this.矩形方向comboBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波参数textBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                    this.矩形方向comboBox.Enabled = false;
                     break;
                 case nameof(ManualPolyLineMeasure):
                     this.边缘振幅texBox.DataBindings.Clear();
@@ -460,15 +462,15 @@ namespace FunctionBlock
                     this.平滑系数textBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.边缘选择comboBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.极性选择comboBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                    //this.测量方向comboBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.LineGeometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺数量textBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.卡尺宽度textBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.无效数据填充comboBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.数据百分比comboBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.输出拟合点comboBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波方法comboBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                    this.矩形方向comboBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                    //this.矩形方向comboBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                     this.滤波参数textBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                    this.矩形方向comboBox.Enabled = false;
                     break;
                 default:
 
@@ -501,15 +503,15 @@ namespace FunctionBlock
                         this.平滑系数textBox.DataBindings.Add("Text", ((CircleMeasure)e.Node.Tag).FindCircle.Geometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.边缘选择comboBox.DataBindings.Add("Text", ((CircleMeasure)e.Node.Tag).FindCircle.Geometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.极性选择comboBox.DataBindings.Add("Text", ((CircleMeasure)e.Node.Tag).FindCircle.Geometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                        //this.测量方向comboBox.DataBindings.Add("Text", ((CircleMeasure)e.Node.Tag).FindCircle.CircleGeometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺数量textBox.DataBindings.Add("Text", ((CircleMeasure)e.Node.Tag).FindCircle.Geometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺宽度textBox.DataBindings.Add("Text", ((CircleMeasure)this._function).FindCircle.Geometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.无效数据填充comboBox.DataBindings.Add("Text", ((CircleMeasure)this._function).FindCircle.Geometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.数据百分比comboBox.DataBindings.Add("Text", ((CircleMeasure)this._function).FindCircle.Geometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.输出拟合点comboBox.DataBindings.Add("Text", ((CircleMeasure)this._function).FindCircle.Geometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波方法comboBox.DataBindings.Add("Text", ((CircleMeasure)this._function).FindCircle.Geometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                        this.矩形方向comboBox.DataBindings.Add("Text", ((CircleMeasure)this._function).FindCircle.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                        //this.矩形方向comboBox.DataBindings.Add("Text", ((CircleMeasure)this._function).FindCircle.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波参数textBox.DataBindings.Add("Text", ((CircleMeasure)this._function).FindCircle.Geometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                        this.矩形方向comboBox.Enabled = false;
                         this._function = (CircleMeasure)e.Node.Tag;
                         break;
                     case nameof(CircleSectorMeasure):
@@ -529,15 +531,15 @@ namespace FunctionBlock
                         this.平滑系数textBox.DataBindings.Add("Text", ((CircleSectorMeasure)e.Node.Tag).FindCircleSector.Geometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.边缘选择comboBox.DataBindings.Add("Text", ((CircleSectorMeasure)e.Node.Tag).FindCircleSector.Geometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.极性选择comboBox.DataBindings.Add("Text", ((CircleSectorMeasure)e.Node.Tag).FindCircleSector.Geometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                        //this.测量方向comboBox.DataBindings.Add("Text", ((CircleSectorMeasure)e.Node.Tag).FindCircleSector.CircleSectorGeometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺数量textBox.DataBindings.Add("Text", ((CircleSectorMeasure)e.Node.Tag).FindCircleSector.Geometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺宽度textBox.DataBindings.Add("Text", ((CircleSectorMeasure)this._function).FindCircleSector.Geometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.无效数据填充comboBox.DataBindings.Add("Text", ((CircleSectorMeasure)this._function).FindCircleSector.Geometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.数据百分比comboBox.DataBindings.Add("Text", ((CircleSectorMeasure)this._function).FindCircleSector.Geometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.输出拟合点comboBox.DataBindings.Add("Text", ((CircleSectorMeasure)this._function).FindCircleSector.Geometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波方法comboBox.DataBindings.Add("Text", ((CircleSectorMeasure)this._function).FindCircleSector.Geometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                        this.矩形方向comboBox.DataBindings.Add("Text", ((CircleSectorMeasure)this._function).FindCircleSector.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                        //this.矩形方向comboBox.DataBindings.Add("Text", ((CircleSectorMeasure)this._function).FindCircleSector.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波参数textBox.DataBindings.Add("Text", ((CircleSectorMeasure)this._function).FindCircleSector.Geometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                        this.矩形方向comboBox.Enabled = false;
                         this._function = (CircleSectorMeasure)e.Node.Tag;
                         break;
                     case nameof(EllipseMeasure):
@@ -557,15 +559,15 @@ namespace FunctionBlock
                         this.平滑系数textBox.DataBindings.Add("Text", ((EllipseMeasure)e.Node.Tag).FindEllipse.Geometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.边缘选择comboBox.DataBindings.Add("Text", ((EllipseMeasure)e.Node.Tag).FindEllipse.Geometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.极性选择comboBox.DataBindings.Add("Text", ((EllipseMeasure)e.Node.Tag).FindEllipse.Geometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                        //this.测量方向comboBox.DataBindings.Add("Text", ((EllipseMeasure)e.Node.Tag).FindEllipse.EllipseGeometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺数量textBox.DataBindings.Add("Text", ((EllipseMeasure)e.Node.Tag).FindEllipse.Geometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺宽度textBox.DataBindings.Add("Text", ((EllipseMeasure)this._function).FindEllipse.Geometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.无效数据填充comboBox.DataBindings.Add("Text", ((EllipseMeasure)this._function).FindEllipse.Geometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.数据百分比comboBox.DataBindings.Add("Text", ((EllipseMeasure)this._function).FindEllipse.Geometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.输出拟合点comboBox.DataBindings.Add("Text", ((EllipseMeasure)this._function).FindEllipse.Geometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波方法comboBox.DataBindings.Add("Text", ((EllipseMeasure)this._function).FindEllipse.Geometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                        this.矩形方向comboBox.DataBindings.Add("Text", ((EllipseMeasure)this._function).FindEllipse.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                        //this.矩形方向comboBox.DataBindings.Add("Text", ((EllipseMeasure)this._function).FindEllipse.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波参数textBox.DataBindings.Add("Text", ((EllipseMeasure)this._function).FindEllipse.Geometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                        this.矩形方向comboBox.Enabled = false;
                         this._function = (EllipseMeasure)e.Node.Tag;
                         break;
                     case nameof(EllipseSectorMeasure):
@@ -585,15 +587,15 @@ namespace FunctionBlock
                         this.平滑系数textBox.DataBindings.Add("Text", ((EllipseSectorMeasure)e.Node.Tag).FindEllipseSector.Geometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.边缘选择comboBox.DataBindings.Add("Text", ((EllipseSectorMeasure)e.Node.Tag).FindEllipseSector.Geometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.极性选择comboBox.DataBindings.Add("Text", ((EllipseSectorMeasure)e.Node.Tag).FindEllipseSector.Geometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                        //this.测量方向comboBox.DataBindings.Add("Text", ((EllipseSectorMeasure)e.Node.Tag).FindEllipseSector.EllipseSectorGeometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺数量textBox.DataBindings.Add("Text", ((EllipseSectorMeasure)e.Node.Tag).FindEllipseSector.Geometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺宽度textBox.DataBindings.Add("Text", ((EllipseSectorMeasure)this._function).FindEllipseSector.Geometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.无效数据填充comboBox.DataBindings.Add("Text", ((EllipseSectorMeasure)this._function).FindEllipseSector.Geometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.数据百分比comboBox.DataBindings.Add("Text", ((EllipseSectorMeasure)this._function).FindEllipseSector.Geometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.输出拟合点comboBox.DataBindings.Add("Text", ((EllipseSectorMeasure)this._function).FindEllipseSector.Geometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波方法comboBox.DataBindings.Add("Text", ((EllipseSectorMeasure)this._function).FindEllipseSector.Geometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                        this.矩形方向comboBox.DataBindings.Add("Text", ((EllipseSectorMeasure)this._function).FindEllipseSector.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                        //this.矩形方向comboBox.DataBindings.Add("Text", ((EllipseSectorMeasure)this._function).FindEllipseSector.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波参数textBox.DataBindings.Add("Text", ((EllipseSectorMeasure)this._function).FindEllipseSector.Geometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                        this.矩形方向comboBox.Enabled = false;
                         this._function = (EllipseSectorMeasure)e.Node.Tag;
                         break;
                     case nameof(LineMeasure):
@@ -613,15 +615,15 @@ namespace FunctionBlock
                         this.平滑系数textBox.DataBindings.Add("Text", ((LineMeasure)e.Node.Tag).FindLine.Geometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.边缘选择comboBox.DataBindings.Add("Text", ((LineMeasure)e.Node.Tag).FindLine.Geometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.极性选择comboBox.DataBindings.Add("Text", ((LineMeasure)e.Node.Tag).FindLine.Geometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                        //this.测量方向comboBox.DataBindings.Add("Text", ((LineMeasure)e.Node.Tag).FindLine.LineGeometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺数量textBox.DataBindings.Add("Text", ((LineMeasure)e.Node.Tag).FindLine.Geometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺宽度textBox.DataBindings.Add("Text", ((LineMeasure)this._function).FindLine.Geometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.无效数据填充comboBox.DataBindings.Add("Text", ((LineMeasure)this._function).FindLine.Geometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.数据百分比comboBox.DataBindings.Add("Text", ((LineMeasure)this._function).FindLine.Geometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.输出拟合点comboBox.DataBindings.Add("Text", ((LineMeasure)this._function).FindLine.Geometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波方法comboBox.DataBindings.Add("Text", ((LineMeasure)this._function).FindLine.Geometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                        this.矩形方向comboBox.DataBindings.Add("Text", ((LineMeasure)this._function).FindLine.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                        //this.矩形方向comboBox.DataBindings.Add("Text", ((LineMeasure)this._function).FindLine.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波参数textBox.DataBindings.Add("Text", ((LineMeasure)this._function).FindLine.Geometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                        this.矩形方向comboBox.Enabled = false;
                         this._function = (LineMeasure)e.Node.Tag;
                         break;
                     case nameof(PointMeasure):
@@ -641,18 +643,19 @@ namespace FunctionBlock
                         this.平滑系数textBox.DataBindings.Add("Text", ((PointMeasure)e.Node.Tag).FindPoint.Geometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.边缘选择comboBox.DataBindings.Add("Text", ((PointMeasure)e.Node.Tag).FindPoint.Geometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.极性选择comboBox.DataBindings.Add("Text", ((PointMeasure)e.Node.Tag).FindPoint.Geometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                        //this.测量方向comboBox.DataBindings.Add("Text", ((PointMeasure)e.Node.Tag).FindPoint.LineGeometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺数量textBox.DataBindings.Add("Text", ((PointMeasure)e.Node.Tag).FindPoint.Geometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺宽度textBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.Geometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.无效数据填充comboBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.Geometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.数据百分比comboBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.Geometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.输出拟合点comboBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.Geometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波方法comboBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.Geometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                        this.矩形方向comboBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                        //this.矩形方向comboBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波参数textBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.Geometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                        this.矩形方向comboBox.Enabled = false;
                         this._function = (PointMeasure)e.Node.Tag;
                         break;
                     case nameof(Rectangle2Measure):
+                        this.矩形方向comboBox.Enabled = true;
                         this.边缘振幅texBox.DataBindings.Clear();
                         this.平滑系数textBox.DataBindings.Clear();
                         this.边缘选择comboBox.DataBindings.Clear();
@@ -669,7 +672,6 @@ namespace FunctionBlock
                         this.平滑系数textBox.DataBindings.Add("Text", ((Rectangle2Measure)e.Node.Tag).FindRect2.Geometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.边缘选择comboBox.DataBindings.Add("Text", ((Rectangle2Measure)e.Node.Tag).FindRect2.Geometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.极性选择comboBox.DataBindings.Add("Text", ((Rectangle2Measure)e.Node.Tag).FindRect2.Geometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                        //this.测量方向comboBox.DataBindings.Add("Text", ((Rectangle2Measure)e.Node.Tag).FindRect2.Rect2Geometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺数量textBox.DataBindings.Add("Text", ((Rectangle2Measure)e.Node.Tag).FindRect2.Geometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺宽度textBox.DataBindings.Add("Text", ((Rectangle2Measure)this._function).FindRect2.Geometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.无效数据填充comboBox.DataBindings.Add("Text", ((Rectangle2Measure)this._function).FindRect2.Geometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -697,15 +699,15 @@ namespace FunctionBlock
                         this.平滑系数textBox.DataBindings.Add("Text", ((WidthMeasure)e.Node.Tag).FindWidth.Geometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.边缘选择comboBox.DataBindings.Add("Text", ((WidthMeasure)e.Node.Tag).FindWidth.Geometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.极性选择comboBox.DataBindings.Add("Text", ((WidthMeasure)e.Node.Tag).FindWidth.Geometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                        //this.测量方向comboBox.DataBindings.Add("Text", ((Rectangle2Measure)e.Node.Tag).FindRect2.Rect2Geometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺数量textBox.DataBindings.Add("Text", ((WidthMeasure)e.Node.Tag).FindWidth.Geometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺宽度textBox.DataBindings.Add("Text", ((WidthMeasure)this._function).FindWidth.Geometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.无效数据填充comboBox.DataBindings.Add("Text", ((WidthMeasure)this._function).FindWidth.Geometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.数据百分比comboBox.DataBindings.Add("Text", ((WidthMeasure)this._function).FindWidth.Geometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.输出拟合点comboBox.DataBindings.Add("Text", ((WidthMeasure)this._function).FindWidth.Geometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波方法comboBox.DataBindings.Add("Text", ((WidthMeasure)this._function).FindWidth.Geometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                        this.矩形方向comboBox.DataBindings.Add("Text", ((WidthMeasure)this._function).FindWidth.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                        //this.矩形方向comboBox.DataBindings.Add("Text", ((WidthMeasure)this._function).FindWidth.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波参数textBox.DataBindings.Add("Text", ((WidthMeasure)this._function).FindWidth.Geometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                        this.矩形方向comboBox.Enabled = false;
                         this._function = (WidthMeasure)e.Node.Tag;
                         break;
                     case nameof(CrossPointMeasure):
@@ -725,15 +727,15 @@ namespace FunctionBlock
                         this.平滑系数textBox.DataBindings.Add("Text", ((CrossPointMeasure)e.Node.Tag).FindCrossPoint.Geometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.边缘选择comboBox.DataBindings.Add("Text", ((CrossPointMeasure)e.Node.Tag).FindCrossPoint.Geometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.极性选择comboBox.DataBindings.Add("Text", ((CrossPointMeasure)e.Node.Tag).FindCrossPoint.Geometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                        //this.测量方向comboBox.DataBindings.Add("Text", ((Rectangle2Measure)e.Node.Tag).FindRect2.Rect2Geometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺数量textBox.DataBindings.Add("Text", ((CrossPointMeasure)e.Node.Tag).FindCrossPoint.Geometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺宽度textBox.DataBindings.Add("Text", ((CrossPointMeasure)this._function).FindCrossPoint.Geometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.无效数据填充comboBox.DataBindings.Add("Text", ((CrossPointMeasure)this._function).FindCrossPoint.Geometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.数据百分比comboBox.DataBindings.Add("Text", ((CrossPointMeasure)this._function).FindCrossPoint.Geometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.输出拟合点comboBox.DataBindings.Add("Text", ((CrossPointMeasure)this._function).FindCrossPoint.Geometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波方法comboBox.DataBindings.Add("Text", ((CrossPointMeasure)this._function).FindCrossPoint.Geometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                        this.矩形方向comboBox.DataBindings.Add("Text", ((CrossPointMeasure)this._function).FindCrossPoint.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                        //this.矩形方向comboBox.DataBindings.Add("Text", ((CrossPointMeasure)this._function).FindCrossPoint.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波参数textBox.DataBindings.Add("Text", ((CrossPointMeasure)this._function).FindCrossPoint.Geometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                        this.矩形方向comboBox.Enabled = false;
                         this._function = (CrossPointMeasure)e.Node.Tag;
                         break;
                     case nameof(PolyLineMeasure):
@@ -753,15 +755,15 @@ namespace FunctionBlock
                         this.平滑系数textBox.DataBindings.Add("Text", ((PolyLineMeasure)e.Node.Tag).FindPolyLine.Geometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.边缘选择comboBox.DataBindings.Add("Text", ((PolyLineMeasure)e.Node.Tag).FindPolyLine.Geometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.极性选择comboBox.DataBindings.Add("Text", ((PolyLineMeasure)e.Node.Tag).FindPolyLine.Geometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                        //this.测量方向comboBox.DataBindings.Add("Text", ((Rectangle2Measure)e.Node.Tag).FindRect2.Rect2Geometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺数量textBox.DataBindings.Add("Text", ((PolyLineMeasure)e.Node.Tag).FindPolyLine.Geometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺宽度textBox.DataBindings.Add("Text", ((PolyLineMeasure)this._function).FindPolyLine.Geometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.无效数据填充comboBox.DataBindings.Add("Text", ((PolyLineMeasure)this._function).FindPolyLine.Geometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.数据百分比comboBox.DataBindings.Add("Text", ((PolyLineMeasure)this._function).FindPolyLine.Geometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.输出拟合点comboBox.DataBindings.Add("Text", ((PolyLineMeasure)this._function).FindPolyLine.Geometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波方法comboBox.DataBindings.Add("Text", ((PolyLineMeasure)this._function).FindPolyLine.Geometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                        this.矩形方向comboBox.DataBindings.Add("Text", ((PolyLineMeasure)this._function).FindPolyLine.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                        //this.矩形方向comboBox.DataBindings.Add("Text", ((PolyLineMeasure)this._function).FindPolyLine.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波参数textBox.DataBindings.Add("Text", ((PolyLineMeasure)this._function).FindPolyLine.Geometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                        this.矩形方向comboBox.Enabled = false;
                         this._function = (PolyLineMeasure)e.Node.Tag;
                         break;
                     case nameof(PolygonMeasure):
@@ -781,15 +783,15 @@ namespace FunctionBlock
                         this.平滑系数textBox.DataBindings.Add("Text", ((PolygonMeasure)e.Node.Tag).FindPolygon.Geometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.边缘选择comboBox.DataBindings.Add("Text", ((PolygonMeasure)e.Node.Tag).FindPolygon.Geometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.极性选择comboBox.DataBindings.Add("Text", ((PolygonMeasure)e.Node.Tag).FindPolygon.Geometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                        //this.测量方向comboBox.DataBindings.Add("Text", ((Rectangle2Measure)e.Node.Tag).FindRect2.Rect2Geometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺数量textBox.DataBindings.Add("Text", ((PolygonMeasure)e.Node.Tag).FindPolygon.Geometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺宽度textBox.DataBindings.Add("Text", ((PolygonMeasure)this._function).FindPolygon.Geometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.无效数据填充comboBox.DataBindings.Add("Text", ((PolygonMeasure)this._function).FindPolygon.Geometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.数据百分比comboBox.DataBindings.Add("Text", ((PolygonMeasure)this._function).FindPolygon.Geometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.输出拟合点comboBox.DataBindings.Add("Text", ((PolygonMeasure)this._function).FindPolygon.Geometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波方法comboBox.DataBindings.Add("Text", ((PolygonMeasure)this._function).FindPolygon.Geometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                        this.矩形方向comboBox.DataBindings.Add("Text", ((PolygonMeasure)this._function).FindPolygon.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                        //this.矩形方向comboBox.DataBindings.Add("Text", ((PolygonMeasure)this._function).FindPolygon.Geometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波参数textBox.DataBindings.Add("Text", ((PolygonMeasure)this._function).FindPolygon.Geometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                        this.矩形方向comboBox.Enabled = false;
                         this._function = (PolygonMeasure)e.Node.Tag;
                         break;
                     case nameof(ManualPointMeasure):
@@ -809,15 +811,15 @@ namespace FunctionBlock
                         this.平滑系数textBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.边缘选择comboBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.极性选择comboBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                        //this.测量方向comboBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.LineGeometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺数量textBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺宽度textBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.无效数据填充comboBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.数据百分比comboBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.输出拟合点comboBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波方法comboBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                        this.矩形方向comboBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                        //this.矩形方向comboBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波参数textBox.DataBindings.Add("Text", ((ManualPointMeasure)this._function).FindCrossPoint.LineGeometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                        this.矩形方向comboBox.Enabled = false;
                         this._function = (ManualPointMeasure)e.Node.Tag;
                         break;
                     case nameof(ManualPolygonMeasure):
@@ -837,15 +839,15 @@ namespace FunctionBlock
                         this.平滑系数textBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.边缘选择comboBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.极性选择comboBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                        //this.测量方向comboBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.LineGeometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺数量textBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺宽度textBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.无效数据填充comboBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.数据百分比comboBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.输出拟合点comboBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波方法comboBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                        this.矩形方向comboBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                        //this.矩形方向comboBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波参数textBox.DataBindings.Add("Text", ((ManualPolygonMeasure)this._function).FindPolygon.PolygonGeometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                        this.矩形方向comboBox.Enabled = false;
                         this._function = (ManualPolygonMeasure)e.Node.Tag;
                         break;
                     case nameof(ManualCircleSectorMeasure):
@@ -865,15 +867,15 @@ namespace FunctionBlock
                         this.平滑系数textBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.边缘选择comboBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.极性选择comboBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                        //this.测量方向comboBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.LineGeometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺数量textBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺宽度textBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.无效数据填充comboBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.数据百分比comboBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.输出拟合点comboBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波方法comboBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                        this.矩形方向comboBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                        //this.矩形方向comboBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波参数textBox.DataBindings.Add("Text", ((ManualCircleSectorMeasure)this._function).FindCircleSector.CircleSectorGeometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                        this.矩形方向comboBox.Enabled = false;
                         this._function = (ManualCircleSectorMeasure)e.Node.Tag;
                         break;
                     case nameof(ManualPolyLineMeasure):
@@ -893,15 +895,15 @@ namespace FunctionBlock
                         this.平滑系数textBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "Measure_sigma", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.边缘选择comboBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "Measure_select", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.极性选择comboBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "Measure_transition", true, DataSourceUpdateMode.OnPropertyChanged);
-                        //this.测量方向comboBox.DataBindings.Add("Text", ((PointMeasure)this._function).FindPoint.LineGeometry, "Measure_direction", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺数量textBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "CallipersCount", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.卡尺宽度textBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "Measure_length2", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.无效数据填充comboBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "FillUpInvalidData", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.数据百分比comboBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "DataPercent", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.输出拟合点comboBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "IsOutFitPoint", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波方法comboBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "PointFilterMethod", true, DataSourceUpdateMode.OnPropertyChanged);
-                        this.矩形方向comboBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
+                        //this.矩形方向comboBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "ShapeDirection", true, DataSourceUpdateMode.OnPropertyChanged);
                         this.滤波参数textBox.DataBindings.Add("Text", ((ManualPolyLineMeasure)this._function).FindPolyLine.PolyLineGeometry, "PointFilterParam", true, DataSourceUpdateMode.OnPropertyChanged);
+                        this.矩形方向comboBox.Enabled = false;
                         this._function = (ManualPolyLineMeasure)e.Node.Tag;
                         break;
                     default:
@@ -1061,7 +1063,7 @@ namespace FunctionBlock
                         break;
                     case nameof(ManualPointMeasure):
                         if (this._form == null)
-                            this._function.Execute(((userDrawManualPointMeasure)this.drawObject).GetPixLineParam());
+                            this._function.Execute(((userDrawManualPointMeasure)this.drawObject).GetPixPointParam());
                         else
                             ((ManualPointMeasureForm)this._form).运行toolStrip_ItemClicked(this._form, new ToolStripItemClickedEventArgs(new ToolStripButton("运行", null, null, "toolStripButton_Run")));
                         break;

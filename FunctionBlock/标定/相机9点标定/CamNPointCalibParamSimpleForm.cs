@@ -51,6 +51,8 @@ namespace FunctionBlock
         public CamNPointCalibParamSimpleForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             this.drawObject = new DrawingBaseMeasure(this.hWindowControl1, false);
             this._treeViewWrapClass = new TreeViewWrapClass(this.treeView1, this);
             this.metrolegyParamForm = new MetrolegyParamForm(this.drawObject);
@@ -70,6 +72,8 @@ namespace FunctionBlock
         public CamNPointCalibParamSimpleForm(CameraParam CamParam)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             this.CamParam = CamParam;
             this.drawObject = new DrawingBaseMeasure(this.hWindowControl1, false);
             this._treeViewWrapClass = new TreeViewWrapClass(this.treeView1, this);

@@ -26,6 +26,8 @@ namespace FunctionBlock
         public JogMotionForm(ViewConfigParam viewConfigParam)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             this.groupBox4.Margin = new Padding(0);
             this.CoordSysName = enCoordSysName.CoordSys_1;
             this._viewConfigParam = viewConfigParam;
@@ -38,6 +40,8 @@ namespace FunctionBlock
         public JogMotionForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             this.groupBox4.Margin = new Padding(0);
             this.CoordSysName = enCoordSysName.CoordSys_1;
         }

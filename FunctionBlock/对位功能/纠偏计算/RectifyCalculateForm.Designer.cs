@@ -102,7 +102,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(959, 589);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1007, 680);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // toolStrip1
@@ -132,9 +132,9 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 564);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 655);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(959, 25);
+            this.statusStrip1.Size = new System.Drawing.Size(1007, 25);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -148,7 +148,7 @@
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(26, 20);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(28, 20);
             this.toolStripStatusLabel2.Text = "……";
             // 
             // tabControl1
@@ -159,7 +159,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tableLayoutPanel1.SetRowSpan(this.tabControl1, 4);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(324, 529);
+            this.tabControl1.Size = new System.Drawing.Size(324, 620);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPage1
@@ -169,7 +169,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(316, 503);
+            this.tabPage1.Size = new System.Drawing.Size(316, 594);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "基本设置";
             // 
@@ -193,7 +193,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(310, 497);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(310, 588);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // groupBox4
@@ -212,7 +212,7 @@
             this.groupBox4.Location = new System.Drawing.Point(3, 156);
             this.groupBox4.Name = "groupBox4";
             this.tableLayoutPanel2.SetRowSpan(this.groupBox4, 3);
-            this.groupBox4.Size = new System.Drawing.Size(304, 338);
+            this.groupBox4.Size = new System.Drawing.Size(304, 429);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "补偿值";
@@ -235,7 +235,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(28, 89);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 12);
+            this.label2.Size = new System.Drawing.Size(59, 12);
             this.label2.TabIndex = 18;
             this.label2.Text = "纠偏方向:";
             // 
@@ -252,7 +252,7 @@
             // 分区纠偏设置Btn
             // 
             this.分区纠偏设置Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.分区纠偏设置Btn.Location = new System.Drawing.Point(208, 290);
+            this.分区纠偏设置Btn.Location = new System.Drawing.Point(208, 381);
             this.分区纠偏设置Btn.Name = "分区纠偏设置Btn";
             this.分区纠偏设置Btn.Size = new System.Drawing.Size(93, 42);
             this.分区纠偏设置Btn.TabIndex = 14;
@@ -276,11 +276,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 62);
+            this.label4.Location = new System.Drawing.Point(28, 62);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 12);
+            this.label4.Size = new System.Drawing.Size(59, 12);
             this.label4.TabIndex = 12;
-            this.label4.Text = "角度纠偏模式:";
+            this.label4.Text = "纠偏模式:";
             // 
             // 视图窗口comboBox
             // 
@@ -303,7 +303,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(28, 36);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 12);
+            this.label6.Size = new System.Drawing.Size(59, 12);
             this.label6.TabIndex = 10;
             this.label6.Text = "视图窗口:";
             // 
@@ -313,7 +313,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.目标角度XtextBox.Location = new System.Drawing.Point(91, 112);
             this.目标角度XtextBox.Name = "目标角度XtextBox";
-            this.目标角度XtextBox.Size = new System.Drawing.Size(207, 22);
+            this.目标角度XtextBox.Size = new System.Drawing.Size(207, 21);
             this.目标角度XtextBox.TabIndex = 1;
             // 
             // label1
@@ -321,7 +321,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(28, 116);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 12);
+            this.label1.Size = new System.Drawing.Size(59, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "目标角度:";
             // 
@@ -342,9 +342,9 @@
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(3, 18);
+            this.listBox1.Location = new System.Drawing.Point(3, 17);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(298, 126);
+            this.listBox1.Size = new System.Drawing.Size(298, 127);
             this.listBox1.TabIndex = 0;
             // 
             // tabControl2
@@ -357,7 +357,7 @@
             this.tabControl2.Name = "tabControl2";
             this.tableLayoutPanel1.SetRowSpan(this.tabControl2, 5);
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(623, 558);
+            this.tabControl2.Size = new System.Drawing.Size(671, 649);
             this.tabControl2.TabIndex = 14;
             // 
             // tabPage3
@@ -367,7 +367,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(615, 532);
+            this.tabPage3.Size = new System.Drawing.Size(663, 623);
             this.tabPage3.TabIndex = 1;
             this.tabPage3.Text = "图形";
             // 
@@ -380,9 +380,9 @@
             this.hWindowControl1.Location = new System.Drawing.Point(0, 0);
             this.hWindowControl1.Margin = new System.Windows.Forms.Padding(0);
             this.hWindowControl1.Name = "hWindowControl1";
-            this.hWindowControl1.Size = new System.Drawing.Size(615, 532);
+            this.hWindowControl1.Size = new System.Drawing.Size(663, 623);
             this.hWindowControl1.TabIndex = 1;
-            this.hWindowControl1.WindowSize = new System.Drawing.Size(615, 532);
+            this.hWindowControl1.WindowSize = new System.Drawing.Size(663, 623);
             // 
             // tabPage2
             // 
@@ -391,7 +391,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(615, 511);
+            this.tabPage2.Size = new System.Drawing.Size(615, 532);
             this.tabPage2.TabIndex = 0;
             this.tabPage2.Text = "坐标点";
             // 
@@ -409,17 +409,17 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.30568F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.36098F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(615, 511);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(615, 532);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.当前点dataGridView);
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox6.Location = new System.Drawing.Point(3, 265);
+            this.groupBox6.Location = new System.Drawing.Point(3, 275);
             this.groupBox6.Name = "groupBox6";
             this.tableLayoutPanel3.SetRowSpan(this.groupBox6, 2);
-            this.groupBox6.Size = new System.Drawing.Size(609, 243);
+            this.groupBox6.Size = new System.Drawing.Size(609, 254);
             this.groupBox6.TabIndex = 15;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "当前点坐标(PxPy)";
@@ -428,10 +428,10 @@
             // 
             this.当前点dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.当前点dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.当前点dataGridView.Location = new System.Drawing.Point(3, 18);
+            this.当前点dataGridView.Location = new System.Drawing.Point(3, 17);
             this.当前点dataGridView.Name = "当前点dataGridView";
             this.当前点dataGridView.RowTemplate.Height = 23;
-            this.当前点dataGridView.Size = new System.Drawing.Size(603, 222);
+            this.当前点dataGridView.Size = new System.Drawing.Size(603, 234);
             this.当前点dataGridView.TabIndex = 1;
             // 
             // groupBox3
@@ -440,7 +440,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(609, 256);
+            this.groupBox3.Size = new System.Drawing.Size(609, 266);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "示教点坐标(QxQy)";
@@ -448,9 +448,9 @@
             // 示教点dataGridView
             // 
             this.示教点dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.示教点dataGridView.Location = new System.Drawing.Point(3, 18);
+            this.示教点dataGridView.Location = new System.Drawing.Point(3, 17);
             this.示教点dataGridView.Name = "示教点dataGridView";
-            this.示教点dataGridView.Size = new System.Drawing.Size(603, 235);
+            this.示教点dataGridView.Size = new System.Drawing.Size(603, 246);
             this.示教点dataGridView.TabIndex = 0;
             // 
             // toolStripButton_Run
@@ -465,9 +465,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(959, 589);
+            this.ClientSize = new System.Drawing.Size(1007, 680);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RectifyCalculateForm";
             this.ShowIcon = false;

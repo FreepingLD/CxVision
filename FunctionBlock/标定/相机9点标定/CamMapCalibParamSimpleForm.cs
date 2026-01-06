@@ -55,6 +55,8 @@ namespace FunctionBlock
         public CamMapCalibParamSimpleForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             this.drawObject = new DrawingBaseMeasure(this.hWindowControl1, false);
             this._treeViewWrapClass = new TreeViewWrapClass(this.treeView1, this);
             this.metrolegyParamForm = new MetrolegyParamForm(this.drawObject);
@@ -74,6 +76,8 @@ namespace FunctionBlock
         public CamMapCalibParamSimpleForm(CameraParam CamParam)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             this.CamParam = CamParam;
             this.MapCamParam = AcqSourceManage.Instance.GetAcqSource(this.CamParam.CaliParam.MapCamName)?.Sensor?.CameraParam;
             this.drawObject = new DrawingBaseMeasure(this.hWindowControl1, false);
@@ -1161,8 +1165,11 @@ namespace FunctionBlock
         {
             //this.标定停止button.Enabled = true;
             //this.标定执行button.Enabled = false;
-            this.toolStripButton_Run.Enabled = false;
-            this.toolStripButton_Stop.Enabled = true;
+            this.Invoke(new Action(() => 
+            {
+                this.toolStripButton_Run.Enabled = false;
+                this.toolStripButton_Stop.Enabled = true;
+            }));
             switch (this.CamParam.CaliParam.MoveStage)
             {
                 case enMoveStage.PLC:
@@ -1384,7 +1391,7 @@ namespace FunctionBlock
                     while (true)
                     {
                         if (this.isStop) return;
-                        Application.DoEvents();
+                        //Application.DoEvents();
                         if (this.listWcsSourcePoint.Count != 0 && this.listWcsTargetPoint.Count != 0 && this.listWcsSourcePoint.Count == this.listWcsTargetPoint.Count) break;
                         /////////////////////////  等待触发信号  //////////////////////////////////////////
                         object sourceValue = CommunicationConfigParamManger.Instance.ReadValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerFromPlc);
@@ -1449,6 +1456,8 @@ namespace FunctionBlock
                             CommunicationConfigParamManger.Instance.WriteValue(this.MapCamParam.CaliParam.CoordSysName, enCommunicationCommand.ResultToPlc, "OK");
                             CommunicationConfigParamManger.Instance.WriteValue(this.MapCamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerToPlc, "");
                         }
+
+                        Thread.Sleep(100);
                         LoggerHelper.Info("等待PLC触发信号!!!" + info, this.CamParam.SensorName);
                     }
                 }
@@ -1457,7 +1466,7 @@ namespace FunctionBlock
                     while (true)
                     {
                         if (this.isStop) return;
-                        Application.DoEvents();
+                        //Application.DoEvents();
                         if (this.listWcsSourcePoint.Count != 0 && this.listWcsTargetPoint.Count != 0 && this.listWcsSourcePoint.Count == this.listWcsTargetPoint.Count) break;
                         /////////////////////////  等待触发信号  //////////////////////////////////////////
                         object sourceValue = CommunicationConfigParamManger.Instance.ReadValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerFromPlc);
@@ -1490,36 +1499,44 @@ namespace FunctionBlock
                             CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.ResultToPlc, "OK");
                             CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerToPlc, "");
                         }
+
+                        Thread.Sleep(100);
                         LoggerHelper.Info("等待PLC触发信号!!!" + info, this.CamParam.SensorName);
                     }
                 }
                 //////////////////////////////////////////////////////////////////
-                this.toolStripButton_Run.Enabled = true;
-                this.toolStripButton_Stop.Enabled = false;
+                this.Invoke(new Action(() =>
+                {
+                    this.toolStripButton_Run.Enabled = true;
+                    this.toolStripButton_Stop.Enabled = false;
+                }));
                 List<double> listSourceWcs_x = new List<double>();
                 List<double> listSourceWcs_y = new List<double>();
                 List<double> listSourceWcs_z = new List<double>();
                 List<double> listTargetWcs_x = new List<double>();
                 List<double> listTargetWcs_y = new List<double>();
                 List<double> listTargetWcs_z = new List<double>();
-                this.源点坐标dataGridView.Rows.Clear();
-                foreach (var item in this.listWcsSourcePoint)
+                this.Invoke(new Action(() =>
                 {
-                    int index = this.源点坐标dataGridView.Rows.Add(item.X, item.Y, item.Z);
-                    this.源点坐标dataGridView.Rows[index].HeaderCell.Value = (index + 1).ToString();
-                    listSourceWcs_x.Add(item.X);
-                    listSourceWcs_y.Add(item.Y);
-                    listSourceWcs_z.Add(item.Z);
-                }
-                this.目标点dataGridView.Rows.Clear();
-                foreach (var item in this.listWcsTargetPoint)
-                {
-                    int index = this.目标点dataGridView.Rows.Add(item.X, item.Y, item.Z);
-                    this.目标点dataGridView.Rows[index].HeaderCell.Value = (index + 1).ToString();
-                    listTargetWcs_x.Add(item.X);
-                    listTargetWcs_y.Add(item.Y);
-                    listTargetWcs_z.Add(item.Z);
-                }
+                    this.源点坐标dataGridView.Rows.Clear();
+                    foreach (var item in this.listWcsSourcePoint)
+                    {
+                        int index = this.源点坐标dataGridView.Rows.Add(item.X, item.Y, item.Z);
+                        this.源点坐标dataGridView.Rows[index].HeaderCell.Value = (index + 1).ToString();
+                        listSourceWcs_x.Add(item.X);
+                        listSourceWcs_y.Add(item.Y);
+                        listSourceWcs_z.Add(item.Z);
+                    }
+                    this.目标点dataGridView.Rows.Clear();
+                    foreach (var item in this.listWcsTargetPoint)
+                    {
+                        int index = this.目标点dataGridView.Rows.Add(item.X, item.Y, item.Z);
+                        this.目标点dataGridView.Rows[index].HeaderCell.Value = (index + 1).ToString();
+                        listTargetWcs_x.Add(item.X);
+                        listTargetWcs_y.Add(item.Y);
+                        listTargetWcs_z.Add(item.Z);
+                    }
+                }));
                 ///////////////////////////////  世界坐标变换必需使用刚性变换  ///////////////////////////////
                 HHomMat2D hHomMat2D = new HHomMat2D();
                 switch (listSourceWcs_x.Count)
@@ -1531,23 +1548,26 @@ namespace FunctionBlock
                         hHomMat2D.VectorAngleToRigid(listSourceWcs_x[0], listSourceWcs_y[0], 0, listTargetWcs_x[0], listTargetWcs_y[0], 0);
                         break;
                     default:
-                        if (listSourceWcs_x.Max() - listSourceWcs_x.Min() > 0 && listSourceWcs_y.Max() - listSourceWcs_y.Min() > 0) // 如果点数量大于4且不共线，则使用仿射变换，否则使用刚性变换
+                        if (listSourceWcs_x.Max() - listSourceWcs_x.Min() > 1 && listSourceWcs_y.Max() - listSourceWcs_y.Min() > 1) // 如果点数量大于4且不共线，则使用仿射变换，否则使用刚性变换
                             hHomMat2D.VectorToHomMat2d(listSourceWcs_x.ToArray(), listSourceWcs_y.ToArray(), listTargetWcs_x.ToArray(), listTargetWcs_y.ToArray());
                         else
                             hHomMat2D.VectorToRigid(listSourceWcs_x.ToArray(), listSourceWcs_y.ToArray(), listTargetWcs_x.ToArray(), listTargetWcs_y.ToArray());
                         break;
                 }
                 this.CamParam.MapHomMat2D = new UserHomMat2D(hHomMat2D);
-                this.CamParam.MapType = this.映射方法comboBox.Text;
-                if (this.CamParam.DicMapHomMat2D.ContainsKey(this.CamParam.MapType))
-                    this.CamParam.DicMapHomMat2D[this.CamParam.MapType] = new UserHomMat2D(hHomMat2D);
+                //this.CamParam.MapType = this.映射方法comboBox.Text;
+                if (this.CamParam.DicMapHomMat2D.ContainsKey(this.映射方法comboBox.Text))
+                    this.CamParam.DicMapHomMat2D[this.映射方法comboBox.Text] = new UserHomMat2D(hHomMat2D);
                 else
-                    this.CamParam.DicMapHomMat2D.Add(this.CamParam.MapType, new UserHomMat2D(hHomMat2D));
+                    this.CamParam.DicMapHomMat2D.Add(this.映射方法comboBox.Text, new UserHomMat2D(hHomMat2D));
                 this.CamParam.CaliParam.CoordOriginType = enCoordOriginType.映射变换; // WcsToWcs ： 一定要是这样
                 HTuple Qx, Qy;
                 Qx = hHomMat2D.AffineTransPoint2d(listSourceWcs_x.ToArray(), listSourceWcs_y.ToArray(), out Qy);
                 HTuple dist = HMisc.DistancePp(Qx, Qy, listTargetWcs_x.ToArray(), listTargetWcs_y.ToArray());
-                this.平均误差textBox.Text = dist.TupleMax().D.ToString();
+                this.Invoke(new Action(() =>
+                {
+                    this.平均误差textBox.Text = dist.TupleMax().D.ToString();
+                }));
                 double sy, phi, theta, tx, ty;
                 this.CamParam.DicMapHomMat2D[this.映射方法comboBox.Text].GetHHomMat().HomMat2dToAffinePar(out sy, out phi, out theta, out tx, out ty);
                 double deg = phi * 180 / Math.PI;
@@ -1556,12 +1576,15 @@ namespace FunctionBlock
                     this.CamParam?.Save();
                 }
                 /////
-                this.映射坐标dataGridView.Rows.Clear();
-                for (int i = 0; i < Qx.Length; i++)
+                this.Invoke(new Action(() =>
                 {
-                    int index = this.映射坐标dataGridView.Rows.Add(Qx[i].D, Qy[i].D);
-                    this.映射坐标dataGridView.Rows[index].HeaderCell.Value = (index + 1).ToString();
-                }
+                    this.映射坐标dataGridView.Rows.Clear();
+                    for (int i = 0; i < Qx.Length; i++)
+                    {
+                        int index = this.映射坐标dataGridView.Rows.Add(Qx[i].D, Qy[i].D);
+                        this.映射坐标dataGridView.Rows[index].HeaderCell.Value = (index + 1).ToString();
+                    }
+                }));
                 /////////////////////////////////
             }
             catch (Exception ex)
@@ -1572,7 +1595,7 @@ namespace FunctionBlock
             }
             finally
             {
-                this.CamParam.MapType = this.映射方法comboBox.Text;
+                //this.CamParam.MapType = this.映射方法comboBox.Text;
                 if (AcqSourceManage.Instance.GetAcqSource(this.CamParam.CaliParam.CamName)?.Sensor.CameraParam.AcqMode != enAcqMode.同步采集)
                     AcqSourceManage.Instance.GetAcqSource(this.CamParam.CaliParam.CamName)?.Sensor?.SetParam("停止采集", 0);
                 if (AcqSourceManage.Instance.GetAcqSource(this.CamParam.CaliParam.MapCamName)?.Sensor.CameraParam.AcqMode != enAcqMode.同步采集)
@@ -1624,7 +1647,10 @@ namespace FunctionBlock
                     break;
                 case "执行":
                 case nameof(this.toolStripButton_Run):
-                    标定执行button_Click(null, null);
+                    Task.Run(() =>
+                    {
+                        标定执行button_Click(null, null);
+                    });
                     break;
                 case "停止":
                 case nameof(this.toolStripButton_Stop):

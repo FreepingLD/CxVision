@@ -20,10 +20,14 @@ namespace FunctionBlock
         public SetCamGainForm()
         {
             InitializeComponent();
+            this.TopMost = true;
+            this.ShowInTaskbar = true;
         }
         public SetCamGainForm(string name)
         {
             InitializeComponent();
+            this.TopMost = true;
+            this.ShowInTaskbar = true;
             this.ReName = name;
             this._camName = name;   
         }
@@ -50,6 +54,7 @@ namespace FunctionBlock
             this.textBox1.Text = name;
             this.Text = formName;
         }
+
         private void 确定button_Click(object sender, EventArgs e)
         {
             this.Close();

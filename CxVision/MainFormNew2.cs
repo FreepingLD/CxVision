@@ -458,6 +458,25 @@ namespace CxVision
                                 break;
                         }
                         break;
+
+                    case "Lable":
+                    case "lable":
+                        int index = 1;
+                        int.TryParse(path, out index);
+                        string[] lable = this.GetLableName(index);
+                        if (lable != null && lable.Length > 0)
+                        {
+                            CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ProgramNo, string.Join(",", lable));
+                            CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToPlc, 1);
+                            CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToSocket, "OK");
+                            CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ProgramNoToPlc, 1);
+                            LoggerHelper.Info("必送标签成功");
+                        }
+                        else
+                        {
+                            LoggerHelper.Info("获取标签名称失败,标签名称为空或长度为0");
+                        }
+                        break;
                 }
             }
             catch (Exception ex)
@@ -1002,24 +1021,32 @@ namespace CxVision
                 case "传感器配置":
                     // form = new SensorConfigForm();
                     form = new SensorConnectConfigParamMangerForm();
+                    form.StartPosition = FormStartPosition.Manual;
+                    form.Location = System.Windows.Forms.Cursor.Position;
                     form.Owner = this;
                     form.Show();
                     break;
                 //////////////////////////////////
                 case "参数设置":
                     form = new ParamConfigForm();
+                    form.StartPosition = FormStartPosition.Manual;
+                    form.Location = System.Windows.Forms.Cursor.Position;
                     form.Owner = this;
                     form.Show();
                     break;
                 //////////////////////////////////
                 case "光源配置":
                     form = new LightConnectConfigManageForm();
+                    form.StartPosition = FormStartPosition.Manual;
+                    form.Location = System.Windows.Forms.Cursor.Position;
                     form.Owner = this;
                     form.Show();
                     break;
                 //////////////////////////////////
                 case "运动控制卡配置":
                     form = new DeviceConnectConfigParamManageForm();
+                    form.StartPosition = FormStartPosition.Manual;
+                    form.Location = System.Windows.Forms.Cursor.Position;
                     form.Owner = this;
                     form.Show();
                     break;
@@ -1030,11 +1057,15 @@ namespace CxVision
                         return;
                     }
                     form = new AcqSourceConfigForm();
+                    form.StartPosition = FormStartPosition.Manual;
+                    form.Location = System.Windows.Forms.Cursor.Position;
                     form.Owner = this;
                     form.Show();
                     break;
                 case "程序配置":
                     form = new ProgramConfigParamForm();
+                    form.StartPosition = FormStartPosition.Manual;
+                    form.Location = System.Windows.Forms.Cursor.Position;
                     form.Owner = this;
                     form.Show();
                     break;
@@ -2830,6 +2861,120 @@ namespace CxVision
             }
         }
 
+        #region 公开接口
+
+        /// <summary>
+        /// 启动方法
+        /// </summary>
+        public void Run(bool isRun = false)
+        {
+            if (isRun)
+            {
+                AutoRunThreadPlc.Instance.UnInit();
+                Thread.Sleep(200);
+                this.联机运行toolStripButton.Text = "断开连机";
+                this.联机运行toolStripButton.Image = global::CxVision.Properties.Resources.停止_50_X_50;
+                AutoRunThreadPlc.Instance.Init();
+                SystemParamManager.Instance.SysConfigParam.IsAutoRun = true;
+            }
+            else
+            {
+                this.联机运行toolStripButton.Text = "联机运行";
+                this.联机运行toolStripButton.Image = global::CxVision.Properties.Resources.开始2_50_X_50;
+                AutoRunThreadPlc.Instance.UnInit();
+                SystemParamManager.Instance.SysConfigParam.IsAutoRun = false;
+                SystemParamManager.Instance.SysConfigParam.InterruptSingle = enInterruptType.用户复位中断;
+            }
+        }
+        /// <summary>
+        /// 用户登录
+        /// </summary>
+        /// <param name="userName"></param>
+        public void SetUser(string userName = "Operator")
+        {
+            switch (userName)
+            {
+                case "Engineer":
+                    UserLoginParamManager.Instance.CurrentUser = enUserName.工程师;
+                    break;
+                case "Manager":
+                    UserLoginParamManager.Instance.CurrentUser = enUserName.管理员;
+                    break;
+                case "Manufacturer":
+                    UserLoginParamManager.Instance.CurrentUser = enUserName.开发人员;
+                    break;
+                case "Unsign":
+                case "Operator":
+                default:
+                    UserLoginParamManager.Instance.CurrentUser = enUserName.操作员;
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// 获取标签名称
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public string[] GetLableName(int index)
+        {
+            string[] lables = new string[0];
+            List<string> listLable = new List<string>();
+            List<TreeNode> listTreeNode = new List<TreeNode>();
+            List<TreeNode> listToolNode = new List<TreeNode>();
+            // 获取面板上的节点
+            foreach (var item in ProgramForm.Instance.ProgramDic.Values)
+            {
+                listTreeNode.AddRange(item.GetTreeViewNodeTag());
+            }
+            // 获取流程单元下的标签
+            foreach (TreeNode item in listTreeNode)
+            {
+                switch (item.Tag?.GetType().Name)
+                {
+                    case nameof(JobUnit):
+                        BindingList<PlcCommunicateInfo> plcInfo = ((BaseFunction)item.Tag).ResultInfo as BindingList<PlcCommunicateInfo>;
+                        if (plcInfo.Count > 0 && (int)plcInfo[0].CoordSysName == index)
+                        {
+                            foreach (TreeNode node in item.Nodes)
+                            {
+                                switch (node.Tag?.GetType().Name)
+                                {
+                                    case nameof(UserLable):
+                                        listLable.Add(node.Text);
+                                        break;
+                                    default:
+                                        if (node.Name.Contains("Tool"))
+                                            listToolNode.Add(node);
+                                        break;
+                                }
+                            }
+                        }
+                        else
+                            continue;
+                        break;
+                }
+            }
+            // 获取特征定位下的标签
+            foreach (TreeNode item in listToolNode)
+            {
+                foreach (TreeNode node in item.Nodes)
+                {
+                    switch (node?.Tag?.GetType().Name)
+                    {
+                        case nameof(UserLable):
+                            listLable.Add($"{item.Text}.{node.Text}");
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            lables = listLable.ToArray();
+            return lables;
+        }
+
+        #endregion
 
     }
 

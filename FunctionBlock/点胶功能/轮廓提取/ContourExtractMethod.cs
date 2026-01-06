@@ -191,7 +191,7 @@ namespace FunctionBlock
             HTuple hTuple_cur_y = new HTuple(cur_y);
             ////////////////////////////////////////////
             int index = 0;
-            int length = std_x.Length;
+            int length = std_x.Length; // 使用标准点
             int matchCount = 0, startIndex = 0, endIndex = 0;// (int)(percent * length);
             double tempStartPercent = startPercent;
             double tempEndPercent = endPercent;

@@ -1,6 +1,6 @@
 ﻿namespace FunctionBlock
 {
-    partial class ImageAcqSimpleForm
+    partial class ImageAcqAppForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImageAcqSimpleForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImageAcqAppForm));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.文件类型comboBox = new System.Windows.Forms.ComboBox();

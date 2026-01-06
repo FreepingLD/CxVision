@@ -17,9 +17,9 @@ namespace FunctionBlock
         private IFunction _function;
         private userDrawRect2ROI drawObject;
         private drawPixRect2 _pixRect2;
-
+        private drawWcsRect2 _wcsRect2;
         public drawPixRect2 PixRect2 { get => _pixRect2; set => _pixRect2 = value; }
-
+        public drawWcsRect2 WcsRect2 { get => _wcsRect2; set => _wcsRect2 = value; }
 
         public ManualMeasureRect2Form(ImageDataClass imageData, drawPixRect2 pixRect2)
         {
@@ -124,6 +124,7 @@ namespace FunctionBlock
             try
             {
                 this._pixRect2 = this.drawObject.GetDrawPixRect2Param();
+                this._wcsRect2 = this._pixRect2.GetWcsRect2(this.drawObject.CameraParam);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

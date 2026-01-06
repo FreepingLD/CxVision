@@ -17,9 +17,10 @@ namespace FunctionBlock
         private IFunction _function;
         private userDrawCircleROI drawObject;
         private drawPixCircle _pixCircle;
+        private drawWcsCircle _wcsCircle;
 
         public drawPixCircle PixCircle { get => _pixCircle; set => _pixCircle = value; }
-
+        public drawWcsCircle WcsCircle { get => _wcsCircle; set => _wcsCircle = value; }
 
         public ManualMeasureCircleForm(ImageDataClass imageData, drawPixCircle pixCircle)
         {
@@ -125,6 +126,7 @@ namespace FunctionBlock
             try
             {
                 this._pixCircle = this.drawObject.GetDrawPixCircleParam();
+                this._wcsCircle = this._pixCircle.GetWcsCircle(this.drawObject.CameraParam);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

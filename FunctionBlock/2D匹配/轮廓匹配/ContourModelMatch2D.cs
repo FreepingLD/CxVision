@@ -24,6 +24,8 @@ namespace FunctionBlock
     [DefaultProperty(nameof(WcsCoordSystem))]
     public class ContourModelMatch2D : BaseFunction, IFunction
     {
+        [NonSerialized]
+        private TreeNode _refNode;
         private userWcsCoordSystem _wcsCoordSystem;
         private userPixCoordSystem _pixCoordSystem;
         private userWcsPolyLine _wcsPolyLine;
@@ -31,7 +33,7 @@ namespace FunctionBlock
         private userWcsPoint[] _stdTrackPoint;
         private double[] _dataError;
 
-        [DisplayName("输入轨迹")]
+        [DisplayName("输入轮廓")]
         [DescriptionAttribute("输入属性1")]
         public userWcsPoint[] CurTrackPoint
         {
@@ -39,74 +41,76 @@ namespace FunctionBlock
             {
                 if (this.RefSource1.Count > 0)
                 {
-                    object[] oo = this.GetPropertyValue(this.RefSource1);
+                    TreeNodeCollection nodes = this._refNode.FirstNode.Nodes;
+                    string[] keyValues = new string[nodes.Count];
+                    for (int i = 0; i < nodes.Count; i++)
+                        keyValues[i] = nodes[i].Name;
                     List<userWcsPoint> listPoint = new List<userWcsPoint>();
-                    if (oo != null && oo.Length > 0)
+                    ////////////////////////////////////////////////////////
+                    for (int i = 0; i < keyValues.Length; i++)
                     {
-                        foreach (var item in oo)
+                        object value = this.GetPropertyValue(this.RefSource1, keyValues[i]);
+                        switch (value?.GetType().Name)
                         {
-                            switch (item.GetType().Name)
-                            {
-                                case nameof(userWcsPoint):
-                                    listPoint.Add(item as userWcsPoint);
-                                    break;
-                                case nameof(userWcsVector):
-                                    userWcsVector wcsVector = item as userWcsVector;
-                                    listPoint.Add(new userWcsPoint(wcsVector.X, wcsVector.Y, wcsVector.Z, wcsVector.CamParams));
-                                    break;
-                                case "userWcsVector[]":
-                                    userWcsVector[] wcsVectorA = item as userWcsVector[];
-                                    foreach (var item2 in wcsVectorA)
+                            case nameof(userWcsPoint):
+                                listPoint.Add(value as userWcsPoint);
+                                break;
+                            case nameof(userWcsVector):
+                                userWcsVector wcsVector = value as userWcsVector;
+                                listPoint.Add(new userWcsPoint(wcsVector.X, wcsVector.Y, wcsVector.Z, wcsVector.CamParams));
+                                break;
+                            case "userWcsVector[]":
+                                userWcsVector[] wcsVectorA = value as userWcsVector[];
+                                foreach (var item2 in wcsVectorA)
+                                {
+                                    listPoint.Add(new userWcsPoint(item2.X, item2.Y, item2.Z, item2.CamParams));
+                                }
+                                break;
+                            case "userWcsPoint[]":
+                                listPoint.AddRange(value as userWcsPoint[]);
+                                break;
+                            case nameof(userWcsLine):
+                                userWcsLine wcsLine = value as userWcsLine;
+                                listPoint.AddRange(wcsLine.GetFitWcsPoint());
+                                break;
+                            case nameof(userWcsCircle):
+                                userWcsCircle wcsCircle = value as userWcsCircle;
+                                listPoint.AddRange(wcsCircle.GetInterpolateWcsPoint(wcsCircle.EdgesPoint_xyz.Length));
+                                break;
+                            case nameof(userWcsCircleSector):
+                                userWcsCircleSector wcsCircleSector = value as userWcsCircleSector;
+                                listPoint.AddRange(wcsCircleSector.GetInterpolateWcsPoint(wcsCircleSector.EdgesPoint_xyz.Length));
+                                break;
+                            case nameof(userWcsRectangle2):
+                                userWcsRectangle2 wcsRec2 = value as userWcsRectangle2;
+                                double[] Px = new double[] { -1, 1, 1, -1 };
+                                double[] Py = new double[] { 1, 1, -1, -1 };
+                                HTuple Qx = null, Qy = null;
+                                HHomMat2D hHomMat2D = new HHomMat2D();
+                                hHomMat2D.VectorAngleToRigid(0, 0, 0, wcsRec2.X, wcsRec2.Y, wcsRec2.Deg * Math.PI / 180);
+                                Qx = hHomMat2D.AffineTransPoint2d(Px, Py, out Qy);
+                                if (Qx != null)
+                                {
+                                    for (int ii = 0; ii < Qx.Length; ii++)
                                     {
-                                        listPoint.Add(new userWcsPoint(item2.X, item2.Y, item2.Z, item2.CamParams));
+                                        listPoint.Add(new userWcsPoint(Qx[ii].D, Qy[ii].D, wcsRec2.Z, wcsRec2.CamParams));
                                     }
-                                    break;
-                                case "userWcsPoint[]":
-                                    listPoint.AddRange(item as userWcsPoint[]);
-                                    break;
-                                case nameof(userWcsLine):
-                                    userWcsLine wcsLine = item as userWcsLine;
-                                    listPoint.AddRange(wcsLine.GetFitWcsPoint());
-                                    break;
-                                case nameof(userWcsCircle):
-                                    userWcsCircle wcsCircle = item as userWcsCircle;
-                                    listPoint.AddRange(wcsCircle.GetInterpolateWcsPoint(wcsCircle.EdgesPoint_xyz.Length));
-                                    break;
-                                case nameof(userWcsCircleSector):
-                                    userWcsCircleSector wcsCircleSector = item as userWcsCircleSector;
-                                    listPoint.AddRange(wcsCircleSector.GetInterpolateWcsPoint(wcsCircleSector.EdgesPoint_xyz.Length));
-                                    break;
-                                case nameof(userWcsRectangle2):
-                                    userWcsRectangle2 wcsRec2 = item as userWcsRectangle2;
-                                    double[] Px = new double[] { -1, 1, 1, -1 };
-                                    double[] Py = new double[] { 1, 1, -1, -1 };
-                                    HTuple Qx = null, Qy = null;
-                                    HHomMat2D hHomMat2D = new HHomMat2D();
-                                    hHomMat2D.VectorAngleToRigid(0, 0, 0, wcsRec2.X, wcsRec2.Y, wcsRec2.Deg * Math.PI / 180);
-                                    Qx = hHomMat2D.AffineTransPoint2d(Px, Py, out Qy);
-                                    if (Qx != null)
-                                    {
-                                        for (int i = 0; i < Qx.Length; i++)
-                                        {
-                                            listPoint.Add(new userWcsPoint(Qx[i].D, Qy[i].D, wcsRec2.Z, wcsRec2.CamParams));
-                                        }
-                                    }
-                                    break;
-                                case nameof(userWcsPolyLine):
-                                    userWcsPolyLine wcsPolyLine = item as userWcsPolyLine;
-                                    for (int i = 0; i < wcsPolyLine.X.Count; i++)
-                                    {
-                                        listPoint.Add(new userWcsPoint(wcsPolyLine.X[i], wcsPolyLine.Y[i], 0, wcsPolyLine.CamParams));
-                                    }
-                                    break;
-                                case nameof(userWcsPolygon):
-                                    userWcsPolygon wcsPolygon = item as userWcsPolygon;
-                                    for (int i = 0; i < wcsPolygon.X.Count; i++)
-                                    {
-                                        listPoint.Add(new userWcsPoint(wcsPolygon.X[i], wcsPolygon.Y[i], 0, wcsPolygon.CamParams));
-                                    }
-                                    break;
-                            }
+                                }
+                                break;
+                            case nameof(userWcsPolyLine):
+                                userWcsPolyLine wcsPolyLine = value as userWcsPolyLine;
+                                for (int ii = 0; ii < wcsPolyLine.X.Count; ii++)
+                                {
+                                    listPoint.Add(new userWcsPoint(wcsPolyLine.X[ii], wcsPolyLine.Y[ii], 0, wcsPolyLine.CamParams));
+                                }
+                                break;
+                            case nameof(userWcsPolygon):
+                                userWcsPolygon wcsPolygon = value as userWcsPolygon;
+                                for (int ii = 0; ii < wcsPolygon.X.Count; ii++)
+                                {
+                                    listPoint.Add(new userWcsPoint(wcsPolygon.X[ii], wcsPolygon.Y[ii], 0, wcsPolygon.CamParams));
+                                }
+                                break;
                         }
                     }
                     this._curTrackPoint = listPoint.ToArray();
@@ -120,8 +124,8 @@ namespace FunctionBlock
             }
         }
 
-        [DisplayName("模板轨迹")]
-        [DescriptionAttribute("输入属性2")]
+        [DisplayName("模板轮廓")]
+        [DescriptionAttribute("输出属性")]
         public userWcsPoint[] StdTrackPoint
         {
             get
@@ -151,13 +155,13 @@ namespace FunctionBlock
         public ContourModelMatch2D(string acqSourceName)
         {
             this.Param = new ContourMatchParam();
-            this.ResultInfo = new BindingList<OcrResultInfo>();
+            this.ResultInfo = new BindingList<MeasureResultInfo>();
         }
 
         public ContourModelMatch2D()
         {
             this.Param = new ContourMatchParam();
-            this.ResultInfo = new BindingList<OcrResultInfo>();
+            this.ResultInfo = new BindingList<MeasureResultInfo>();
         }
 
 
@@ -186,14 +190,17 @@ namespace FunctionBlock
                                 if (item.ToString().Split('=').Length > 0)
                                     index = item.ToString().Split('=').Last();
                                 break;
+                            case nameof(TreeNode):
+                                this._refNode = item as TreeNode;
+                                break;
                         }
                     }
                 }
-                this.Result.Succss = ContourMatchMethod.ContourMatch(this.CurTrackPoint, this.StdTrackPoint,this.Param,out this._wcsCoordSystem,out this._wcsPolyLine,out this._dataError);
-                this._pixCoordSystem = this._wcsCoordSystem.GetPixCoordSystem();    
+                this.Result.Succss = ContourMatchMethod.ContourMatch(this.CurTrackPoint, this.StdTrackPoint, this.Param, out this._wcsCoordSystem, out this._wcsPolyLine, out this._dataError);
+                this._pixCoordSystem = this._wcsCoordSystem.GetPixCoordSystem();
                 ///////////////////////////////////////////////
                 stopwatch.Stop();
-                this.CreateResultInfo(5);
+                this.CreateResultInfo(11);
                 ((BindingList<MeasureResultInfo>)this.ResultInfo)[0].SetValue(this.name, "Row", this._pixCoordSystem.CurrentPoint.Row);
                 ((BindingList<MeasureResultInfo>)this.ResultInfo)[0].Std_Value = this._pixCoordSystem.ReferencePoint.Row;
                 ((BindingList<MeasureResultInfo>)this.ResultInfo)[1].SetValue(this.name, "Col", this._pixCoordSystem.CurrentPoint.Col);
@@ -201,13 +208,13 @@ namespace FunctionBlock
                 ((BindingList<MeasureResultInfo>)this.ResultInfo)[2].SetValue(this.name, "Rad", this._pixCoordSystem.CurrentPoint.Rad);
                 ((BindingList<MeasureResultInfo>)this.ResultInfo)[2].Std_Value = this._pixCoordSystem.ReferencePoint.Rad;
                 ((BindingList<MeasureResultInfo>)this.ResultInfo)[3].SetValue(this.name, "X", Math.Round(this._wcsCoordSystem.CurrentPoint.X, 5));
-                ((BindingList<MeasureResultInfo>)this.ResultInfo)[4].SetValue(this.name, "Y", Math.Round(this._wcsCoordSystem.CurrentPoint.Y, 5));;
+                ((BindingList<MeasureResultInfo>)this.ResultInfo)[4].SetValue(this.name, "Y", Math.Round(this._wcsCoordSystem.CurrentPoint.Y, 5)); ;
                 ((BindingList<MeasureResultInfo>)this.ResultInfo)[5].SetValue(this.name, "Z", Math.Round(this._wcsCoordSystem.CurrentPoint.Z, 5));
                 ((BindingList<MeasureResultInfo>)this.ResultInfo)[6].SetValue(this.name, "Deg", this._wcsCoordSystem.CurrentPoint.Angle);
                 ((BindingList<MeasureResultInfo>)this.ResultInfo)[7].SetValue(this.name, "Grab_X", this._wcsCoordSystem.Grab_x);
                 ((BindingList<MeasureResultInfo>)this.ResultInfo)[8].SetValue(this.name, "Grab_Y", this._wcsCoordSystem.Grab_y);
                 ((BindingList<MeasureResultInfo>)this.ResultInfo)[9].SetValue(this.name, "Grab_Theta", this._wcsCoordSystem.Grab_Theta);
-                ((BindingList<MeasureResultInfo>)this.ResultInfo)[4].SetValue(this.name, "Time(ms)", stopwatch.ElapsedMilliseconds);
+                ((BindingList<MeasureResultInfo>)this.ResultInfo)[10].SetValue(this.name, "Time(ms)", stopwatch.ElapsedMilliseconds);
                 ////////////////////////////////////////////////////
                 OnExcuteCompleted(this._wcsPolyLine.CamName, this._wcsPolyLine.ViewWindow, this.name, this._wcsPolyLine);
             }
@@ -233,7 +240,7 @@ namespace FunctionBlock
                 case nameof(this.Name):
                     return this.name;
                 case nameof(this.ResultInfo):
-                    return this.ResultInfo;           
+                    return this.ResultInfo;
             }
         }
         public bool SetPropertyValues(string propertyName, params object[] value)
@@ -243,6 +250,9 @@ namespace FunctionBlock
             {
                 case "名称":
                     this.name = value[0].ToString();
+                    return true;
+                case nameof(TreeNode):
+                    this._refNode = value[0] as TreeNode;
                     return true;
                 default:
                     return true;

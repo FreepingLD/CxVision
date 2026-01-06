@@ -41,7 +41,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.终止角度textBox.Location = new System.Drawing.Point(66, 29);
             this.终止角度textBox.Name = "终止角度textBox";
-            this.终止角度textBox.Size = new System.Drawing.Size(274, 21);
+            this.终止角度textBox.Size = new System.Drawing.Size(249, 21);
             this.终止角度textBox.TabIndex = 67;
             // 
             // label4
@@ -59,7 +59,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.起始角度textBox.Location = new System.Drawing.Point(66, 3);
             this.起始角度textBox.Name = "起始角度textBox";
-            this.起始角度textBox.Size = new System.Drawing.Size(274, 21);
+            this.起始角度textBox.Size = new System.Drawing.Size(249, 21);
             this.起始角度textBox.TabIndex = 65;
             // 
             // label2
@@ -74,7 +74,7 @@
             // 更多参数button
             // 
             this.更多参数button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.更多参数button.Location = new System.Drawing.Point(268, 54);
+            this.更多参数button.Location = new System.Drawing.Point(243, 54);
             this.更多参数button.Name = "更多参数button";
             this.更多参数button.Size = new System.Drawing.Size(72, 24);
             this.更多参数button.TabIndex = 103;
@@ -87,7 +87,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(345, 81);
+            this.ClientSize = new System.Drawing.Size(320, 81);
             this.Controls.Add(this.更多参数button);
             this.Controls.Add(this.终止角度textBox);
             this.Controls.Add(this.label4);

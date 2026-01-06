@@ -11221,12 +11221,12 @@ public class drawPixCircle : PixROI
     }
     public drawWcsCircle GetWcsCircle(CameraParam CamParams, double grab_x = 0, double grab_y = 0, double grab_z = 0)
     {
-        drawWcsCircle wcsLine;
+        drawWcsCircle wcsCircle;
         HTuple Qx = 0, Qy = 0, Qz = 0;
         CamParams?.ImagePointsToWorldPlane(new HTuple(this.Row), new HTuple(this.Col), grab_x, grab_y, grab_z, out Qx, out Qy, out Qz);
         double radius = CamParams.TransPixLengthToWcsLength(this.Radius);
-        wcsLine = new drawWcsCircle(Qx[0].D, Qy[0].D, 0, radius, this.StartRad * 180 / Math.PI, this.EndRad * 180 / Math.PI);
-        return wcsLine;
+        wcsCircle = new drawWcsCircle(Qx[0].D, Qy[0].D, 0, radius, this.StartRad * 180 / Math.PI, this.EndRad * 180 / Math.PI);
+        return wcsCircle;
     }
     public override HRegion GetRegion()
     {

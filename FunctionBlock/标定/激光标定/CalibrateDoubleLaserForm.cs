@@ -21,6 +21,8 @@ namespace FunctionBlock
         public CalibrateDoubleLaserForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             this.CalibrateTool = new CalibrateDoubleLaser(AcqSourceManage.Instance.LaserAcqSourceList().ToArray());
         }
 

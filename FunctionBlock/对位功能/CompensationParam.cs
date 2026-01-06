@@ -28,6 +28,7 @@ namespace FunctionBlock
 
         public bool IsZoneCompensation { get; set; }
 
+        public bool IsOutputUvw { get; set; }
         public CompensationParam()
         {
             this.RefObject = enRefObject.目标点;
@@ -40,6 +41,7 @@ namespace FunctionBlock
             this.IsInvert = false;
             this.Threshold = 0;
             this.IsZoneCompensation = false;
+            this.IsOutputUvw = false;
         }
     }
 

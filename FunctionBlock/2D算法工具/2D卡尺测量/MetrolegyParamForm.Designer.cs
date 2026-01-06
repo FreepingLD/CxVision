@@ -30,6 +30,8 @@ namespace FunctionBlock
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.滤波参数textBox = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.滤波方法comboBox = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.示教button = new System.Windows.Forms.Button();
@@ -55,8 +57,6 @@ namespace FunctionBlock
             this.label1 = new System.Windows.Forms.Label();
             this.确认button = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.滤波参数textBox = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -99,17 +99,29 @@ namespace FunctionBlock
             this.groupBox1.TabIndex = 62;
             this.groupBox1.TabStop = false;
             // 
+            // 滤波参数textBox
+            // 
+            this.滤波参数textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.滤波参数textBox.Location = new System.Drawing.Point(67, 299);
+            this.滤波参数textBox.Name = "滤波参数textBox";
+            this.滤波参数textBox.Size = new System.Drawing.Size(194, 21);
+            this.滤波参数textBox.TabIndex = 102;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(12, 303);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(59, 12);
+            this.label12.TabIndex = 101;
+            this.label12.Text = "滤波参数:";
+            // 
             // 滤波方法comboBox
             // 
             this.滤波方法comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.滤波方法comboBox.FormattingEnabled = true;
-            this.滤波方法comboBox.Items.AddRange(new object[] {
-            "10",
-            "20",
-            "30",
-            "50",
-            "100"});
             this.滤波方法comboBox.Location = new System.Drawing.Point(67, 273);
             this.滤波方法comboBox.Name = "滤波方法comboBox";
             this.滤波方法comboBox.Size = new System.Drawing.Size(194, 20);
@@ -373,24 +385,6 @@ namespace FunctionBlock
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(264, 382);
             this.tableLayoutPanel1.TabIndex = 65;
-            // 
-            // 滤波参数textBox
-            // 
-            this.滤波参数textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.滤波参数textBox.Location = new System.Drawing.Point(67, 299);
-            this.滤波参数textBox.Name = "滤波参数textBox";
-            this.滤波参数textBox.Size = new System.Drawing.Size(194, 21);
-            this.滤波参数textBox.TabIndex = 102;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(12, 303);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(59, 12);
-            this.label12.TabIndex = 101;
-            this.label12.Text = "滤波参数:";
             // 
             // MetrolegyParamForm
             // 

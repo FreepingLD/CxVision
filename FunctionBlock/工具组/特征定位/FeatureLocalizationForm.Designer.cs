@@ -182,13 +182,13 @@
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(26, 26);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(28, 26);
             this.toolStripStatusLabel2.Text = "……";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(26, 26);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(28, 26);
             this.toolStripStatusLabel1.Text = "……";
             // 
             // tableLayoutPanel1
@@ -247,19 +247,19 @@
             // 灰度值1Label
             // 
             this.灰度值1Label.Name = "灰度值1Label";
-            this.灰度值1Label.Size = new System.Drawing.Size(26, 26);
+            this.灰度值1Label.Size = new System.Drawing.Size(28, 26);
             this.灰度值1Label.Text = "……";
             // 
             // 灰度值2Label
             // 
             this.灰度值2Label.Name = "灰度值2Label";
-            this.灰度值2Label.Size = new System.Drawing.Size(26, 26);
+            this.灰度值2Label.Size = new System.Drawing.Size(28, 26);
             this.灰度值2Label.Text = "……";
             // 
             // 灰度值3Label
             // 
             this.灰度值3Label.Name = "灰度值3Label";
-            this.灰度值3Label.Size = new System.Drawing.Size(26, 26);
+            this.灰度值3Label.Size = new System.Drawing.Size(28, 26);
             this.灰度值3Label.Text = "……";
             // 
             // toolStripStatusLabel9
@@ -271,13 +271,13 @@
             // 行坐标Label
             // 
             this.行坐标Label.Name = "行坐标Label";
-            this.行坐标Label.Size = new System.Drawing.Size(26, 26);
+            this.行坐标Label.Size = new System.Drawing.Size(28, 26);
             this.行坐标Label.Text = "……";
             // 
             // 列坐标Label
             // 
             this.列坐标Label.Name = "列坐标Label";
-            this.列坐标Label.Size = new System.Drawing.Size(26, 26);
+            this.列坐标Label.Size = new System.Drawing.Size(28, 26);
             this.列坐标Label.Text = "……";
             // 
             // 运行工具条toolStrip
@@ -383,7 +383,7 @@
             this.Plc交互信息tabPage.Location = new System.Drawing.Point(4, 22);
             this.Plc交互信息tabPage.Name = "Plc交互信息tabPage";
             this.Plc交互信息tabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.Plc交互信息tabPage.Size = new System.Drawing.Size(756, 662);
+            this.Plc交互信息tabPage.Size = new System.Drawing.Size(752, 683);
             this.Plc交互信息tabPage.TabIndex = 1;
             this.Plc交互信息tabPage.Text = "PLC交互信息";
             this.Plc交互信息tabPage.UseVisualStyleBackColor = true;
@@ -405,7 +405,7 @@
             this.数据读取dataGridView.Name = "数据读取dataGridView";
             this.数据读取dataGridView.RowHeadersWidth = 5;
             this.数据读取dataGridView.RowTemplate.Height = 23;
-            this.数据读取dataGridView.Size = new System.Drawing.Size(750, 656);
+            this.数据读取dataGridView.Size = new System.Drawing.Size(746, 677);
             this.数据读取dataGridView.TabIndex = 2;
             this.数据读取dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.数据读取dataGridView_CellContentClick_1);
             // 
@@ -479,7 +479,7 @@
             this.元素属性tabPage.Location = new System.Drawing.Point(4, 22);
             this.元素属性tabPage.Name = "元素属性tabPage";
             this.元素属性tabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.元素属性tabPage.Size = new System.Drawing.Size(756, 662);
+            this.元素属性tabPage.Size = new System.Drawing.Size(752, 683);
             this.元素属性tabPage.TabIndex = 2;
             this.元素属性tabPage.Text = "元素属性";
             this.元素属性tabPage.UseVisualStyleBackColor = true;
@@ -498,7 +498,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 740);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FeatureLocalizationForm";
             this.ShowIcon = false;

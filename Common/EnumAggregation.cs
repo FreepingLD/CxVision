@@ -289,6 +289,7 @@ namespace Common
         PLC,
         Socket,
         Card,
+        UVW,
     }
     [Serializable]
     public enum enCalibPlane

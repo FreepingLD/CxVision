@@ -127,11 +127,11 @@ namespace FunctionBlock
             this.label17 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.启用UVW平台checkBox = new System.Windows.Forms.CheckBox();
-            this.Rot_Deg_textBox = new System.Windows.Forms.TextBox();
+            this.W_Angle_textBox = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.Rot_y_textBox = new System.Windows.Forms.TextBox();
+            this.V_Angle_textBox = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.Rot_x_textBox = new System.Windows.Forms.TextBox();
+            this.U_Angle_textBox = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.WytextBox = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
@@ -999,11 +999,11 @@ namespace FunctionBlock
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage3.Controls.Add(this.启用UVW平台checkBox);
-            this.tabPage3.Controls.Add(this.Rot_Deg_textBox);
+            this.tabPage3.Controls.Add(this.W_Angle_textBox);
             this.tabPage3.Controls.Add(this.label25);
-            this.tabPage3.Controls.Add(this.Rot_y_textBox);
+            this.tabPage3.Controls.Add(this.V_Angle_textBox);
             this.tabPage3.Controls.Add(this.label26);
-            this.tabPage3.Controls.Add(this.Rot_x_textBox);
+            this.tabPage3.Controls.Add(this.U_Angle_textBox);
             this.tabPage3.Controls.Add(this.label27);
             this.tabPage3.Controls.Add(this.WytextBox);
             this.tabPage3.Controls.Add(this.label28);
@@ -1028,8 +1028,8 @@ namespace FunctionBlock
             // 
             // Rot_Deg_textBox
             // 
-            resources.ApplyResources(this.Rot_Deg_textBox, "Rot_Deg_textBox");
-            this.Rot_Deg_textBox.Name = "Rot_Deg_textBox";
+            resources.ApplyResources(this.W_Angle_textBox, "Rot_Deg_textBox");
+            this.W_Angle_textBox.Name = "Rot_Deg_textBox";
             // 
             // label25
             // 
@@ -1038,8 +1038,8 @@ namespace FunctionBlock
             // 
             // Rot_y_textBox
             // 
-            resources.ApplyResources(this.Rot_y_textBox, "Rot_y_textBox");
-            this.Rot_y_textBox.Name = "Rot_y_textBox";
+            resources.ApplyResources(this.V_Angle_textBox, "Rot_y_textBox");
+            this.V_Angle_textBox.Name = "Rot_y_textBox";
             // 
             // label26
             // 
@@ -1048,8 +1048,8 @@ namespace FunctionBlock
             // 
             // Rot_x_textBox
             // 
-            resources.ApplyResources(this.Rot_x_textBox, "Rot_x_textBox");
-            this.Rot_x_textBox.Name = "Rot_x_textBox";
+            resources.ApplyResources(this.U_Angle_textBox, "Rot_x_textBox");
+            this.U_Angle_textBox.Name = "Rot_x_textBox";
             // 
             // label27
             // 
@@ -1324,6 +1324,7 @@ namespace FunctionBlock
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Cam9PointCalibrateSimpleForm";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Tag = "1920,1080";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Cam9PointCalibrateForm_FormClosing);
@@ -1527,11 +1528,11 @@ namespace FunctionBlock
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.ComboBox 映射方法comboBox;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox Rot_Deg_textBox;
+        private System.Windows.Forms.TextBox W_Angle_textBox;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox Rot_y_textBox;
+        private System.Windows.Forms.TextBox V_Angle_textBox;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox Rot_x_textBox;
+        private System.Windows.Forms.TextBox U_Angle_textBox;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox WytextBox;
         private System.Windows.Forms.Label label28;

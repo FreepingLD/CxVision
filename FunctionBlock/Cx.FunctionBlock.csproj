@@ -124,22 +124,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="1_工作流程\SocketMessageThread.cs" />
-    <Compile Include="2D匹配\NCC灰度匹配\App\CreateNccModelSubForm.cs">
+    <Compile Include="2D匹配\NCC匹配\App\CreateNccModelSubForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="2D匹配\NCC灰度匹配\App\CreateNccModelSubForm.Designer.cs">
+    <Compile Include="2D匹配\NCC匹配\App\CreateNccModelSubForm.Designer.cs">
       <DependentUpon>CreateNccModelSubForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="2D匹配\NCC灰度匹配\App\FindNccModelParamSubForm.cs">
+    <Compile Include="2D匹配\NCC匹配\App\FindNccModelParamSubForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="2D匹配\NCC灰度匹配\App\FindNccModelParamSubForm.Designer.cs">
+    <Compile Include="2D匹配\NCC匹配\App\FindNccModelParamSubForm.Designer.cs">
       <DependentUpon>FindNccModelParamSubForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="2D匹配\NCC灰度匹配\NccMatchAppForm.cs">
+    <Compile Include="2D匹配\NCC匹配\NccMatchAppForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="2D匹配\NCC灰度匹配\NccMatchAppForm.Designer.cs">
+    <Compile Include="2D匹配\NCC匹配\NccMatchAppForm.Designer.cs">
       <DependentUpon>NccMatchAppForm.cs</DependentUpon>
     </Compile>
     <Compile Include="2D匹配\变形匹配\App\CreateLocalDeformableXLDSubParamForm.cs">
@@ -201,29 +201,35 @@
     </Compile>
     <Compile Include="2D匹配\变形匹配\DoLocalDeformableModelMatch.cs" />
     <Compile Include="2D匹配\变形匹配\LocalDeformableModelParam.cs" />
-    <Compile Include="2D匹配\NCC灰度匹配\CreateNccModelMethod.cs" />
-    <Compile Include="2D匹配\NCC灰度匹配\NccModelMatch.cs" />
-    <Compile Include="2D匹配\NCC灰度匹配\FindNccModelMethod.cs" />
-    <Compile Include="2D匹配\NCC灰度匹配\NccModelParam.cs" />
-    <Compile Include="2D匹配\NCC灰度匹配\NccMatchForm.cs">
+    <Compile Include="2D匹配\NCC匹配\CreateNccModelMethod.cs" />
+    <Compile Include="2D匹配\NCC匹配\NccModelMatch.cs" />
+    <Compile Include="2D匹配\NCC匹配\FindNccModelMethod.cs" />
+    <Compile Include="2D匹配\NCC匹配\NccModelParam.cs" />
+    <Compile Include="2D匹配\NCC匹配\NccMatchForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="2D匹配\NCC灰度匹配\NccMatchForm.Designer.cs">
+    <Compile Include="2D匹配\NCC匹配\NccMatchForm.Designer.cs">
       <DependentUpon>NccMatchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="2D匹配\NCC灰度匹配\App\CreateNccModelForm.cs">
+    <Compile Include="2D匹配\NCC匹配\App\CreateNccModelForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="2D匹配\NCC灰度匹配\App\CreateNccModelForm.Designer.cs">
+    <Compile Include="2D匹配\NCC匹配\App\CreateNccModelForm.Designer.cs">
       <DependentUpon>CreateNccModelForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="2D匹配\NCC灰度匹配\App\FindNccModelParamForm.cs">
+    <Compile Include="2D匹配\NCC匹配\App\FindNccModelParamForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="2D匹配\NCC灰度匹配\App\FindNccModelParamForm.Designer.cs">
+    <Compile Include="2D匹配\NCC匹配\App\FindNccModelParamForm.Designer.cs">
       <DependentUpon>FindNccModelParamForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="2D匹配\NCC灰度匹配\DoNccModelMatch.cs" />
+    <Compile Include="2D匹配\NCC匹配\DoNccModelMatch.cs" />
+    <Compile Include="2D匹配\形状匹配\ShapeModelMatch2DAppForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D匹配\形状匹配\ShapeModelMatch2DAppForm.Designer.cs">
+      <DependentUpon>ShapeModelMatch2DAppForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="2D匹配\形状匹配\创建形状模型UI\CAnisoShapeModelSubForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -610,6 +616,24 @@
       <DependentUpon>RoundCornersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="2D算法工具\用户标签\UserLable.cs" />
+    <Compile Include="坐标系\坐标系-圆线\CoordSystemCircleLineAppForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="坐标系\坐标系-圆线\CoordSystemCircleLineAppForm.Designer.cs">
+      <DependentUpon>CoordSystemCircleLineAppForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="坐标系\坐标系-点线\CoordSystemPointLineAppForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="坐标系\坐标系-点线\CoordSystemPointLineAppForm.Designer.cs">
+      <DependentUpon>CoordSystemPointLineAppForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="坐标系\坐标系-线线\CoordSystemLineLineAppForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="坐标系\坐标系-线线\CoordSystemLineLineAppForm.Designer.cs">
+      <DependentUpon>CoordSystemLineLineAppForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="工具\ToolFormOld.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -621,6 +645,13 @@
     </Compile>
     <Compile Include="工具组\流程单元\JobUnitFormOld.Designer.cs">
       <DependentUpon>JobUnitFormOld.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工具组\Mark定位\MarkLocalization.cs" />
+    <Compile Include="工具组\Mark定位\MarkLocalizationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工具组\Mark定位\MarkLocalizationForm.Designer.cs">
+      <DependentUpon>MarkLocalizationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="工具组\特征定位\FeatureLocalizationFormOld.cs">
       <SubType>Form</SubType>
@@ -1777,11 +1808,11 @@
     <Compile Include="相机采集\App\SetCamGainForm.Designer.cs">
       <DependentUpon>SetCamGainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="相机采集\ImageAcqSimpleForm.cs">
+    <Compile Include="相机采集\ImageAcqAppForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="相机采集\ImageAcqSimpleForm.Designer.cs">
-      <DependentUpon>ImageAcqSimpleForm.cs</DependentUpon>
+    <Compile Include="相机采集\ImageAcqAppForm.Designer.cs">
+      <DependentUpon>ImageAcqAppForm.cs</DependentUpon>
     </Compile>
     <Compile Include="相机采集\相机配置\SensorConfig.cs" />
     <Compile Include="相机采集\相机配置\SensorConfigForm.cs">
@@ -4435,13 +4466,13 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="2D匹配\NCC灰度匹配\App\CreateNccModelSubForm.resx">
+    <EmbeddedResource Include="2D匹配\NCC匹配\App\CreateNccModelSubForm.resx">
       <DependentUpon>CreateNccModelSubForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="2D匹配\NCC灰度匹配\App\FindNccModelParamSubForm.resx">
+    <EmbeddedResource Include="2D匹配\NCC匹配\App\FindNccModelParamSubForm.resx">
       <DependentUpon>FindNccModelParamSubForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="2D匹配\NCC灰度匹配\NccMatchAppForm.resx">
+    <EmbeddedResource Include="2D匹配\NCC匹配\NccMatchAppForm.resx">
       <DependentUpon>NccMatchAppForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="2D匹配\变形匹配\App\CreateLocalDeformableXLDSubParamForm.resx">
@@ -4471,14 +4502,17 @@
     <EmbeddedResource Include="2D匹配\变形匹配\App\Old\FindLocalDeformableModelParamForm.resx">
       <DependentUpon>FindLocalDeformableModelParamForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="2D匹配\NCC灰度匹配\NccMatchForm.resx">
+    <EmbeddedResource Include="2D匹配\NCC匹配\NccMatchForm.resx">
       <DependentUpon>NccMatchForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="2D匹配\NCC灰度匹配\App\CreateNccModelForm.resx">
+    <EmbeddedResource Include="2D匹配\NCC匹配\App\CreateNccModelForm.resx">
       <DependentUpon>CreateNccModelForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="2D匹配\NCC灰度匹配\App\FindNccModelParamForm.resx">
+    <EmbeddedResource Include="2D匹配\NCC匹配\App\FindNccModelParamForm.resx">
       <DependentUpon>FindNccModelParamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2D匹配\形状匹配\ShapeModelMatch2DAppForm.resx">
+      <DependentUpon>ShapeModelMatch2DAppForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="2D匹配\形状匹配\创建形状模型UI\CAnisoShapeModelSubForm.resx">
       <DependentUpon>CAnisoShapeModelSubForm.cs</DependentUpon>
@@ -4651,6 +4685,15 @@
     <EmbeddedResource Include="2D算法工具\导圆角\RoundCornersForm.resx">
       <DependentUpon>RoundCornersForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="坐标系\坐标系-圆线\CoordSystemCircleLineAppForm.resx">
+      <DependentUpon>CoordSystemCircleLineAppForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="坐标系\坐标系-点线\CoordSystemPointLineAppForm.resx">
+      <DependentUpon>CoordSystemPointLineAppForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="坐标系\坐标系-线线\CoordSystemLineLineAppForm.resx">
+      <DependentUpon>CoordSystemLineLineAppForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="工具\ToolFormOld.en-US.resx">
       <DependentUpon>ToolFormOld.cs</DependentUpon>
     </EmbeddedResource>
@@ -4659,6 +4702,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="工具组\流程单元\JobUnitFormOld.resx">
       <DependentUpon>JobUnitFormOld.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工具组\Mark定位\MarkLocalizationForm.resx">
+      <DependentUpon>MarkLocalizationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="工具组\特征定位\FeatureLocalizationFormOld.resx">
       <DependentUpon>FeatureLocalizationFormOld.cs</DependentUpon>
@@ -5170,8 +5216,8 @@
     <EmbeddedResource Include="相机采集\App\SetCamGainForm.resx">
       <DependentUpon>SetCamGainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="相机采集\ImageAcqSimpleForm.resx">
-      <DependentUpon>ImageAcqSimpleForm.cs</DependentUpon>
+    <EmbeddedResource Include="相机采集\ImageAcqAppForm.resx">
+      <DependentUpon>ImageAcqAppForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="相机采集\相机配置\SensorConfigForm.resx">
       <DependentUpon>SensorConfigForm.cs</DependentUpon>

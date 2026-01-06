@@ -19,7 +19,7 @@ using View;
 
 namespace FunctionBlock
 {
-    public partial class ImageAcqSimpleForm : Form
+    public partial class ImageAcqAppForm : Form
     {
         private CancellationTokenSource cts;
         private Form form;
@@ -30,7 +30,10 @@ namespace FunctionBlock
         private BindingSource bs = new BindingSource();
         private HWindowControl hWindowControl1;
         private BindingNavigator bindingNavigator1;
-        public ImageAcqSimpleForm(TreeNode node)
+        private ToolStripStatusLabel executeStatusLabel;
+        public VisualizeView DrawObject { get => drawObject; set => drawObject = value; }
+
+        public ImageAcqAppForm(TreeNode node)
         {
             this._refNode = node;
             this._function = this._refNode.Tag as IFunction;
@@ -38,19 +41,19 @@ namespace FunctionBlock
             InitializeComponent();
             drawObject = new VisualizeView(this.hWindowControl1, false);
         }
-        public ImageAcqSimpleForm(HWindowControl hWindowControl, TreeNode node)
+        public ImageAcqAppForm(TreeNode node, HWindowControl hWindowControl)
         {
+            InitializeComponent();
             this._refNode = node;
             this._function = node.Tag as IFunction;
-            InitializeComponent();
-            this.bindingNavigator1 = new BindingNavigator();
             this.hWindowControl1 = hWindowControl;
-            drawObject = new VisualizeView(this.hWindowControl1, false);
+            this.bindingNavigator1 = new BindingNavigator();
+            this.drawObject = new VisualizeView(this.hWindowControl1, false);
         }
         private void ImageAcqSimpleForm_Load(object sender, EventArgs e)
         {
             // 注册事件
-            BaseFunction.ExcuteCompleted += new ExcuteCompletedEventHandler(DisplayExcuteResult);
+            //BaseFunction.ExcuteCompleted += new ExcuteCompletedEventHandler(DisplayExcuteResult);
             //this.drawObject.GrayValueInfo += new GrayValueInfoEventHandler(hWindowControl1_MouseMove);
             BindProperty();
             this.AutoForm();
@@ -152,47 +155,6 @@ namespace FunctionBlock
             form.Show();
         }
 
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-            try
-            {
-                //switch (e.ClickedItem.Name)
-                //{
-                //    case nameof(toolStripButton_Run):
-                //    case "执行":
-                //        if (this.toolStripStatusLabel2.Text == "等待……") break;
-                //        this.toolStripStatusLabel2.Text = "等待……";
-                //        this.toolStripStatusLabel2.ForeColor = Color.Yellow;
-                //        Task.Run(() =>
-                //        {
-                //            if (this._function.Execute(this._refNode).Succss)
-                //            {
-                //                this.Invoke(new Action(() =>
-                //                {
-                //                    this.toolStripStatusLabel1.Text = "执行结果:";
-                //                    this.toolStripStatusLabel2.Text = "成功";
-                //                    this.toolStripStatusLabel2.ForeColor = Color.Green;
-                //                }));
-                //            }
-                //            else
-                //            {
-                //                this.Invoke(new Action(() =>
-                //                {
-                //                    this.toolStripStatusLabel1.Text = "执行结果:";
-                //                    this.toolStripStatusLabel2.Text = "失败";
-                //                    this.toolStripStatusLabel2.ForeColor = Color.Red;
-                //                }));
-                //            }
-                //        }
-                //        );
-                //        break;
-                //}
-            }
-            catch (Exception ex)
-            {
-                new Common.UserMessageForm(ex.ToString()).ShowDialog();
-            }
-        }
 
         public void DisplayExcuteResult(object sender, ExcuteCompletedEventArgs e)  // 这里一定要加一个键值对变量来收集，以免出现重合
         {
@@ -208,7 +170,7 @@ namespace FunctionBlock
             }
             catch (Exception ex)
             {
-               new Common.UserMessageForm(ex.ToString()).ShowDialog();;
+                new Common.UserMessageForm(ex.ToString()).ShowDialog(); ;
             }
         }
 
@@ -216,6 +178,8 @@ namespace FunctionBlock
         {
             try
             {
+                if (this.drawObject != null)
+                    this.drawObject.ClearDrawingObject();
                 ImageAcqDevice.Instance.Save(); // 保存全局参数
                 this.acqSource = AcqSourceManage.Instance.GetCamAcqSource(this.采集源comboBox.SelectedItem.ToString());
                 if (this.acqSource != null)
@@ -223,8 +187,9 @@ namespace FunctionBlock
                     this.acqSource?.Sensor?.CameraParam?.Save();
                 }
                 this.bs.DataSourceChanged -= new EventHandler(this.bindingNavigatorDataSourceChanged);
-                BaseFunction.ExcuteCompleted -= new ExcuteCompletedEventHandler(DisplayExcuteResult);
+                //BaseFunction.ExcuteCompleted -= new ExcuteCompletedEventHandler(DisplayExcuteResult);
                 //this.drawObject.GrayValueInfo -= new GrayValueInfoEventHandler(hWindowControl1_MouseMove);
+                //this.drawObject.Uninit();
             }
             catch
             {
@@ -261,7 +226,7 @@ namespace FunctionBlock
             }
             catch (Exception ex)
             {
-               new Common.UserMessageForm(ex.ToString()).ShowDialog();;
+                new Common.UserMessageForm(ex.ToString()).ShowDialog(); ;
             }
         }
 
@@ -278,7 +243,7 @@ namespace FunctionBlock
             }
             catch (Exception ex)
             {
-               new Common.UserMessageForm(ex.ToString()).ShowDialog();;
+                new Common.UserMessageForm(ex.ToString()).ShowDialog(); ;
             }
         }
 
@@ -365,7 +330,7 @@ namespace FunctionBlock
             }
             catch (Exception ex)
             {
-               new Common.UserMessageForm(ex.ToString()).ShowDialog();;
+                new Common.UserMessageForm(ex.ToString()).ShowDialog(); ;
             }
         }
 
@@ -418,7 +383,7 @@ namespace FunctionBlock
             }
             catch (Exception ex)
             {
-               new Common.UserMessageForm(ex.ToString()).ShowDialog();;
+                new Common.UserMessageForm(ex.ToString()).ShowDialog(); ;
             }
         }
         private void bindingNavigatorMoveNextItem_Click(object sender, EventArgs e)
@@ -434,7 +399,7 @@ namespace FunctionBlock
             }
             catch (Exception ex)
             {
-               new Common.UserMessageForm(ex.ToString()).ShowDialog();;
+                new Common.UserMessageForm(ex.ToString()).ShowDialog(); ;
             }
         }
 
@@ -450,7 +415,7 @@ namespace FunctionBlock
             }
             catch (Exception ex)
             {
-               new Common.UserMessageForm(ex.ToString()).ShowDialog();;
+                new Common.UserMessageForm(ex.ToString()).ShowDialog(); ;
             }
         }
 
@@ -467,7 +432,7 @@ namespace FunctionBlock
             }
             catch (Exception ex)
             {
-               new Common.UserMessageForm(ex.ToString()).ShowDialog();;
+                new Common.UserMessageForm(ex.ToString()).ShowDialog(); ;
             }
         }
 
@@ -483,7 +448,7 @@ namespace FunctionBlock
             }
             catch (Exception ex)
             {
-               new Common.UserMessageForm(ex.ToString()).ShowDialog();;
+                new Common.UserMessageForm(ex.ToString()).ShowDialog(); ;
             }
         }
 
@@ -510,7 +475,7 @@ namespace FunctionBlock
             }
             catch (Exception ex)
             {
-               new Common.UserMessageForm(ex.ToString()).ShowDialog();;
+                new Common.UserMessageForm(ex.ToString()).ShowDialog(); ;
             }
         }
 

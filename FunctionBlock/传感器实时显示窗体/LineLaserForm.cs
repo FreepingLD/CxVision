@@ -27,8 +27,9 @@ namespace FunctionBlock
         ChartView chartView1, chartView2;
         public LineLaserForm() //AcqSource acqSource
         {
-            // this._acqSource = acqSource;
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             //chartForm1 = new ChartForm();
             //chartForm2 = new ChartForm();
             //AddForm(this.panel1, chartForm1);
@@ -71,7 +72,7 @@ namespace FunctionBlock
             else
                 this.chartView1.SetViewParam(enViewParamType.Y轴最大范围, 1);
             //////////////////////
-            this.chartView2.SetViewParam(enViewParamType.X轴最大范围, this._acqSource.NumPerLine());
+            this.chartView2.SetViewParam(enViewParamType.X轴最大范围, this._acqSource?.NumPerLine());
             this.chartView2.SetViewParam(enViewParamType.视图名字, "光强");
             this.chartView2.SetViewParam(enViewParamType.图表标题, "光强");
             this.chartView2.SetViewParam(enViewParamType.Y轴标题, "光强");

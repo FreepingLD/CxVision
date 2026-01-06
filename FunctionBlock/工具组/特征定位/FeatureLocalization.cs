@@ -16,8 +16,8 @@ namespace FunctionBlock
     public class FeatureLocalization : BaseFunction, IFunction
     {
         [NonSerialized]
-        private TreeNode _ParentNode;
-        public TreeNode ParentNode { get { return _ParentNode; } set { this._ParentNode = value; } }
+        private TreeNode _parentNode;
+        public TreeNode ParentNode { get { return _parentNode; } set { this._parentNode = value; } }
 
         public BindingList<PlcCommunicateInfo> PlcInfo = new BindingList<PlcCommunicateInfo>();
 
@@ -66,7 +66,7 @@ namespace FunctionBlock
                                     break;
                                 case nameof(TreeNode):
                                     treeView = ((TreeNode)item).TreeView; // 获取树控件
-                                    this.ParentNode = ((TreeNode)item);
+                                    this._parentNode = ((TreeNode)item);
                                     break;
                             }
                         }
@@ -89,10 +89,10 @@ namespace FunctionBlock
                     }
                 }
                 ///////////////////////////////////////////////
-                if (this.ParentNode != null)
+                if (this._parentNode != null)
                 {
                     // 判断PLC读取信息是否成立
-                    if (this.PlcInfo != null)
+                    if (this.PlcInfo != null && this.PlcInfo.Count > 0)
                     {
                         foreach (var item in this.PlcInfo)
                         {
@@ -103,7 +103,7 @@ namespace FunctionBlock
                             string[] tempValue = item.TargetValue.Trim().Split(',', ';');
                             foreach (var item2 in tempValue)
                             {
-                                if (item2 == item.ReadValue.Trim() || item2.ToLower() == item.ReadValue.Trim().ToLower()) isContain = true;
+                                if (item2.Trim() == item.ReadValue.Trim() || item2.Trim().ToLower() == item.ReadValue.Trim().ToLower()) isContain = true;
                             }
                             if (!isContain) readInfo = false;
                         }
@@ -114,7 +114,7 @@ namespace FunctionBlock
                         bool isRun = true;
                         OperateResult tempResult = new OperateResult();
                         lableText = CommunicationConfigParamManger.Instance.ReadValue(coordSysName, enCommunicationCommand.GrabNo)?.ToString();
-                        foreach (TreeNode item in ParentNode.Nodes)
+                        foreach (TreeNode item in _parentNode.Nodes)
                         {
                             if (item.Checked) continue; // 如果节点是禁用的，该属性为 true，该节点也将不再执行;
                             if (item.Tag != null)
@@ -123,10 +123,11 @@ namespace FunctionBlock
                                 {
                                     case nameof(UserLable):
                                         isContainLable = true;
-                                        if (item.Text == lableText)
+                                        if (item.Text == lableText || $"{this._parentNode.Text}.{item.Text}" == lableText || item.FullPath.Replace("\\", ".") == lableText)
                                         {
+                                            isRun = true;
                                             isExcuteLable = true;
-                                            LoggerHelper.Info(this.name + $"->执行标签:{item.Text}", camName);
+                                            LoggerHelper.Info(this.name + $"->执行标签:{lableText}", camName);
                                         }
                                         else
                                             isRun = false;
@@ -135,7 +136,7 @@ namespace FunctionBlock
                                     default:
                                         if (isRun)
                                         {
-                                            LoggerHelper.Info(this.name + $"->执行节点:{item.Text}", camName);
+                                            LoggerHelper.Info(this.name + $"->执行节点:{item.FullPath.Replace("\\", ".")}", camName);
                                             treeView.Invoke(new Action(() => treeView.SelectedNode = item));
                                             tempResult = ((IFunction)item.Tag).Execute(item, _imageData);
                                         }
@@ -152,7 +153,7 @@ namespace FunctionBlock
                                         this.Result.ErrorMessage += item.Text + ": NG; " + tempResult.ErrorMessage;
                                     CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.ResultToPlc, 2); // 发送NG信号
                                     CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.ResultToSocket, "NG"); // 发送NG信号
-                                    LoggerHelper.Error(this.name + $"->节点:{item.Text}执行失败,并写入结果NG", camName);      
+                                    LoggerHelper.Error(this.name + $"->节点:{item.FullPath.Replace("\\", ".")} 执行失败,并写入结果NG", camName);
                                 }
                             }
                         }
@@ -164,8 +165,8 @@ namespace FunctionBlock
                     }
                 }
                 this.Result.Succss = IsOk;
-                if (this.ParentNode != null)
-                    treeView?.Invoke(new Action(() => this.ParentNode.Collapse()));
+                if (this._parentNode != null)
+                    treeView?.Invoke(new Action(() => this._parentNode.Collapse()));
                 stopwatch.Stop();
                 ((BindingList<MeasureResultInfo>)this.ResultInfo)[0].SetValue(this.name, "Time(ms)", stopwatch.ElapsedMilliseconds);
                 /////////////////////////////////////////////////////////////

@@ -23,12 +23,16 @@ namespace FunctionBlock
             InitializeComponent();
             this.TopMost = true;
             this.ShowInTaskbar = true;
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
         }
         public ToolForm(TreeViewWrapClass treeViewTarget)
         {
             InitializeComponent();
             this.TopMost = true;
             this.ShowInTaskbar = true;
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             this._treeViewTarget = treeViewTarget;
             this._treeViewTarget.ToolName = "";
         }
@@ -38,6 +42,8 @@ namespace FunctionBlock
             InitializeComponent();
             this.TopMost = true;
             this.ShowInTaskbar = true;
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             this._treeViewTarget = treeViewTarget;
             this._treeViewTarget.ToolName = toolName;
         }
@@ -2928,20 +2934,23 @@ namespace FunctionBlock
                     break;  // 
 
 
-                //case "胶枪引导":
-                //case "胶枪引导节点":
-                //    switch (SystemParamManager.Instance.SysConfigParam.Language)
-                //    {
-                //        default:
-                //        case "zh-CN":
-                //            rootNode = this._treeViewTarget.AddItems(new GlueAlignGuided(), "胶枪引导"); // 
-                //            break;
-                //        case "en-US":
+                case "Mark定位":
+                case "Mark定位节点":
+                    if (this._treeViewTarget != null)
+                    {
+                        switch (SystemParamManager.Instance.SysConfigParam.Language)
+                        {
+                            default:
+                            case "zh-CN":
+                                rootNode = this._treeViewTarget.AddItems(new MarkLocalization(), "Mark定位");
+                                break;
+                            case "en-US":
+                                rootNode = this._treeViewTarget.AddItems(new MarkLocalization(), "FeatureLocalization");
+                                break;
+                        }
 
-                //            break;
-                //    }
-
-                //    break;  // 
+                    }
+                    break;  // 
 
                 //case "对齐计算":
                 //case "对齐计算节点":
@@ -3407,10 +3416,10 @@ namespace FunctionBlock
                         {
                             default:
                             case "zh-CN":
-                                rootNode = this._treeViewTarget.AddItems(lable, "Lable");
+                                rootNode = this._treeViewTarget.AddItems(lable, "标签");
                                 break;
                             case "en-US":
-                                rootNode = this._treeViewTarget.AddItems(lable, "UserLable");
+                                rootNode = this._treeViewTarget.AddItems(lable, "Lable");
                                 break;
                         }
                     }

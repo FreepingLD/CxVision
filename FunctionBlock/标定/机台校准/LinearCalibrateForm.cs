@@ -36,6 +36,8 @@ namespace FunctionBlock
         public LinearCalibrateForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = System.Windows.Forms.Cursor.Position;
             drawObject = new VisualizeView(this.hWindowControl1);
         }
 

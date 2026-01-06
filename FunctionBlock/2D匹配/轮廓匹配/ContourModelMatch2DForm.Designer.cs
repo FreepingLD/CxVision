@@ -54,9 +54,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton_Run = new System.Windows.Forms.ToolStripButton();
             this.statusStrip2 = new System.Windows.Forms.StatusStrip();
@@ -68,6 +65,8 @@
             this.行坐标Label = new System.Windows.Forms.ToolStripStatusLabel();
             this.列坐标Label = new System.Windows.Forms.ToolStripStatusLabel();
             this.hWindowControl1 = new HalconDotNet.HWindowControl();
+            this.label4 = new System.Windows.Forms.Label();
+            this.采样间隔textBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.视图工具toolStrip.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -76,8 +75,6 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.statusStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -229,14 +226,13 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.groupBox2, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.groupBox3, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.groupBox1, 0, 3);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 108F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 113F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -246,6 +242,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.采样间隔textBox);
             this.groupBox2.Controls.Add(this.导入基准轮廓Btn);
             this.groupBox2.Controls.Add(this.注册基准轮廓Btn);
             this.groupBox2.Controls.Add(this.label3);
@@ -255,9 +253,10 @@
             this.groupBox2.Controls.Add(this.起始点百分比textBox);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(3, 107);
+            this.groupBox2.Location = new System.Drawing.Point(3, 143);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(368, 102);
+            this.tableLayoutPanel2.SetRowSpan(this.groupBox2, 3);
+            this.groupBox2.Size = new System.Drawing.Size(368, 466);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "匹配参数";
@@ -265,7 +264,7 @@
             // 导入基准轮廓Btn
             // 
             this.导入基准轮廓Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.导入基准轮廓Btn.Location = new System.Drawing.Point(279, 14);
+            this.导入基准轮廓Btn.Location = new System.Drawing.Point(279, 18);
             this.导入基准轮廓Btn.Name = "导入基准轮廓Btn";
             this.导入基准轮廓Btn.Size = new System.Drawing.Size(86, 41);
             this.导入基准轮廓Btn.TabIndex = 7;
@@ -276,7 +275,7 @@
             // 注册基准轮廓Btn
             // 
             this.注册基准轮廓Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.注册基准轮廓Btn.Location = new System.Drawing.Point(279, 61);
+            this.注册基准轮廓Btn.Location = new System.Drawing.Point(279, 65);
             this.注册基准轮廓Btn.Name = "注册基准轮廓Btn";
             this.注册基准轮廓Btn.Size = new System.Drawing.Size(86, 41);
             this.注册基准轮廓Btn.TabIndex = 6;
@@ -297,7 +296,7 @@
             // 
             this.结束点百分比textBox.Location = new System.Drawing.Point(89, 74);
             this.结束点百分比textBox.Name = "结束点百分比textBox";
-            this.结束点百分比textBox.Size = new System.Drawing.Size(121, 21);
+            this.结束点百分比textBox.Size = new System.Drawing.Size(163, 21);
             this.结束点百分比textBox.TabIndex = 4;
             // 
             // label2
@@ -314,14 +313,14 @@
             this.变换类型comboBox.FormattingEnabled = true;
             this.变换类型comboBox.Location = new System.Drawing.Point(89, 18);
             this.变换类型comboBox.Name = "变换类型comboBox";
-            this.变换类型comboBox.Size = new System.Drawing.Size(121, 20);
+            this.变换类型comboBox.Size = new System.Drawing.Size(163, 20);
             this.变换类型comboBox.TabIndex = 2;
             // 
             // 起始点百分比textBox
             // 
             this.起始点百分比textBox.Location = new System.Drawing.Point(89, 47);
             this.起始点百分比textBox.Name = "起始点百分比textBox";
-            this.起始点百分比textBox.Size = new System.Drawing.Size(121, 21);
+            this.起始点百分比textBox.Size = new System.Drawing.Size(163, 21);
             this.起始点百分比textBox.TabIndex = 1;
             // 
             // label1
@@ -340,10 +339,10 @@
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
             this.tableLayoutPanel2.SetRowSpan(this.groupBox3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(368, 98);
+            this.groupBox3.Size = new System.Drawing.Size(368, 134);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "轨迹点";
+            this.groupBox3.Text = "轮廓点";
             // 
             // listBox1
             // 
@@ -352,41 +351,8 @@
             this.listBox1.ItemHeight = 12;
             this.listBox1.Location = new System.Drawing.Point(3, 17);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(362, 78);
+            this.listBox1.Size = new System.Drawing.Size(362, 114);
             this.listBox1.TabIndex = 0;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 215);
-            this.groupBox1.Name = "groupBox1";
-            this.tableLayoutPanel2.SetRowSpan(this.groupBox1, 2);
-            this.groupBox1.Size = new System.Drawing.Size(368, 394);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "轨迹点差值";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column2});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 17);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 100;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(362, 374);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "数据";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 200;
             // 
             // toolStrip1
             // 
@@ -484,6 +450,22 @@
             this.hWindowControl1.TabIndex = 17;
             this.hWindowControl1.WindowSize = new System.Drawing.Size(745, 644);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(30, 106);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 12);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "采样间隔:";
+            // 
+            // 采样间隔textBox
+            // 
+            this.采样间隔textBox.Location = new System.Drawing.Point(89, 102);
+            this.采样间隔textBox.Name = "采样间隔textBox";
+            this.采样间隔textBox.Size = new System.Drawing.Size(163, 21);
+            this.采样间隔textBox.TabIndex = 8;
+            // 
             // ContourModelMatch2DForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -494,7 +476,7 @@
             this.Name = "ContourModelMatch2DForm";
             this.ShowIcon = false;
             this.Tag = "1920,1080";
-            this.Text = "轨迹自检";
+            this.Text = "轮廓匹配";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TrackSelfCheckForm_FormClosing);
             this.Load += new System.EventHandler(this.ContourModelMatch2DForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -509,8 +491,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.statusStrip2.ResumeLayout(false);
@@ -538,8 +518,6 @@
         private System.Windows.Forms.ToolStripStatusLabel 列坐标Label;
         private HalconDotNet.HWindowControl hWindowControl1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStrip 视图工具toolStrip;
         private System.Windows.Forms.ToolStripButton toolStripButton_Clear;
         private System.Windows.Forms.ToolStripButton toolStripButton_Select;
@@ -550,7 +528,6 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox 显示条目comboBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox 结束点百分比textBox;
         private System.Windows.Forms.Label label2;
@@ -559,5 +536,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button 注册基准轮廓Btn;
         private System.Windows.Forms.Button 导入基准轮廓Btn;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox 采样间隔textBox;
     }
 }

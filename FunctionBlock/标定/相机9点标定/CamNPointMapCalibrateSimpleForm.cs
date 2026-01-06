@@ -663,7 +663,7 @@ namespace FunctionBlock
             while (true)
             {
                 if (this.isStop) return; // 控制标定停止
-                Application.DoEvents();
+                //Application.DoEvents();
                 object value = CommunicationConfigParamManger.Instance.ReadValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerFromPlc);//CommunicationConfigParamManger.Instance.GetCommunicationParam(
                 if (value != null && value.ToString() == "1")
                 {
@@ -677,7 +677,7 @@ namespace FunctionBlock
                     }));
                     break;
                 }
-                //Thread.Sleep(1000);
+                Thread.Sleep(100);
                 LoggerHelper.Info("等待PLC触发信号!!!");
             }
             switch (this.CamParam.CaliParam.CalibMethod)
@@ -694,15 +694,18 @@ namespace FunctionBlock
                     this.CalibNPointWcsList?.Clear();
                     if (this.calibCoordConfigParamNPoint.CalibCoordParamList.Count == 0)
                     {
-                        this.toolStripButton_Run.Enabled = true;
-                        this.toolStripButton_Stop.Enabled = false;
+                        this.Invoke(new Action(() =>
+                        {
+                            this.toolStripButton_Run.Enabled = true;
+                            this.toolStripButton_Stop.Enabled = false;
+                        }));
                         new UserMessageForm().ShowDialog("没有可供移动的坐标点!!!");
                         return;
                     }
                     foreach (var item in this.calibCoordConfigParamNPoint.CalibCoordParamList)
                     {
                         if (this.isStop) return; // 控制标定停止
-                        Application.DoEvents();
+                        //Application.DoEvents();
                         switch (this.CamParam.CaliParam.CoordValueType)
                         {
                             case enCoordValueType.绝对坐标:
@@ -717,7 +720,7 @@ namespace FunctionBlock
                                                          enAxisName.Compensation_XYTheta轴, 10, new CoordSysAxisPosParam((item.X - X), (item.Y - Y), 0, (item.Theta - Theta), 0, 0));
                                 break;
                         }
-                        //Thread.Sleep(1000);
+                        Thread.Sleep(100);
                         LoggerHelper.Info("等待轴运动到指定位置:" + "X = " + item.X.ToString("f4") + "  Y = " + item.Y.ToString("f4"));
                         CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.ResultToPlc, "Continue");
                         CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.FunctionNoToPlc, "Calib");
@@ -726,7 +729,7 @@ namespace FunctionBlock
                         while (true)
                         {
                             if (this.isStop) return; // 控制标定停止
-                            Application.DoEvents();
+                            //Application.DoEvents();
                             object value = CommunicationConfigParamManger.Instance.ReadValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerFromPlc);
                             if (value != null && value.ToString() == "1")
                             {
@@ -746,7 +749,7 @@ namespace FunctionBlock
                                 else
                                     break;
                             }
-                            //Thread.Sleep(1000);
+                            Thread.Sleep(100);
                             LoggerHelper.Info("等待PLC触发信号!!!");
                         }
                         node = this.GetExecuteNode(this.CamParam.CaliParam.CoordSysName, out info);
@@ -799,11 +802,14 @@ namespace FunctionBlock
                             }
                             break;
                     }
-                    this.N点像素坐标dataGridView.Rows.Clear();
-                    for (int i = 0; i < rows.Length; i++)
+                    this.Invoke(new Action(() =>
                     {
-                        this.N点像素坐标dataGridView.Rows.Add(rows[i].D, cols[i].D);
-                    }
+                        this.N点像素坐标dataGridView.Rows.Clear();
+                        for (int i = 0; i < rows.Length; i++)
+                        {
+                            this.N点像素坐标dataGridView.Rows.Add(rows[i].D, cols[i].D);
+                        }
+                    }));
                     new UserMessageForm().ShowDialog("N点标定最大误差:" + error.ToString("f4") + ";标定矩阵:" + this.CamParam.HomMat2D.ToString());
                     ////////////////// 告诉运控，9点标定完了，开始标定映射 ///////////////////
                     CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.ResultToPlc, "Map");
@@ -823,7 +829,7 @@ namespace FunctionBlock
                         while (true)
                         {
                             if (this.isStop) return; // 控制标定停止
-                            Application.DoEvents();
+                            //Application.DoEvents();
                             object value = CommunicationConfigParamManger.Instance.ReadValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerFromPlc);
                             if (value != null && value.ToString() == "1")
                             {
@@ -846,7 +852,7 @@ namespace FunctionBlock
                                 this.CalibMapWcsList.Add(new userWcsPoint(X, Y, Z));
                                 break;
                             }
-                            //Thread.Sleep(1000);
+                            Thread.Sleep(100);
                             LoggerHelper.Info("等待PLC触发信号!!!");
                         }
                         node = this.GetExecuteNode(this.CamParam.CaliParam.CoordSysName, out info);
@@ -860,8 +866,11 @@ namespace FunctionBlock
                         CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerFromPlc, 0);
                     }
                     // 标定完成
-                    this.toolStripButton_Run.Enabled = true;
-                    this.toolStripButton_Stop.Enabled = false;
+                    this.Invoke(new Action(() =>
+                    {
+                        this.toolStripButton_Run.Enabled = true;
+                        this.toolStripButton_Stop.Enabled = false;
+                    }));
                     CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.ResultToPlc, "OK");
                     CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.FunctionNoToPlc, "Calib");
                     CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerToPlc, 1);
@@ -907,18 +916,21 @@ namespace FunctionBlock
             HTuple row = new HTuple(0, 0, height, height);
             HTuple col = new HTuple(0, width, 0, width);
             this.CamParam.ImagePointsToWorldPlane(row, col, 0, 0, 0, out wcs_x, out wcs_y, out wcs_z);
-            this.拍照点世界坐标dataGridView.Rows.Clear();
-            for (int i = 0; i < wcs_x.Length; i++)
+            this.Invoke(new Action(() =>
             {
-                this.拍照点世界坐标dataGridView.Rows.Add(wcs_x[i].D, wcs_y[i].D);
-            }
-            /////////////////////////////////
-            this.映射目标坐标dataGridView.Rows.Clear();
-            for (int i = 0; i < list_Mapx.Count; i++)
-            {
-                int index = this.映射目标坐标dataGridView.Rows.Add(list_Mapx[i], list_Mapy[i]);
-                this.映射目标坐标dataGridView.Rows[index].HeaderCell.Value = (i + 1).ToString();
-            }
+                this.拍照点世界坐标dataGridView.Rows.Clear();
+                for (int i = 0; i < wcs_x.Length; i++)
+                {
+                    this.拍照点世界坐标dataGridView.Rows.Add(wcs_x[i].D, wcs_y[i].D);
+                }
+                /////////////////////////////////
+                this.映射目标坐标dataGridView.Rows.Clear();
+                for (int i = 0; i < list_Mapx.Count; i++)
+                {
+                    int index = this.映射目标坐标dataGridView.Rows.Add(list_Mapx[i], list_Mapy[i]);
+                    this.映射目标坐标dataGridView.Rows[index].HeaderCell.Value = (i + 1).ToString();
+                }
+            }));
             this.drawObject.AddViewObject(new ViewData(new userWcsCoordSystem(this.CamParam)));
         }
 
@@ -1002,7 +1014,10 @@ namespace FunctionBlock
                 case nameof(toolStripButton_Run):
                 case "Run":
                 case "执行":
-                    this.标定执行();
+                    Task.Run(() =>
+                    {
+                        this.标定执行();
+                    });
                     break;
 
                 case nameof(toolStripButton_Stop):
@@ -1049,8 +1064,11 @@ namespace FunctionBlock
             {
                 case enMoveStage.PLC:
                     this.isStop = false;
-                    this.toolStripButton_Run.Enabled = false;
-                    this.toolStripButton_Stop.Enabled = true;
+                    this.Invoke(new Action(() =>
+                    {
+                        this.toolStripButton_Run.Enabled = false;
+                        this.toolStripButton_Stop.Enabled = true;
+                    }));
                     switch (this.CamParam.CaliParam.CalibPlane)
                     {
                         default:
@@ -1063,8 +1081,11 @@ namespace FunctionBlock
                     break;
                 case enMoveStage.Socket:
                     this.isStop = false;
-                    this.toolStripButton_Run.Enabled = false;
-                    this.toolStripButton_Stop.Enabled = true;
+                    this.Invoke(new Action(() =>
+                    {
+                        this.toolStripButton_Run.Enabled = false;
+                        this.toolStripButton_Stop.Enabled = true;
+                    }));
                     switch (this.CamParam.CaliParam.CalibPlane)
                     {
                         default:
