@@ -84,7 +84,10 @@ namespace FunctionBlock
                                     userWcsPolyLine wcsPolyLine = value as userWcsPolyLine;
                                     for (int k = 0; k < wcsPolyLine.X.Count; k++)
                                     {
-                                        listPoint.Add(new userWcsPoint(wcsPolyLine.X[k], wcsPolyLine.Y[k], 0, wcsPolyLine.Grab_x, wcsPolyLine.Grab_y, wcsPolyLine.CamParams));
+                                        userWcsPoint wcsPoint1 = new userWcsPoint(wcsPolyLine.X[k], wcsPolyLine.Y[k], 0, wcsPolyLine.Grab_x, wcsPolyLine.Grab_y, wcsPolyLine.CamParams);
+                                        wcsPoint1.CamName = wcsPolyLine.CamName;
+                                        wcsPoint1.ViewWindow = wcsPolyLine.ViewWindow;
+                                        listPoint.Add(wcsPoint1);
                                     }
                                     break;
                                 case nameof(userWcsPolygon):
@@ -92,6 +95,8 @@ namespace FunctionBlock
                                     for (int k = 0; k < wcsPolygon.X.Count; k++)
                                     {
                                         userWcsPoint wcsPoint1 = new userWcsPoint(wcsPolygon.X[k], wcsPolygon.Y[k], 0, wcsPolygon.Grab_x, wcsPolygon.Grab_y, wcsPolygon.CamParams);
+                                        wcsPoint1.CamName = wcsPolygon.CamName;
+                                        wcsPoint1.ViewWindow = wcsPolygon.ViewWindow;
                                         listPoint.Add(wcsPoint1);
                                     }
                                     break;
@@ -179,7 +184,6 @@ namespace FunctionBlock
                 if (this.Param.EnableCAngleCalCulate)
                 {
                     this.Param.CalculateNormal(_sourceWcsPoint, this.Param.Orientation, out angle);
-
                     // 测试代码
                     //double[] Qx, Qy;
                     //double[] x = new double[this._wcsPoint.Length];
@@ -209,7 +213,7 @@ namespace FunctionBlock
                     ///////////////////////////////////////////////////
                     list.Add(string.Join(",", Math.Round(item.X, 5), Math.Round(item.Y, 5), Math.Round(item.Z, 5), Math.Round(item.U, 5), Math.Round(item.V, 5), Math.Round(item.Theta, 5)));
                     this._wcsPolyLine.Add(item.X, item.Y, item.Z, item.U, item.V, item.Theta);
-                    this._wcsPolyLine.CamName = item.CamName;
+                    this._wcsPolyLine.CamName = item.CamParams?.SensorName;
                     this._wcsPolyLine.ViewWindow = this.Param.ViewWindow;
                 }
                 string value = string.Join(";", list.ToArray()) + ",A";
@@ -229,7 +233,7 @@ namespace FunctionBlock
                 ((BindingList<OcrResultInfo>)this.ResultInfo)[7].SetValue(this.name, "C", string.Join(",", this._wcsPolyLine.W.ToArray()));
                 ((BindingList<OcrResultInfo>)this.ResultInfo)[8].SetValue(this.name, "Time(ms)", stopwatch.ElapsedMilliseconds.ToString());
                 ////////////////////////////////////////////
-                //OnExcuteCompleted(this._wcsPolyLine.CamName, this._wcsPolyLine?.ViewWindow, this.name, this._wcsPolyLine);
+                OnExcuteCompleted(this._wcsPolyLine.CamName, this._wcsPolyLine?.ViewWindow, this.name, this._wcsPolyLine.GetHObjectModel3D());
             }
             catch (Exception ex)
             {

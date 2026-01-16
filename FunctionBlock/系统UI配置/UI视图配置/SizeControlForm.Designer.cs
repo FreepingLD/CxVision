@@ -63,10 +63,10 @@
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(894, 471);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(890, 467);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // buttonClose
@@ -74,10 +74,10 @@
             this.buttonClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonClose.BackgroundImage")));
             this.buttonClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonClose.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonClose.Location = new System.Drawing.Point(869, 0);
+            this.buttonClose.Location = new System.Drawing.Point(865, 0);
             this.buttonClose.Margin = new System.Windows.Forms.Padding(0);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(25, 25);
+            this.buttonClose.Size = new System.Drawing.Size(25, 20);
             this.buttonClose.TabIndex = 30;
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -87,10 +87,10 @@
             this.buttonMax.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonMax.BackgroundImage")));
             this.buttonMax.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonMax.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonMax.Location = new System.Drawing.Point(844, 0);
+            this.buttonMax.Location = new System.Drawing.Point(840, 0);
             this.buttonMax.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMax.Name = "buttonMax";
-            this.buttonMax.Size = new System.Drawing.Size(25, 25);
+            this.buttonMax.Size = new System.Drawing.Size(25, 20);
             this.buttonMax.TabIndex = 29;
             this.buttonMax.UseVisualStyleBackColor = true;
             this.buttonMax.Click += new System.EventHandler(this.buttonMax_Click);
@@ -101,10 +101,10 @@
             this.buttonMin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonMin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonMin.Enabled = false;
-            this.buttonMin.Location = new System.Drawing.Point(819, 0);
+            this.buttonMin.Location = new System.Drawing.Point(815, 0);
             this.buttonMin.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMin.Name = "buttonMin";
-            this.buttonMin.Size = new System.Drawing.Size(25, 25);
+            this.buttonMin.Size = new System.Drawing.Size(25, 20);
             this.buttonMin.TabIndex = 28;
             this.buttonMin.UseVisualStyleBackColor = true;
             this.buttonMin.Click += new System.EventHandler(this.buttonMin_Click);
@@ -117,7 +117,7 @@
             this.titleLabel.Location = new System.Drawing.Point(0, 0);
             this.titleLabel.Margin = new System.Windows.Forms.Padding(0);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(819, 25);
+            this.titleLabel.Size = new System.Drawing.Size(815, 20);
             this.titleLabel.TabIndex = 15;
             this.titleLabel.Text = "尺寸管控";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -130,9 +130,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.groupBox1, 4);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 28);
+            this.groupBox1.Location = new System.Drawing.Point(3, 23);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(888, 217);
+            this.groupBox1.Size = new System.Drawing.Size(884, 217);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "测量尺寸信息管控1";
@@ -141,10 +141,10 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 17);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 18);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(882, 197);
+            this.dataGridView1.Size = new System.Drawing.Size(878, 196);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
             // 
@@ -153,9 +153,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.groupBox2, 4);
             this.groupBox2.Controls.Add(this.dataGridView2);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(3, 251);
+            this.groupBox2.Location = new System.Drawing.Point(3, 246);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(888, 217);
+            this.groupBox2.Size = new System.Drawing.Size(884, 218);
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "测量尺寸信息管控2";
@@ -164,10 +164,10 @@
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 17);
+            this.dataGridView2.Location = new System.Drawing.Point(3, 18);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(882, 197);
+            this.dataGridView2.Size = new System.Drawing.Size(878, 197);
             this.dataGridView2.TabIndex = 1;
             this.dataGridView2.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView2_DataError);
             // 
@@ -175,7 +175,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(894, 471);
+            this.ClientSize = new System.Drawing.Size(890, 467);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

@@ -74,9 +74,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\x64\Debug\halcondotnetxl.dll</HintPath>
     </Reference>
-    <Reference Include="HslCommunication, Version=11.6.2.0, Culture=neutral, PublicKeyToken=3d72ad3b6b5ec0e3, processorArchitecture=MSIL">
+    <Reference Include="HslCommunication, Version=12.6.0.0, Culture=neutral, PublicKeyToken=3d72ad3b6b5ec0e3, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\安裝+備份\HslCommunicationDemo\HslCommunication.dll</HintPath>
+      <HintPath>..\bin\x64\Debug\HslCommunication.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -160,11 +160,23 @@
     <Compile Include="坐标系轴配置\AxisInfoForm.Designer.cs">
       <DependentUpon>AxisInfoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="设备通信配置\CommunicationConfigForm.cs">
+    <Compile Include="设备通信配置\DeviceCommunicationConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="设备通信配置\CommunicationConfigForm.Designer.cs">
-      <DependentUpon>CommunicationConfigForm.cs</DependentUpon>
+    <Compile Include="设备通信配置\DeviceCommunicationConfigForm.Designer.cs">
+      <DependentUpon>DeviceCommunicationConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设备通信配置\DeviceCommunicationConfigFormSimple.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备通信配置\DeviceCommunicationConfigFormSimple.Designer.cs">
+      <DependentUpon>DeviceCommunicationConfigFormSimple.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设备通信配置\DeviceCommunicationConfigFormOld.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备通信配置\DeviceCommunicationConfigFormOld.Designer.cs">
+      <DependentUpon>DeviceCommunicationConfigFormOld.cs</DependentUpon>
     </Compile>
     <Compile Include="设备通信配置\CommunicationConfigParamManger.cs" />
     <Compile Include="设备通信配置\CommunicationConfigParam.cs" />
@@ -230,8 +242,14 @@
     <EmbeddedResource Include="坐标系轴配置\AxisInfoForm.resx">
       <DependentUpon>AxisInfoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="设备通信配置\CommunicationConfigForm.resx">
-      <DependentUpon>CommunicationConfigForm.cs</DependentUpon>
+    <EmbeddedResource Include="设备通信配置\DeviceCommunicationConfigForm.resx">
+      <DependentUpon>DeviceCommunicationConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设备通信配置\DeviceCommunicationConfigFormSimple.resx">
+      <DependentUpon>DeviceCommunicationConfigFormSimple.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设备通信配置\DeviceCommunicationConfigFormOld.resx">
+      <DependentUpon>DeviceCommunicationConfigFormOld.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="坐标系轴配置\CoordSysConfigParamManageForm.resx">
       <DependentUpon>CoordSysConfigParamManageForm.cs</DependentUpon>

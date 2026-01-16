@@ -23,8 +23,8 @@ namespace FunctionBlock
         public AddViewForm(List<Form> listForm)
         {
             InitializeComponent();
-            this.TopMost = true;
-            this.ShowInTaskbar = true;
+            //this.TopMost = true;
+            //this.ShowInTaskbar = true;
             this.StartPosition = FormStartPosition.Manual;
             this.Location = System.Windows.Forms.Cursor.Position;
             this.listForm = listForm;
@@ -34,8 +34,6 @@ namespace FunctionBlock
             InitializeComponent();
             this.StartPosition = FormStartPosition.Manual;
             this.Location = System.Windows.Forms.Cursor.Position;
-            this.TopMost = true;
-            this.ShowInTaskbar = true;
             this.窗体类型comboBox.DataSource = Enum.GetValues(typeof(enViewForm));
             this.FormName = viewType;
             this.ViewName = "NONE";

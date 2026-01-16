@@ -57,9 +57,9 @@
             this.hWindowControl1.Location = new System.Drawing.Point(0, 0);
             this.hWindowControl1.Margin = new System.Windows.Forms.Padding(0);
             this.hWindowControl1.Name = "hWindowControl1";
-            this.hWindowControl1.Size = new System.Drawing.Size(622, 687);
+            this.hWindowControl1.Size = new System.Drawing.Size(610, 651);
             this.hWindowControl1.TabIndex = 2;
-            this.hWindowControl1.WindowSize = new System.Drawing.Size(622, 687);
+            this.hWindowControl1.WindowSize = new System.Drawing.Size(610, 651);
             // 
             // titleLabel
             // 
@@ -70,7 +70,7 @@
             this.titleLabel.Location = new System.Drawing.Point(2, 2);
             this.titleLabel.Margin = new System.Windows.Forms.Padding(2);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(1199, 16);
+            this.titleLabel.Size = new System.Drawing.Size(1157, 16);
             this.titleLabel.TabIndex = 22;
             this.titleLabel.Text = "CxVision";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -117,7 +117,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.42857F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel2.Controls.Add(this.SignLabel, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.程序节点comboBox, 3, 1);
             this.tableLayoutPanel2.Controls.Add(this.buttonMax, 6, 0);
@@ -138,7 +138,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1295, 731);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1259, 695);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // SignLabel
@@ -149,7 +149,7 @@
             this.SignLabel.Location = new System.Drawing.Point(215, 23);
             this.SignLabel.Margin = new System.Windows.Forms.Padding(3);
             this.SignLabel.Name = "SignLabel";
-            this.SignLabel.Size = new System.Drawing.Size(224, 12);
+            this.SignLabel.Size = new System.Drawing.Size(212, 12);
             this.SignLabel.TabIndex = 3;
             this.SignLabel.Text = "label1";
             this.SignLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -161,7 +161,7 @@
             this.程序节点comboBox.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.程序节点comboBox.FormattingEnabled = true;
             this.程序节点comboBox.ItemHeight = 12;
-            this.程序节点comboBox.Location = new System.Drawing.Point(442, 20);
+            this.程序节点comboBox.Location = new System.Drawing.Point(430, 20);
             this.程序节点comboBox.Margin = new System.Windows.Forms.Padding(0);
             this.程序节点comboBox.Name = "程序节点comboBox";
             this.程序节点comboBox.Size = new System.Drawing.Size(186, 20);
@@ -174,7 +174,7 @@
             this.buttonMax.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonMax.BackgroundImage")));
             this.buttonMax.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonMax.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonMax.Location = new System.Drawing.Point(1230, 0);
+            this.buttonMax.Location = new System.Drawing.Point(1188, 0);
             this.buttonMax.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMax.Name = "buttonMax";
             this.buttonMax.Size = new System.Drawing.Size(27, 20);
@@ -187,10 +187,10 @@
             this.buttonClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonClose.BackgroundImage")));
             this.buttonClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonClose.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonClose.Location = new System.Drawing.Point(1257, 0);
+            this.buttonClose.Location = new System.Drawing.Point(1215, 0);
             this.buttonClose.Margin = new System.Windows.Forms.Padding(0);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(38, 20);
+            this.buttonClose.Size = new System.Drawing.Size(44, 20);
             this.buttonClose.TabIndex = 0;
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -201,7 +201,7 @@
             this.buttonMin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonMin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonMin.Enabled = false;
-            this.buttonMin.Location = new System.Drawing.Point(1203, 0);
+            this.buttonMin.Location = new System.Drawing.Point(1161, 0);
             this.buttonMin.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMin.Name = "buttonMin";
             this.buttonMin.Size = new System.Drawing.Size(27, 20);
@@ -217,7 +217,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 41);
             this.panel1.Name = "panel1";
             this.tableLayoutPanel2.SetRowSpan(this.panel1, 3);
-            this.panel1.Size = new System.Drawing.Size(622, 687);
+            this.panel1.Size = new System.Drawing.Size(610, 651);
             this.panel1.TabIndex = 25;
             // 
             // groupBox1
@@ -225,10 +225,10 @@
             this.tableLayoutPanel2.SetColumnSpan(this.groupBox1, 4);
             this.groupBox1.Controls.Add(this.夹抓tableLayoutPanel);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(631, 23);
+            this.groupBox1.Location = new System.Drawing.Point(619, 23);
             this.groupBox1.Name = "groupBox1";
             this.tableLayoutPanel2.SetRowSpan(this.groupBox1, 4);
-            this.groupBox1.Size = new System.Drawing.Size(661, 705);
+            this.groupBox1.Size = new System.Drawing.Size(637, 669);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "穴位参数";
@@ -244,7 +244,7 @@
             this.夹抓tableLayoutPanel.Name = "夹抓tableLayoutPanel";
             this.夹抓tableLayoutPanel.RowCount = 1;
             this.夹抓tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.夹抓tableLayoutPanel.Size = new System.Drawing.Size(655, 684);
+            this.夹抓tableLayoutPanel.Size = new System.Drawing.Size(631, 648);
             this.夹抓tableLayoutPanel.TabIndex = 1;
             // 
             // RobotLoadViewForm
@@ -252,7 +252,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1295, 731);
+            this.ClientSize = new System.Drawing.Size(1259, 695);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel2);
             this.ForeColor = System.Drawing.SystemColors.ControlText;

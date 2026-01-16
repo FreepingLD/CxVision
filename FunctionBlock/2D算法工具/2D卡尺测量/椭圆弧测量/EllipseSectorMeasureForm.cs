@@ -31,7 +31,7 @@ namespace FunctionBlock
             this._function = function;
             InitializeComponent();
             this.Text = function.GetPropertyValues("名称").ToString();
-            this.drawObject = new userDrawEllipseSectorMeasure(this.hWindowControl1, ((EllipseSectorMeasure)_function).FindEllipseSector.EllipseSectorPixPosition, ((EllipseSectorMeasure)_function).PixCoordSystem);
+            this.drawObject = new userDrawEllipseSectorMeasure(this.hWindowControl1, ((EllipseSectorMeasure)_function).FindEllipseSector.EllipseSectorPixPosition.AffineTransPixEllipseSector(((EllipseSectorMeasure)_function).PixCoordSystem?.GetVariationHomMat2D()), ((EllipseSectorMeasure)_function).PixCoordSystem);
             new ListBoxWrapClass().InitListBox(this.listBox1, node);
             new ListBoxWrapClass().InitListBox(this.listBox2, node, 2);
         }

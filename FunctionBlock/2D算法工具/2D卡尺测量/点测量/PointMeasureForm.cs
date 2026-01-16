@@ -32,7 +32,7 @@ namespace FunctionBlock
             this._refNode = node;
             InitializeComponent();
             //this.Text = function.GetPropertyValues("名称").ToString();
-            this.drawObject = new userDrawPointMeasure(this.hWindowControl1, ((FunctionBlock.PointMeasure)_function).FindPoint.LinePixPosition, ((FunctionBlock.PointMeasure)_function).PixCoordSystem);
+            this.drawObject = new userDrawPointMeasure(this.hWindowControl1, ((FunctionBlock.PointMeasure)_function).FindPoint.LinePixPosition.AffinePixLine2D(((FunctionBlock.PointMeasure)_function).PixCoordSystem?.GetVariationHomMat2D()), ((FunctionBlock.PointMeasure)_function).PixCoordSystem);
             new ListBoxWrapClass().InitListBox(this.listBox1, node);
             new ListBoxWrapClass().InitListBox(this.listBox2, node, 2);
         }

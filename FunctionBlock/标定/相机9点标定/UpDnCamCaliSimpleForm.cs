@@ -559,16 +559,16 @@ namespace FunctionBlock
                 List<double> listTarget_GrabY = new List<double>();
                 List<double> listTarget_GrabZ = new List<double>();
                 List<double> listTarget_GrabTheta = new List<double>();
-                List<double> listSorceWcs_x = new List<double>();
-                List<double> listSorceWcs_y = new List<double>();
-                List<double> listSorceWcs_angle = new List<double>();
-                List<double> listSorcePix_Row = new List<double>();
-                List<double> listSorcePix_Col = new List<double>();
-                List<double> listSorcePix_rad = new List<double>();
-                List<double> listSorce_GrabX = new List<double>();
-                List<double> listSorce_GrabY = new List<double>();
-                List<double> listSorce_GrabZ = new List<double>();
-                List<double> listSorce_GrabTheta = new List<double>();
+                List<double> listSourceWcs_x = new List<double>();
+                List<double> listSourceWcs_y = new List<double>();
+                List<double> listSourceWcs_angle = new List<double>();
+                List<double> listSourcePix_Row = new List<double>();
+                List<double> listSourcePix_Col = new List<double>();
+                List<double> listSourcePix_rad = new List<double>();
+                List<double> listSource_GrabX = new List<double>();
+                List<double> listSource_GrabY = new List<double>();
+                List<double> listSource_GrabZ = new List<double>();
+                List<double> listSource_GrabTheta = new List<double>();
                 DataGridViewCellCollection CellCollection;
                 HHomMat2D hHomMat2D = new HHomMat2D();
                 HTuple Qx = 0, Qy = 0, Qz = 0, dist = 0;
@@ -593,16 +593,16 @@ namespace FunctionBlock
                         for (int i = 0; i < this.源相机坐标dataGridView.Rows.Count; i++)
                         {
                             CellCollection = this.源相机坐标dataGridView.Rows[i].Cells;
-                            listSorceWcs_x.Add(Convert.ToDouble(CellCollection[0].Value));
-                            listSorceWcs_y.Add(Convert.ToDouble(CellCollection[1].Value));
-                            listSorceWcs_angle.Add(Convert.ToDouble(CellCollection[2].Value));
-                            listSorce_GrabX.Add(Convert.ToDouble(CellCollection[3].Value));
-                            listSorce_GrabY.Add(Convert.ToDouble(CellCollection[4].Value));
-                            listSorce_GrabZ.Add(Convert.ToDouble(CellCollection[5].Value));
-                            listSorce_GrabTheta.Add(Convert.ToDouble(CellCollection[6].Value));
+                            listSourceWcs_x.Add(Convert.ToDouble(CellCollection[0].Value));
+                            listSourceWcs_y.Add(Convert.ToDouble(CellCollection[1].Value));
+                            listSourceWcs_angle.Add(Convert.ToDouble(CellCollection[2].Value));
+                            listSource_GrabX.Add(Convert.ToDouble(CellCollection[3].Value));
+                            listSource_GrabY.Add(Convert.ToDouble(CellCollection[4].Value));
+                            listSource_GrabZ.Add(Convert.ToDouble(CellCollection[5].Value));
+                            listSource_GrabTheta.Add(Convert.ToDouble(CellCollection[6].Value));
                         }
                         ///////////////////////////////  世界坐标变换必需使用刚性变换  ///////////////////////////////
-                        hHomMat2D.VectorToRigid(listSorceWcs_x.ToArray(), listSorceWcs_y.ToArray(), listTargetWcs_x.ToArray(), listTargetWcs_y.ToArray());
+                        hHomMat2D.VectorToRigid(listSourceWcs_x.ToArray(), listSourceWcs_y.ToArray(), listTargetWcs_x.ToArray(), listTargetWcs_y.ToArray());
                         this.CamParam_Map.MapHomMat2D = new UserHomMat2D(hHomMat2D);
                         this.CamParam_Map.MapType = this.映射方法comboBox.Text;
                         if (this.CamParam_Map.DicMapHomMat2D.ContainsKey(this.CamParam_Map.MapType))
@@ -610,7 +610,7 @@ namespace FunctionBlock
                         else
                             this.CamParam_Map.DicMapHomMat2D.Add(this.CamParam_Map.MapType, new UserHomMat2D(hHomMat2D));
                         this.CamParam_Map.CaliParam.CoordOriginType = enCoordOriginType.映射变换; // WcsToWcs ： 一定要是这样
-                        Qx = hHomMat2D.AffineTransPoint2d(listSorceWcs_x.ToArray(), listSorceWcs_y.ToArray(), out Qy);
+                        Qx = hHomMat2D.AffineTransPoint2d(listSourceWcs_x.ToArray(), listSourceWcs_y.ToArray(), out Qy);
                         dist = HMisc.DistancePp(Qx, Qy, listTargetWcs_x.ToArray(), listTargetWcs_y.ToArray());
                         break;
                     case "PixToWcs":
@@ -634,22 +634,22 @@ namespace FunctionBlock
                         for (int i = 0; i < this.源相机坐标dataGridView.Rows.Count; i++)
                         {
                             CellCollection = this.源相机坐标dataGridView.Rows[i].Cells;
-                            listSorcePix_Row.Add(Convert.ToDouble(CellCollection[0].Value));
-                            listSorcePix_Col.Add(Convert.ToDouble(CellCollection[1].Value));
-                            listSorcePix_rad.Add(Convert.ToDouble(CellCollection[2].Value));
+                            listSourcePix_Row.Add(Convert.ToDouble(CellCollection[0].Value));
+                            listSourcePix_Col.Add(Convert.ToDouble(CellCollection[1].Value));
+                            listSourcePix_rad.Add(Convert.ToDouble(CellCollection[2].Value));
 
-                            listSorce_GrabX.Add(Convert.ToDouble(CellCollection[3].Value));
-                            listSorce_GrabY.Add(Convert.ToDouble(CellCollection[4].Value));
-                            listSorce_GrabZ.Add(Convert.ToDouble(CellCollection[5].Value));
-                            listSorce_GrabTheta.Add(Convert.ToDouble(CellCollection[6].Value));
+                            listSource_GrabX.Add(Convert.ToDouble(CellCollection[3].Value));
+                            listSource_GrabY.Add(Convert.ToDouble(CellCollection[4].Value));
+                            listSource_GrabZ.Add(Convert.ToDouble(CellCollection[5].Value));
+                            listSource_GrabTheta.Add(Convert.ToDouble(CellCollection[6].Value));
                         }
                         ///////////////////////////////
-                        hHomMat2D.VectorToHomMat2d(listSorcePix_Col.ToArray(), listSorcePix_Row.ToArray(), listTargetWcs_x.ToArray(), listTargetWcs_y.ToArray());
+                        hHomMat2D.VectorToHomMat2d(listSourcePix_Col.ToArray(), listSourcePix_Row.ToArray(), listTargetWcs_x.ToArray(), listTargetWcs_y.ToArray());
                         this.CamParam_Map.HomMat2D = new UserHomMat2D(hHomMat2D);
                         this.CamParam_Map.MapHomMat2D = new UserHomMat2D();
                         //this.CamParam_Map.CaliParam.CoordOriginType = enCoordOriginType.映射变换; // PixToWcs ： 一定要是这样
                         this.CamParam_Map.MapType = this.映射方法comboBox.Text;
-                        this.CamParam_Map.ImagePointsToWorldPlane(listSorcePix_Row.ToArray(), listSorcePix_Col.ToArray(), 0, 0, 0, out Qx, out Qy, out Qz);
+                        this.CamParam_Map.ImagePointsToWorldPlane(listSourcePix_Row.ToArray(), listSourcePix_Col.ToArray(), 0, 0, 0, out Qx, out Qy, out Qz);
                         dist = HMisc.DistancePp(Qx, Qy, listTargetWcs_x.ToArray(), listTargetWcs_y.ToArray());
                         break;
                     case "PixToPix":
@@ -670,24 +670,24 @@ namespace FunctionBlock
                         for (int i = 0; i < this.源相机坐标dataGridView.Rows.Count; i++)
                         {
                             CellCollection = this.源相机坐标dataGridView.Rows[i].Cells;
-                            listSorcePix_Row.Add(Convert.ToDouble(CellCollection[0].Value));
-                            listSorcePix_Col.Add(Convert.ToDouble(CellCollection[1].Value));
-                            listSorcePix_rad.Add(Convert.ToDouble(CellCollection[2].Value));
+                            listSourcePix_Row.Add(Convert.ToDouble(CellCollection[0].Value));
+                            listSourcePix_Col.Add(Convert.ToDouble(CellCollection[1].Value));
+                            listSourcePix_rad.Add(Convert.ToDouble(CellCollection[2].Value));
 
-                            listSorce_GrabX.Add(Convert.ToDouble(CellCollection[3].Value));
-                            listSorce_GrabY.Add(Convert.ToDouble(CellCollection[4].Value));
-                            listSorce_GrabZ.Add(Convert.ToDouble(CellCollection[5].Value));
-                            listSorce_GrabTheta.Add(Convert.ToDouble(CellCollection[6].Value));
+                            listSource_GrabX.Add(Convert.ToDouble(CellCollection[3].Value));
+                            listSource_GrabY.Add(Convert.ToDouble(CellCollection[4].Value));
+                            listSource_GrabZ.Add(Convert.ToDouble(CellCollection[5].Value));
+                            listSource_GrabTheta.Add(Convert.ToDouble(CellCollection[6].Value));
                         }
                         ///////////////////////////////
-                        switch (listSorcePix_Col.Count)
+                        switch (listSourcePix_Col.Count)
                         {                            
                             // 刚性变换 
                             case 1:
-                                hHomMat2D.VectorAngleToRigid(listSorcePix_Row[0], listSorcePix_Col[0], listSorcePix_rad[0], listTargetPix_Row[0], listTargetPix_Col[0], listTargetPix_rad[0]);
+                                hHomMat2D.VectorAngleToRigid(listSourcePix_Row[0], listSourcePix_Col[0], listSourcePix_rad[0], listTargetPix_Row[0], listTargetPix_Col[0], listTargetPix_rad[0]);
                                 this.CamParam_Map.HomMat2D = this.CamParam_Target.HomMat2D.Clone(); // 复制目标相机的标定参数
                                 this.CamParam_Map.MapHomMat2D = new UserHomMat2D(hHomMat2D); // 映射矩阵 
-                                this.CamParam_Map.CaliParam.RotateCalibPoint = new userWcsVector(listSorce_GrabX[0], listSorce_GrabY[0], listSorce_GrabZ[0], listSorce_GrabTheta[0]);
+                                this.CamParam_Map.CaliParam.RotateCalibPoint = new userWcsVector(listSource_GrabX[0], listSource_GrabY[0], listSource_GrabZ[0], listSource_GrabTheta[0]);
                                 this.CamParam_Map.CaliParam.CalibCenterXy = this.CamParam_Target.CaliParam.CalibCenterXy.Clone();
                                 this.CamParam_Map.CaliParam.CalibCenterXz = this.CamParam_Target.CaliParam.CalibCenterXz.Clone();
                                 this.CamParam_Map.CaliParam.CalibCenterYz = this.CamParam_Target.CaliParam.CalibCenterYz.Clone();
@@ -697,10 +697,10 @@ namespace FunctionBlock
                                 break;
                             // 刚性变换 
                             case 2:
-                                hHomMat2D.VectorToRigid(listSorcePix_Row.ToArray(), listSorcePix_Col.ToArray(), listTargetPix_Row.ToArray(), listTargetPix_Col.ToArray());
+                                hHomMat2D.VectorToRigid(listSourcePix_Row.ToArray(), listSourcePix_Col.ToArray(), listTargetPix_Row.ToArray(), listTargetPix_Col.ToArray());
                                 this.CamParam_Map.HomMat2D = this.CamParam_Target.HomMat2D.Clone(); // 复制目标相机的标定参数
                                 this.CamParam_Map.MapHomMat2D = new UserHomMat2D(hHomMat2D); // 映射矩阵 
-                                this.CamParam_Map.CaliParam.RotateCalibPoint = new userWcsVector(listSorce_GrabX[0], listSorce_GrabY[0], listSorce_GrabZ[0], listSorce_GrabTheta[0]);
+                                this.CamParam_Map.CaliParam.RotateCalibPoint = new userWcsVector(listSource_GrabX[0], listSource_GrabY[0], listSource_GrabZ[0], listSource_GrabTheta[0]);
                                 this.CamParam_Map.CaliParam.CalibCenterXy = this.CamParam_Target.CaliParam.CalibCenterXy.Clone();
                                 this.CamParam_Map.CaliParam.CalibCenterXz = this.CamParam_Target.CaliParam.CalibCenterXz.Clone();
                                 this.CamParam_Map.CaliParam.CalibCenterYz = this.CamParam_Target.CaliParam.CalibCenterYz.Clone();
@@ -710,10 +710,10 @@ namespace FunctionBlock
                                 break;
                             // 仿射变换
                             default:
-                                hHomMat2D.VectorToHomMat2d(listSorcePix_Row.ToArray(), listSorcePix_Col.ToArray(), listTargetPix_Row.ToArray(), listTargetPix_Col.ToArray());
+                                hHomMat2D.VectorToHomMat2d(listSourcePix_Row.ToArray(), listSourcePix_Col.ToArray(), listTargetPix_Row.ToArray(), listTargetPix_Col.ToArray());
                                 this.CamParam_Map.HomMat2D = this.CamParam_Target.HomMat2D.Clone(); // 复制目标相机的标定参数
                                 this.CamParam_Map.MapHomMat2D = new UserHomMat2D(hHomMat2D); // 映射矩阵 
-                                this.CamParam_Map.CaliParam.RotateCalibPoint = new userWcsVector(listSorce_GrabX[0], listSorce_GrabY[0], listSorce_GrabZ[0], listSorce_GrabTheta[0]); // 映射相机以当前拍照作为旋转标定点
+                                this.CamParam_Map.CaliParam.RotateCalibPoint = new userWcsVector(listSource_GrabX[0], listSource_GrabY[0], listSource_GrabZ[0], listSource_GrabTheta[0]); // 映射相机以当前拍照作为旋转标定点
                                 this.CamParam_Map.CaliParam.CalibCenterXy = this.CamParam_Target.CaliParam.CalibCenterXy.Clone();
                                 this.CamParam_Map.CaliParam.CalibCenterXz = this.CamParam_Target.CaliParam.CalibCenterXz.Clone();
                                 this.CamParam_Map.CaliParam.CalibCenterYz = this.CamParam_Target.CaliParam.CalibCenterYz.Clone();
@@ -722,7 +722,7 @@ namespace FunctionBlock
                                 this.CamParam_Map.MapType = this.映射方法comboBox.Text;
                                 break;
                         }
-                        Qx = hHomMat2D.AffineTransPoint2d(listSorcePix_Row.ToArray(), listSorcePix_Col.ToArray(), out Qy);
+                        Qx = hHomMat2D.AffineTransPoint2d(listSourcePix_Row.ToArray(), listSourcePix_Col.ToArray(), out Qy);
                         dist = HMisc.DistancePp(Qx, Qy, listTargetPix_Row.ToArray(), listTargetPix_Col.ToArray());
                         break;
                 }

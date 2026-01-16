@@ -53,8 +53,8 @@ namespace FunctionBlock
         private void ImageAcqSimpleForm_Load(object sender, EventArgs e)
         {
             // 注册事件
-            //BaseFunction.ExcuteCompleted += new ExcuteCompletedEventHandler(DisplayExcuteResult);
-            //this.drawObject.GrayValueInfo += new GrayValueInfoEventHandler(hWindowControl1_MouseMove);
+            BaseFunction.ExcuteCompleted += new ExcuteCompletedEventHandler(DisplayExcuteResult);
+            this.drawObject.GrayValueInfo += new GrayValueInfoEventHandler(hWindowControl1_MouseMove);
             BindProperty();
             this.AutoForm();
         }
@@ -187,8 +187,8 @@ namespace FunctionBlock
                     this.acqSource?.Sensor?.CameraParam?.Save();
                 }
                 this.bs.DataSourceChanged -= new EventHandler(this.bindingNavigatorDataSourceChanged);
-                //BaseFunction.ExcuteCompleted -= new ExcuteCompletedEventHandler(DisplayExcuteResult);
-                //this.drawObject.GrayValueInfo -= new GrayValueInfoEventHandler(hWindowControl1_MouseMove);
+                BaseFunction.ExcuteCompleted -= new ExcuteCompletedEventHandler(DisplayExcuteResult);
+                this.drawObject.GrayValueInfo -= new GrayValueInfoEventHandler(hWindowControl1_MouseMove);
                 //this.drawObject.Uninit();
             }
             catch

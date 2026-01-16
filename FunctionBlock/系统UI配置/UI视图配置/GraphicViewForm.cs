@@ -100,6 +100,8 @@ namespace FunctionBlock
             BaseFunction.ExcuteCompleted += new ExcuteCompletedEventHandler(DisplayExcuteResult);
             DataInteractionClass.getInstance().ClearGraphic += new EventHandler(ClearGraphic);
             BaseFunction.ItemDelete += new ItemDeleteEventHandler(DeleteItems);
+            UserLoginParamManager.Instance.UserChange += new EventHandler(this.UserChange_Event);
+            this.drawObject.GrayValueInfo += new GrayValueInfoEventHandler(hWindowControl1_MouseMove);
             /////////////////////////////////////////////////////////////////////
             this._viewConfigParam = this._viewConfigParam == null ? new ViewConfigParam() : this._viewConfigParam;
             this.Location = this._viewConfigParam.Location;
@@ -165,6 +167,46 @@ namespace FunctionBlock
             MastPanel.SetColumnSpan(form, colSpan);
             form.Show();
         }
+        public void UserChange_Event(object sender, EventArgs e)
+        {
+            try
+            {
+                UserLoginParam loginParam = sender as UserLoginParam;
+                switch (loginParam.User)
+                {
+                    case enUserName.操作员:
+                        if (this._viewConfigParam != null)
+                            this.buttonClose.Enabled = false;
+                        else
+                            this.buttonClose.Enabled = true;
+                        ////////////////////////////////////////////////////
+                        this.buttonMax.Hide();
+                        this.buttonMin.Hide();
+                        this.buttonClose.Hide();
+                        this.tableLayoutPanel1.SetColumnSpan(this.titleLabel, 4);
+                        break;
+                    case enUserName.工程师:
+                        this.buttonClose.Enabled = true;
+                        ////////////////////////////////////////////////////
+                        this.buttonMax.Hide();
+                        this.buttonMin.Hide();
+                        this.buttonClose.Hide();
+                        this.tableLayoutPanel1.SetColumnSpan(this.titleLabel, 4);
+                        break;
+                    case enUserName.开发人员:
+                        this.buttonClose.Enabled = true;
+                        ////////////////////////////////////////////////////
+                        this.buttonMax.Show();
+                        this.buttonMin.Show();
+                        this.buttonClose.Show();
+                        this.tableLayoutPanel1.SetColumnSpan(this.titleLabel, 1);
+                        break;
+                }
+            }
+            catch
+            {
+            }
+        }
 
         /// <summary>
         /// 删除程序条目 
@@ -188,16 +230,25 @@ namespace FunctionBlock
         }
         private bool IsSelect()
         {
-            bool result = false;
+            bool result = true;
             Control container = this.Parent;
             if (container == null) return result;
             switch (container.GetType().Name)
             {
                 case nameof(TabPage):
-                    TabControl tabControl = ((TabPage)container).Parent as TabControl;
-                    if (tabControl.SelectedTab != ((TabPage)container)) return result;
-                    else
-                        result = true;
+                    if (!SystemParamManager.Instance.SysConfigParam.DisablePageSwitch)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            TabControl tabControl = ((TabPage)container).Parent as TabControl;
+                            if (SystemParamManager.Instance.SysConfigParam.IsAutoRun)        // 自动运行状态下才自动切换
+                            {
+                                if (tabControl.SelectedTab != ((TabPage)container))
+                                    tabControl.SelectedTab = ((TabPage)container);
+                                result = true;
+                            }
+                        }));
+                    }
                     break;
             }
             return result;
@@ -212,7 +263,8 @@ namespace FunctionBlock
         {
             try
             {
-                if (!IsSelect()) return;
+                return;
+                //if (!IsSelect()) return;
                 if (e.Node.Tag == null) return;
                 if (e.Node.Tag is AcqSource) return;
                 if (e.Button == MouseButtons.Right) return;
@@ -398,12 +450,15 @@ namespace FunctionBlock
                     switch (e.DataContent.GetType().Name) //这里只接受XLD轮廓或3D对象轮廓
                     {
                         case nameof(HObjectModel3D):
+                            this.drawObject.PointCloudModel3D?.ClearObjectModel3d();
                             this.drawObject.PointCloudModel3D = new PointCloudData((HObjectModel3D)e.DataContent);
                             break;
                         case "HObjectModel3D[]":
+                            this.drawObject.PointCloudModel3D?.ClearObjectModel3d();
                             this.drawObject.PointCloudModel3D = new PointCloudData((HObjectModel3D[])e.DataContent);
                             break;
                         case nameof(PointCloudData):
+                            this.drawObject.PointCloudModel3D?.ClearObjectModel3d();
                             this.drawObject.PointCloudModel3D = ((PointCloudData)e.DataContent);
                             break;
                         case nameof(HXLDCont):
@@ -608,15 +663,15 @@ namespace FunctionBlock
             try
             {
                 this.IsLoad = false;
-                //ViewConfigParamManager.Instance.ViewParamList.Remove(this._viewConfigParam); // 关闭窗体时要删除相应的对象
                 if (this.drawObject != null)
                     this.drawObject.ClearDrawingObject();
                 TreeViewWrapClass.ClickNode -= new ClickNodeEventHandler(this.DisplayClickItem);
-                //DataInteractionClass.getInstance().NodeClick -= new ExcuteCompletedEventHandler(DisplayMeasureResult);
                 BaseFunction.ItemDelete -= new ItemDeleteEventHandler(DeleteItems);
                 BaseFunction.ExcuteCompleted -= new ExcuteCompletedEventHandler(DisplayExcuteResult);
                 this.drawObject.HMouseDoubleClick -= new HMouseEventHandler(this.hWindowControl1_DoubleClick);
                 DataInteractionClass.getInstance().ClearGraphic -= new EventHandler(ClearGraphic);
+                UserLoginParamManager.Instance.UserChange -= new EventHandler(this.UserChange_Event);
+                this.drawObject.GrayValueInfo -= new GrayValueInfoEventHandler(hWindowControl1_MouseMove);
                 //OutputData.JudgeResult -= new ExcuteCompletedEventHandler(DisplayMeasureResult);
             }
             catch
@@ -626,7 +681,6 @@ namespace FunctionBlock
         }
         private void hWindowControl1_DoubleClick(Object sender, HalconDotNet.HMouseEventArgs e)
         {
-            //int a = 10;
             this.buttonMax_Click(null, null);
         }
         private void GraphicViewForm_Move(object sender, EventArgs e)
@@ -646,7 +700,34 @@ namespace FunctionBlock
             ReleaseCapture();
             SendMessage(this.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0);
         }
-
+        private void hWindowControl1_MouseMove(object sender, GrayValueInfoEventArgs e)
+        {
+            try
+            {
+                if (e.GaryValue.Length > 0)
+                    this.灰度值1Label.Text = e.GaryValue[0].ToString();
+                else
+                    this.灰度值1Label.Text = 0.ToString();
+                ///////////////////////////////////////////
+                if (e.GaryValue.Length > 1)
+                    this.灰度值2Label.Text = e.GaryValue[1].ToString();
+                else
+                    this.灰度值2Label.Text = 0.ToString();
+                /////////////////////////////////////////
+                if (e.GaryValue.Length > 2)
+                    this.灰度值3Label.Text = e.GaryValue[2].ToString();
+                else
+                    this.灰度值3Label.Text = 0.ToString();
+                ///////////////////////////////////////////////
+                //this._curRow = e.Row;
+                //this._curCol = e.Col;
+                this.行坐标Label.Text = "Row:" + e.Row.ToString();
+                this.列坐标Label.Text = "Col:" + e.Col.ToString();
+            }
+            catch
+            {
+            }
+        }
 
         #region  窗体移动功能
         private const int WM_SYSCOMMAND = 0x0112;
@@ -674,6 +755,7 @@ namespace FunctionBlock
             {
                 case 0x0084:
                     base.WndProc(ref m);
+                    if (UserLoginParamManager.Instance.CurrentUser == enUserName.操作员) return;
                     Point vPoint = new Point((int)m.LParam & 0xFFFF,
                         (int)m.LParam >> 16 & 0xFFFF);
                     vPoint = PointToClient(vPoint);

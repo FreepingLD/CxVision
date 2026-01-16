@@ -33,7 +33,7 @@ namespace FunctionBlock
             this._function = function;
             InitializeComponent();
             this.Text = function.GetPropertyValues("名称").ToString();
-            this.drawObject = new userDrawCircleMeasure(this.hWindowControl1, ((CircleMeasure)_function).FindCircle.CirclePixPosition, ((CircleMeasure)_function).PixCoordSystem);
+            this.drawObject = new userDrawCircleMeasure(this.hWindowControl1, ((CircleMeasure)_function).FindCircle.CirclePixPosition.AffineTransPixCircle(((CircleMeasure)_function).PixCoordSystem?.GetVariationHomMat2D()), ((CircleMeasure)_function).PixCoordSystem);
             new ListBoxWrapClass().InitListBox(this.listBox1, node);
             new ListBoxWrapClass().InitListBox(this.listBox2, node, 2);
         }

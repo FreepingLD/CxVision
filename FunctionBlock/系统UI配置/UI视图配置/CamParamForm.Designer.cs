@@ -54,10 +54,10 @@
             this.titleLabel.BackColor = System.Drawing.Color.LightGray;
             this.tableLayoutPanel2.SetColumnSpan(this.titleLabel, 5);
             this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.titleLabel.Location = new System.Drawing.Point(2, 2);
-            this.titleLabel.Margin = new System.Windows.Forms.Padding(2);
+            this.titleLabel.Location = new System.Drawing.Point(0, 0);
+            this.titleLabel.Margin = new System.Windows.Forms.Padding(0);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(258, 16);
+            this.titleLabel.Size = new System.Drawing.Size(242, 20);
             this.titleLabel.TabIndex = 22;
             this.titleLabel.Text = "设置相机参数";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -70,10 +70,10 @@
             this.buttonClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonClose.BackgroundImage")));
             this.buttonClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonClose.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonClose.Location = new System.Drawing.Point(312, 0);
+            this.buttonClose.Location = new System.Drawing.Point(292, 0);
             this.buttonClose.Margin = new System.Windows.Forms.Padding(0);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(27, 20);
+            this.buttonClose.Size = new System.Drawing.Size(31, 20);
             this.buttonClose.TabIndex = 0;
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -83,7 +83,7 @@
             this.buttonMax.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonMax.BackgroundImage")));
             this.buttonMax.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonMax.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonMax.Location = new System.Drawing.Point(287, 0);
+            this.buttonMax.Location = new System.Drawing.Point(267, 0);
             this.buttonMax.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMax.Name = "buttonMax";
             this.buttonMax.Size = new System.Drawing.Size(25, 20);
@@ -96,7 +96,7 @@
             this.buttonMin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonMin.BackgroundImage")));
             this.buttonMin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonMin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonMin.Location = new System.Drawing.Point(262, 0);
+            this.buttonMin.Location = new System.Drawing.Point(242, 0);
             this.buttonMin.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMin.Name = "buttonMin";
             this.buttonMin.Size = new System.Drawing.Size(25, 20);
@@ -114,7 +114,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.Controls.Add(this.buttonMax, 6, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonClose, 7, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonMin, 5, 0);
@@ -129,7 +129,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(339, 148);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(323, 132);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // panel1
@@ -148,7 +148,7 @@
             this.panel1.Margin = new System.Windows.Forms.Padding(1);
             this.panel1.Name = "panel1";
             this.tableLayoutPanel2.SetRowSpan(this.panel1, 3);
-            this.panel1.Size = new System.Drawing.Size(337, 126);
+            this.panel1.Size = new System.Drawing.Size(321, 110);
             this.panel1.TabIndex = 25;
             // 
             // trackBar1
@@ -159,7 +159,8 @@
             this.trackBar1.Location = new System.Drawing.Point(44, 62);
             this.trackBar1.Maximum = 1000000;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(270, 25);
+            this.trackBar1.Size = new System.Drawing.Size(254, 25);
+            this.trackBar1.SmallChange = 100;
             this.trackBar1.TabIndex = 116;
             this.trackBar1.TickFrequency = 100;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
@@ -172,7 +173,7 @@
             this.相机comboBox.FormattingEnabled = true;
             this.相机comboBox.Location = new System.Drawing.Point(53, 6);
             this.相机comboBox.Name = "相机comboBox";
-            this.相机comboBox.Size = new System.Drawing.Size(261, 20);
+            this.相机comboBox.Size = new System.Drawing.Size(245, 20);
             this.相机comboBox.TabIndex = 115;
             this.相机comboBox.SelectionChangeCommitted += new System.EventHandler(this.相机comboBox_SelectionChangeCommitted);
             // 
@@ -191,7 +192,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.增益textBox.Location = new System.Drawing.Point(53, 94);
             this.增益textBox.Name = "增益textBox";
-            this.增益textBox.Size = new System.Drawing.Size(261, 22);
+            this.增益textBox.Size = new System.Drawing.Size(245, 22);
             this.增益textBox.TabIndex = 10;
             this.增益textBox.TextChanged += new System.EventHandler(this.增益textBox_TextChanged);
             // 
@@ -208,7 +209,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(318, 41);
+            this.label2.Location = new System.Drawing.Point(302, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(15, 12);
             this.label2.TabIndex = 8;
@@ -220,7 +221,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.曝光值textBox.Location = new System.Drawing.Point(53, 36);
             this.曝光值textBox.Name = "曝光值textBox";
-            this.曝光值textBox.Size = new System.Drawing.Size(261, 22);
+            this.曝光值textBox.Size = new System.Drawing.Size(245, 22);
             this.曝光值textBox.TabIndex = 7;
             this.曝光值textBox.TextChanged += new System.EventHandler(this.曝光值textBox_TextChanged);
             // 
@@ -238,7 +239,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(339, 148);
+            this.ClientSize = new System.Drawing.Size(323, 132);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel2);
             this.ForeColor = System.Drawing.SystemColors.ControlText;

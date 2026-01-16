@@ -38,19 +38,21 @@ namespace Common
 
         public static void LineInterpretationByCount(double[] row, double[] col, int pointNum, out double[] interp_row, out double[] interp_col)
         {
-            if (col != null && col.Length == 1)
-            {
-                interp_col = new double[1] { col[0] };
-                interp_row = new double[1] { row[0] };
-            }
             if (col == null || row == null)
             {
                 interp_col = new double[0];
                 interp_row = new double[0];
+                return;
+            }
+            if (col != null && col.Length == 1)
+            {
+                interp_col = new double[1] { col[0] };
+                interp_row = new double[1] { row[0] };
+                return;
             }
             ////////////////
-            List<double> list_x = new List<double>();
-            List<double> list_y = new List<double>();
+            List<double> list_col = new List<double>();
+            List<double> list_row = new List<double>();
             double sumLength = 0; // 计算轮廓的总长度
             for (int i = 0; i < col.Length - 1; i++)
             {
@@ -59,8 +61,8 @@ namespace Common
             ////// 计算插值 //////////////////
             double step = sumLength / (Math.Abs(pointNum) - 1);
             double phi = 0;
-            list_x.Add(col[0]);
-            list_y.Add(row[0]);
+            list_col.Add(col[0]);
+            list_row.Add(row[0]);
             double start_x = col[0];
             double start_y = row[0];
             sumLength = 0;
@@ -77,46 +79,48 @@ namespace Common
                     }
                     else  // 执行到最后一个点
                     {
-                        list_x.Add(col[i]);
-                        list_y.Add(row[i]);
+                        list_col.Add(col[i]);
+                        list_row.Add(row[i]);
                         break;
                     }
                 }
                 else
                 {
                     phi = Math.Atan2(row[i] - row[i - 1], col[i] - col[i - 1]) * -1;
-                    list_x.Add(col[i] - (sumLength - step) * Math.Cos(phi));
-                    list_y.Add(row[i] - (sumLength - step) * Math.Sin(phi));
-                    start_x = list_x.Last();
-                    start_y = list_y.Last();
+                    list_col.Add(col[i] - (sumLength - step) * Math.Cos(phi));
+                    list_row.Add(row[i] - (sumLength - step) * Math.Sin(phi));
+                    start_x = list_col.Last();
+                    start_y = list_row.Last();
                     sumLength = 0;
                     if (i < col.Length) // 当这个条件不满足时，表示已遍历到了最后一个点
                         i--;
                 }
             }
             /////////////////////////////////////
-            interp_col = list_x.ToArray();
-            interp_row = list_y.ToArray();
+            interp_col = list_col.ToArray();
+            interp_row = list_row.ToArray();
         }
         public static void LineInterpretationByStep(double[] row, double[] col, double step, out double[] interp_row, out double[] interp_col)
         {
-            if (col != null && col.Length == 1)
-            {
-                interp_col = new double[1] { col[0] };
-                interp_row = new double[1] { row[0] };
-            }
             if (col == null || row == null)
             {
                 interp_col = new double[0];
                 interp_row = new double[0];
+                return;
+            }
+            if (col != null && col.Length == 1)
+            {
+                interp_col = new double[1] { col[0] };
+                interp_row = new double[1] { row[0] };
+                return;
             }
             ////////////////
-            List<double> list_x = new List<double>();
-            List<double> list_y = new List<double>();
+            List<double> list_col = new List<double>();
+            List<double> list_row = new List<double>();
             ////// 计算插值 //////////////////
             double phi = 0;
-            list_x.Add(col[0]);
-            list_y.Add(row[0]);
+            list_col.Add(col[0]);
+            list_row.Add(row[0]);
             double start_x = col[0];
             double start_y = row[0];
             double sumLength = 0;
@@ -133,27 +137,195 @@ namespace Common
                     }
                     else  // 执行到最后一个点
                     {
-                        list_x.Add(col[i]);
-                        list_y.Add(row[i]);
+                        list_col.Add(col[i]);
+                        list_row.Add(row[i]);
                         break;
                     }
                 }
                 else
                 {
                     phi = Math.Atan2(row[i] - row[i - 1], col[i] - col[i - 1]) * -1;
-                    list_x.Add(col[i] - (sumLength - Math.Abs(step)) * Math.Cos(phi));
-                    list_y.Add(row[i] - (sumLength - Math.Abs(step)) * Math.Sin(phi));
-                    start_x = list_x.Last();
-                    start_y = list_y.Last();
+                    list_col.Add(col[i] - (sumLength - Math.Abs(step)) * Math.Cos(phi));
+                    list_row.Add(row[i] - (sumLength - Math.Abs(step)) * Math.Sin(phi));
+                    start_x = list_col.Last();
+                    start_y = list_row.Last();
                     sumLength = 0;
                     if (i < col.Length) // 当这个条件不满足时，表示已遍历到了最后一个点
                         i--;
                 }
             }
             /////////////////////////////////////
-            interp_col = list_x.ToArray();
-            interp_row = list_y.ToArray();
+            interp_col = list_col.ToArray();
+            interp_row = list_row.ToArray();
         }
+
+        public static void LineInterpretationByCount(userPixPoint[] pixPoints, int pointNum, out userPixPoint[] interPixPoint)
+        {
+            interPixPoint = new userPixPoint[0];
+            if (pixPoints == null || pixPoints.Length == 0) return;
+            double[] row = new double[pixPoints.Length];
+            double[] col = new double[pixPoints.Length];
+            //////////////////////////////////////////////////////////
+            CameraParam cameraParam = null;
+            string viewName = "";
+            string camName = "";
+            double grab_x = 0, grab_y = 0;
+            for (int i = 0; i < pixPoints.Length; i++)
+            {
+                row[i] = pixPoints[i].Row;
+                col[i] = pixPoints[i].Col;
+                cameraParam = pixPoints[i].CamParams;
+                viewName = pixPoints[i].ViewWindow;
+                camName = pixPoints[i].CamName;
+                grab_x = pixPoints[i].Grab_x;
+                grab_y = pixPoints[i].Grab_y;
+            }
+            if (col != null && col.Length == 1)
+            {
+                interPixPoint = new userPixPoint[1];
+                interPixPoint[0] = new userPixPoint(row[0], col[0], pixPoints[0].CamParams);
+                interPixPoint[0].CamParams = cameraParam;
+                interPixPoint[0].ViewWindow = viewName;
+                interPixPoint[0].CamName = camName;
+            }
+            ////////////////
+            List<double> list_col = new List<double>();
+            List<double> list_row = new List<double>();
+            double sumLength = 0; // 计算轮廓的总长度
+            for (int i = 0; i < col.Length - 1; i++)
+            {
+                sumLength += Math.Sqrt((col[i + 1] - col[i]) * (col[i + 1] - col[i]) + (row[i + 1] - row[i]) * (row[i + 1] - row[i]));
+            }
+            ////// 计算插值 //////////////////
+            double step = sumLength / (Math.Abs(pointNum) - 1);
+            double phi = 0;
+            list_col.Add(col[0]);
+            list_row.Add(row[0]);
+            double start_x = col[0];
+            double start_y = row[0];
+            sumLength = 0;
+            for (int i = 1; i < col.Length; i++)
+            {
+                sumLength += Math.Sqrt((col[i] - start_x) * (col[i] - start_x) + (row[i] - start_y) * (row[i] - start_y));
+                if (sumLength <= step)
+                {
+                    if (i < col.Length - 1)
+                    {
+                        start_x = col[i];
+                        start_y = row[i];
+                        continue;
+                    }
+                    else  // 执行到最后一个点
+                    {
+                        list_col.Add(col[i]);
+                        list_row.Add(row[i]);
+                        break;
+                    }
+                }
+                else
+                {
+                    phi = Math.Atan2(row[i] - row[i - 1], col[i] - col[i - 1]) * -1;
+                    list_col.Add(col[i] - (sumLength - step) * Math.Cos(phi));
+                    list_row.Add(row[i] - (sumLength - step) * Math.Sin(phi));
+                    start_x = list_col.Last();
+                    start_y = list_row.Last();
+                    sumLength = 0;
+                    if (i < col.Length) // 当这个条件不满足时，表示已遍历到了最后一个点
+                        i--;
+                }
+            }
+            /////////////////////////////////////
+            interPixPoint = new userPixPoint[list_row.Count];
+            for (int i = 0; i < list_row.Count; i++)
+            {
+                interPixPoint[i] = new userPixPoint(list_row[0], list_col[0], cameraParam);
+                interPixPoint[i].ViewWindow = viewName;
+                interPixPoint[i].CamName = camName;
+                interPixPoint[i].Grab_x = grab_x;
+                interPixPoint[i].Grab_y = grab_y;
+            }
+        }
+        public static void LineInterpretationByStep(userPixPoint[] pixPoints, double step, out userPixPoint[] interPixPoint)
+        {
+            interPixPoint = new userPixPoint[0];
+            if (pixPoints == null || pixPoints.Length == 0) return;
+            double[] row = new double[pixPoints.Length];
+            double[] col = new double[pixPoints.Length];
+            //////////////////////////////////////////////////////////
+            CameraParam cameraParam = null;
+            string viewName = "";
+            string camName = "";
+            double grab_x = 0, grab_y = 0;
+            for (int i = 0; i < pixPoints.Length; i++)
+            {
+                row[i] = pixPoints[i].Row;
+                col[i] = pixPoints[i].Col;
+                cameraParam = pixPoints[i].CamParams;
+                viewName = pixPoints[i].ViewWindow;
+                camName = pixPoints[i].CamName;
+                grab_x = pixPoints[i].Grab_x;
+                grab_y = pixPoints[i].Grab_y;
+            }
+            if (col != null && col.Length == 1)
+            {
+                interPixPoint = new userPixPoint[1];
+                interPixPoint[0] = new userPixPoint(row[0], col[0], pixPoints[0].CamParams);
+                interPixPoint[0].CamParams = cameraParam;
+                interPixPoint[0].ViewWindow = viewName;
+                interPixPoint[0].CamName = camName;
+            }
+            ////////////////
+            List<double> list_col = new List<double>();
+            List<double> list_row = new List<double>();
+            ////// 计算插值 //////////////////
+            double phi = 0;
+            list_col.Add(col[0]);
+            list_row.Add(row[0]);
+            double start_x = col[0];
+            double start_y = row[0];
+            double sumLength = 0;
+            for (int i = 1; i < col.Length; i++)
+            {
+                sumLength += Math.Sqrt((col[i] - start_x) * (col[i] - start_x) + (row[i] - start_y) * (row[i] - start_y));
+                if (sumLength <= Math.Abs(step))
+                {
+                    if (i < col.Length - 1)
+                    {
+                        start_x = col[i];
+                        start_y = row[i];
+                        continue;
+                    }
+                    else  // 执行到最后一个点
+                    {
+                        list_col.Add(col[i]);
+                        list_row.Add(row[i]);
+                        break;
+                    }
+                }
+                else
+                {
+                    phi = Math.Atan2(row[i] - row[i - 1], col[i] - col[i - 1]) * -1;
+                    list_col.Add(col[i] - (sumLength - Math.Abs(step)) * Math.Cos(phi));
+                    list_row.Add(row[i] - (sumLength - Math.Abs(step)) * Math.Sin(phi));
+                    start_x = list_col.Last();
+                    start_y = list_row.Last();
+                    sumLength = 0;
+                    if (i < col.Length) // 当这个条件不满足时，表示已遍历到了最后一个点
+                        i--;
+                }
+            }
+            /////////////////////////////////////
+            interPixPoint = new userPixPoint[list_row.Count];
+            for (int i = 0; i < list_row.Count; i++)
+            {
+                interPixPoint[i] = new userPixPoint(list_row[0], list_col[0], cameraParam);
+                interPixPoint[i].ViewWindow = viewName;
+                interPixPoint[i].CamName = camName;
+                interPixPoint[i].Grab_x = grab_x;
+                interPixPoint[i].Grab_y = grab_y;
+            }
+        }
+
     }
 
     [Serializable]
@@ -2725,7 +2897,25 @@ namespace Common
         public enColor Color { get; set; }
         public object Tag { get; set; }
         public string ViewWindow { get; set; }
-        public string CamName { get; set; }
+
+
+        private string _camName;
+        public string CamName
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(this._camName))
+                    return this.CamParams?.SensorName;
+                else
+                    return this._camName;
+            }
+            set
+            {
+                this._camName = value;
+            }
+        }
+
+
         public virtual WcsData AffineWcsROI(HTuple homMat2D)
         {
             throw new NotImplementedException();
@@ -2791,15 +2981,17 @@ namespace Common
         }
         public void LineInterpretationByCount(double[] x, double[] y, int pointNum, out double[] interp_x, out double[] interp_y)
         {
-            if (x != null && x.Length == 1)
-            {
-                interp_x = new double[1] { x[0] };
-                interp_y = new double[1] { y[0] };
-            }
             if (x == null || y == null)
             {
                 interp_x = new double[0];
                 interp_y = new double[0];
+                return;
+            }
+            if (x != null && x.Length == 1)
+            {
+                interp_x = new double[1] { x[0] };
+                interp_y = new double[1] { y[0] };
+                return;
             }
             ////////////////
             List<double> list_x = new List<double>();
@@ -2853,15 +3045,17 @@ namespace Common
         }
         public void LineInterpretationByStep(double[] x, double[] y, double step, out double[] interp_x, out double[] interp_y)
         {
-            if (x != null && x.Length == 1)
-            {
-                interp_x = new double[1] { x[0] };
-                interp_y = new double[1] { y[0] };
-            }
             if (x == null || y == null)
             {
                 interp_x = new double[0];
                 interp_y = new double[0];
+                return;
+            }
+            if (x != null && x.Length == 1)
+            {
+                interp_x = new double[1] { x[0] };
+                interp_y = new double[1] { y[0] };
+                return;
             }
             ////////////////
             List<double> list_x = new List<double>();
@@ -2907,6 +3101,333 @@ namespace Common
             interp_x = list_x.ToArray();
             interp_y = list_y.ToArray();
         }
+
+        public void LineInterpretationByCount(userWcsPoint[] wcsPoints, int pointNum, out userWcsPoint[] interWcsPoints)
+        {
+            interWcsPoints = new userWcsPoint[0];
+            if (wcsPoints == null || wcsPoints.Length == 0) return;
+            if (wcsPoints != null && wcsPoints.Length == 1)
+            {
+                interWcsPoints = new userWcsPoint[1];
+                interWcsPoints[0] = wcsPoints[0].Clone();
+                return;
+            }
+            CameraParam cameraParam = null;
+            string viewWindowsName = "";
+            string camName = "";
+            double[] x = new double[wcsPoints.Length];
+            double[] y = new double[wcsPoints.Length];
+            double[] z = new double[wcsPoints.Length];
+            for (int i = 0; i < wcsPoints.Length; i++)
+            {
+                x[i] = wcsPoints[i].X;
+                y[i] = wcsPoints[i].Y;
+                z[i] = wcsPoints[i].Z;
+                cameraParam = wcsPoints[0].CamParams;
+                viewWindowsName = wcsPoints[0].ViewWindow;
+                camName = wcsPoints[0].CamName;
+            }
+            //////////////////////////////////////////
+            List<double> list_x = new List<double>();
+            List<double> list_y = new List<double>();
+            List<double> list_z = new List<double>();
+            double sumLength = 0; // 计算轮廓的总长度
+            for (int i = 0; i < x.Length - 1; i++)
+            {
+                sumLength += Math.Sqrt((x[i + 1] - x[i]) * (x[i + 1] - x[i]) + (y[i + 1] - y[i]) * (y[i + 1] - y[i]));
+            }
+            ////// 计算插值 //////////////////
+            double step = sumLength / (Math.Abs(pointNum) - 1);
+            double phi = 0;
+            list_x.Add(x[0]);
+            list_y.Add(y[0]);
+            list_z.Add(z[0]);
+            double start_x = x[0];
+            double start_y = y[0];
+            sumLength = 0;
+            for (int i = 1; i < x.Length; i++)
+            {
+                sumLength += Math.Sqrt((x[i] - start_x) * (x[i] - start_x) + (y[i] - start_y) * (y[i] - start_y));
+                if (sumLength <= step)
+                {
+                    if (i < x.Length - 1)
+                    {
+                        start_x = x[i];
+                        start_y = y[i];
+                        continue;
+                    }
+                    else  // 执行到最后一个点
+                    {
+                        list_x.Add(x[i]);
+                        list_y.Add(y[i]);
+                        list_z.Add(z[i]);
+                        break;
+                    }
+                }
+                else
+                {
+                    phi = Math.Atan2(y[i] - y[i - 1], x[i] - x[i - 1]);
+                    list_x.Add(x[i] - (sumLength - step) * Math.Cos(phi));
+                    list_y.Add(y[i] - (sumLength - step) * Math.Sin(phi));
+                    list_z.Add(z[i]);
+                    start_x = list_x.Last();
+                    start_y = list_y.Last();
+                    sumLength = 0;
+                    if (i < x.Length) // 当这个条件不满足时，表示已遍历到了最后一个点
+                        i--;
+                }
+            }
+            /////////////////////////////////////
+            interWcsPoints = new userWcsPoint[list_x.Count];
+            for (int i = 0; i < list_x.Count; i++)
+            {
+                interWcsPoints[i] = new userWcsPoint(list_x[i], list_y[i], list_z[i], cameraParam);
+                interWcsPoints[i].ViewWindow = viewWindowsName;
+                interWcsPoints[i].CamName = camName;
+            }
+        }
+        public void LineInterpretationByStep(userWcsPoint[] wcsPoints, double step, out userWcsPoint[] interWcsPoints)
+        {
+            interWcsPoints = new userWcsPoint[0];
+            if (wcsPoints == null || wcsPoints.Length == 0) return;
+            if (wcsPoints != null && wcsPoints.Length == 1)
+            {
+                interWcsPoints = new userWcsPoint[1];
+                interWcsPoints[0] = wcsPoints[0].Clone();
+                return;
+            }
+            CameraParam cameraParam = null;
+            string viewWindowsName = "";
+            string camName = "";
+            double[] x = new double[wcsPoints.Length];
+            double[] y = new double[wcsPoints.Length];
+            double[] z = new double[wcsPoints.Length];
+            for (int i = 0; i < wcsPoints.Length; i++)
+            {
+                x[i] = wcsPoints[i].X;
+                y[i] = wcsPoints[i].Y;
+                z[i] = wcsPoints[i].Z;
+                cameraParam = wcsPoints[0].CamParams;
+                viewWindowsName = wcsPoints[0].ViewWindow;
+                camName = wcsPoints[0].CamName;
+            }
+            ////////////////
+            List<double> list_x = new List<double>();
+            List<double> list_y = new List<double>();
+            List<double> list_z = new List<double>();
+            ////// 计算插值 //////////////////
+            double phi = 0;
+            list_x.Add(x[0]);
+            list_y.Add(y[0]);
+            list_z.Add(z[0]);
+            double start_x = x[0];
+            double start_y = y[0];
+            double sumLength = 0;
+            for (int i = 1; i < x.Length; i++)
+            {
+                sumLength += Math.Sqrt((x[i] - start_x) * (x[i] - start_x) + (y[i] - start_y) * (y[i] - start_y));
+                if (sumLength <= Math.Abs(step))
+                {
+                    if (i < x.Length - 1)
+                    {
+                        start_x = x[i];
+                        start_y = y[i];
+                        continue;
+                    }
+                    else  // 执行到最后一个点
+                    {
+                        list_x.Add(x[i]);
+                        list_y.Add(y[i]);
+                        list_z.Add(z[i]);
+                        break;
+                    }
+                }
+                else
+                {
+                    phi = Math.Atan2(y[i] - y[i - 1], x[i] - x[i - 1]);
+                    list_x.Add(x[i] - (sumLength - Math.Abs(step)) * Math.Cos(phi));
+                    list_y.Add(y[i] - (sumLength - Math.Abs(step)) * Math.Sin(phi));
+                    list_z.Add(z[i]);
+                    start_x = list_x.Last();
+                    start_y = list_y.Last();
+                    sumLength = 0;
+                    if (i < x.Length) // 当这个条件不满足时，表示已遍历到了最后一个点
+                        i--;
+                }
+            }
+            /////////////////////////////////////
+            interWcsPoints = new userWcsPoint[list_x.Count];
+            for (int i = 0; i < list_x.Count; i++)
+            {
+                interWcsPoints[i] = new userWcsPoint(list_x[i], list_y[i], list_z[i], cameraParam);
+                interWcsPoints[i].ViewWindow = viewWindowsName;
+                interWcsPoints[i].CamName = camName;
+            }
+        }
+
+        public void LineInterpretationByCount(userWcsVector[] wcsPoints, int pointNum, out userWcsVector[] interWcsPoints)
+        {
+            interWcsPoints = new userWcsVector[0];
+            if (wcsPoints == null || wcsPoints.Length == 0) return;
+            if (wcsPoints != null && wcsPoints.Length == 1)
+            {
+                interWcsPoints = new userWcsVector[1];
+                interWcsPoints[0] = wcsPoints[0].Clone();
+                return;
+            }
+            CameraParam cameraParam = null;
+            string viewWindowsName = "";
+            string camName = "";
+            double[] x = new double[wcsPoints.Length];
+            double[] y = new double[wcsPoints.Length];
+            double[] z = new double[wcsPoints.Length];
+            for (int i = 0; i < wcsPoints.Length; i++)
+            {
+                x[i] = wcsPoints[i].X;
+                y[i] = wcsPoints[i].Y;
+                z[i] = wcsPoints[i].Z;
+                cameraParam = wcsPoints[0].CamParams;
+                viewWindowsName = wcsPoints[0].ViewWindow;
+                camName = wcsPoints[0].CamName;
+            }
+            //////////////////////////////////////////
+            List<double> list_x = new List<double>();
+            List<double> list_y = new List<double>();
+            List<double> list_z = new List<double>();
+            double sumLength = 0; // 计算轮廓的总长度
+            for (int i = 0; i < x.Length - 1; i++)
+            {
+                sumLength += Math.Sqrt((x[i + 1] - x[i]) * (x[i + 1] - x[i]) + (y[i + 1] - y[i]) * (y[i + 1] - y[i]));
+            }
+            ////// 计算插值 //////////////////
+            double step = sumLength / (Math.Abs(pointNum) - 1);
+            double phi = 0;
+            list_x.Add(x[0]);
+            list_y.Add(y[0]);
+            list_z.Add(z[0]);
+            double start_x = x[0];
+            double start_y = y[0];
+            sumLength = 0;
+            for (int i = 1; i < x.Length; i++)
+            {
+                sumLength += Math.Sqrt((x[i] - start_x) * (x[i] - start_x) + (y[i] - start_y) * (y[i] - start_y));
+                if (sumLength <= step)
+                {
+                    if (i < x.Length - 1)
+                    {
+                        start_x = x[i];
+                        start_y = y[i];
+                        continue;
+                    }
+                    else  // 执行到最后一个点
+                    {
+                        list_x.Add(x[i]);
+                        list_y.Add(y[i]);
+                        list_z.Add(z[i]);
+                        break;
+                    }
+                }
+                else
+                {
+                    phi = Math.Atan2(y[i] - y[i - 1], x[i] - x[i - 1]);
+                    list_x.Add(x[i] - (sumLength - step) * Math.Cos(phi));
+                    list_y.Add(y[i] - (sumLength - step) * Math.Sin(phi));
+                    list_z.Add(z[i]);
+                    start_x = list_x.Last();
+                    start_y = list_y.Last();
+                    sumLength = 0;
+                    if (i < x.Length) // 当这个条件不满足时，表示已遍历到了最后一个点
+                        i--;
+                }
+            }
+            /////////////////////////////////////
+            interWcsPoints = new userWcsVector[list_x.Count];
+            for (int i = 0; i < list_x.Count; i++)
+            {
+                interWcsPoints[i] = new userWcsVector(list_x[i], list_y[i], list_z[i], 0, cameraParam);
+                interWcsPoints[i].ViewWindow = viewWindowsName;
+                interWcsPoints[i].CamName = camName;
+            }
+        }
+        public void LineInterpretationByStep(userWcsVector[] wcsPoints, double step, out userWcsVector[] interWcsPoints)
+        {
+            interWcsPoints = new userWcsVector[0];
+            if (wcsPoints == null || wcsPoints.Length == 0) return;
+            if (wcsPoints != null && wcsPoints.Length == 1)
+            {
+                interWcsPoints = new userWcsVector[1];
+                interWcsPoints[0] = wcsPoints[0].Clone();
+                return;
+            }
+            CameraParam cameraParam = null;
+            string viewWindowsName = "";
+            string camName = "";
+            double[] x = new double[wcsPoints.Length];
+            double[] y = new double[wcsPoints.Length];
+            double[] z = new double[wcsPoints.Length];
+            for (int i = 0; i < wcsPoints.Length; i++)
+            {
+                x[i] = wcsPoints[i].X;
+                y[i] = wcsPoints[i].Y;
+                z[i] = wcsPoints[i].Z;
+                cameraParam = wcsPoints[0].CamParams;
+                viewWindowsName = wcsPoints[0].ViewWindow;
+                camName = wcsPoints[0].CamName;
+            }
+            ////////////////
+            List<double> list_x = new List<double>();
+            List<double> list_y = new List<double>();
+            List<double> list_z = new List<double>();
+            ////// 计算插值 //////////////////
+            double phi = 0;
+            list_x.Add(x[0]);
+            list_y.Add(y[0]);
+            list_z.Add(z[0]);
+            double start_x = x[0];
+            double start_y = y[0];
+            double sumLength = 0;
+            for (int i = 1; i < x.Length; i++)
+            {
+                sumLength += Math.Sqrt((x[i] - start_x) * (x[i] - start_x) + (y[i] - start_y) * (y[i] - start_y));
+                if (sumLength <= Math.Abs(step))
+                {
+                    if (i < x.Length - 1)
+                    {
+                        start_x = x[i];
+                        start_y = y[i];
+                        continue;
+                    }
+                    else  // 执行到最后一个点
+                    {
+                        list_x.Add(x[i]);
+                        list_y.Add(y[i]);
+                        list_z.Add(z[i]);
+                        break;
+                    }
+                }
+                else
+                {
+                    phi = Math.Atan2(y[i] - y[i - 1], x[i] - x[i - 1]);
+                    list_x.Add(x[i] - (sumLength - Math.Abs(step)) * Math.Cos(phi));
+                    list_y.Add(y[i] - (sumLength - Math.Abs(step)) * Math.Sin(phi));
+                    list_z.Add(z[i]);
+                    start_x = list_x.Last();
+                    start_y = list_y.Last();
+                    sumLength = 0;
+                    if (i < x.Length) // 当这个条件不满足时，表示已遍历到了最后一个点
+                        i--;
+                }
+            }
+            /////////////////////////////////////
+            interWcsPoints = new userWcsVector[list_x.Count];
+            for (int i = 0; i < list_x.Count; i++)
+            {
+                interWcsPoints[i] = new userWcsVector(list_x[i], list_y[i], list_z[i], 0, cameraParam);
+                interWcsPoints[i].ViewWindow = viewWindowsName;
+                interWcsPoints[i].CamName = camName;
+            }
+        }
+
 
     }
     [Serializable]
@@ -3493,7 +4014,7 @@ namespace Common
                 wcsPoint[i].Grab_theta = this.Grab_theta;
                 wcsPoint[i].Grab_u = this.Grab_u;
                 wcsPoint[i].Grab_v = this.Grab_v;
-            ////////////////////////////////////////////////
+                ////////////////////////////////////////////////
                 wcsPoint[i].Tag = this.Tag;
                 wcsPoint[i].ViewWindow = this.ViewWindow;
                 wcsPoint[i].CamName = this.CamName;
@@ -5202,7 +5723,7 @@ namespace Common
         public userWcsPoint GetWcsCamPoint()
         {
             double cam_x, cam_y, cam_z;
-            userWcsPoint wcsPoint =  this.GetPixPoint().GetWcsPoint(0, 0, 0);
+            userWcsPoint wcsPoint = this.GetPixPoint().GetWcsPoint(0, 0, 0);
             //this.CamParams.TransWcsPointToCamPoint(this.X, this.Y, this.Grab_x, this.Grab_y, this.Grab_z, out cam_x, out cam_y, out cam_z);
             //userWcsPoint wcsPoint = new userWcsPoint(cam_x, cam_y, cam_z, this.CamParams);
             //wcsPoint.CamName = this.CamName;
@@ -5219,27 +5740,9 @@ namespace Common
         public override string ToString()
         {
             return $"userWcsPoint:{this.Grab_x},{this.Grab_y},{this.X},{this.Y},{this.Z},{this.Theta}";
-            //return $"userWcsPoint:{this.Grab_x},{this.Grab_y},{this.X},{this.Y},{this.Z},{this.Theta}";
-            //return string.Format(",", "userWcsPoint", this.X, this.Y, this.Z, this.Theta);
-            //return string.Format("userWcsPoint: x={0},y={1},z={2},theta={3}", this.X, this.Y, this.Z, this.Theta);
         }
         public userWcsPoint Clone()
         {
-            //userWcsPoint wcsPoint = new userWcsPoint();
-            //wcsPoint.X = this.X;
-            //wcsPoint.Y = this.Y;
-            //wcsPoint.Z = this.Z;
-            //wcsPoint.U = this.U;
-            //wcsPoint.V = this.V;
-            //wcsPoint.Theta = this.Theta;
-            //wcsPoint.Grab_x = this.Grab_x;
-            //wcsPoint.Grab_y = this.Grab_y;
-            //wcsPoint.Grab_theta = this.Grab_theta;
-            //wcsPoint.EdgesPoint_xyz = this.EdgesPoint_xyz;
-            //wcsPoint.DiffRadius = this.DiffRadius;
-            //wcsPoint.Color = this.Color;
-            //wcsPoint.CamParams = this.CamParams;
-            //return wcsPoint;
             userWcsPoint wcsPoint = new userWcsPoint();
             using (MemoryStream ms = new MemoryStream())
             {
@@ -7164,19 +7667,34 @@ namespace Common
 
         public HObjectModel3D GetHObjectModel3D()
         {
-            if (this.X.Count == 0) return null;
-            double[] x = new double[this.X.Count];
-            double[] y = new double[this.X.Count];
-            double[] z = new double[this.X.Count];
-            for (int i = 0; i < this.X.Count; i++)
-            {
-                x[i] = this.X[i];
-                y[i] = this.Y[i];
-                z[i] = this.Z[i];
-            }
-            return new HObjectModel3D(x, y, z);
+            if (this.X.Count == 0) return new HObjectModel3D();
+            //double[] x = new double[this.X.Count];
+            //double[] y = new double[this.X.Count];
+            //double[] z = new double[this.X.Count];
+            //for (int i = 0; i < this.X.Count; i++)
+            //{
+            //    x[i] = this.X[i];
+            //    y[i] = this.Y[i];
+            //    z[i] = this.Z[i];
+            //}
+            return new HObjectModel3D(this.X.ToArray(), this.Y.ToArray(), this.Z.ToArray());
 
         }
+        //public PointCloudData GetHObjectModel3D()
+        //{
+        //    if (this.X.Count == 0) return null;
+        //    double[] x = new double[this.X.Count];
+        //    double[] y = new double[this.X.Count];
+        //    double[] z = new double[this.X.Count];
+        //    for (int i = 0; i < this.X.Count; i++)
+        //    {
+        //        x[i] = this.X[i];
+        //        y[i] = this.Y[i];
+        //        z[i] = this.Z[i];
+        //    }
+        //    return new PointCloudData(new HObjectModel3D(x, y, z));
+
+        //}
         public int Count()
         {
             return this.X.Count;

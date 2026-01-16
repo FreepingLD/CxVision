@@ -672,6 +672,22 @@ namespace FunctionBlock
             return result;
         }
 
+        public bool FitPolygon(userWcsPoint[] points, out userWcsPolygon wcsPolygon)
+        {
+            bool result = false;
+            wcsPolygon = new userWcsPolygon();
+            if (points == null)
+                throw new ArgumentNullException(nameof(points));
+            foreach (var item in points)
+            {
+                wcsPolygon.Add(item.X, item.Y, item.Z);
+                wcsPolygon.CamParams = item.CamParams;
+                wcsPolygon.CamName = item.CamName;
+                wcsPolygon.ViewWindow = item.ViewWindow;
+            }
+            result = true;
+            return result;
+        }
         /// <summary>
         /// 排序非直线的轮廓点
         /// </summary>

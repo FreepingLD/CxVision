@@ -76,9 +76,9 @@
     <Reference Include="hdevenginedotnetxl">
       <HintPath>..\bin\x64\Debug\hdevenginedotnetxl.dll</HintPath>
     </Reference>
-    <Reference Include="HslCommunication, Version=11.6.2.0, Culture=neutral, PublicKeyToken=3d72ad3b6b5ec0e3, processorArchitecture=MSIL">
+    <Reference Include="HslCommunication, Version=12.6.0.0, Culture=neutral, PublicKeyToken=3d72ad3b6b5ec0e3, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\安裝+備份\HslCommunicationDemo\HslCommunication.dll</HintPath>
+      <HintPath>..\bin\x64\Debug\HslCommunication.dll</HintPath>
     </Reference>
     <Reference Include="MVSDK">
       <HintPath>..\bin\x64\Debug\MVSDK.dll</HintPath>
@@ -318,6 +318,13 @@
     </Compile>
     <Compile Include="2D算法工具\2D几何拟合\拟合圆弧\FitCircleSectorForm.Designer.cs">
       <DependentUpon>FitCircleSectorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2D算法工具\2D几何拟合\拟合多边形\FitPolygon.cs" />
+    <Compile Include="2D算法工具\2D几何拟合\拟合多边形\FitPolygonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\2D几何拟合\拟合多边形\FitPolygonForm.Designer.cs">
+      <DependentUpon>FitPolygonForm.cs</DependentUpon>
     </Compile>
     <Compile Include="2D算法工具\2D几何拟合\拟合椭圆\FitEllipseForm.cs">
       <SubType>Form</SubType>
@@ -633,6 +640,12 @@
     </Compile>
     <Compile Include="坐标系\坐标系-线线\CoordSystemLineLineAppForm.Designer.cs">
       <DependentUpon>CoordSystemLineLineAppForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="对位功能\对位计算\分区补偿\AlignParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="对位功能\对位计算\分区补偿\AlignParamForm.Designer.cs">
+      <DependentUpon>AlignParamForm.cs</DependentUpon>
     </Compile>
     <Compile Include="工具\ToolFormOld.cs">
       <SubType>Form</SubType>
@@ -1834,10 +1847,36 @@
     <Compile Include="系统UI配置\API复判系统\ApiForm.designer.cs">
       <DependentUpon>ApiForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="系统UI配置\UI视图配置\ParamConfigForm.cs">
+    <Compile Include="系统UI配置\UI视图配置\DisplayPositionFormOld.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="系统UI配置\UI视图配置\ParamConfigForm.designer.cs">
+    <Compile Include="系统UI配置\UI视图配置\DisplayPositionFormOld.designer.cs">
+      <DependentUpon>DisplayPositionFormOld.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\工程配置\ProjectManagerFormNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\工程配置\ProjectManagerFormNew.Designer.cs">
+      <DependentUpon>ProjectManagerFormNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\用户配置\LoginFormNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\用户配置\LoginFormNew.Designer.cs">
+      <DependentUpon>LoginFormNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\用户配置\PermissionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统UI配置\用户配置\PermissionForm.Designer.cs">
+      <DependentUpon>PermissionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统UI配置\用户配置\UserManager.cs" />
+    <Compile Include="系统UI配置\用户配置\PermissionParam.cs" />
+    <Compile Include="系统配置\ParamConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统配置\ParamConfigForm.designer.cs">
       <DependentUpon>ParamConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="系统UI配置\UI视图配置\ProgramForm.cs">
@@ -1963,11 +2002,11 @@
     <Compile Include="系统UI配置\工程配置\ConnectManagerForm.Designer.cs">
       <DependentUpon>ConnectManagerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="系统UI配置\工程配置\ProjectManagerFormNew.cs">
+    <Compile Include="系统UI配置\工程配置\ProjectManagerFormNewOld2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="系统UI配置\工程配置\ProjectManagerFormNew.Designer.cs">
-      <DependentUpon>ProjectManagerFormNew.cs</DependentUpon>
+    <Compile Include="系统UI配置\工程配置\ProjectManagerFormNewOld2.Designer.cs">
+      <DependentUpon>ProjectManagerFormNewOld2.cs</DependentUpon>
     </Compile>
     <Compile Include="系统UI配置\工程配置\ProjectManagerForm.cs">
       <SubType>Form</SubType>
@@ -4556,6 +4595,9 @@
     <EmbeddedResource Include="2D算法工具\2D几何拟合\拟合圆弧\FitCircleSectorForm.resx">
       <DependentUpon>FitCircleSectorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\2D几何拟合\拟合多边形\FitPolygonForm.resx">
+      <DependentUpon>FitPolygonForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="2D算法工具\2D几何拟合\拟合椭圆\FitEllipseForm.resx">
       <DependentUpon>FitEllipseForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -4693,6 +4735,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="坐标系\坐标系-线线\CoordSystemLineLineAppForm.resx">
       <DependentUpon>CoordSystemLineLineAppForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="对位功能\对位计算\分区补偿\AlignParamForm.resx">
+      <DependentUpon>AlignParamForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="工具\ToolFormOld.en-US.resx">
       <DependentUpon>ToolFormOld.cs</DependentUpon>
@@ -5228,7 +5273,19 @@
     <EmbeddedResource Include="系统UI配置\API复判系统\ApiForm.resx">
       <DependentUpon>ApiForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="系统UI配置\UI视图配置\ParamConfigForm.resx">
+    <EmbeddedResource Include="系统UI配置\UI视图配置\DisplayPositionFormOld.resx">
+      <DependentUpon>DisplayPositionFormOld.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\工程配置\ProjectManagerFormNew.resx">
+      <DependentUpon>ProjectManagerFormNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\用户配置\LoginFormNew.resx">
+      <DependentUpon>LoginFormNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统UI配置\用户配置\PermissionForm.resx">
+      <DependentUpon>PermissionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统配置\ParamConfigForm.resx">
       <DependentUpon>ParamConfigForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="系统UI配置\UI视图配置\ProgramForm.resx">
@@ -5291,8 +5348,8 @@
     <EmbeddedResource Include="系统UI配置\工程配置\ConnectManagerForm.resx">
       <DependentUpon>ConnectManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="系统UI配置\工程配置\ProjectManagerFormNew.resx">
-      <DependentUpon>ProjectManagerFormNew.cs</DependentUpon>
+    <EmbeddedResource Include="系统UI配置\工程配置\ProjectManagerFormNewOld2.resx">
+      <DependentUpon>ProjectManagerFormNewOld2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="系统UI配置\工程配置\ProjectManagerForm.resx">
       <DependentUpon>ProjectManagerForm.cs</DependentUpon>

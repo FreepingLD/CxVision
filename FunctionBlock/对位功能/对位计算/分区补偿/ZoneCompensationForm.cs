@@ -42,6 +42,9 @@ namespace FunctionBlock
         {
             if (this._compensaData != null)
             {
+                this.坐标系comboBox.DataSource = Enum.GetValues(typeof(enCoordSysName));
+                this.坐标系comboBox.DataBindings.Add("Text", this._compensaData, nameof(this._compensaData.CoordSysName), true, DataSourceUpdateMode.OnPropertyChanged);
+                ////////////////////////////////////////
                 this.补偿X1_textBox.DataBindings.Add("Text", this._compensaData, nameof(this._compensaData.X1), true, DataSourceUpdateMode.OnPropertyChanged);
                 this.补偿Y1_textBox.DataBindings.Add("Text", this._compensaData, nameof(this._compensaData.Y1), true, DataSourceUpdateMode.OnPropertyChanged);
                 this.补偿Theta1_textBox.DataBindings.Add("Text", this._compensaData, nameof(this._compensaData.Angle1), true, DataSourceUpdateMode.OnPropertyChanged);
@@ -74,9 +77,9 @@ namespace FunctionBlock
                 this.补偿Y8_textBox.DataBindings.Add("Text", this._compensaData, nameof(this._compensaData.Y8), true, DataSourceUpdateMode.OnPropertyChanged);
                 this.补偿Theta8_textBox.DataBindings.Add("Text", this._compensaData, nameof(this._compensaData.Angle8), true, DataSourceUpdateMode.OnPropertyChanged);
                 ////////////////////////////////////////////////////////////////////////////////////////////////
-                this.启用自动补偿CheckBox.DataBindings.Add(nameof(this.启用自动补偿CheckBox.Checked), this._compensaData, nameof(this._compensaData.IsAuto), true, DataSourceUpdateMode.OnPropertyChanged);
-                this.取反补偿CheckBox.DataBindings.Add(nameof(this.取反补偿CheckBox.Checked), this._compensaData, nameof(this._compensaData.IsInvert), true, DataSourceUpdateMode.OnPropertyChanged);
-                this.补偿阈值textBox.DataBindings.Add("Text", this._compensaData, nameof(this._compensaData.Threshold), true, DataSourceUpdateMode.OnPropertyChanged);
+                //this.启用自动补偿CheckBox.DataBindings.Add(nameof(this.启用自动补偿CheckBox.Checked), this._compensaData, nameof(this._compensaData.IsAuto), true, DataSourceUpdateMode.OnPropertyChanged);
+                //this.取反补偿CheckBox.DataBindings.Add(nameof(this.取反补偿CheckBox.Checked), this._compensaData, nameof(this._compensaData.IsInvert), true, DataSourceUpdateMode.OnPropertyChanged);
+                //this.补偿阈值textBox.DataBindings.Add("Text", this._compensaData, nameof(this._compensaData.Threshold), true, DataSourceUpdateMode.OnPropertyChanged);
             }
             else
                 new UserMessageForm().ShowDialog("ZoneCompensationParam：对象为空");
@@ -91,7 +94,6 @@ namespace FunctionBlock
             try
             {
                 this.IsLoad = false;
-                //ViewConfigParamManager.Instance.ViewParamList.Remove(this._viewConfigParam); // 关闭窗体时要删除相应的对象
             }
             catch
             {
@@ -230,24 +232,6 @@ namespace FunctionBlock
         {
             this.Cursor = Cursors.Default;
             this.titleLabel.BackColor = System.Drawing.Color.LightGray;
-        }
-
-
-        private void 数据写入dataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
-        {
-            e.ThrowException = false;
-        }
-
-        private void 补偿记录Btn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // new CompensationDataForm(this._compensaData).Show();
-            }
-            catch (Exception ex)
-            {
-               new Common.UserMessageForm(ex.ToString()).ShowDialog();;
-            }
         }
 
         private void 补偿XtextBox_KeyUp(object sender, KeyEventArgs e)
@@ -413,16 +397,16 @@ namespace FunctionBlock
 
         private void 启用自动补偿CheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.启用自动补偿CheckBox.Checked)
-            {
-                this.取反补偿CheckBox.Enabled = true;
-                this.补偿阈值textBox.Enabled = true;
-            }
-            else
-            {
-                this.取反补偿CheckBox.Enabled = false;
-                this.补偿阈值textBox.Enabled = false;
-            }
+            //if (this.启用自动补偿CheckBox.Checked)
+            //{
+            //    this.取反补偿CheckBox.Enabled = true;
+            //    this.补偿阈值textBox.Enabled = true;
+            //}
+            //else
+            //{
+            //    this.取反补偿CheckBox.Enabled = false;
+            //    this.补偿阈值textBox.Enabled = false;
+            //}
         }
 
 

@@ -166,7 +166,7 @@ namespace MotionControlCard
                 ///////////////////////////////////
                 case enDataTypes.String:
                 case enDataTypes.StringArray:
-                    value = this._readWriteNet?.ReadString(address, (ushort)(length),this.Encode).Content;
+                    value = this._readWriteNet?.ReadString(address, (ushort)(length), this.Encode).Content;
                     if (value != null)
                         value = value.ToString().Replace("\0", "").Replace("\\0", "");
                     break;
@@ -255,15 +255,15 @@ namespace MotionControlCard
                 ///////////////////////////////////
                 case enDataTypes.String:
                 case enDataTypes.StringArray:
-                    string[] valueTemp = new string[length];
-                    for (int i = 0; i < length; i++)
+                    string[] valueTemp = new string[length * 2];
+                    for (int i = 0; i < length * 2; i++)
                     {
                         valueTemp[i] = "\0";
                     }
                     // 先清空地址,再写入
                     string con = string.Join("", valueTemp);
-                    this._readWriteNet?.Write(address, con, length, this.Encode);
-                    content = this._readWriteNet?.Write(address, value?.ToString().Trim(),this.Encode);
+                    this._readWriteNet?.Write(address, con, con.Length, this.Encode);
+                    content = this._readWriteNet?.Write(address, value?.ToString().Trim(), this.Encode);
                     break;
                 ///////////////////////////////////
                 default:
@@ -374,7 +374,7 @@ namespace MotionControlCard
             position = 0;
             CoordAxisConfigParam coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, axisName);
             if (coordSysParam == null) return;
-            double pos = Convert.ToDouble(this.ReadValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), coordSysParam.DataLength));
+            double pos = Convert.ToDouble(this.ReadValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), coordSysParam.DataLength));
             if (coordSysParam.InvertAxisFeedBack)
                 position = pos * coordSysParam.PulseEquiv * -1;
             else
@@ -396,7 +396,7 @@ namespace MotionControlCard
                         targetPose_x = (axisPosition.X / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_x = axisPosition.X / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_x);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_x);
                     break;
                 case enAxisName.Y轴:
                 case enAxisName.Compensation_Y轴:
@@ -407,7 +407,7 @@ namespace MotionControlCard
                         targetPose_y = (axisPosition.Y / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_y = axisPosition.Y / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_y);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_y);
                     break;
                 case enAxisName.Z轴:
                 case enAxisName.Compensation_Z轴:
@@ -418,7 +418,7 @@ namespace MotionControlCard
                         targetPose_z = (axisPosition.Z / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_z = axisPosition.Z / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_z);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_z);
                     break;
                 case enAxisName.Theta轴:
                 case enAxisName.Compensation_Theta轴:
@@ -429,7 +429,7 @@ namespace MotionControlCard
                         targetPose_theta = (axisPosition.Theta / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_theta = axisPosition.Theta / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_theta);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_theta);
                     break;
                 case enAxisName.U轴:
                 case enAxisName.Compensation_U轴:
@@ -440,7 +440,7 @@ namespace MotionControlCard
                         targetPose_u = (axisPosition.U / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_u = axisPosition.U / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_u);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_u);
                     break;
                 case enAxisName.V轴:
                 case enAxisName.Compensation_V轴:
@@ -451,7 +451,7 @@ namespace MotionControlCard
                         targetPose_v = (axisPosition.V / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_v = axisPosition.V / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_v);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_v);
                     break;
                 case enAxisName.XYZTheta轴:
                     ///////1
@@ -462,7 +462,7 @@ namespace MotionControlCard
                         targetPose_x = (axisPosition.X / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_x = axisPosition.X / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_x);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_x);
                     //////2
                     coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Y轴);
                     if (coordSysParam == null) return;
@@ -471,7 +471,7 @@ namespace MotionControlCard
                         targetPose_y = (axisPosition.Y / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_y = axisPosition.Y / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_y);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_y);
                     ///////////3
                     coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Z轴);
                     if (coordSysParam == null) return;
@@ -480,7 +480,7 @@ namespace MotionControlCard
                         targetPose_z = (axisPosition.Z / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_z = axisPosition.Z / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_z);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_z);
                     //////////4
                     coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Theta轴);
                     if (coordSysParam == null) return;
@@ -489,7 +489,7 @@ namespace MotionControlCard
                         targetPose_theta = (axisPosition.Theta / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_theta = axisPosition.Theta / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_theta);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_theta);
                     break;
                 case enAxisName.Compensation_XYZTheta轴:
                     ///////1
@@ -500,7 +500,7 @@ namespace MotionControlCard
                         targetPose_x = (axisPosition.X / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_x = axisPosition.X / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_x);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_x);
                     //////2
                     coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Compensation_Y轴);
                     if (coordSysParam == null) return;
@@ -509,7 +509,7 @@ namespace MotionControlCard
                         targetPose_y = (axisPosition.Y / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_y = axisPosition.Y / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_y);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_y);
                     ///////////3
                     coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Compensation_Z轴);
                     if (coordSysParam == null) return;
@@ -518,7 +518,7 @@ namespace MotionControlCard
                         targetPose_z = (axisPosition.Z / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_z = axisPosition.Z / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_z);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_z);
                     //////////4
                     coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Compensation_Theta轴);
                     if (coordSysParam == null) return;
@@ -527,7 +527,7 @@ namespace MotionControlCard
                         targetPose_theta = (axisPosition.Theta / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_theta = axisPosition.Theta / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_theta);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_theta);
                     break;
                 default:
                 case enAxisName.XYTheta轴:
@@ -539,7 +539,7 @@ namespace MotionControlCard
                         targetPose_x = (axisPosition.X / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_x = axisPosition.X / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_x);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_x);
                     //////2
                     coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Y轴);
                     if (coordSysParam == null) return;
@@ -548,7 +548,7 @@ namespace MotionControlCard
                         targetPose_y = (axisPosition.Y / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_y = axisPosition.Y / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_y);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_y);
                     ///////////3
                     coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Theta轴);
                     if (coordSysParam == null) return;
@@ -557,7 +557,7 @@ namespace MotionControlCard
                         targetPose_theta = (axisPosition.Theta / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_theta = axisPosition.Theta / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_theta);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_theta);
                     break;
                 case enAxisName.Compensation_XYTheta轴:
                     ////////// 1
@@ -568,7 +568,7 @@ namespace MotionControlCard
                         targetPose_x = (axisPosition.X / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_x = axisPosition.X / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_x);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_x);
                     //////2
                     coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Compensation_Y轴);
                     if (coordSysParam == null) return;
@@ -577,7 +577,7 @@ namespace MotionControlCard
                         targetPose_y = (axisPosition.Y / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_y = axisPosition.Y / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_y);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_y);
                     ///////////3
                     coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Compensation_Theta轴);
                     if (coordSysParam == null) return;
@@ -586,7 +586,7 @@ namespace MotionControlCard
                         targetPose_theta = (axisPosition.Theta / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_theta = axisPosition.Theta / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_theta);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_theta);
                     break;
                 case enAxisName.XYZUVW轴:
                     ///////1
@@ -597,7 +597,7 @@ namespace MotionControlCard
                         targetPose_x = (axisPosition.X / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_x = axisPosition.X / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_x);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_x);
                     //////2
                     coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Y轴);
                     if (coordSysParam == null) return;
@@ -606,7 +606,7 @@ namespace MotionControlCard
                         targetPose_y = (axisPosition.Y / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_y = axisPosition.Y / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_y);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_y);
                     ///////////3
                     coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Z轴);
                     if (coordSysParam == null) return;
@@ -615,7 +615,7 @@ namespace MotionControlCard
                         targetPose_z = (axisPosition.Z / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_z = axisPosition.Z / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_z);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_z);
                     //////////4
                     coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Theta轴);
                     if (coordSysParam == null) return;
@@ -624,7 +624,7 @@ namespace MotionControlCard
                         targetPose_theta = (axisPosition.Theta / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_theta = axisPosition.Theta / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_theta);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_theta);
                     ///////////3
                     coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.U轴);
                     if (coordSysParam == null) return;
@@ -633,7 +633,7 @@ namespace MotionControlCard
                         targetPose_u = (axisPosition.U / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_u = axisPosition.U / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_u);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_u);
                     ///////////3
                     coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.V轴);
                     if (coordSysParam == null) return;
@@ -642,7 +642,7 @@ namespace MotionControlCard
                         targetPose_v = (axisPosition.V / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_v = axisPosition.V / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_v);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_v);
                     break;
                 case enAxisName.Compensation_XYZUVW轴:
                     ///////1
@@ -653,7 +653,7 @@ namespace MotionControlCard
                         targetPose_x = (axisPosition.X / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_x = axisPosition.X / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_x);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_x);
                     //////2
                     coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Compensation_Y轴);
                     if (coordSysParam == null) return;
@@ -662,7 +662,7 @@ namespace MotionControlCard
                         targetPose_y = (axisPosition.Y / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_y = axisPosition.Y / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_y);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_y);
                     ///////////3
                     coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Compensation_Z轴);
                     if (coordSysParam == null) return;
@@ -671,7 +671,7 @@ namespace MotionControlCard
                         targetPose_z = (axisPosition.Z / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_z = axisPosition.Z / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_z);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_z);
                     //////////4
                     coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Compensation_Theta轴);
                     if (coordSysParam == null) return;
@@ -680,7 +680,7 @@ namespace MotionControlCard
                         targetPose_theta = (axisPosition.Theta / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_theta = axisPosition.Theta / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_theta);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_theta);
                     ///////////3
                     coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Compensation_U轴);
                     if (coordSysParam == null) return;
@@ -689,7 +689,7 @@ namespace MotionControlCard
                         targetPose_u = (axisPosition.U / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_u = axisPosition.U / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_u);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_u);
                     ///////////3
                     coordSysParam = CoordSysConfigParamManger.Instance.GetCoordSysConfigParam(CoordSysName, enAxisName.Compensation_V轴);
                     if (coordSysParam == null) return;
@@ -698,7 +698,7 @@ namespace MotionControlCard
                         targetPose_v = (axisPosition.V / coordSysParam.PulseEquiv) * -1;
                     else
                         targetPose_v = axisPosition.V / coordSysParam.PulseEquiv;
-                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_v);
+                    this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose_v);
                     break;
             }
 
@@ -715,7 +715,7 @@ namespace MotionControlCard
                 targetPose = (axisPosition / coordSysParam.PulseEquiv) * -1;
             else
                 targetPose = axisPosition / coordSysParam.PulseEquiv;
-            this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D","") + coordSysParam.AxisAddress.ToString().Trim(), targetPose);
+            this.WriteValue(coordSysParam.DataType, coordSysParam.AdressPrefix.Replace("D", "") + coordSysParam.AxisAddress.ToString().Trim(), targetPose);
         }
 
     }

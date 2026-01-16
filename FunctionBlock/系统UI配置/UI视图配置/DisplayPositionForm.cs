@@ -39,17 +39,30 @@ namespace FunctionBlock
             InitializeComponent();
             this.i_McCard = MotionCardManage.CurrentCard;
         }
-
+        private void DisplayPositionForm_Load(object sender, EventArgs e)
+        {
+            Task.Run(() => GetCurrentPosition());
+            if (this._viewConfigParam != null)
+            {
+                this.Location = this._viewConfigParam.Location;
+                this.Size = this._viewConfigParam.FormSize;
+            }
+            this.IsLoad = true;
+            this.addContextMenu();
+        }
         /// <summary>
         /// 监控机台状态 
         /// </summary>
-        public void GetCurrentPosition(CancellationToken ct)
+        public void GetCurrentPosition()
         {
             try
             {
+                this.cts = new CancellationTokenSource();
                 while (true)
                 {
-                    ct.ThrowIfCancellationRequested();
+                    if (this.cts.IsCancellationRequested) break;
+                    if (MotionCardManage.CurrentCard == null) break;
+                    //ct.ThrowIfCancellationRequested();
                     double[] X_Scale = new double[4];
                     double[] Y_Scale = new double[4];
                     double[] Z_Scale = new double[4];
@@ -57,22 +70,21 @@ namespace FunctionBlock
                     double[] V_Scale = new double[4];
                     double[] W_Scale = new double[4];
                     /////////////////////////
-                    if (MotionCardManage.CurrentCard == null) break;
                     MotionCardManage.CurrentCard.GetAxisPosition(MotionCardManage.CurrentCoordSys, enAxisName.X轴, out X_Scale[0]);
                     MotionCardManage.CurrentCard.GetAxisPosition(MotionCardManage.CurrentCoordSys, enAxisName.Y轴, out Y_Scale[0]);
                     MotionCardManage.CurrentCard.GetAxisPosition(MotionCardManage.CurrentCoordSys, enAxisName.Z轴, out Z_Scale[0]);
                     MotionCardManage.CurrentCard.GetAxisPosition(MotionCardManage.CurrentCoordSys, enAxisName.U轴, out U_Scale[0]);
                     MotionCardManage.CurrentCard.GetAxisPosition(MotionCardManage.CurrentCoordSys, enAxisName.V轴, out V_Scale[0]);
-                    MotionCardManage.CurrentCard.GetAxisPosition(MotionCardManage.CurrentCoordSys, enAxisName.W轴, out W_Scale[0]);
+                    MotionCardManage.CurrentCard.GetAxisPosition(MotionCardManage.CurrentCoordSys, enAxisName.Theta轴, out W_Scale[0]);
                     //  跨线程调用对象
                     this.Invoke(new Action(() =>
                     {
-                        X轴textBox.Text = X_Scale[0].ToString();
-                        Y轴textBox.Text = Y_Scale[0].ToString();
-                        Z轴textBox.Text = Z_Scale[0].ToString();
-                        U轴textBox.Text = U_Scale[0].ToString();
-                        V轴textBox.Text = V_Scale[0].ToString();
-                        W轴textBox.Text = W_Scale[0].ToString();
+                        X轴textBox.Text = Math.Round(X_Scale[0], 5).ToString();
+                        Y轴textBox.Text = Math.Round(Y_Scale[0], 5).ToString();
+                        Z轴textBox.Text = Math.Round(Z_Scale[0], 5).ToString();
+                        U轴textBox.Text = Math.Round(U_Scale[0], 5).ToString();
+                        V轴textBox.Text = Math.Round(V_Scale[0], 5).ToString();
+                        W轴textBox.Text = Math.Round(W_Scale[0], 5).ToString();
                     }));
                     Thread.Sleep(50);
                 }
@@ -83,22 +95,12 @@ namespace FunctionBlock
             }
         }
 
-        private void DisplayPositionForm_Load(object sender, EventArgs e)
-        {
-            cts = new CancellationTokenSource();
-            Task.Run(() => GetCurrentPosition(cts.Token));
-            if(this._viewConfigParam != null)
-            {
-                this.Location = this._viewConfigParam.Location;
-                this.Size = this._viewConfigParam.FormSize;
-            }
-            this.IsLoad = true;
-            //this.addContextMenu();
-        }
+
         // 窗体关闭时处理
         private void MotionControl_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.IsLoad = false;
+            this.cts?.Cancel();
             //UserLoginParamManager.Instance.LoginParam.UserChange -= new EventHandler(this.UserChange_Event);
             UserLoginParamManager.Instance.UserChange -= new EventHandler(this.UserChange_Event);
             //ViewConfigParamManager.Instance.ViewParamList.Remove(this._viewConfigParam); // 关闭窗体时要删除相应的对象
@@ -114,19 +116,28 @@ namespace FunctionBlock
                 switch (loginParam.User)
                 {
                     case enUserName.操作员:
-                        //this.传感器comboBox1.Enabled = false;
-                        //this.程序节点comboBox.Enabled = false;
                         this.buttonClose.Enabled = false;
+                        ////////////////////////////////////////////////////
+                        this.buttonMax.Hide();
+                        this.buttonMin.Hide();
+                        this.buttonClose.Hide();
+                        this.tableLayoutPanel1.SetColumnSpan(this.titleLabel, 4);
                         break;
                     case enUserName.工程师:
-                        //this.传感器comboBox1.Enabled = true;
-                        //this.程序节点comboBox.Enabled = true;
                         this.buttonClose.Enabled = false;
+                        ////////////////////////////////////////////////////
+                        this.buttonMax.Hide();
+                        this.buttonMin.Hide();
+                        this.buttonClose.Hide();
+                        this.tableLayoutPanel1.SetColumnSpan(this.titleLabel, 4);
                         break;
                     case enUserName.开发人员:
-                        //this.传感器comboBox1.Enabled = true;
-                        //this.程序节点comboBox.Enabled = true;
                         this.buttonClose.Enabled = true;
+                        ////////////////////////////////////////////////////
+                        this.buttonMax.Show();
+                        this.buttonMin.Show();
+                        this.buttonClose.Show();
+                        this.tableLayoutPanel1.SetColumnSpan(this.titleLabel, 1);
                         break;
                 }
             }
@@ -205,6 +216,7 @@ namespace FunctionBlock
             {
                 case 0x0084:
                     base.WndProc(ref m);
+                    if (UserLoginParamManager.Instance.CurrentUser == enUserName.操作员) return;
                     Point vPoint = new Point((int)m.LParam & 0xFFFF,
                         (int)m.LParam >> 16 & 0xFFFF);
                     vPoint = PointToClient(vPoint);
@@ -279,13 +291,12 @@ namespace FunctionBlock
             // 添加右键菜单 
             ToolStripItem[] items = new ToolStripMenuItem[]
             {
-                 new ToolStripMenuItem("显示拖动区"),
-                 new ToolStripMenuItem("隐藏拖动区"),
-                  new ToolStripMenuItem("关闭窗体"),
+                new ToolStripMenuItem("重命名"),
             };
             ContextMenuStrip1.Items.AddRange(items); // 在滑赋值前不能调用 
             ContextMenuStrip1.ItemClicked += new ToolStripItemClickedEventHandler(label1ContextMenuStrip_ItemClicked);
-            this.ContextMenuStrip = ContextMenuStrip1;
+            //this.SignLabel.ContextMenuStrip = ContextMenuStrip1;
+            this.titleLabel.ContextMenuStrip = ContextMenuStrip1;
         }
         private void label1ContextMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -296,14 +307,18 @@ namespace FunctionBlock
                 switch (name)
                 {
                     default:
-                    case "显示拖动区":
-                        this.titleLabel.Show();
-                        break;
-                    case "隐藏拖动区":
-                        this.titleLabel.Hide();
-                        break;
-                    case "关闭窗体":
-                        this.Close();
+                    case "重命名":
+                        RenameForm renameForm = new RenameForm(this.titleLabel.Text);
+                        DialogResult dialogResult = renameForm.ShowDialog();
+                        if (dialogResult == DialogResult.OK)
+                        {
+                            this._viewConfigParam.Tag = renameForm.ReName;
+                            this._viewConfigParam.Text = renameForm.ReName;
+                            this._viewConfigParam.ViewName = renameForm.ReName;
+                            //this.SignLabel.Text = this._viewConfigParam.Tag;
+                            this.titleLabel.Text = this._viewConfigParam.Tag;
+                        }
+                        renameForm.Dispose();
                         break;
                         ///////////////////////////////////////////////                 
                 }
@@ -332,8 +347,10 @@ namespace FunctionBlock
             this.titleLabel.BackColor = System.Drawing.Color.LightGray;
         }
 
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
 
-
+        }
     }
 
 }

@@ -71,11 +71,11 @@
             this.DeleteBtn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.元素属性tabPage = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.程序项comboBox = new System.Windows.Forms.ComboBox();
+            this.执行Btn = new System.Windows.Forms.Button();
             this.上一步Btn = new System.Windows.Forms.Button();
             this.下一步Btn = new System.Windows.Forms.Button();
             this.statusStrip2 = new System.Windows.Forms.StatusStrip();
-            this.执行Btn = new System.Windows.Forms.Button();
-            this.程序项comboBox = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -356,6 +356,7 @@
             this.tabControl2.Controls.Add(this.Plc交互信息tabPage);
             this.tabControl2.Controls.Add(this.元素属性tabPage);
             this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tabControl2.Location = new System.Drawing.Point(410, 0);
             this.tabControl2.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl2.Name = "tabControl2";
@@ -367,10 +368,10 @@
             // 视图tabPage
             // 
             this.视图tabPage.Controls.Add(this.hWindowControl1);
-            this.视图tabPage.Location = new System.Drawing.Point(4, 22);
+            this.视图tabPage.Location = new System.Drawing.Point(4, 24);
             this.视图tabPage.Name = "视图tabPage";
             this.视图tabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.视图tabPage.Size = new System.Drawing.Size(785, 683);
+            this.视图tabPage.Size = new System.Drawing.Size(785, 681);
             this.视图tabPage.TabIndex = 0;
             this.视图tabPage.Text = "视图";
             this.视图tabPage.UseVisualStyleBackColor = true;
@@ -384,17 +385,17 @@
             this.hWindowControl1.Location = new System.Drawing.Point(3, 3);
             this.hWindowControl1.Margin = new System.Windows.Forms.Padding(0);
             this.hWindowControl1.Name = "hWindowControl1";
-            this.hWindowControl1.Size = new System.Drawing.Size(779, 677);
+            this.hWindowControl1.Size = new System.Drawing.Size(779, 675);
             this.hWindowControl1.TabIndex = 0;
-            this.hWindowControl1.WindowSize = new System.Drawing.Size(779, 677);
+            this.hWindowControl1.WindowSize = new System.Drawing.Size(779, 675);
             // 
             // Plc交互信息tabPage
             // 
             this.Plc交互信息tabPage.Controls.Add(this.数据读取dataGridView);
-            this.Plc交互信息tabPage.Location = new System.Drawing.Point(4, 22);
+            this.Plc交互信息tabPage.Location = new System.Drawing.Point(4, 24);
             this.Plc交互信息tabPage.Name = "Plc交互信息tabPage";
             this.Plc交互信息tabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.Plc交互信息tabPage.Size = new System.Drawing.Size(785, 683);
+            this.Plc交互信息tabPage.Size = new System.Drawing.Size(785, 681);
             this.Plc交互信息tabPage.TabIndex = 1;
             this.Plc交互信息tabPage.Text = "PLC交互信息";
             this.Plc交互信息tabPage.UseVisualStyleBackColor = true;
@@ -416,7 +417,7 @@
             this.数据读取dataGridView.Name = "数据读取dataGridView";
             this.数据读取dataGridView.RowHeadersWidth = 5;
             this.数据读取dataGridView.RowTemplate.Height = 23;
-            this.数据读取dataGridView.Size = new System.Drawing.Size(779, 677);
+            this.数据读取dataGridView.Size = new System.Drawing.Size(779, 675);
             this.数据读取dataGridView.TabIndex = 2;
             this.数据读取dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.数据读取dataGridView_CellContentClick_1);
             // 
@@ -487,10 +488,10 @@
             // 
             // 元素属性tabPage
             // 
-            this.元素属性tabPage.Location = new System.Drawing.Point(4, 22);
+            this.元素属性tabPage.Location = new System.Drawing.Point(4, 24);
             this.元素属性tabPage.Name = "元素属性tabPage";
             this.元素属性tabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.元素属性tabPage.Size = new System.Drawing.Size(785, 683);
+            this.元素属性tabPage.Size = new System.Drawing.Size(785, 681);
             this.元素属性tabPage.TabIndex = 2;
             this.元素属性tabPage.Text = "元素属性";
             this.元素属性tabPage.UseVisualStyleBackColor = true;
@@ -508,6 +509,25 @@
             this.panel1.Size = new System.Drawing.Size(410, 35);
             this.panel1.TabIndex = 22;
             // 
+            // 程序项comboBox
+            // 
+            this.程序项comboBox.FormattingEnabled = true;
+            this.程序项comboBox.Location = new System.Drawing.Point(4, 7);
+            this.程序项comboBox.Name = "程序项comboBox";
+            this.程序项comboBox.Size = new System.Drawing.Size(134, 20);
+            this.程序项comboBox.TabIndex = 3;
+            // 
+            // 执行Btn
+            // 
+            this.执行Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.执行Btn.Location = new System.Drawing.Point(334, 2);
+            this.执行Btn.Name = "执行Btn";
+            this.执行Btn.Size = new System.Drawing.Size(75, 32);
+            this.执行Btn.TabIndex = 2;
+            this.执行Btn.Text = "执行(Run)";
+            this.执行Btn.UseVisualStyleBackColor = true;
+            this.执行Btn.Click += new System.EventHandler(this.执行Btn_Click);
+            // 
             // 上一步Btn
             // 
             this.上一步Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -522,7 +542,7 @@
             // 下一步Btn
             // 
             this.下一步Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.下一步Btn.Location = new System.Drawing.Point(247, 2);
+            this.下一步Btn.Location = new System.Drawing.Point(240, 2);
             this.下一步Btn.Name = "下一步Btn";
             this.下一步Btn.Size = new System.Drawing.Size(75, 32);
             this.下一步Btn.TabIndex = 0;
@@ -538,25 +558,6 @@
             this.statusStrip2.Size = new System.Drawing.Size(200, 22);
             this.statusStrip2.TabIndex = 0;
             // 
-            // 执行Btn
-            // 
-            this.执行Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.执行Btn.Location = new System.Drawing.Point(341, 2);
-            this.执行Btn.Name = "执行Btn";
-            this.执行Btn.Size = new System.Drawing.Size(67, 32);
-            this.执行Btn.TabIndex = 2;
-            this.执行Btn.Text = "执行";
-            this.执行Btn.UseVisualStyleBackColor = true;
-            this.执行Btn.Click += new System.EventHandler(this.执行Btn_Click);
-            // 
-            // 程序项comboBox
-            // 
-            this.程序项comboBox.FormattingEnabled = true;
-            this.程序项comboBox.Location = new System.Drawing.Point(5, 7);
-            this.程序项comboBox.Name = "程序项comboBox";
-            this.程序项comboBox.Size = new System.Drawing.Size(133, 20);
-            this.程序项comboBox.TabIndex = 3;
-            // 
             // MarkLocalizationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -569,7 +570,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Mark定位";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FeatureLocalizationForm_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MarkLocalizationForm_FormClosing);
             this.Load += new System.EventHandler(this.MarkLocalizationForm_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FeatureLocalizationForm_MouseDown);
             this.tabControl1.ResumeLayout(false);

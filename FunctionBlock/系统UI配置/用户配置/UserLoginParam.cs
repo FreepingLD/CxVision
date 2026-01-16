@@ -64,9 +64,11 @@ namespace FunctionBlock
     {
         操作员,
         工程师,
-        开发人员,
         管理员,
+        开发人员,
     }
+
+
 
 
 }

@@ -34,6 +34,7 @@ namespace FunctionBlock
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Restart();
+            this.Result.Reset();
             this.Result.Succss = false;
             this.Result.ExcuteState = enExcuteState.NONE;
             this.Result.ErrorMessage = "";
@@ -116,6 +117,15 @@ namespace FunctionBlock
                                         isRun = false;
                                     tempResult.Succss = true;
                                     break;
+                                case nameof(FeatureLocalization):
+                                    treeView.Invoke(new Action(() => treeView.SelectedNode = item));
+                                    tempResult = ((IFunction)item.Tag).Execute(item, _imageData);
+                                    if(!isExcuteLable)
+                                    {
+                                        isExcuteLable = tempResult.IsExcuteLable;
+                                        this.Result.IsExcuteLable = tempResult.IsExcuteLable;
+                                    }
+                                    break;
                                 default:
                                     if (isRun)
                                     {
@@ -139,7 +149,6 @@ namespace FunctionBlock
                             CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.ResultToPlc, 2); // 发送NG信号
                             CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.ResultToSocket, "NG"); // 发送NG信号
                             LoggerHelper.Error(this.name + $"->节点:{item.FullPath.Replace("\\", ".")} 执行失败,并写入结果NG", camName);
-
                         }
                     }
                 }
@@ -161,13 +170,14 @@ namespace FunctionBlock
                     if (isContainLable)
                     {
                         if (isExcuteLable)
-                            LoggerHelper.Info(this.name + "->执行成功", camName); // 
+                            LoggerHelper.Info(this.name + $"->执行标签:{lableText} 成功", camName); // 
                         else
                         {
                             CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.ResultToPlc, 2); // 发送NG信号
                             CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.ResultToSocket, "NG"); // 发送NG信号
+                            LoggerHelper.Error(this.name + $"->写入结果NG", camName);
                             LoggerHelper.Info(this.name + $"->未找到与指定标签:{lableText} 相等的标签", camName); // 
-                            LoggerHelper.Info(this.name + "->执行失败", camName); // 
+                            LoggerHelper.Error(this.name + $"->执行标签:{lableText} 失败", camName); // 
                         }
                     }
                     else
@@ -194,7 +204,7 @@ namespace FunctionBlock
                 if (((BindingList<PlcCommunicateInfo>)this.ResultInfo).Count > 0)
                 {
                     CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.TriggerToPlc, 1);
-                    string value = CommunicationConfigParamManger.Instance.ReadValue(coordSysName, enCommunicationCommand.TriggerToPlc).ToString();
+                    string value = CommunicationConfigParamManger.Instance.ReadValue(coordSysName, enCommunicationCommand.TriggerToPlc)?.ToString();
                     LoggerHelper.Info(this.name + $"->视觉触发PLC:{coordSysName}_{enCommunicationCommand.TriggerToPlc}_写入值:{value}", camName);
                 }
             }

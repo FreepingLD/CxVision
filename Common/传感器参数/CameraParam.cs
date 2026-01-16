@@ -285,6 +285,7 @@ namespace Common
                 case enCamCaliModel.NPointCali:
                 case enCamCaliModel.CaliCaliBoard:
                 case enCamCaliModel.CaliBoardMap:
+                case enCamCaliModel.九点标定:
                 default:
                     Qx = this.HomMat2D.GetHHomMat().AffineTransPoint2d(Coluns, Rows, out Qy);
                     break;
@@ -292,10 +293,21 @@ namespace Common
                 case enCamCaliModel.CamParamPose:
                     HOperatorSet.ImagePointsToWorldPlane(this.CamParam.GetHtuple(), this.CamPose.GetHtuple(), Rows, Coluns, 1, out Qx, out Qy);
                     break;
+                case enCamCaliModel.映射标定_世界:
                 case enCamCaliModel.UpDnCamCalibWcs:
                     Qx = this.HomMat2D.GetHHomMat().AffineTransPoint2d(Coluns, Rows, out Qy);
                     break;
+                case enCamCaliModel.映射标定_像素:
                 case enCamCaliModel.UpDnCamCalibPix:
+                    /// 更新标定参数用旋转中心标定参数
+                    if (DicSensorParam.ContainsKey(this.CaliParam.MapCamName))
+                    {
+                        this.HomMat2D = DicSensorParam[this.CaliParam.MapCamName].HomMat2D;
+                        this.CaliParam.CalibCenterXy = DicSensorParam[this.CaliParam.MapCamName].CaliParam.CalibCenterXy;
+                        this.CaliParam.AdjHomMatC02X = DicSensorParam[this.CaliParam.MapCamName].CaliParam.AdjHomMatC02X;
+                        this.CaliParam.AdjHomMatC12Y = DicSensorParam[this.CaliParam.MapCamName].CaliParam.AdjHomMatC12Y;
+                    }
+                    ////////////////////////////////////////////
                     HTuple mapRow, mapCol;
                     mapRow = this.MapHomMat2D.GetHHomMat().AffineTransPoint2d(Rows, Coluns, out mapCol);
                     Qx = this.HomMat2D.GetHHomMat().AffineTransPoint2d(mapCol, mapRow, out Qy);
@@ -379,9 +391,9 @@ namespace Common
                     else
                         wcs_y = (Qy - CaliParam.CalibCenterXy.Y) + (CaliParam.RotateCalibPoint.Y - grabImage_y) + CaliParam.AdjHomMatC12Y + this.CaliParam.CamAxisIncrementY;
                     if (CaliParam.IsMoveZ)
-                        wcs_z = grabImage_z;      // Math.Abs(CaliParam.CalibCenterXy.Z) + (grabImage_z + CaliParam.RotateCenter.Z);
+                        wcs_z = grabImage_z;    
                     else
-                        wcs_z = grabImage_z * -1; // Math.Abs(CaliParam.CalibCenterXy.Z) + (CaliParam.RotateCenter.Z - grabImage_z);
+                        wcs_z = grabImage_z * -1; 
                     break;
                 ///////// 上下料模式，只需把中心点移动到当前点位置////////
                 case enCoordOriginType.IsLoading: // 表示在一个大视野相机下，执行上下料模式,这种情况下相机必需是静止的，至少拍照位置不能变
@@ -501,16 +513,28 @@ namespace Common
                 case enCamCaliModel.Cali9PtCali:
                 case enCamCaliModel.NPointCali:
                 case enCamCaliModel.CaliCaliBoard:
+                case enCamCaliModel.九点标定:
                 default:
                     Qx = this.HomMat2D.GetHHomMat().AffineTransPoint2d(Coluns, Rows, out Qy);
                     break;
                 case enCamCaliModel.CamParamPose:
                     HOperatorSet.ImagePointsToWorldPlane(this.CamParam.GetHtuple(), this.CamPose.GetHtuple(), Rows, Coluns, 1, out Qx, out Qy);
                     break;
+                case enCamCaliModel.映射标定_世界:
                 case enCamCaliModel.UpDnCamCalibWcs:
                     Qx = this.HomMat2D.GetHHomMat().AffineTransPoint2d(Coluns, Rows, out Qy);
                     break;
+                case enCamCaliModel.映射标定_像素:
                 case enCamCaliModel.UpDnCamCalibPix:
+                    /// 更新标定参数用旋转中心标定参数
+                    if (DicSensorParam.ContainsKey(this.CaliParam.MapCamName))
+                    {
+                        this.HomMat2D = DicSensorParam[this.CaliParam.MapCamName].HomMat2D;
+                        this.CaliParam.CalibCenterXy = DicSensorParam[this.CaliParam.MapCamName].CaliParam.CalibCenterXy;
+                        this.CaliParam.AdjHomMatC02X = DicSensorParam[this.CaliParam.MapCamName].CaliParam.AdjHomMatC02X;
+                        this.CaliParam.AdjHomMatC12Y = DicSensorParam[this.CaliParam.MapCamName].CaliParam.AdjHomMatC12Y;
+                    }
+                    //////////////////////////////
                     HTuple mapRow, mapCol;
                     mapRow = this.MapHomMat2D.GetHHomMat().AffineTransPoint2d(Rows, Coluns, out mapCol);
                     Qx = this.HomMat2D.GetHHomMat().AffineTransPoint2d(mapCol, mapRow, out Qy);
@@ -714,16 +738,28 @@ namespace Common
                 case enCamCaliModel.Cali9PtCali:
                 case enCamCaliModel.NPointCali:
                 case enCamCaliModel.CaliCaliBoard:
+                case enCamCaliModel.九点标定:
                 default:
                     Qx = this.HomMat2D.GetHHomMat().AffineTransPoint2d(Coluns, Rows, out Qy);
                     break;
                 case enCamCaliModel.CamParamPose:
                     HOperatorSet.ImagePointsToWorldPlane(this.CamParam.GetHtuple(), this.CamPose.GetHtuple(), Rows, Coluns, 1, out Qx, out Qy);
                     break;
+                case enCamCaliModel.映射标定_世界:
                 case enCamCaliModel.UpDnCamCalibWcs:
                     Qx = this.HomMat2D.GetHHomMat().AffineTransPoint2d(Coluns, Rows, out Qy);
                     break;
+                case enCamCaliModel.映射标定_像素:
                 case enCamCaliModel.UpDnCamCalibPix:
+                    /// 更新标定参数用旋转中心标定参数
+                    if (DicSensorParam.ContainsKey(this.CaliParam.MapCamName))
+                    {
+                        this.HomMat2D = DicSensorParam[this.CaliParam.MapCamName].HomMat2D;
+                        this.CaliParam.CalibCenterXy = DicSensorParam[this.CaliParam.MapCamName].CaliParam.CalibCenterXy;
+                        this.CaliParam.AdjHomMatC02X = DicSensorParam[this.CaliParam.MapCamName].CaliParam.AdjHomMatC02X;
+                        this.CaliParam.AdjHomMatC12Y = DicSensorParam[this.CaliParam.MapCamName].CaliParam.AdjHomMatC12Y;
+                    }
+                    //////////////////////////////
                     HTuple mapRow, mapCol;
                     mapRow = this.MapHomMat2D.GetHHomMat().AffineTransPoint2d(Rows, Coluns, out mapCol);
                     Qx = this.HomMat2D.GetHHomMat().AffineTransPoint2d(mapCol, mapRow, out Qy);
@@ -926,16 +962,28 @@ namespace Common
                 case enCamCaliModel.Cali9PtCali:
                 case enCamCaliModel.NPointCali:
                 case enCamCaliModel.CaliCaliBoard:
+                case enCamCaliModel.九点标定:
                 default:
                     Qx = this.HomMat2D.GetHHomMat().AffineTransPoint2d(this.DataWidth * 0.5, this.DataHeight * 0.5, out Qy);
                     break;
                 case enCamCaliModel.CamParamPose:
                     HOperatorSet.ImagePointsToWorldPlane(this.CamParam.GetHtuple(), this.CamPose.GetHtuple(), this.DataHeight * 0.5, this.DataWidth * 0.5, 1, out Qx, out Qy);
                     break;
+                case enCamCaliModel.映射标定_世界:
                 case enCamCaliModel.UpDnCamCalibWcs:
                     Qx = this.HomMat2D.GetHHomMat().AffineTransPoint2d(this.DataWidth * 0.5, this.DataHeight * 0.5, out Qy);
                     break;
+                case enCamCaliModel.映射标定_像素:
                 case enCamCaliModel.UpDnCamCalibPix:
+                    /// 更新标定参数用旋转中心标定参数
+                    if (DicSensorParam.ContainsKey(this.CaliParam.MapCamName))
+                    {
+                        this.HomMat2D = DicSensorParam[this.CaliParam.MapCamName].HomMat2D;
+                        this.CaliParam.CalibCenterXy = DicSensorParam[this.CaliParam.MapCamName].CaliParam.CalibCenterXy;
+                        this.CaliParam.AdjHomMatC02X = DicSensorParam[this.CaliParam.MapCamName].CaliParam.AdjHomMatC02X;
+                        this.CaliParam.AdjHomMatC12Y = DicSensorParam[this.CaliParam.MapCamName].CaliParam.AdjHomMatC12Y;
+                    }
+                    //////////////////////////////
                     HTuple mapRow, mapCol;
                     mapRow = this.MapHomMat2D.GetHHomMat().AffineTransPoint2d(this.DataHeight * 0.5, this.DataWidth * 0.5, out mapCol);
                     Qx = this.HomMat2D.GetHHomMat().AffineTransPoint2d(mapCol, mapRow, out Qy);
@@ -1291,6 +1339,7 @@ namespace Common
                 case enCamCaliModel.Cali9PtCali:
                 case enCamCaliModel.NPointCali:
                 case enCamCaliModel.CaliCaliBoard:
+                case enCamCaliModel.九点标定:
                 default:
                     Coluns = this.HomMat2D.GetHHomMat().HomMat2dInvert().AffineTransPoint2d(Qx, Qy, out Rows);
                     break;
@@ -1311,10 +1360,21 @@ namespace Common
                         HOperatorSet.Project3dPoint(Cam_x, Cam_y, Cam_z, this.CamParam.GetHtuple(), out Rows, out Coluns);
                     }
                     break;
+                case enCamCaliModel.映射标定_世界:
                 case enCamCaliModel.UpDnCamCalibWcs:
                     Coluns = this.HomMat2D.GetHHomMat().HomMat2dInvert().AffineTransPoint2d(Qx, Qy, out Rows);
                     break;
+                case enCamCaliModel.映射标定_像素:
                 case enCamCaliModel.UpDnCamCalibPix:
+                    /// 更新标定参数用旋转中心标定参数
+                    if (DicSensorParam.ContainsKey(this.CaliParam.MapCamName))
+                    {
+                        this.HomMat2D = DicSensorParam[this.CaliParam.MapCamName].HomMat2D;
+                        this.CaliParam.CalibCenterXy = DicSensorParam[this.CaliParam.MapCamName].CaliParam.CalibCenterXy;
+                        this.CaliParam.AdjHomMatC02X = DicSensorParam[this.CaliParam.MapCamName].CaliParam.AdjHomMatC02X;
+                        this.CaliParam.AdjHomMatC12Y = DicSensorParam[this.CaliParam.MapCamName].CaliParam.AdjHomMatC12Y;
+                    }
+                    //////////////////////////////
                     HOperatorSet.TupleGenConst(Qx.Length, 0, out Qz);
                     HTuple mapRow, mapCol;
                     mapCol = this.HomMat2D.GetHHomMat().HomMat2dInvert().AffineTransPoint2d(Qx, Qy, out mapRow);
@@ -1507,6 +1567,7 @@ namespace Common
                 case enCamCaliModel.Cali9PtCali:
                 case enCamCaliModel.NPointCali:
                 case enCamCaliModel.CaliCaliBoard:
+                case enCamCaliModel.九点标定:
                 default:
                     Coluns = this.HomMat2D.GetHHomMat().HomMat2dInvert().AffineTransPoint2d(Qx, Qy, out Rows);
                     break;
@@ -1530,10 +1591,21 @@ namespace Common
                     Rows = row.D;
                     Coluns = col.D;
                     break;
+                case enCamCaliModel.映射标定_世界:
                 case enCamCaliModel.UpDnCamCalibWcs:
                     Coluns = this.HomMat2D.GetHHomMat().HomMat2dInvert().AffineTransPoint2d(Qx, Qy, out Rows);
                     break;
+                case enCamCaliModel.映射标定_像素:
                 case enCamCaliModel.UpDnCamCalibPix:
+                    /// 更新标定参数用旋转中心标定参数
+                    if (DicSensorParam.ContainsKey(this.CaliParam.MapCamName))
+                    {
+                        this.HomMat2D = DicSensorParam[this.CaliParam.MapCamName].HomMat2D;
+                        this.CaliParam.CalibCenterXy = DicSensorParam[this.CaliParam.MapCamName].CaliParam.CalibCenterXy;
+                        this.CaliParam.AdjHomMatC02X = DicSensorParam[this.CaliParam.MapCamName].CaliParam.AdjHomMatC02X;
+                        this.CaliParam.AdjHomMatC12Y = DicSensorParam[this.CaliParam.MapCamName].CaliParam.AdjHomMatC12Y;
+                    }
+                    //////////////////////////////
                     Qz = 0;
                     HTuple mapRow, mapCol;
                     mapCol = this.HomMat2D.GetHHomMat().HomMat2dInvert().AffineTransPoint2d(Qx, Qy, out mapRow);
@@ -1722,6 +1794,7 @@ namespace Common
                 case enCamCaliModel.Cali9PtCali:
                 case enCamCaliModel.NPointCali:
                 case enCamCaliModel.CaliCaliBoard:
+                case enCamCaliModel.九点标定:
                 default:
                     Coluns = this.HomMat2D.GetHHomMat().HomMat2dInvert().AffineTransPoint2d(Qx, Qy, out Rows);
                     break;
@@ -1745,10 +1818,21 @@ namespace Common
                     Rows = row.D;
                     Coluns = col.D;
                     break;
+                case enCamCaliModel.映射标定_世界:
                 case enCamCaliModel.UpDnCamCalibWcs:
                     Coluns = this.HomMat2D.GetHHomMat().HomMat2dInvert().AffineTransPoint2d(Qx, Qy, out Rows);
                     break;
+                case enCamCaliModel.映射标定_像素:
                 case enCamCaliModel.UpDnCamCalibPix:
+                    /// 更新标定参数用旋转中心标定参数
+                    if (DicSensorParam.ContainsKey(this.CaliParam.MapCamName))
+                    {
+                        this.HomMat2D = DicSensorParam[this.CaliParam.MapCamName].HomMat2D;
+                        this.CaliParam.CalibCenterXy = DicSensorParam[this.CaliParam.MapCamName].CaliParam.CalibCenterXy;
+                        this.CaliParam.AdjHomMatC02X = DicSensorParam[this.CaliParam.MapCamName].CaliParam.AdjHomMatC02X;
+                        this.CaliParam.AdjHomMatC12Y = DicSensorParam[this.CaliParam.MapCamName].CaliParam.AdjHomMatC12Y;
+                    }
+                    //////////////////////////////
                     Qz = 0;
                     HTuple mapRow, mapCol;
                     mapCol = this.HomMat2D.GetHHomMat().HomMat2dInvert().AffineTransPoint2d(Qx, Qy, out mapRow);
@@ -1792,13 +1876,25 @@ namespace Common
                 case enCamCaliModel.Cali9PtCali:
                 case enCamCaliModel.NPointCali:
                 case enCamCaliModel.CaliCaliBoard:
+                case enCamCaliModel.映射标定_世界:
+                case enCamCaliModel.九点标定:
                 default:
                     Qx = this.HomMat2D.GetHHomMat().AffineTransPoint2d(new HTuple(0, pixLength), new HTuple(0, 0), out Qy);
                     break;
                 case enCamCaliModel.CamParamPose:
                     HOperatorSet.ImagePointsToWorldPlane(this.CamParam.GetHtuple(), this.CamPose.GetHtuple(), new HTuple(0, 0), new HTuple(0, pixLength), 1, out Qx, out Qy);
                     break;
+                case enCamCaliModel.映射标定_像素:
                 case enCamCaliModel.UpDnCamCalibPix:
+                    /// 更新标定参数用旋转中心标定参数
+                    if (DicSensorParam.ContainsKey(this.CaliParam.MapCamName))
+                    {
+                        this.HomMat2D = DicSensorParam[this.CaliParam.MapCamName].HomMat2D;
+                        this.CaliParam.CalibCenterXy = DicSensorParam[this.CaliParam.MapCamName].CaliParam.CalibCenterXy;
+                        this.CaliParam.AdjHomMatC02X = DicSensorParam[this.CaliParam.MapCamName].CaliParam.AdjHomMatC02X;
+                        this.CaliParam.AdjHomMatC12Y = DicSensorParam[this.CaliParam.MapCamName].CaliParam.AdjHomMatC12Y;
+                    }
+                    //////////////////////////////
                     HTuple mapRow, mapCol;
                     mapRow = this.MapHomMat2D.GetHHomMat().AffineTransPoint2d(new HTuple(0, pixLength), new HTuple(0, 0), out mapCol);
                     Qx = this.HomMat2D.GetHHomMat().AffineTransPoint2d(mapCol, mapRow, out Qy);
@@ -1853,6 +1949,8 @@ namespace Common
                 case enCamCaliModel.Cali9PtCali:
                 case enCamCaliModel.NPointCali:
                 case enCamCaliModel.CaliCaliBoard:
+                case enCamCaliModel.映射标定_世界:
+                case enCamCaliModel.九点标定:
                 default:
                     Columns = this.HomMat2D.GetHHomMat().HomMat2dInvert().AffineTransPoint2d(new HTuple(0.0, 0.0), new HTuple(0.0, wcsLength), out Rows);
                     break;
@@ -1869,7 +1967,17 @@ namespace Common
                         HOperatorSet.Project3dPoint(Qx, Qy, Qz, this.CamParam.GetHtuple(), out Rows, out Columns);
                     }
                     break;
+                case enCamCaliModel.映射标定_像素:
                 case enCamCaliModel.UpDnCamCalibPix:
+                    /// 更新标定参数用旋转中心标定参数
+                    if (DicSensorParam.ContainsKey(this.CaliParam.MapCamName))
+                    {
+                        this.HomMat2D = DicSensorParam[this.CaliParam.MapCamName].HomMat2D;
+                        this.CaliParam.CalibCenterXy = DicSensorParam[this.CaliParam.MapCamName].CaliParam.CalibCenterXy;
+                        this.CaliParam.AdjHomMatC02X = DicSensorParam[this.CaliParam.MapCamName].CaliParam.AdjHomMatC02X;
+                        this.CaliParam.AdjHomMatC12Y = DicSensorParam[this.CaliParam.MapCamName].CaliParam.AdjHomMatC12Y;
+                    }
+                    //////////////////////////////
                     HTuple mapRow, mapCol;
                     mapCol = this.HomMat2D.GetHHomMat().HomMat2dInvert().AffineTransPoint2d(new HTuple(0.0, 0.0), new HTuple(0.0, wcsLength), out mapRow);
                     Rows = this.MapHomMat2D.GetHHomMat().HomMat2dInvert().AffineTransPoint2d(mapRow, mapCol, out Columns);
@@ -1949,11 +2057,28 @@ namespace Common
                 case enCamCaliModel.Cali9PtCali:
                 case enCamCaliModel.NPointCali:
                 case enCamCaliModel.CaliCaliBoard:
+                case enCamCaliModel.映射标定_世界:
+                case enCamCaliModel.九点标定:
                 default:
                     Qx = this.HomMat2D.GetHHomMat().AffineTransPoint2d(Coluns, Rows, out Qy);
                     break;
                 case enCamCaliModel.CamParamPose:
                     HOperatorSet.ImagePointsToWorldPlane(this.CamParam.GetHtuple(), this.CamPose.GetHtuple(), Rows, Coluns, 1, out Qx, out Qy);
+                    break;
+                case enCamCaliModel.映射标定_像素:
+                case enCamCaliModel.UpDnCamCalibPix:
+                    /// 更新标定参数用旋转中心标定参数
+                    if (DicSensorParam.ContainsKey(this.CaliParam.MapCamName))
+                    {
+                        this.HomMat2D = DicSensorParam[this.CaliParam.MapCamName].HomMat2D;
+                        this.CaliParam.CalibCenterXy = DicSensorParam[this.CaliParam.MapCamName].CaliParam.CalibCenterXy;
+                        this.CaliParam.AdjHomMatC02X = DicSensorParam[this.CaliParam.MapCamName].CaliParam.AdjHomMatC02X;
+                        this.CaliParam.AdjHomMatC12Y = DicSensorParam[this.CaliParam.MapCamName].CaliParam.AdjHomMatC12Y;
+                    }
+                    ///////////////////////////////////
+                    HTuple mapRow, mapCol;
+                    mapRow = this.MapHomMat2D.GetHHomMat().AffineTransPoint2d(Rows, Coluns, out mapCol);
+                    Qx = this.HomMat2D.GetHHomMat().AffineTransPoint2d(mapCol, mapRow, out Qy);
                     break;
                 case enCamCaliModel.FaceCalib: // 面阵标定
                     if (this.DicCalibHomMat2D != null)
@@ -2010,11 +2135,28 @@ namespace Common
                 case enCamCaliModel.Cali9PtCali:
                 case enCamCaliModel.NPointCali:
                 case enCamCaliModel.CaliCaliBoard:
+                case enCamCaliModel.映射标定_世界:
+                case enCamCaliModel.九点标定:
                 default:
                     Qx = this.HomMat2D.GetHHomMat().AffineTransPoint2d(Coluns, Rows, out Qy);
                     break;
                 case enCamCaliModel.CamParamPose:
                     HOperatorSet.ImagePointsToWorldPlane(this.CamParam.GetHtuple(), this.CamPose.GetHtuple(), Rows, Coluns, 1, out Qx, out Qy);
+                    break;
+                case enCamCaliModel.映射标定_像素:
+                case enCamCaliModel.UpDnCamCalibPix:
+                    /// 更新标定参数用旋转中心标定参数
+                    if (DicSensorParam.ContainsKey(this.CaliParam.MapCamName))
+                    {
+                        this.HomMat2D = DicSensorParam[this.CaliParam.MapCamName].HomMat2D;
+                        this.CaliParam.CalibCenterXy = DicSensorParam[this.CaliParam.MapCamName].CaliParam.CalibCenterXy;
+                        this.CaliParam.AdjHomMatC02X = DicSensorParam[this.CaliParam.MapCamName].CaliParam.AdjHomMatC02X;
+                        this.CaliParam.AdjHomMatC12Y = DicSensorParam[this.CaliParam.MapCamName].CaliParam.AdjHomMatC12Y;
+                    }
+                    ///////////////////////////////////
+                    HTuple mapRow, mapCol;
+                    mapRow = this.MapHomMat2D.GetHHomMat().AffineTransPoint2d(Rows, Coluns, out mapCol);
+                    Qx = this.HomMat2D.GetHHomMat().AffineTransPoint2d(mapCol, mapRow, out Qy);
                     break;
                 case enCamCaliModel.FaceCalib: // 面阵标定
                     if (this.DicCalibHomMat2D != null)

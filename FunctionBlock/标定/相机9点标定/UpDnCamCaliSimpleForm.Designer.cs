@@ -143,13 +143,13 @@ namespace FunctionBlock
             this.tabControl2.Controls.Add(this.tabPage4);
             this.tabControl2.Controls.Add(this.元素tabPage);
             this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl2.Location = new System.Drawing.Point(274, 0);
+            this.tabControl2.Location = new System.Drawing.Point(260, 0);
             this.tabControl2.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.Padding = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.SetRowSpan(this.tabControl2, 2);
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(714, 706);
+            this.tabControl2.Size = new System.Drawing.Size(751, 706);
             this.tabControl2.TabIndex = 7;
             // 
             // tabPage2
@@ -212,7 +212,7 @@ namespace FunctionBlock
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(706, 680);
+            this.tabPage4.Size = new System.Drawing.Size(743, 680);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "坐标&标定";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -232,7 +232,7 @@ namespace FunctionBlock
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74.48071F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.51929F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(700, 674);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(737, 674);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tabControl1
@@ -240,10 +240,10 @@ namespace FunctionBlock
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(353, 3);
+            this.tabControl1.Location = new System.Drawing.Point(371, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(344, 496);
+            this.tabControl1.Size = new System.Drawing.Size(363, 496);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -252,7 +252,7 @@ namespace FunctionBlock
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(336, 470);
+            this.tabPage1.Size = new System.Drawing.Size(355, 470);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "源相机坐标";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -273,7 +273,7 @@ namespace FunctionBlock
             this.源相机坐标dataGridView.Name = "源相机坐标dataGridView";
             this.源相机坐标dataGridView.RowHeadersWidth = 51;
             this.源相机坐标dataGridView.RowTemplate.Height = 23;
-            this.源相机坐标dataGridView.Size = new System.Drawing.Size(330, 464);
+            this.源相机坐标dataGridView.Size = new System.Drawing.Size(349, 464);
             this.源相机坐标dataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -366,7 +366,7 @@ namespace FunctionBlock
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox6.Location = new System.Drawing.Point(3, 505);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(344, 166);
+            this.groupBox6.Size = new System.Drawing.Size(362, 166);
             this.groupBox6.TabIndex = 15;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "功能";
@@ -375,7 +375,7 @@ namespace FunctionBlock
             // 
             this.获取标定位button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.获取标定位button.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.获取标定位button.Location = new System.Drawing.Point(6, 121);
+            this.获取标定位button.Location = new System.Drawing.Point(24, 121);
             this.获取标定位button.Name = "获取标定位button";
             this.获取标定位button.Size = new System.Drawing.Size(89, 39);
             this.获取标定位button.TabIndex = 10;
@@ -389,7 +389,7 @@ namespace FunctionBlock
             | System.Windows.Forms.AnchorStyles.Right)));
             this.标定位textBox.Location = new System.Drawing.Point(83, 56);
             this.标定位textBox.Name = "标定位textBox";
-            this.标定位textBox.Size = new System.Drawing.Size(255, 21);
+            this.标定位textBox.Size = new System.Drawing.Size(273, 22);
             this.标定位textBox.TabIndex = 9;
             this.标定位textBox.TextChanged += new System.EventHandler(this.标定位textBox_TextChanged);
             // 
@@ -399,7 +399,7 @@ namespace FunctionBlock
             this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label6.Location = new System.Drawing.Point(7, 59);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 12);
+            this.label6.Size = new System.Drawing.Size(69, 12);
             this.label6.TabIndex = 8;
             this.label6.Text = "X/Y/Threta：";
             // 
@@ -407,7 +407,7 @@ namespace FunctionBlock
             // 
             this.Y偏移textBox.Location = new System.Drawing.Point(257, 84);
             this.Y偏移textBox.Name = "Y偏移textBox";
-            this.Y偏移textBox.Size = new System.Drawing.Size(81, 21);
+            this.Y偏移textBox.Size = new System.Drawing.Size(81, 22);
             this.Y偏移textBox.TabIndex = 7;
             this.Y偏移textBox.Text = "0";
             // 
@@ -415,7 +415,7 @@ namespace FunctionBlock
             // 
             this.X偏移textBox.Location = new System.Drawing.Point(83, 83);
             this.X偏移textBox.Name = "X偏移textBox";
-            this.X偏移textBox.Size = new System.Drawing.Size(82, 21);
+            this.X偏移textBox.Size = new System.Drawing.Size(82, 22);
             this.X偏移textBox.TabIndex = 6;
             this.X偏移textBox.Text = "0";
             // 
@@ -424,7 +424,7 @@ namespace FunctionBlock
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(210, 88);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.Size = new System.Drawing.Size(40, 12);
             this.label3.TabIndex = 5;
             this.label3.Text = "Y偏移:";
             // 
@@ -433,7 +433,7 @@ namespace FunctionBlock
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(36, 87);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.Size = new System.Drawing.Size(40, 12);
             this.label2.TabIndex = 4;
             this.label2.Text = "X偏移:";
             // 
@@ -449,6 +449,8 @@ namespace FunctionBlock
             // 
             // 映射方法comboBox
             // 
+            this.映射方法comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.映射方法comboBox.FormattingEnabled = true;
             this.映射方法comboBox.Items.AddRange(new object[] {
             "PixToPix",
@@ -457,7 +459,7 @@ namespace FunctionBlock
             "WcsToPix"});
             this.映射方法comboBox.Location = new System.Drawing.Point(83, 29);
             this.映射方法comboBox.Name = "映射方法comboBox";
-            this.映射方法comboBox.Size = new System.Drawing.Size(255, 20);
+            this.映射方法comboBox.Size = new System.Drawing.Size(273, 20);
             this.映射方法comboBox.TabIndex = 2;
             this.映射方法comboBox.Text = "PixToPix";
             this.映射方法comboBox.SelectedIndexChanged += new System.EventHandler(this.映射方法comboBox_SelectedIndexChanged);
@@ -467,7 +469,7 @@ namespace FunctionBlock
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(18, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 12);
+            this.label1.Size = new System.Drawing.Size(56, 12);
             this.label1.TabIndex = 1;
             this.label1.Text = "映射方法:";
             // 
@@ -487,7 +489,7 @@ namespace FunctionBlock
             this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox8.Location = new System.Drawing.Point(3, 3);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(344, 496);
+            this.groupBox8.Size = new System.Drawing.Size(362, 496);
             this.groupBox8.TabIndex = 12;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "目标相机坐标";
@@ -504,11 +506,11 @@ namespace FunctionBlock
             this.Column6,
             this.Column7});
             this.目标相机坐标dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.目标相机坐标dataGridView.Location = new System.Drawing.Point(3, 17);
+            this.目标相机坐标dataGridView.Location = new System.Drawing.Point(3, 18);
             this.目标相机坐标dataGridView.Name = "目标相机坐标dataGridView";
             this.目标相机坐标dataGridView.RowHeadersWidth = 51;
             this.目标相机坐标dataGridView.RowTemplate.Height = 23;
-            this.目标相机坐标dataGridView.Size = new System.Drawing.Size(338, 476);
+            this.目标相机坐标dataGridView.Size = new System.Drawing.Size(356, 475);
             this.目标相机坐标dataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn4
@@ -549,9 +551,9 @@ namespace FunctionBlock
             // 
             this.groupBox5.Controls.Add(this.映射dataGridView);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox5.Location = new System.Drawing.Point(353, 505);
+            this.groupBox5.Location = new System.Drawing.Point(371, 505);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(344, 166);
+            this.groupBox5.Size = new System.Drawing.Size(363, 166);
             this.groupBox5.TabIndex = 14;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "映射矩阵";
@@ -564,11 +566,11 @@ namespace FunctionBlock
             this.Column2,
             this.Column3});
             this.映射dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.映射dataGridView.Location = new System.Drawing.Point(3, 17);
+            this.映射dataGridView.Location = new System.Drawing.Point(3, 18);
             this.映射dataGridView.Name = "映射dataGridView";
             this.映射dataGridView.RowHeadersWidth = 51;
             this.映射dataGridView.RowTemplate.Height = 23;
-            this.映射dataGridView.Size = new System.Drawing.Size(338, 146);
+            this.映射dataGridView.Size = new System.Drawing.Size(357, 145);
             this.映射dataGridView.TabIndex = 0;
             // 
             // Column1
@@ -605,9 +607,9 @@ namespace FunctionBlock
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 274F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 260F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 283F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 260F));
             this.tableLayoutPanel1.Controls.Add(this.statusStrip3, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.下相机toolStrip, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.上相机toolStrip, 0, 0);
@@ -636,9 +638,9 @@ namespace FunctionBlock
             this.toolStripStatusLabel9,
             this.行坐标Label,
             this.列坐标Label});
-            this.statusStrip3.Location = new System.Drawing.Point(274, 706);
+            this.statusStrip3.Location = new System.Drawing.Point(260, 706);
             this.statusStrip3.Name = "statusStrip3";
-            this.statusStrip3.Size = new System.Drawing.Size(714, 32);
+            this.statusStrip3.Size = new System.Drawing.Size(751, 32);
             this.statusStrip3.TabIndex = 24;
             this.statusStrip3.Text = "statusStrip3";
             // 
@@ -651,19 +653,19 @@ namespace FunctionBlock
             // 灰度值1Label
             // 
             this.灰度值1Label.Name = "灰度值1Label";
-            this.灰度值1Label.Size = new System.Drawing.Size(28, 27);
+            this.灰度值1Label.Size = new System.Drawing.Size(26, 27);
             this.灰度值1Label.Text = "……";
             // 
             // 灰度值2Label
             // 
             this.灰度值2Label.Name = "灰度值2Label";
-            this.灰度值2Label.Size = new System.Drawing.Size(28, 27);
+            this.灰度值2Label.Size = new System.Drawing.Size(26, 27);
             this.灰度值2Label.Text = "……";
             // 
             // 灰度值3Label
             // 
             this.灰度值3Label.Name = "灰度值3Label";
-            this.灰度值3Label.Size = new System.Drawing.Size(28, 27);
+            this.灰度值3Label.Size = new System.Drawing.Size(26, 27);
             this.灰度值3Label.Text = "……";
             // 
             // toolStripStatusLabel9
@@ -675,13 +677,13 @@ namespace FunctionBlock
             // 行坐标Label
             // 
             this.行坐标Label.Name = "行坐标Label";
-            this.行坐标Label.Size = new System.Drawing.Size(28, 27);
+            this.行坐标Label.Size = new System.Drawing.Size(26, 27);
             this.行坐标Label.Text = "……";
             // 
             // 列坐标Label
             // 
             this.列坐标Label.Name = "列坐标Label";
-            this.列坐标Label.Size = new System.Drawing.Size(28, 27);
+            this.列坐标Label.Size = new System.Drawing.Size(26, 27);
             this.列坐标Label.Text = "……";
             // 
             // 下相机toolStrip
@@ -693,9 +695,9 @@ namespace FunctionBlock
             this.toolStripButton2,
             this.toolStripButton3,
             this.toolStripButton4});
-            this.下相机toolStrip.Location = new System.Drawing.Point(988, 0);
+            this.下相机toolStrip.Location = new System.Drawing.Point(1011, 0);
             this.下相机toolStrip.Name = "下相机toolStrip";
-            this.下相机toolStrip.Size = new System.Drawing.Size(283, 50);
+            this.下相机toolStrip.Size = new System.Drawing.Size(260, 50);
             this.下相机toolStrip.TabIndex = 21;
             this.下相机toolStrip.Text = "toolStrip2";
             this.下相机toolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.下相机toolStrip_ItemClicked);
@@ -747,7 +749,7 @@ namespace FunctionBlock
             this.工具toolStripButton});
             this.上相机toolStrip.Location = new System.Drawing.Point(0, 0);
             this.上相机toolStrip.Name = "上相机toolStrip";
-            this.上相机toolStrip.Size = new System.Drawing.Size(274, 50);
+            this.上相机toolStrip.Size = new System.Drawing.Size(260, 50);
             this.上相机toolStrip.TabIndex = 20;
             this.上相机toolStrip.Text = "toolStrip1";
             this.上相机toolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.上相机toolStrip_ItemClicked);
@@ -795,7 +797,7 @@ namespace FunctionBlock
             this.groupBox3.Location = new System.Drawing.Point(3, 53);
             this.groupBox3.Name = "groupBox3";
             this.tableLayoutPanel1.SetRowSpan(this.groupBox3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(268, 682);
+            this.groupBox3.Size = new System.Drawing.Size(254, 682);
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "映射目标相机";
@@ -804,7 +806,7 @@ namespace FunctionBlock
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 17);
+            this.splitContainer1.Location = new System.Drawing.Point(3, 18);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -815,7 +817,7 @@ namespace FunctionBlock
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer1.Size = new System.Drawing.Size(262, 662);
+            this.splitContainer1.Size = new System.Drawing.Size(248, 661);
             this.splitContainer1.SplitterDistance = 25;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -836,7 +838,7 @@ namespace FunctionBlock
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(262, 633);
+            this.groupBox2.Size = new System.Drawing.Size(248, 632);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "标定程序";
@@ -844,19 +846,19 @@ namespace FunctionBlock
             // 上相机treeView
             // 
             this.上相机treeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.上相机treeView.Location = new System.Drawing.Point(3, 17);
+            this.上相机treeView.Location = new System.Drawing.Point(3, 18);
             this.上相机treeView.Name = "上相机treeView";
-            this.上相机treeView.Size = new System.Drawing.Size(256, 613);
+            this.上相机treeView.Size = new System.Drawing.Size(242, 611);
             this.上相机treeView.TabIndex = 0;
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.splitContainer2);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(991, 53);
+            this.groupBox4.Location = new System.Drawing.Point(1014, 53);
             this.groupBox4.Name = "groupBox4";
             this.tableLayoutPanel1.SetRowSpan(this.groupBox4, 2);
-            this.groupBox4.Size = new System.Drawing.Size(277, 682);
+            this.groupBox4.Size = new System.Drawing.Size(254, 682);
             this.groupBox4.TabIndex = 23;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "映射源相机";
@@ -864,7 +866,7 @@ namespace FunctionBlock
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(3, 17);
+            this.splitContainer2.Location = new System.Drawing.Point(3, 18);
             this.splitContainer2.Margin = new System.Windows.Forms.Padding(0);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -876,8 +878,8 @@ namespace FunctionBlock
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer2.Size = new System.Drawing.Size(271, 662);
-            this.splitContainer2.SplitterDistance = 27;
+            this.splitContainer2.Size = new System.Drawing.Size(248, 661);
+            this.splitContainer2.SplitterDistance = 26;
             this.splitContainer2.TabIndex = 0;
             // 
             // 下相机label
@@ -897,7 +899,7 @@ namespace FunctionBlock
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(271, 631);
+            this.groupBox1.Size = new System.Drawing.Size(248, 631);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "标定程序";
@@ -905,10 +907,10 @@ namespace FunctionBlock
             // 下相机treeView
             // 
             this.下相机treeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.下相机treeView.Location = new System.Drawing.Point(3, 17);
+            this.下相机treeView.Location = new System.Drawing.Point(3, 18);
             this.下相机treeView.Margin = new System.Windows.Forms.Padding(0);
             this.下相机treeView.Name = "下相机treeView";
-            this.下相机treeView.Size = new System.Drawing.Size(265, 611);
+            this.下相机treeView.Size = new System.Drawing.Size(242, 610);
             this.下相机treeView.TabIndex = 0;
             // 
             // UpDnCamCalibSimpleForm

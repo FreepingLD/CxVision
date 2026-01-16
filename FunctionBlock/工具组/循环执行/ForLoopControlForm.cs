@@ -36,7 +36,7 @@ namespace FunctionBlock
             this._function = function;
             InitializeComponent();
             this.drawObject = new DrawingBaseMeasure(this.hWindowControl1, false);
-            this.titleLabel.Text = function.GetPropertyValues("名称").ToString();
+            this.Text = function.GetPropertyValues("名称").ToString();
             this.treeViewWrapClass = new TreeViewWrapClass(this.treeView1, this);
             this._ForLoopControl = (ForLoopControl)this._function;
             this.metrolegyParamForm = new MetrolegyParamForm(this.drawObject);
@@ -46,7 +46,7 @@ namespace FunctionBlock
             this._function = (IFunction)node?.Tag;
             InitializeComponent();
             this.drawObject = new DrawingBaseMeasure(this.hWindowControl1, false);
-            this.titleLabel.Text = this._function.GetPropertyValues("名称").ToString();
+            this.Text = this._function.GetPropertyValues("名称").ToString();
             this.treeViewWrapClass = new TreeViewWrapClass(this.treeView1, this);
             this._ForLoopControl = (ForLoopControl)this._function;
             this._refNode = node;
@@ -70,8 +70,8 @@ namespace FunctionBlock
             //this.treeView1.ShowPlusMinus = false;
             //this.treeView1.ShowRootLines = false;
             this.BindProperty();
-
             this.AddForm(this.元素属性tabPage, new ElementViewForm(false));
+            this.DoubleBuffered = true;
         }
 
         private void BindProperty()
@@ -107,10 +107,11 @@ namespace FunctionBlock
                 this.treeView1.Nodes.Add(item.Clone() as TreeNode);
             }
         }
-        private void ConcurrentExecutionForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void ForLoopControlForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
             {
+                this.drawObject?.ClearDrawingObject();  
                 this.drawObject.GrayValueInfo -= new GrayValueInfoEventHandler(hWindowControl1_MouseMove);
                 BaseFunction.ExcuteCompleted -= new ExcuteCompletedEventHandler(DisplayExcuteResult);
                 TreeViewWrapClass.ClickNode -= new ClickNodeEventHandler(this.DisplayClickObject);
@@ -193,12 +194,7 @@ namespace FunctionBlock
                         break;
 
                     case "脚本配置toolStripButton":
-                        //this._refNode?.Nodes.Clear();
-                        //foreach (TreeNode item1 in this.treeView1.Nodes)
-                        //{
-                        //    this._refNode?.Nodes.Add(item1.Clone() as TreeNode);
-                        //}
-                        //((ForLoopControl)_refNode.Tag).ParentNode = _refNode;
+
                         break;
 
                     default:
@@ -997,45 +993,45 @@ namespace FunctionBlock
         #endregion
 
         #region  窗体绽放功能 
-        private const int Guying_HTLEFT = 10;
-        private const int Guying_HTRIGHT = 11;
-        private const int Guying_HTTOP = 12;
-        private const int Guying_HTTOPLEFT = 13;
-        private const int Guying_HTTOPRIGHT = 14;
-        private const int Guying_HTBOTTOM = 15;
-        private const int Guying_HTBOTTOMLEFT = 0x10;
-        private const int Guying_HTBOTTOMRIGHT = 17;
-        protected override void WndProc(ref Message m)
-        {
-            switch (m.Msg)
-            {
-                case 0x0084:
-                    base.WndProc(ref m);
-                    Point vPoint = new Point((int)m.LParam & 0xFFFF,
-                        (int)m.LParam >> 16 & 0xFFFF);
-                    vPoint = PointToClient(vPoint);
-                    if (vPoint.X <= 5)
-                        if (vPoint.Y <= 5)
-                            m.Result = (IntPtr)Guying_HTTOPLEFT;
-                        else if (vPoint.Y >= ClientSize.Height - 5)
-                            m.Result = (IntPtr)Guying_HTBOTTOMLEFT;
-                        else m.Result = (IntPtr)Guying_HTLEFT;
-                    else if (vPoint.X >= ClientSize.Width - 5)
-                        if (vPoint.Y <= 5)
-                            m.Result = (IntPtr)Guying_HTTOPRIGHT;
-                        else if (vPoint.Y >= ClientSize.Height - 5)
-                            m.Result = (IntPtr)Guying_HTBOTTOMRIGHT;
-                        else m.Result = (IntPtr)Guying_HTRIGHT;
-                    else if (vPoint.Y <= 2)
-                        m.Result = (IntPtr)Guying_HTTOP;
-                    else if (vPoint.Y >= ClientSize.Height - 5)
-                        m.Result = (IntPtr)Guying_HTBOTTOM;
-                    break;
-                default:
-                    base.WndProc(ref m);
-                    break;
-            }
-        }
+        //private const int Guying_HTLEFT = 10;
+        //private const int Guying_HTRIGHT = 11;
+        //private const int Guying_HTTOP = 12;
+        //private const int Guying_HTTOPLEFT = 13;
+        //private const int Guying_HTTOPRIGHT = 14;
+        //private const int Guying_HTBOTTOM = 15;
+        //private const int Guying_HTBOTTOMLEFT = 0x10;
+        //private const int Guying_HTBOTTOMRIGHT = 17;
+        //protected override void WndProc(ref Message m)
+        //{
+        //    switch (m.Msg)
+        //    {
+        //        case 0x0084:
+        //            base.WndProc(ref m);
+        //            Point vPoint = new Point((int)m.LParam & 0xFFFF,
+        //                (int)m.LParam >> 16 & 0xFFFF);
+        //            vPoint = PointToClient(vPoint);
+        //            if (vPoint.X <= 5)
+        //                if (vPoint.Y <= 5)
+        //                    m.Result = (IntPtr)Guying_HTTOPLEFT;
+        //                else if (vPoint.Y >= ClientSize.Height - 5)
+        //                    m.Result = (IntPtr)Guying_HTBOTTOMLEFT;
+        //                else m.Result = (IntPtr)Guying_HTLEFT;
+        //            else if (vPoint.X >= ClientSize.Width - 5)
+        //                if (vPoint.Y <= 5)
+        //                    m.Result = (IntPtr)Guying_HTTOPRIGHT;
+        //                else if (vPoint.Y >= ClientSize.Height - 5)
+        //                    m.Result = (IntPtr)Guying_HTBOTTOMRIGHT;
+        //                else m.Result = (IntPtr)Guying_HTRIGHT;
+        //            else if (vPoint.Y <= 2)
+        //                m.Result = (IntPtr)Guying_HTTOP;
+        //            else if (vPoint.Y >= ClientSize.Height - 5)
+        //                m.Result = (IntPtr)Guying_HTBOTTOM;
+        //            break;
+        //        default:
+        //            base.WndProc(ref m);
+        //            break;
+        //    }
+        //}
         #endregion
 
         #region 防止改变窗口大小时控件闪烁功能

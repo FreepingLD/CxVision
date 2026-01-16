@@ -45,7 +45,7 @@ namespace FunctionBlock
             ScaleParamManager.Instance.Read();
             this.ShowInTaskbar = true;
             this.TopMost = true;
-            this.StartPosition = FormStartPosition.Manual;
+            this.StartPosition = FormStartPosition.CenterParent;
         }
         public ScaleParamForm(Point point)
         {
@@ -119,6 +119,8 @@ namespace FunctionBlock
                     _crossIcon = _crossIcon.ConcatObj(new HXLDCont(new HTuple(0, height), new HTuple(width * 0.5, width * 0.5)));
                     //////////////////////////////////////////////////////////////////////////////////
                     double step, radius, pixStep, pixRadius, center_row, center_col;
+                    if(ScaleParamManager.Instance.Param == null)
+                        ScaleParamManager.Instance.Read();
                     step = ScaleParamManager.Instance.Param.StepDist;
                     radius = ScaleParamManager.Instance.Param.Radius;
                     if (cameraParam != null)

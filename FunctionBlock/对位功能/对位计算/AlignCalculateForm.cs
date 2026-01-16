@@ -11,6 +11,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,8 +27,8 @@ namespace FunctionBlock
         private TreeNode _refNode;
         public AlignCalculateForm(IFunction function)
         {
-            
             InitializeComponent();
+            this.drawObject = new VisualizeView(this.hWindowControl1, true);
             this._function = function;
             this._function.SetPropertyValues(nameof(TreeNode), this._refNode);
             this.Text = function.GetPropertyValues("名称").ToString();
@@ -37,6 +38,7 @@ namespace FunctionBlock
         public AlignCalculateForm(TreeNode node)
         {
             InitializeComponent();
+            this.drawObject = new VisualizeView(this.hWindowControl1, true);
             this._refNode = node;
             this._function = this._refNode.Tag as IFunction;
             this._function.SetPropertyValues(nameof(TreeNode), this._refNode);
@@ -44,42 +46,65 @@ namespace FunctionBlock
             new ListBoxWrapClass().InitListBox(this.listBox1, node);
             new ListBoxWrapClass().InitListBox(this.listBox2, node, 2);
         }
+
         private void AlignCalculateForm_Load(object sender, EventArgs e)
         {
-            //////////////////////////////////////////
-            List<drawWcsPoint> refPoint = new List<drawWcsPoint>();
-            List<drawWcsPoint> curPoint = new List<drawWcsPoint>();
-            List<drawWcsPoint> affinePoint = new List<drawWcsPoint>();
-            //////////////////////////////////////////////////////////
-            if (((AlignCalculate)this._function).SourcePoint != null)
+            try
             {
-                foreach (var item in ((AlignCalculate)this._function).SourcePoint)
+                //////////////////////////////////////////
+                List<drawWcsPoint> refPoint = new List<drawWcsPoint>();
+                List<drawWcsPoint> curPoint = new List<drawWcsPoint>();
+                List<drawWcsPoint> affinePoint = new List<drawWcsPoint>();
+                List<double> list_target_x = new List<double>();
+                List<double> list_target_y = new List<double>();
+                List<double> list_target_z = new List<double>();
+                List<double> list_affine_x = new List<double>();
+                List<double> list_affine_y = new List<double>();
+                List<double> list_affine_z = new List<double>();
+                //////////////////////////////////////////////////////////
+                if (((AlignCalculate)this._function).SourcePoint != null)
                 {
-                    userWcsVector wcsPoint = item.GetWcsVector();
-                    curPoint.Add(new drawWcsPoint(wcsPoint.X, wcsPoint.Y, wcsPoint.Z));
+                    foreach (var item in ((AlignCalculate)this._function).SourcePoint)
+                    {
+                        userWcsVector wcsPoint = item.GetWcsVector();
+                        curPoint.Add(new drawWcsPoint(wcsPoint.X, wcsPoint.Y, wcsPoint.Z));
+                    }
                 }
+                if (((AlignCalculate)this._function).TargetPoint != null)
+                {
+                    int index = 0;
+                    foreach (var item in ((AlignCalculate)this._function).TargetPoint)
+                    {
+                        userWcsVector wcsPoint = item.GetWcsVector();
+                        refPoint.Add(new drawWcsPoint(wcsPoint.X, wcsPoint.Y, wcsPoint.Z));
+                        index++;
+                        list_target_x.Add(wcsPoint.X);
+                        list_target_y.Add(wcsPoint.Y);
+                        list_target_z.Add(wcsPoint.Z);
+                    }
+                }
+                if (((AlignCalculate)this._function).AffinePoint != null)
+                {
+                    foreach (var item in ((AlignCalculate)this._function).AffinePoint)
+                    {
+                        affinePoint.Add(new drawWcsPoint(item.X, item.Y, item.Z));
+                        list_affine_x.Add(item.X);
+                        list_affine_y.Add(item.Y);
+                        list_affine_z.Add(item.Z);
+                    }
+                }
+                this.目标点坐标dataGridView.DataSource = refPoint.ToArray();
+                this.源点坐标dataGridView.DataSource = curPoint.ToArray();
+                this.变换点坐标dataGridView.DataSource = affinePoint.ToArray();
+                BindProperty();
+                HObjectModel3D hObjectModel3D1 = new HObjectModel3D(list_target_x.ToArray(), list_target_y.ToArray(), list_target_z.ToArray());
+                HObjectModel3D hObjectModel3D2 = new HObjectModel3D(list_affine_x.ToArray(), list_affine_y.ToArray(), list_affine_z.ToArray());
+                this.drawObject.PointCloudModel3D = new PointCloudData(new HObjectModel3D[] { hObjectModel3D1, hObjectModel3D2 });
             }
-            if (((AlignCalculate)this._function).TargetPoint != null)
+            catch (Exception ex)
             {
-                int index = 0;
-                foreach (var item in ((AlignCalculate)this._function).TargetPoint)
-                {
-                    userWcsVector wcsPoint = item.GetWcsVector();
-                    refPoint.Add(new drawWcsPoint(wcsPoint.X, wcsPoint.Y, wcsPoint.Z));
-                    index++;
-                }
+                new Common.UserMessageForm(ex.ToString()).ShowDialog();
             }
-            if (((AlignCalculate)this._function).AffinePoint != null)
-            {
-                foreach (var item in ((AlignCalculate)this._function).AffinePoint)
-                {
-                    affinePoint.Add(new drawWcsPoint(item.X, item.Y, item.Z));
-                }
-            }
-            this.目标点坐标dataGridView.DataSource = refPoint.ToArray();
-            this.源点坐标dataGridView.DataSource = curPoint.ToArray();
-            this.变换点坐标dataGridView.DataSource = affinePoint.ToArray();
-            BindProperty();
         }
 
         private void BindProperty()
@@ -89,16 +114,18 @@ namespace FunctionBlock
                 CompensationParam param = ((AlignCalculate)this._function).Param;
                 this.参考点comboBox.DataSource = Enum.GetValues(typeof(enRefObject));
                 this.对齐方式comboBox.DataSource = Enum.GetValues(typeof(enAlignmentMethod));
-                this.坐标系comboBox.DataSource = Enum.GetValues(typeof(enCoordSysName));
+                //this.坐标系comboBox.DataSource = Enum.GetValues(typeof(enCoordSysName));
                 this.视图窗口comboBox.DataSource = HWindowManage.GetKeysList();
+                this.数据视图窗口comboBox.DataSource = HWindowManage.GetKeysList();
                 this.参考点comboBox.DataBindings.Add("Text", param, nameof(param.RefObject), true, DataSourceUpdateMode.OnPropertyChanged);
                 this.对齐方式comboBox.DataBindings.Add("Text", param, nameof(param.AlignmentMethod), true, DataSourceUpdateMode.OnPropertyChanged);
                 this.补偿XtextBox.DataBindings.Add("Text", param, nameof(param.Add_X), true, DataSourceUpdateMode.OnPropertyChanged);
                 this.补偿YtextBox.DataBindings.Add("Text", param, nameof(param.Add_Y), true, DataSourceUpdateMode.OnPropertyChanged);
-                this.补偿ThetatextBox.DataBindings.Add("Text", param, nameof(param.Add_Angle), true, DataSourceUpdateMode.OnPropertyChanged);  
+                this.补偿ThetatextBox.DataBindings.Add("Text", param, nameof(param.Add_Angle), true, DataSourceUpdateMode.OnPropertyChanged);
                 this.视图窗口comboBox.DataBindings.Add("Text", param, nameof(param.ViewWindow), true, DataSourceUpdateMode.OnPropertyChanged);
-                this.坐标系comboBox .DataBindings.Add("Text", param, nameof(param.CoordSysName), true, DataSourceUpdateMode.OnPropertyChanged); 
-                this.启用分区补偿checkBox.DataBindings.Add(nameof(this.启用分区补偿checkBox.Checked), param, nameof(param.IsZoneCompensation), true, DataSourceUpdateMode.OnPropertyChanged);
+                this.数据视图窗口comboBox.DataBindings.Add("Text", param, nameof(param.DataViewWindow), true, DataSourceUpdateMode.OnPropertyChanged);
+                //this.坐标系comboBox .DataBindings.Add("Text", param, nameof(param.CoordSysName), true, DataSourceUpdateMode.OnPropertyChanged); 
+                //this.启用分区补偿checkBox.DataBindings.Add(nameof(this.启用分区补偿checkBox.Checked), param, nameof(param.IsZoneCompensation), true, DataSourceUpdateMode.OnPropertyChanged);
                 this.输出UVW坐标checkBox.DataBindings.Add(nameof(this.输出UVW坐标checkBox.Checked), param, nameof(param.IsOutputUvw), true, DataSourceUpdateMode.OnPropertyChanged);
             }
             catch
@@ -148,7 +175,14 @@ namespace FunctionBlock
         }
         private void AlignCalculateForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            try
+            {
+                this.drawObject.PointCloudModel3D?.ClearObjectModel3d();
+            }
+            catch
+            {
 
+            }
         }
 
 
@@ -261,7 +295,7 @@ namespace FunctionBlock
             }
             catch (Exception ex)
             {
-               new Common.UserMessageForm(ex.ToString()).ShowDialog();;
+                new Common.UserMessageForm(ex.ToString()).ShowDialog(); ;
             }
         }
         private void hWindowControl1_MouseMove(object sender, GrayValueInfoEventArgs e)
@@ -513,8 +547,19 @@ namespace FunctionBlock
             }
         }
 
-
-
+        private void 轮廓匹配参数Btn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (((AlignCalculate)this._function).Param.MatchParam == null)
+                    ((AlignCalculate)this._function).Param.MatchParam = new AlignMatchParam();
+                new AlignParamForm(((AlignCalculate)this._function).Param.MatchParam).Show();
+            }
+            catch (Exception ex)
+            {
+                new Common.UserMessageForm(ex.ToString()).ShowDialog();
+            }
+        }
     }
 
 

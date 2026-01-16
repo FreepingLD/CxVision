@@ -33,7 +33,7 @@ namespace FunctionBlock
             this._function = function;
             InitializeComponent();
             this.Text = function.GetPropertyValues("名称").ToString();
-            this.drawObject = new userDrawPolyLineMeasure(this.hWindowControl1, ((FunctionBlock.PolyLineMeasure)_function).FindPolyLine.PolyLinePixPosition, ((FunctionBlock.PolyLineMeasure)_function).PixCoordSystem);
+            this.drawObject = new userDrawPolyLineMeasure(this.hWindowControl1, ((FunctionBlock.PolyLineMeasure)_function).FindPolyLine.PolyLinePixPosition.AffinePixPolyLine(((FunctionBlock.PolyLineMeasure)_function).PixCoordSystem?.GetVariationHomMat2D()), ((FunctionBlock.PolyLineMeasure)_function).PixCoordSystem);
             new ListBoxWrapClass().InitListBox(this.listBox1, function);
             new ListBoxWrapClass().InitListBox(this.listBox2, function, 2);
         }
@@ -43,7 +43,7 @@ namespace FunctionBlock
             this._function = function;
             InitializeComponent();
             this.Text = node.Text; //function.GetPropertyValues("名称").ToString();
-            this.drawObject = new userDrawPolyLineMeasure(this.hWindowControl1, ((FunctionBlock.PolyLineMeasure)_function).FindPolyLine.PolyLinePixPosition, ((FunctionBlock.PolyLineMeasure)_function).PixCoordSystem);
+            this.drawObject = new userDrawPolyLineMeasure(this.hWindowControl1, ((FunctionBlock.PolyLineMeasure)_function).FindPolyLine.PolyLinePixPosition.AffinePixPolyLine(((FunctionBlock.PolyLineMeasure)_function).PixCoordSystem?.GetVariationHomMat2D()), ((FunctionBlock.PolyLineMeasure)_function).PixCoordSystem);
             new ListBoxWrapClass().InitListBox(this.listBox1, node);
             new ListBoxWrapClass().InitListBox(this.listBox2, node, 2);
         }

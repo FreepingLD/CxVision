@@ -398,7 +398,7 @@ namespace FunctionBlock
                     string FunctionNo = CommunicationConfigParamManger.Instance.ReadValue(item.CoordSysName, enCommunicationCommand.FunctionNo).ToString();
                     string GrabNo = CommunicationConfigParamManger.Instance.ReadValue(item.CoordSysName, enCommunicationCommand.GrabNo).ToString();
                     CommunicationConfigParamManger.Instance.WriteValue(item.CoordSysName, enCommunicationCommand.FunctionNoToPlc, FunctionNo); // 初始化值
-                    CommunicationConfigParamManger.Instance.WriteValue(item.CoordSysName, enCommunicationCommand.GrabNoToPlc, GrabNo); // 初始化值
+                    //CommunicationConfigParamManger.Instance.WriteValue(item.CoordSysName, enCommunicationCommand.GrabNoToPlc, GrabNo); // 初始化值
                     LoggerHelper.Info($"视觉收到PLC功能值:{FunctionNo}", acqSource?.Sensor?.Name);
                     LoggerHelper.Info($"视觉收到PLC标签值:{GrabNo}", acqSource?.Sensor?.Name);
                     ////////////////////////////////////////

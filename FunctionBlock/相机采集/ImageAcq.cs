@@ -199,7 +199,7 @@ namespace FunctionBlock
                             }
                             this._imageData = null;
                             //AcqSourceManage.Instance.GetAcqSource(this.AcqSourceName).Exposure = this.AcqParam.Expose; // 更新相机曝光
-                            list = AcqSourceManage.Instance.GetAcqSource(this.AcqSourceName).AcqImageData(this.LightParam, this.AcqParam.Expose);
+                            list = AcqSourceManage.Instance.GetAcqSource(this.AcqSourceName)?.AcqImageData(this.LightParam, this.AcqParam.Expose);
                             // 更新数据
                             if (this.axisParam == null) this.axisParam = new CoordSysAxisPosParam();
                             this.axisParam?.UpdataAxisPosition(AcqSourceManage.Instance.GetAcqSource(this.AcqSourceName).CoordSysName); // 实时使用当前位置     

@@ -875,15 +875,15 @@ namespace FunctionBlock
             if (colCount > 1)
                 step_x = (endPoint.X - startPoint.X) / (colCount - 1);
             else
-                step_x = 0; // (endPoint.X - startPoint.X);
+                step_x = 0; 
             if (rowCount > 1)
                 step_y = (endPoint.Y - startPoint.Y) / (rowCount - 1);
             else
-                step_y = 0;// (endPoint.Y - startPoint.Y);
+                step_y = 0;
             if (rowCount > 1)
                 step_z = (endPoint.Z - startPoint.Z) / (rowCount - 1);
             else
-                step_z = 0;// (endPoint.Z - startPoint.Z);
+                step_z = 0;
             center_x = 0;// (endPoint.X + startPoint.X) * 0.5;
             center_y = 0;// (endPoint.Y + startPoint.Y) * 0.5;
             center_z = 0;// (endPoint.Y + startPoint.Y) * 0.5;
@@ -1030,16 +1030,6 @@ namespace FunctionBlock
                 //}
             }
             list_error.Clear();
-            //double mean_x = listRow.Average();
-            //double mean_y = listCol.Average();
-            //for (int i = 0; i < listCol.Count; i++)
-            //{
-            //    list_error.Add(HMisc.DistancePp(listRow[i], listCol[i], mean_x, mean_y));
-            //}
-            //error = list_error.Average(); // 圆心的平均误
-            //centerRow = listRow.Average();
-            //centerCol = listCol.Average();
-
             /// 利用点之间的变换距离来找出最佳圆心
             error = 10000;
             centerRow = listRow.Average();

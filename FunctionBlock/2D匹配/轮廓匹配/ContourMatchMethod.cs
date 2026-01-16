@@ -23,29 +23,50 @@ namespace FunctionBlock
             if (wcsPointStd == null) throw new ArgumentNullException(nameof(wcsPointStd));
             if (param == null) throw new ArgumentNullException("param");
             if (wcsPoint.Length == 0) return false;
-            ////////////////////////////////////////////
-            double[] cur_x = new double[wcsPoint.Length];
-            double[] cur_y = new double[wcsPoint.Length];
-            double[] cur_z = new double[wcsPoint.Length];
-            double[] std_x = new double[wcsPointStd.Length];
-            double[] std_y = new double[wcsPointStd.Length];
-            double[] std_z = new double[wcsPointStd.Length];
-            ////////////////////////////////////////////
-            for (int i = 0; i < wcsPoint.Length; i++)
+            /////////////////// 插值处理 /////////////////////////
+            userWcsPoint[] curWcsPoint, teachWcsPoint;
+            if (param.ResampleDist != "auto")
             {
-                cur_x[i] = wcsPoint[i].X;
-                cur_y[i] = wcsPoint[i].Y;
-                cur_z[i] = wcsPoint[i].Z;
-                wcsPolyLine.CamParams = wcsPoint[i].CamParams;
-                wcsPolyLine.CamName = wcsPoint[i].CamName;
-                wcsPolyLine.ViewWindow = wcsPoint[i].ViewWindow;
+                double resampleDist = 0;
+                if (double.TryParse(param.ResampleDist, out resampleDist))
+                {
+                    new WcsData().LineInterpretationByStep(wcsPoint, resampleDist, out curWcsPoint);
+                    new WcsData().LineInterpretationByStep(wcsPointStd, resampleDist, out teachWcsPoint);
+                }
+                else
+                {
+                    curWcsPoint = wcsPoint;
+                    teachWcsPoint = wcsPointStd;
+                }
+            }
+            else
+            {
+                curWcsPoint = wcsPoint;
+                teachWcsPoint = wcsPointStd;
+            }
+            //////////////////////////////////////////////
+            double[] cur_x = new double[curWcsPoint.Length];
+            double[] cur_y = new double[curWcsPoint.Length];
+            double[] cur_z = new double[curWcsPoint.Length];
+            double[] std_x = new double[teachWcsPoint.Length];
+            double[] std_y = new double[teachWcsPoint.Length];
+            double[] std_z = new double[teachWcsPoint.Length];
+            ////////////////////////////////////////////
+            for (int i = 0; i < curWcsPoint.Length; i++)
+            {
+                cur_x[i] = curWcsPoint[i].X;
+                cur_y[i] = curWcsPoint[i].Y;
+                cur_z[i] = curWcsPoint[i].Z;
+                wcsPolyLine.CamParams = curWcsPoint[i].CamParams;
+                wcsPolyLine.CamName = curWcsPoint[i].CamName;
+                wcsPolyLine.ViewWindow = curWcsPoint[i].ViewWindow;
             }
             ////////////////////////////////////////////
-            for (int i = 0; i < wcsPointStd.Length; i++)
+            for (int i = 0; i < teachWcsPoint.Length; i++)
             {
-                std_x[i] = wcsPointStd[i].X;
-                std_y[i] = wcsPointStd[i].Y;
-                std_z[i] = wcsPointStd[i].Z;
+                std_x[i] = teachWcsPoint[i].X;
+                std_y[i] = teachWcsPoint[i].Y;
+                std_z[i] = teachWcsPoint[i].Z;
             }
             HTuple Qx = 0, Qy = 0, Qz = 0, dist = 0;
             HHomMat2D hHomMat2D = new HHomMat2D();
@@ -98,7 +119,8 @@ namespace FunctionBlock
                 }
                 Qx = hHomMat2D.AffineTransPoint2d(cur_x, cur_y, out Qy);
                 dist = HMisc.DistancePp(Qx.TupleSelectRange(startIndex, endIndex), Qy.TupleSelectRange(startIndex, endIndex), list_std_x.ToArray(), list_std_y.ToArray());
-                double meanValue = dist.TupleMean().D;
+                double meanValue = dist.TupleDeviation().D;//.TupleMean().D;
+                meanValue = dist.TupleMean().D;
                 list_error.Add(meanValue);
             }
             // 用误差最小点的变换矩阵来变换计算

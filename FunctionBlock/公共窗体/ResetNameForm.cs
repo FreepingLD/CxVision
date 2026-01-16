@@ -20,10 +20,14 @@ namespace FunctionBlock
         public ResetNameForm()
         {
             InitializeComponent();
+            this.TopMost = true;
+            this.ShowInTaskbar = true;
         }
         public ResetNameForm(string name)
         {
             InitializeComponent();
+            this.TopMost = true;
+            this.ShowInTaskbar = true;
             this.oldName = name;
             this.旧名称textBox.Text = name;
         }

@@ -29,13 +29,21 @@ namespace FunctionBlock
             ///// 构造时就初始化
             //this.AddXyThetaFrm_Paint();
             //this.InitDataGridView(this.dataGridView1);
-            this.ShowInTaskbar = true;
+            if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+            {
+                this.TopMost = true;
+                this.ShowInTaskbar = true;
+            }
             this.dataGridView1.DataSource = list;
         }
         public SizeControlForm(BindingList<OcrResultInfo> list)
         {
             InitializeComponent();
-            this.ShowInTaskbar = true;
+            if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+            {
+                this.TopMost = true;
+                this.ShowInTaskbar = true;
+            }
             ///// 构造时就初始化
             //this.AddXyThetaFrm_Paint();
             //this.InitDataGridView(this.dataGridView1);
@@ -45,7 +53,11 @@ namespace FunctionBlock
         public SizeControlForm(BindingList<MeasureResultInfo> list1, BindingList<OcrResultInfo> list2)
         {
             InitializeComponent();
-            this.ShowInTaskbar = true;
+            if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+            {
+                this.TopMost = true;
+                this.ShowInTaskbar = true;
+            }
             ///// 构造时就初始化
             //this.AddXyThetaFrm_Paint();
             //this.InitDataGridView(this.dataGridView1);
@@ -56,7 +68,11 @@ namespace FunctionBlock
         public SizeControlForm(BindingList<MeasureResultInfo> list, ViewConfigParam viewConfigParam)
         {
             InitializeComponent();
-            this.ShowInTaskbar = true;
+            if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+            {
+                this.TopMost = true;
+                this.ShowInTaskbar = true;
+            }
             this._viewConfigParam = viewConfigParam;
             if (viewConfigParam != null)
                 this.titleLabel.Text = viewConfigParam?.ViewName;
@@ -78,6 +94,7 @@ namespace FunctionBlock
             if (this._viewConfigParam != null)
                 this._compensaData = CompensationDataManager.Instance.Read(this._viewConfigParam.ViewName.Replace(":[", "_").Replace("]", ""));
         }
+
         private void InitDataGridView(DataGridView dataGridView)
         {
             dataGridView.AllowUserToAddRows = false;
@@ -90,7 +107,6 @@ namespace FunctionBlock
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView.Margin = new Padding(0);
         }
-
 
         private void SizeControlForm_FormClosing(object sender, FormClosingEventArgs e)
         {

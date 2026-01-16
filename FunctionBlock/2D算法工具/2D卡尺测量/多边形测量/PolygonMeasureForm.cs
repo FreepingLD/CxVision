@@ -33,7 +33,7 @@ namespace FunctionBlock
             this._function = function;
             InitializeComponent();
             this.Text = function.GetPropertyValues("名称").ToString();
-            this.drawObject = new userDrawPolygonMeasure(this.hWindowControl1, ((FunctionBlock.PolygonMeasure)_function).FindPolygon.PolygonPixPosition, ((FunctionBlock.PolygonMeasure)_function).PixCoordSystem);
+            this.drawObject = new userDrawPolygonMeasure(this.hWindowControl1, ((FunctionBlock.PolygonMeasure)_function).FindPolygon.PolygonPixPosition.AffinePixPolygon(((FunctionBlock.PolygonMeasure)_function).PixCoordSystem?.GetVariationHomMat2D()), ((FunctionBlock.PolygonMeasure)_function).PixCoordSystem);
             new ListBoxWrapClass().InitListBox(this.listBox1, function);
             new ListBoxWrapClass().InitListBox(this.listBox2, function, 2);
         }
@@ -43,7 +43,7 @@ namespace FunctionBlock
             this._function = function;
             InitializeComponent();
             this.Text = node.Text; //function.GetPropertyValues("名称").ToString();
-            this.drawObject = new userDrawPolygonMeasure(this.hWindowControl1, ((FunctionBlock.PolygonMeasure)_function).FindPolygon.PolygonPixPosition, ((FunctionBlock.PolygonMeasure)_function).PixCoordSystem);
+            this.drawObject = new userDrawPolygonMeasure(this.hWindowControl1, ((FunctionBlock.PolygonMeasure)_function).FindPolygon.PolygonPixPosition.AffinePixPolygon(((FunctionBlock.PolygonMeasure)_function).PixCoordSystem?.GetVariationHomMat2D()), ((FunctionBlock.PolygonMeasure)_function).PixCoordSystem);
             new ListBoxWrapClass().InitListBox(this.listBox1, node);
             new ListBoxWrapClass().InitListBox(this.listBox2, node, 2);
         }
@@ -324,7 +324,7 @@ namespace FunctionBlock
                         this.toolStripStatusLabel2.ForeColor = Color.Yellow;
                         Task.Run(() =>
                         {
-                            if (this._function.Execute(this.drawObject.GetPixPolyLineParam(), this._refNode).Succss)
+                            if (this._function.Execute(this.drawObject.GetPixPolygonParam(), this._refNode).Succss)
                             {
                                 this.Invoke(new Action(() =>
                                 {

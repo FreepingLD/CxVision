@@ -87,6 +87,7 @@ namespace FunctionBlock
             this.treeView1.ShowRootLines = false;
             this.数据读取dataGridView.DataSource = ((MarkLocalization)this._function).PlcInfo;
             this.AddForm(this.元素属性tabPage, new ElementViewForm(false));
+            this.DoubleBuffered = true;
         }
 
         public void LoadTreeNode()
@@ -142,7 +143,7 @@ namespace FunctionBlock
 
         // 获取鼠标位置处的高度值
 
-        private void FeatureLocalizationForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void MarkLocalizationForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
             {
@@ -291,9 +292,7 @@ namespace FunctionBlock
         {
             try
             {
-                //if (!IsSelect()) return; // 如果不是当前选择的，则返回
                 if (e.DataContent == null) return;// 在图形窗口只显示世界坐标元素，像素元素在图像窗口显示
-                //if (SystemParamManager.Instance.SysConfigParam.IsAutoRun) return;
                 /////////////////////////////////////////////
                 switch (e.DataContent.GetType().Name) //这里只接受XLD轮廓或3D对象轮廓
                 {
@@ -406,13 +405,13 @@ namespace FunctionBlock
                 /////////////////////////////
                 Task.Run(() =>
                 {
-                    //this.drawObject.AttachPropertyData.Clear();
-                    ////this.drawObject.IsDispalyAttachDrawingProperty = false;
-                    //foreach (KeyValuePair<string, object> item in this.listData)
-                    //{
-                    //    this.drawObject.AttachPropertyData.Add(item.Value);
-                    //}
-                    //this.drawObject.DetachDrawingObjectFromWindow();
+                    this.drawObject.AttachPropertyData.Clear();
+                    //this.drawObject.IsDispalyAttachDrawingProperty = false;
+                    foreach (KeyValuePair<string, object> item in this.listData)
+                    {
+                        this.drawObject.AttachPropertyData.Add(item.Value);
+                    }
+                    this.drawObject.DetachDrawingObjectFromWindow();
                 });
             }
             catch (Exception ex)

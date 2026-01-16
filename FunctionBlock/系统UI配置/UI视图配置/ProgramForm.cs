@@ -189,7 +189,31 @@ namespace FunctionBlock
             }
             //ProgramConfigParamManager.Instance.Save();
             //////////  同步夹爪参数 //////////
-            //SaveJawParam();
+            ////////////////////  每次保存发送一次标签更新  //////////////////// 
+            foreach (var item2 in AcqSourceManage.Instance.AcqSourceList)
+            {
+                string[] lable = this.GetLableName((int)item2.CoordSysName);
+                if (lable != null && lable.Length > 0)
+                {
+                    CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.Lable, string.Join("|", lable));
+                    CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.LableLength, string.Join("|", lable).Length * 2);
+                    CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.ResultToPlc, 1);
+                    CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.ResultToSocket, "OK");
+                    CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.LableTrigger, 1);
+                    LoggerHelper.Info($"标签内容:{string.Join("|", lable)}", item2.Sensor?.Name);
+                    LoggerHelper.Info("发送标签成功", item2.Sensor?.Name);
+                }
+                else
+                {
+                    //CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.LableLength, 0);
+                    CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.ResultToPlc, 2);
+                    CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.ResultToSocket, "NG");
+                    CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.LableTrigger, 1);
+                    LoggerHelper.Error($"标签内容为空或长度为0", item2.Sensor?.Name);
+                    LoggerHelper.Error("发送标签失败", item2.Sensor?.Name);
+                }
+            }
+
             return result;
         }
 
@@ -251,11 +275,99 @@ namespace FunctionBlock
                     if (!result)
                         new UserMessageForm().ShowDialog("程序面板不包含名称为 " + key + "的任务");
                 }
+            }           
+            
+            ////////////////////  每次保存发送一次标签更新  //////////////////// 
+            foreach (var item2 in AcqSourceManage.Instance.AcqSourceList)
+            {
+                string[] lable = this.GetLableName((int)item2.CoordSysName);
+                if (lable != null && lable.Length > 0)
+                {
+                    CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.Lable, string.Join("|", lable));
+                    CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.LableLength, string.Join("|", lable).Length * 2);
+                    CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.ResultToPlc, 1);
+                    CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.ResultToSocket, "OK");
+                    CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.LableTrigger, 1);
+                    LoggerHelper.Info($"标签内容:{string.Join("|", lable)}", item2.Sensor?.Name);
+                    LoggerHelper.Info("发送标签成功", item2.Sensor?.Name);
+                }
+                else
+                {
+                    //CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.LableLength, 0);
+                    CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.ResultToPlc, 2);
+                    CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.ResultToSocket, "NG");
+                    CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.LableTrigger, 1);
+                    LoggerHelper.Error($"标签内容为空或长度为0", item2.Sensor?.Name);
+                    LoggerHelper.Error("发送标签失败", item2.Sensor?.Name);
+                }
             }
-            //////////  同步夹爪参数 //////////
-            // ReadJawParam();
+            
             return result;
         }
+
+        /// <summary>
+        /// 获取标签名称
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public string[] GetLableName(int index)
+        {
+            string[] lables = new string[0];
+            List<string> listLable = new List<string>();
+            List<TreeNode> listTreeNode = new List<TreeNode>();
+            List<TreeNode> listToolNode = new List<TreeNode>();
+            // 获取面板上的节点
+            foreach (var item in this.ProgramDic.Values)
+            {
+                listTreeNode.AddRange(item.GetTreeViewNodeTag());
+            }
+            // 获取流程单元下的标签
+            foreach (TreeNode item in listTreeNode)
+            {
+                switch (item.Tag?.GetType().Name)
+                {
+                    case nameof(JobUnit):
+                        BindingList<PlcCommunicateInfo> plcInfo = ((BaseFunction)item.Tag).ResultInfo as BindingList<PlcCommunicateInfo>;
+                        if (plcInfo.Count > 0 && (int)plcInfo[0].CoordSysName == index)
+                        {
+                            foreach (TreeNode node in item.Nodes)
+                            {
+                                switch (node.Tag?.GetType().Name)
+                                {
+                                    case nameof(UserLable):
+                                        listLable.Add(node.Text);
+                                        break;
+                                    default:
+                                        if (node.Name.Contains("Tool"))
+                                            listToolNode.Add(node);
+                                        break;
+                                }
+                            }
+                        }
+                        else
+                            continue;
+                        break;
+                }
+            }
+            // 获取特征定位下的标签
+            foreach (TreeNode item in listToolNode)
+            {
+                foreach (TreeNode node in item.Nodes)
+                {
+                    switch (node?.Tag?.GetType().Name)
+                    {
+                        case nameof(UserLable):
+                            listLable.Add($"{item.Text}.{node.Text}");
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            lables = listLable.ToArray();
+            return lables;
+        }
+
         private void ReadJawParam()
         {
             if (ProgramConfigParamManager.Instance.ProgramParamList.Count > 0)
@@ -467,6 +579,11 @@ namespace FunctionBlock
                         break;
                     case "编辑(E)":
                         TaskForm taskForm = new TaskForm();
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            taskForm.TopMost = true;
+                            taskForm.ShowInTaskbar = true;
+                        }
                         taskForm.content = this.程序tabControl.SelectedTab.Text;
                         taskForm.ShowDialog();
                         if (taskForm.content != null && taskForm.content.ToString().Trim().Length > 0)
@@ -489,7 +606,7 @@ namespace FunctionBlock
                         if (ProgramDic[this.程序tabControl.SelectedTab.Text] == null)
                         {
                             new UserMessageForm().ShowDialog("未找到指定的TreeView视图");
-                            //throw new ArgumentNullException();
+                            // throw new ArgumentNullException();
                             return;
                         }
                         form = new ToolForm(ProgramDic[this.程序tabControl.SelectedTab.Text]);

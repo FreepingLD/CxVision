@@ -206,7 +206,7 @@
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(28, 25);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(26, 25);
             this.toolStripStatusLabel2.Text = "……";
             // 
             // tabControl1
@@ -292,7 +292,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(1, 104);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 12);
+            this.label3.Size = new System.Drawing.Size(88, 12);
             this.label3.TabIndex = 47;
             this.label3.Text = "轮廓原点平移Y:";
             // 
@@ -301,7 +301,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(1, 77);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 12);
+            this.label4.Size = new System.Drawing.Size(88, 12);
             this.label4.TabIndex = 46;
             this.label4.Text = "轮廓原点平移X:";
             // 
@@ -310,7 +310,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(29, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 12);
+            this.label1.Size = new System.Drawing.Size(56, 12);
             this.label1.TabIndex = 45;
             this.label1.Text = "文件类型:";
             // 
@@ -343,7 +343,7 @@
             // 
             this.文件路径textBox.Location = new System.Drawing.Point(88, 21);
             this.文件路径textBox.Name = "文件路径textBox";
-            this.文件路径textBox.Size = new System.Drawing.Size(251, 21);
+            this.文件路径textBox.Size = new System.Drawing.Size(251, 22);
             this.文件路径textBox.TabIndex = 4;
             // 
             // label2
@@ -351,7 +351,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(29, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 12);
+            this.label2.Size = new System.Drawing.Size(56, 12);
             this.label2.TabIndex = 3;
             this.label2.Text = "文件路径:";
             // 
@@ -394,7 +394,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 17);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 18);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -407,7 +407,7 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidth = 60;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(362, 451);
+            this.dataGridView1.Size = new System.Drawing.Size(362, 450);
             this.dataGridView1.TabIndex = 0;
             // 
             // Column1
@@ -489,19 +489,19 @@
             // 灰度值1Label
             // 
             this.灰度值1Label.Name = "灰度值1Label";
-            this.灰度值1Label.Size = new System.Drawing.Size(28, 25);
+            this.灰度值1Label.Size = new System.Drawing.Size(26, 25);
             this.灰度值1Label.Text = "……";
             // 
             // 灰度值2Label
             // 
             this.灰度值2Label.Name = "灰度值2Label";
-            this.灰度值2Label.Size = new System.Drawing.Size(28, 25);
+            this.灰度值2Label.Size = new System.Drawing.Size(26, 25);
             this.灰度值2Label.Text = "……";
             // 
             // 灰度值3Label
             // 
             this.灰度值3Label.Name = "灰度值3Label";
-            this.灰度值3Label.Size = new System.Drawing.Size(28, 25);
+            this.灰度值3Label.Size = new System.Drawing.Size(26, 25);
             this.灰度值3Label.Text = "……";
             // 
             // toolStripStatusLabel7
@@ -513,13 +513,13 @@
             // 行坐标Label
             // 
             this.行坐标Label.Name = "行坐标Label";
-            this.行坐标Label.Size = new System.Drawing.Size(28, 25);
+            this.行坐标Label.Size = new System.Drawing.Size(26, 25);
             this.行坐标Label.Text = "……";
             // 
             // 列坐标Label
             // 
             this.列坐标Label.Name = "列坐标Label";
-            this.列坐标Label.Size = new System.Drawing.Size(28, 25);
+            this.列坐标Label.Size = new System.Drawing.Size(26, 25);
             this.列坐标Label.Text = "……";
             // 
             // hWindowControl1

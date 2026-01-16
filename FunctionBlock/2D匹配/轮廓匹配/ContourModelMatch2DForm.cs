@@ -57,7 +57,7 @@ namespace FunctionBlock
                 this.起始点百分比textBox.DataBindings.Add(nameof(this.起始点百分比textBox.Text), param, nameof(param.StartPercent), true, DataSourceUpdateMode.OnPropertyChanged);
                 this.结束点百分比textBox.DataBindings.Add(nameof(this.结束点百分比textBox.Text), param, nameof(param.EndPercent), true, DataSourceUpdateMode.OnPropertyChanged);
                 this.采样间隔textBox.DataBindings.Add(nameof(this.采样间隔textBox.Text), param, nameof(param.ResampleDist), true, DataSourceUpdateMode.OnPropertyChanged);
-                
+
                 /////////////////////////
             }
             catch (Exception ex)
@@ -363,24 +363,34 @@ namespace FunctionBlock
                     case "输出轨迹":
                     case nameof(enShowItemContourMatch.匹配轨迹):
                         this.drawObject.PointCloudModel3D?.ClearObjectModel3d();
-                        wcsPoints = ((ContourModelMatch2D)this._function).CurTrackPoint; // 基准轨迹
-                        if (wcsPoints != null)
+                        wcsPoints = ((ContourModelMatch2D)this._function).CurTrackPoint; // 当前轨迹
+                        userWcsPoint[] resampleWcsPoints;
+                        double resampleDist = 0.02;
+                        if (double.TryParse(((ContourModelMatch2D)this._function).Param.ResampleDist, out resampleDist))
                         {
-                            double[] x = new double[wcsPoints.Length];
-                            double[] y = new double[wcsPoints.Length];
-                            double[] z = new double[wcsPoints.Length];
-                            for (int i = 0; i < wcsPoints.Length; i++)
+                            new WcsData().LineInterpretationByStep(wcsPoints, resampleDist, out resampleWcsPoints);
+                        }
+                        else
+                        {
+                            resampleWcsPoints = wcsPoints;
+                        }
+                        if (resampleWcsPoints != null)
+                        {
+                            double[] x = new double[resampleWcsPoints.Length];
+                            double[] y = new double[resampleWcsPoints.Length];
+                            double[] z = new double[resampleWcsPoints.Length];
+                            for (int i = 0; i < resampleWcsPoints.Length; i++)
                             {
-                                x[i] = wcsPoints[i].X;
-                                y[i] = wcsPoints[i].Y;
-                                z[i] = wcsPoints[i].Z;
+                                x[i] = resampleWcsPoints[i].X;
+                                y[i] = resampleWcsPoints[i].Y;
+                                z[i] = resampleWcsPoints[i].Z;
                             }
                             hObjectModel3D1?.ClearObjectModel3d();
                             hObjectModel3D1 = new HObjectModel3D(x, y, z);
                         }
                         /////////////////////////////////////////////////////////////////////////
                         userWcsPolyLine wcsPolyLine = ((ContourModelMatch2D)this._function).WcsPolyLine;
-                        if (wcsPoints != null)
+                        if (wcsPolyLine != null)
                         {
                             double[] x = new double[wcsPolyLine.X.Count];
                             double[] y = new double[wcsPolyLine.X.Count];

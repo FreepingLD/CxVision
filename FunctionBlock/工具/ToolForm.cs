@@ -21,16 +21,16 @@ namespace FunctionBlock
         public ToolForm()
         {
             InitializeComponent();
-            this.TopMost = true;
-            this.ShowInTaskbar = true;
+            //this.TopMost = true;
+            //this.ShowInTaskbar = true;
             this.StartPosition = FormStartPosition.Manual;
             this.Location = System.Windows.Forms.Cursor.Position;
         }
         public ToolForm(TreeViewWrapClass treeViewTarget)
         {
             InitializeComponent();
-            this.TopMost = true;
-            this.ShowInTaskbar = true;
+            //this.TopMost = true;
+            //this.ShowInTaskbar = true;
             this.StartPosition = FormStartPosition.Manual;
             this.Location = System.Windows.Forms.Cursor.Position;
             this._treeViewTarget = treeViewTarget;
@@ -40,8 +40,11 @@ namespace FunctionBlock
         public ToolForm(TreeViewWrapClass treeViewTarget, string toolName = "")
         {
             InitializeComponent();
-            this.TopMost = true;
-            this.ShowInTaskbar = true;
+            if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+            {
+                this.TopMost = true;
+                this.ShowInTaskbar = true;
+            }
             this.StartPosition = FormStartPosition.Manual;
             this.Location = System.Windows.Forms.Cursor.Position;
             this._treeViewTarget = treeViewTarget;
@@ -1239,7 +1242,7 @@ namespace FunctionBlock
                         {
                             default:
                             case "zh-CN":
-                                rootNode = this._treeViewTarget.AddItems(affine, "轨迹变换", nameof(affine.WcsPoint), nameof(affine.WcsCoordSystem), nameof(affine.WcsTargetPoint));
+                                rootNode = this._treeViewTarget.AddItems(affine, "轮廓变换", nameof(affine.WcsPoint), nameof(affine.WcsCoordSystem), nameof(affine.WcsTargetPoint));
                                 break;
                             case "en-US":
 
@@ -3230,15 +3233,15 @@ namespace FunctionBlock
                 case "向量对位节点":
                     if (this._treeViewTarget != null)
                     {
-                        VectorAlign vectorAlign = new VectorAlign();
+                        VectorAlignNew vectorAlign = new VectorAlignNew();
                         switch (SystemParamManager.Instance.SysConfigParam.Language)
                         {
                             default:
                             case "zh-CN":
-                                rootNode = this._treeViewTarget.AddItems(vectorAlign, "向量对位", nameof(vectorAlign.PlateTeachVector), nameof(vectorAlign.PlateCurVector), nameof(vectorAlign.BandTeachVector), nameof(vectorAlign.BandCurVector), nameof(vectorAlign.AddXYTheta));
+                                rootNode = this._treeViewTarget.AddItems(vectorAlign, "向量对位", nameof(vectorAlign.TargetPixCoordSystem), nameof(vectorAlign.SourcePixCoordSystem), nameof(vectorAlign.AddXYTheta));
                                 break;
                             case "en-US":
-                                rootNode = this._treeViewTarget.AddItems(vectorAlign, "VectorAlign", nameof(vectorAlign.PlateTeachVector), nameof(vectorAlign.PlateCurVector), nameof(vectorAlign.BandTeachVector), nameof(vectorAlign.BandCurVector), nameof(vectorAlign.AddXYTheta));
+                                rootNode = this._treeViewTarget.AddItems(vectorAlign, "VectorAlign", nameof(vectorAlign.TargetPixCoordSystem), nameof(vectorAlign.SourcePixCoordSystem), nameof(vectorAlign.AddXYTheta));
                                 break;
                         }
                     }

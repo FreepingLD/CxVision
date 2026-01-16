@@ -3215,15 +3215,15 @@ namespace FunctionBlock
                 case "向量对位节点":
                     if (this._treeViewTarget != null)
                     {
-                        VectorAlign vectorAlign = new VectorAlign();
+                        VectorAlignNew vectorAlign = new VectorAlignNew();
                         switch (SystemParamManager.Instance.SysConfigParam.Language)
                         {
                             default:
                             case "zh-CN":
-                                rootNode = this._treeViewTarget.AddItems(vectorAlign, "向量对位", nameof(vectorAlign.PlateTeachVector), nameof(vectorAlign.PlateCurVector), nameof(vectorAlign.BandTeachVector), nameof(vectorAlign.BandCurVector), nameof(vectorAlign.AddXYTheta));
+                                rootNode = this._treeViewTarget.AddItems(vectorAlign, "向量对位", nameof(vectorAlign.TargetPixCoordSystem), nameof(vectorAlign.SourcePixCoordSystem), nameof(vectorAlign.AddXYTheta));
                                 break;
                             case "en-US":
-                                rootNode = this._treeViewTarget.AddItems(vectorAlign, "VectorAlign", nameof(vectorAlign.PlateTeachVector), nameof(vectorAlign.PlateCurVector), nameof(vectorAlign.BandTeachVector), nameof(vectorAlign.BandCurVector), nameof(vectorAlign.AddXYTheta));
+                                rootNode = this._treeViewTarget.AddItems(vectorAlign, "VectorAlign", nameof(vectorAlign.TargetPixCoordSystem), nameof(vectorAlign.SourcePixCoordSystem), nameof(vectorAlign.AddXYTheta));
                                 break;
                         }
                     }

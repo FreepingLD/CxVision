@@ -109,7 +109,7 @@ namespace FunctionBlock
                                     this._wcsPoint.Grab_y = wcsEllipseSector.Grab_y;
                                     break;
                                 default:
-                                    this._wcsPoint = new userWcsPoint();
+                                    new UserMessageForm().ShowDialog("不支持的类型!");
                                     break;
                             }
                         }
@@ -144,6 +144,9 @@ namespace FunctionBlock
                             {
                                 case nameof(userWcsCoordSystem):
                                     this._coordSystem = item as userWcsCoordSystem;
+                                    break;
+                                case nameof(userPixCoordSystem):
+                                    this._coordSystem = (item as userPixCoordSystem).GetWcsCoordSystem();
                                     break;
                             }
                         }

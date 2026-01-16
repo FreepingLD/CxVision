@@ -145,6 +145,31 @@ namespace Common
         }
 
         /// <summary>
+        /// 绕指定点旋转指定角度
+        /// </summary>
+        /// <param name="Px"></param>
+        /// <param name="Py"></param>
+        /// <param name="angle"></param>
+        /// <param name="U"></param>
+        /// <param name="V"></param>
+        /// <param name="W"></param>
+        public void RotateToUVW(double Px, double Py, double angle, out double U, out double V, out double W)
+        {
+            HHomMat2D hHomMat2D = new HHomMat2D();
+            hHomMat2D.VectorAngleToRigid(Px, Py, 0.0, Px, Py, angle * Math.PI / 180);
+            double UAdjX = 0, UAdjY = 0;
+            UAdjX = hHomMat2D.AffineTransPoint2d(this.U_x, this.U_y, out UAdjY);
+            double VAdjX = 0, VAdjY = 0;
+            VAdjX = hHomMat2D.AffineTransPoint2d(this.V_x, this.V_y, out VAdjY);
+            double WAdjX = 0, WAdjY = 0;
+            WAdjX = hHomMat2D.AffineTransPoint2d(this.W_x, this.W_y, out WAdjY);
+            /////////////////////////////
+            U = UAdjX - U_x;
+            V = VAdjX - V_x;
+            W = WAdjY - W_y;
+        }
+
+        /// <summary>
         /// 通过公式来计算
         /// </summary>
         /// <param name="angle"></param>

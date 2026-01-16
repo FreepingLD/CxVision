@@ -40,10 +40,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.输出UVW坐标checkBox = new System.Windows.Forms.CheckBox();
-            this.坐标系comboBox = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.分区补偿设置Btn = new System.Windows.Forms.Button();
-            this.启用分区补偿checkBox = new System.Windows.Forms.CheckBox();
             this.视图窗口comboBox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.对齐方式comboBox = new System.Windows.Forms.ComboBox();
@@ -71,6 +68,9 @@
             this.目标点坐标dataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.hWindowControl1 = new HalconDotNet.HWindowControl();
+            this.轮廓匹配参数Btn = new System.Windows.Forms.Button();
+            this.数据视图窗口comboBox = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -117,7 +117,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1084, 744);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1124, 744);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // toolStrip1
@@ -149,7 +149,7 @@
             this.toolStripStatusLabel2});
             this.statusStrip1.Location = new System.Drawing.Point(0, 715);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1084, 29);
+            this.statusStrip1.Size = new System.Drawing.Size(1124, 29);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -214,11 +214,11 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.输出UVW坐标checkBox);
-            this.groupBox4.Controls.Add(this.坐标系comboBox);
+            this.groupBox4.Controls.Add(this.数据视图窗口comboBox);
             this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.轮廓匹配参数Btn);
+            this.groupBox4.Controls.Add(this.输出UVW坐标checkBox);
             this.groupBox4.Controls.Add(this.分区补偿设置Btn);
-            this.groupBox4.Controls.Add(this.启用分区补偿checkBox);
             this.groupBox4.Controls.Add(this.视图窗口comboBox);
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.对齐方式comboBox);
@@ -242,37 +242,12 @@
             // 输出UVW坐标checkBox
             // 
             this.输出UVW坐标checkBox.AutoSize = true;
-            this.输出UVW坐标checkBox.Location = new System.Drawing.Point(81, 241);
+            this.输出UVW坐标checkBox.Location = new System.Drawing.Point(78, 212);
             this.输出UVW坐标checkBox.Name = "输出UVW坐标checkBox";
             this.输出UVW坐标checkBox.Size = new System.Drawing.Size(90, 16);
             this.输出UVW坐标checkBox.TabIndex = 16;
             this.输出UVW坐标checkBox.Text = "输出UVW坐标";
             this.输出UVW坐标checkBox.UseVisualStyleBackColor = true;
-            // 
-            // 坐标系comboBox
-            // 
-            this.坐标系comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.坐标系comboBox.FormattingEnabled = true;
-            this.坐标系comboBox.Items.AddRange(new object[] {
-            "单点对齐",
-            "点+角度对齐",
-            "两点对齐",
-            "三点对齐",
-            "四点对齐"});
-            this.坐标系comboBox.Location = new System.Drawing.Point(81, 98);
-            this.坐标系comboBox.Name = "坐标系comboBox";
-            this.坐标系comboBox.Size = new System.Drawing.Size(247, 20);
-            this.坐标系comboBox.TabIndex = 15;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 101);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(71, 12);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "补偿坐标系:";
             // 
             // 分区补偿设置Btn
             // 
@@ -285,16 +260,6 @@
             this.分区补偿设置Btn.UseVisualStyleBackColor = true;
             this.分区补偿设置Btn.Click += new System.EventHandler(this.分区补偿设置Btn_Click);
             // 
-            // 启用分区补偿checkBox
-            // 
-            this.启用分区补偿checkBox.AutoSize = true;
-            this.启用分区补偿checkBox.Location = new System.Drawing.Point(81, 215);
-            this.启用分区补偿checkBox.Name = "启用分区补偿checkBox";
-            this.启用分区补偿checkBox.Size = new System.Drawing.Size(96, 16);
-            this.启用分区补偿checkBox.TabIndex = 12;
-            this.启用分区补偿checkBox.Text = "启用分区补偿";
-            this.启用分区补偿checkBox.UseVisualStyleBackColor = true;
-            // 
             // 视图窗口comboBox
             // 
             this.视图窗口comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -306,19 +271,19 @@
             "两点对齐",
             "三点对齐",
             "四点对齐"});
-            this.视图窗口comboBox.Location = new System.Drawing.Point(81, 72);
+            this.视图窗口comboBox.Location = new System.Drawing.Point(87, 75);
             this.视图窗口comboBox.Name = "视图窗口comboBox";
-            this.视图窗口comboBox.Size = new System.Drawing.Size(247, 20);
+            this.视图窗口comboBox.Size = new System.Drawing.Size(238, 20);
             this.视图窗口comboBox.TabIndex = 11;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 75);
+            this.label6.Location = new System.Drawing.Point(1, 78);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 12);
+            this.label6.Size = new System.Drawing.Size(83, 12);
             this.label6.TabIndex = 10;
-            this.label6.Text = "视图窗口:";
+            this.label6.Text = "补偿视图窗口:";
             // 
             // 对齐方式comboBox
             // 
@@ -331,15 +296,15 @@
             "两点对齐",
             "三点对齐",
             "四点对齐"});
-            this.对齐方式comboBox.Location = new System.Drawing.Point(81, 20);
+            this.对齐方式comboBox.Location = new System.Drawing.Point(87, 46);
             this.对齐方式comboBox.Name = "对齐方式comboBox";
-            this.对齐方式comboBox.Size = new System.Drawing.Size(247, 20);
+            this.对齐方式comboBox.Size = new System.Drawing.Size(238, 20);
             this.对齐方式comboBox.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 23);
+            this.label5.Location = new System.Drawing.Point(25, 49);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 12);
             this.label5.TabIndex = 8;
@@ -354,15 +319,15 @@
             "NONE",
             "视野中心",
             "示教点"});
-            this.参考点comboBox.Location = new System.Drawing.Point(81, 46);
+            this.参考点comboBox.Location = new System.Drawing.Point(87, 20);
             this.参考点comboBox.Name = "参考点comboBox";
-            this.参考点comboBox.Size = new System.Drawing.Size(247, 20);
+            this.参考点comboBox.Size = new System.Drawing.Size(238, 20);
             this.参考点comboBox.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(30, 49);
+            this.label4.Location = new System.Drawing.Point(37, 23);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 12);
             this.label4.TabIndex = 6;
@@ -372,15 +337,15 @@
             // 
             this.补偿ThetatextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.补偿ThetatextBox.Location = new System.Drawing.Point(81, 179);
+            this.补偿ThetatextBox.Location = new System.Drawing.Point(87, 181);
             this.补偿ThetatextBox.Name = "补偿ThetatextBox";
-            this.补偿ThetatextBox.Size = new System.Drawing.Size(247, 21);
+            this.补偿ThetatextBox.Size = new System.Drawing.Size(238, 21);
             this.补偿ThetatextBox.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 182);
+            this.label3.Location = new System.Drawing.Point(19, 184);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 4;
@@ -390,15 +355,15 @@
             // 
             this.补偿YtextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.补偿YtextBox.Location = new System.Drawing.Point(81, 152);
+            this.补偿YtextBox.Location = new System.Drawing.Point(87, 154);
             this.补偿YtextBox.Name = "补偿YtextBox";
-            this.补偿YtextBox.Size = new System.Drawing.Size(247, 21);
+            this.补偿YtextBox.Size = new System.Drawing.Size(238, 21);
             this.补偿YtextBox.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 155);
+            this.label2.Location = new System.Drawing.Point(43, 157);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 2;
@@ -408,15 +373,15 @@
             // 
             this.补偿XtextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.补偿XtextBox.Location = new System.Drawing.Point(81, 125);
+            this.补偿XtextBox.Location = new System.Drawing.Point(87, 127);
             this.补偿XtextBox.Name = "补偿XtextBox";
-            this.补偿XtextBox.Size = new System.Drawing.Size(247, 21);
+            this.补偿XtextBox.Size = new System.Drawing.Size(238, 21);
             this.补偿XtextBox.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 128);
+            this.label1.Location = new System.Drawing.Point(43, 130);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 0;
@@ -479,17 +444,17 @@
             this.tabControl2.Name = "tabControl2";
             this.tableLayoutPanel1.SetRowSpan(this.tabControl2, 7);
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(733, 715);
+            this.tabControl2.Size = new System.Drawing.Size(773, 715);
             this.tabControl2.TabIndex = 14;
             // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage2.Controls.Add(this.tableLayoutPanel3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(725, 689);
+            this.tabPage2.Size = new System.Drawing.Size(725, 687);
             this.tabPage2.TabIndex = 0;
             this.tabPage2.Text = "坐标点";
             // 
@@ -508,7 +473,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(725, 689);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(725, 687);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // groupBox6
@@ -538,7 +503,7 @@
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(3, 461);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(719, 225);
+            this.groupBox5.Size = new System.Drawing.Size(719, 223);
             this.groupBox5.TabIndex = 14;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "变换点坐标";
@@ -550,7 +515,7 @@
             this.变换点坐标dataGridView.Location = new System.Drawing.Point(3, 19);
             this.变换点坐标dataGridView.Name = "变换点坐标dataGridView";
             this.变换点坐标dataGridView.RowTemplate.Height = 23;
-            this.变换点坐标dataGridView.Size = new System.Drawing.Size(713, 203);
+            this.变换点坐标dataGridView.Size = new System.Drawing.Size(713, 201);
             this.变换点坐标dataGridView.TabIndex = 2;
             // 
             // groupBox3
@@ -582,7 +547,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(725, 687);
+            this.tabPage3.Size = new System.Drawing.Size(765, 687);
             this.tabPage3.TabIndex = 1;
             this.tabPage3.Text = "图形";
             // 
@@ -595,15 +560,51 @@
             this.hWindowControl1.Location = new System.Drawing.Point(0, 0);
             this.hWindowControl1.Margin = new System.Windows.Forms.Padding(0);
             this.hWindowControl1.Name = "hWindowControl1";
-            this.hWindowControl1.Size = new System.Drawing.Size(725, 687);
+            this.hWindowControl1.Size = new System.Drawing.Size(765, 687);
             this.hWindowControl1.TabIndex = 1;
-            this.hWindowControl1.WindowSize = new System.Drawing.Size(725, 687);
+            this.hWindowControl1.WindowSize = new System.Drawing.Size(765, 687);
+            // 
+            // 轮廓匹配参数Btn
+            // 
+            this.轮廓匹配参数Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.轮廓匹配参数Btn.Location = new System.Drawing.Point(136, 296);
+            this.轮廓匹配参数Btn.Name = "轮廓匹配参数Btn";
+            this.轮廓匹配参数Btn.Size = new System.Drawing.Size(93, 42);
+            this.轮廓匹配参数Btn.TabIndex = 17;
+            this.轮廓匹配参数Btn.Text = "轮廓匹配参数";
+            this.轮廓匹配参数Btn.UseVisualStyleBackColor = true;
+            this.轮廓匹配参数Btn.Click += new System.EventHandler(this.轮廓匹配参数Btn_Click);
+            // 
+            // 数据视图窗口comboBox
+            // 
+            this.数据视图窗口comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.数据视图窗口comboBox.FormattingEnabled = true;
+            this.数据视图窗口comboBox.Items.AddRange(new object[] {
+            "单点对齐",
+            "点+角度对齐",
+            "两点对齐",
+            "三点对齐",
+            "四点对齐"});
+            this.数据视图窗口comboBox.Location = new System.Drawing.Point(87, 101);
+            this.数据视图窗口comboBox.Name = "数据视图窗口comboBox";
+            this.数据视图窗口comboBox.Size = new System.Drawing.Size(238, 20);
+            this.数据视图窗口comboBox.TabIndex = 19;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(1, 104);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(83, 12);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "数据视图窗口:";
             // 
             // AlignCalculateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 744);
+            this.ClientSize = new System.Drawing.Size(1124, 744);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -677,12 +678,12 @@
         public System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton_Run;
         private System.Windows.Forms.Button 分区补偿设置Btn;
-        private System.Windows.Forms.CheckBox 启用分区补偿checkBox;
-        private System.Windows.Forms.ComboBox 坐标系comboBox;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.CheckBox 输出UVW坐标checkBox;
+        private System.Windows.Forms.Button 轮廓匹配参数Btn;
+        private System.Windows.Forms.ComboBox 数据视图窗口comboBox;
+        private System.Windows.Forms.Label label7;
     }
 }

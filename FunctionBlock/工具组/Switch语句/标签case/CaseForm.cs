@@ -72,10 +72,11 @@ namespace FunctionBlock
             //////////////////////////////////////////
             // 加载程序
             this.LoadTreeNode();
-            //this.treeView1.ShowPlusMinus = false;
-            //this.treeView1.ShowRootLines = false;
+            this.treeView1.ShowPlusMinus = false;
+            this.treeView1.ShowRootLines = false;
             this.BindProperty();
             this.AddForm(this.元素信息tabPage, new ElementViewForm(false));
+            this.DoubleBuffered = true;
         }
 
         private void AddForm(TabPage MastPanel, Form form)

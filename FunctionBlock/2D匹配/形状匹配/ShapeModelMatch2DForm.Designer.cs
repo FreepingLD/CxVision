@@ -131,9 +131,9 @@
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(0, 14);
+            this.listBox1.Location = new System.Drawing.Point(0, 15);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(360, 62);
+            this.listBox1.Size = new System.Drawing.Size(360, 61);
             this.listBox1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -244,7 +244,7 @@
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(28, 20);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(26, 20);
             this.toolStripStatusLabel2.Text = "……";
             // 
             // tabControl1
@@ -347,7 +347,7 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.搜索区域dataGridView.DefaultCellStyle = dataGridViewCellStyle4;
             this.搜索区域dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.搜索区域dataGridView.Location = new System.Drawing.Point(3, 17);
+            this.搜索区域dataGridView.Location = new System.Drawing.Point(3, 18);
             this.搜索区域dataGridView.MultiSelect = false;
             this.搜索区域dataGridView.Name = "搜索区域dataGridView";
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -360,7 +360,7 @@
             this.搜索区域dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.搜索区域dataGridView.RowHeadersWidth = 5;
             this.搜索区域dataGridView.RowTemplate.Height = 23;
-            this.搜索区域dataGridView.Size = new System.Drawing.Size(342, 96);
+            this.搜索区域dataGridView.Size = new System.Drawing.Size(342, 95);
             this.搜索区域dataGridView.TabIndex = 4;
             this.搜索区域dataGridView.DataSourceChanged += new System.EventHandler(this.搜索区域dataGridView_DataSourceChanged_1);
             this.搜索区域dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.搜索区域dataGridView_CellContentClick_1);
@@ -527,7 +527,7 @@
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.模型区域dataGridView.DefaultCellStyle = dataGridViewCellStyle9;
             this.模型区域dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.模型区域dataGridView.Location = new System.Drawing.Point(3, 17);
+            this.模型区域dataGridView.Location = new System.Drawing.Point(3, 18);
             this.模型区域dataGridView.MultiSelect = false;
             this.模型区域dataGridView.Name = "模型区域dataGridView";
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -540,7 +540,7 @@
             this.模型区域dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.模型区域dataGridView.RowHeadersWidth = 5;
             this.模型区域dataGridView.RowTemplate.Height = 23;
-            this.模型区域dataGridView.Size = new System.Drawing.Size(342, 110);
+            this.模型区域dataGridView.Size = new System.Drawing.Size(342, 109);
             this.模型区域dataGridView.TabIndex = 4;
             this.模型区域dataGridView.DataSourceChanged += new System.EventHandler(this.模型区域dataGridView_DataSourceChanged_1);
             this.模型区域dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.模型区域dataGridView_CellContentClick_1);
@@ -696,19 +696,19 @@
             // 灰度值1Label
             // 
             this.灰度值1Label.Name = "灰度值1Label";
-            this.灰度值1Label.Size = new System.Drawing.Size(28, 20);
+            this.灰度值1Label.Size = new System.Drawing.Size(26, 20);
             this.灰度值1Label.Text = "……";
             // 
             // 灰度值2Label
             // 
             this.灰度值2Label.Name = "灰度值2Label";
-            this.灰度值2Label.Size = new System.Drawing.Size(28, 20);
+            this.灰度值2Label.Size = new System.Drawing.Size(26, 20);
             this.灰度值2Label.Text = "……";
             // 
             // 灰度值3Label
             // 
             this.灰度值3Label.Name = "灰度值3Label";
-            this.灰度值3Label.Size = new System.Drawing.Size(28, 20);
+            this.灰度值3Label.Size = new System.Drawing.Size(26, 20);
             this.灰度值3Label.Text = "……";
             // 
             // toolStripStatusLabel7
@@ -720,13 +720,13 @@
             // 行坐标Label
             // 
             this.行坐标Label.Name = "行坐标Label";
-            this.行坐标Label.Size = new System.Drawing.Size(28, 20);
+            this.行坐标Label.Size = new System.Drawing.Size(26, 20);
             this.行坐标Label.Text = "……";
             // 
             // 列坐标Label
             // 
             this.列坐标Label.Name = "列坐标Label";
-            this.列坐标Label.Size = new System.Drawing.Size(28, 20);
+            this.列坐标Label.Size = new System.Drawing.Size(26, 20);
             this.列坐标Label.Text = "……";
             // 
             // hWindowControl1

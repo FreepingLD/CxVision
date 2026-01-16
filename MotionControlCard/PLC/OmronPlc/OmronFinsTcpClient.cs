@@ -215,7 +215,6 @@ namespace MotionControlCard
                 ///////////////////////////////////
                 case enDataTypes.Int:
                     content = this._readWriteNet?.Write(address, Convert.ToInt32(value));
-                    //content = this._readWriteNet?.Write(address, (int)Convert.ToDouble(value));
                     break;
                 case enDataTypes.IntArray:
                     content = this._readWriteNet?.Write(address, (int[])(value));
@@ -255,17 +254,17 @@ namespace MotionControlCard
                 case enDataTypes.DoubleArray:
                     content = this._readWriteNet?.Write(address, (double[])(value));
                     break;
-                ///////////////////////////////////
+                //////////////////////////////////
                 case enDataTypes.String:
                 case enDataTypes.StringArray:
-                    string [] valueTemp = new string [length*2]; // 一个字里包含两个字符‘\0’,所以这里需要乘以 2 
-                    for (int i = 0; i < length*2; i++)
+                    string[] valueTemp = new string[length * 2]; // 一个字里包含两个字符‘\0’,所以这里需要乘以 2 
+                    for (int i = 0; i < length * 2; i++)
                     {
-                        valueTemp [i] = "\0";
+                        valueTemp[i] = "\0";
                     }
                     // 先清空地址,再写入
                     string con = string.Join("", valueTemp);
-                    this._readWriteNet?.Write(address, con, length, this.Encode);
+                    this._readWriteNet?.Write(address, con, con.Length, this.Encode);
                     content = this._readWriteNet?.Write(address, value?.ToString().Trim(), this.Encode);
                     break;
                 ///////////////////////////////////

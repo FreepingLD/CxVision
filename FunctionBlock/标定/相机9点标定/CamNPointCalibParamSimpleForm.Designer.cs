@@ -51,6 +51,7 @@
             this.打开toolStripButton = new System.Windows.Forms.ToolStripButton();
             this.保存toolStripButton = new System.Windows.Forms.ToolStripButton();
             this.工具toolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.日志面板toolStripButton = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.标定执行tabPage = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -135,7 +136,6 @@
             this.toolStripStatusLabel9 = new System.Windows.Forms.ToolStripStatusLabel();
             this.行坐标Label = new System.Windows.Forms.ToolStripStatusLabel();
             this.列坐标Label = new System.Windows.Forms.ToolStripStatusLabel();
-            this.日志面板toolStripButton = new System.Windows.Forms.ToolStripButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -268,6 +268,15 @@
             this.工具toolStripButton.Text = "检测工具";
             this.工具toolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
+            // 日志面板toolStripButton
+            // 
+            this.日志面板toolStripButton.Image = global::FunctionBlock.Properties.Resources.脚本25_X_25_png;
+            this.日志面板toolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.日志面板toolStripButton.Name = "日志面板toolStripButton";
+            this.日志面板toolStripButton.Size = new System.Drawing.Size(60, 45);
+            this.日志面板toolStripButton.Text = "日志面板";
+            this.日志面板toolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.标定执行tabPage);
@@ -368,9 +377,9 @@
             // 
             // Y轴偏移_textBox
             // 
-            this.Y轴偏移_textBox.Location = new System.Drawing.Point(82, 243);
+            this.Y轴偏移_textBox.Location = new System.Drawing.Point(82, 244);
             this.Y轴偏移_textBox.Name = "Y轴偏移_textBox";
-            this.Y轴偏移_textBox.Size = new System.Drawing.Size(230, 22);
+            this.Y轴偏移_textBox.Size = new System.Drawing.Size(230, 21);
             this.Y轴偏移_textBox.TabIndex = 61;
             // 
             // label23
@@ -378,15 +387,15 @@
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(21, 248);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(61, 12);
+            this.label23.Size = new System.Drawing.Size(59, 12);
             this.label23.TabIndex = 60;
             this.label23.Text = "Y轴偏移：";
             // 
             // X轴偏移_textBox
             // 
-            this.X轴偏移_textBox.Location = new System.Drawing.Point(82, 212);
+            this.X轴偏移_textBox.Location = new System.Drawing.Point(82, 213);
             this.X轴偏移_textBox.Name = "X轴偏移_textBox";
-            this.X轴偏移_textBox.Size = new System.Drawing.Size(230, 22);
+            this.X轴偏移_textBox.Size = new System.Drawing.Size(230, 21);
             this.X轴偏移_textBox.TabIndex = 59;
             // 
             // label22
@@ -394,7 +403,7 @@
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(21, 217);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(61, 12);
+            this.label22.Size = new System.Drawing.Size(59, 12);
             this.label22.TabIndex = 58;
             this.label22.Text = "X轴偏移：";
             // 
@@ -404,7 +413,7 @@
             this.取反Z轴checkBox.Enabled = false;
             this.取反Z轴checkBox.Location = new System.Drawing.Point(235, 407);
             this.取反Z轴checkBox.Name = "取反Z轴checkBox";
-            this.取反Z轴checkBox.Size = new System.Drawing.Size(67, 16);
+            this.取反Z轴checkBox.Size = new System.Drawing.Size(66, 16);
             this.取反Z轴checkBox.TabIndex = 55;
             this.取反Z轴checkBox.Text = "取反Z轴";
             this.取反Z轴checkBox.UseVisualStyleBackColor = true;
@@ -415,7 +424,7 @@
             this.取反Y轴checkBox.Enabled = false;
             this.取反Y轴checkBox.Location = new System.Drawing.Point(235, 380);
             this.取反Y轴checkBox.Name = "取反Y轴checkBox";
-            this.取反Y轴checkBox.Size = new System.Drawing.Size(68, 16);
+            this.取反Y轴checkBox.Size = new System.Drawing.Size(66, 16);
             this.取反Y轴checkBox.TabIndex = 54;
             this.取反Y轴checkBox.Text = "取反Y轴";
             this.取反Y轴checkBox.UseVisualStyleBackColor = true;
@@ -426,7 +435,7 @@
             this.取反X轴checkBox.Enabled = false;
             this.取反X轴checkBox.Location = new System.Drawing.Point(235, 353);
             this.取反X轴checkBox.Name = "取反X轴checkBox";
-            this.取反X轴checkBox.Size = new System.Drawing.Size(68, 16);
+            this.取反X轴checkBox.Size = new System.Drawing.Size(66, 16);
             this.取反X轴checkBox.TabIndex = 53;
             this.取反X轴checkBox.Text = "取反X轴";
             this.取反X轴checkBox.UseVisualStyleBackColor = true;
@@ -439,7 +448,7 @@
             "X轴,",
             "Y轴,",
             "单轴, "});
-            this.标定轴comboBox.Location = new System.Drawing.Point(82, 87);
+            this.标定轴comboBox.Location = new System.Drawing.Point(82, 91);
             this.标定轴comboBox.Name = "标定轴comboBox";
             this.标定轴comboBox.Size = new System.Drawing.Size(230, 20);
             this.标定轴comboBox.TabIndex = 52;
@@ -447,7 +456,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(27, 91);
+            this.label7.Location = new System.Drawing.Point(27, 95);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 51;
@@ -457,7 +466,7 @@
             // 
             this.标定平面comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.标定平面comboBox.FormattingEnabled = true;
-            this.标定平面comboBox.Location = new System.Drawing.Point(82, 59);
+            this.标定平面comboBox.Location = new System.Drawing.Point(82, 61);
             this.标定平面comboBox.Name = "标定平面comboBox";
             this.标定平面comboBox.Size = new System.Drawing.Size(230, 20);
             this.标定平面comboBox.TabIndex = 50;
@@ -465,7 +474,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(14, 63);
+            this.label15.Location = new System.Drawing.Point(14, 66);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(65, 12);
             this.label15.TabIndex = 49;
@@ -474,7 +483,7 @@
             // 运控平台comboBox
             // 
             this.运控平台comboBox.FormattingEnabled = true;
-            this.运控平台comboBox.Location = new System.Drawing.Point(82, 115);
+            this.运控平台comboBox.Location = new System.Drawing.Point(82, 121);
             this.运控平台comboBox.Name = "运控平台comboBox";
             this.运控平台comboBox.Size = new System.Drawing.Size(230, 20);
             this.运控平台comboBox.TabIndex = 48;
@@ -482,7 +491,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 118);
+            this.label2.Location = new System.Drawing.Point(15, 124);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 47;
@@ -500,9 +509,9 @@
             // 
             // 列数numericUpDown
             // 
-            this.列数numericUpDown.Location = new System.Drawing.Point(82, 179);
+            this.列数numericUpDown.Location = new System.Drawing.Point(82, 182);
             this.列数numericUpDown.Name = "列数numericUpDown";
-            this.列数numericUpDown.Size = new System.Drawing.Size(230, 22);
+            this.列数numericUpDown.Size = new System.Drawing.Size(230, 21);
             this.列数numericUpDown.TabIndex = 36;
             this.列数numericUpDown.Value = new decimal(new int[] {
             3,
@@ -512,9 +521,9 @@
             // 
             // 行数numericUpDown
             // 
-            this.行数numericUpDown.Location = new System.Drawing.Point(82, 150);
+            this.行数numericUpDown.Location = new System.Drawing.Point(82, 151);
             this.行数numericUpDown.Name = "行数numericUpDown";
-            this.行数numericUpDown.Size = new System.Drawing.Size(230, 22);
+            this.行数numericUpDown.Size = new System.Drawing.Size(230, 21);
             this.行数numericUpDown.TabIndex = 35;
             this.行数numericUpDown.Value = new decimal(new int[] {
             3,
@@ -525,7 +534,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(39, 184);
+            this.label30.Location = new System.Drawing.Point(39, 186);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(41, 12);
             this.label30.TabIndex = 32;
@@ -534,7 +543,7 @@
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(39, 154);
+            this.label41.Location = new System.Drawing.Point(39, 156);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(41, 12);
             this.label41.TabIndex = 31;
@@ -561,10 +570,10 @@
             // 
             // 终止点textBox
             // 
-            this.终止点textBox.Location = new System.Drawing.Point(82, 313);
+            this.终止点textBox.Location = new System.Drawing.Point(82, 306);
             this.终止点textBox.Name = "终止点textBox";
             this.终止点textBox.ReadOnly = true;
-            this.终止点textBox.Size = new System.Drawing.Size(229, 22);
+            this.终止点textBox.Size = new System.Drawing.Size(229, 21);
             this.终止点textBox.TabIndex = 5;
             this.终止点textBox.TextChanged += new System.EventHandler(this.终止点textBox_TextChanged);
             this.终止点textBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.终止点textBox_KeyUp);
@@ -572,18 +581,18 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 317);
+            this.label5.Location = new System.Drawing.Point(9, 310);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 12);
+            this.label5.Size = new System.Drawing.Size(71, 12);
             this.label5.TabIndex = 4;
             this.label5.Text = "X/Y/Z坐标：";
             // 
             // 起始点textBox
             // 
-            this.起始点textBox.Location = new System.Drawing.Point(82, 276);
+            this.起始点textBox.Location = new System.Drawing.Point(82, 275);
             this.起始点textBox.Name = "起始点textBox";
             this.起始点textBox.ReadOnly = true;
-            this.起始点textBox.Size = new System.Drawing.Size(229, 22);
+            this.起始点textBox.Size = new System.Drawing.Size(229, 21);
             this.起始点textBox.TabIndex = 3;
             this.起始点textBox.TextChanged += new System.EventHandler(this.起始点textBox_TextChanged);
             this.起始点textBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.起始点textBox_KeyUp);
@@ -591,9 +600,9 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 281);
+            this.label6.Location = new System.Drawing.Point(8, 279);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 12);
+            this.label6.Size = new System.Drawing.Size(71, 12);
             this.label6.TabIndex = 2;
             this.label6.Text = "X/Y/Z坐标：";
             // 
@@ -622,10 +631,10 @@
             // treeView1
             // 
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Location = new System.Drawing.Point(3, 18);
+            this.treeView1.Location = new System.Drawing.Point(3, 17);
             this.treeView1.Margin = new System.Windows.Forms.Padding(0);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(324, 610);
+            this.treeView1.Size = new System.Drawing.Size(324, 611);
             this.treeView1.TabIndex = 0;
             // 
             // 标定结果tabPage
@@ -684,14 +693,14 @@
             // 
             this.平均误差textBox.Location = new System.Drawing.Point(108, 49);
             this.平均误差textBox.Name = "平均误差textBox";
-            this.平均误差textBox.Size = new System.Drawing.Size(188, 22);
+            this.平均误差textBox.Size = new System.Drawing.Size(188, 21);
             this.平均误差textBox.TabIndex = 3;
             // 
             // 标定状态textBox
             // 
             this.标定状态textBox.Location = new System.Drawing.Point(108, 17);
             this.标定状态textBox.Name = "标定状态textBox";
-            this.标定状态textBox.Size = new System.Drawing.Size(188, 22);
+            this.标定状态textBox.Size = new System.Drawing.Size(188, 21);
             this.标定状态textBox.TabIndex = 2;
             // 
             // label10
@@ -930,7 +939,7 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.世界点dataGridView.DefaultCellStyle = dataGridViewCellStyle5;
             this.世界点dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.世界点dataGridView.Location = new System.Drawing.Point(3, 18);
+            this.世界点dataGridView.Location = new System.Drawing.Point(3, 17);
             this.世界点dataGridView.Margin = new System.Windows.Forms.Padding(0);
             this.世界点dataGridView.Name = "世界点dataGridView";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -942,7 +951,7 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.世界点dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.世界点dataGridView.RowHeadersWidth = 100;
-            this.世界点dataGridView.Size = new System.Drawing.Size(710, 300);
+            this.世界点dataGridView.Size = new System.Drawing.Size(710, 301);
             this.世界点dataGridView.TabIndex = 0;
             // 
             // Column1
@@ -1006,7 +1015,7 @@
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.图像点dataGridView.DefaultCellStyle = dataGridViewCellStyle8;
             this.图像点dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.图像点dataGridView.Location = new System.Drawing.Point(3, 18);
+            this.图像点dataGridView.Location = new System.Drawing.Point(3, 17);
             this.图像点dataGridView.Name = "图像点dataGridView";
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
@@ -1017,7 +1026,7 @@
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.图像点dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.图像点dataGridView.RowHeadersWidth = 100;
-            this.图像点dataGridView.Size = new System.Drawing.Size(710, 301);
+            this.图像点dataGridView.Size = new System.Drawing.Size(710, 302);
             this.图像点dataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -1096,7 +1105,7 @@
             dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.相机坐标dataGridView.DefaultCellStyle = dataGridViewCellStyle11;
             this.相机坐标dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.相机坐标dataGridView.Location = new System.Drawing.Point(3, 18);
+            this.相机坐标dataGridView.Location = new System.Drawing.Point(3, 17);
             this.相机坐标dataGridView.Margin = new System.Windows.Forms.Padding(0);
             this.相机坐标dataGridView.Name = "相机坐标dataGridView";
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -1109,7 +1118,7 @@
             this.相机坐标dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.相机坐标dataGridView.RowHeadersWidth = 51;
             this.相机坐标dataGridView.RowTemplate.Height = 23;
-            this.相机坐标dataGridView.Size = new System.Drawing.Size(710, 299);
+            this.相机坐标dataGridView.Size = new System.Drawing.Size(710, 300);
             this.相机坐标dataGridView.TabIndex = 0;
             // 
             // Column4
@@ -1162,7 +1171,7 @@
             dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.世界坐标dataGridView.DefaultCellStyle = dataGridViewCellStyle14;
             this.世界坐标dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.世界坐标dataGridView.Location = new System.Drawing.Point(3, 18);
+            this.世界坐标dataGridView.Location = new System.Drawing.Point(3, 17);
             this.世界坐标dataGridView.Margin = new System.Windows.Forms.Padding(0);
             this.世界坐标dataGridView.Name = "世界坐标dataGridView";
             dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -1175,7 +1184,7 @@
             this.世界坐标dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.世界坐标dataGridView.RowHeadersWidth = 51;
             this.世界坐标dataGridView.RowTemplate.Height = 23;
-            this.世界坐标dataGridView.Size = new System.Drawing.Size(710, 298);
+            this.世界坐标dataGridView.Size = new System.Drawing.Size(710, 299);
             this.世界坐标dataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn3
@@ -1230,19 +1239,19 @@
             // 灰度值1Label
             // 
             this.灰度值1Label.Name = "灰度值1Label";
-            this.灰度值1Label.Size = new System.Drawing.Size(26, 31);
+            this.灰度值1Label.Size = new System.Drawing.Size(28, 31);
             this.灰度值1Label.Text = "……";
             // 
             // 灰度值2Label
             // 
             this.灰度值2Label.Name = "灰度值2Label";
-            this.灰度值2Label.Size = new System.Drawing.Size(26, 31);
+            this.灰度值2Label.Size = new System.Drawing.Size(28, 31);
             this.灰度值2Label.Text = "……";
             // 
             // 灰度值3Label
             // 
             this.灰度值3Label.Name = "灰度值3Label";
-            this.灰度值3Label.Size = new System.Drawing.Size(26, 31);
+            this.灰度值3Label.Size = new System.Drawing.Size(28, 31);
             this.灰度值3Label.Text = "……";
             // 
             // toolStripStatusLabel9
@@ -1254,23 +1263,14 @@
             // 行坐标Label
             // 
             this.行坐标Label.Name = "行坐标Label";
-            this.行坐标Label.Size = new System.Drawing.Size(26, 31);
+            this.行坐标Label.Size = new System.Drawing.Size(28, 31);
             this.行坐标Label.Text = "……";
             // 
             // 列坐标Label
             // 
             this.列坐标Label.Name = "列坐标Label";
-            this.列坐标Label.Size = new System.Drawing.Size(26, 31);
+            this.列坐标Label.Size = new System.Drawing.Size(28, 31);
             this.列坐标Label.Text = "……";
-            // 
-            // 日志面板toolStripButton
-            // 
-            this.日志面板toolStripButton.Image = global::FunctionBlock.Properties.Resources.脚本25_X_25_png;
-            this.日志面板toolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.日志面板toolStripButton.Name = "日志面板toolStripButton";
-            this.日志面板toolStripButton.Size = new System.Drawing.Size(60, 45);
-            this.日志面板toolStripButton.Text = "日志面板";
-            this.日志面板toolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // CamNPointCalibParamSimpleForm
             // 

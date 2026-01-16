@@ -17,7 +17,7 @@ namespace Sensor
 {
     public class HkVision : SensorBase, ISensor
     {
-        private MvCamCtrl.NET.MyCamera camera;
+        private MvCamCtrl.NET.MyCamera camera = null;
         private int res = MyCamera.MV_OK;
         private MvCamCtrl.NET.MyCamera.cbOutputExdelegate frameCallBack;
         private Dictionary<int, ImageByteData> dicImage = new Dictionary<int, ImageByteData>();
@@ -44,6 +44,8 @@ namespace Sensor
                 this.CameraParam.SensorName = configParam.SensorName;
                 this._MapImage = this.CameraParam.Map?.Clone();
                 if (!configParam.IsActive) return result;
+                this.cts?.Cancel();
+                //if (this.camera != null) return true;
                 ////////////////////////////////////////////////
                 switch (configParam.ConnectType)
                 {
@@ -169,6 +171,22 @@ namespace Sensor
                         }
                     }
                     break;
+                case enAcqMode.实时采集: // 获取图像与显示要加锁
+                    if (this.IsLiveState)
+                    {
+                        lock (this._lockState)
+                        {
+                            this.GetImageSyn(out this._grabImage, out _grabDarkImage);
+                            if (this._grabImage != null && this._grabImage.IsInitialized())
+                                list.Add(enDataItem.Image, new ImageDataClass(this._grabImage.Clone(), this.CameraParam));
+                        }
+                    }
+                    else
+                    {
+                        if (this._grabImage != null && this._grabImage.IsInitialized()) // 如果不为空，那么表示通过开始采集指令来启动
+                            list.Add(enDataItem.Image, new ImageDataClass(this._grabImage.Clone(), this.CameraParam));
+                    }
+                    break;
                 default:
                     if (this.IsLiveState)
                     {
@@ -256,6 +274,7 @@ namespace Sensor
                                 if (!this.IsLiveState)
                                 {
                                     this.IsLiveState = true;
+                                    this.cts?.Cancel();
                                     if (this.IsGrabbing)
                                         res = camera.MV_CC_StopGrabbing_NET();
                                     res = this.camera.MV_CC_SetEnumValue_NET("TriggerMode", 0);
@@ -271,7 +290,7 @@ namespace Sensor
                                     this.IsLiveState = false;
                                     if (this.IsGrabbing)
                                         res = camera.MV_CC_StopGrabbing_NET();
-                                    this.SetAcqParam();
+                                    this.SetAcqParam(false);
                                 }
                                 if (res == 0) result = true;
                                 break;
@@ -356,61 +375,17 @@ namespace Sensor
                             }
                             break;
                         case enAcqMode.异步采集:
+                            this._imageManage?.Init();
+                            break;
+                        case enAcqMode.实时采集:
+                            lock (this._lockState)
+                            {
+                                if (this._grabImage != null && this._grabImage.IsInitialized())
+                                    this._grabImage.Dispose();
+                                result = GetImageSyn(out this._grabImage, out this._grabDarkImage);
+                            }
                             break;
                     }
-                    ////////////////////////////////////////////////
-                    //switch (this.CameraParam.TriggerSource)
-                    //{
-                    //    case enUserTriggerSource.NONE: // 实时采集
-                    //    case enUserTriggerSource.外部IO触发:
-                    //    case enUserTriggerSource.内部IO触发:
-                    //    case enUserTriggerSource.编码器触发:
-                    //        switch (this.CameraParam.AcqMode)
-                    //        {
-                    //            case enAcqMode.同步采集:
-                    //                if (this._grabImage != null && this._grabImage.IsInitialized())
-                    //                    this._grabImage.Dispose();
-                    //                res = camera.MV_CC_StartGrabbing_NET();
-                    //                result = GetImageSyn(out this._grabImage, out this._grabDarkImage);
-                    //                res = camera.MV_CC_StopGrabbing_NET();
-                    //                break;
-                    //            case enAcqMode.异步取图:
-                    //                res = camera.MV_CC_StopGrabbing_NET();
-                    //                this._imageManage?.Init();
-                    //                this.ImageIndex = 0;
-                    //                res = camera.MV_CC_StartGrabbing_NET();
-                    //                if (res == 0) result = true;
-                    //                break;
-                    //            case enAcqMode.异步采集: // 通过回调函数来收集图像, 异步触发通常配置外触发来使用;
-                    //                result = true;
-                    //                break;
-                    //        }
-                    //        break;
-                    //    case enUserTriggerSource.软触发:
-                    //        switch (this.CameraParam.AcqMode)
-                    //        {
-                    //            case enAcqMode.同步采集:
-                    //                if (this._grabImage != null && this._grabImage.IsInitialized())
-                    //                    this._grabImage.Dispose();
-                    //                //res = camera.MV_CC_StartGrabbing_NET();
-                    //                this.SendSoftwareExecute();// 软触发
-                    //                result = GetImageSyn(out this._grabImage, out this._grabDarkImage);
-                    //                //res = camera.MV_CC_StopGrabbing_NET();
-                    //                break;
-                    //            case enAcqMode.异步取图:
-                    //                //res = camera.MV_CC_StopGrabbing_NET();
-                    //                this._imageManage?.Init();
-                    //                this.ImageIndex = 0;
-                    //                this.SendSoftwareExecute();// 软触发
-                    //                //res = camera.MV_CC_StartGrabbing_NET();
-                    //                if (res == 0) result = true;
-                    //                break;
-                    //            case enAcqMode.异步采集: // 通过回调函数来收集图像, 异步触发通常配置外触发来使用;
-                    //                result = true;
-                    //                break;
-                    //        }
-                    //        break;
-                    //}
 
                     if (result)
                         LoggerHelper.Info(this.CameraParam.SensorName + "图像采集成功");
@@ -457,36 +432,13 @@ namespace Sensor
                             case enAcqMode.异步采集:
                                 result = true;
                                 break;
+                            case enAcqMode.实时采集:
+                                result = true;
+                                break;
                             default:
                                 result = true;
                                 break;
                         }
-
-                        //switch (this.CameraParam.TriggerSource)
-                        //{
-                        //    case enUserTriggerSource.NONE: // 实时采集
-                        //    case enUserTriggerSource.外部IO触发:
-                        //    case enUserTriggerSource.内部IO触发:
-                        //    case enUserTriggerSource.编码器触发:
-                        //    case enUserTriggerSource.软触发:
-                        //        switch (this.CameraParam.AcqMode)
-                        //        {
-                        //            case enAcqMode.同步采集:
-                        //                result = true;
-                        //                break;
-                        //            case enAcqMode.异步取图:
-                        //                res = camera.MV_CC_StopGrabbing_NET();
-                        //                if (res == 0) result = true;
-                        //                break;
-                        //            case enAcqMode.异步采集: // 通过回调函数来收集图像, 异步触发通常配置外触发来使用;
-                        //                result = true;
-                        //                break;
-                        //            default:
-                        //                result = true;
-                        //                break;
-                        //        }
-                        //        break;
-                        //}
 
                         break;
                 }
@@ -500,7 +452,7 @@ namespace Sensor
         }
 
 
-        private bool SetAcqParam()
+        private bool SetAcqParam(bool initAcq = false)
         {
             bool result = false;
             switch (this.CameraParam.AcqMode)
@@ -513,12 +465,14 @@ namespace Sensor
                             break;
                         case enUserTriggerSource.软触发:
                             this.SetSoftwareTrigger();
-                            res = this.camera.MV_CC_StartGrabbing_NET();
+                            if (!this.IsGrabbing)
+                                res = this.camera.MV_CC_StartGrabbing_NET();
                             if (res == 0) this.IsGrabbing = true;
                             break;
                         default:
                             this.SetExternTrigger();
-                            res = this.camera.MV_CC_StartGrabbing_NET();
+                            if (!this.IsGrabbing)
+                                res = this.camera.MV_CC_StartGrabbing_NET();
                             if (res == 0) this.IsGrabbing = true;
                             break;
                     }
@@ -533,12 +487,14 @@ namespace Sensor
                             break;
                         case enUserTriggerSource.软触发:
                             this.SetSoftwareTrigger();
-                            res = this.camera.MV_CC_StartGrabbing_NET();
+                            if (!this.IsGrabbing)
+                                res = this.camera.MV_CC_StartGrabbing_NET();
                             if (res == 0) this.IsGrabbing = true;
                             break;
                         default:
                             this.SetExternTrigger();
-                            res = this.camera.MV_CC_StartGrabbing_NET();
+                            if (!this.IsGrabbing)
+                                res = this.camera.MV_CC_StartGrabbing_NET();
                             if (res == 0) this.IsGrabbing = true;
                             break;
                     }
@@ -555,21 +511,27 @@ namespace Sensor
                             break;
                         case enUserTriggerSource.软触发:
                             this.SetSoftwareTrigger();
-                            res = this.camera.MV_CC_StartGrabbing_NET();
+                            if (!this.IsGrabbing)
+                                res = this.camera.MV_CC_StartGrabbing_NET();
                             if (res == 0) this.IsGrabbing = true;
                             break;
                         default:
                             this.SetExternTrigger();
-                            res = this.camera.MV_CC_StartGrabbing_NET();
+                            if (!this.IsGrabbing)
+                                res = this.camera.MV_CC_StartGrabbing_NET();
                             if (res == 0) this.IsGrabbing = true;
                             break;
                     }
                     if (MyCamera.MV_OK != res) result = false;
                     break;
                 case enAcqMode.实时采集:
-                    this.IsLiveState = true;
                     res = this.camera.MV_CC_SetEnumValue_NET("TriggerMode", 0);
-                    res = this.camera.MV_CC_StartGrabbing_NET();
+                    if (initAcq)
+                    {
+                        res = this.camera.MV_CC_StartGrabbing_NET();
+                        if (res == 0)
+                            this.GetImageAsynRun();
+                    }
                     if (MyCamera.MV_OK != res) result = false;
                     break;
             }
@@ -784,8 +746,6 @@ namespace Sensor
                 }
             }
         }
-
-
         protected override bool GetImageAsyn(out HImage hImage, out HImage darkImage)
         {
             bool result = false;
@@ -852,6 +812,7 @@ namespace Sensor
 
         protected override void GetImageAsynRun()
         {
+            this.cts.Cancel();
             this.cts = new CancellationTokenSource();
             Task.Run(() =>
             {
@@ -859,21 +820,51 @@ namespace Sensor
                 {
                     if (this.cts.IsCancellationRequested) break;
                     HImage darkImage = null;
-                    HImage lightImage = null;
-                    int bufferNum = 0;
-                    if (this._imageManage.GetHImage(enAcqMode.异步采集, enImageAcqMethod.明场, this.CameraParam.Timeout, out lightImage, out darkImage, out bufferNum))
+                    HImage image = null;
+                    switch (this.CameraParam.AcqMode)
                     {
-                        this.AdjImg(lightImage, out this._grabImage);
-                        this.AdjImg(darkImage, out this._grabDarkImage);
-                        lightImage?.Dispose();
-                        darkImage?.Dispose();
-                        if (this._grabImage != null && this._grabImage.IsInitialized())
-                            this.OnImageAcqComplete(this.Name, new ImageDataClass(this._grabImage, this.CameraParam, this._imageManage.CurImageIndex)); // 异步发送图像出去
-                        if (this._grabDarkImage != null && this._grabDarkImage.IsInitialized())
-                            this.OnImageAcqComplete(this.Name, new ImageDataClass(this._grabDarkImage, this.CameraParam, this._imageManage.CurImageIndex)); // 异步发送图像出去
-                        LoggerHelper.Debug("Buffer绶存数量 = " + bufferNum.ToString());
+                        case enAcqMode.实时采集:
+                            lock (this._lockState)
+                            {
+                                if (this.GetImageSyn(out image, out darkImage))
+                                {
+                                    if (image != null && image.IsInitialized())
+                                        this.OnImageAcqComplete(this.Name, new ImageDataClass(image.Clone(), this.CameraParam, this._imageManage.CurImageIndex)); // 异步发送图像出去
+                                }
+                            }
+                            break;
+                        default:
+                            int bufferNum = 0;
+                            if (this._imageManage.GetHImage(enAcqMode.异步采集, enImageAcqMethod.明场, this.CameraParam.Timeout, out image, out darkImage, out bufferNum))
+                            {
+                                this.AdjImg(image, out this._grabImage);
+                                this.AdjImg(darkImage, out this._grabDarkImage);
+                                image?.Dispose();
+                                darkImage?.Dispose();
+                                if (this._grabImage != null && this._grabImage.IsInitialized())
+                                    this.OnImageAcqComplete(this.Name, new ImageDataClass(this._grabImage, this.CameraParam, this._imageManage.CurImageIndex)); // 异步发送图像出去
+                                if (this._grabDarkImage != null && this._grabDarkImage.IsInitialized())
+                                    this.OnImageAcqComplete(this.Name, new ImageDataClass(this._grabDarkImage, this.CameraParam, this._imageManage.CurImageIndex)); // 异步发送图像出去
+                                LoggerHelper.Debug("Buffer绶存数量 = " + bufferNum.ToString());
+                            }
+                            break;
                     }
-                    Thread.Sleep(10);
+                    //HImage darkImage = null;
+                    //HImage lightImage = null;
+                    //int bufferNum = 0;
+                    //if (this._imageManage.GetHImage(enAcqMode.异步采集, enImageAcqMethod.明场, this.CameraParam.Timeout, out lightImage, out darkImage, out bufferNum))
+                    //{
+                    //    this.AdjImg(lightImage, out this._grabImage);
+                    //    this.AdjImg(darkImage, out this._grabDarkImage);
+                    //    lightImage?.Dispose();
+                    //    darkImage?.Dispose();
+                    //    if (this._grabImage != null && this._grabImage.IsInitialized())
+                    //        this.OnImageAcqComplete(this.Name, new ImageDataClass(this._grabImage, this.CameraParam, this._imageManage.CurImageIndex)); // 异步发送图像出去
+                    //    if (this._grabDarkImage != null && this._grabDarkImage.IsInitialized())
+                    //        this.OnImageAcqComplete(this.Name, new ImageDataClass(this._grabDarkImage, this.CameraParam, this._imageManage.CurImageIndex)); // 异步发送图像出去
+                    //    LoggerHelper.Debug("Buffer绶存数量 = " + bufferNum.ToString());
+                    //}
+                    Thread.Sleep(50);
                 }
             });
         }

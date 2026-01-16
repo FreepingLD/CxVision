@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -59,14 +60,13 @@ namespace FunctionBlock
         [DisplayNameAttribute("角度补偿值")]
         public double Angle8 { get; set; }
 
-        [DisplayNameAttribute("启用自动补偿")]
-        public bool IsAuto { get; set; }
+        [DisplayNameAttribute("补偿坐标系")]
+        public enCoordSysName CoordSysName { get; set; }
 
-        [DisplayNameAttribute("取反自动补偿")]
-        public bool IsInvert { get; set; }
+        [DisplayNameAttribute("启用分区补偿")]
+        public bool IsZoneCompensation { get; set; }
 
-        [DisplayNameAttribute("自动补偿阈值")]
-        public double Threshold { get; set; }
+
     }
 
 

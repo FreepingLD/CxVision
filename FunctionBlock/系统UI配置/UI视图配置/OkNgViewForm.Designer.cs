@@ -46,10 +46,10 @@
             this.titleLabel.BackColor = System.Drawing.Color.LightGray;
             this.tableLayoutPanel2.SetColumnSpan(this.titleLabel, 5);
             this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.titleLabel.Location = new System.Drawing.Point(2, 2);
-            this.titleLabel.Margin = new System.Windows.Forms.Padding(2);
+            this.titleLabel.Location = new System.Drawing.Point(0, 0);
+            this.titleLabel.Margin = new System.Windows.Forms.Padding(0);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(312, 16);
+            this.titleLabel.Size = new System.Drawing.Size(312, 20);
             this.titleLabel.TabIndex = 22;
             this.titleLabel.Text = "CxVision";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -62,7 +62,7 @@
             this.buttonClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonClose.BackgroundImage")));
             this.buttonClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonClose.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonClose.Location = new System.Drawing.Point(370, 0);
+            this.buttonClose.Location = new System.Drawing.Point(366, 0);
             this.buttonClose.Margin = new System.Windows.Forms.Padding(0);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(27, 20);
@@ -76,7 +76,7 @@
             this.buttonMin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonMin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonMin.Enabled = false;
-            this.buttonMin.Location = new System.Drawing.Point(316, 0);
+            this.buttonMin.Location = new System.Drawing.Point(312, 0);
             this.buttonMin.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMin.Name = "buttonMin";
             this.buttonMin.Size = new System.Drawing.Size(26, 20);
@@ -109,7 +109,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(397, 333);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(393, 329);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // buttonMax
@@ -117,7 +117,7 @@
             this.buttonMax.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonMax.BackgroundImage")));
             this.buttonMax.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonMax.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonMax.Location = new System.Drawing.Point(342, 0);
+            this.buttonMax.Location = new System.Drawing.Point(338, 0);
             this.buttonMax.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMax.Name = "buttonMax";
             this.buttonMax.Size = new System.Drawing.Size(28, 20);
@@ -133,7 +133,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 23);
             this.panel1.Name = "panel1";
             this.tableLayoutPanel2.SetRowSpan(this.panel1, 2);
-            this.panel1.Size = new System.Drawing.Size(391, 307);
+            this.panel1.Size = new System.Drawing.Size(387, 303);
             this.panel1.TabIndex = 25;
             // 
             // OkNgbut
@@ -143,7 +143,7 @@
             this.OkNgbut.Font = new System.Drawing.Font("宋体", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.OkNgbut.Location = new System.Drawing.Point(0, 0);
             this.OkNgbut.Name = "OkNgbut";
-            this.OkNgbut.Size = new System.Drawing.Size(391, 307);
+            this.OkNgbut.Size = new System.Drawing.Size(387, 303);
             this.OkNgbut.TabIndex = 0;
             this.OkNgbut.Text = "OK";
             this.OkNgbut.UseVisualStyleBackColor = false;
@@ -153,7 +153,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(397, 333);
+            this.ClientSize = new System.Drawing.Size(393, 329);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel2);
             this.ForeColor = System.Drawing.SystemColors.ControlText;

@@ -47,6 +47,7 @@ namespace FunctionBlock
         {
             InitializeComponent();
         }
+
         private BindingList<NinePointCalibParam> eyeHandleCaliParamListCam = new BindingList<NinePointCalibParam>();
         private BindingList<NinePointCalibParam> eyeHandleCaliParamListLaser = new BindingList<NinePointCalibParam>();
         private List<CameraParam> CameraParamList = new List<CameraParam>();
@@ -167,8 +168,13 @@ namespace FunctionBlock
                                 case enCamCaliModel.UpDnCamCalibWcs:
                                 case enCamCaliModel.映射标定_世界:
                                     CamMapCalibParamSimpleForm mapCaliNow = new CamMapCalibParamSimpleForm(NowCaliPara);
-                                    mapCaliNow.TopMost = true;
-                                    mapCaliNow.ShowInTaskbar = true;
+                                    if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                                    {
+                                        mapCaliNow.TopMost = true;
+                                        mapCaliNow.ShowInTaskbar = true;
+                                    }
+                                    //mapCaliNow.TopMost = true;
+                                    //mapCaliNow.ShowInTaskbar = true;
                                     mapCaliNow.Show();
                                     break;
                                 case enCamCaliModel.UpDnCamCalibPix:
@@ -181,8 +187,13 @@ namespace FunctionBlock
                                         return;
                                     }
                                     UpDnCamCalibSimpleForm frmCaliNow = new UpDnCamCalibSimpleForm(NowCaliPara, MapTargetNowCaliPara);
-                                    frmCaliNow.TopMost = true;
-                                    frmCaliNow.ShowInTaskbar = true;
+                                    //frmCaliNow.TopMost = true;
+                                    //frmCaliNow.ShowInTaskbar = true;
+                                    if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                                    {
+                                        frmCaliNow.TopMost = true;
+                                        frmCaliNow.ShowInTaskbar = true;
+                                    }
                                     frmCaliNow.Show();
                                     break;
                                 case enCamCaliModel.CaliBoardMap:
@@ -195,15 +206,25 @@ namespace FunctionBlock
                                         return;
                                     }
                                     CaliboardMapSimpleForm frmCaliBoardNow = new CaliboardMapSimpleForm(NowCaliPara, MapTargetNowCaliPara);
-                                    frmCaliBoardNow.TopMost = true;
-                                    frmCaliBoardNow.ShowInTaskbar = true;
+                                    //frmCaliBoardNow.TopMost = true;
+                                    //frmCaliBoardNow.ShowInTaskbar = true;
+                                    if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                                    {
+                                        frmCaliBoardNow.TopMost = true;
+                                        frmCaliBoardNow.ShowInTaskbar = true;
+                                    }
                                     frmCaliBoardNow.Show();
                                     break;
                                 case enCamCaliModel.NPointCali:
                                 case enCamCaliModel.九点标定:
                                     CamNPointCalibParamSimpleForm npointFrmCali = new CamNPointCalibParamSimpleForm(NowCaliPara);
-                                    npointFrmCali.TopMost = true;
-                                    npointFrmCali.ShowInTaskbar = true;
+                                    //npointFrmCali.TopMost = true;
+                                    //npointFrmCali.ShowInTaskbar = true;
+                                    if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                                    {
+                                        npointFrmCali.TopMost = true;
+                                        npointFrmCali.ShowInTaskbar = true;
+                                    }
                                     npointFrmCali.Show();
                                     break;
                                 case enCamCaliModel.HomMat2D:
@@ -211,39 +232,64 @@ namespace FunctionBlock
                                 case enCamCaliModel.Cali9PtCali:
                                 case enCamCaliModel.手眼标定:
                                     Cam9PointCalibrateSimpleForm frmCali = new Cam9PointCalibrateSimpleForm(NowCaliPara);
-                                    frmCali.TopMost = true;
-                                    frmCali.ShowInTaskbar = true;
+                                    //frmCali.TopMost = true;
+                                    //frmCali.ShowInTaskbar = true;
+                                    if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                                    {
+                                        frmCali.TopMost = true;
+                                        frmCali.ShowInTaskbar = true;
+                                    }
                                     frmCali.Show();
                                     break;
 
                                 case enCamCaliModel.CaliCaliBoard:
                                 case enCamCaliModel.标定板标定:
                                     CaliCaliboardSimpleForm frmCaliboard = new CaliCaliboardSimpleForm(NowCaliPara);
-                                    frmCaliboard.TopMost = true;
-                                    frmCaliboard.ShowInTaskbar = true;
+                                    //frmCaliboard.TopMost = true;
+                                    //frmCaliboard.ShowInTaskbar = true;
+                                    if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                                    {
+                                        frmCaliboard.TopMost = true;
+                                        frmCaliboard.ShowInTaskbar = true;
+                                    }
                                     frmCaliboard.Show();
                                     break;
 
                                 case enCamCaliModel.CamParamPose:
                                 case enCamCaliModel.内外参标定:
                                     AreaScanDivisionCalibrateForm matrixCalibrateForm = new AreaScanDivisionCalibrateForm(NowCaliPara);
-                                    matrixCalibrateForm.TopMost = true;
-                                    matrixCalibrateForm.ShowInTaskbar = true;
+                                    //matrixCalibrateForm.TopMost = true;
+                                    //matrixCalibrateForm.ShowInTaskbar = true;
+                                    if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                                    {
+                                        matrixCalibrateForm.TopMost = true;
+                                        matrixCalibrateForm.ShowInTaskbar = true;
+                                    }
                                     matrixCalibrateForm.Show();
                                     break;
 
                                 case enCamCaliModel.RefPose:
                                     CameraGlueGunCalibrateForm matrixCalibrateForm2 = new CameraGlueGunCalibrateForm(NowCaliPara);
-                                    matrixCalibrateForm2.TopMost = true;
-                                    matrixCalibrateForm2.ShowInTaskbar = true;
+                                    //matrixCalibrateForm2.TopMost = true;
+                                    //matrixCalibrateForm2.ShowInTaskbar = true;
+                                    if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                                    {
+                                        matrixCalibrateForm2.TopMost = true;
+                                        matrixCalibrateForm2.ShowInTaskbar = true;
+                                    }
                                     matrixCalibrateForm2.Show();
                                     break;
 
                                 case enCamCaliModel.NPointAndMapCalib:
                                 case enCamCaliModel.九点_映射标定:
                                     CamNPointMapCalibrateSimpleForm pointMapCalibrateSimpleForm = new CamNPointMapCalibrateSimpleForm(NowCaliPara);
-                                    pointMapCalibrateSimpleForm.TopMost = true;
-                                    pointMapCalibrateSimpleForm.ShowInTaskbar = true;
+                                    //pointMapCalibrateSimpleForm.TopMost = true;
+                                    //pointMapCalibrateSimpleForm.ShowInTaskbar = true;
+                                    if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                                    {
+                                        pointMapCalibrateSimpleForm.TopMost = true;
+                                        pointMapCalibrateSimpleForm.ShowInTaskbar = true;
+                                    }
                                     pointMapCalibrateSimpleForm.Show();
                                     break;
 
@@ -275,8 +321,13 @@ namespace FunctionBlock
                                         return;
                                     }
                                     CaliboardMapSimpleForm frmCaliBoardNow = new CaliboardMapSimpleForm(NowCaliPara, MapTargetNowCaliPara);
-                                    frmCaliBoardNow.TopMost = true;
-                                    frmCaliBoardNow.ShowInTaskbar = true;
+                                    //frmCaliBoardNow.TopMost = true;
+                                    //frmCaliBoardNow.ShowInTaskbar = true;
+                                    if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                                    {
+                                        frmCaliBoardNow.TopMost = true;
+                                        frmCaliBoardNow.ShowInTaskbar = true;
+                                    }
                                     frmCaliBoardNow.Show();
                                     break;
                                 default:
@@ -284,6 +335,11 @@ namespace FunctionBlock
                                 case enCamCaliModel.映射标定_世界:
                                 case enCamCaliModel.九点标定:
                                     CamMapCalibParamSimpleForm mapCaliNow = new CamMapCalibParamSimpleForm(NowCaliPara);
+                                    if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                                    {
+                                        mapCaliNow.TopMost = true;
+                                        mapCaliNow.ShowInTaskbar = true;
+                                    }
                                     mapCaliNow.Show();
                                     break;
                                 case enCamCaliModel.UpDnCamCalibPix:
@@ -295,8 +351,13 @@ namespace FunctionBlock
                                         return;
                                     }
                                     UpDnCamCalibSimpleForm frmCaliNow2 = new UpDnCamCalibSimpleForm(NowCaliPara, MapTargetNowCaliPara);
-                                    frmCaliNow2.TopMost = true;
-                                    frmCaliNow2.ShowInTaskbar = true;
+                                    //frmCaliNow2.TopMost = true;
+                                    //frmCaliNow2.ShowInTaskbar = true;
+                                    if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                                    {
+                                        frmCaliNow2.TopMost = true;
+                                        frmCaliNow2.ShowInTaskbar = true;
+                                    }
                                     frmCaliNow2.Show();
                                     break;
                             }
@@ -305,11 +366,21 @@ namespace FunctionBlock
                             NowCaliPara = CameraParamList[e.RowIndex];
                             CamDistortionCalibrateForm distortionForm = new CamDistortionCalibrateForm(NowCaliPara);
                             //DistortionCalibForm distortionForm = new DistortionCalibForm(NowCaliPara);
+                            if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                            {
+                                distortionForm.TopMost = true;
+                                distortionForm.ShowInTaskbar = true;
+                            }
                             distortionForm.Show();
                             break; // 
                         case "CalibSlantBtn":
                             NowCaliPara = CameraParamList[e.RowIndex];
                             CaliCamSlantForm slantForm = new CaliCamSlantForm(NowCaliPara);
+                            if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                            {
+                                slantForm.TopMost = true;
+                                slantForm.ShowInTaskbar = true;
+                            }
                             slantForm.Show();
                             break; // CalibSlantBtn
                         case "SaveBtn":

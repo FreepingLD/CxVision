@@ -47,6 +47,8 @@
             this.上偏差textBox = new System.Windows.Forms.TextBox();
             this.label36 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.窗体顶层显示checkBox = new System.Windows.Forms.CheckBox();
+            this.启用程序报警弹窗checkBox = new System.Windows.Forms.CheckBox();
             this.同步相机参数checkBox = new System.Windows.Forms.CheckBox();
             this.同步夹抓参数checkBox = new System.Windows.Forms.CheckBox();
             this.禁用页面切换checkBox = new System.Windows.Forms.CheckBox();
@@ -128,7 +130,7 @@
             this.yAxisResolution = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.启用程序报警弹窗checkBox = new System.Windows.Forms.CheckBox();
+            this.相机初始化checkBox = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -191,7 +193,7 @@
             // 
             this.列数量textBox.Location = new System.Drawing.Point(60, 20);
             this.列数量textBox.Name = "列数量textBox";
-            this.列数量textBox.Size = new System.Drawing.Size(152, 21);
+            this.列数量textBox.Size = new System.Drawing.Size(152, 22);
             this.列数量textBox.TabIndex = 117;
             // 
             // label42
@@ -199,7 +201,7 @@
             this.label42.AutoSize = true;
             this.label42.Location = new System.Drawing.Point(7, 24);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(47, 12);
+            this.label42.Size = new System.Drawing.Size(44, 12);
             this.label42.TabIndex = 118;
             this.label42.Text = "列数量:";
             // 
@@ -216,7 +218,7 @@
             this.label37.AutoSize = true;
             this.label37.Location = new System.Drawing.Point(193, 549);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(65, 12);
+            this.label37.Size = new System.Drawing.Size(60, 12);
             this.label37.TabIndex = 125;
             this.label37.Text = "进程Socket";
             // 
@@ -261,7 +263,7 @@
             this.label29.AutoSize = true;
             this.label29.Location = new System.Drawing.Point(214, 47);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(29, 12);
+            this.label29.Size = new System.Drawing.Size(30, 12);
             this.label29.TabIndex = 122;
             this.label29.Text = "mm/s";
             // 
@@ -270,7 +272,7 @@
             this.label30.AutoSize = true;
             this.label30.Location = new System.Drawing.Point(214, 73);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(29, 12);
+            this.label30.Size = new System.Drawing.Size(30, 12);
             this.label30.TabIndex = 121;
             this.label30.Text = "mm/s";
             // 
@@ -278,7 +280,7 @@
             // 
             this.下偏差textBox.Location = new System.Drawing.Point(60, 71);
             this.下偏差textBox.Name = "下偏差textBox";
-            this.下偏差textBox.Size = new System.Drawing.Size(152, 21);
+            this.下偏差textBox.Size = new System.Drawing.Size(152, 22);
             this.下偏差textBox.TabIndex = 119;
             // 
             // label32
@@ -294,7 +296,7 @@
             // 
             this.村准值textBox.Location = new System.Drawing.Point(60, 20);
             this.村准值textBox.Name = "村准值textBox";
-            this.村准值textBox.Size = new System.Drawing.Size(152, 21);
+            this.村准值textBox.Size = new System.Drawing.Size(152, 22);
             this.村准值textBox.TabIndex = 117;
             // 
             // label34
@@ -302,7 +304,7 @@
             this.label34.AutoSize = true;
             this.label34.Location = new System.Drawing.Point(1, 23);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(47, 12);
+            this.label34.Size = new System.Drawing.Size(44, 12);
             this.label34.TabIndex = 118;
             this.label34.Text = "村准值:";
             // 
@@ -310,7 +312,7 @@
             // 
             this.上偏差textBox.Location = new System.Drawing.Point(60, 45);
             this.上偏差textBox.Name = "上偏差textBox";
-            this.上偏差textBox.Size = new System.Drawing.Size(152, 21);
+            this.上偏差textBox.Size = new System.Drawing.Size(152, 22);
             this.上偏差textBox.TabIndex = 26;
             // 
             // label36
@@ -318,12 +320,14 @@
             this.label36.AutoSize = true;
             this.label36.Location = new System.Drawing.Point(0, 47);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(47, 12);
+            this.label36.Size = new System.Drawing.Size(44, 12);
             this.label36.TabIndex = 27;
             this.label36.Text = "上偏差:";
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.相机初始化checkBox);
+            this.groupBox3.Controls.Add(this.窗体顶层显示checkBox);
             this.groupBox3.Controls.Add(this.启用程序报警弹窗checkBox);
             this.groupBox3.Controls.Add(this.同步相机参数checkBox);
             this.groupBox3.Controls.Add(this.同步夹抓参数checkBox);
@@ -333,10 +337,30 @@
             this.groupBox3.Controls.Add(this.启用相机校准checkBox);
             this.groupBox3.Location = new System.Drawing.Point(192, 312);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(150, 201);
+            this.groupBox3.Size = new System.Drawing.Size(150, 227);
             this.groupBox3.TabIndex = 95;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "全局参数";
+            // 
+            // 窗体顶层显示checkBox
+            // 
+            this.窗体顶层显示checkBox.AutoSize = true;
+            this.窗体顶层显示checkBox.Location = new System.Drawing.Point(6, 179);
+            this.窗体顶层显示checkBox.Name = "窗体顶层显示checkBox";
+            this.窗体顶层显示checkBox.Size = new System.Drawing.Size(96, 16);
+            this.窗体顶层显示checkBox.TabIndex = 11;
+            this.窗体顶层显示checkBox.Text = "窗体顶层显示";
+            this.窗体顶层显示checkBox.UseVisualStyleBackColor = true;
+            // 
+            // 启用程序报警弹窗checkBox
+            // 
+            this.启用程序报警弹窗checkBox.AutoSize = true;
+            this.启用程序报警弹窗checkBox.Location = new System.Drawing.Point(6, 157);
+            this.启用程序报警弹窗checkBox.Name = "启用程序报警弹窗checkBox";
+            this.启用程序报警弹窗checkBox.Size = new System.Drawing.Size(120, 16);
+            this.启用程序报警弹窗checkBox.TabIndex = 10;
+            this.启用程序报警弹窗checkBox.Text = "启用程序报警弹窗";
+            this.启用程序报警弹窗checkBox.UseVisualStyleBackColor = true;
             // 
             // 同步相机参数checkBox
             // 
@@ -444,7 +468,7 @@
             0,
             0});
             this.数据刷新numericUpDown.Name = "数据刷新numericUpDown";
-            this.数据刷新numericUpDown.Size = new System.Drawing.Size(81, 21);
+            this.数据刷新numericUpDown.Size = new System.Drawing.Size(81, 22);
             this.数据刷新numericUpDown.TabIndex = 136;
             this.数据刷新numericUpDown.Value = new decimal(new int[] {
             20,
@@ -470,7 +494,7 @@
             0,
             0});
             this.数据保存间隔numericUpDown.Name = "数据保存间隔numericUpDown";
-            this.数据保存间隔numericUpDown.Size = new System.Drawing.Size(81, 21);
+            this.数据保存间隔numericUpDown.Size = new System.Drawing.Size(81, 22);
             this.数据保存间隔numericUpDown.TabIndex = 134;
             this.数据保存间隔numericUpDown.Value = new decimal(new int[] {
             10,
@@ -548,7 +572,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(217, 48);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 12);
+            this.label8.Size = new System.Drawing.Size(30, 12);
             this.label8.TabIndex = 122;
             this.label8.Text = "mm/s";
             // 
@@ -557,7 +581,7 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(217, 74);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(29, 12);
+            this.label16.Size = new System.Drawing.Size(30, 12);
             this.label16.TabIndex = 121;
             this.label16.Text = "mm/s";
             // 
@@ -565,7 +589,7 @@
             // 
             this.移动textBox.Location = new System.Drawing.Point(60, 71);
             this.移动textBox.Name = "移动textBox";
-            this.移动textBox.Size = new System.Drawing.Size(155, 21);
+            this.移动textBox.Size = new System.Drawing.Size(155, 22);
             this.移动textBox.TabIndex = 119;
             // 
             // label18
@@ -581,7 +605,7 @@
             // 
             this.点间隔textBox.Location = new System.Drawing.Point(60, 20);
             this.点间隔textBox.Name = "点间隔textBox";
-            this.点间隔textBox.Size = new System.Drawing.Size(155, 21);
+            this.点间隔textBox.Size = new System.Drawing.Size(155, 22);
             this.点间隔textBox.TabIndex = 117;
             // 
             // label9
@@ -597,7 +621,7 @@
             // 
             this.ScanSpeed.Location = new System.Drawing.Point(60, 45);
             this.ScanSpeed.Name = "ScanSpeed";
-            this.ScanSpeed.Size = new System.Drawing.Size(155, 21);
+            this.ScanSpeed.Size = new System.Drawing.Size(155, 22);
             this.ScanSpeed.TabIndex = 26;
             // 
             // label17
@@ -650,7 +674,7 @@
             // 
             this.箭头长度numericUpDown.Location = new System.Drawing.Point(88, 227);
             this.箭头长度numericUpDown.Name = "箭头长度numericUpDown";
-            this.箭头长度numericUpDown.Size = new System.Drawing.Size(70, 21);
+            this.箭头长度numericUpDown.Size = new System.Drawing.Size(70, 22);
             this.箭头长度numericUpDown.TabIndex = 142;
             this.箭头长度numericUpDown.Value = new decimal(new int[] {
             50,
@@ -671,7 +695,7 @@
             // 
             this.OKNG列偏移textBox.Location = new System.Drawing.Point(88, 359);
             this.OKNG列偏移textBox.Name = "OKNG列偏移textBox";
-            this.OKNG列偏移textBox.Size = new System.Drawing.Size(70, 21);
+            this.OKNG列偏移textBox.Size = new System.Drawing.Size(70, 22);
             this.OKNG列偏移textBox.TabIndex = 140;
             // 
             // label26
@@ -679,7 +703,7 @@
             this.label26.AutoSize = true;
             this.label26.Location = new System.Drawing.Point(4, 362);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(65, 12);
+            this.label26.Size = new System.Drawing.Size(73, 12);
             this.label26.TabIndex = 139;
             this.label26.Text = "OKNG列偏移";
             // 
@@ -687,7 +711,7 @@
             // 
             this.OKNG行偏移textBox.Location = new System.Drawing.Point(88, 332);
             this.OKNG行偏移textBox.Name = "OKNG行偏移textBox";
-            this.OKNG行偏移textBox.Size = new System.Drawing.Size(70, 21);
+            this.OKNG行偏移textBox.Size = new System.Drawing.Size(70, 22);
             this.OKNG行偏移textBox.TabIndex = 138;
             // 
             // label25
@@ -695,7 +719,7 @@
             this.label25.AutoSize = true;
             this.label25.Location = new System.Drawing.Point(4, 335);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(65, 12);
+            this.label25.Size = new System.Drawing.Size(73, 12);
             this.label25.TabIndex = 137;
             this.label25.Text = "OKNG行偏移";
             // 
@@ -712,7 +736,7 @@
             this.label24.AutoSize = true;
             this.label24.Location = new System.Drawing.Point(4, 310);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(77, 12);
+            this.label24.Size = new System.Drawing.Size(85, 12);
             this.label24.TabIndex = 135;
             this.label24.Text = "OKNG字体位置";
             // 
@@ -720,7 +744,7 @@
             // 
             this.OKNG字体大小textBox.Location = new System.Drawing.Point(88, 279);
             this.OKNG字体大小textBox.Name = "OKNG字体大小textBox";
-            this.OKNG字体大小textBox.Size = new System.Drawing.Size(70, 21);
+            this.OKNG字体大小textBox.Size = new System.Drawing.Size(70, 22);
             this.OKNG字体大小textBox.TabIndex = 134;
             // 
             // label23
@@ -728,7 +752,7 @@
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(4, 283);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(77, 12);
+            this.label23.Size = new System.Drawing.Size(85, 12);
             this.label23.TabIndex = 133;
             this.label23.Text = "OKNG字体大小";
             // 
@@ -736,7 +760,7 @@
             // 
             this.图像刷新时间numericUpDown.Location = new System.Drawing.Point(88, 253);
             this.图像刷新时间numericUpDown.Name = "图像刷新时间numericUpDown";
-            this.图像刷新时间numericUpDown.Size = new System.Drawing.Size(70, 21);
+            this.图像刷新时间numericUpDown.Size = new System.Drawing.Size(70, 22);
             this.图像刷新时间numericUpDown.TabIndex = 132;
             this.图像刷新时间numericUpDown.Value = new decimal(new int[] {
             100,
@@ -810,7 +834,7 @@
             // 
             this.点尺寸numericUpDown.Location = new System.Drawing.Point(88, 201);
             this.点尺寸numericUpDown.Name = "点尺寸numericUpDown";
-            this.点尺寸numericUpDown.Size = new System.Drawing.Size(70, 21);
+            this.点尺寸numericUpDown.Size = new System.Drawing.Size(70, 22);
             this.点尺寸numericUpDown.TabIndex = 124;
             this.点尺寸numericUpDown.Value = new decimal(new int[] {
             20,
@@ -822,7 +846,7 @@
             // 
             this.图像列宽缩放textBox.Location = new System.Drawing.Point(88, 46);
             this.图像列宽缩放textBox.Name = "图像列宽缩放textBox";
-            this.图像列宽缩放textBox.Size = new System.Drawing.Size(70, 21);
+            this.图像列宽缩放textBox.Size = new System.Drawing.Size(70, 22);
             this.图像列宽缩放textBox.TabIndex = 114;
             // 
             // label20
@@ -847,7 +871,7 @@
             // 
             this.节点尺寸numericUpDown.Location = new System.Drawing.Point(88, 171);
             this.节点尺寸numericUpDown.Name = "节点尺寸numericUpDown";
-            this.节点尺寸numericUpDown.Size = new System.Drawing.Size(70, 21);
+            this.节点尺寸numericUpDown.Size = new System.Drawing.Size(70, 22);
             this.节点尺寸numericUpDown.TabIndex = 122;
             this.节点尺寸numericUpDown.Value = new decimal(new int[] {
             20,
@@ -886,7 +910,7 @@
             this.坐标显示checkBox.AutoSize = true;
             this.坐标显示checkBox.Location = new System.Drawing.Point(88, 149);
             this.坐标显示checkBox.Name = "坐标显示checkBox";
-            this.坐标显示checkBox.Size = new System.Drawing.Size(84, 16);
+            this.坐标显示checkBox.Size = new System.Drawing.Size(86, 16);
             this.坐标显示checkBox.TabIndex = 106;
             this.坐标显示checkBox.Text = "显示3D坐标";
             this.坐标显示checkBox.UseVisualStyleBackColor = true;
@@ -938,7 +962,7 @@
             this.启用禁用W轴编码器checkBox.AutoSize = true;
             this.启用禁用W轴编码器checkBox.Location = new System.Drawing.Point(198, 141);
             this.启用禁用W轴编码器checkBox.Name = "启用禁用W轴编码器checkBox";
-            this.启用禁用W轴编码器checkBox.Size = new System.Drawing.Size(132, 16);
+            this.启用禁用W轴编码器checkBox.Size = new System.Drawing.Size(134, 16);
             this.启用禁用W轴编码器checkBox.TabIndex = 117;
             this.启用禁用W轴编码器checkBox.Text = "启用/禁用W轴编码器";
             this.启用禁用W轴编码器checkBox.UseVisualStyleBackColor = true;
@@ -948,7 +972,7 @@
             this.启用禁用V轴编码器checkBox.AutoSize = true;
             this.启用禁用V轴编码器checkBox.Location = new System.Drawing.Point(198, 118);
             this.启用禁用V轴编码器checkBox.Name = "启用禁用V轴编码器checkBox";
-            this.启用禁用V轴编码器checkBox.Size = new System.Drawing.Size(132, 16);
+            this.启用禁用V轴编码器checkBox.Size = new System.Drawing.Size(131, 16);
             this.启用禁用V轴编码器checkBox.TabIndex = 116;
             this.启用禁用V轴编码器checkBox.Text = "启用/禁用V轴编码器";
             this.启用禁用V轴编码器checkBox.UseVisualStyleBackColor = true;
@@ -958,7 +982,7 @@
             this.启用禁用U轴编码器checkBox.AutoSize = true;
             this.启用禁用U轴编码器checkBox.Location = new System.Drawing.Point(198, 94);
             this.启用禁用U轴编码器checkBox.Name = "启用禁用U轴编码器checkBox";
-            this.启用禁用U轴编码器checkBox.Size = new System.Drawing.Size(132, 16);
+            this.启用禁用U轴编码器checkBox.Size = new System.Drawing.Size(131, 16);
             this.启用禁用U轴编码器checkBox.TabIndex = 115;
             this.启用禁用U轴编码器checkBox.Text = "启用/禁用U轴编码器";
             this.启用禁用U轴编码器checkBox.UseVisualStyleBackColor = true;
@@ -968,7 +992,7 @@
             this.启用禁用Z轴编码器checkBox.AutoSize = true;
             this.启用禁用Z轴编码器checkBox.Location = new System.Drawing.Point(198, 70);
             this.启用禁用Z轴编码器checkBox.Name = "启用禁用Z轴编码器checkBox";
-            this.启用禁用Z轴编码器checkBox.Size = new System.Drawing.Size(132, 16);
+            this.启用禁用Z轴编码器checkBox.Size = new System.Drawing.Size(130, 16);
             this.启用禁用Z轴编码器checkBox.TabIndex = 114;
             this.启用禁用Z轴编码器checkBox.Text = "启用/禁用Z轴编码器";
             this.启用禁用Z轴编码器checkBox.UseVisualStyleBackColor = true;
@@ -978,7 +1002,7 @@
             this.启用禁用Y轴编码器checkBox.AutoSize = true;
             this.启用禁用Y轴编码器checkBox.Location = new System.Drawing.Point(198, 47);
             this.启用禁用Y轴编码器checkBox.Name = "启用禁用Y轴编码器checkBox";
-            this.启用禁用Y轴编码器checkBox.Size = new System.Drawing.Size(132, 16);
+            this.启用禁用Y轴编码器checkBox.Size = new System.Drawing.Size(131, 16);
             this.启用禁用Y轴编码器checkBox.TabIndex = 113;
             this.启用禁用Y轴编码器checkBox.Text = "启用/禁用Y轴编码器";
             this.启用禁用Y轴编码器checkBox.UseVisualStyleBackColor = true;
@@ -988,7 +1012,7 @@
             this.启用禁用X轴编码器checkBox.AutoSize = true;
             this.启用禁用X轴编码器checkBox.Location = new System.Drawing.Point(198, 23);
             this.启用禁用X轴编码器checkBox.Name = "启用禁用X轴编码器checkBox";
-            this.启用禁用X轴编码器checkBox.Size = new System.Drawing.Size(132, 16);
+            this.启用禁用X轴编码器checkBox.Size = new System.Drawing.Size(131, 16);
             this.启用禁用X轴编码器checkBox.TabIndex = 112;
             this.启用禁用X轴编码器checkBox.Text = "启用/禁用X轴编码器";
             this.启用禁用X轴编码器checkBox.UseVisualStyleBackColor = true;
@@ -998,7 +1022,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(165, 141);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(17, 12);
+            this.label1.Size = new System.Drawing.Size(23, 12);
             this.label1.TabIndex = 111;
             this.label1.Text = "mm";
             // 
@@ -1007,7 +1031,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(165, 118);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(17, 12);
+            this.label2.Size = new System.Drawing.Size(23, 12);
             this.label2.TabIndex = 110;
             this.label2.Text = "mm";
             // 
@@ -1016,7 +1040,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(165, 94);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(17, 12);
+            this.label3.Size = new System.Drawing.Size(23, 12);
             this.label3.TabIndex = 109;
             this.label3.Text = "mm";
             // 
@@ -1025,7 +1049,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(3, 93);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.Size = new System.Drawing.Size(67, 12);
             this.label4.TabIndex = 104;
             this.label4.Text = "U_轴分辨率";
             // 
@@ -1033,14 +1057,14 @@
             // 
             this.uAxisResolution.Location = new System.Drawing.Point(74, 90);
             this.uAxisResolution.Name = "uAxisResolution";
-            this.uAxisResolution.Size = new System.Drawing.Size(84, 21);
+            this.uAxisResolution.Size = new System.Drawing.Size(84, 22);
             this.uAxisResolution.TabIndex = 103;
             // 
             // wAxisResolution
             // 
             this.wAxisResolution.Location = new System.Drawing.Point(74, 139);
             this.wAxisResolution.Name = "wAxisResolution";
-            this.wAxisResolution.Size = new System.Drawing.Size(84, 21);
+            this.wAxisResolution.Size = new System.Drawing.Size(84, 22);
             this.wAxisResolution.TabIndex = 105;
             // 
             // label5
@@ -1048,7 +1072,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(3, 141);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 12);
+            this.label5.Size = new System.Drawing.Size(70, 12);
             this.label5.TabIndex = 106;
             this.label5.Text = "W_轴分辨率";
             // 
@@ -1056,7 +1080,7 @@
             // 
             this.vAxisResolution.Location = new System.Drawing.Point(74, 115);
             this.vAxisResolution.Name = "vAxisResolution";
-            this.vAxisResolution.Size = new System.Drawing.Size(84, 21);
+            this.vAxisResolution.Size = new System.Drawing.Size(84, 22);
             this.vAxisResolution.TabIndex = 107;
             // 
             // label6
@@ -1064,7 +1088,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(3, 117);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 12);
+            this.label6.Size = new System.Drawing.Size(67, 12);
             this.label6.TabIndex = 108;
             this.label6.Text = "V_轴分辨率";
             // 
@@ -1073,7 +1097,7 @@
             this.label51.AutoSize = true;
             this.label51.Location = new System.Drawing.Point(165, 67);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(17, 12);
+            this.label51.Size = new System.Drawing.Size(23, 12);
             this.label51.TabIndex = 102;
             this.label51.Text = "mm";
             // 
@@ -1082,7 +1106,7 @@
             this.label50.AutoSize = true;
             this.label50.Location = new System.Drawing.Point(165, 44);
             this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(17, 12);
+            this.label50.Size = new System.Drawing.Size(23, 12);
             this.label50.TabIndex = 101;
             this.label50.Text = "mm";
             // 
@@ -1091,7 +1115,7 @@
             this.label49.AutoSize = true;
             this.label49.Location = new System.Drawing.Point(165, 22);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(17, 12);
+            this.label49.Size = new System.Drawing.Size(23, 12);
             this.label49.TabIndex = 100;
             this.label49.Text = "mm";
             // 
@@ -1100,7 +1124,7 @@
             this.label35.AutoSize = true;
             this.label35.Location = new System.Drawing.Point(3, 23);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(65, 12);
+            this.label35.Size = new System.Drawing.Size(67, 12);
             this.label35.TabIndex = 39;
             this.label35.Text = "X_轴分辨率";
             // 
@@ -1108,14 +1132,14 @@
             // 
             this.xAxisResolution.Location = new System.Drawing.Point(74, 19);
             this.xAxisResolution.Name = "xAxisResolution";
-            this.xAxisResolution.Size = new System.Drawing.Size(84, 21);
+            this.xAxisResolution.Size = new System.Drawing.Size(84, 22);
             this.xAxisResolution.TabIndex = 38;
             // 
             // zAxisResolution
             // 
             this.zAxisResolution.Location = new System.Drawing.Point(74, 67);
             this.zAxisResolution.Name = "zAxisResolution";
-            this.zAxisResolution.Size = new System.Drawing.Size(84, 21);
+            this.zAxisResolution.Size = new System.Drawing.Size(84, 22);
             this.zAxisResolution.TabIndex = 42;
             // 
             // label33
@@ -1123,7 +1147,7 @@
             this.label33.AutoSize = true;
             this.label33.Location = new System.Drawing.Point(3, 71);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(65, 12);
+            this.label33.Size = new System.Drawing.Size(66, 12);
             this.label33.TabIndex = 43;
             this.label33.Text = "Z_轴分辨率";
             // 
@@ -1131,7 +1155,7 @@
             // 
             this.yAxisResolution.Location = new System.Drawing.Point(74, 43);
             this.yAxisResolution.Name = "yAxisResolution";
-            this.yAxisResolution.Size = new System.Drawing.Size(84, 21);
+            this.yAxisResolution.Size = new System.Drawing.Size(84, 22);
             this.yAxisResolution.TabIndex = 46;
             // 
             // label31
@@ -1139,7 +1163,7 @@
             this.label31.AutoSize = true;
             this.label31.Location = new System.Drawing.Point(3, 47);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(65, 12);
+            this.label31.Size = new System.Drawing.Size(67, 12);
             this.label31.TabIndex = 47;
             this.label31.Text = "Y_轴分辨率";
             // 
@@ -1153,15 +1177,15 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "相机";
             // 
-            // 启用程序报警弹窗checkBox
+            // 相机初始化checkBox
             // 
-            this.启用程序报警弹窗checkBox.AutoSize = true;
-            this.启用程序报警弹窗checkBox.Location = new System.Drawing.Point(6, 157);
-            this.启用程序报警弹窗checkBox.Name = "启用程序报警弹窗checkBox";
-            this.启用程序报警弹窗checkBox.Size = new System.Drawing.Size(120, 16);
-            this.启用程序报警弹窗checkBox.TabIndex = 10;
-            this.启用程序报警弹窗checkBox.Text = "启用程序报警弹窗";
-            this.启用程序报警弹窗checkBox.UseVisualStyleBackColor = true;
+            this.相机初始化checkBox.AutoSize = true;
+            this.相机初始化checkBox.Location = new System.Drawing.Point(6, 201);
+            this.相机初始化checkBox.Name = "相机初始化checkBox";
+            this.相机初始化checkBox.Size = new System.Drawing.Size(84, 16);
+            this.相机初始化checkBox.TabIndex = 12;
+            this.相机初始化checkBox.Text = "相机初始化";
+            this.相机初始化checkBox.UseVisualStyleBackColor = true;
             // 
             // ParamConfigForm
             // 
@@ -1302,5 +1326,7 @@
         private System.Windows.Forms.TextBox 列数量textBox;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.CheckBox 启用程序报警弹窗checkBox;
+        private System.Windows.Forms.CheckBox 窗体顶层显示checkBox;
+        private System.Windows.Forms.CheckBox 相机初始化checkBox;
     }
 }

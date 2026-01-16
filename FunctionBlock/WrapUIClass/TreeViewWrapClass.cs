@@ -482,8 +482,8 @@ namespace FunctionBlock
             List<TreeNode> list = new List<TreeNode>();
             for (int i = 0; i < this.treeView.Nodes.Count; i++)
             {
-                if(this.treeView.Nodes[i].Tag is UserLable)
-                list.Add(this.treeView.Nodes[i]);
+                if (this.treeView.Nodes[i].Tag is UserLable)
+                    list.Add(this.treeView.Nodes[i]);
             }
             return list;
         }
@@ -1151,8 +1151,13 @@ namespace FunctionBlock
                         if (this.treeView.SelectedNode == null) return;
                         this.node = this.treeView.SelectedNode;
                         ResetNameForm resetNameForm = new ResetNameForm(this.treeView.SelectedNode.Text);
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            resetNameForm.TopMost = true;
+                            resetNameForm.ShowInTaskbar = true;
+                        }
                         if (resetNameForm.ShowDialog() == DialogResult.Cancel) return;
-                        if(this.treeView.SelectedNode.Nodes.Count > 0)
+                        if (this.treeView.SelectedNode.Nodes.Count > 0)
                         {
                             new Common.UserMessageForm("重命名节点不能包含子节点!").ShowDialog();
                             return;
@@ -3203,7 +3208,11 @@ namespace FunctionBlock
             }
             if (this.form != null)
             {
-                form.TopMost = true;
+                if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                {
+                    form.TopMost = true;
+                    form.ShowInTaskbar = true;
+                }
                 this.form.Show();
             }
             if (this.acqSourceForm != null)

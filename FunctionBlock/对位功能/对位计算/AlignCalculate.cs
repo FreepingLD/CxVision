@@ -1,11 +1,14 @@
 ﻿using AlgorithmsLibrary;
 using Common;
+using HalconDotNet;
 using MotionControlCard;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
+using System.Security.Cryptography;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -75,7 +78,20 @@ namespace FunctionBlock
                                 userPixCoordSystem wcsCoord = (value as userWcsCoordSystem).GetPixCoordSystem();
                                 list.Add(new userPixVector(wcsCoord.CurrentPoint.Row, wcsCoord.CurrentPoint.Col, wcsCoord.CurrentPoint.Rad, wcsCoord.CurrentPoint.Grab_x, wcsCoord.CurrentPoint.Grab_y, wcsCoord.CurrentPoint.Grab_theta, wcsCoord.CurrentPoint.CamParams));
                                 break;
-
+                            case nameof(userWcsPolygon):
+                                userPixPolygon pixPolygon = (value as userWcsPolygon).GetPixPolygon();
+                                for (int k = 0; k < pixPolygon.Row.Count; k++)
+                                {
+                                    list.Add(new userPixVector(pixPolygon.Row[k], pixPolygon.Col[k], 0, pixPolygon.Grab_x, pixPolygon.Grab_y, pixPolygon.Grab_theta, pixPolygon.CamParams));
+                                }
+                                break;
+                            case nameof(userWcsPolyLine):
+                                userPixPolyLine pixPolyLine = (value as userWcsPolyLine).GetPixPolyLine();
+                                for (int k = 0; k < pixPolyLine.Row.Count; k++)
+                                {
+                                    list.Add(new userPixVector(pixPolyLine.Row[k], pixPolyLine.Col[k], 0, pixPolyLine.Grab_x, pixPolyLine.Grab_y, pixPolyLine.Grab_theta, pixPolyLine.CamParams));
+                                }
+                                break;
                             default:
                                 throw new ArgumentException("参数类型错误");
                         }
@@ -137,7 +153,20 @@ namespace FunctionBlock
                                 userPixCoordSystem wcsCoord = (value as userWcsCoordSystem).GetPixCoordSystem();
                                 list.Add(new userPixVector(wcsCoord.CurrentPoint.Row, wcsCoord.CurrentPoint.Col, wcsCoord.CurrentPoint.Rad, wcsCoord.CurrentPoint.Grab_x, wcsCoord.CurrentPoint.Grab_y, wcsCoord.CurrentPoint.Grab_theta, wcsCoord.CurrentPoint.CamParams));
                                 break;
-
+                            case nameof(userWcsPolygon):
+                                userPixPolygon pixPolygon = (value as userWcsPolygon).GetPixPolygon();
+                                for (int k = 0; k < pixPolygon.Row.Count; k++)
+                                {
+                                    list.Add(new userPixVector(pixPolygon.Row[k], pixPolygon.Col[k], 0, pixPolygon.Grab_x, pixPolygon.Grab_y, pixPolygon.Grab_theta, pixPolygon.CamParams));
+                                }
+                                break;
+                            case nameof(userWcsPolyLine):
+                                userPixPolyLine pixPolyLine = (value as userWcsPolyLine).GetPixPolyLine();
+                                for (int k = 0; k < pixPolyLine.Row.Count; k++)
+                                {
+                                    list.Add(new userPixVector(pixPolyLine.Row[k], pixPolyLine.Col[k], 0, pixPolyLine.Grab_x, pixPolyLine.Grab_y, pixPolyLine.Grab_theta, pixPolyLine.CamParams));
+                                }
+                                break;
                             default:
                                 throw new ArgumentException("参数类型错误");
                         }
@@ -172,6 +201,8 @@ namespace FunctionBlock
         public CompensationParam Param { get; set; }
 
         public ZoneCompensationParam ZoneParam { get; set; }
+
+
         [DisplayName("目标旋转点")]
         [DescriptionAttribute("输出属性")]
         public userWcsVector[] TargetRotatePoint
@@ -222,9 +253,9 @@ namespace FunctionBlock
                     }
                 }
                 ///////////////////////////////////////////
-                if (this.Param.IsZoneCompensation)
+                if (this.ZoneParam.IsZoneCompensation)
                 {
-                    string _grabNo = CommunicationConfigParamManger.Instance.ReadValue(this.Param.CoordSysName, enCommunicationCommand.GrabNo).ToString();
+                    string _grabNo = CommunicationConfigParamManger.Instance.ReadValue(this.ZoneParam.CoordSysName, enCommunicationCommand.GrabNo).ToString();
                     switch (_grabNo)
                     {
                         case "1":
@@ -249,36 +280,53 @@ namespace FunctionBlock
                             break;
                     }
                 }
-                Result.Succss = AlignMethod.CalculateAlign2(this.TargetPoint, this.SourcePoint, this.Param, out _affinePoint, out this._addXYTheta);               
-                ////////////////////////// 补偿值 //////////////////////////////////////////////////////////////////
-                if (this._targetPoint != null && this._targetPoint.Length > 0)
+                Result.Succss = AlignMethod.CalculateAlign2(this.TargetPoint, this.SourcePoint, this.Param, out _affinePoint, out this._addXYTheta);
+                this.CreateResultInfo(4);
+                stopwatch.Stop();
+                ////// 输出 UVW 坐标 //////////////////
+                if (Param.IsOutputUvw)
                 {
-                    int minLength = Math.Min(this._targetPoint.Length, this._sourcePoint.Length);
-                    for (int i = 0; i < minLength; i++)
-                    {
-                        // 这里不能更新目标点的拍照坐标，映射的坐标计算要在别的地方计算
-                        LoggerHelper.Info(this.name + "->目标点坐标Pix：" + this._targetPoint[i].ToString(), this._targetPoint[i].CamName);
-                        LoggerHelper.Info(this.name + "->目标点坐标Wcs：" + this._targetPoint[i].GetWcsVector().ToString(), this._targetPoint[i].CamName);
-                        LoggerHelper.Info(this.name + "->源点坐标Pix：" + this._sourcePoint[i].ToString(), this._sourcePoint[i].CamName);
-                        LoggerHelper.Info(this.name + "->源点坐标Wcs：" + this._sourcePoint[i].GetWcsVector().ToString(), this._sourcePoint[i].CamName);
-                    }
+                    double U, V, W;
+                    new UvwPlatformParam().VectorToUVW(AddXYTheta, out U, out V, out W);
+                    ((BindingList<MeasureResultInfo>)this.ResultInfo)[0].SetValue(this.name, "U", U);
+                    ((BindingList<MeasureResultInfo>)this.ResultInfo)[1].SetValue(this.name, "V", V);
+                    ((BindingList<MeasureResultInfo>)this.ResultInfo)[2].SetValue(this.name, "W", W);
+                    ((BindingList<MeasureResultInfo>)this.ResultInfo)[3].SetValue(this.name, "Time(ms)", stopwatch.ElapsedMilliseconds);
                 }
                 else
                 {
-                    for (int i = 0; i < this._sourcePoint.Length; i++)
-                    {
-                        // 这里不能更新目标点的拍照坐标，映射的坐标计算要在别的地方计算
-                        LoggerHelper.Info(this.name + "->源点坐标Pix：" + this._sourcePoint[i].ToString(), this._sourcePoint[i].CamName);
-                        LoggerHelper.Info(this.name + "->源点坐标Wcs：" + this._sourcePoint[i].GetWcsVector().ToString(), this._sourcePoint[i].CamName);
-                    }
+                    ((BindingList<MeasureResultInfo>)this.ResultInfo)[0].SetValue(this.name, "Add_x", this._addXYTheta.X);
+                    ((BindingList<MeasureResultInfo>)this.ResultInfo)[1].SetValue(this.name, "Add_y", this._addXYTheta.Y);
+                    ((BindingList<MeasureResultInfo>)this.ResultInfo)[2].SetValue(this.name, "Add_theta", this._addXYTheta.Angle);
+                    ((BindingList<MeasureResultInfo>)this.ResultInfo)[3].SetValue(this.name, "Time(ms)", stopwatch.ElapsedMilliseconds);
                 }
-                this.CreateResultInfo(4);
-                stopwatch.Stop();
-                ((BindingList<MeasureResultInfo>)this.ResultInfo)[0].SetValue(this.name, "Add_x", this._addXYTheta.X);
-                ((BindingList<MeasureResultInfo>)this.ResultInfo)[1].SetValue(this.name, "Add_y", this._addXYTheta.Y);
-                ((BindingList<MeasureResultInfo>)this.ResultInfo)[2].SetValue(this.name, "Add_theta", this._addXYTheta.Angle);
-                ((BindingList<MeasureResultInfo>)this.ResultInfo)[3].SetValue(this.name, "Time(ms)", stopwatch.ElapsedMilliseconds);
-                OnExcuteCompleted("补偿参数", this.Param?.ViewWindow, this.name, this.Param); // 这个主要用于可以在其他地方来修改补偿值
+                // 输出对位数据到相应的视图窗口
+                if (this.Param.DataViewWindow != "NONE")
+                {
+                    List<double> list_target_x = new List<double>();
+                    List<double> list_target_y = new List<double>();
+                    List<double> list_target_z = new List<double>();
+                    List<double> list_affine_x = new List<double>();
+                    List<double> list_affine_y = new List<double>();
+                    List<double> list_affine_z = new List<double>();
+                    foreach (var item in this.TargetPoint)
+                    {
+                        userWcsVector wcsPoint = item.GetWcsVector();
+                        list_target_x.Add(wcsPoint.X);
+                        list_target_y.Add(wcsPoint.Y);
+                        list_target_z.Add(wcsPoint.Z);
+                    }
+                    foreach (var item in this.AffinePoint)
+                    {
+                        list_affine_x.Add(item.X);
+                        list_affine_y.Add(item.Y);
+                        list_affine_z.Add(item.Z);
+                    }
+                    HObjectModel3D hObjectModel3D1 = new HObjectModel3D(list_target_x.ToArray(), list_target_y.ToArray(), list_target_z.ToArray());
+                    HObjectModel3D hObjectModel3D2 = new HObjectModel3D(list_affine_x.ToArray(), list_affine_y.ToArray(), list_affine_z.ToArray());
+                    OnExcuteCompleted("all", this.Param?.DataViewWindow, this.name, new PointCloudData(new HObjectModel3D[] { hObjectModel3D1, hObjectModel3D2 }));
+                }
+                OnExcuteCompleted("补偿参数", this.Param?.ViewWindow, this.name, this.Param);      // 这个主要用于可以在其他地方来修改补偿值
                 OnExcuteCompleted("分区补偿参数", this.Param?.ViewWindow, this.name, this.ZoneParam);
             }
             catch (Exception ex)

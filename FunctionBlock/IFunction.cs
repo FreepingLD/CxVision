@@ -53,6 +53,7 @@ namespace FunctionBlock
         public bool IsEmpty { get; set; }
         public string ErrorMessage { get; set; }
         public enExcuteState ExcuteState { get; set; }
+        public bool IsExcuteLable { get; set; }
 
         /// <summary>
         /// 用于判断标签的状态
@@ -61,7 +62,7 @@ namespace FunctionBlock
 
         public string Path { get; set; }
 
-        public object  DataContent { get; set; }
+        public object DataContent { get; set; }
 
 
         public OperateResult()
@@ -73,6 +74,7 @@ namespace FunctionBlock
             this.LableResult = "";
             this.Path = "";
             this.DataContent = null;
+            this.IsExcuteLable = false;
         }
 
         public void Reset()
@@ -84,6 +86,7 @@ namespace FunctionBlock
             this.LableResult = "";
             this.Path = "";
             this.DataContent = null;
+            this.IsExcuteLable = false;
         }
 
     }

@@ -88,10 +88,11 @@ namespace Common
                     mySource.Listeners.Remove(textListener);
                     textListener.Dispose();
                 }
-                if (string.IsNullOrEmpty(fileName))
-                    textListener = new TextWriterTraceListener(locaLcatalog + "\\" + DateTime.Now.ToString("yyyyMMdd") + "\\" + "程序日志.txt");
-                else
-                    textListener = new TextWriterTraceListener(locaLcatalog + "\\" + DateTime.Now.ToString("yyyyMMdd") + "\\" + fileName + ".txt");
+                textListener = new TextWriterTraceListener(locaLcatalog + "\\" + DateTime.Now.ToString("yyyyMMdd") + "\\" + "程序日志.txt");
+                //if (string.IsNullOrEmpty(fileName))
+                //    textListener = new TextWriterTraceListener(locaLcatalog + "\\" + DateTime.Now.ToString("yyyyMMdd") + "\\" + "程序日志.txt");
+                //else
+                //    textListener = new TextWriterTraceListener(locaLcatalog + "\\" + DateTime.Now.ToString("yyyyMMdd") + "\\" + fileName + ".txt");
                 textListener.Filter = new EventTypeFilter(SourceLevels.All);
                 textListener.Name = "text";
                 mySource.Listeners.Add(textListener);

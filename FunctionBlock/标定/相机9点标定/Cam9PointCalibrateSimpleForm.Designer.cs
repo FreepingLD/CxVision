@@ -737,7 +737,8 @@ namespace FunctionBlock
             resources.GetString("旋转方向comboBox.Items1"),
             resources.GetString("旋转方向comboBox.Items2"),
             resources.GetString("旋转方向comboBox.Items3"),
-            resources.GetString("旋转方向comboBox.Items4")});
+            resources.GetString("旋转方向comboBox.Items4"),
+            resources.GetString("旋转方向comboBox.Items5")});
             resources.ApplyResources(this.旋转方向comboBox, "旋转方向comboBox");
             this.旋转方向comboBox.Name = "旋转方向comboBox";
             // 
@@ -1026,30 +1027,30 @@ namespace FunctionBlock
             this.启用UVW平台checkBox.Name = "启用UVW平台checkBox";
             this.启用UVW平台checkBox.UseVisualStyleBackColor = true;
             // 
-            // Rot_Deg_textBox
+            // W_Angle_textBox
             // 
-            resources.ApplyResources(this.W_Angle_textBox, "Rot_Deg_textBox");
-            this.W_Angle_textBox.Name = "Rot_Deg_textBox";
+            resources.ApplyResources(this.W_Angle_textBox, "W_Angle_textBox");
+            this.W_Angle_textBox.Name = "W_Angle_textBox";
             // 
             // label25
             // 
             resources.ApplyResources(this.label25, "label25");
             this.label25.Name = "label25";
             // 
-            // Rot_y_textBox
+            // V_Angle_textBox
             // 
-            resources.ApplyResources(this.V_Angle_textBox, "Rot_y_textBox");
-            this.V_Angle_textBox.Name = "Rot_y_textBox";
+            resources.ApplyResources(this.V_Angle_textBox, "V_Angle_textBox");
+            this.V_Angle_textBox.Name = "V_Angle_textBox";
             // 
             // label26
             // 
             resources.ApplyResources(this.label26, "label26");
             this.label26.Name = "label26";
             // 
-            // Rot_x_textBox
+            // U_Angle_textBox
             // 
-            resources.ApplyResources(this.U_Angle_textBox, "Rot_x_textBox");
-            this.U_Angle_textBox.Name = "Rot_x_textBox";
+            resources.ApplyResources(this.U_Angle_textBox, "U_Angle_textBox");
+            this.U_Angle_textBox.Name = "U_Angle_textBox";
             // 
             // label27
             // 

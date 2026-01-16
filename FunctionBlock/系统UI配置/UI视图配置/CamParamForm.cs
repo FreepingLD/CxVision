@@ -25,18 +25,17 @@ namespace FunctionBlock
         private bool IsLoad = false; // 窗体加载后，设置为true
         public string ReName { get; set; }
         private string _camName = "";
-
         private ISensor _sensor;    
 
         public CamParamForm(ViewConfigParam viewConfigParam)
         {
-            InitializeComponent();
+            InitializeComponent();  
             ///////////////////////////////////////////
             this._viewConfigParam = viewConfigParam;
             this.ContextMenu = new ContextMenu();
             //this.titleLabel.Text = viewConfigParam.CamName;
             this.titleLabel.TextAlign = ContentAlignment.MiddleLeft;
-
+            UserLoginParamManager.Instance.UserChange += new EventHandler(this.UserChange_Event);
         }
         private void CamParamForm_Load(object sender, EventArgs e)
         {
@@ -60,7 +59,43 @@ namespace FunctionBlock
             this.addContextMenu();
         }
 
-
+        public void UserChange_Event(object sender, EventArgs e)
+        {
+            try
+            {
+                UserLoginParam loginParam = sender as UserLoginParam;
+                switch (loginParam.User)
+                {
+                    case enUserName.操作员:
+                        this.buttonClose.Enabled = false;
+                        ////////////////////////////////////////////////////
+                        this.buttonMax.Hide();
+                        this.buttonMin.Hide();
+                        this.buttonClose.Hide();
+                        this.tableLayoutPanel2.SetColumnSpan(this.titleLabel, 8);
+                        break;
+                    case enUserName.工程师:
+                        this.buttonClose.Enabled = false;
+                        ////////////////////////////////////////////////////
+                        this.buttonMax.Hide();
+                        this.buttonMin.Hide();
+                        this.buttonClose.Hide();
+                        this.tableLayoutPanel2.SetColumnSpan(this.titleLabel, 8);
+                        break;
+                    case enUserName.开发人员:
+                        this.buttonClose.Enabled = true;
+                        ////////////////////////////////////////////////////
+                        this.buttonMax.Show();
+                        this.buttonMin.Show();
+                        this.buttonClose.Show();
+                        this.tableLayoutPanel2.SetColumnSpan(this.titleLabel, 5);
+                        break;
+                }
+            }
+            catch
+            {
+            }
+        }
 
         /// <summary>
         /// 窗体移动事件
@@ -89,6 +124,7 @@ namespace FunctionBlock
             try
             {
                 this.IsLoad = false;
+                UserLoginParamManager.Instance.UserChange -= new EventHandler(this.UserChange_Event);
             }
             catch
             {
@@ -124,6 +160,7 @@ namespace FunctionBlock
             {
                 case 0x0084:
                     base.WndProc(ref m);
+                    if (UserLoginParamManager.Instance.CurrentUser == enUserName.操作员) return;
                     Point vPoint = new Point((int)m.LParam & 0xFFFF,
                         (int)m.LParam >> 16 & 0xFFFF);
                     vPoint = PointToClient(vPoint);
@@ -264,20 +301,7 @@ namespace FunctionBlock
             this.titleLabel.BackColor = System.Drawing.Color.LightGray;// System.Drawing.SystemColors.Control;
         }
 
-        private void 曝光值textBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                int result = 0;
-                int.TryParse(this.曝光值textBox.Text, out result);
-                this.trackBar1.Value = result;
-                this._sensor?.SetParam("曝光", result);
-            }
-            catch (Exception ex)
-            {
-                new UserMessageForm(ex.ToString()).ShowDialog();
-            }
-        }
+
 
         private void 相机comboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -300,12 +324,34 @@ namespace FunctionBlock
             }
         }
 
+        private void 曝光值textBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int result = 0;
+                this.曝光值textBox.ReadOnly = true;
+                int.TryParse(this.曝光值textBox.Text, out result);
+                this.trackBar1.Value = result;
+                this._sensor?.SetParam("曝光", result);
+                this.曝光值textBox.ReadOnly = false;
+            }
+            catch (Exception ex)
+            {
+                new UserMessageForm(ex.ToString()).ShowDialog();
+            }
+            finally
+            {
+                this.曝光值textBox.ReadOnly = false;
+            }
+        }
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             try
             {
+                //this.trackBar1.Enabled = false; 
                 this.曝光值textBox.Text = this.trackBar1.Value.ToString();
                 this._sensor?.SetParam("曝光", this.曝光值textBox.Text);
+                //this.trackBar1.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -318,12 +364,18 @@ namespace FunctionBlock
             try
             {
                 int result = 0;
+                this.增益textBox.ReadOnly = true;
                 int.TryParse(this.增益textBox.Text, out result);
                 this._sensor?.SetParam("增益", result);
+                this.增益textBox.ReadOnly = false;
             }
             catch (Exception ex)
             {
                 new UserMessageForm(ex.ToString()).ShowDialog();
+            }
+            finally
+            {
+                this.增益textBox.ReadOnly = false;
             }
         }
 

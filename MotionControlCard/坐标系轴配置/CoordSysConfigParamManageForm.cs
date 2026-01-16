@@ -80,7 +80,7 @@ namespace MotionControlCard
             this.dataGridView1.DataSource = listConfigPara;
             this.dataGridView1.DoubleBuffere(true);
             //////////////////////////////////////////////
-            this.服务器comboBox.DataSource = SocketConnectManager.Instance.GetSocketName();
+            //this.服务器comboBox.DataSource = SocketConnectManager.Instance.GetSocketName();
         }
 
         private void CoordSysConfigParamManageForm_FormClosing(object sender, FormClosingEventArgs e)

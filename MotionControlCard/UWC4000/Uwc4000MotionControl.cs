@@ -526,7 +526,7 @@ namespace MotionControlCard
         /// <param name="axisName"></param>
         /// <param name="axisPosition"></param>
         /// <param name="speed"></param>
-        public override void MoveSingleAxis(enCoordSysName CoordSysName,enAxisName axisName, double speed, double axisPosition)
+        public override void MoveSingleAxis(enCoordSysName CoordSysName, enAxisName axisName, double speed, double axisPosition)
         {
             try
             {
@@ -597,7 +597,7 @@ namespace MotionControlCard
                 case enAxisName.XYZ轴:
                 case enAxisName.XYZU轴:
                 case enAxisName.XYZUV轴:
-                    GetAxisPosition(CoordSysName,enAxisName.Z轴, out currentPosition_z);
+                    GetAxisPosition(CoordSysName, enAxisName.Z轴, out currentPosition_z);
                     if (Math.Abs(axisPosition.Z - currentPosition_z) < 0.01) // 当目标Z位置与当前Z位置变化很小时，不移动Z轴
                         MoveXY(axisPosition.X, axisPosition.Y, speed);
                     else
@@ -643,7 +643,7 @@ namespace MotionControlCard
                 case enAxisName.XYZ轴:
                 case enAxisName.XYZU轴:
                 case enAxisName.XYZUV轴:
-                    GetAxisPosition(motionCommandParam.CoordSysName,enAxisName.Z轴,  out currentPosition_z);
+                    GetAxisPosition(motionCommandParam.CoordSysName, enAxisName.Z轴, out currentPosition_z);
                     if (Math.Abs(motionCommandParam.AxisParam.Z - currentPosition_z) < 0.01) // 当目标Z位置与当前Z位置变化很小时，不移动Z轴
                         MoveXY(motionCommandParam.AxisParam.X, motionCommandParam.AxisParam.Y, motionCommandParam.MoveSpeed);
                     else
@@ -743,7 +743,7 @@ namespace MotionControlCard
                 case enAxisName.XY轴:
                     UWC4000Library.uwc4000_go_home(0, homSpeed);
                     UWC4000Library.uwc4000_go_home(1, homSpeed);
-                   // UWC4000Library.uwc4000_go_home(2, homSpeed);
+                    // UWC4000Library.uwc4000_go_home(2, homSpeed);
                     break;
                 case enAxisName.XYZ轴:
                     UWC4000Library.uwc4000_go_home(0, homSpeed);
@@ -767,7 +767,7 @@ namespace MotionControlCard
         /// </summary>
         /// <param name="axisName"></param>
         /// <param name="position"></param>
-        public override void GetAxisPosition(enCoordSysName CoordSysName, enAxisName axisName,out double position)
+        public override void GetAxisPosition(enCoordSysName CoordSysName, enAxisName axisName, out double position)
         {
             position = 0;
             double[] X_Scale = new double[4];
@@ -779,7 +779,7 @@ namespace MotionControlCard
                 case enAxisName.X轴:
                     UWC4000Library.uwc4000_get_scale(X_Scale, Y_Scale, Z_Scale);// 这里获取的每次都是三个轴的位置吗？
                     position = X_Scale[0];
-                    MirrorAxisCoord(CoordSysName, axisName, X_Scale[0],out position);
+                    MirrorAxisCoord(CoordSysName, axisName, X_Scale[0], out position);
                     break;
                 case enAxisName.Y轴:
                     UWC4000Library.uwc4000_get_scale(X_Scale, Y_Scale, Z_Scale);
@@ -817,7 +817,7 @@ namespace MotionControlCard
             double[] axisPosition = new double[6];
             double[] Max_Speed = new double[4];
             double[] Acc = new double[4];
-           // if (!this.connectState) return;
+            //if (!this.connectState) return;
             switch (axisName)
             {
                 case enAxisName.X轴:
@@ -860,7 +860,6 @@ namespace MotionControlCard
         /// <param name="speed"></param>
         public override void JogAxisStop()
         {
-            //if (!this.connectState) return;
             UWC4000Library.uwc4000_jog_stop();
         }
 
@@ -869,7 +868,6 @@ namespace MotionControlCard
         /// </summary>
         public override void SlowDownStopAxis()
         {
-            //if (!this.connectState) return;
             UWC4000Library.uwc4000_stop(0, 0);
             UWC4000Library.uwc4000_stop(1, 0);
             UWC4000Library.uwc4000_stop(2, 0);

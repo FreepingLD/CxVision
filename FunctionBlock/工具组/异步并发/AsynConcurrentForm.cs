@@ -36,7 +36,7 @@ namespace FunctionBlock
         {
             this._function = function;
             InitializeComponent();
-            this.titleLabel.Text = function.GetPropertyValues("名称").ToString();
+            this.Text = function.GetPropertyValues("名称").ToString();
             this.drawObject = new DrawingBaseMeasure(this.hWindowControl1, true);
             // new ListBoxWrapClass().InitListBox(this.listBox1, function);
             // new ListBoxWrapClass().InitListBox(this.listBox2, function, 2);
@@ -48,7 +48,7 @@ namespace FunctionBlock
         {
             this._function = (IFunction)node?.Tag;
             InitializeComponent();
-            this.titleLabel.Text = node.Text;
+            this.Text = node.Text;
             this.drawObject = new DrawingBaseMeasure(this.hWindowControl1, true);
             this.treeViewWrapClass = new TreeViewWrapClass(this.treeView1, this);
             this._ConcurrentExecution = (AsynConcurrent)this._function;
@@ -57,9 +57,9 @@ namespace FunctionBlock
             this.treeViewWrapClass.ToolName = this._refNode.Name.Replace(".Tool", "");
         }
 
-        private void ConcurrentExecutionForm_Load(object sender, EventArgs e)
+        private void AsynConcurrentForm_Load(object sender, EventArgs e)
         {
-            this.titleLabel.Text = this.Text;
+            this.Text = this.Text;
             this.Text = "";
             //////////////////////////////////////////
             this.CoordSysNameColumn.Items.Clear();
@@ -83,6 +83,7 @@ namespace FunctionBlock
 
             this.AddForm(this.元素属性tabPage, new ElementViewForm(false));
             this.addContextMenu(this.hWindowControl1);
+            this.DoubleBuffered = true;
         }
         public void LoadTreeNode()
         {
@@ -105,7 +106,7 @@ namespace FunctionBlock
             MastPanel.Controls.Add(form);
             form.Show();
         }
-        private void ConcurrentExecutionForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void AsynConcurrentForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
             {                /// 转移节点到主面板上来
@@ -191,13 +192,7 @@ namespace FunctionBlock
                         break;
 
                     case "脚本配置toolStripButton":
-                        //this._refNode?.Nodes.Clear();
-                        //foreach (TreeNode item1 in this.treeView1.Nodes)
-                        //{
-                        //    this._refNode?.Nodes.Add(item1.Clone() as TreeNode);
-                        //}
-                        ////((AsynConcurrent)_refNode.Tag).ParentNode = _refNode;
-                        //new Common.UserMessageForm("保存成功").ShowDialog();
+
                         break;
 
                     default:
@@ -1063,5 +1058,8 @@ namespace FunctionBlock
             ReleaseCapture();
             SendMessage(this.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0);
         }
+
+
+
     }
 }

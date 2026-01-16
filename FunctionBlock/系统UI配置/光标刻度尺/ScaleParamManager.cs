@@ -30,14 +30,17 @@ namespace FunctionBlock
             }
         }
 
-        private ScaleParam _param = new ScaleParam();
+        private ScaleParam _param;//= new ScaleParam();
         public ScaleParam Param { get => _param; set => _param = value; }
 
         public bool Save()
         {
             bool IsOk = true;
             if (!DirectoryEx.Exist(ParaPath)) DirectoryEx.Create(ParaPath);
-            IsOk = IsOk && XML<ScaleParam>.Save(_param, ParaPath + "\\" + "ScaleParam.xml"); // 以类名作为文件名
+            if (_param != null)
+                IsOk = IsOk && XML<ScaleParam>.Save(_param, ParaPath + "\\" + "ScaleParam.xml"); // 以类名作为文件名
+            else
+                IsOk = false;
             return IsOk;
         }
         public void Read()

@@ -18,20 +18,21 @@ namespace FunctionBlock
     {
         private ViewConfigParam _viewConfigParam;
         private bool IsLoad = false; // 窗体加载后，设置为true
-        private static ProjectManagerFormNew _Instance;
+        private static ProjectManagerFormNew _instance;
         private static object lockState = new object();
+        private DeviceCommunicationConfigForm _deviceForm;
         public static ProjectManagerFormNew Instance
         {
             get
             {
-                if (_Instance == null)
+                if (_instance == null)
                 {
                     lock (lockState)
                     {
-                        _Instance = new ProjectManagerFormNew();
+                        _instance = new ProjectManagerFormNew();
                     }
                 }
-                return _Instance;
+                return _instance;
             }
         }
         private ProjectManagerFormNew()
@@ -57,14 +58,13 @@ namespace FunctionBlock
             AddForm(this.坐标系TabPage, new CoordSysConfigParamManageForm()); //
             AddForm(this.标定参数tabPage, new CaliParaManagerForm());
             AddForm(this.夹抓tabPage, new RobotJawParaManagerForm(false));
-            AddForm(this.通信配置tabPage, new DeviceCommunicationConfigForm());
-            //AddForm(this.SensorTabPage, new SensorConnectConfigParamMangerForm());
+            AddForm(this.通信配置tabPage, new DeviceCommunicationConfigForm()); 
             this.DoubleBuffered = true;
-            this.工程配置tabControl.DoubleBuffere( true);
-            this.坐标系TabPage.DoubleBuffere( true);
-            this.夹抓tabPage.DoubleBuffere( true);
-            this.通信配置tabPage.DoubleBuffere( true);
-            this.标定参数tabPage.DoubleBuffere( true);
+            this.工程配置tabControl.DoubleBuffere(true);
+            this.坐标系TabPage.DoubleBuffere(true);
+            this.夹抓tabPage.DoubleBuffere(true);
+            this.通信配置tabPage.DoubleBuffere(true);
+            this.标定参数tabPage.DoubleBuffere(true);
         }
         public void UserChange_Event(object sender, EventArgs e)
         {
@@ -151,6 +151,7 @@ namespace FunctionBlock
             if (MastPanel.Controls.Count > 0)
                 MastPanel.Controls.Clear();
             form.TopLevel = false;
+            //form.TopMost = true;
             form.FormBorderStyle = FormBorderStyle.None;
             form.MaximizeBox = false;
             form.MinimizeBox = false;
@@ -167,6 +168,7 @@ namespace FunctionBlock
             if (MastPanel.Controls.Count > 0)
                 MastPanel.Controls.Clear();
             form.TopLevel = false;
+            //form.TopMost = true;
             form.FormBorderStyle = FormBorderStyle.None;
             form.MaximizeBox = false;
             form.MinimizeBox = false;
@@ -374,6 +376,55 @@ namespace FunctionBlock
         {
             this.Cursor = Cursors.Default;
             //this.titleLabel.BackColor = System.Drawing.Color.LightGray;// 
+        }
+
+        private void 工程配置tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                return;
+                if (!SystemParamManager.Instance.SysConfigParam.IsFormTopMost) return;
+                switch (工程配置tabControl.SelectedTab.Name)
+                {
+                    default:
+                    case nameof(坐标系TabPage):
+                        //AddForm(this.坐标系TabPage, new CoordSysConfigParamManageForm()); //
+                        this._deviceForm?.Close();
+                        this._deviceForm = null;
+                        break;
+                    case nameof(标定参数tabPage):
+                        //AddForm(this.标定参数tabPage, new CaliParaManagerForm());
+                        this._deviceForm?.Close();
+                        this._deviceForm = null;
+                        break;
+                    case nameof(夹抓tabPage):
+                        //AddForm(this.夹抓tabPage, new RobotJawParaManagerForm(false));
+                        this._deviceForm?.Close();
+                        this._deviceForm = null;
+                        break;
+                    case nameof(通信配置tabPage):
+                        //AddForm(this.通信配置tabPage, new DeviceCommunicationConfigForm());
+                        this._deviceForm = new DeviceCommunicationConfigForm();
+                        //this._deviceForm.FormBorderStyle = FormBorderStyle.None;
+                        //this._deviceForm.MaximizeBox = false;
+                        //this._deviceForm.MinimizeBox = false;
+                        //this._deviceForm.Dock = DockStyle.Fill;
+                        this._deviceForm.TopMost = true;
+                        this.ShowInTaskbar = false;
+                        this._deviceForm.Padding = new Padding(0);
+                        this._deviceForm.StartPosition = FormStartPosition.Manual;
+                        Point point = this.工程配置tabControl.SelectedTab.PointToScreen(this.工程配置tabControl.Location);
+                        this._deviceForm.Location = point;
+                        this.Width = this.工程配置tabControl.SelectedTab.Width;
+                        this.Height = this.工程配置tabControl.SelectedTab.Height;
+                        this._deviceForm.Show();
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                new UserMessageForm(ex.ToString()).ShowDialog();
+            }
         }
 
 

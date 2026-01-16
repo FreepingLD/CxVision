@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 using System.Windows.Media.Animation;
 
 namespace FunctionBlock
@@ -36,27 +37,46 @@ namespace FunctionBlock
             if (Param == null)
                 throw new ArgumentNullException(" Param ");
             ////////////////////////// 将像素坐标转换成世界坐标 ////////////////////////
-            userWcsVector[] SourceWcsPoint = new userWcsVector[SourcePixVector.Length];
-            for (int i = 0; i < SourcePixVector.Length; i++)
+            userWcsVector[] SourceWcsPoint, TargetWcsPoint;
+            switch (Param.RefObject)
             {
-                SourceWcsPoint[i] = SourcePixVector[i].GetWcsVector();
-            }
-            if (TargetPixVector == null) TargetPixVector = new userPixVector[0];
-            userWcsVector[] TargetWcsPoint = new userWcsVector[TargetPixVector.Length];
-            for (int i = 0; i < TargetPixVector.Length; i++)
-            {
-                switch (Param.RefObject)
-                {
-                    case enRefObject.视野中心:
-                    case enRefObject.示教点: // 示教点常用的单相机的校正
-                    default:
-                        TargetWcsPoint[i] = TargetPixVector[i].GetWcsVector(SourcePixVector[i].Grab_x, SourcePixVector[i].Grab_y); //
-                        break;
-                    case enRefObject.目标点:
-                    case enRefObject.映射相机: // 如果是坐标映射，因为是两个不同的相机，所以这里不需要使用源相机的当前拍照位置坐标来计算目标位置 
+                case enRefObject.视野中心: // 用于单相机，以视野中心为原点来计算参考点位置
+                    double wcs_x, wcs_y, wcs_z;
+                    SourceWcsPoint = new userWcsVector[SourcePixVector.Length];
+                    TargetWcsPoint = new userWcsVector[SourcePixVector.Length];
+                    for (int i = 0; i < SourcePixVector.Length; i++)
+                    {
+                        SourceWcsPoint[i] = SourcePixVector[i].GetWcsVector();
+                        SourcePixVector[i].CamParams.ImageCenterPointsToWorldPlane(SourcePixVector[i].Grab_x, SourcePixVector[i].Grab_y, 0, out wcs_x, out wcs_y, out wcs_z);
+                        TargetWcsPoint[i] = new userWcsVector(wcs_x, wcs_y, wcs_z, 0); //
+                    }
+                    break;
+                case enRefObject.示教点: // 示教点常用的单相机的校正
+                default:
+                    SourceWcsPoint = new userWcsVector[SourcePixVector.Length];
+                    TargetWcsPoint = new userWcsVector[TargetPixVector.Length];
+                    for (int i = 0; i < SourcePixVector.Length; i++)
+                    {
+                        SourceWcsPoint[i] = SourcePixVector[i].GetWcsVector();
+                    }
+                    for (int i = 0; i < TargetPixVector.Length; i++)
+                    {
+                        TargetWcsPoint[i] = TargetPixVector[i].GetWcsVector(SourcePixVector[i].Grab_x, SourcePixVector[i].Grab_y);
+                    }
+                    break;
+                case enRefObject.目标点:
+                case enRefObject.映射相机: // 如果是坐标映射，因为是两个不同的相机，所以这里不需要使用源相机的当前拍照位置坐标来计算目标位置 
+                    SourceWcsPoint = new userWcsVector[SourcePixVector.Length];
+                    TargetWcsPoint = new userWcsVector[TargetPixVector.Length];
+                    for (int i = 0; i < SourcePixVector.Length; i++)
+                    {
+                        SourceWcsPoint[i] = SourcePixVector[i].GetWcsVector();
+                    }
+                    for (int i = 0; i < TargetPixVector.Length; i++)
+                    {
                         TargetWcsPoint[i] = TargetPixVector[i].GetWcsVector();
-                        break;
-                }
+                    }
+                    break;
             }
             ///////////// 补偿值 ///////////////////////////////////////////////////////////////
             addVector.X = Param.Add_X;
@@ -234,6 +254,15 @@ namespace FunctionBlock
                         throw new ArgumentException("TargetPoint 的长度与 SourcePoint 的长度不相等 ");
                     hHomMat2D = ha.GetHomMat2D(SourceWcsPoint, TargetWcsPoint, addVector); // 计算源点到目标点间的变换，
                     AddXYTheta = ha.GetHomMat2DXYTheta(hHomMat2D);
+                    ///////////////////////////////////////////////////////////
+                    if (AddXYTheta != null)
+                        affinePoints = ha.AffineTransPoint2d(AddXYTheta.GetHomMat2D(), SourceWcsPoint);
+                    result = true;
+                    break;
+                case enAlignmentMethod.轮廓对齐:
+                    double[] error; 
+                    ContourMatch(SourceWcsPoint, TargetWcsPoint, Param.MatchParam,out AddXYTheta,out error);
+                    AddXYTheta += addVector;
                     ///////////////////////////////////////////////////////////
                     if (AddXYTheta != null)
                         affinePoints = ha.AffineTransPoint2d(AddXYTheta.GetHomMat2D(), SourceWcsPoint);
@@ -902,6 +931,155 @@ namespace FunctionBlock
             return result;
         }
 
+        public static bool ContourMatch(userWcsVector[] sourceWcsPoint, userWcsVector[] targetWcsPoint, AlignMatchParam param, out userWcsVector AddXYTheta, out double[] error)
+        {
+            bool result = false;
+            AddXYTheta = new userWcsVector();
+            error = new double[0];
+            if (sourceWcsPoint == null) throw new ArgumentNullException(nameof(sourceWcsPoint));
+            if (targetWcsPoint == null) throw new ArgumentNullException(nameof(targetWcsPoint));
+            if (param == null) throw new ArgumentNullException("param");
+            if (sourceWcsPoint.Length == 0 || targetWcsPoint.Length == 0)
+            {
+                return false;
+            }
+            /////////////////// 插值处理 /////////////////////////
+            userWcsVector[] sourceResampleWcsPoint, targetResampleWcsPoint;
+            if (param.ResampleDist != "auto")
+            {
+                double resampleDist = 0;
+                if (double.TryParse(param.ResampleDist, out resampleDist))
+                {
+                    new WcsData().LineInterpretationByStep(sourceWcsPoint, resampleDist, out sourceResampleWcsPoint);
+                    new WcsData().LineInterpretationByStep(targetWcsPoint, resampleDist, out targetResampleWcsPoint);
+                }
+                else
+                {
+                    sourceResampleWcsPoint = sourceWcsPoint;
+                    targetResampleWcsPoint = targetWcsPoint;
+                }
+            }
+            else
+            {
+                sourceResampleWcsPoint = sourceWcsPoint;
+                targetResampleWcsPoint = targetWcsPoint;
+            }
+            //////////////////////////////////////////////
+            double[] source_x = new double[sourceResampleWcsPoint.Length];
+            double[] source_y = new double[sourceResampleWcsPoint.Length];
+            double[] source_z = new double[sourceResampleWcsPoint.Length];
+            double[] target_x = new double[targetResampleWcsPoint.Length];
+            double[] target_y = new double[targetResampleWcsPoint.Length];
+            double[] target_z = new double[targetResampleWcsPoint.Length];
+            ////////////////////////////////////////////
+            for (int i = 0; i < sourceResampleWcsPoint.Length; i++)
+            {
+                source_x[i] = sourceResampleWcsPoint[i].X;
+                source_y[i] = sourceResampleWcsPoint[i].Y;
+                source_z[i] = sourceResampleWcsPoint[i].Z;
+            }
+            ////////////////////////////////////////////
+            for (int i = 0; i < targetResampleWcsPoint.Length; i++)
+            {
+                target_x[i] = targetResampleWcsPoint[i].X;
+                target_y[i] = targetResampleWcsPoint[i].Y;
+                target_z[i] = targetResampleWcsPoint[i].Z;
+            }
+            HTuple Qx = 0, Qy = 0, Qz = 0, dist = 0;
+            HHomMat2D hHomMat2D = new HHomMat2D();
+            HTuple hTuple_source_x = new HTuple(source_x);
+            HTuple hTuple_source_y = new HTuple(source_y);
+            ////////////////////////////////////////////
+            int index = 0;
+            int length = target_x.Length; // 必需使用当前点
+            int matchCount = 0, startIndex = 0, endIndex = 0;// (int)(percent * length);
+            if (param.StartPercent < 0)
+                startIndex = 0;
+            else
+                startIndex = (int)(param.StartPercent * length);
+            if (param.EndPercent >= 1)
+                endIndex = (int)(param.EndPercent * length) - 1;
+            else
+                endIndex = (int)(param.EndPercent * length) - 1;
+            matchCount = (endIndex - startIndex) + 1;
+            List<double> list_target_x = new List<double>();
+            List<double> list_target_y = new List<double>();
+            List<double> list_error = new List<double>();
+            for (int i = 0; i < target_x.Length; i++) // 遍在模板轮廓的每一个点,找到误差最小的一个点变换矩阵
+            {
+                index = i;
+                list_target_x.Clear();
+                list_target_y.Clear();
+                while (true)
+                {
+                    if (list_target_x.Count == matchCount) break;
+                    list_target_x.Add(target_x[index % length]);
+                    list_target_y.Add(target_y[index % length]);
+                    index++;
+                }
+                /////////////// 变换方式 ///////////////////////////
+                switch (param.TransformationType)
+                {
+                    case enTransformationType.rigid:
+                        hHomMat2D.VectorToRigid(hTuple_source_x.TupleSelectRange(startIndex, endIndex), hTuple_source_y.TupleSelectRange(startIndex, endIndex), list_target_x.ToArray(), list_target_y.ToArray());
+                        break;
+                    case enTransformationType.affine:
+                        hHomMat2D.VectorToHomMat2d(hTuple_source_x.TupleSelectRange(startIndex, endIndex), hTuple_source_y.TupleSelectRange(startIndex, endIndex), list_target_x.ToArray(), list_target_y.ToArray());
+                        break;
+                    case enTransformationType.similarity:
+                        hHomMat2D.VectorToSimilarity(hTuple_source_x.TupleSelectRange(startIndex, endIndex), hTuple_source_y.TupleSelectRange(startIndex, endIndex), list_target_x.ToArray(), list_target_y.ToArray());
+                        break;
+                    case enTransformationType.projective:
+                        hHomMat2D.VectorToProjHomMat2d(hTuple_source_x.TupleSelectRange(startIndex, endIndex), hTuple_source_y.TupleSelectRange(startIndex, endIndex), list_target_x.ToArray(), list_target_y.ToArray(),
+                            "normalized_dlt", new HTuple(), new HTuple(), new HTuple(), new HTuple(), new HTuple(), new HTuple());
+                        break;
+                }
+                Qx = hHomMat2D.AffineTransPoint2d(source_x, source_y, out Qy);
+                dist = HMisc.DistancePp(Qx.TupleSelectRange(startIndex, endIndex), Qy.TupleSelectRange(startIndex, endIndex), list_target_x.ToArray(), list_target_y.ToArray());
+                double meanValue = dist.TupleDeviation().D;//.TupleMean().D;
+                meanValue = dist.TupleMean().D;
+                list_error.Add(meanValue);
+            }
+            // 用误差最小点的变换矩阵来变换计算
+            hHomMat2D = new HHomMat2D();
+            HTuple hTupleIndex = new HTuple(list_error.ToArray()).TupleSortIndex();
+            index = hTupleIndex[0].I;
+            list_target_x.Clear();
+            list_target_y.Clear();
+            while (true)
+            {
+                if (list_target_x.Count == matchCount) break;
+                list_target_x.Add(target_x[index % length]);
+                list_target_y.Add(target_y[index % length]);
+                index++;
+            }
+            //////////////////////////////////////////
+            switch (param.TransformationType)
+            {
+                case enTransformationType.rigid:
+                    hHomMat2D.VectorToRigid(hTuple_source_x.TupleSelectRange(startIndex, endIndex), hTuple_source_y.TupleSelectRange(startIndex, endIndex), list_target_x.ToArray(), list_target_y.ToArray());
+                    break;
+                case enTransformationType.affine:
+                    hHomMat2D.VectorToHomMat2d(hTuple_source_x.TupleSelectRange(startIndex, endIndex), hTuple_source_y.TupleSelectRange(startIndex, endIndex), list_target_x.ToArray(), list_target_y.ToArray());
+                    break;
+                case enTransformationType.similarity:
+                    hHomMat2D.VectorToSimilarity(hTuple_source_x.TupleSelectRange(startIndex, endIndex), hTuple_source_y.TupleSelectRange(startIndex, endIndex), list_target_x.ToArray(), list_target_y.ToArray());
+                    break;
+                case enTransformationType.projective:
+                    hHomMat2D.VectorToProjHomMat2d(hTuple_source_x.TupleSelectRange(startIndex, endIndex), hTuple_source_y.TupleSelectRange(startIndex, endIndex), list_target_x.ToArray(), list_target_y.ToArray(),
+                        "normalized_dlt", new HTuple(), new HTuple(), new HTuple(), new HTuple(), new HTuple(), new HTuple());
+                    break;
+            }
+            //hHomMat2D.VectorToRigid(hTuple_x.TupleSelectRange(startIndex, endIndex), hTuple_y.TupleSelectRange(startIndex, endIndex), list_cur_x.ToArray(), list_cur_y.ToArray());
+            Qx = hHomMat2D.HomMat2dInvert().AffineTransPoint2d(target_x, target_y, out Qy);
+            dist = HMisc.DistancePp(hTuple_source_x.TupleSelectRange(startIndex, endIndex), hTuple_source_y.TupleSelectRange(startIndex, endIndex), Qx.TupleSelectRange(startIndex, endIndex), Qy.TupleSelectRange(startIndex, endIndex));
+            error = dist.ToDArr();
+            double sx, sy, phi, theta, tx, ty;
+            hHomMat2D.HomMat2dToAffinePar(out sy, out phi, out theta, out tx, out ty);
+            AddXYTheta = new userWcsVector(tx, ty, 0, phi * 180 / Math.PI);
+            result = true;
+            return result;
+        }
 
 
 

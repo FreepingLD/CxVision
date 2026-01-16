@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.IO;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security;
@@ -26,11 +27,13 @@ namespace CxVision
         private List<Form> ListForm = new List<Form>();
         private System.Threading.Timer timer;
         private bool IsLoad = false;
+        private bool _initSensor = false;
         public MainFormEmbed()
         {
             InitializeComponent();
             this.TopLevel = false;
             this.TopMost = false;
+            SystemParamManager.Instance.SysConfigParam.IsFormTopMost = true;
             this.panel2.Hide();
             this.项目名称label.Hide();
             this.statusStrip1.Hide();
@@ -50,14 +53,15 @@ namespace CxVision
             FlawClassManage.Instance.Read();
             HWindowManage.Init();// 初始化视图窗口，添加一个自动功能 
             ////////////////////////////////////////////////////////////////////////////
-            sensorlist.Connect();
-            card.Connect();
-            light.Connect();
+            this.sensorlist.Connect();
+            this.card.Connect();
+            this.light.Connect();
             // 初始化采集源
             AcqSourceManage.Instance.Read();
             // CPUMonitor.Instance.Init();
             //// 读取用户
             UserLoginParamManager.Instance.Read();
+            UserManager.Read();
             /////////////////////////////////////
             this.MaximumSize = new Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
             this.WindowState = FormWindowState.Normal;
@@ -73,14 +77,6 @@ namespace CxVision
                 default:
                     break;
             }
-            //Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(SystemParamManager.Instance.SysConfigParam.Language);
-            //if (new UserMessageForm().ShowDialog("机台上电后必需执行机台回零,如已回零可忽略", "机台回零", MessageBoxButtons.OKCancel) == DialogResult.OK)
-            //{
-            //    if (MotionCardManage.CurrentCard != null)
-            //        MotionCardManage.CurrentCard.MultyAxisHome(enAxisName.XY轴, 10);
-            //    else
-            //        new UserMessageForm().ShowDialog("运动控制卡打开失败");
-            //}
             ViewConfigParamManager.Instance.Init(this.视图TabControl);
             //////////////////////////////////////////////////////
             foreach (TabPage item in this.视图TabControl.TabPages)
@@ -98,8 +94,10 @@ namespace CxVision
         }
 
 
+
         private void MainForm_Load(object sender, EventArgs e)
         {
+            ///////////////////////////////////////////////
             Rectangle rect = Screen.GetWorkingArea(this);
             ScreenManager.Instance.ScreenParam.SetScaleParam(rect.Width, rect.Height);
             foreach (TabPage item in this.视图TabControl.TabPages)
@@ -114,10 +112,11 @@ namespace CxVision
             AutoRunThreadPlc.Instance.RecipeInfo += new RecipeEventHandler(this.Recipe_Event);
             this.addLableContextMenu();
             this.IsLoad = true;
-            if (SystemParamManager.Instance.SysConfigParam.ProjectName == null || SystemParamManager.Instance.SysConfigParam.ProjectName.Length == 0)
+            if (string.IsNullOrEmpty(SystemParamManager.Instance.SysConfigParam.ProjectName))
                 this.项目名称label.Text = "项目名称:";
             else
                 this.项目名称label.Text = SystemParamManager.Instance.SysConfigParam.ProjectName;
+            /////////////////////////////////////////////////////
         }
 
         /// <summary>
@@ -407,6 +406,18 @@ namespace CxVision
                             CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.TriggerToPlc, 1);
                             LoggerHelper.Info("配方切换失败,路径为空");
                         }
+
+                        ///////////// 切换配方时初始化一次 ///////////////
+                       if(!this._initSensor && SystemParamManager.Instance.SysConfigParam.IsInitSensor)
+                        {
+                            foreach (var item in SensorManage.SensorList)
+                            {
+                                item?.SetParam("实时采集", 0);
+                                Thread.Sleep(1000);
+                                item?.SetParam("停止采集", 0);
+                            }
+                            this._initSensor = true;
+                        }
                         break;
 
                     case "Login":
@@ -427,22 +438,40 @@ namespace CxVision
                                 CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ProgramNo, path);
                                 CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToPlc, 1);
                                 CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToSocket, "OK");
-                                CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ProgramNoToPlc, 1);
-                                LoggerHelper.Info("操作员登录成功");
+                                CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.TriggerToPlc, 1);
+                                LoggerHelper.Info($"{path}登录成功");
                                 break;
                             case "supper":
                             case "Supper":
-                            case "开发人员":
-                                UserLoginParamManager.Instance.CurrentUser = enUserName.开发人员;
+                            case "engineer":
+                            case "Engineer":
+                            case "工程师":
+                            case "管理员":
+                                UserLoginParamManager.Instance.CurrentUser = enUserName.工程师;
                                 this.Invoke(new Action(() =>
                                 {
-                                    this.用户label.Text = "开发人员";
+                                    this.用户label.Text = path;
                                 }));
                                 CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ProgramNo, path);
                                 CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToPlc, 1);
                                 CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToSocket, "OK");
-                                CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ProgramNoToPlc, 1);
-                                LoggerHelper.Info("开发人员登录成功");
+                                CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.TriggerToPlc, 1);
+                                LoggerHelper.Info($"{path}登录成功");
+                                break;
+                            case "开发人员":
+                            case "厂商人员":
+                            case "manufacturer":
+                            case "Manufacturer":
+                                UserLoginParamManager.Instance.CurrentUser = enUserName.开发人员;
+                                this.Invoke(new Action(() =>
+                                {
+                                    this.用户label.Text = path;
+                                }));
+                                CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ProgramNo, path);
+                                CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToPlc, 1);
+                                CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToSocket, "OK");
+                                CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.TriggerToPlc, 1);
+                                LoggerHelper.Info($"{path}登录成功");
                                 break;
                         }
                         break;
@@ -454,10 +483,11 @@ namespace CxVision
                         string[] lable = this.GetLableName(index);
                         if (lable != null && lable.Length > 0)
                         {
-                            CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ProgramNo, string.Join(",", lable));
+                            CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.Lable, string.Join(",", lable));
+                            CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.LableLength, string.Join(",", lable).Length);
                             CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToPlc, 1);
                             CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToSocket, "OK");
-                            CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ProgramNoToPlc, 1);
+                            CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.LableTrigger, 1);
                             LoggerHelper.Info("必送标签成功");
                         }
                         else
@@ -469,6 +499,7 @@ namespace CxVision
             }
             catch (Exception ex)
             {
+                CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToPlc, 2);
                 CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.ResultToSocket, "NG");
                 CommunicationConfigParamManger.Instance.WriteValue(e.CoordSysName, enCommunicationCommand.TriggerToPlc, 1);
                 switch (function)
@@ -917,6 +948,30 @@ namespace CxVision
                             new Common.UserMessageForm("保存失败" + new Exception().ToString()).ShowDialog();
                     }
                     this.配方toolStripStatusLabel.Text = this.programPath;
+                    ////////////////////  每次保存发送一次标签更新  //////////////////// 
+                    //foreach (var item2 in AcqSourceManage.Instance.AcqSourceList)
+                    //{
+                    //    string[] lable = this.GetLableName((int)item2.CoordSysName);
+                    //    if (lable != null && lable.Length > 0)
+                    //    {
+                    //        CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.Lable, string.Join("|", lable));
+                    //        CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.LableLength, string.Join("|", lable).Length * 2);
+                    //        CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.ResultToPlc, 1);
+                    //        CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.ResultToSocket, "OK");
+                    //        CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.LableTrigger, 1);
+                    //        LoggerHelper.Info($"标签内容:{string.Join("|", lable)}", item2.Sensor?.Name);
+                    //        LoggerHelper.Info("发送标签成功", item2.Sensor?.Name);
+                    //    }
+                    //    else
+                    //    {
+                    //        //CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.LableLength, 0);
+                    //        CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.ResultToPlc, 2);
+                    //        CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.ResultToSocket, "NG");
+                    //        CommunicationConfigParamManger.Instance.WriteValue(item2.CoordSysName, enCommunicationCommand.LableTrigger, 1);
+                    //        LoggerHelper.Error($"标签内容为空或长度为0", item2.Sensor?.Name);
+                    //        LoggerHelper.Error("发送标签失败", item2.Sensor?.Name);
+                    //    }
+                    //}
                     break;
                 case "另存为":
                     FolderBrowserDialog saveFileDialog = new FolderBrowserDialog();
@@ -980,6 +1035,7 @@ namespace CxVision
                     form.ShowInTaskbar = true;
                     form.Show();
                     break;
+
                 //////////////////////////////////
                 case "参数设置":
                     form = new ParamConfigForm();
@@ -990,6 +1046,7 @@ namespace CxVision
                     form.ShowInTaskbar = true;
                     form.Show();
                     break;
+
                 //////////////////////////////////
                 case "光源配置":
                     form = new LightConnectConfigManageForm();
@@ -1000,6 +1057,7 @@ namespace CxVision
                     form.ShowInTaskbar = true;
                     form.Show();
                     break;
+
                 //////////////////////////////////
                 case "运动控制卡配置":
                     form = new DeviceConnectConfigParamManageForm();
@@ -1010,6 +1068,7 @@ namespace CxVision
                     form.ShowInTaskbar = true;
                     form.Show();
                     break;
+
                 case "采集源配置":
                     form = new AcqSourceConfigForm();
                     form.StartPosition = FormStartPosition.Manual;
@@ -1019,6 +1078,7 @@ namespace CxVision
                     form.ShowInTaskbar = true;
                     form.Show();
                     break;
+
                 case "程序配置":
                     form = new ProgramConfigParamForm();
                     form.StartPosition = FormStartPosition.Manual;
@@ -1028,6 +1088,7 @@ namespace CxVision
                     form.ShowInTaskbar = true;
                     form.Show();
                     break;
+
                 case "工程配置":
                     this.视图TabControl.SelectedTab = this.系统配置tabPage;
                     this.AddForm(this.系统配置tabPage, ProjectManagerFormNew.Instance);
@@ -1047,6 +1108,7 @@ namespace CxVision
                             break;
                     }
                     break;
+
                 case "连接配置":
                     this.视图TabControl.SelectedTab = this.系统配置tabPage;
                     this.AddForm(this.系统配置tabPage, ConnectManagerFormNew.Instance);
@@ -1066,6 +1128,21 @@ namespace CxVision
                             break;
                     }
                     break;
+
+                case "通信配置":
+                    case nameof(通信配置ToolStripMenuItem):
+                    form = new DeviceCommunicationConfigForm();
+                    form.StartPosition = FormStartPosition.Manual;
+                    Point point = ProjectManagerFormNew.Instance.工程配置tabControl.SelectedTab.PointToScreen(ProjectManagerFormNew.Instance.Location);
+                    form.Owner = this;
+                    form.TopMost = true;
+                    form.ShowInTaskbar = true;
+                    form.Location = point;
+                    form.Width = ProjectManagerFormNew.Instance.工程配置tabControl.SelectedTab.Width;
+                    form.Height = ProjectManagerFormNew.Instance.工程配置tabControl.SelectedTab.Height;
+                    form.Show();
+                    break;
+
                 default:
                     break;
             }
@@ -1179,26 +1256,36 @@ namespace CxVision
             {
                 case "检测工具":
                     form = new ToolForm();
+                    form.TopMost = true;
+                    form.ShowInTaskbar = true;
                     form.Owner = this;
                     form.Show();
                     break;
                 case "对射标定工具":
                     form = new CalibrateDoubleLaserForm();
+                    form.TopMost = true;
+                    form.ShowInTaskbar = true;
                     form.Owner = this;
                     form.Show();
                     break;
                 case "运动控制":
                     form = new JogMotionForm();  //new JogMotionControlForm()
+                    form.TopMost = true;
+                    form.ShowInTaskbar = true;
                     form.Owner = this;
                     form.Show();
                     break;
                 case "线性校准":
                     form = new LinearCalibrateForm();  //new JogMotionControlForm()
+                    form.TopMost = true;
+                    form.ShowInTaskbar = true;
                     form.Owner = this;
                     form.Show();
                     break;
                 case "面阵校准":
                     form = new MachineCalibForm();  //new JogMotionControlForm()
+                    form.TopMost = true;
+                    form.ShowInTaskbar = true;
                     form.Owner = this;
                     form.Show();
                     break;
@@ -1215,16 +1302,22 @@ namespace CxVision
             {
                 case "FA相机标定":
                     form = new SpaceCalibrateCameraParamForm();
+                    form.TopMost = true;
+                    form.ShowInTaskbar = true;
                     form.Owner = this;
                     form.Show();
                     break;
                 case "矩阵标定相机":
                     form = new MatrixCalibrateCameraParamForm();
+                    form.TopMost = true;
+                    form.ShowInTaskbar = true;
                     form.Owner = this;
                     form.Show();
                     break;
                 case "N点标定相机":
                     form = new CamNPointCalibParamSimpleForm();
+                    form.TopMost = true;
+                    form.ShowInTaskbar = true;
                     form.Owner = this;
                     form.Show();
                     break;
@@ -1246,26 +1339,36 @@ namespace CxVision
             {
                 case "相机&点激光标定":
                     form = new CameraPointLaserCalibrateForm();  //new JogMotionControlForm()
+                    form.TopMost = true;
+                    form.ShowInTaskbar = true;
                     form.Owner = this;
                     form.Show();
                     break;
                 case "相机&线激光标定":
                     form = new CameraLineLaserCalibrateForm();
+                    form.TopMost = true;
+                    form.ShowInTaskbar = true;
                     form.Owner = this;
                     form.Show();
                     break;
                 case "相机&面激光标定":
                     form = new CameraFaceLaserCalibrateForm();
+                    form.TopMost = true;
+                    form.ShowInTaskbar = true;
                     form.Owner = this;
                     form.Show();
                     break;
                 case "相机&胶枪标定":
                     form = new CameraGlueGunCalibrateForm();
+                    form.TopMost = true;
+                    form.ShowInTaskbar = true;
                     form.Owner = this;
                     form.Show();
                     break;
                 case "相机&机器人&夹抓标定":
                     form = new RebotJawCalibrateForm();
+                    form.TopMost = true;
+                    form.ShowInTaskbar = true;
                     form.Owner = this;
                     form.Show();
                     break;
@@ -1283,16 +1386,22 @@ namespace CxVision
             {
                 case "标定线激光":
                     form = new LineSensorCalibrateForm();
+                    form.TopMost = true;
+                    form.ShowInTaskbar = true;
                     form.Owner = this;
                     form.Show();
                     break;
                 case "标定点激光":
                     form = new FaceSensorCalibrateForm();
+                    form.TopMost = true;
+                    form.ShowInTaskbar = true;
                     form.Owner = this;
                     form.Show();
                     break;
                 case "标定面激光":
                     form = new FaceSensorCalibrateForm();
+                    form.TopMost = true;
+                    form.ShowInTaskbar = true;
                     form.Owner = this;
                     form.Show();
                     break;
@@ -1309,11 +1418,15 @@ namespace CxVision
             {
                 case "线性补偿":
                     form = new LinearCalibrateForm();  //new JogMotionControlForm()
+                    form.TopMost = true;
+                    form.ShowInTaskbar = true;
                     form.Owner = this;
                     form.Show();
                     break;
                 case "面阵补偿":
                     form = new MachineCalibForm();  //new JogMotionControlForm()
+                    form.TopMost = true;
+                    form.ShowInTaskbar = true;
                     form.Owner = this;
                     form.Show();
                     break;
@@ -1335,6 +1448,8 @@ namespace CxVision
                     break;
                 case "面阵补偿":
                     form = new MachineCalibForm();  //new JogMotionControlForm()
+                    form.TopMost = true;
+                    form.ShowInTaskbar = true;
                     form.Owner = this;
                     form.Show();
                     break;
@@ -1376,13 +1491,18 @@ namespace CxVision
                     break;
                 case "添加视图":
                     AddViewForm addViewForm = new AddViewForm();
+                    addViewForm.TopMost = true;
+                    addViewForm.ShowInTaskbar = true;
                     addViewForm.ShowDialog();
                     if (addViewForm.IsCancel) return;
                     Form form = ViewConfigParamManager.Instance.AddFormView(this.视图TabControl.SelectedTab, addViewForm);
                     this.ListForm.Add(form); // 将在主窗体上打开的所有窗体保存下来，先关闭他们再关闭主窗体
                     break;
                 case "编辑视图项":
-                    new ViewElementForm().Show();
+                    ViewElementForm viewElement = new ViewElementForm();
+                    viewElement.TopMost = true;
+                    viewElement.ShowInTaskbar = true;
+                    viewElement.Show();
                     break;
                 case "清空视图配置":
                     ViewConfigParamManager.Instance.Clear();
@@ -1655,24 +1775,36 @@ namespace CxVision
         /// </summary>
         public void Run(bool isRun = false)
         {
-            if (isRun)
+            try
             {
-                AutoRunThreadPlc.Instance.UnInit();
-                Thread.Sleep(200);
-                this.联机运行ToolStripMenuItem.Text = "断开连机";
-                //this.联机运行toolStripButton.Image = global::CxVision.Properties.Resources.停止_50_X_50;
-                AutoRunThreadPlc.Instance.Init();
-                SystemParamManager.Instance.SysConfigParam.IsAutoRun = true;
+                if (isRun)
+                {
+                    AutoRunThreadPlc.Instance.UnInit();
+                    Thread.Sleep(200);
+                    this.联机运行ToolStripMenuItem.Text = "断开连机";
+                    this.联机运行ToolStripMenuItem.ForeColor = Color.Red;
+                    this.联机运行toolStripButton.Image = global::CxVision.Properties.Resources.停止_50_X_50;
+                    AutoRunThreadPlc.Instance.Init();
+                    SystemParamManager.Instance.SysConfigParam.IsAutoRun = true;
+                    LoggerHelper.Info("启用联机运行");
+                }
+                else
+                {
+                    this.联机运行ToolStripMenuItem.Text = "联机运行";
+                    this.联机运行ToolStripMenuItem.ForeColor = Color.Black;
+                    this.联机运行toolStripButton.Image = global::CxVision.Properties.Resources.开始2_50_X_50;
+                    AutoRunThreadPlc.Instance.UnInit();
+                    SystemParamManager.Instance.SysConfigParam.IsAutoRun = false;
+                    SystemParamManager.Instance.SysConfigParam.InterruptSingle = enInterruptType.用户复位中断;
+                    LoggerHelper.Info("断开联机运行");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                this.联机运行ToolStripMenuItem.Text = "联机运行";
-                //this.联机运行toolStripButton.Image = global::CxVision.Properties.Resources.开始2_50_X_50;
-                AutoRunThreadPlc.Instance.UnInit();
-                SystemParamManager.Instance.SysConfigParam.IsAutoRun = false;
-                SystemParamManager.Instance.SysConfigParam.InterruptSingle = enInterruptType.用户复位中断;
+                new UserMessageForm().ShowDialog(ex.ToString());
             }
         }
+
         /// <summary>
         /// 用户登录
         /// </summary>

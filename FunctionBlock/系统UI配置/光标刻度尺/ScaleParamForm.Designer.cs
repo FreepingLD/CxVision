@@ -192,6 +192,8 @@ namespace FunctionBlock
             this.Controls.Add(this.步距textBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.半径textBox);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ScaleParamForm";
             this.ShowIcon = false;
             this.Text = "光标线参数";

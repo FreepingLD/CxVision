@@ -99,6 +99,7 @@ namespace FunctionBlock
             //this.AddForm(this.元素属性tabPage, new ElementViewForm(((JobUnit)this._function).PlcInfo));
             //Point point = this.PointToScreen(this.treeView1.Location);
             this.Location = new Point(200, 100);
+            this.DoubleBuffered = true;
         }
 
         public void LoadTreeNode()
@@ -225,16 +226,8 @@ namespace FunctionBlock
                         tool.Show();
                         break;
 
-                    case "保存配置toolStripButton":
-                        this._refNode?.Nodes.Clear();
-                        foreach (TreeNode item1 in this.treeView1.Nodes)
-                        {
-                            this._refNode?.Nodes.Add(item1.Clone() as TreeNode);
-                            //if (this._refNode.Nodes.Contains(item1))
-                            //    this._refNode?.Nodes.Add(item1);
-                        }
-                        //((FeatureLocalization)_refNode.Tag).ParentNode = _refNode;
-                        new Common.UserMessageForm("保存成功").ShowDialog();
+                    case "脚本配置toolStripButton":
+
                         break;
                     //////////////////////////////////////
                     default:
@@ -300,7 +293,7 @@ namespace FunctionBlock
             {
                 //if (!IsSelect()) return; // 如果不是当前选择的，则返回
                 if (e.DataContent == null) return;// 在图形窗口只显示世界坐标元素，像素元素在图像窗口显示
-                if (SystemParamManager.Instance.SysConfigParam.IsAutoRun) return;
+                //if (SystemParamManager.Instance.SysConfigParam.IsAutoRun) return;
                 /////////////////////////////////////////////
                 switch (e.DataContent.GetType().Name) //这里只接受XLD轮廓或3D对象轮廓
                 {

@@ -936,7 +936,7 @@ namespace FunctionBlock
                         list_x.Add(wcsPolyLine.X[i]);
                         list_y.Add(wcsPolyLine.Y[i]);
                         list_z.Add(wcsPolyLine.Z[i]);
-                        ((ContourExtract)this._function).StdTrackPoint[i] = new userWcsPoint(wcsPolyLine.X[i], wcsPolyLine.Y[i], wcsPolyLine.Z[i]);
+                        ((ContourExtract)this._function).StdTrackPoint[i] = new userWcsPoint(wcsPolyLine.X[i], wcsPolyLine.Y[i], wcsPolyLine.Z[i], wcsPolyLine.CamParams);
                     }
                     this.drawObject.PointCloudModel3D?.ClearObjectModel3d();
                     this.drawObject.PointCloudModel3D = new PointCloudData(new HObjectModel3D(list_x.ToArray(), list_y.ToArray(), list_z.ToArray()));

@@ -70,9 +70,9 @@
             this.hWindowControl1.Location = new System.Drawing.Point(0, 0);
             this.hWindowControl1.Margin = new System.Windows.Forms.Padding(0);
             this.hWindowControl1.Name = "hWindowControl1";
-            this.hWindowControl1.Size = new System.Drawing.Size(483, 384);
+            this.hWindowControl1.Size = new System.Drawing.Size(479, 380);
             this.hWindowControl1.TabIndex = 2;
-            this.hWindowControl1.WindowSize = new System.Drawing.Size(483, 384);
+            this.hWindowControl1.WindowSize = new System.Drawing.Size(479, 380);
             this.hWindowControl1.DragEnter += new System.Windows.Forms.DragEventHandler(this.hWindowControl1_DragEnter);
             // 
             // titleLabel
@@ -81,10 +81,10 @@
             this.titleLabel.BackColor = System.Drawing.Color.LightGray;
             this.tableLayoutPanel2.SetColumnSpan(this.titleLabel, 5);
             this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.titleLabel.Location = new System.Drawing.Point(2, 2);
-            this.titleLabel.Margin = new System.Windows.Forms.Padding(2);
+            this.titleLabel.Location = new System.Drawing.Point(0, 0);
+            this.titleLabel.Margin = new System.Windows.Forms.Padding(0);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(405, 16);
+            this.titleLabel.Size = new System.Drawing.Size(404, 20);
             this.titleLabel.TabIndex = 22;
             this.titleLabel.Text = "CxVision";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -111,10 +111,10 @@
             this.buttonClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonClose.BackgroundImage")));
             this.buttonClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonClose.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonClose.Location = new System.Drawing.Point(459, 0);
+            this.buttonClose.Location = new System.Drawing.Point(454, 0);
             this.buttonClose.Margin = new System.Windows.Forms.Padding(0);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(26, 20);
+            this.buttonClose.Size = new System.Drawing.Size(27, 20);
             this.buttonClose.TabIndex = 0;
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -124,7 +124,7 @@
             this.buttonMax.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonMax.BackgroundImage")));
             this.buttonMax.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonMax.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonMax.Location = new System.Drawing.Point(434, 0);
+            this.buttonMax.Location = new System.Drawing.Point(429, 0);
             this.buttonMax.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMax.Name = "buttonMax";
             this.buttonMax.Size = new System.Drawing.Size(25, 20);
@@ -137,7 +137,7 @@
             this.buttonMin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonMin.BackgroundImage")));
             this.buttonMin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonMin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonMin.Location = new System.Drawing.Point(409, 0);
+            this.buttonMin.Location = new System.Drawing.Point(404, 0);
             this.buttonMin.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMin.Name = "buttonMin";
             this.buttonMin.Size = new System.Drawing.Size(25, 20);
@@ -170,7 +170,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel2.Controls.Add(this.SignLabel, 3, 1);
             this.tableLayoutPanel2.Controls.Add(this.程序节点comboBox, 4, 1);
             this.tableLayoutPanel2.Controls.Add(this.buttonMax, 6, 0);
@@ -191,7 +191,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(485, 451);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(481, 447);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // SignLabel
@@ -201,7 +201,7 @@
             this.SignLabel.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.SignLabel.Location = new System.Drawing.Point(224, 20);
             this.SignLabel.Name = "SignLabel";
-            this.SignLabel.Size = new System.Drawing.Size(69, 20);
+            this.SignLabel.Size = new System.Drawing.Size(67, 20);
             this.SignLabel.TabIndex = 3;
             this.SignLabel.Text = "label1";
             this.SignLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -214,10 +214,10 @@
             this.程序节点comboBox.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.程序节点comboBox.FormattingEnabled = true;
             this.程序节点comboBox.ItemHeight = 12;
-            this.程序节点comboBox.Location = new System.Drawing.Point(296, 20);
+            this.程序节点comboBox.Location = new System.Drawing.Point(294, 20);
             this.程序节点comboBox.Margin = new System.Windows.Forms.Padding(0);
             this.程序节点comboBox.Name = "程序节点comboBox";
-            this.程序节点comboBox.Size = new System.Drawing.Size(189, 20);
+            this.程序节点comboBox.Size = new System.Drawing.Size(187, 20);
             this.程序节点comboBox.TabIndex = 24;
             // 
             // panel1
@@ -230,7 +230,7 @@
             this.panel1.Location = new System.Drawing.Point(1, 41);
             this.panel1.Margin = new System.Windows.Forms.Padding(1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(483, 384);
+            this.panel1.Size = new System.Drawing.Size(479, 380);
             this.panel1.TabIndex = 25;
             // 
             // 管控checkBox
@@ -239,7 +239,7 @@
             this.管控checkBox.Appearance = System.Windows.Forms.Appearance.Button;
             this.管控checkBox.AutoSize = true;
             this.管控checkBox.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.管控checkBox.Location = new System.Drawing.Point(-1, 362);
+            this.管控checkBox.Location = new System.Drawing.Point(-1, 358);
             this.管控checkBox.Margin = new System.Windows.Forms.Padding(0);
             this.管控checkBox.Name = "管控checkBox";
             this.管控checkBox.Size = new System.Drawing.Size(39, 22);
@@ -255,7 +255,7 @@
             this.补偿checkBox.AutoSize = true;
             this.补偿checkBox.Enabled = false;
             this.补偿checkBox.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.补偿checkBox.Location = new System.Drawing.Point(445, 362);
+            this.补偿checkBox.Location = new System.Drawing.Point(441, 358);
             this.补偿checkBox.Name = "补偿checkBox";
             this.补偿checkBox.Size = new System.Drawing.Size(39, 22);
             this.补偿checkBox.TabIndex = 5;
@@ -285,9 +285,9 @@
             this.标定toolStripButton,
             this.相机toolStripDropDownButton,
             this.Roi绘制toolStripDropDownButton});
-            this.标定工具栏toolStrip.Location = new System.Drawing.Point(0, 426);
+            this.标定工具栏toolStrip.Location = new System.Drawing.Point(0, 422);
             this.标定工具栏toolStrip.Name = "标定工具栏toolStrip";
-            this.标定工具栏toolStrip.Size = new System.Drawing.Size(485, 25);
+            this.标定工具栏toolStrip.Size = new System.Drawing.Size(481, 25);
             this.标定工具栏toolStrip.TabIndex = 27;
             this.标定工具栏toolStrip.Text = "toolStrip1";
             this.标定工具栏toolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.标定工具栏toolStrip_ItemClicked);
@@ -389,7 +389,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(485, 451);
+            this.ClientSize = new System.Drawing.Size(481, 447);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel2);
             this.ForeColor = System.Drawing.SystemColors.ControlText;

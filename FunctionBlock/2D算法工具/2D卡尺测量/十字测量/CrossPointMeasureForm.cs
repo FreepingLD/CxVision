@@ -31,7 +31,7 @@ namespace FunctionBlock
             this._refNode = node;
             InitializeComponent();
             this.Text = function.GetPropertyValues("名称").ToString();
-            this.drawObject = new userDrawCrossMeasure(this.hWindowControl1, ((FunctionBlock.CrossPointMeasure)_function).FindCrossPoint.LinePixPosition, ((FunctionBlock.CrossPointMeasure)_function).PixCoordSystem);
+            this.drawObject = new userDrawCrossMeasure(this.hWindowControl1, ((FunctionBlock.CrossPointMeasure)_function).FindCrossPoint.LinePixPosition.AffinePixLine2D(((CrossPointMeasure)_function).PixCoordSystem?.GetVariationHomMat2D()), ((FunctionBlock.CrossPointMeasure)_function).PixCoordSystem);
             new ListBoxWrapClass().InitListBox(this.listBox1, node);
             new ListBoxWrapClass().InitListBox(this.listBox2, node, 2);
         }

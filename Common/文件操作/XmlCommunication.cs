@@ -36,13 +36,13 @@ namespace Common
                     stream.Position = 0;
                     fileWriter.Write(reader.ReadToEnd());
                     result = true;
-                    LoggerHelper.Info(Application.StartupPath +  ":文件：" + fileName + "保存成功");
+                    LoggerHelper.Info(fileName + " 保存成功"); //Application.StartupPath +  ":文件：" +
                 }
                 catch (Exception e)
                 {
-                    LoggerHelper.Error(Application.StartupPath + ":文件：" + fileName + "保存失败");
+                    LoggerHelper.Error(fileName + " 保存失败"); //Application.StartupPath + ":文件：" + 
                     //new UserMessageForm().ShowDialog(fileName + @"写入失败! " + e.ToString());
-                    new Common.UserMessageForm(fileName + @"写入失败! " + e.ToString()).ShowDialog();
+                    new Common.UserMessageForm(fileName + @" 写入失败! " + e.ToString()).ShowDialog();
                 }
                 finally
                 {
@@ -77,17 +77,17 @@ namespace Common
                 if (File.Exists(fileName))
                 {
                     try
-                    {                       
+                    {
                         //reader = new StreamReader(fileName);
                         XmlSerializer xs = new XmlSerializer(typeof(T));
                         xmlTextReader = new XmlTextReader(fileName);
                         xmlTextReader.Namespaces = false;
                         entry = (T)xs.Deserialize(xmlTextReader);
-                        LoggerHelper.Info(Application.StartupPath + ":文件：" + fileName + "读取成功");
+                        LoggerHelper.Info(fileName + " 读取成功"); //Application.StartupPath + ":文件：" +
                     }
                     catch (Exception ex)
                     {
-                        LoggerHelper.Info(Application.StartupPath + ":文件：" + fileName + "读取失败" + ex.ToString());
+                        LoggerHelper.Info(fileName + " 读取失败" + ex.ToString()); //Application.StartupPath + ":文件：" +
                     }
                     finally
                     {
@@ -101,15 +101,16 @@ namespace Common
                             xmlTextReader = null;
                             reader = null;
                         }
-                    }                  
+                    }
                 }
                 else
                 {
-                    LoggerHelper.Error(Application.StartupPath + ":找不到指定文件：" + fileName);
+                    LoggerHelper.Error("找不到指定文件：" + fileName); //Application.StartupPath + 
                 }
                 return entry;
             }
         }
+
 
         public static T Clone(T RealObject)
         {
@@ -121,6 +122,8 @@ namespace Common
                 return (T)serializer.Deserialize(stream);
             }
         }
+
+
 
 
 

@@ -216,7 +216,7 @@
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(28, 25);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(26, 25);
             this.toolStripStatusLabel2.Text = "……";
             // 
             // tabControl1
@@ -299,7 +299,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(1, 154);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(95, 12);
+            this.label7.Size = new System.Drawing.Size(92, 12);
             this.label7.TabIndex = 11;
             this.label7.Text = "最大异常点数量:";
             // 
@@ -307,7 +307,7 @@
             // 
             this.异常点数量textBox.Location = new System.Drawing.Point(96, 150);
             this.异常点数量textBox.Name = "异常点数量textBox";
-            this.异常点数量textBox.Size = new System.Drawing.Size(121, 21);
+            this.异常点数量textBox.Size = new System.Drawing.Size(121, 22);
             this.异常点数量textBox.TabIndex = 10;
             // 
             // label6
@@ -315,7 +315,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(25, 127);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 12);
+            this.label6.Size = new System.Drawing.Size(68, 12);
             this.label6.TabIndex = 9;
             this.label6.Text = "异常点阈值:";
             // 
@@ -323,7 +323,7 @@
             // 
             this.异常点阈值textBox.Location = new System.Drawing.Point(96, 123);
             this.异常点阈值textBox.Name = "异常点阈值textBox";
-            this.异常点阈值textBox.Size = new System.Drawing.Size(121, 21);
+            this.异常点阈值textBox.Size = new System.Drawing.Size(121, 22);
             this.异常点阈值textBox.TabIndex = 8;
             // 
             // 导入基准轮廓Btn
@@ -353,7 +353,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(13, 100);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 12);
+            this.label3.Size = new System.Drawing.Size(80, 12);
             this.label3.TabIndex = 5;
             this.label3.Text = "结束点百分比:";
             // 
@@ -361,7 +361,7 @@
             // 
             this.结束点百分比textBox.Location = new System.Drawing.Point(96, 96);
             this.结束点百分比textBox.Name = "结束点百分比textBox";
-            this.结束点百分比textBox.Size = new System.Drawing.Size(121, 21);
+            this.结束点百分比textBox.Size = new System.Drawing.Size(121, 22);
             this.结束点百分比textBox.TabIndex = 4;
             // 
             // label2
@@ -369,7 +369,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(13, 72);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 12);
+            this.label2.Size = new System.Drawing.Size(80, 12);
             this.label2.TabIndex = 3;
             this.label2.Text = "起始点百分比:";
             // 
@@ -385,7 +385,7 @@
             // 
             this.起始点百分比textBox.Location = new System.Drawing.Point(96, 69);
             this.起始点百分比textBox.Name = "起始点百分比textBox";
-            this.起始点百分比textBox.Size = new System.Drawing.Size(121, 21);
+            this.起始点百分比textBox.Size = new System.Drawing.Size(121, 22);
             this.起始点百分比textBox.TabIndex = 1;
             // 
             // label4
@@ -393,7 +393,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(37, 43);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 12);
+            this.label4.Size = new System.Drawing.Size(56, 12);
             this.label4.TabIndex = 0;
             this.label4.Text = "变换类型:";
             // 
@@ -414,9 +414,9 @@
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(3, 17);
+            this.listBox1.Location = new System.Drawing.Point(3, 18);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(328, 161);
+            this.listBox1.Size = new System.Drawing.Size(328, 160);
             this.listBox1.TabIndex = 0;
             // 
             // groupBox2
@@ -438,7 +438,7 @@
             // 
             this.点合并距离textBox.Location = new System.Drawing.Point(96, 75);
             this.点合并距离textBox.Name = "点合并距离textBox";
-            this.点合并距离textBox.Size = new System.Drawing.Size(121, 21);
+            this.点合并距离textBox.Size = new System.Drawing.Size(121, 22);
             this.点合并距离textBox.TabIndex = 4;
             // 
             // label5
@@ -446,7 +446,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(25, 79);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 12);
+            this.label5.Size = new System.Drawing.Size(68, 12);
             this.label5.TabIndex = 3;
             this.label5.Text = "点合并距离:";
             // 
@@ -464,7 +464,7 @@
             // 
             this.曲线点间隔textBox.Location = new System.Drawing.Point(96, 45);
             this.曲线点间隔textBox.Name = "曲线点间隔textBox";
-            this.曲线点间隔textBox.Size = new System.Drawing.Size(121, 21);
+            this.曲线点间隔textBox.Size = new System.Drawing.Size(121, 22);
             this.曲线点间隔textBox.TabIndex = 1;
             // 
             // label1
@@ -472,7 +472,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(49, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 12);
+            this.label1.Size = new System.Drawing.Size(44, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "点间隔:";
             // 
@@ -525,19 +525,19 @@
             // 灰度值1Label
             // 
             this.灰度值1Label.Name = "灰度值1Label";
-            this.灰度值1Label.Size = new System.Drawing.Size(28, 25);
+            this.灰度值1Label.Size = new System.Drawing.Size(26, 25);
             this.灰度值1Label.Text = "……";
             // 
             // 灰度值2Label
             // 
             this.灰度值2Label.Name = "灰度值2Label";
-            this.灰度值2Label.Size = new System.Drawing.Size(28, 25);
+            this.灰度值2Label.Size = new System.Drawing.Size(26, 25);
             this.灰度值2Label.Text = "……";
             // 
             // 灰度值3Label
             // 
             this.灰度值3Label.Name = "灰度值3Label";
-            this.灰度值3Label.Size = new System.Drawing.Size(28, 25);
+            this.灰度值3Label.Size = new System.Drawing.Size(26, 25);
             this.灰度值3Label.Text = "……";
             // 
             // toolStripStatusLabel7
@@ -549,13 +549,13 @@
             // 行坐标Label
             // 
             this.行坐标Label.Name = "行坐标Label";
-            this.行坐标Label.Size = new System.Drawing.Size(28, 25);
+            this.行坐标Label.Size = new System.Drawing.Size(26, 25);
             this.行坐标Label.Text = "……";
             // 
             // 列坐标Label
             // 
             this.列坐标Label.Name = "列坐标Label";
-            this.列坐标Label.Size = new System.Drawing.Size(28, 25);
+            this.列坐标Label.Size = new System.Drawing.Size(26, 25);
             this.列坐标Label.Text = "……";
             // 
             // hWindowControl1
@@ -582,7 +582,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ContourExtractForm";
             this.ShowIcon = false;
-            this.Text = "轨迹提取";
+            this.Text = "轮廓提取";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TrackExtractForm_FormClosing);
             this.Load += new System.EventHandler(this.TrackExtractForm_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TrackExtractFormOld_MouseDown);

@@ -155,6 +155,11 @@ namespace FunctionBlock
                         this.Roi绘制toolStripDropDownButton.Enabled = false;
                         this.传感器comboBox1.Enabled = false;
                         this.程序节点comboBox.Enabled = false;
+                        ////////////////////////////////////////////////////
+                        this.buttonMax.Hide();
+                        this.buttonMin.Hide();
+                        this.buttonClose.Hide();
+                        this.tableLayoutPanel2.SetColumnSpan(this.titleLabel, 8);
                         break;
                     case enUserName.工程师:
                         this.传感器comboBox1.Enabled = true;
@@ -171,6 +176,11 @@ namespace FunctionBlock
                         this.Roi绘制toolStripDropDownButton.Enabled = true;
                         this.传感器comboBox1.Enabled = false;
                         this.程序节点comboBox.Enabled = false;
+                        ////////////////////////////////////////////////////
+                        this.buttonMax.Hide();
+                        this.buttonMin.Hide();
+                        this.buttonClose.Hide();
+                        this.tableLayoutPanel2.SetColumnSpan(this.titleLabel, 8);
                         break;
                     case enUserName.开发人员:
                         this.传感器comboBox1.Enabled = true;
@@ -187,6 +197,11 @@ namespace FunctionBlock
                         this.Roi绘制toolStripDropDownButton.Enabled = true;
                         this.传感器comboBox1.Enabled = true;
                         this.程序节点comboBox.Enabled = true;
+                        ////////////////////////////////////////////////////
+                        this.buttonMax.Show();
+                        this.buttonMin.Show();
+                        this.buttonClose.Show();
+                        this.tableLayoutPanel2.SetColumnSpan(this.titleLabel, 5);
                         break;
                 }
             }
@@ -485,7 +500,7 @@ namespace FunctionBlock
             {
                 case 0x0084:
                     base.WndProc(ref m);
-                    if (UserLoginParamManager.Instance.CurrentUser != enUserName.开发人员) return;
+                    if (UserLoginParamManager.Instance.CurrentUser == enUserName.操作员) return;
                     Point vPoint = new Point((int)m.LParam & 0xFFFF,
                         (int)m.LParam >> 16 & 0xFFFF);
                     vPoint = PointToClient(vPoint);

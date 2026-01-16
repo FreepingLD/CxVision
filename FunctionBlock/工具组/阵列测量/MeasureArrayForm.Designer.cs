@@ -50,10 +50,6 @@
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonClose = new System.Windows.Forms.Button();
-            this.buttonMax = new System.Windows.Forms.Button();
-            this.buttonMin = new System.Windows.Forms.Button();
-            this.titleLabel = new System.Windows.Forms.Label();
             this.statusStrip3 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.灰度值1Label = new System.Windows.Forms.ToolStripStatusLabel();
@@ -116,12 +112,12 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 75);
+            this.tabControl1.Location = new System.Drawing.Point(0, 53);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl1.Name = "tabControl1";
             this.tableLayoutPanel1.SetRowSpan(this.tabControl1, 4);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(316, 608);
+            this.tabControl1.Size = new System.Drawing.Size(316, 630);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPage1
@@ -131,7 +127,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(308, 582);
+            this.tabPage1.Size = new System.Drawing.Size(308, 604);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "程序";
             // 
@@ -147,7 +143,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 210F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(302, 576);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(302, 598);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // treeView1
@@ -158,7 +154,7 @@
             this.treeView1.Margin = new System.Windows.Forms.Padding(0);
             this.treeView1.Name = "treeView1";
             this.tableLayoutPanel3.SetRowSpan(this.treeView1, 3);
-            this.treeView1.Size = new System.Drawing.Size(302, 576);
+            this.treeView1.Size = new System.Drawing.Size(302, 598);
             this.treeView1.TabIndex = 0;
             // 
             // groupBox1
@@ -318,84 +314,24 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.Controls.Add(this.buttonClose, 5, 0);
-            this.tableLayoutPanel1.Controls.Add(this.buttonMax, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.buttonMin, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.titleLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.statusStrip3, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.运行工具条toolStrip, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.运行工具条toolStrip, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.statusStrip1, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.tabControl1, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.tabControl2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tabControl2, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1035, 714);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // buttonClose
-            // 
-            this.buttonClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonClose.BackgroundImage")));
-            this.buttonClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonClose.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonClose.Location = new System.Drawing.Point(1010, 0);
-            this.buttonClose.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(25, 25);
-            this.buttonClose.TabIndex = 40;
-            this.buttonClose.UseVisualStyleBackColor = true;
-            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
-            // 
-            // buttonMax
-            // 
-            this.buttonMax.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonMax.BackgroundImage")));
-            this.buttonMax.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonMax.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonMax.Location = new System.Drawing.Point(985, 0);
-            this.buttonMax.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonMax.Name = "buttonMax";
-            this.buttonMax.Size = new System.Drawing.Size(25, 25);
-            this.buttonMax.TabIndex = 36;
-            this.buttonMax.UseVisualStyleBackColor = true;
-            this.buttonMax.Click += new System.EventHandler(this.buttonMax_Click);
-            // 
-            // buttonMin
-            // 
-            this.buttonMin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonMin.BackgroundImage")));
-            this.buttonMin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonMin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonMin.Location = new System.Drawing.Point(960, 0);
-            this.buttonMin.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonMin.Name = "buttonMin";
-            this.buttonMin.Size = new System.Drawing.Size(25, 25);
-            this.buttonMin.TabIndex = 35;
-            this.buttonMin.UseVisualStyleBackColor = true;
-            this.buttonMin.Click += new System.EventHandler(this.buttonMin_Click);
-            // 
-            // titleLabel
-            // 
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.tableLayoutPanel1.SetColumnSpan(this.titleLabel, 3);
-            this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.titleLabel.Location = new System.Drawing.Point(2, 2);
-            this.titleLabel.Margin = new System.Windows.Forms.Padding(2);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(956, 21);
-            this.titleLabel.TabIndex = 34;
-            this.titleLabel.Text = "阵列执行";
-            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.titleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleLabel_MouseDown);
-            this.titleLabel.MouseEnter += new System.EventHandler(this.titleLabel_MouseEnter);
-            this.titleLabel.MouseLeave += new System.EventHandler(this.titleLabel_MouseLeave);
             // 
             // statusStrip3
             // 
@@ -468,8 +404,9 @@
             this.停止toolStripButton,
             this.检测工具toolStripButton,
             this.脚本配置toolStripButton});
-            this.运行工具条toolStrip.Location = new System.Drawing.Point(0, 25);
+            this.运行工具条toolStrip.Location = new System.Drawing.Point(0, 0);
             this.运行工具条toolStrip.Name = "运行工具条toolStrip";
+            this.tableLayoutPanel1.SetRowSpan(this.运行工具条toolStrip, 2);
             this.运行工具条toolStrip.Size = new System.Drawing.Size(316, 49);
             this.运行工具条toolStrip.TabIndex = 19;
             this.运行工具条toolStrip.Text = "toolStrip2";
@@ -522,12 +459,12 @@
             this.tabControl2.Controls.Add(this.阵列参数tabPage);
             this.tabControl2.Controls.Add(this.元素属性tabPage);
             this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl2.Location = new System.Drawing.Point(316, 25);
+            this.tabControl2.Location = new System.Drawing.Point(316, 0);
             this.tabControl2.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl2.Name = "tabControl2";
-            this.tableLayoutPanel1.SetRowSpan(this.tabControl2, 5);
+            this.tableLayoutPanel1.SetRowSpan(this.tabControl2, 6);
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(719, 658);
+            this.tabControl2.Size = new System.Drawing.Size(719, 683);
             this.tabControl2.TabIndex = 21;
             // 
             // 视图tabPage
@@ -537,7 +474,7 @@
             this.视图tabPage.Location = new System.Drawing.Point(4, 22);
             this.视图tabPage.Name = "视图tabPage";
             this.视图tabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.视图tabPage.Size = new System.Drawing.Size(711, 632);
+            this.视图tabPage.Size = new System.Drawing.Size(711, 657);
             this.视图tabPage.TabIndex = 0;
             this.视图tabPage.Text = "视图";
             // 
@@ -550,9 +487,9 @@
             this.hWindowControl1.Location = new System.Drawing.Point(3, 3);
             this.hWindowControl1.Margin = new System.Windows.Forms.Padding(0);
             this.hWindowControl1.Name = "hWindowControl1";
-            this.hWindowControl1.Size = new System.Drawing.Size(705, 626);
+            this.hWindowControl1.Size = new System.Drawing.Size(705, 651);
             this.hWindowControl1.TabIndex = 0;
-            this.hWindowControl1.WindowSize = new System.Drawing.Size(705, 626);
+            this.hWindowControl1.WindowSize = new System.Drawing.Size(705, 651);
             // 
             // 阵列参数tabPage
             // 
@@ -588,12 +525,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1035, 714);
-            this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MeasureArrayForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GlueDetectForm_FormClosing);
+            this.ShowIcon = false;
+            this.Text = "阵列执行";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MeasureArrayForm_FormClosing);
             this.Load += new System.EventHandler(this.MeasureArrayForm_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MeasureArrayForm_MouseDown);
             this.tabControl1.ResumeLayout(false);
@@ -659,9 +597,5 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TabPage 阵列参数tabPage;
         private System.Windows.Forms.TabPage 元素属性tabPage;
-        private System.Windows.Forms.Button buttonMin;
-        private System.Windows.Forms.Button buttonMax;
-        private System.Windows.Forms.Button buttonClose;
-        public System.Windows.Forms.Label titleLabel;
     }
 }

@@ -79,6 +79,10 @@ namespace FunctionBlock
         // 启用弹窗
         public bool EnablePopUpWindows { get; set; } = false;
 
+        public bool IsFormTopMost { get; set; } = false;
+
+        public bool IsInitSensor { get; set; } = true;
+
 
     }
 

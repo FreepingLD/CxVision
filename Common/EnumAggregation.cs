@@ -267,6 +267,7 @@ namespace Common
         两点夹角,
         N点矩阵变换,
         五点计算圆心,
+        迭代计算圆心,
     }
     [Serializable]
     public enum enInvertAxis
@@ -282,6 +283,7 @@ namespace Common
         负向,
         双向,
         正反向,
+        单向迭代,
     }
     [Serializable]
     public enum enMoveStage

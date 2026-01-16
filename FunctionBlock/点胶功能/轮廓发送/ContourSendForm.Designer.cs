@@ -183,7 +183,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.插值参数textBox.Location = new System.Drawing.Point(94, 45);
             this.插值参数textBox.Name = "插值参数textBox";
-            this.插值参数textBox.Size = new System.Drawing.Size(246, 21);
+            this.插值参数textBox.Size = new System.Drawing.Size(246, 22);
             this.插值参数textBox.TabIndex = 24;
             // 
             // 插值方式comboBox
@@ -276,7 +276,7 @@
             this.启用C角计算checkBox.AutoSize = true;
             this.启用C角计算checkBox.Location = new System.Drawing.Point(97, 22);
             this.启用C角计算checkBox.Name = "启用C角计算checkBox";
-            this.启用C角计算checkBox.Size = new System.Drawing.Size(90, 16);
+            this.启用C角计算checkBox.Size = new System.Drawing.Size(92, 16);
             this.启用C角计算checkBox.TabIndex = 24;
             this.启用C角计算checkBox.Text = "启用C角计算";
             this.启用C角计算checkBox.UseVisualStyleBackColor = true;
@@ -371,9 +371,9 @@
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(3, 17);
+            this.listBox1.Location = new System.Drawing.Point(3, 18);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(334, 80);
+            this.listBox1.Size = new System.Drawing.Size(334, 79);
             this.listBox1.TabIndex = 0;
             // 
             // 参数groupBox
@@ -560,7 +560,7 @@
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(28, 25);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(26, 25);
             this.toolStripStatusLabel2.Text = "……";
             // 
             // 运行toolStrip
@@ -610,19 +610,19 @@
             // 灰度值1Label
             // 
             this.灰度值1Label.Name = "灰度值1Label";
-            this.灰度值1Label.Size = new System.Drawing.Size(28, 25);
+            this.灰度值1Label.Size = new System.Drawing.Size(26, 25);
             this.灰度值1Label.Text = "……";
             // 
             // 灰度值2Label
             // 
             this.灰度值2Label.Name = "灰度值2Label";
-            this.灰度值2Label.Size = new System.Drawing.Size(28, 25);
+            this.灰度值2Label.Size = new System.Drawing.Size(26, 25);
             this.灰度值2Label.Text = "……";
             // 
             // 灰度值3Label
             // 
             this.灰度值3Label.Name = "灰度值3Label";
-            this.灰度值3Label.Size = new System.Drawing.Size(28, 25);
+            this.灰度值3Label.Size = new System.Drawing.Size(26, 25);
             this.灰度值3Label.Text = "……";
             // 
             // toolStripStatusLabel7
@@ -634,13 +634,13 @@
             // 行坐标Label
             // 
             this.行坐标Label.Name = "行坐标Label";
-            this.行坐标Label.Size = new System.Drawing.Size(28, 25);
+            this.行坐标Label.Size = new System.Drawing.Size(26, 25);
             this.行坐标Label.Text = "……";
             // 
             // 列坐标Label
             // 
             this.列坐标Label.Name = "列坐标Label";
-            this.列坐标Label.Size = new System.Drawing.Size(28, 25);
+            this.列坐标Label.Size = new System.Drawing.Size(26, 25);
             this.列坐标Label.Text = "……";
             // 
             // hWindowControl1

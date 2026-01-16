@@ -346,17 +346,8 @@ namespace FunctionBlock
                 //    y[i] = this._wcsPoint[i].Y;
                 //}
                 //////////////////////////////////////////////////
-                //wcsSystem.CurrentPoint.X = 574.901;
-                //wcsSystem.CurrentPoint.Y = 965.7632;
-                //wcsSystem.CurrentPoint.Angle = 1.9215;
-                //wcsSystem.ReferencePoint.X = 574.676;
-                //wcsSystem.ReferencePoint.Y = 963.6127;
-                //wcsSystem.ReferencePoint.Angle = -0.28;
-                //HHomMat2D hHomMat2D = new HalconDotNet.HHomMat2D();
-                //HHomMat2D hHomMat2DRotate = hHomMat2D.HomMat2dRotate((wcsSystem.CurrentPoint.Angle - wcsSystem.ReferencePoint.Angle) * Math.PI / 180.0, wcsSystem.ReferencePoint.X, wcsSystem.ReferencePoint.Y);
-                //HHomMat2D hHomMat2DTranslate = hHomMat2DRotate.HomMat2dTranslate(wcsSystem.CurrentPoint.X - wcsSystem.ReferencePoint.X, wcsSystem.CurrentPoint.Y - wcsSystem.ReferencePoint.Y);
                 //double sy, phi, theta, tx, ty;
-                //hHomMat2DTranslate.HomMat2dToAffinePar(out sy, out phi, out theta, out tx, out ty);
+                //this.WcsCoordSystem[0].GetHomMat2D().HomMat2dToAffinePar(out sy, out phi, out theta, out tx, out ty);
                 //this.Result.Succss = this.Param.AffineTransPoint(x, y, tx, ty, phi * 180.0 / Math.PI, "逆时针", out Qx, out Qy, out Angle);
                 //this._wcsPolyLine = new userWcsPolyLine();
                 //for (int i = 0; i < Qx.Length; i++)
@@ -373,7 +364,7 @@ namespace FunctionBlock
                 ((BindingList<OcrResultInfo>)this.ResultInfo)[3].SetValue(this.name, "轨迹Z", string.Join(",", this._wcsPolyLine.Z.ToArray()));
                 ((BindingList<OcrResultInfo>)this.ResultInfo)[4].SetValue(this.name, "Time(ms)", stopwatch.ElapsedMilliseconds.ToString());
                 ////////////////////////////////////////////
-                OnExcuteCompleted(this._wcsPolyLine.CamName, this._wcsPolyLine?.ViewWindow, this.name, this._wcsPolyLine);
+                OnExcuteCompleted(this._wcsPolyLine.CamName, this._wcsPolyLine?.ViewWindow, this.name, this._wcsPolyLine.GetHObjectModel3D());
             }
             catch (Exception ex)
             {

@@ -1202,8 +1202,6 @@ namespace FunctionBlock
 
         public void 标定执行button_Click(object sender, EventArgs e)
         {
-            //this.标定停止button.Enabled = true;
-            //this.标定执行button.Enabled = false;
             this.Invoke(new Action(() =>
             {
                 this.toolStripButton_Run.Enabled = false;
@@ -1424,7 +1422,6 @@ namespace FunctionBlock
                 while (true)
                 {
                     if (this.isStop) return; // 控制标定停止
-                    //Application.DoEvents();
                     object value = CommunicationConfigParamManger.Instance.ReadValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerFromPlc);
                     if (value != null && value.ToString() == "1")
                     {

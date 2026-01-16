@@ -86,6 +86,8 @@ namespace FunctionBlock
                 this.同步相机参数checkBox.DataBindings.Add("Checked", SystemParamManager.Instance.SysConfigParam, "IsSynCamParam", true, DataSourceUpdateMode.OnPropertyChanged);
                 //this.进程Socket_comboBox.DataBindings.Add("Text", SystemParamManager.Instance.SysConfigParam, "GlobalSocketName", true, DataSourceUpdateMode.OnPropertyChanged);
                 this.列数量textBox.DataBindings.Add("Text", SystemParamManager.Instance.SysConfigParam, "ColumCount", true, DataSourceUpdateMode.OnPropertyChanged);
+                this.窗体顶层显示checkBox.DataBindings.Add("Checked", SystemParamManager.Instance.SysConfigParam, "IsFormTopMost", true, DataSourceUpdateMode.OnPropertyChanged);
+                this.相机初始化checkBox.DataBindings.Add("Checked", SystemParamManager.Instance.SysConfigParam, "IsInitSensor", true, DataSourceUpdateMode.OnPropertyChanged);
             }
             catch
             {

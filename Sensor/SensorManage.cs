@@ -69,7 +69,7 @@ namespace Sensor
                         //this._sensor = SensorFactory.GetSensor(item.SensorLinkLibrary); 创建对象这一步不要放到这里，有些传感器在创建对象时会影响其他已打开的传感器，所以需要先将所有传感器对象提前创建好
                         _sensor[index]?.Init();
                         if (_sensor[index] == null) continue;
-                        sensorList.Add(_sensor[index]);  // 不管打开成功与否都要添加到集合中去     
+                        sensorList.Add(_sensor[index]);  // 不管打开成功与否都要添加到集合中去
                         if (_sensor[index].Connect(item)) // 在连接有时候要同步读取传感器的参数
                         {
                             LoggerHelper.Info("传感器：" + item.SensorName + " 打开成功");

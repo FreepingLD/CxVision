@@ -68,8 +68,6 @@ namespace CxVision
             this.保存toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.另存为toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.软件退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.加载配方ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.下载配方ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.视图toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.添加视图toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.保存视图toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -148,6 +146,7 @@ namespace CxVision
             this.视图TabControl = new System.Windows.Forms.TabControl();
             this.程序tabPage = new System.Windows.Forms.TabPage();
             this.系统配置tabPage = new System.Windows.Forms.TabPage();
+            this.通信配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStrip2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -346,9 +345,7 @@ namespace CxVision
             this.打开toolStripMenuItem,
             this.保存toolStripMenuItem,
             this.另存为toolStripMenuItem,
-            this.软件退出ToolStripMenuItem,
-            this.加载配方ToolStripMenuItem,
-            this.下载配方ToolStripMenuItem});
+            this.软件退出ToolStripMenuItem});
             this.文件toolStripMenuItem.Name = "文件toolStripMenuItem";
             resources.ApplyResources(this.文件toolStripMenuItem, "文件toolStripMenuItem");
             this.文件toolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.文件toolStripMenuItem1_DropDownItemClicked);
@@ -377,16 +374,6 @@ namespace CxVision
             // 
             this.软件退出ToolStripMenuItem.Name = "软件退出ToolStripMenuItem";
             resources.ApplyResources(this.软件退出ToolStripMenuItem, "软件退出ToolStripMenuItem");
-            // 
-            // 加载配方ToolStripMenuItem
-            // 
-            this.加载配方ToolStripMenuItem.Name = "加载配方ToolStripMenuItem";
-            resources.ApplyResources(this.加载配方ToolStripMenuItem, "加载配方ToolStripMenuItem");
-            // 
-            // 下载配方ToolStripMenuItem
-            // 
-            this.下载配方ToolStripMenuItem.Name = "下载配方ToolStripMenuItem";
-            resources.ApplyResources(this.下载配方ToolStripMenuItem, "下载配方ToolStripMenuItem");
             // 
             // 视图toolStripMenuItem
             // 
@@ -605,7 +592,8 @@ namespace CxVision
             this.采集源配置toolStripMenuItem,
             this.程序配置toolStripMenuItem,
             this.工程配置ToolStripMenuItem,
-            this.连接配置ToolStripMenuItem});
+            this.连接配置ToolStripMenuItem,
+            this.通信配置ToolStripMenuItem});
             this.配置toolStripMenuItem.Name = "配置toolStripMenuItem";
             resources.ApplyResources(this.配置toolStripMenuItem, "配置toolStripMenuItem");
             this.配置toolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.配置toolStripMenuItem37_DropDownItemClicked);
@@ -904,6 +892,11 @@ namespace CxVision
             resources.ApplyResources(this.系统配置tabPage, "系统配置tabPage");
             this.系统配置tabPage.Name = "系统配置tabPage";
             // 
+            // 通信配置ToolStripMenuItem
+            // 
+            this.通信配置ToolStripMenuItem.Name = "通信配置ToolStripMenuItem";
+            resources.ApplyResources(this.通信配置ToolStripMenuItem, "通信配置ToolStripMenuItem");
+            // 
             // MainFormNew2
             // 
             resources.ApplyResources(this, "$this");
@@ -1096,9 +1089,8 @@ namespace CxVision
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripButton 单次执行toolStripButton;
-        private System.Windows.Forms.ToolStripMenuItem 加载配方ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 下载配方ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 相机映射标定ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 通信配置ToolStripMenuItem;
     }
 }
 

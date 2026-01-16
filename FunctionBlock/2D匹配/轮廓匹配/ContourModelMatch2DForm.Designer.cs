@@ -44,6 +44,8 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.采样间隔textBox = new System.Windows.Forms.TextBox();
             this.导入基准轮廓Btn = new System.Windows.Forms.Button();
             this.注册基准轮廓Btn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -65,8 +67,6 @@
             this.行坐标Label = new System.Windows.Forms.ToolStripStatusLabel();
             this.列坐标Label = new System.Windows.Forms.ToolStripStatusLabel();
             this.hWindowControl1 = new HalconDotNet.HWindowControl();
-            this.label4 = new System.Windows.Forms.Label();
-            this.采样间隔textBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.视图工具toolStrip.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -261,6 +261,22 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "匹配参数";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(30, 106);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 12);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "采样间隔:";
+            // 
+            // 采样间隔textBox
+            // 
+            this.采样间隔textBox.Location = new System.Drawing.Point(89, 102);
+            this.采样间隔textBox.Name = "采样间隔textBox";
+            this.采样间隔textBox.Size = new System.Drawing.Size(163, 21);
+            this.采样间隔textBox.TabIndex = 8;
+            // 
             // 导入基准轮廓Btn
             // 
             this.导入基准轮廓Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -449,22 +465,6 @@
             this.hWindowControl1.Size = new System.Drawing.Size(745, 644);
             this.hWindowControl1.TabIndex = 17;
             this.hWindowControl1.WindowSize = new System.Drawing.Size(745, 644);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(30, 106);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 12);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "采样间隔:";
-            // 
-            // 采样间隔textBox
-            // 
-            this.采样间隔textBox.Location = new System.Drawing.Point(89, 102);
-            this.采样间隔textBox.Name = "采样间隔textBox";
-            this.采样间隔textBox.Size = new System.Drawing.Size(163, 21);
-            this.采样间隔textBox.TabIndex = 8;
             // 
             // ContourModelMatch2DForm
             // 

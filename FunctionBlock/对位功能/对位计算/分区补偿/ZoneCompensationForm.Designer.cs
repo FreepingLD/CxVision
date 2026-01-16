@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CompensateListForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ZoneCompensationForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonMax = new System.Windows.Forms.Button();
             this.buttonMin = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.补偿X8_textBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -41,6 +42,13 @@
             this.补偿Y8_textBox = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.补偿Theta8_textBox = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.补偿X1_textBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.补偿Y1_textBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.补偿Theta1_textBox = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.补偿X7_textBox = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -83,28 +91,19 @@
             this.补偿Y2_textBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.补偿Theta2_textBox = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.补偿X1_textBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.补偿Y1_textBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.补偿Theta1_textBox = new System.Windows.Forms.TextBox();
-            this.补偿阈值textBox = new System.Windows.Forms.TextBox();
+            this.坐标系comboBox = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.取反补偿CheckBox = new System.Windows.Forms.CheckBox();
-            this.启用自动补偿CheckBox = new System.Windows.Forms.CheckBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.启用分区补偿checkBox = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -127,7 +126,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 214F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(333, 583);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(329, 579);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // buttonClose
@@ -135,7 +134,7 @@
             this.buttonClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonClose.BackgroundImage")));
             this.buttonClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonClose.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonClose.Location = new System.Drawing.Point(304, 0);
+            this.buttonClose.Location = new System.Drawing.Point(300, 0);
             this.buttonClose.Margin = new System.Windows.Forms.Padding(0);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(29, 20);
@@ -148,7 +147,7 @@
             this.buttonMax.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonMax.BackgroundImage")));
             this.buttonMax.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonMax.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonMax.Location = new System.Drawing.Point(274, 0);
+            this.buttonMax.Location = new System.Drawing.Point(270, 0);
             this.buttonMax.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMax.Name = "buttonMax";
             this.buttonMax.Size = new System.Drawing.Size(30, 20);
@@ -162,7 +161,7 @@
             this.buttonMin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonMin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonMin.Enabled = false;
-            this.buttonMin.Location = new System.Drawing.Point(244, 0);
+            this.buttonMin.Location = new System.Drawing.Point(240, 0);
             this.buttonMin.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMin.Name = "buttonMin";
             this.buttonMin.Size = new System.Drawing.Size(30, 20);
@@ -178,13 +177,35 @@
             this.titleLabel.Location = new System.Drawing.Point(0, 0);
             this.titleLabel.Margin = new System.Windows.Forms.Padding(0);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(244, 20);
+            this.titleLabel.Size = new System.Drawing.Size(240, 20);
             this.titleLabel.TabIndex = 15;
-            this.titleLabel.Text = "定位补偿设置";
+            this.titleLabel.Text = "对位补偿设置";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.titleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleLabel_MouseDown);
             this.titleLabel.MouseEnter += new System.EventHandler(this.titleLabel_MouseEnter);
             this.titleLabel.MouseLeave += new System.EventHandler(this.titleLabel_MouseLeave);
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.panel1, 4);
+            this.panel1.Controls.Add(this.启用分区补偿checkBox);
+            this.panel1.Controls.Add(this.坐标系comboBox);
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.groupBox6);
+            this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Controls.Add(this.groupBox7);
+            this.panel1.Controls.Add(this.groupBox8);
+            this.panel1.Controls.Add(this.groupBox9);
+            this.panel1.Controls.Add(this.groupBox5);
+            this.panel1.Controls.Add(this.groupBox4);
+            this.panel1.Controls.Add(this.groupBox3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 23);
+            this.panel1.Name = "panel1";
+            this.tableLayoutPanel1.SetRowSpan(this.panel1, 2);
+            this.panel1.Size = new System.Drawing.Size(323, 553);
+            this.panel1.TabIndex = 33;
             // 
             // groupBox6
             // 
@@ -251,6 +272,75 @@
             this.补偿Theta8_textBox.Size = new System.Drawing.Size(88, 21);
             this.补偿Theta8_textBox.TabIndex = 11;
             this.补偿Theta8_textBox.Text = "0";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.补偿X1_textBox);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.补偿Y1_textBox);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.补偿Theta1_textBox);
+            this.groupBox2.Location = new System.Drawing.Point(3, 7);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(156, 109);
+            this.groupBox2.TabIndex = 37;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "位置1补偿";
+            // 
+            // 补偿X1_textBox
+            // 
+            this.补偿X1_textBox.Location = new System.Drawing.Point(63, 20);
+            this.补偿X1_textBox.Name = "补偿X1_textBox";
+            this.补偿X1_textBox.Size = new System.Drawing.Size(88, 21);
+            this.补偿X1_textBox.TabIndex = 7;
+            this.补偿X1_textBox.Text = "0";
+            this.补偿X1_textBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.补偿XtextBox_KeyUp);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "补偿X:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 51);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "补偿Y:";
+            // 
+            // 补偿Y1_textBox
+            // 
+            this.补偿Y1_textBox.Location = new System.Drawing.Point(63, 47);
+            this.补偿Y1_textBox.Name = "补偿Y1_textBox";
+            this.补偿Y1_textBox.Size = new System.Drawing.Size(88, 21);
+            this.补偿Y1_textBox.TabIndex = 9;
+            this.补偿Y1_textBox.Text = "0";
+            this.补偿Y1_textBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.补偿YtextBox_KeyUp);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(2, 78);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 12);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "角度补偿:";
+            // 
+            // 补偿Theta1_textBox
+            // 
+            this.补偿Theta1_textBox.Location = new System.Drawing.Point(63, 74);
+            this.补偿Theta1_textBox.Name = "补偿Theta1_textBox";
+            this.补偿Theta1_textBox.Size = new System.Drawing.Size(88, 21);
+            this.补偿Theta1_textBox.TabIndex = 11;
+            this.补偿Theta1_textBox.Text = "0";
+            this.补偿Theta1_textBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.补偿ThetatextBox_KeyUp);
             // 
             // groupBox7
             // 
@@ -648,146 +738,51 @@
             this.补偿Theta2_textBox.TabIndex = 11;
             this.补偿Theta2_textBox.Text = "0";
             // 
-            // groupBox2
+            // 坐标系comboBox
             // 
-            this.groupBox2.Controls.Add(this.补偿X1_textBox);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.补偿Y1_textBox);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.补偿Theta1_textBox);
-            this.groupBox2.Location = new System.Drawing.Point(3, 7);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(156, 109);
-            this.groupBox2.TabIndex = 37;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "位置1补偿";
-            // 
-            // 补偿X1_textBox
-            // 
-            this.补偿X1_textBox.Location = new System.Drawing.Point(63, 20);
-            this.补偿X1_textBox.Name = "补偿X1_textBox";
-            this.补偿X1_textBox.Size = new System.Drawing.Size(88, 21);
-            this.补偿X1_textBox.TabIndex = 7;
-            this.补偿X1_textBox.Text = "0";
-            this.补偿X1_textBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.补偿XtextBox_KeyUp);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "补偿X:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "补偿Y:";
-            // 
-            // 补偿Y1_textBox
-            // 
-            this.补偿Y1_textBox.Location = new System.Drawing.Point(63, 47);
-            this.补偿Y1_textBox.Name = "补偿Y1_textBox";
-            this.补偿Y1_textBox.Size = new System.Drawing.Size(88, 21);
-            this.补偿Y1_textBox.TabIndex = 9;
-            this.补偿Y1_textBox.Text = "0";
-            this.补偿Y1_textBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.补偿YtextBox_KeyUp);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(2, 78);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 12);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "角度补偿:";
-            // 
-            // 补偿Theta1_textBox
-            // 
-            this.补偿Theta1_textBox.Location = new System.Drawing.Point(63, 74);
-            this.补偿Theta1_textBox.Name = "补偿Theta1_textBox";
-            this.补偿Theta1_textBox.Size = new System.Drawing.Size(88, 21);
-            this.补偿Theta1_textBox.TabIndex = 11;
-            this.补偿Theta1_textBox.Text = "0";
-            this.补偿Theta1_textBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.补偿ThetatextBox_KeyUp);
-            // 
-            // 补偿阈值textBox
-            // 
-            this.补偿阈值textBox.Location = new System.Drawing.Point(165, 524);
-            this.补偿阈值textBox.Name = "补偿阈值textBox";
-            this.补偿阈值textBox.Size = new System.Drawing.Size(122, 21);
-            this.补偿阈值textBox.TabIndex = 36;
-            this.补偿阈值textBox.Text = "0";
+            this.坐标系comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.坐标系comboBox.FormattingEnabled = true;
+            this.坐标系comboBox.Items.AddRange(new object[] {
+            "单点对齐",
+            "点+角度对齐",
+            "两点对齐",
+            "三点对齐",
+            "四点对齐"});
+            this.坐标系comboBox.Location = new System.Drawing.Point(81, 467);
+            this.坐标系comboBox.Name = "坐标系comboBox";
+            this.坐标系comboBox.Size = new System.Drawing.Size(235, 20);
+            this.坐标系comboBox.TabIndex = 45;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(104, 528);
+            this.label14.Location = new System.Drawing.Point(7, 470);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(59, 12);
-            this.label14.TabIndex = 33;
-            this.label14.Text = "补偿阈值:";
+            this.label14.Size = new System.Drawing.Size(71, 12);
+            this.label14.TabIndex = 44;
+            this.label14.Text = "补偿坐标系:";
             // 
-            // 取反补偿CheckBox
+            // 启用分区补偿checkBox
             // 
-            this.取反补偿CheckBox.AutoSize = true;
-            this.取反补偿CheckBox.Location = new System.Drawing.Point(165, 501);
-            this.取反补偿CheckBox.Name = "取反补偿CheckBox";
-            this.取反补偿CheckBox.Size = new System.Drawing.Size(72, 16);
-            this.取反补偿CheckBox.TabIndex = 31;
-            this.取反补偿CheckBox.Text = "取反补偿";
-            this.取反补偿CheckBox.UseVisualStyleBackColor = true;
+            this.启用分区补偿checkBox.AutoSize = true;
+            this.启用分区补偿checkBox.Location = new System.Drawing.Point(81, 493);
+            this.启用分区补偿checkBox.Name = "启用分区补偿checkBox";
+            this.启用分区补偿checkBox.Size = new System.Drawing.Size(96, 16);
+            this.启用分区补偿checkBox.TabIndex = 46;
+            this.启用分区补偿checkBox.Text = "启用分区补偿";
+            this.启用分区补偿checkBox.UseVisualStyleBackColor = true;
             // 
-            // 启用自动补偿CheckBox
-            // 
-            this.启用自动补偿CheckBox.AutoSize = true;
-            this.启用自动补偿CheckBox.Location = new System.Drawing.Point(165, 476);
-            this.启用自动补偿CheckBox.Name = "启用自动补偿CheckBox";
-            this.启用自动补偿CheckBox.Size = new System.Drawing.Size(96, 16);
-            this.启用自动补偿CheckBox.TabIndex = 30;
-            this.启用自动补偿CheckBox.Text = "启用自动补偿";
-            this.启用自动补偿CheckBox.UseVisualStyleBackColor = true;
-            this.启用自动补偿CheckBox.CheckedChanged += new System.EventHandler(this.启用自动补偿CheckBox_CheckedChanged);
-            // 
-            // panel1
-            // 
-            this.panel1.AutoScroll = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.panel1, 4);
-            this.panel1.Controls.Add(this.groupBox6);
-            this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Controls.Add(this.groupBox7);
-            this.panel1.Controls.Add(this.启用自动补偿CheckBox);
-            this.panel1.Controls.Add(this.groupBox8);
-            this.panel1.Controls.Add(this.取反补偿CheckBox);
-            this.panel1.Controls.Add(this.groupBox9);
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.groupBox5);
-            this.panel1.Controls.Add(this.补偿阈值textBox);
-            this.panel1.Controls.Add(this.groupBox4);
-            this.panel1.Controls.Add(this.groupBox3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 23);
-            this.panel1.Name = "panel1";
-            this.tableLayoutPanel1.SetRowSpan(this.panel1, 2);
-            this.panel1.Size = new System.Drawing.Size(327, 557);
-            this.panel1.TabIndex = 33;
-            // 
-            // CompensateListForm
+            // ZoneCompensationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(333, 583);
+            this.ClientSize = new System.Drawing.Size(329, 579);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "CompensateListForm";
+            this.Name = "ZoneCompensationForm";
             this.ShowIcon = false;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CompensateForm_FormClosing);
             this.Load += new System.EventHandler(this.CompensateListSubForm_Load);
@@ -796,8 +791,12 @@
             this.Resize += new System.EventHandler(this.CompensateForm_Resize);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox8.ResumeLayout(false);
@@ -810,10 +809,6 @@
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -830,10 +825,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox 补偿X1_textBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.CheckBox 取反补偿CheckBox;
-        private System.Windows.Forms.CheckBox 启用自动补偿CheckBox;
-        private System.Windows.Forms.TextBox 补偿阈值textBox;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.TextBox 补偿X8_textBox;
         private System.Windows.Forms.Label label13;
@@ -885,5 +876,8 @@
         private System.Windows.Forms.TextBox 补偿Theta2_textBox;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox 坐标系comboBox;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.CheckBox 启用分区补偿checkBox;
     }
 }

@@ -124,12 +124,101 @@ namespace FunctionBlock
             }
         }
 
-        [DisplayName("模板轮廓")]
-        [DescriptionAttribute("输出属性")]
+        [DisplayName("示教轮廓")]
+        [DescriptionAttribute("输入属性2")]
         public userWcsPoint[] StdTrackPoint
         {
             get
             {
+                if (this.RefSource2.Count > 0)
+                {
+                    TreeNodeCollection nodes = this._refNode.Nodes[1].Nodes;
+                    string[] keyValues = new string[nodes.Count];
+                    for (int i = 0; i < nodes.Count; i++)
+                        keyValues[i] = nodes[i].Name;
+                    List<userWcsPoint> listPoint = new List<userWcsPoint>();
+                    ////////////////////////////////////////////////////////
+                    for (int i = 0; i < keyValues.Length; i++)
+                    {
+                        object value = this.GetPropertyValue(this.RefSource2, keyValues[i]);
+                        switch (value?.GetType().Name)
+                        {
+                            case nameof(userWcsPoint):
+                                listPoint.Add(value as userWcsPoint);
+                                break;
+                            case nameof(userWcsVector):
+                                userWcsVector wcsVector = value as userWcsVector;
+                                listPoint.Add(new userWcsPoint(wcsVector.X, wcsVector.Y, wcsVector.Z, wcsVector.Grab_x, wcsVector.Grab_y, wcsVector.CamParams));
+                                break;
+                            case "userWcsVector[]":
+                                userWcsVector[] wcsVectorA = value as userWcsVector[];
+                                foreach (var item2 in wcsVectorA)
+                                {
+                                    userWcsPoint wcsPoint = new userWcsPoint(item2.X, item2.Y, item2.Z, item2.CamParams);
+                                    wcsPoint.ViewWindow = item2.ViewWindow;
+                                    wcsPoint.CamName = item2.CamName;
+                                    listPoint.Add(wcsPoint);
+                                }
+                                break;
+                            case "userWcsPoint[]":
+                                listPoint.AddRange(value as userWcsPoint[]);
+                                break;
+                            case nameof(userWcsLine):
+                                userWcsLine wcsLine = value as userWcsLine;
+                                listPoint.AddRange(wcsLine.GetFitWcsPoint());
+                                break;
+                            case nameof(userWcsCircle):
+                                userWcsCircle wcsCircle = value as userWcsCircle;
+                                listPoint.AddRange(wcsCircle.GetInterpolateWcsPoint(wcsCircle.EdgesPoint_xyz.Length));
+                                break;
+                            case nameof(userWcsCircleSector):
+                                userWcsCircleSector wcsCircleSector = value as userWcsCircleSector;
+                                listPoint.AddRange(wcsCircleSector.GetInterpolateWcsPoint(wcsCircleSector.EdgesPoint_xyz.Length));
+                                break;
+                            case nameof(userWcsRectangle2):
+                                userWcsRectangle2 wcsRec2 = value as userWcsRectangle2;
+                                double[] Px = new double[] { -1, 1, 1, -1 };
+                                double[] Py = new double[] { 1, 1, -1, -1 };
+                                HTuple Qx = null, Qy = null;
+                                HHomMat2D hHomMat2D = new HHomMat2D();
+                                hHomMat2D.VectorAngleToRigid(0, 0, 0, wcsRec2.X, wcsRec2.Y, wcsRec2.Deg * Math.PI / 180);
+                                Qx = hHomMat2D.AffineTransPoint2d(Px, Py, out Qy);
+                                if (Qx != null)
+                                {
+                                    for (int ii = 0; ii < Qx.Length; ii++)
+                                    {
+                                        userWcsPoint wcsPoint = new userWcsPoint(Qx[ii].D, Qy[ii].D, wcsRec2.Z, wcsRec2.CamParams);
+                                        wcsPoint.ViewWindow = wcsRec2.ViewWindow;
+                                        wcsPoint.CamName = wcsRec2.CamName;
+                                        listPoint.Add(wcsPoint);
+                                    }
+                                }
+                                break;
+                            case nameof(userWcsPolyLine):
+                                userWcsPolyLine wcsPolyLine = value as userWcsPolyLine;
+                                for (int ii = 0; ii < wcsPolyLine.X.Count; ii++)
+                                {
+                                    userWcsPoint wcsPoint = new userWcsPoint(wcsPolyLine.X[ii], wcsPolyLine.Y[ii], wcsPolyLine.Z[ii], wcsPolyLine.Grab_x, wcsPolyLine.Grab_y, wcsPolyLine.CamParams);
+                                    wcsPoint.ViewWindow = wcsPolyLine.ViewWindow;
+                                    wcsPoint.CamName = wcsPolyLine.CamName;
+                                    listPoint.Add(wcsPoint);
+                                }
+                                break;
+                            case nameof(userWcsPolygon):
+                                userWcsPolygon wcsPolygon = value as userWcsPolygon;
+                                for (int ii = 0; ii < wcsPolygon.X.Count; ii++)
+                                {
+                                    userWcsPoint wcsPoint = new userWcsPoint(wcsPolygon.X[ii], wcsPolygon.Y[ii], wcsPolygon.Z[ii], wcsPolygon.Grab_x, wcsPolygon.Grab_y, wcsPolygon.CamParams);
+                                    wcsPoint.ViewWindow = wcsPolygon.ViewWindow;
+                                    wcsPoint.CamName = wcsPolygon.CamName;
+                                    listPoint.Add(wcsPoint);
+                                }
+                                break;
+                        }
+                    }
+                    this._stdTrackPoint = listPoint.ToArray();
+                    listPoint.Clear();
+                }
                 return this._stdTrackPoint;
             }
             set

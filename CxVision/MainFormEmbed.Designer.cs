@@ -138,6 +138,7 @@ namespace CxVision
             this.视图TabControl = new System.Windows.Forms.TabControl();
             this.程序tabPage = new System.Windows.Forms.TabPage();
             this.系统配置tabPage = new System.Windows.Forms.TabPage();
+            this.通信配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStrip2.SuspendLayout();
@@ -604,7 +605,8 @@ namespace CxVision
             this.采集源配置toolStripMenuItem,
             this.程序配置toolStripMenuItem,
             this.工程配置ToolStripMenuItem,
-            this.连接配置ToolStripMenuItem});
+            this.连接配置ToolStripMenuItem,
+            this.通信配置ToolStripMenuItem});
             this.配置toolStripMenuItem.Name = "配置toolStripMenuItem";
             resources.ApplyResources(this.配置toolStripMenuItem, "配置toolStripMenuItem");
             this.配置toolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.配置toolStripMenuItem37_DropDownItemClicked);
@@ -857,6 +859,11 @@ namespace CxVision
             resources.ApplyResources(this.系统配置tabPage, "系统配置tabPage");
             this.系统配置tabPage.Name = "系统配置tabPage";
             // 
+            // 通信配置ToolStripMenuItem
+            // 
+            this.通信配置ToolStripMenuItem.Name = "通信配置ToolStripMenuItem";
+            resources.ApplyResources(this.通信配置ToolStripMenuItem, "通信配置ToolStripMenuItem");
+            // 
             // MainFormEmbed
             // 
             resources.ApplyResources(this, "$this");
@@ -1048,6 +1055,7 @@ namespace CxVision
         private System.Windows.Forms.CheckBox 运行状态checkBox;
         private System.Windows.Forms.ToolStripMenuItem 清空视图配置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 程序节点ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 通信配置ToolStripMenuItem;
     }
 }
 

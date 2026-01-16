@@ -192,7 +192,7 @@
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(28, 25);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(26, 25);
             this.toolStripStatusLabel2.Text = "……";
             // 
             // tabControl1
@@ -271,7 +271,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 32);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 12);
+            this.label3.Size = new System.Drawing.Size(68, 12);
             this.label3.TabIndex = 4;
             this.label3.Text = "导角圆半径:";
             // 
@@ -294,7 +294,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(18, 58);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 12);
+            this.label2.Size = new System.Drawing.Size(56, 12);
             this.label2.TabIndex = 2;
             this.label2.Text = "圆弧点数:";
             // 
@@ -314,9 +314,9 @@
             this.listBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 12;
-            this.listBox2.Location = new System.Drawing.Point(3, 17);
+            this.listBox2.Location = new System.Drawing.Point(3, 18);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(289, 74);
+            this.listBox2.Size = new System.Drawing.Size(289, 73);
             this.listBox2.TabIndex = 0;
             // 
             // groupBox1
@@ -335,9 +335,9 @@
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(3, 17);
+            this.listBox1.Location = new System.Drawing.Point(3, 18);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(289, 74);
+            this.listBox1.Size = new System.Drawing.Size(289, 73);
             this.listBox1.TabIndex = 0;
             // 
             // toolStrip1
@@ -389,19 +389,19 @@
             // 灰度值1Label
             // 
             this.灰度值1Label.Name = "灰度值1Label";
-            this.灰度值1Label.Size = new System.Drawing.Size(28, 25);
+            this.灰度值1Label.Size = new System.Drawing.Size(26, 25);
             this.灰度值1Label.Text = "……";
             // 
             // 灰度值2Label
             // 
             this.灰度值2Label.Name = "灰度值2Label";
-            this.灰度值2Label.Size = new System.Drawing.Size(28, 25);
+            this.灰度值2Label.Size = new System.Drawing.Size(26, 25);
             this.灰度值2Label.Text = "……";
             // 
             // 灰度值3Label
             // 
             this.灰度值3Label.Name = "灰度值3Label";
-            this.灰度值3Label.Size = new System.Drawing.Size(28, 25);
+            this.灰度值3Label.Size = new System.Drawing.Size(26, 25);
             this.灰度值3Label.Text = "……";
             // 
             // toolStripStatusLabel7
@@ -413,13 +413,13 @@
             // 行坐标Label
             // 
             this.行坐标Label.Name = "行坐标Label";
-            this.行坐标Label.Size = new System.Drawing.Size(28, 25);
+            this.行坐标Label.Size = new System.Drawing.Size(26, 25);
             this.行坐标Label.Text = "……";
             // 
             // 列坐标Label
             // 
             this.列坐标Label.Name = "列坐标Label";
-            this.列坐标Label.Size = new System.Drawing.Size(28, 25);
+            this.列坐标Label.Size = new System.Drawing.Size(26, 25);
             this.列坐标Label.Text = "……";
             // 
             // hWindowControl1

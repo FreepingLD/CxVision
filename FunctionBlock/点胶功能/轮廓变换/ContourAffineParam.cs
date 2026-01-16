@@ -97,7 +97,7 @@ namespace FunctionBlock
                 wcsPolyLine.Grab_x = wcsPoints[i].Grab_x;
                 wcsPolyLine.Grab_y = wcsPoints[i].Grab_y;
                 wcsPolyLine.Grab_theta = wcsPoints[i].Grab_theta;
-                wcsPolyLine.CamName = wcsPoints[i].CamName;
+                wcsPolyLine.CamName = wcsPoints[i].CamParams?.SensorName;
                 wcsPolyLine.CamParams = wcsPoints[i].CamParams;
                 wcsPolyLine.ViewWindow = wcsPoints[i].ViewWindow;
             }

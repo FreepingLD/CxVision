@@ -29,7 +29,7 @@ namespace FunctionBlock
             this._refNode = node;
             this._function = node.Tag as IFunction;
             this.Text = this._function.GetPropertyValues("名称").ToString();
-            //runToolStrip = new RunToolStripWrapClass(function, this.运行toolStrip, this.toolStripStatusLabel2);
+            this._function.SetPropertyValues(nameof(TreeNode), this._refNode);
             this.drawObject = new VisualizeView(this.hWindowControl1, true);
             new ListBoxWrapClass().InitListBox(this.listBox1, node);
         }

@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Security.Cryptography;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -379,7 +381,6 @@ namespace FunctionBlock
             {
                 new Common.UserMessageForm(ex.ToString()).ShowDialog();
             }
-
         }
 
         private void CalibPlc()
@@ -405,7 +406,6 @@ namespace FunctionBlock
             while (true)
             {
                 if (this.isStop) return; // 控制标定停止
-                //Application.DoEvents();
                 object value = CommunicationConfigParamManger.Instance.ReadValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerFromPlc);//CommunicationConfigParamManger.Instance.GetCommunicationParam(
                 if (value != null && value.ToString() == "1")
                 {
@@ -449,7 +449,6 @@ namespace FunctionBlock
                     foreach (var item in this.calibCoordConfigParamNPoint.CalibCoordParamList)
                     {
                         if (this.isStop) return; // 控制标定停止
-                        //Application.DoEvents();
                         switch (this.CamParam.CaliParam.CoordValueType)
                         {
                             case enCoordValueType.绝对坐标:
@@ -472,7 +471,6 @@ namespace FunctionBlock
                         while (true)
                         {
                             if (this.isStop) return; // 控制标定停止
-                            //Application.DoEvents();
                             object value = CommunicationConfigParamManger.Instance.ReadValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerFromPlc);//CommunicationConfigParamManger.Instance.GetCommunicationParam(
                             if (value != null && value.ToString() == "1")
                             {
@@ -577,7 +575,6 @@ namespace FunctionBlock
                     }
                     foreach (var item in this.calibCoordConfigParamRota.CalibCoordParamList)
                     {
-                        //Application.DoEvents();
                         if (this.isStop) return; // 控制标定停止
                         // 等待轴运动到位
                         switch (this.CamParam.CaliParam.CoordValueType)
@@ -594,8 +591,7 @@ namespace FunctionBlock
                                                          enAxisName.Compensation_XYTheta轴, 10, new CoordSysAxisPosParam((item.X - X), (item.Y - Y), 0, (item.Theta - Theta), 0, 0)); // 写入的是补偿轴地址
                                 break;
                         }
-                        //Thread.Sleep(100);
-                        LoggerHelper.Info("等待轴运动到指定位置:" + "X = " + item.X.ToString("f3") + "  Y = " + item.Y.ToString("f3") + "  Theta = " + item.Theta.ToString("f3"));
+                        LoggerHelper.Info("等待轴运动到指定位置:" + "X = " + item.X.ToString("f3") + "  Y = " + item.Y.ToString("f3") + "  Theta = " + item.Theta.ToString("f3"), this.CamParam.SensorName);
                         CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.ResultToPlc, 3);
                         CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.FunctionNoToPlc, 5);
                         CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerToPlc, 1);
@@ -603,7 +599,6 @@ namespace FunctionBlock
                         while (true)
                         {
                             if (this.isStop) return; // 控制标定停止
-                            //Application.DoEvents();
                             object value = CommunicationConfigParamManger.Instance.ReadValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerFromPlc);
                             if (value != null && value.ToString() == "1")
                             {
@@ -1702,7 +1697,7 @@ namespace FunctionBlock
             }));
             this.drawObject.AddViewObject(new ViewData(new userWcsCoordSystem(this.CamParam)));
         }
-
+        // 
         private void CalibUvw()
         {
             TreeNode node;
@@ -1726,7 +1721,6 @@ namespace FunctionBlock
             while (true)
             {
                 if (this.isStop) return; // 控制标定停止
-                //Application.DoEvents();
                 object value = CommunicationConfigParamManger.Instance.ReadValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerFromPlc);//CommunicationConfigParamManger.Instance.GetCommunicationParam(
                 if (value != null && value.ToString() == "1")
                 {
@@ -1783,7 +1777,7 @@ namespace FunctionBlock
                                 MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.Y轴, out Y);
                                 MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.Theta轴, out Theta);
                                 MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).MoveMultyAxis(this.CamParam.CaliParam.CoordSysName,
-                                                         enAxisName.Compensation_XYTheta轴, 10, new CoordSysAxisPosParam((U - X), (V - Y), 0, (W - Theta), 0, 0)); // 写入的是补偿轴地址
+                                                         enAxisName.Compensation_XYTheta轴, 10, new CoordSysAxisPosParam((U - X), (V - Y), 0, (W - Theta), 0, 0));  //写入的是补偿轴地址
                                 break;
                         }
                         LoggerHelper.Info("等待轴运动到指定位置:" + "X = " + item.X.ToString("f4") + "  Y = " + item.Y.ToString("f4"), this.CamParam.SensorName);
@@ -1800,7 +1794,7 @@ namespace FunctionBlock
                                 MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.X轴, out X);
                                 MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.Y轴, out Y);
                                 MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.Theta轴, out Theta);
-                                if (Math.Abs(item.X - X) > 0.05 || Math.Abs(item.Y - Y) > 0.05 || Math.Abs(item.Theta - Theta) > 0.1)
+                                if (Math.Abs(U - X) > 0.05 || Math.Abs(V - Y) > 0.05 || Math.Abs(W - Theta) > 0.1)
                                 {
                                     this.Invoke(new Action(() =>
                                     {
@@ -1916,7 +1910,7 @@ namespace FunctionBlock
                                                          enAxisName.Compensation_XYTheta轴, 10, new CoordSysAxisPosParam((U - X), (V - Y), 0, (W - Theta), 0, 0)); // 写入的是补偿轴地址
                                 break;
                         }
-                        LoggerHelper.Info("等待轴运动到指定位置:" + "X = " + item.X.ToString("f3") + "  Y = " + item.Y.ToString("f3") + "  Theta = " + item.Theta.ToString("f3"));
+                        LoggerHelper.Info("等待轴运动到指定位置:" + "X = " + item.X.ToString("f3") + "  Y = " + item.Y.ToString("f3") + "  Theta = " + item.Theta.ToString("f3"), this.CamParam.SensorName);
                         CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.ResultToPlc, 3);
                         CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.FunctionNoToPlc, 5);
                         CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerToPlc, 1);
@@ -1930,7 +1924,7 @@ namespace FunctionBlock
                                 MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.X轴, out X);
                                 MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.Y轴, out Y);
                                 MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.Theta轴, out Theta);
-                                if (Math.Abs(item.X - X) > 0.05 || Math.Abs(item.Y - Y) > 0.05 || Math.Abs(item.Theta - Theta) > 0.1)
+                                if (Math.Abs(U - X) > 0.05 || Math.Abs(V - Y) > 0.05 || Math.Abs(W - Theta) > 0.1)
                                 {
                                     this.Invoke(new Action(() =>
                                     {
@@ -2011,7 +2005,7 @@ namespace FunctionBlock
                             this.CamParam.CaliParam.IsIterationl = false;
                             break;
                     }
-                    /////////////////  计算圆心后，调整圆心 ///////
+                    /////////////////  计算圆心后，调整圆心  ///////
                     double rowCenter, colCenter, radius, step;
                     if (this.CamParam.CaliParam.IsIterationl)
                     {
@@ -2070,7 +2064,6 @@ namespace FunctionBlock
                     foreach (var item in this.calibCoordConfigParamNPoint.CalibCoordParamList)
                     {
                         if (this.isStop) return; // 控制标定停止
-                        //Application.DoEvents();
                         switch (this.CamParam.CaliParam.CoordValueType)
                         {
                             case enCoordValueType.绝对坐标:
@@ -2095,14 +2088,13 @@ namespace FunctionBlock
                         while (true)
                         {
                             if (this.isStop) return; // 控制标定停止
-                            //Application.DoEvents();
                             object value = CommunicationConfigParamManger.Instance.ReadValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerFromPlc);
                             if (value != null && value.ToString() == "1")
                             {
                                 MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.X轴, out X);
                                 MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.Y轴, out Y);
                                 MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.Theta轴, out Theta);
-                                if (Math.Abs(item.X - X) > 0.05 || Math.Abs(item.Y - Y) > 0.05 || Math.Abs(item.Theta - Theta) > 0.1)
+                                if (Math.Abs(U - X) > 0.05 || Math.Abs(V - Y) > 0.05 || Math.Abs(W - Theta) > 0.1)
                                 {
                                     this.Invoke(new Action(() =>
                                     {
@@ -2248,7 +2240,7 @@ namespace FunctionBlock
                                 MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.X轴, out X);
                                 MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.Y轴, out Y);
                                 MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.Theta轴, out Theta);
-                                if (Math.Abs(item.X - X) > 0.05 || Math.Abs(item.Y - Y) > 0.05 || Math.Abs(item.Theta - Theta) > 0.1)
+                                if (Math.Abs(U - X) > 0.05 || Math.Abs(V - Y) > 0.05 || Math.Abs(W - Theta) > 0.1)
                                 {
                                     this.Invoke(new Action(() =>
                                     {
@@ -2389,6 +2381,367 @@ namespace FunctionBlock
             ///////////////////////
             this.drawObject.AddViewObject(new ViewData(new userWcsCoordSystem(this.CamParam)));
         }
+        // 迭代法计算圆心
+        private void CalibUvwIteration()
+        {
+            TreeNode node;
+            string info;
+            double X = 0, Y = 0, Z = 0, Theta = 0, U = 0, V = 0, W = 0;
+            double center_Row = 0, center_Col = 0, error = 0, rotateAngle = 0;
+            double Center_x = 0, Center_y = 0, cur_x = 0, cur_y = 0;
+            this.listGrabTheta.Clear();
+            this.listGrabPoint.Clear();
+            this.listData?.Clear();
+            List<double> list_RotaRows = new List<double>();
+            List<double> list_RotaCols = new List<double>();
+            List<double> list_NpointRows = new List<double>();
+            List<double> list_NpointCols = new List<double>();
+            List<double> list_x = new List<double>();
+            List<double> list_y = new List<double>();
+            List<double> list_Rx = new List<double>(); //  旋转Mark点的世界坐标 X
+            List<double> list_Ry = new List<double>(); //  旋转Mark点的世界坐标 Y
+            HTuple rows, cols, x, y;
+            //// 初始化触发信号并等待触发信号 
+            CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerFromPlc, 0);
+            while (true)
+            {
+                if (this.isStop) return; // 控制标定停止
+                object value = CommunicationConfigParamManger.Instance.ReadValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerFromPlc);//CommunicationConfigParamManger.Instance.GetCommunicationParam(
+                if (value != null && value.ToString() == "1")
+                {
+                    CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerFromPlc, 0);
+                    this.Invoke(new Action(() =>
+                    {
+                        this.获取旋转中心button_Click(null, null); // 运控点击标定启用按钮时，表示在标定起始位置，这时开始标定
+                        this.生成旋转坐标button_Click(null, null);
+                        this.获取起始点button_Click(null, null);
+                        this.获取终止点button_Click(null, null);
+                        this.生成N点坐标button_Click(null, null);
+                        this.获取相机轴坐标but_Click(null, null);
+                    }));
+                    break;
+                }
+                Thread.Sleep(100);
+                LoggerHelper.Info("等待PLC触发信号!!!", this.CamParam.SensorName);
+            }
+            switch (this.CamParam.CaliParam.CalibMethod)
+            {
+                case enCalibMethod.先旋转后平移:
+                case enCalibMethod.先平移后旋转:
+                    // 先执行平移
+                    this.listData?.Clear();
+                    this.CurCaliStateEnum = enCaliStateEnum.Cali9Pt;
+                    this.CalibNPointPixList?.Clear();
+                    this.CalibNPointWcsList?.Clear();
+                    this.CamParam.CaliParam.CalibCenterXy = new userWcsPoint(0, 0, 0); // 在开始标定前，必需将旋转中心的置0
+                    CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.RotCali, 0);
+                    CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.Cali9Pt, 1);
+                    if (this.calibCoordConfigParamNPoint.CalibCoordParamList.Count == 0)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            this.toolStripButton_Run.Enabled = true;
+                            this.toolStripButton_Stop.Enabled = false;
+                        }));
+                        new UserMessageForm().ShowDialog("没有可供移动的坐标点!!!");
+                        return;
+                    }
+                    foreach (var item in this.calibCoordConfigParamNPoint.CalibCoordParamList)
+                    {
+                        if (this.isStop) return; // 控制标定停止
+                        switch (this.CamParam.CaliParam.CoordValueType)
+                        {
+                            case enCoordValueType.绝对坐标:
+                                this.CamParam.UvwParam.RotateToUVW(item.X, item.Y, item.Theta, out U, out V, out W);
+                                MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).MoveMultyAxis(this.CamParam.CaliParam.CoordSysName,
+                                                         enAxisName.Compensation_XYTheta轴, 10, new CoordSysAxisPosParam(U, V, item.Z, W, 0, 0));
+                                break;
+                            case enCoordValueType.相对坐标:
+                                this.CamParam.UvwParam.RotateToUVW(item.X, item.Y, item.Theta, out U, out V, out W);
+                                MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.X轴, out X);
+                                MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.Y轴, out Y);
+                                MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.Theta轴, out Theta);
+                                MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).MoveMultyAxis(this.CamParam.CaliParam.CoordSysName,
+                                                         enAxisName.Compensation_XYTheta轴, 10, new CoordSysAxisPosParam((U - X), (V - Y), 0, (W - Theta), 0, 0));  //写入的是补偿轴地址
+                                break;
+                        }
+                        LoggerHelper.Info("等待轴运动到指定位置:" + "U = " + U.ToString("f4") + "  V = " + V.ToString("f4") + "  W = " + W.ToString("f4"), this.CamParam.SensorName);
+                        CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.ResultToPlc, 3);
+                        CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.FunctionNoToPlc, 5);
+                        CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerToPlc, 1);
+                        ///////////  等待PLC触发采图  /////////////////////////////////
+                        while (true)
+                        {
+                            if (this.isStop) return; // 控制标定停止
+                            object value = CommunicationConfigParamManger.Instance.ReadValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerFromPlc);
+                            if (value != null && value.ToString() == "1")
+                            {
+                                MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.X轴, out X);
+                                MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.Y轴, out Y);
+                                MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.Theta轴, out Theta);
+                                if (Math.Abs(U - X) > 0.05 || Math.Abs(V - Y) > 0.05 || Math.Abs(W - Theta) > 0.1)
+                                {
+                                    this.Invoke(new Action(() =>
+                                    {
+                                        this.toolStripButton_Run.Enabled = true;
+                                        this.toolStripButton_Stop.Enabled = false;
+                                    }));
+                                    CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.ResultToPlc, 2);
+                                    CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.FunctionNoToPlc, 5);
+                                    CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerToPlc, 1);
+                                    new UserMessageForm().ShowDialog("PLC 没有运动到指定位置，请确认是否到限位或轴是否有移动!");
+                                    return;
+                                }
+                                else
+                                    break;
+                            }
+                            Thread.Sleep(100);
+                            LoggerHelper.Info("等待PLC移动到位信号!!!", this.CamParam.SensorName);
+                        }
+                        Thread.Sleep(100);
+                        node = this.GetExecuteNode(this.CamParam.CaliParam.CoordSysName, out info);
+                        LoggerHelper.Info("接收PLC移动到位信号!!!" + info, this.CamParam.SensorName);
+                        if (node != null)
+                            ((IFunction)node.Tag)?.Execute(node);
+                        else
+                        {
+                            this._treeViewWrapClassNPoint.RunSyn(null, 1);
+                        }
+                        CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerFromPlc, 0);
+                    }
+                    // 先执行一次标定，用世界坐标来计算圆心，这样可以得到圆心的世界坐标，再使用世界点加上该值，再执行一次标定
+                    error = 0;
+                    CalibrateMethod.Instance.PixPointToHtuple(this.CalibNPointPixList, out rows, out cols);
+                    CalibrateMethod.Instance.WcsPointToHtuple(this.calibCoordConfigParamNPoint.CalibCoordParamList, out x, out y);
+                    x -= (x.TupleMax() + x.TupleMin()) * 0.5;
+                    y -= (y.TupleMax() + y.TupleMin()) * 0.5;
+                    switch (this.CamParam.CaliParam.CalibAxis)
+                    {
+                        default:
+                        case enCalibAxis.XY轴:
+                            switch (this.CamParam.MapType)
+                            {
+                                case "WcsToWcs":
+                                    CalibrateMethod.Instance.WcsPointToHtuple(this.CalibNPointWcsList, out rows, out cols);
+                                    this.CamParam.HomMat2D = CalibrateMethod.Instance.NpointCalibWcs(rows, cols, x, y, out error); // 用标定板坐标系跟平台来做映射
+                                    break;
+                                default:
+                                    this.CamParam.HomMat2D = CalibrateMethod.Instance.NpointCalib(rows, cols, x, y, out error); // 更新了矩阵
+                                    break;
+                            }
+                            break;
+                        case enCalibAxis.单轴:
+                        case enCalibAxis.X轴:
+                        case enCalibAxis.Y轴:
+                            switch (this.CamParam.MapType)
+                            {
+                                case "WcsToWcs":
+                                    CalibrateMethod.Instance.WcsPointToHtuple(this.CalibNPointWcsList, out rows, out cols);
+                                    this.CamParam.HomMat2D = CalibrateMethod.Instance.NpointCalibSingleAxisWcs(rows, cols, x, y, out error); // 更新了矩阵
+                                    break;
+                                default:
+                                    this.CamParam.HomMat2D = CalibrateMethod.Instance.NpointCalibSingleAxis(rows, cols, x, y, out error); // 更新了矩阵
+                                    break;
+                            }
+                            break;
+                    }
+                    this.Invoke(new Action(() =>
+                    {
+                        this.N点像素坐标dataGridView.Rows.Clear();
+                        for (int i = 0; i < rows.Length; i++)
+                        {
+                            this.N点像素坐标dataGridView.Rows.Add(rows[i].D, cols[i].D);
+                        }
+                    }));
+                    /// 是否归一化原点到图像中心
+                    this.NormalOrigion();
+                    new UserMessageForm().ShowDialog("N点标定最大误差:" + error.ToString("f4") + ";标定矩阵:" + this.CamParam.HomMat2D.ToString());
+                    // //////////////////////////
+                    // 再执行旋转
+                    this.listData?.Clear();
+                    this.CurCaliStateEnum = enCaliStateEnum.RotCali;
+                    this.CalibRotaPixList?.Clear();
+                    this.CalibRotaWcsList?.Clear();
+                    cur_x = 0;
+                    cur_y = 0;
+                    CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.RotCali, 1);
+                    CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.Cali9Pt, 0);
+                    //////////////////////////////////////////////////////////////
+                    if (this.calibCoordConfigParamRota.CalibCoordParamList.Count == 0)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            this.toolStripButton_Run.Enabled = true;
+                            this.toolStripButton_Stop.Enabled = false;
+                        }));
+                        new UserMessageForm().ShowDialog("没有可供移动的坐标点!!!");
+                        return;
+                    }
+                    int iterationCount = 0;
+                    double iterationError = double.MaxValue;
+                    while (true)
+                    {
+                        iterationCount++;
+                        this.CalibRotaPixList?.Clear();
+                        this.CalibRotaWcsList?.Clear();
+                        int index = 0;
+                        foreach (var item in this.calibCoordConfigParamRota.CalibCoordParamList)
+                        {
+                            if (this.isStop) return; // 控制标定停止
+                            switch (this.CamParam.CaliParam.CoordValueType)
+                            {
+                                case enCoordValueType.绝对坐标:
+                                    if(index == 0) // 第一次要移动到原点位置
+                                    {
+                                        MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).MoveMultyAxis(this.CamParam.CaliParam.CoordSysName,
+                                                                 enAxisName.Compensation_XYTheta轴, 10, new CoordSysAxisPosParam(0, 0, 0, 0, 0, 0));
+                                    }
+                                    else
+                                    {
+                                        this.CamParam.UvwParam.RotateToUVW(cur_x, cur_y, item.Theta, out U, out V, out W);
+                                        MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).MoveMultyAxis(this.CamParam.CaliParam.CoordSysName,
+                                                                 enAxisName.Compensation_XYTheta轴, 10, new CoordSysAxisPosParam(U, V, item.Z, W, 0, 0));
+                                    }
+                                    break;
+                                case enCoordValueType.相对坐标:
+                                    if (index == 0)
+                                    {
+                                        MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.X轴, out X);
+                                        MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.Y轴, out Y);
+                                        MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.Theta轴, out Theta);
+                                        MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).MoveMultyAxis(this.CamParam.CaliParam.CoordSysName,
+                                                                 enAxisName.Compensation_XYTheta轴, 10, new CoordSysAxisPosParam((0 - X), (0 - Y), 0, (0 - Theta), 0, 0)); // 写入的是补偿轴地址
+                                    }
+                                    else
+                                    {
+                                        this.CamParam.UvwParam.GetUvwCoord(cur_x, cur_y, item.Theta, out U, out V, out W);
+                                        MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.X轴, out X);
+                                        MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.Y轴, out Y);
+                                        MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.Theta轴, out Theta);
+                                        MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).MoveMultyAxis(this.CamParam.CaliParam.CoordSysName,
+                                                                 enAxisName.Compensation_XYTheta轴, 10, new CoordSysAxisPosParam((U - X), (V - Y), 0, (W - Theta), 0, 0)); // 写入的是补偿轴地址
+                                    }
+                                    break;
+                            }
+                            LoggerHelper.Info("等待轴运动到指定位置:" + "U = " + U.ToString("f4") + "  V = " + V.ToString("f4") + "  W = " + W.ToString("f4"), this.CamParam.SensorName);
+                            CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.ResultToPlc, 3);
+                            CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.FunctionNoToPlc, 5);
+                            CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerToPlc, 1);
+                            // 等待PLC触发采图
+                            while (true)
+                            {
+                                if (this.isStop) return; // 控制标定停止
+                                object value = CommunicationConfigParamManger.Instance.ReadValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerFromPlc);
+                                if (value != null && value.ToString() == "1")
+                                {
+                                    MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.X轴, out X);
+                                    MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.Y轴, out Y);
+                                    MotionCardManage.GetCard(this.CamParam.CaliParam.CoordSysName).GetAxisPosition(this.CamParam.CaliParam.CoordSysName, enAxisName.Theta轴, out Theta);
+                                    if (Math.Abs(U - X) > 0.05 || Math.Abs(V - Y) > 0.05 || Math.Abs(W - Theta) > 0.1)
+                                    {
+                                        this.Invoke(new Action(() =>
+                                        {
+                                            this.toolStripButton_Run.Enabled = true;
+                                            this.toolStripButton_Stop.Enabled = false;
+                                        }));
+                                        CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.ResultToPlc, 2);
+                                        CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.FunctionNoToPlc, 5);
+                                        CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerToPlc, 1);
+                                        new UserMessageForm().ShowDialog("PLC 没有运动到指定位置，请确认是否到限位或轴是否有移动!");
+                                        return;
+                                    }
+                                    else
+                                        break;
+                                }
+                                Thread.Sleep(100);
+                                LoggerHelper.Info("等待PLC移动到位信号!!!", this.CamParam.SensorName);
+                            }
+                            Thread.Sleep(100);
+                            node = this.GetExecuteNode(this.CamParam.CaliParam.CoordSysName, out info);
+                            LoggerHelper.Info("接收PLC触发信号!!!" + info, this.CamParam.SensorName);
+                            if (node != null)
+                                ((IFunction)node.Tag)?.Execute(node);
+                            else
+                            {
+                                this._treeViewWrapClassNPoint.RunSyn(null, 1);
+                            }
+                            CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerFromPlc, 0);
+                            index++;
+                        }
+                        // 旋转完一次后，执行计算标定矩阵
+                        list_x = new List<double>();
+                        list_y = new List<double>();
+                        rotateAngle = this.CamParam.CaliParam.AngleRange;
+                        foreach (var item in this.CalibRotaWcsList)
+                        {
+                            switch (this.CamParam.CaliParam.CoordOriginType)
+                            {
+                                case enCoordOriginType.机械原点: // 这种模式必需将相机设置为移对象
+                                default:
+                                case enCoordOriginType.旋转中心:
+                                case enCoordOriginType.IsLoading:
+                                    userWcsPoint wcsPoint = item.GetWcsCamPoint(); // 这种模式下使用相机坐标系下的点
+                                    list_x.Add(wcsPoint.X);
+                                    list_y.Add(wcsPoint.Y);
+                                    break;
+                            }
+                        }
+                        CalibrateMethod.Instance.CalculateCenterHomMatWcs(list_x[0], list_y[0], 0, list_x[1], list_y[1], this.CamParam.CaliParam.AngleRange, out Center_x, out Center_y);
+                        cur_x += list_x[0] - Center_x;
+                        cur_y += list_y[0] - Center_y;
+                        iterationError = HMisc.DistancePp(list_x[0], list_y[0], Center_x, Center_y); // 计算点距离
+                        if (iterationError < this.CamParam.HomMat2D.c00 * 3) break;
+                        if (iterationCount > 20) break;
+                    }
+                    // 标定完成
+                    this.Invoke(new Action(() =>
+                    {
+                        this.toolStripButton_Run.Enabled = true;
+                        this.toolStripButton_Stop.Enabled = false;
+                    }));
+                    CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.ResultToPlc, 1);
+                    CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.FunctionNoToPlc, 5);
+                    CommunicationConfigParamManger.Instance.WriteValue(this.CamParam.CaliParam.CoordSysName, enCommunicationCommand.TriggerToPlc, 1);
+                    /////////////////  计算圆心后，调整圆心  ///////
+                    Center_x = list_x[0] - cur_x;
+                    Center_y = list_y[0] - cur_y;
+                    //////////////////
+                    this.CamParam.CaliParam.CalibCenterXy = new userWcsPoint(Center_x, Center_y, 0);
+                    // 标定完成
+                    this.Invoke(new Action(() =>
+                    {
+                        this.旋转坐标dataGridView.Rows.Clear();
+                        for (int i = 0; i < list_x.Count; i++)
+                        {
+                            this.旋转坐标dataGridView.Rows.Add(list_x[i], list_y[i]);
+                        }
+                    }));
+                    if (new UserMessageForm().ShowDialog("标定完成,最大旋转标定误差：" + iterationError.ToString("f3") + "; 圆心X = " + Center_x.ToString("f3") + "; 圆心Y = " + Center_y.ToString("f3") + "; 步长角 = " + rotateAngle.ToString("f4") + "; 标定矩阵:" + this.CamParam.HomMat2D.ToString()
+                        , "是否更新并保存参数？") == DialogResult.OK)
+                    {
+                        this.CamParam?.Save();
+                    }
+                    //this.drawObject.AddViewObject(new ViewData(new userWcsCoordSystem(this.CamParam, this.CamParam.CaliParam.RotateCalibPoint.Grab_x, this.CamParam.CaliParam.RotateCalibPoint.Grab_y)));
+                    break;
+            }
+            //// 计算图像4个角点的坐标，验证标定矩阵的方向是否正确
+            int width = 0, height = 0;
+            HTuple wcs_x, wcs_y, wcs_z;
+            this.drawObject.BackImage?.Image?.GetImageSize(out width, out height);
+            HTuple row = new HTuple(0, 0, height, height);
+            HTuple col = new HTuple(0, width, 0, width);
+            this.CamParam.ImagePointsToWorldPlane(row, col, 0, 0, 0, out wcs_x, out wcs_y, out wcs_z);
+            this.Invoke(new Action(() =>
+            {
+                this.世界坐标dataGridView.Rows.Clear();
+                for (int i = 0; i < wcs_x.Length; i++)
+                {
+                    this.世界坐标dataGridView.Rows.Add(wcs_x[i].D, wcs_y[i].D);
+                }
+            }));
+            ///////////////////////
+            this.drawObject.AddViewObject(new ViewData(new userWcsCoordSystem(this.CamParam)));
+        }
         private void NormalOrigion()
         {
             /// 是否归一化原点到图像中心
@@ -2490,10 +2843,6 @@ namespace FunctionBlock
                     ((IFunction)node.Tag)?.Execute(node);
                 else
                 {
-                    //this.toolStripButton_Run.Enabled = true;
-                    //this.toolStripButton_Stop.Enabled = false;
-                    //new UserMessageForm().ShowDialog("没有获取到可执行的节点!!");
-                    //return;
                     this._treeViewWrapClassNPoint.RunSyn(null, 1);
                 }
             }
@@ -2613,10 +2962,6 @@ namespace FunctionBlock
                     ((IFunction)node.Tag)?.Execute(node);
                 else
                 {
-                    //this.toolStripButton_Run.Enabled = true;
-                    //this.toolStripButton_Stop.Enabled = false;
-                    //new UserMessageForm().ShowDialog("没有获取到可执行的节点!!");
-                    //return;
                     this._treeViewWrapClassNPoint.RunSyn(null, 1);
                 }
             }
@@ -2798,7 +3143,10 @@ namespace FunctionBlock
                             this.CalibPlc();
                             break;
                         case enCalibPlane.XZ:
-
+                            //this.CalibSocketNewXZ();
+                            break;
+                        case enCalibPlane.YZ:
+                            //this.CalibSocketNewYZ();
                             break;
                     }
                     break;
@@ -2835,7 +3183,10 @@ namespace FunctionBlock
                     {
                         default:
                         case enCalibPlane.XY:
-                            this.CalibUvw();
+                            if (this.CamParam.CaliParam.CalculateMethod == enCalculateMethod.迭代计算圆心)
+                                this.CalibUvwIteration();
+                            else
+                                this.CalibUvw();
                             break;
                         case enCalibPlane.XZ:
 
@@ -2961,9 +3312,11 @@ namespace FunctionBlock
                                 ));
                         }
                         break;
-                    case "正反向":  // 共转三个角度
+                    case "正反向":  // 共转5个角度
+                    case "正反向(5点标定)":
                         ///////////////////  0 度位置
-                        double stepCount = (int)(this.CamParam.CaliParam.AngleStep / 2);
+                        //this.CamParam.CaliParam.AngleStep = 4; // 在这种模式下，这个值需要强制为 4，这样步长数量就强制为 2 
+                        double stepCount = 2;// (int)(this.CamParam.CaliParam.AngleStep / 2);
                         this.calibCoordConfigParamRota.CalibCoordParamList.Add(new CoordSysAxisPosParam(
                              this.CamParam.CaliParam.RotateCalibPoint.X,
                              this.CamParam.CaliParam.RotateCalibPoint.Y,
@@ -2976,7 +3329,7 @@ namespace FunctionBlock
                                 this.CamParam.CaliParam.RotateCalibPoint.X,
                                 this.CamParam.CaliParam.RotateCalibPoint.Y,
                                 this.CamParam.CaliParam.RotateCalibPoint.Z,
-                                this.CamParam.CaliParam.RotateCalibPoint.Angle - this.CamParam.CaliParam.AngleRange / this.CamParam.CaliParam.AngleStep * i));
+                                this.CamParam.CaliParam.RotateCalibPoint.Angle - this.CamParam.CaliParam.AngleRange / 4 * i)); //this.CamParam.CaliParam.AngleStep
                         }
                         //////////////////////  正向转N个角度  //////////////////////////////////////////////////
                         for (int i = 1; i <= stepCount; i++)
@@ -2985,8 +3338,23 @@ namespace FunctionBlock
                                  this.CamParam.CaliParam.RotateCalibPoint.X,
                                  this.CamParam.CaliParam.RotateCalibPoint.Y,
                                  this.CamParam.CaliParam.RotateCalibPoint.Z,
-                                 this.CamParam.CaliParam.RotateCalibPoint.Angle + this.CamParam.CaliParam.AngleRange / this.CamParam.CaliParam.AngleStep * i));
+                                 this.CamParam.CaliParam.RotateCalibPoint.Angle + this.CamParam.CaliParam.AngleRange / 4 * i)); //this.CamParam.CaliParam.AngleStep
                         }
+                        break;
+                    case "正向迭代":
+                    case "单向迭代":
+                        /// 第一个点
+                        this.calibCoordConfigParamRota.CalibCoordParamList.Add(new CoordSysAxisPosParam(
+                                this.CamParam.CaliParam.RotateCalibPoint.X,
+                                this.CamParam.CaliParam.RotateCalibPoint.Y,
+                                this.CamParam.CaliParam.RotateCalibPoint.Z,
+                                this.CamParam.CaliParam.RotateCalibPoint.Angle));
+                        /// 第二个点
+                        this.calibCoordConfigParamRota.CalibCoordParamList.Add(new CoordSysAxisPosParam(
+                            this.CamParam.CaliParam.RotateCalibPoint.X,
+                            this.CamParam.CaliParam.RotateCalibPoint.Y,
+                            this.CamParam.CaliParam.RotateCalibPoint.Z,
+                            this.CamParam.CaliParam.RotateCalibPoint.Angle + this.CamParam.CaliParam.AngleRange));
                         break;
                 }
                 /////////  用绝对坐标来表示
@@ -3008,17 +3376,49 @@ namespace FunctionBlock
                 this.calibCoordConfigParamNPoint.CalibCoordParamList.Clear(); // 默认为 3行3列 9个点标定
                 int rowCount = (int)this.行数numericUpDown.Value;
                 int colCount = (int)this.列数numericUpDown.Value;
-                double step_x = (this.CamParam.CaliParam.EndCalibPoint.X - this.CamParam.CaliParam.StartCaliPoint.X) / (colCount - 1);
-                double step_y = (this.CamParam.CaliParam.EndCalibPoint.Y - this.CamParam.CaliParam.StartCaliPoint.Y) / (rowCount - 1);
+                //double step_x = (this.CamParam.CaliParam.EndCalibPoint.X - this.CamParam.CaliParam.StartCaliPoint.X) / (colCount - 1);
+                //double step_y = (this.CamParam.CaliParam.EndCalibPoint.Y - this.CamParam.CaliParam.StartCaliPoint.Y) / (rowCount - 1);
+                double step_x, step_y, step_z;
+                if (colCount > 1)
+                    step_x = (this.CamParam.CaliParam.EndCalibPoint.X - this.CamParam.CaliParam.StartCaliPoint.X) / (colCount - 1);
+                else
+                    step_x = 0;
+                if (rowCount > 1)
+                    step_y = (this.CamParam.CaliParam.EndCalibPoint.Y - this.CamParam.CaliParam.StartCaliPoint.Y) / (rowCount - 1);
+                else
+                    step_y = 0;
+                if (rowCount > 1)
+                    step_z = (this.CamParam.CaliParam.EndCalibPoint.Z - this.CamParam.CaliParam.StartCaliPoint.Z) / (rowCount - 1);
+                else
+                    step_z = 0;
+                ////////////////////////////////////////////////////////////////////////////////
                 for (int i = 0; i < rowCount; i++)
                 {
                     for (int j = 0; j < colCount; j++)
                     {
-                        this.calibCoordConfigParamNPoint.CalibCoordParamList.Add(new CoordSysAxisPosParam(
-                            this.CamParam.CaliParam.StartCaliPoint.X + j * step_x,
-                            this.CamParam.CaliParam.StartCaliPoint.Y + i * step_y,
-                            this.CamParam.CaliParam.StartCaliPoint.Z,
-                            this.CamParam.CaliParam.StartCaliPoint.Angle));
+                        //this.calibCoordConfigParamNPoint.CalibCoordParamList.Add(new CoordSysAxisPosParam(
+                        //    this.CamParam.CaliParam.StartCaliPoint.X + j * step_x,
+                        //    this.CamParam.CaliParam.StartCaliPoint.Y + i * step_y,
+                        //    this.CamParam.CaliParam.StartCaliPoint.Z + i * step_z,
+                        //    this.CamParam.CaliParam.StartCaliPoint.Angle));
+                        switch (this.CamParam.CaliParam.CalibPlane)
+                        {
+                            case enCalibPlane.XY:
+                            case enCalibPlane.XZ:
+                                this.calibCoordConfigParamNPoint.CalibCoordParamList.Add(new CoordSysAxisPosParam(
+                                this.CamParam.CaliParam.StartCaliPoint.X + j * step_x,
+                                this.CamParam.CaliParam.StartCaliPoint.Y + i * step_y,
+                                this.CamParam.CaliParam.StartCaliPoint.Z + i * step_z,
+                                this.CamParam.CaliParam.StartCaliPoint.Angle));
+                                break;
+                            case enCalibPlane.YZ:
+                                this.calibCoordConfigParamNPoint.CalibCoordParamList.Add(new CoordSysAxisPosParam(
+                                this.CamParam.CaliParam.StartCaliPoint.X + i * step_x,
+                                this.CamParam.CaliParam.StartCaliPoint.Y + j * step_y,
+                                this.CamParam.CaliParam.StartCaliPoint.Z + i * step_z,
+                                this.CamParam.CaliParam.StartCaliPoint.Angle));
+                                break;
+                        }
                     }
                 }
                 for (int i = 0; i < this.N点坐标dataGridView.Rows.Count; i++)

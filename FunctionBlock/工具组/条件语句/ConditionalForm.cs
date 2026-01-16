@@ -36,7 +36,7 @@ namespace FunctionBlock
             this._function = function;
             InitializeComponent();
             this.drawObject = new DrawingBaseMeasure(this.hWindowControl1, false);
-            this.titleLabel.Text = function.GetPropertyValues("名称").ToString();
+            this.Text = function.GetPropertyValues("名称").ToString();
             this.treeViewWrapClass = new TreeViewWrapClass(this.treeView1, this);
             this._ForLoopControl = (Conditional)this._function;
             this.metrolegyParamForm = new MetrolegyParamForm(this.drawObject);
@@ -54,12 +54,12 @@ namespace FunctionBlock
             this.treeViewWrapClass.ToolName = this._refNode.Name.Replace(".Tool", "");
             //////////////////////////
             if (treeViewName != null && treeViewName.Length > 0)
-                this.titleLabel.Text = treeViewName + "." + node.FullPath.Replace("\\", ".");
+                this.Text = treeViewName + "." + node.FullPath.Replace("\\", ".");
             else
-                this.titleLabel.Text = node.FullPath.Replace("\\", ".");
+                this.Text = node.FullPath.Replace("\\", ".");
         }
 
-        private void ForLoopControlForm_Load(object sender, EventArgs e)
+        private void ConditionalForm_Load(object sender, EventArgs e)
         {
             //this.titleLabel.Text = this.Text;
             //this.Text = "";
@@ -78,6 +78,7 @@ namespace FunctionBlock
             this.addContextMenu(this.hWindowControl1);
             this.数据写入dataGridView.DataSource = ((Conditional)this._function).DataList;
             this.AddForm(this.元素信息tabPage, new ElementViewForm(false));
+            this.DoubleBuffered = true;
         }
 
         private void AddForm(TabPage MastPanel, Form form)
@@ -112,10 +113,11 @@ namespace FunctionBlock
                 this.treeView1.Nodes.Add(item.Clone() as TreeNode);
             }
         }
-        private void ConcurrentExecutionForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void ConditionalForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
             {
+                this.drawObject?.ClearDrawingObject();
                 this.drawObject.GrayValueInfo -= new GrayValueInfoEventHandler(hWindowControl1_MouseMove);
                 BaseFunction.ExcuteCompleted -= new ExcuteCompletedEventHandler(DisplayExcuteResult);
                 TreeViewWrapClass.ClickNode -= new ClickNodeEventHandler(this.DisplayClickObject);

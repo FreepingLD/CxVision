@@ -460,34 +460,40 @@
     <value>工具(T)</value>
   </data>
   <data name="参数设置toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="参数设置toolStripMenuItem.Text" xml:space="preserve">
     <value>参数设置 </value>
   </data>
   <data name="采集源配置toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="采集源配置toolStripMenuItem.Text" xml:space="preserve">
     <value>采集源配置</value>
   </data>
   <data name="程序配置toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="程序配置toolStripMenuItem.Text" xml:space="preserve">
     <value>程序配置</value>
   </data>
   <data name="工程配置ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="工程配置ToolStripMenuItem.Text" xml:space="preserve">
     <value>工程配置</value>
   </data>
   <data name="连接配置ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="连接配置ToolStripMenuItem.Text" xml:space="preserve">
     <value>连接配置</value>
+  </data>
+  <data name="通信配置ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="通信配置ToolStripMenuItem.Text" xml:space="preserve">
+    <value>通信配置</value>
   </data>
   <data name="配置toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 24</value>
@@ -496,28 +502,28 @@
     <value>配置(C)</value>
   </data>
   <data name="联机运行ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="联机运行ToolStripMenuItem.Text" xml:space="preserve">
     <value>联机运行</value>
   </data>
   <data name="查看点激光toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="查看点激光toolStripMenuItem.Text" xml:space="preserve">
     <value>查看点激光</value>
   </data>
   <data name="查看线激光toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="查看线激光toolStripMenuItem.Text" xml:space="preserve">
     <value>查看线激光</value>
   </data>
   <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 6</value>
+    <value>177, 6</value>
   </data>
   <data name="程序节点ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="程序节点ToolStripMenuItem.Text" xml:space="preserve">
     <value>程序节点</value>
@@ -3803,6 +3809,12 @@
   </data>
   <data name="&gt;&gt;保存ToolStripButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;通信配置ToolStripMenuItem.Name" xml:space="preserve">
+    <value>通信配置ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;通信配置ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainFormEmbed</value>

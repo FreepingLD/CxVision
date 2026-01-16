@@ -33,7 +33,7 @@ namespace FunctionBlock
             this._function = function;
             InitializeComponent();
             this.Text = function.GetPropertyValues("名称").ToString();
-            this.drawObject = new userDrawLineMeasure(this.hWindowControl1, ((FunctionBlock.LineMeasure)_function).FindLine.LinePixPosition, ((FunctionBlock.LineMeasure)_function).PixCoordSystem);
+            this.drawObject = new userDrawLineMeasure(this.hWindowControl1, ((FunctionBlock.LineMeasure)_function).FindLine.LinePixPosition.AffinePixLine2D(((FunctionBlock.LineMeasure)_function).PixCoordSystem.GetVariationHomMat2D()), ((FunctionBlock.LineMeasure)_function).PixCoordSystem);
             new ListBoxWrapClass().InitListBox(this.listBox1, function);
             new ListBoxWrapClass().InitListBox(this.listBox2, function, 2);
         }
@@ -43,7 +43,7 @@ namespace FunctionBlock
             this._function = function;
             InitializeComponent();
             this.Text = node.Text; //function.GetPropertyValues("名称").ToString();
-            this.drawObject = new userDrawLineMeasure(this.hWindowControl1, ((FunctionBlock.LineMeasure)_function).FindLine.LinePixPosition, ((FunctionBlock.LineMeasure)_function).PixCoordSystem);
+            this.drawObject = new userDrawLineMeasure(this.hWindowControl1, ((FunctionBlock.LineMeasure)_function).FindLine.LinePixPosition.AffinePixLine2D(((FunctionBlock.LineMeasure)_function).PixCoordSystem.GetVariationHomMat2D()), ((FunctionBlock.LineMeasure)_function).PixCoordSystem);
             new ListBoxWrapClass().InitListBox(this.listBox1, node);
             new ListBoxWrapClass().InitListBox(this.listBox2, node, 2);
         }

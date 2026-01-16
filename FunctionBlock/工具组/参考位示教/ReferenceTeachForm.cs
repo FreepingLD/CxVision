@@ -55,9 +55,9 @@ namespace FunctionBlock
             this.treeViewWrapClass.ToolName = this._refNode.Name.Replace(".Tool", "");
             //////////////////////////
             if (treeViewName != null && treeViewName.Length > 0)
-                this.titleLabel.Text = treeViewName + "." + node.FullPath.Replace("\\", ".");
+                this.Text = treeViewName + "." + node.FullPath.Replace("\\", ".");
             else
-                this.titleLabel.Text = node.FullPath.Replace("\\", ".");
+                this.Text = node.FullPath.Replace("\\", ".");
         }
         private void ReferenceTeachForm_Load(object sender, EventArgs e)
         {
@@ -76,6 +76,7 @@ namespace FunctionBlock
             this.LoadTreeNode();
             this.treeView1.ShowPlusMinus = false;
             this.treeView1.ShowRootLines = false;
+            this.DoubleBuffered = true;
         }
         public void LoadTreeNode()
         {
@@ -237,13 +238,8 @@ namespace FunctionBlock
                         tool.Show();
                         break;
 
-                    case "保存配置toolStripButton":
-                        this._refNode?.Nodes.Clear();
-                        foreach (TreeNode item1 in this.treeView1.Nodes)
-                        {
-                            this._refNode?.Nodes.Add(item1.Clone() as TreeNode);
-                        }
-                        //((ReferenceTeach)_refNode.Tag).ParentNode = _refNode;
+                    case "脚本配置toolStripButton":
+
                         break;
 
                     default:
@@ -281,7 +277,7 @@ namespace FunctionBlock
             try
             {
                 //if (!IsSelect()) return; // 如果不是当前选择的，则返回
-                if (SystemParamManager.Instance.SysConfigParam.IsAutoRun) return;
+                //if (SystemParamManager.Instance.SysConfigParam.IsAutoRun) return;
                 if (e.DataContent == null) return;// 在图形窗口只显示世界坐标元素，像素元素在图像窗口显示
                 /////////////////////////////////////////////
                 switch (e.DataContent.GetType().Name) //这里只接受XLD轮廓或3D对象轮廓
@@ -951,45 +947,45 @@ namespace FunctionBlock
         #endregion
 
         #region  窗体绽放功能 
-        private const int Guying_HTLEFT = 10;
-        private const int Guying_HTRIGHT = 11;
-        private const int Guying_HTTOP = 12;
-        private const int Guying_HTTOPLEFT = 13;
-        private const int Guying_HTTOPRIGHT = 14;
-        private const int Guying_HTBOTTOM = 15;
-        private const int Guying_HTBOTTOMLEFT = 0x10;
-        private const int Guying_HTBOTTOMRIGHT = 17;
-        protected override void WndProc(ref Message m)
-        {
-            switch (m.Msg)
-            {
-                case 0x0084:
-                    base.WndProc(ref m);
-                    Point vPoint = new Point((int)m.LParam & 0xFFFF,
-                        (int)m.LParam >> 16 & 0xFFFF);
-                    vPoint = PointToClient(vPoint);
-                    if (vPoint.X <= 5)
-                        if (vPoint.Y <= 5)
-                            m.Result = (IntPtr)Guying_HTTOPLEFT;
-                        else if (vPoint.Y >= ClientSize.Height - 5)
-                            m.Result = (IntPtr)Guying_HTBOTTOMLEFT;
-                        else m.Result = (IntPtr)Guying_HTLEFT;
-                    else if (vPoint.X >= ClientSize.Width - 5)
-                        if (vPoint.Y <= 5)
-                            m.Result = (IntPtr)Guying_HTTOPRIGHT;
-                        else if (vPoint.Y >= ClientSize.Height - 5)
-                            m.Result = (IntPtr)Guying_HTBOTTOMRIGHT;
-                        else m.Result = (IntPtr)Guying_HTRIGHT;
-                    else if (vPoint.Y <= 2)
-                        m.Result = (IntPtr)Guying_HTTOP;
-                    else if (vPoint.Y >= ClientSize.Height - 5)
-                        m.Result = (IntPtr)Guying_HTBOTTOM;
-                    break;
-                default:
-                    base.WndProc(ref m);
-                    break;
-            }
-        }
+        //private const int Guying_HTLEFT = 10;
+        //private const int Guying_HTRIGHT = 11;
+        //private const int Guying_HTTOP = 12;
+        //private const int Guying_HTTOPLEFT = 13;
+        //private const int Guying_HTTOPRIGHT = 14;
+        //private const int Guying_HTBOTTOM = 15;
+        //private const int Guying_HTBOTTOMLEFT = 0x10;
+        //private const int Guying_HTBOTTOMRIGHT = 17;
+        //protected override void WndProc(ref Message m)
+        //{
+        //    switch (m.Msg)
+        //    {
+        //        case 0x0084:
+        //            base.WndProc(ref m);
+        //            Point vPoint = new Point((int)m.LParam & 0xFFFF,
+        //                (int)m.LParam >> 16 & 0xFFFF);
+        //            vPoint = PointToClient(vPoint);
+        //            if (vPoint.X <= 5)
+        //                if (vPoint.Y <= 5)
+        //                    m.Result = (IntPtr)Guying_HTTOPLEFT;
+        //                else if (vPoint.Y >= ClientSize.Height - 5)
+        //                    m.Result = (IntPtr)Guying_HTBOTTOMLEFT;
+        //                else m.Result = (IntPtr)Guying_HTLEFT;
+        //            else if (vPoint.X >= ClientSize.Width - 5)
+        //                if (vPoint.Y <= 5)
+        //                    m.Result = (IntPtr)Guying_HTTOPRIGHT;
+        //                else if (vPoint.Y >= ClientSize.Height - 5)
+        //                    m.Result = (IntPtr)Guying_HTBOTTOMRIGHT;
+        //                else m.Result = (IntPtr)Guying_HTRIGHT;
+        //            else if (vPoint.Y <= 2)
+        //                m.Result = (IntPtr)Guying_HTTOP;
+        //            else if (vPoint.Y >= ClientSize.Height - 5)
+        //                m.Result = (IntPtr)Guying_HTBOTTOM;
+        //            break;
+        //        default:
+        //            base.WndProc(ref m);
+        //            break;
+        //    }
+        //}
         #endregion
 
         #region 防止改变窗口大小时控件闪烁功能

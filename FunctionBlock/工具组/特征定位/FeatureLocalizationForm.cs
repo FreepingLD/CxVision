@@ -99,6 +99,7 @@ namespace FunctionBlock
             this.treeView1.ShowRootLines = false;
             this.数据读取dataGridView.DataSource = ((FeatureLocalization)this._function).PlcInfo;
             this.AddForm(this.元素属性tabPage, new ElementViewForm(false));
+            this.DoubleBuffered = true;
         }
 
         public void LoadTreeNode()
@@ -297,7 +298,7 @@ namespace FunctionBlock
             {
                 //if (!IsSelect()) return; // 如果不是当前选择的，则返回
                 if (e.DataContent == null) return;// 在图形窗口只显示世界坐标元素，像素元素在图像窗口显示
-                if (SystemParamManager.Instance.SysConfigParam.IsAutoRun) return;
+                //if (SystemParamManager.Instance.SysConfigParam.IsAutoRun) return;
                 /////////////////////////////////////////////
                 switch (e.DataContent.GetType().Name) //这里只接受XLD轮廓或3D对象轮廓
                 {

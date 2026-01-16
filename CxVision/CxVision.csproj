@@ -101,9 +101,9 @@
     <Reference Include="halcondotnetxl">
       <HintPath>..\bin\x64\Debug\halcondotnetxl.dll</HintPath>
     </Reference>
-    <Reference Include="HslCommunication, Version=11.6.2.0, Culture=neutral, PublicKeyToken=3d72ad3b6b5ec0e3, processorArchitecture=MSIL">
+    <Reference Include="HslCommunication, Version=12.6.0.0, Culture=neutral, PublicKeyToken=3d72ad3b6b5ec0e3, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\安裝+備份\HslCommunicationDemo\HslCommunication.dll</HintPath>
+      <HintPath>..\bin\x64\Debug\HslCommunication.dll</HintPath>
     </Reference>
     <Reference Include="MVSDK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

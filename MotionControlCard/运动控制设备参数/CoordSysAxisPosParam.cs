@@ -51,7 +51,7 @@ namespace MotionControlCard
         Compensation_XYTheta轴 = 36,
         Compensation_XYZUVW轴 = 37,
         Compensation_XYZTheta轴 = 38,
-        XY轴直线插补 = 39,
+        Compensation_UVW轴 = 39,
         XZ轴直线插补 = 40,
         YZ轴直线插补 = 41,
         XYZ轴直线插补 = 42,
@@ -84,6 +84,7 @@ namespace MotionControlCard
         A轴 = 69,
         B轴 = 70,
         C轴 = 71,
+        XY轴直线插补 = 72,
         OK = 888,
         NG = 889,
         Continue = 900,
@@ -332,12 +333,13 @@ namespace MotionControlCard
         public double Y { get; set; }
         [DisplayNameAttribute("Z轴")]
         public double Z { get; set; }
-        [DisplayNameAttribute("Theta/C轴")]
+        [DisplayNameAttribute("Theta/C/W轴")]
         public double Theta { get; set; }
         [DisplayNameAttribute("U/A轴")]
         public double U { get; set; }
         [DisplayNameAttribute("V/B轴")]
         public double V { get; set; }
+
 
         public CoordSysAxisPosParam()
         {
@@ -362,6 +364,7 @@ namespace MotionControlCard
             this.U = U;
             this.V = V;
         }
+
         public CoordSysAxisPosParam(double X, double Y, double Theta)
         {
             this.X = X;

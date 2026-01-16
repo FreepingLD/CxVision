@@ -131,19 +131,28 @@ namespace FunctionBlock
                 switch (loginParam.User)
                 {
                     case enUserName.操作员:
-                        //this.传感器comboBox1.Enabled = false;
-                        //this.程序节点comboBox.Enabled = false;
                         this.buttonClose.Enabled = false;
+                        ////////////////////////////////////////////////////
+                        this.buttonMax.Hide();
+                        this.buttonMin.Hide();
+                        this.buttonClose.Hide();
+                        this.tableLayoutPanel1.SetColumnSpan(this.titleLabel, 4);
                         break;
                     case enUserName.工程师:
-                        //this.传感器comboBox1.Enabled = true;
-                        //this.程序节点comboBox.Enabled = true;
                         this.buttonClose.Enabled = false;
+                        ////////////////////////////////////////////////////
+                        this.buttonMax.Hide();
+                        this.buttonMin.Hide();
+                        this.buttonClose.Hide();
+                        this.tableLayoutPanel1.SetColumnSpan(this.titleLabel, 4);
                         break;
                     case enUserName.开发人员:
-                        //this.传感器comboBox1.Enabled = true;
-                        //this.程序节点comboBox.Enabled = true;
                         this.buttonClose.Enabled = true;
+                        ////////////////////////////////////////////////////
+                        this.buttonMax.Show();
+                        this.buttonMin.Show();
+                        this.buttonClose.Show();
+                        this.tableLayoutPanel1.SetColumnSpan(this.titleLabel, 1);
                         break;
                 }
             }
@@ -237,6 +246,7 @@ namespace FunctionBlock
             {
                 case 0x0084:
                     base.WndProc(ref m);
+                    if (UserLoginParamManager.Instance.CurrentUser == enUserName.操作员) return;
                     Point vPoint = new Point((int)m.LParam & 0xFFFF,
                         (int)m.LParam >> 16 & 0xFFFF);
                     vPoint = PointToClient(vPoint);

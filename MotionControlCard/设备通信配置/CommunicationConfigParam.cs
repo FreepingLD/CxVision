@@ -186,8 +186,8 @@ namespace MotionControlCard
         Reset = 128,
         RotCali = 129,
         Cali9Pt = 130,  //
-        CommandSendTime =131,
-        ResponseTime =132,
+        CommandSendTime = 131,
+        ResponseTime = 132,
         RowIndex = 133,
         DieIndex = 134,
         CurRowIndex = 135,
@@ -198,6 +198,11 @@ namespace MotionControlCard
         TrackLength = 140, // 轨迹
         TrackToPlc = 141, // 轨迹
         TrackLengthToPlc = 142, // 轨迹
+        Lable = 143,
+        LableLength = 144,
+        LableTrigger = 145,
+        相机轴X = 146,
+        相机轴Y = 147,
         Path_X = 880,// 弃用
         Path_Y = 881,// 弃用
         Path_Z = 882,// 弃用

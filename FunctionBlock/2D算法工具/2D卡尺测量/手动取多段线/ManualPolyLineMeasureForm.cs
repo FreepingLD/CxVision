@@ -31,7 +31,7 @@ namespace FunctionBlock
             this._refNode = node;
             InitializeComponent();
             this.Text = function.GetPropertyValues("名称").ToString();
-            this.drawObject = new userDrawManualPolyLineMeasure(this.hWindowControl1, ((FunctionBlock.ManualPolyLineMeasure)_function).FindPolyLine.PolyLinePixPosition, ((FunctionBlock.ManualPolyLineMeasure)_function).PixCoordSystem);
+            this.drawObject = new userDrawManualPolyLineMeasure(this.hWindowControl1, ((FunctionBlock.ManualPolyLineMeasure)_function).FindPolyLine.PolyLinePixPosition.AffinePixPolyLine(((FunctionBlock.ManualPolyLineMeasure)_function).PixCoordSystem?.GetVariationHomMat2D()), ((FunctionBlock.ManualPolyLineMeasure)_function).PixCoordSystem);
             new ListBoxWrapClass().InitListBox(this.listBox1, node);
             new ListBoxWrapClass().InitListBox(this.listBox2, node, 2);
         }

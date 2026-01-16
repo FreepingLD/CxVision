@@ -33,7 +33,7 @@ namespace FunctionBlock
             this._function = function;
             InitializeComponent();
             this.Text = function.GetPropertyValues("名称").ToString();
-            this.drawObject = new userDrawEllipseMeasure(this.hWindowControl1, ((EllipseMeasure)_function).FindEllipse.EllipsePixPosition, ((EllipseMeasure)_function).PixCoordSystem);
+            this.drawObject = new userDrawEllipseMeasure(this.hWindowControl1, ((EllipseMeasure)_function).FindEllipse.EllipsePixPosition.AffineTransPixEllipse(((EllipseMeasure)_function).PixCoordSystem?.GetVariationHomMat2D()), ((EllipseMeasure)_function).PixCoordSystem);
             new ListBoxWrapClass().InitListBox(this.listBox1, node);
             new ListBoxWrapClass().InitListBox(this.listBox2, node, 2);
         }

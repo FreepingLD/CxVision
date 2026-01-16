@@ -31,7 +31,7 @@ namespace FunctionBlock
             this._function = function;
             InitializeComponent();
             this.Text = function.GetPropertyValues("名称").ToString();
-            this.drawObject = new userDrawWidthMeasure(this.hWindowControl1, ((FunctionBlock.WidthMeasure)_function).FindWidth.Rect2PixPosition, ((FunctionBlock.WidthMeasure)_function).PixCoordSystem);
+            this.drawObject = new userDrawWidthMeasure(this.hWindowControl1, ((FunctionBlock.WidthMeasure)_function).FindWidth.Rect2PixPosition.AffineTransPixRect2(((FunctionBlock.WidthMeasure)_function).PixCoordSystem?.GetVariationHomMat2D()), ((FunctionBlock.WidthMeasure)_function).PixCoordSystem);
             new ListBoxWrapClass().InitListBox(this.listBox1, node);
             new ListBoxWrapClass().InitListBox(this.listBox2, node, 2);
         }

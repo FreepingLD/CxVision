@@ -480,7 +480,7 @@ namespace FunctionBlock
             form.ControlBox = false;
             form.Text = "";
             form.TopLevel = false; // 顶级控制是不能添加的
-            form.TopMost = true;
+            form.TopMost = false;
             form.Padding = new Padding(0);
             form.Dock = DockStyle.None;
             MastPanel.Margin = new Padding(1);

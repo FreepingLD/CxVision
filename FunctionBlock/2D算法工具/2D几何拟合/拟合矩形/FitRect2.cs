@@ -111,7 +111,19 @@ namespace FunctionBlock
             try
             {
                 Stopwatch stopwatch = new Stopwatch();
-                stopwatch.Start();
+                stopwatch.Restart();
+                if (param != null)
+                {
+                    foreach (var item in param)
+                    {
+                        switch (item?.GetType().Name)
+                        {
+                            case nameof(TreeNode):
+                                this._refNode = item as TreeNode;
+                                break;
+                        }
+                    }
+                }
                 this.Result.Succss = GeometryFitMethod.Instance.FitRect2(this.WcsPoint, this.FitParam, out this._wcsRect2);
                 stopwatch.Stop();
                 this.CreateResultInfo(7);

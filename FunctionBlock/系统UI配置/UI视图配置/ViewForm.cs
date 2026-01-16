@@ -169,6 +169,11 @@ namespace FunctionBlock
                         this.Roi绘制toolStripDropDownButton.Enabled = false;
                         this.传感器comboBox1.Enabled = false;
                         this.程序节点comboBox.Enabled = false;
+                        ////////////////////////////////////////////////////
+                        this.buttonMax.Hide();
+                        this.buttonMin.Hide();
+                        this.buttonClose.Hide();
+                        this.tableLayoutPanel2.SetColumnSpan(this.titleLabel, 8);
                         break;
                     case enUserName.工程师:
                         this.传感器comboBox1.Enabled = true;
@@ -185,6 +190,11 @@ namespace FunctionBlock
                         this.Roi绘制toolStripDropDownButton.Enabled = true;
                         this.传感器comboBox1.Enabled = false;
                         this.程序节点comboBox.Enabled = false;
+                        ////////////////////////////////////////////////////
+                        this.buttonMax.Hide();
+                        this.buttonMin.Hide();
+                        this.buttonClose.Hide();
+                        this.tableLayoutPanel2.SetColumnSpan(this.titleLabel, 8);
                         break;
                     case enUserName.开发人员:
                         this.传感器comboBox1.Enabled = true;
@@ -201,6 +211,11 @@ namespace FunctionBlock
                         this.Roi绘制toolStripDropDownButton.Enabled = true;
                         this.传感器comboBox1.Enabled = true;
                         this.程序节点comboBox.Enabled = true;
+                        ////////////////////////////////////////////////////
+                        this.buttonMax.Show();
+                        this.buttonMin.Show();
+                        this.buttonClose.Show();
+                        this.tableLayoutPanel2.SetColumnSpan(this.titleLabel, 5);
                         break;
                 }
             }
@@ -283,9 +298,10 @@ namespace FunctionBlock
                         this.ResultInfoList.Clear();
                         this.DataList.Clear();
                         this.drawObject.AttachPropertyData.Clear(); // 更新图像时清空
-                        this.drawObject.BackImage = (ImageDataClass)e.DataContent;
+                        this.drawObject.BackImage?.Dispose();
+                        this.drawObject.BackImage = ((ImageDataClass)e.DataContent).Clone();
                         if (this._viewConfigParam.IsShowCross)
-                            this.drawObject.AddViewObject(new ViewData(ScaleParamForm.GetCrossIcon(this.drawObject.CameraParam, this.drawObject.BackImage.Width, this.drawObject.BackImage.Height), ScaleParamManager.Instance.Param.Color)); //new ViewData(this.GenCrossLine(this.drawObject.BackImage.Image), "green")
+                            this.drawObject.AddViewObject(new ViewData(ScaleParamForm.GetCrossIcon(this.drawObject.CameraParam, this.drawObject.BackImage.Width, this.drawObject.BackImage.Height), ScaleParamManager.Instance.Param.Color));
                         /////////////////////////////////////////////////////////////////////////////////////////////
                         break;
                     case nameof(HXLDCont):
@@ -526,7 +542,7 @@ namespace FunctionBlock
             {
                 case 0x0084:
                     base.WndProc(ref m);
-                    if (UserLoginParamManager.Instance.CurrentUser != enUserName.开发人员) return;
+                    if (UserLoginParamManager.Instance.CurrentUser == enUserName.操作员) return;
                     Point vPoint = new Point((int)m.LParam & 0xFFFF,
                         (int)m.LParam >> 16 & 0xFFFF);
                     vPoint = PointToClient(vPoint);
@@ -1270,10 +1286,10 @@ namespace FunctionBlock
                         this.SetLut();
                         break;
                     case "对位补偿设置":
-                        if (this._param != null && this._param.IsZoneCompensation)
-                            new ZoneCompensationForm(this._zoneParam).Show();
-                        else
-                            new CompensateForm(this._param, this._viewConfigParam).Show();
+                        //if (this._zoneParam != null && this._zoneParam.IsZoneCompensation)
+                        //    new ZoneCompensationForm(this._zoneParam).Show();
+                        //else
+                        new CompensateForm(this._param, this._viewConfigParam).Show();
                         break;
                     case "设置相机参数":
                         new CameraParamForm(AcqSourceManage.Instance.GetAcqSource(this._viewConfigParam.CamName).Sensor.CameraParam).Show();
@@ -1367,7 +1383,7 @@ namespace FunctionBlock
                         break;
 
                     case "设置光标参数":
-                        Point point = this.hWindowControl1.PointToScreen(new Point((int)this._curCol, (int)this._curRow));
+                        Point point = this.hWindowControl1.PointToScreen(this.hWindowControl1.Location);  //new Point((int)this._curCol, (int)this._curRow)
                         new ScaleParamForm(point).Show();
                         break; //
                 }
@@ -1689,7 +1705,6 @@ namespace FunctionBlock
                                         new UserMessageForm().ShowDialog("服务器离线!");
                                     break;
                             }
-
                         }
                         break;
                     default:
@@ -1730,6 +1745,11 @@ namespace FunctionBlock
                         ManualMeasureRect2Form manualMeasureRect2Form = new ManualMeasureRect2Form(this.drawObject.BackImage, pixRect2);
                         manualMeasureRect2Form.StartPosition = FormStartPosition.Manual;
                         manualMeasureRect2Form.Location = this.Location;
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            manualMeasureRect2Form.TopMost = true;
+                            manualMeasureRect2Form.ShowInTaskbar = true;
+                        }
                         if (manualMeasureRect2Form.ShowDialog() == DialogResult.OK)
                         {
                             this._pixROI = manualMeasureRect2Form.PixRect2;
@@ -1761,6 +1781,11 @@ namespace FunctionBlock
                         ManualMeasureCircleForm manualMeasureCircleForm = new ManualMeasureCircleForm(this.drawObject.BackImage, pixCircle);
                         manualMeasureCircleForm.StartPosition = FormStartPosition.Manual;
                         manualMeasureCircleForm.Location = this.Location;
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            manualMeasureCircleForm.TopMost = true;
+                            manualMeasureCircleForm.ShowInTaskbar = true;
+                        }
                         if (manualMeasureCircleForm.ShowDialog() == DialogResult.OK)
                         {
                             this._pixROI = manualMeasureCircleForm.PixCircle;
@@ -1792,6 +1817,11 @@ namespace FunctionBlock
                         ManualMeasureEllipseForm manualMeasureEllipseForm = new ManualMeasureEllipseForm(this.drawObject.BackImage, pixEllipse);
                         manualMeasureEllipseForm.StartPosition = FormStartPosition.Manual;
                         manualMeasureEllipseForm.Location = this.Location;
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            manualMeasureEllipseForm.TopMost = true;
+                            manualMeasureEllipseForm.ShowInTaskbar = true;
+                        }
                         if (manualMeasureEllipseForm.ShowDialog() == DialogResult.OK)
                         {
                             this._pixROI = manualMeasureEllipseForm.PixEllipse;
@@ -1823,6 +1853,11 @@ namespace FunctionBlock
                         ManualMeasureLineForm manualMeasureLineForm = new ManualMeasureLineForm(this.drawObject.BackImage, pixLine);
                         manualMeasureLineForm.StartPosition = FormStartPosition.Manual;
                         manualMeasureLineForm.Location = this.Location;
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            manualMeasureLineForm.TopMost = true;
+                            manualMeasureLineForm.ShowInTaskbar = true;
+                        }
                         if (manualMeasureLineForm.ShowDialog() == DialogResult.OK)
                         {
                             this._pixROI = manualMeasureLineForm.PixLine;
@@ -1854,6 +1889,11 @@ namespace FunctionBlock
                         ManualMeasurePointForm manualMeasurePointForm = new ManualMeasurePointForm(this.drawObject.BackImage, pixPoint);
                         manualMeasurePointForm.StartPosition = FormStartPosition.Manual;
                         manualMeasurePointForm.Location = this.Location;
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            manualMeasurePointForm.TopMost = true;
+                            manualMeasurePointForm.ShowInTaskbar = true;
+                        }
                         if (manualMeasurePointForm.ShowDialog() == DialogResult.OK)
                         {
                             this._pixROI = manualMeasurePointForm.PixPoint;
@@ -1897,22 +1937,31 @@ namespace FunctionBlock
                         if (AcqSourceManage.Instance.GetAcqSource(this._viewConfigParam.CamName) == null || AcqSourceManage.Instance.GetAcqSource(this._viewConfigParam.CamName).Sensor == null) return;
                         //string value = AcqSourceManage.Instance.GetAcqSource(this._viewConfigParam.CamName).Sensor.GetParam("曝光").ToString();
                         SetCamExposeForm renameForm = new SetCamExposeForm(this._viewConfigParam.CamName);
-                        renameForm.TopMost = true;
-                        renameForm.ShowInTaskbar = true;
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            renameForm.TopMost = true;
+                            renameForm.ShowInTaskbar = true;
+                        }
                         renameForm.ShowDialog();
                         break;
                     case nameof(this.设置增益ToolStripMenuItem):
                         if (AcqSourceManage.Instance.GetAcqSource(this._viewConfigParam.CamName) == null || AcqSourceManage.Instance.GetAcqSource(this._viewConfigParam.CamName).Sensor == null) return;
                         //value = AcqSourceManage.Instance.GetAcqSource(this._viewConfigParam.CamName).Sensor.GetParam("增益").ToString();
                         SetCamGainForm renameForm2 = new SetCamGainForm(this._viewConfigParam.CamName);
-                        renameForm2.TopMost = true;
-                        renameForm2.ShowInTaskbar = true;
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            renameForm2.TopMost = true;
+                            renameForm2.ShowInTaskbar = true;
+                        }
                         renameForm2.ShowDialog();
                         break;
                     case nameof(this.日志面板ToolStripMenuItem):
                         LogViewForm logForm = new LogViewForm(this._sensor?.Name);
-                        //logForm.TopMost = true;
-                        logForm.ShowInTaskbar = true;
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            logForm.TopMost = true;
+                            logForm.ShowInTaskbar = true;
+                        }
                         logForm.Show();
                         break;
                 }
@@ -1938,60 +1987,87 @@ namespace FunctionBlock
                 {
                     case nameof(this.九点标定ToolStripMenuItem):
                         CamNPointCalibParamSimpleForm Instance = new CamNPointCalibParamSimpleForm(NowCaliPara);
-                        Instance.TopMost = true;
-                        Instance.ShowInTaskbar = true;
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            Instance.TopMost = true;
+                            Instance.ShowInTaskbar = true;
+                        }
                         Instance.Show();
                         break;
                     case nameof(this.旋转标定ToolStripMenuItem):
                         CamRotatetCalibrateSimpleForm InstanceRotate = new CamRotatetCalibrateSimpleForm(NowCaliPara);
-                        InstanceRotate.TopMost = true;
-                        InstanceRotate.ShowInTaskbar = true;
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            InstanceRotate.TopMost = true;
+                            InstanceRotate.ShowInTaskbar = true;
+                        }
                         InstanceRotate.Show();
                         break;
                     case nameof(this.九点旋转标定ToolStripMenuItem):
                         Cam9PointCalibrateSimpleForm Instance2 = new Cam9PointCalibrateSimpleForm(NowCaliPara);
-                        Instance2.TopMost = true;
-                        Instance2.ShowInTaskbar = true;
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            Instance2.TopMost = true;
+                            Instance2.ShowInTaskbar = true;
+                        }
                         Instance2.Show();
                         break;
                     case nameof(this.世界坐标映射标定ToolStripMenuItem):
                         CamMapCalibParamSimpleForm Instance4 = new CamMapCalibParamSimpleForm(NowCaliPara);
-                        Instance4.TopMost = true;
-                        Instance4.ShowInTaskbar = true;
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            Instance4.TopMost = true;
+                            Instance4.ShowInTaskbar = true;
+                        }
                         Instance4.Show();
                         break;
                     case nameof(this.像素坐标映射标定toolStripMenuItem):
                         CameraParam TargetCaliPara = AcqSourceManage.Instance.GetCamAcqSource(NowCaliPara.CaliParam.MapCamName).Sensor.CameraParam;
                         UpDnCamCalibSimpleForm Instance6 = new UpDnCamCalibSimpleForm(NowCaliPara, TargetCaliPara);
-                        Instance6.TopMost = true;
-                        Instance6.ShowInTaskbar = true;
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            Instance6.TopMost = true;
+                            Instance6.ShowInTaskbar = true;
+                        }
                         Instance6.Show();
                         break;
                     case nameof(this.标定板映射标定toolStripMenuItem):
                         TargetCaliPara = AcqSourceManage.Instance.GetCamAcqSource(NowCaliPara.CaliParam.MapCamName).Sensor.CameraParam;
                         CaliboardMapSimpleForm Instance7 = new CaliboardMapSimpleForm(NowCaliPara, TargetCaliPara);
-                        Instance7.TopMost = true;
-                        Instance7.ShowInTaskbar = true;
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            Instance7.TopMost = true;
+                            Instance7.ShowInTaskbar = true;
+                        }
                         Instance7.Show();
                         break;
                     case nameof(this.标定板标定ToolStripMenuItem):
                         CaliCaliboardSimpleForm Instance3 = new CaliCaliboardSimpleForm(NowCaliPara);
-                        Instance3.TopMost = true;
-                        Instance3.ShowInTaskbar = true;
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            Instance3.TopMost = true;
+                            Instance3.ShowInTaskbar = true;
+                        }
                         Instance3.Show();
                         break;
 
                     case nameof(this.手动九点标定ToolStripMenuItem):
                         ManualCalibForm Instance8 = new ManualCalibForm(this.drawObject.BackImage, NowCaliPara);
-                        Instance8.TopMost = true;
-                        Instance8.ShowInTaskbar = true;
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            Instance8.TopMost = true;
+                            Instance8.ShowInTaskbar = true;
+                        }
                         Instance8.Show();
                         break;
 
                     case nameof(this.相机针头标定ToolStripMenuItem):
                         CameraGlueGunCalibrateFormNew Instance9 = new CameraGlueGunCalibrateFormNew(NowCaliPara);
-                        ////Instance9.TopMost = true;
-                        ////Instance9.ShowInTaskbar = true;
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            Instance9.TopMost = true;
+                            Instance9.ShowInTaskbar = true;
+                        }
                         Instance9.Show();
                         break;
 
@@ -2111,91 +2187,19 @@ namespace FunctionBlock
         {
             try
             {
-                this.stopwatch = new Stopwatch();
-                this.stopwatch.Restart();
-                enCoordSysName coordSysName = AcqSourceManage.Instance.GetAcqSource(this._viewConfigParam.CamName).CoordSysName;
-                string commandState = CommunicationConfigParamManger.Instance.ReadValue(coordSysName, enCommunicationCommand.Result).ToString();
-                // 如果软件是运行状态，那么需等待运控发送信号过来
-                if (SystemParamManager.Instance.SysConfigParam.IsAutoRun)
-                {
-                    if (!this._manualEvent.IsSet)
-                    {
-                        if (this._manualEvent.Wait(200)) // 等待 500 ms 
-                        {
-                            this.Invoke(new Action(() =>
-                            {
-                                this.Socket连接状态.Image = FunctionBlock.Properties.Resources.green1;
-                            }));
-                        }
-                        else
-                        {
-                            LoggerHelper.Warn(this._viewConfigParam.ViewName + $":图像触发后等待了 500ms 还未收到运控的触发指令!", this._sensor?.Name);
-                            this.Invoke(new Action(() =>
-                            {
-                                this.Socket连接状态.Image = FunctionBlock.Properties.Resources.red1;
-                            }));
-                            this.drawObject.BackImage = e.ImageData; // 表示非自动运行状态，手动移动轴产生的触发信号 ，只显示图像
-                            return;
-                        }
-                    }
-                    else
-                        this.Invoke(new Action(() =>
-                        {
-                            this.Socket连接状态.Image = FunctionBlock.Properties.Resources.green1;
-                        }));
-                }
-                this._imageIndex++;
-                double X = 0, Y = 0, Theta = 0, ColCount = 0, ColDist;
-                CommunicationConfigParamManger.Instance.WriteValue(coordSysName, enCommunicationCommand.GrabNo, this._imageIndex); // 把图像索引写给拍照位
-                object _colCount = CommunicationConfigParamManger.Instance.ReadValue(coordSysName, enCommunicationCommand.ColCount);
-                object grab_x = CommunicationConfigParamManger.Instance.ReadValue(coordSysName, enCommunicationCommand.X);
-                object grab_y = CommunicationConfigParamManger.Instance.ReadValue(coordSysName, enCommunicationCommand.Y);
-                object grab_theta = CommunicationConfigParamManger.Instance.ReadValue(coordSysName, enCommunicationCommand.Theta);
-                object colDist = CommunicationConfigParamManger.Instance.ReadValue(coordSysName, enCommunicationCommand.ColDist); // 这个值区分正负
-                double.TryParse(grab_x.ToString(), out X);
-                double.TryParse(grab_y.ToString(), out Y);
-                double.TryParse(grab_theta.ToString(), out Theta);
-                double.TryParse(_colCount.ToString(), out ColCount); // 列数量
-                double.TryParse(colDist.ToString(), out ColDist); // 列间距
-                //int.TryParse(e.ImageData.Tag.ToString(), out imageIndex);
-                if (ColCount == _imageIndex) // 执行到最后一列时，需要复位事件信号；
-                {
-                    this._manualEvent?.Reset();
-                    LoggerHelper.Info($"相机:{this._sensor?.Name}:执行到最后一列，复位事件信号和图像索引!", this._sensor?.Name);
-                }
-                //if (_imageIndex > ColCount) 
-                //    return;
-                //////////   开始处理图像   /////////////
-                e.ImageData.ViewWindow = this._viewConfigParam.ViewName;
-                e.ImageData.Grab_X = X;
-                e.ImageData.Grab_Y = Y + ColDist * (this._imageIndex - 1);
-                e.ImageData.Grab_Theta = Theta;
-                e.ImageData.Tag = this._imageIndex;
-                //////////////////////////////////////////////////////////
-                TreeNode node = GetBindingNode(enBindingNodeName.程序节点);
-                if (node != null)
-                {
-                    IFunction item = node.Tag as IFunction;
-                    item?.Execute(node, e.ImageData);
-                    LoggerHelper.Info($"相机:{this._sensor?.Name}:执行拍照位:{this._imageIndex}程序", this._sensor?.Name);
-                }
-                else
-                {
-                    LoggerHelper.Warn($"相机:{this._sensor?.Name}:接收到图像，图像索引{this._imageIndex},但窗口没有绑定程序节点", this._sensor?.Name);
-                }
+                this.drawObject.IsLiveState = true;
+                this.drawObject.BackImage?.Dispose();
+                this.drawObject.BackImage = e.ImageData;
+                if (this._viewConfigParam.IsShowCross)
+                    this.drawObject.AddViewObject(new ViewData(ScaleParamForm.GetCrossIcon(this.drawObject.CameraParam, this.drawObject.BackImage.Width, this.drawObject.BackImage.Height), ScaleParamManager.Instance.Param.Color));
             }
             catch (Exception ex)
             {
-                LoggerHelper.Error($"相机:{this._sensor?.Name}:接收到图像，执行程序失败，错误信息:{ex.ToString()}", this._sensor?.Name);
-            }
-            finally
-            {
-                this.stopwatch.Stop();
-                LoggerHelper.Info($"相机:{this._sensor?.Name},拍照位:{this._imageIndex},执行时间{this.stopwatch.ElapsedMilliseconds}(ms)", this._sensor?.Name);
+                LoggerHelper.Error($"相机:{this._sensor?.Name}:接收到图像失败，错误信息:{ex.ToString()}", this._sensor?.Name);
             }
         }
 
-        private void ImageAcqComplete_EventOld(object sender, ImageAcqCompleteEventArgs e)
+        private void ImageAcqComplete_Event(object sender, ImageAcqCompleteEventArgs e)
         {
             try
             {

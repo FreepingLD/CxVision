@@ -945,6 +945,9 @@
   <data name="旋转方向comboBox.Items4" xml:space="preserve">
     <value>正反向(5点标定)</value>
   </data>
+  <data name="旋转方向comboBox.Items5" xml:space="preserve">
+    <value>单向迭代</value>
+  </data>
   <data name="旋转方向comboBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>115, 203</value>
   </data>
@@ -1932,25 +1935,25 @@
   <data name="&gt;&gt;启用UVW平台checkBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="Rot_Deg_textBox.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="W_Angle_textBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>230, 66</value>
   </data>
-  <data name="Rot_Deg_textBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="W_Angle_textBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 21</value>
   </data>
-  <data name="Rot_Deg_textBox.TabIndex" type="System.Int32, mscorlib">
+  <data name="W_Angle_textBox.TabIndex" type="System.Int32, mscorlib">
     <value>47</value>
   </data>
-  <data name="&gt;&gt;Rot_Deg_textBox.Name" xml:space="preserve">
-    <value>Rot_Deg_textBox</value>
+  <data name="&gt;&gt;W_Angle_textBox.Name" xml:space="preserve">
+    <value>W_Angle_textBox</value>
   </data>
-  <data name="&gt;&gt;Rot_Deg_textBox.Type" xml:space="preserve">
+  <data name="&gt;&gt;W_Angle_textBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Rot_Deg_textBox.Parent" xml:space="preserve">
+  <data name="&gt;&gt;W_Angle_textBox.Parent" xml:space="preserve">
     <value>tabPage3</value>
   </data>
-  <data name="&gt;&gt;Rot_Deg_textBox.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;W_Angle_textBox.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="label25.AutoSize" type="System.Boolean, mscorlib">
@@ -1980,25 +1983,25 @@
   <data name="&gt;&gt;label25.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="Rot_y_textBox.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="V_Angle_textBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>230, 39</value>
   </data>
-  <data name="Rot_y_textBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="V_Angle_textBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 21</value>
   </data>
-  <data name="Rot_y_textBox.TabIndex" type="System.Int32, mscorlib">
+  <data name="V_Angle_textBox.TabIndex" type="System.Int32, mscorlib">
     <value>45</value>
   </data>
-  <data name="&gt;&gt;Rot_y_textBox.Name" xml:space="preserve">
-    <value>Rot_y_textBox</value>
+  <data name="&gt;&gt;V_Angle_textBox.Name" xml:space="preserve">
+    <value>V_Angle_textBox</value>
   </data>
-  <data name="&gt;&gt;Rot_y_textBox.Type" xml:space="preserve">
+  <data name="&gt;&gt;V_Angle_textBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Rot_y_textBox.Parent" xml:space="preserve">
+  <data name="&gt;&gt;V_Angle_textBox.Parent" xml:space="preserve">
     <value>tabPage3</value>
   </data>
-  <data name="&gt;&gt;Rot_y_textBox.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;V_Angle_textBox.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="label26.AutoSize" type="System.Boolean, mscorlib">
@@ -2028,25 +2031,25 @@
   <data name="&gt;&gt;label26.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="Rot_x_textBox.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="U_Angle_textBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>230, 12</value>
   </data>
-  <data name="Rot_x_textBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="U_Angle_textBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 21</value>
   </data>
-  <data name="Rot_x_textBox.TabIndex" type="System.Int32, mscorlib">
+  <data name="U_Angle_textBox.TabIndex" type="System.Int32, mscorlib">
     <value>43</value>
   </data>
-  <data name="&gt;&gt;Rot_x_textBox.Name" xml:space="preserve">
-    <value>Rot_x_textBox</value>
+  <data name="&gt;&gt;U_Angle_textBox.Name" xml:space="preserve">
+    <value>U_Angle_textBox</value>
   </data>
-  <data name="&gt;&gt;Rot_x_textBox.Type" xml:space="preserve">
+  <data name="&gt;&gt;U_Angle_textBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Rot_x_textBox.Parent" xml:space="preserve">
+  <data name="&gt;&gt;U_Angle_textBox.Parent" xml:space="preserve">
     <value>tabPage3</value>
   </data>
-  <data name="&gt;&gt;Rot_x_textBox.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;U_Angle_textBox.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
   <data name="label27.AutoSize" type="System.Boolean, mscorlib">

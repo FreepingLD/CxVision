@@ -529,9 +529,9 @@ namespace MotionControlCard
                 paramList = XML<BindingList<CommunicationConfigParam>>.Read(ParaPath + "\\" + "CommunicationConfigParam.xml");
             }
             /////////////////////////////////////////////
-            if (this._CommunicationParamList.Count == 0)
+            if (this._CommunicationParamList.Count == 0 || this._CommunicationParamList.Count < 15)
             {
-                for (int i = 1; i <= 15; i++)
+                for (int i = this._CommunicationParamList.Count; i < 15; i++)
                 {
                     this._CommunicationParamList.Add(new BindingList<CommunicationConfigParam>());
                 }

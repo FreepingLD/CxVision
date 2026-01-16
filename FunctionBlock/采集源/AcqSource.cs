@@ -657,6 +657,7 @@ namespace FunctionBlock
                         switch (this.Sensor.LaserParam.AcqMode)
                         {
                             case enAcqMode.同步采集:
+                            case enAcqMode.实时采集:
                                 for (int i = 0; i < 3; i++)
                                 {
                                     result = SensorManage.GetSensor(item).StartTrigger();
@@ -673,6 +674,7 @@ namespace FunctionBlock
                         switch (this.Sensor.CameraParam.AcqMode)
                         {
                             case enAcqMode.同步采集:
+                            case enAcqMode.实时采集:
                                 for (int i = 0; i < 3; i++)
                                 {
                                     result = SensorManage.GetSensor(item).StartTrigger();
@@ -701,6 +703,7 @@ namespace FunctionBlock
                         switch (this.Sensor.LaserParam.AcqMode)
                         {
                             case enAcqMode.同步采集:
+                            case enAcqMode.实时采集:
                                 for (int i = 0; i < 3; i++)
                                 {
                                     result = SensorManage.GetSensor(item).StopTrigger();
@@ -716,6 +719,7 @@ namespace FunctionBlock
                         switch (this.Sensor.CameraParam.AcqMode)
                         {
                             case enAcqMode.同步采集:
+                            case enAcqMode.实时采集:
                                 for (int i = 0; i < 3; i++)
                                 {
                                     result = SensorManage.GetSensor(item).StopTrigger();

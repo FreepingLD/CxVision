@@ -133,19 +133,28 @@ namespace FunctionBlock
                 switch (loginParam.User)
                 {
                     case enUserName.操作员:
-                        //this.传感器comboBox1.Enabled = false;
-                        //this.程序节点comboBox.Enabled = false;
                         this.buttonClose.Enabled = false;
+                        ////////////////////////////////////////////////////
+                        this.buttonMax.Hide();
+                        this.buttonMin.Hide();
+                        this.buttonClose.Hide();
+                        this.tableLayoutPanel1.SetColumnSpan(this.titleLabel, 7);
                         break;
                     case enUserName.工程师:
-                        //this.传感器comboBox1.Enabled = true;
-                        //this.程序节点comboBox.Enabled = true;
                         this.buttonClose.Enabled = false;
+                        ////////////////////////////////////////////////////
+                        this.buttonMax.Hide();
+                        this.buttonMin.Hide();
+                        this.buttonClose.Hide();
+                        this.tableLayoutPanel1.SetColumnSpan(this.titleLabel, 7);
                         break;
                     case enUserName.开发人员:
-                        //this.传感器comboBox1.Enabled = true;
-                        //this.程序节点comboBox.Enabled = true;
                         this.buttonClose.Enabled = true;
+                        ////////////////////////////////////////////////////
+                        this.buttonMax.Show();
+                        this.buttonMin.Show();
+                        this.buttonClose.Show();
+                        this.tableLayoutPanel1.SetColumnSpan(this.titleLabel, 4);
                         break;
                 }
             }
@@ -226,7 +235,7 @@ namespace FunctionBlock
             {
                 case 0x0084:
                     base.WndProc(ref m);
-                    if (UserLoginParamManager.Instance.CurrentUser != enUserName.开发人员) return;
+                    if (UserLoginParamManager.Instance.CurrentUser == enUserName.操作员) return;
                     Point vPoint = new Point((int)m.LParam & 0xFFFF,
                         (int)m.LParam >> 16 & 0xFFFF);
                     vPoint = PointToClient(vPoint);
@@ -518,8 +527,11 @@ namespace FunctionBlock
                         case nameof(ImageDataClass):
                             this.listData.Clear();
                             this.drawObject.ClearViewObject();
-                            this.drawObject.BackImage = (ImageDataClass)e.DataContent;
+                            //this.drawObject.BackImage?.Dispose();
+                            this.drawObject.BackImage = ((ImageDataClass)e.DataContent).Clone();
                             this.CurrentImageData = this.drawObject.BackImage;
+                            if (this._viewConfigParam.IsShowCross)
+                                this.drawObject.AddViewObject(new ViewData(ScaleParamForm.GetCrossIcon(this.drawObject.CameraParam, this.drawObject.BackImage.Width, this.drawObject.BackImage.Height), ScaleParamManager.Instance.Param.Color));
                             break;
                         case nameof(RegionDataClass):
                             if (this.listData.ContainsKey(e.ItemName))
@@ -1285,14 +1297,14 @@ namespace FunctionBlock
                      new ToolStripMenuItem("设置抓边参数",null,null,"设置抓边参数"),
                      new ToolStripMenuItem("边缘点",null,null,"边缘点"),
                      new ToolStripMenuItem("设置绘图参数",null,null,"设置绘图参数"),
-                     new ToolStripMenuItem("移动到当前位",null,null,"移动到当前位"), 
+                     new ToolStripMenuItem("移动到当前位",null,null,"移动到当前位"),
                      new ToolStripMenuItem("发送当前坐标",null,null,"发送当前坐标"),
                      new ToolStripMenuItem("------------"),
                      new ToolStripMenuItem("自适应窗口",null,null,"自适应窗口"),
                      new ToolStripMenuItem("清除窗口",null,null,"清除窗口"),
                      new ToolStripMenuItem("保存图像",null,null,"保存图像"),
                      new ToolStripMenuItem("加载图像",null,null,"加载图像"), //
-                     new ToolStripMenuItem("设置光标参数",null,null,"设置光标参数"), 
+                     new ToolStripMenuItem("设置光标参数",null,null,"设置光标参数"),
                     };
                     if (this._viewConfigParam.IsShowCross)
                         items[2].Text = "隐藏边缘点";
@@ -1569,9 +1581,9 @@ namespace FunctionBlock
                         break;
 
                     case "设置光标参数":
-                        Point point = this.hWindowControl1.PointToScreen(new Point((int)this._curCol, (int)this._curRow));
+                        Point point = this.hWindowControl1.PointToScreen(this.hWindowControl1.Location);
                         new ScaleParamForm(point).Show();
-                        break; 
+                        break;
 
                     default:
                         break;
@@ -1706,6 +1718,11 @@ namespace FunctionBlock
                         ManualMeasureRect2Form manualMeasureRect2Form = new ManualMeasureRect2Form(this.drawObject.BackImage, pixRect2);
                         manualMeasureRect2Form.StartPosition = FormStartPosition.Manual;
                         manualMeasureRect2Form.Location = this.Location;
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            manualMeasureRect2Form.TopMost = true;
+                            manualMeasureRect2Form.ShowInTaskbar = true;
+                        }
                         if (manualMeasureRect2Form.ShowDialog() == DialogResult.OK)
                         {
                             this._pixROI = manualMeasureRect2Form.PixRect2;
@@ -1737,6 +1754,11 @@ namespace FunctionBlock
                         ManualMeasureCircleForm manualMeasureCircleForm = new ManualMeasureCircleForm(this.drawObject.BackImage, pixCircle);
                         manualMeasureCircleForm.StartPosition = FormStartPosition.Manual;
                         manualMeasureCircleForm.Location = this.Location;
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            manualMeasureCircleForm.TopMost = true;
+                            manualMeasureCircleForm.ShowInTaskbar = true;
+                        }
                         if (manualMeasureCircleForm.ShowDialog() == DialogResult.OK)
                         {
                             this._pixROI = manualMeasureCircleForm.PixCircle;
@@ -1768,6 +1790,11 @@ namespace FunctionBlock
                         ManualMeasureEllipseForm manualMeasureEllipseForm = new ManualMeasureEllipseForm(this.drawObject.BackImage, pixEllipse);
                         manualMeasureEllipseForm.StartPosition = FormStartPosition.Manual;
                         manualMeasureEllipseForm.Location = this.Location;
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            manualMeasureEllipseForm.TopMost = true;
+                            manualMeasureEllipseForm.ShowInTaskbar = true;
+                        }
                         if (manualMeasureEllipseForm.ShowDialog() == DialogResult.OK)
                         {
                             this._pixROI = manualMeasureEllipseForm.PixEllipse;
@@ -1799,6 +1826,11 @@ namespace FunctionBlock
                         ManualMeasureLineForm manualMeasureLineForm = new ManualMeasureLineForm(this.drawObject.BackImage, pixLine);
                         manualMeasureLineForm.StartPosition = FormStartPosition.Manual;
                         manualMeasureLineForm.Location = this.Location;
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            manualMeasureLineForm.TopMost = true;
+                            manualMeasureLineForm.ShowInTaskbar = true;
+                        }
                         if (manualMeasureLineForm.ShowDialog() == DialogResult.OK)
                         {
                             this._pixROI = manualMeasureLineForm.PixLine;
@@ -1830,6 +1862,11 @@ namespace FunctionBlock
                         ManualMeasurePointForm manualMeasurePointForm = new ManualMeasurePointForm(this.drawObject.BackImage, pixPoint);
                         manualMeasurePointForm.StartPosition = FormStartPosition.Manual;
                         manualMeasurePointForm.Location = this.Location;
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            manualMeasurePointForm.TopMost = true;
+                            manualMeasurePointForm.ShowInTaskbar = true;
+                        }
                         if (manualMeasurePointForm.ShowDialog() == DialogResult.OK)
                         {
                             this._pixROI = manualMeasurePointForm.PixPoint;
@@ -1849,6 +1886,51 @@ namespace FunctionBlock
                             this.drawObject.AddViewObject(new ViewData(textLable, "red"));
                         }
                         break;
+                }
+            }
+            catch (Exception ex)
+            {
+                new Common.UserMessageForm(ex.ToString()).ShowDialog();
+            }
+        }
+
+        private void 相机toolStripDropDownButton_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            try
+            {
+                switch (e.ClickedItem.Name)
+                {
+                    case nameof(this.设置曝光toolStripMenuItem):
+                        if (AcqSourceManage.Instance.GetAcqSource(this._viewConfigParam.CamName) == null || AcqSourceManage.Instance.GetAcqSource(this._viewConfigParam.CamName).Sensor == null) return;
+                        //string value = AcqSourceManage.Instance.GetAcqSource(this._viewConfigParam.CamName).Sensor.GetParam("曝光").ToString();
+                        SetCamExposeForm renameForm = new SetCamExposeForm(this._viewConfigParam.CamName);
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            renameForm.TopMost = true;
+                            renameForm.ShowInTaskbar = true;
+                        }
+                        renameForm.ShowDialog();
+                        break;
+                    case nameof(this.设置增益ToolStripMenuItem):
+                        if (AcqSourceManage.Instance.GetAcqSource(this._viewConfigParam.CamName) == null || AcqSourceManage.Instance.GetAcqSource(this._viewConfigParam.CamName).Sensor == null) return;
+                        //value = AcqSourceManage.Instance.GetAcqSource(this._viewConfigParam.CamName).Sensor.GetParam("增益").ToString();
+                        SetCamGainForm renameForm2 = new SetCamGainForm(this._viewConfigParam.CamName);
+                        if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                        {
+                            renameForm2.TopMost = true;
+                            renameForm2.ShowInTaskbar = true;
+                        }
+                        renameForm2.ShowDialog();
+                        break;
+                    //case nameof(this.日志面板ToolStripMenuItem):
+                    //    LogViewForm logForm = new LogViewForm(this._sensor?.Name);
+                    //    if (SystemParamManager.Instance.SysConfigParam.IsFormTopMost)
+                    //    {
+                    //        logForm.TopMost = true;
+                    //        logForm.ShowInTaskbar = true;
+                    //    }
+                    //    logForm.Show();
+                    //    break;
                 }
             }
             catch (Exception ex)

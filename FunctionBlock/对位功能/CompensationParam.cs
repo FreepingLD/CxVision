@@ -14,35 +14,56 @@ namespace FunctionBlock
         public enRefObject RefObject { get; set; }
         public enAlignmentMethod AlignmentMethod { get; set; }
         public enOffsetMethod OffsetMethod { get; set; }
-
-        public enCoordSysName CoordSysName { get; set; }
         public bool IsWcsToRotate { get; set; }
         public double Add_X { get; set; }
         public double Add_Y { get; set; }
         public double Add_Angle { get; set; }
         public string ViewWindow { get; set; }
-
+        public string DataViewWindow { get; set; }
         public bool IsAuto { get; set; }
         public bool IsInvert { get; set; }
         public double Threshold { get; set; }
-
-        public bool IsZoneCompensation { get; set; }
-
         public bool IsOutputUvw { get; set; }
+        public AlignMatchParam MatchParam { get; set; }
+        
+
         public CompensationParam()
         {
             this.RefObject = enRefObject.目标点;
             this.AlignmentMethod = enAlignmentMethod.四点对齐;
             this.IsWcsToRotate = true;
             this.OffsetMethod = enOffsetMethod.两点向量差;
-            this.CoordSysName = enCoordSysName.CoordSys_0;
+            //this.CoordSysName = enCoordSysName.CoordSys_0;
             this.ViewWindow = "NONE";
+            this.DataViewWindow = "NONE";
             this.IsAuto = false;
             this.IsInvert = false;
             this.Threshold = 0;
-            this.IsZoneCompensation = false;
+            //this.IsZoneCompensation = false;
             this.IsOutputUvw = false;
+            this.MatchParam = new AlignMatchParam();
         }
+
+
+    }
+
+    [Serializable]
+    public class AlignMatchParam
+    {
+        public double StartPercent { get; set; }
+        public double EndPercent { get; set; }
+        public enTransformationType TransformationType { get; set; }
+        public string ResampleDist { get; set; }
+
+
+        public AlignMatchParam()
+        {
+            this.StartPercent = 0.1;
+            this.EndPercent = 0.7;
+            this.TransformationType = enTransformationType.affine;
+            this.ResampleDist = "0.02";// auto 自动模式下不采样
+        }
+
     }
 
     [Serializable]
@@ -68,6 +89,7 @@ namespace FunctionBlock
         N点对齐,
         四点对齐_两点平移,
         向量对位_放料计算,
+        轮廓对齐,
     }
 
     [Serializable]

@@ -58,10 +58,10 @@
             this.titleLabel.BackColor = System.Drawing.Color.LightGray;
             this.tableLayoutPanel2.SetColumnSpan(this.titleLabel, 5);
             this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.titleLabel.Location = new System.Drawing.Point(2, 2);
-            this.titleLabel.Margin = new System.Windows.Forms.Padding(2);
+            this.titleLabel.Location = new System.Drawing.Point(0, 0);
+            this.titleLabel.Margin = new System.Windows.Forms.Padding(0);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(549, 16);
+            this.titleLabel.Size = new System.Drawing.Size(549, 20);
             this.titleLabel.TabIndex = 22;
             this.titleLabel.Text = "CxVision";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -98,7 +98,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 138F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 125F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(634, 619);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(630, 615);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // buttonMax
@@ -106,7 +106,7 @@
             this.buttonMax.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonMax.BackgroundImage")));
             this.buttonMax.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonMax.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonMax.Location = new System.Drawing.Point(580, 0);
+            this.buttonMax.Location = new System.Drawing.Point(576, 0);
             this.buttonMax.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMax.Name = "buttonMax";
             this.buttonMax.Size = new System.Drawing.Size(27, 20);
@@ -119,7 +119,7 @@
             this.buttonClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonClose.BackgroundImage")));
             this.buttonClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonClose.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonClose.Location = new System.Drawing.Point(607, 0);
+            this.buttonClose.Location = new System.Drawing.Point(603, 0);
             this.buttonClose.Margin = new System.Windows.Forms.Padding(0);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(27, 20);
@@ -133,7 +133,7 @@
             this.buttonMin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonMin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonMin.Enabled = false;
-            this.buttonMin.Location = new System.Drawing.Point(553, 0);
+            this.buttonMin.Location = new System.Drawing.Point(549, 0);
             this.buttonMin.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMin.Name = "buttonMin";
             this.buttonMin.Size = new System.Drawing.Size(27, 20);
@@ -160,10 +160,10 @@
             this.夹抓tableLayoutPanel.RowCount = 1;
             this.tableLayoutPanel2.SetRowSpan(this.夹抓tableLayoutPanel, 5);
             this.夹抓tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.夹抓tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 472F));
-            this.夹抓tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 472F));
-            this.夹抓tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 472F));
-            this.夹抓tableLayoutPanel.Size = new System.Drawing.Size(628, 468);
+            this.夹抓tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 468F));
+            this.夹抓tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 468F));
+            this.夹抓tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 468F));
+            this.夹抓tableLayoutPanel.Size = new System.Drawing.Size(624, 464);
             this.夹抓tableLayoutPanel.TabIndex = 1;
             // 
             // 参数groupBox
@@ -182,9 +182,9 @@
             this.参数groupBox.Controls.Add(this.X轴正限位comboBox);
             this.参数groupBox.Controls.Add(this.label5);
             this.参数groupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.参数groupBox.Location = new System.Drawing.Point(3, 497);
+            this.参数groupBox.Location = new System.Drawing.Point(3, 493);
             this.参数groupBox.Name = "参数groupBox";
-            this.参数groupBox.Size = new System.Drawing.Size(628, 119);
+            this.参数groupBox.Size = new System.Drawing.Size(624, 119);
             this.参数groupBox.TabIndex = 23;
             this.参数groupBox.TabStop = false;
             this.参数groupBox.Text = "参数";
@@ -202,7 +202,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(195, 46);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 12);
+            this.label8.Size = new System.Drawing.Size(68, 12);
             this.label8.TabIndex = 50;
             this.label8.Text = "角度负限位:";
             // 
@@ -219,7 +219,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(195, 20);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 12);
+            this.label9.Size = new System.Drawing.Size(68, 12);
             this.label9.TabIndex = 48;
             this.label9.Text = "角度正限位:";
             // 
@@ -236,7 +236,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(8, 98);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.Size = new System.Drawing.Size(64, 12);
             this.label4.TabIndex = 41;
             this.label4.Text = "Y轴负限位:";
             // 
@@ -253,7 +253,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(8, 72);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.Size = new System.Drawing.Size(64, 12);
             this.label3.TabIndex = 39;
             this.label3.Text = "Y轴正限位:";
             // 
@@ -270,7 +270,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(8, 46);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.Size = new System.Drawing.Size(64, 12);
             this.label2.TabIndex = 37;
             this.label2.Text = "X轴负限位:";
             // 
@@ -287,7 +287,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(8, 20);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 12);
+            this.label5.Size = new System.Drawing.Size(64, 12);
             this.label5.TabIndex = 35;
             this.label5.Text = "X轴正限位:";
             // 
@@ -296,7 +296,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(634, 619);
+            this.ClientSize = new System.Drawing.Size(630, 615);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel2);
             this.ForeColor = System.Drawing.SystemColors.ControlText;

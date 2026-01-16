@@ -169,19 +169,19 @@
             // 灰度值1Label
             // 
             this.灰度值1Label.Name = "灰度值1Label";
-            this.灰度值1Label.Size = new System.Drawing.Size(28, 25);
+            this.灰度值1Label.Size = new System.Drawing.Size(26, 25);
             this.灰度值1Label.Text = "……";
             // 
             // 灰度值2Label
             // 
             this.灰度值2Label.Name = "灰度值2Label";
-            this.灰度值2Label.Size = new System.Drawing.Size(28, 25);
+            this.灰度值2Label.Size = new System.Drawing.Size(26, 25);
             this.灰度值2Label.Text = "……";
             // 
             // 灰度值3Label
             // 
             this.灰度值3Label.Name = "灰度值3Label";
-            this.灰度值3Label.Size = new System.Drawing.Size(28, 25);
+            this.灰度值3Label.Size = new System.Drawing.Size(26, 25);
             this.灰度值3Label.Text = "……";
             // 
             // toolStripStatusLabel7
@@ -193,13 +193,13 @@
             // 行坐标Label
             // 
             this.行坐标Label.Name = "行坐标Label";
-            this.行坐标Label.Size = new System.Drawing.Size(28, 25);
+            this.行坐标Label.Size = new System.Drawing.Size(26, 25);
             this.行坐标Label.Text = "……";
             // 
             // 列坐标Label
             // 
             this.列坐标Label.Name = "列坐标Label";
-            this.列坐标Label.Size = new System.Drawing.Size(28, 25);
+            this.列坐标Label.Size = new System.Drawing.Size(26, 25);
             this.列坐标Label.Text = "……";
             // 
             // hWindowControl1
