@@ -31,6 +31,7 @@ namespace FunctionBlock
         public double Expose { get; set; }
         public int Gain { get; set; }
         public enCoordSysName CoordSysName { get; set; }
+        public bool EnableScript { get; set; }  
 
 
         public ImageAcqParam()
@@ -47,6 +48,7 @@ namespace FunctionBlock
             this.CoordSysName = enCoordSysName.CoordSys_0;
             this.Expose = -1;
             this.Gain = 0;
+            this.EnableScript = false;
         }
 
         public ImageDataClass ReadImage(string path, string acqSourceName)

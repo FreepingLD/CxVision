@@ -90,6 +90,8 @@ namespace FunctionBlock
             this.X轴镜像checkBox = new System.Windows.Forms.CheckBox();
             this.Y轴镜像checkBox = new System.Windows.Forms.CheckBox();
             this.旋转checkBox = new System.Windows.Forms.CheckBox();
+            this.启用脚本处理checkBox = new System.Windows.Forms.CheckBox();
+            this.编辑脚本Btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.触发端口numericUpDown)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.增益numericUpDown)).BeginInit();
@@ -234,6 +236,8 @@ namespace FunctionBlock
             // panel1
             // 
             this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.编辑脚本Btn);
+            this.panel1.Controls.Add(this.启用脚本处理checkBox);
             this.panel1.Controls.Add(this.坐标映射方法comboBox);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.启用平场校正checkBox);
@@ -556,9 +560,9 @@ namespace FunctionBlock
             // 传感器测试button
             // 
             this.传感器测试button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.传感器测试button.Location = new System.Drawing.Point(109, 769);
+            this.传感器测试button.Location = new System.Drawing.Point(125, 769);
             this.传感器测试button.Name = "传感器测试button";
-            this.传感器测试button.Size = new System.Drawing.Size(98, 33);
+            this.传感器测试button.Size = new System.Drawing.Size(82, 33);
             this.传感器测试button.TabIndex = 134;
             this.传感器测试button.Text = "传感器测试";
             this.传感器测试button.UseVisualStyleBackColor = true;
@@ -759,9 +763,9 @@ namespace FunctionBlock
             // 传感器参数button
             // 
             this.传感器参数button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.传感器参数button.Location = new System.Drawing.Point(215, 769);
+            this.传感器参数button.Location = new System.Drawing.Point(227, 769);
             this.传感器参数button.Name = "传感器参数button";
-            this.传感器参数button.Size = new System.Drawing.Size(98, 33);
+            this.传感器参数button.Size = new System.Drawing.Size(86, 33);
             this.传感器参数button.TabIndex = 105;
             this.传感器参数button.Text = "标定参数";
             this.传感器参数button.UseVisualStyleBackColor = true;
@@ -806,6 +810,26 @@ namespace FunctionBlock
             this.旋转checkBox.TabIndex = 26;
             this.旋转checkBox.Text = "旋转";
             this.旋转checkBox.UseVisualStyleBackColor = true;
+            // 
+            // 启用脚本处理checkBox
+            // 
+            this.启用脚本处理checkBox.AutoSize = true;
+            this.启用脚本处理checkBox.Location = new System.Drawing.Point(214, 669);
+            this.启用脚本处理checkBox.Name = "启用脚本处理checkBox";
+            this.启用脚本处理checkBox.Size = new System.Drawing.Size(96, 16);
+            this.启用脚本处理checkBox.TabIndex = 157;
+            this.启用脚本处理checkBox.Text = "启用脚本处理";
+            this.启用脚本处理checkBox.UseVisualStyleBackColor = true;
+            // 
+            // 编辑脚本Btn
+            // 
+            this.编辑脚本Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.编辑脚本Btn.Location = new System.Drawing.Point(26, 769);
+            this.编辑脚本Btn.Name = "编辑脚本Btn";
+            this.编辑脚本Btn.Size = new System.Drawing.Size(82, 33);
+            this.编辑脚本Btn.TabIndex = 158;
+            this.编辑脚本Btn.Text = "编辑脚本";
+            this.编辑脚本Btn.UseVisualStyleBackColor = true;
             // 
             // CameraParamForm
             // 
@@ -888,5 +912,7 @@ namespace FunctionBlock
         private System.Windows.Forms.CheckBox 启用平场校正checkBox;
         private System.Windows.Forms.ComboBox 坐标映射方法comboBox;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.CheckBox 启用脚本处理checkBox;
+        private System.Windows.Forms.Button 编辑脚本Btn;
     }
 }

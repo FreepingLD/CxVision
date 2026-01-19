@@ -93,14 +93,14 @@
             this.imageList1.Images.SetKeyName(5, "0328 test.bmp");
             this.imageList1.Images.SetKeyName(6, "1.bmp");
             // 
-            // ToolForm
+            // ToolFormOld
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.treeView1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "ToolForm";
+            this.Name = "ToolFormOld";
             this.Load += new System.EventHandler(this.ToolForm_Load);
             this.ResumeLayout(false);
 

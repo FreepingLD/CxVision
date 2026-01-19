@@ -356,6 +356,12 @@ namespace FunctionBlock
                         }
                         break;
                 }
+                /// 启用脚本处理 
+                if(this.AcqParam.EnableScript)
+                {
+                    IScript script = new ImageAcqScript();
+                    this.Result.Succss = script.RunScript(this);
+                }
                 stopwatch.Stop();
                 ////////////////////////////////////////////////
                 this.CreateResultInfo(12); // 共11条属性信息 

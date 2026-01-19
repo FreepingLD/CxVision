@@ -993,6 +993,25 @@ namespace FunctionBlock
                     }
                     break;
 
+
+                case "直线取点":
+                case "直线取点节点":
+                    if (this._treeViewTarget != null)
+                    {
+                        LinePickPoint linePick  = new LinePickPoint();
+                        switch (SystemParamManager.Instance.SysConfigParam.Language)
+                        {
+                            default:
+                            case "zh-CN":
+                                rootNode = this._treeViewTarget.AddItems(linePick, "直线取点", nameof(linePick.WcsPoint), nameof(linePick.WcsLine));
+                                break;
+                            case "en-US":
+                                rootNode = this._treeViewTarget.AddItems(linePick, "LinePickPoint", nameof(linePick.WcsPoint), nameof(linePick.WcsLine));
+                                break;
+                        }
+                    }
+                    break;
+
                 case "直线角度":
                 case "直线方向":
                 case "直线角度节点":

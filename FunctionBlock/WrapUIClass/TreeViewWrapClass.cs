@@ -1913,6 +1913,12 @@ namespace FunctionBlock
                     form.Owner = this.parentForm;
                     break;
 
+                case "直线取点":
+                case nameof(LinePickPoint):
+                    form = new LinePickPointForm(node);
+                    form.Owner = this.parentForm;
+                    break;
+
                 case "直线角度":
                 case nameof(LineAngle2D):
                     form = new LineAngle2DForm((IFunction)node.Tag, node);

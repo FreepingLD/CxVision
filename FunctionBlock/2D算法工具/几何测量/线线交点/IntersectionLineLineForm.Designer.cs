@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IntersectionLineLineForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.显示条目comboBox = new System.Windows.Forms.ComboBox();
@@ -44,7 +47,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.结果dataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -60,6 +62,7 @@
             this.行坐标Label = new System.Windows.Forms.ToolStripStatusLabel();
             this.列坐标Label = new System.Windows.Forms.ToolStripStatusLabel();
             this.hWindowControl1 = new HalconDotNet.HWindowControl();
+            this.结果dataGridView = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.视图工具toolStrip.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -67,19 +70,19 @@
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.结果dataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.结果dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 360F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 260F));
             this.tableLayoutPanel1.Controls.Add(this.显示条目comboBox, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.视图工具toolStrip, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.statusStrip1, 0, 5);
@@ -105,9 +108,9 @@
             this.显示条目comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.显示条目comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.显示条目comboBox.FormattingEnabled = true;
-            this.显示条目comboBox.Location = new System.Drawing.Point(613, 3);
+            this.显示条目comboBox.Location = new System.Drawing.Point(817, 3);
             this.显示条目comboBox.Name = "显示条目comboBox";
-            this.显示条目comboBox.Size = new System.Drawing.Size(458, 20);
+            this.显示条目comboBox.Size = new System.Drawing.Size(254, 20);
             this.显示条目comboBox.TabIndex = 11;
             this.显示条目comboBox.SelectionChangeCommitted += new System.EventHandler(this.显示条目comboBox_SelectionChangeCommitted);
             // 
@@ -123,7 +126,7 @@
             this.toolStripButton_3D});
             this.视图工具toolStrip.Location = new System.Drawing.Point(360, 0);
             this.视图工具toolStrip.Name = "视图工具toolStrip";
-            this.视图工具toolStrip.Size = new System.Drawing.Size(250, 28);
+            this.视图工具toolStrip.Size = new System.Drawing.Size(454, 28);
             this.视图工具toolStrip.TabIndex = 15;
             this.视图工具toolStrip.Text = "toolStrip2";
             this.视图工具toolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.视图工具toolStrip_ItemClicked);
@@ -243,19 +246,6 @@
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "结果 ";
-            // 
-            // 结果dataGridView
-            // 
-            this.结果dataGridView.AllowUserToAddRows = false;
-            this.结果dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.结果dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.结果dataGridView.Location = new System.Drawing.Point(3, 17);
-            this.结果dataGridView.Name = "结果dataGridView";
-            this.结果dataGridView.RowHeadersWidth = 51;
-            this.结果dataGridView.RowTemplate.Height = 23;
-            this.结果dataGridView.Size = new System.Drawing.Size(328, 389);
-            this.结果dataGridView.TabIndex = 0;
-            this.结果dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.结果dataGridView_DataError);
             // 
             // groupBox2
             // 
@@ -395,6 +385,43 @@
             this.hWindowControl1.TabIndex = 17;
             this.hWindowControl1.WindowSize = new System.Drawing.Size(708, 647);
             // 
+            // 结果dataGridView
+            // 
+            this.结果dataGridView.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.结果dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.结果dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.结果dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.结果dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.结果dataGridView.Location = new System.Drawing.Point(3, 17);
+            this.结果dataGridView.Name = "结果dataGridView";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.结果dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.结果dataGridView.RowHeadersWidth = 51;
+            this.结果dataGridView.RowTemplate.Height = 23;
+            this.结果dataGridView.Size = new System.Drawing.Size(328, 389);
+            this.结果dataGridView.TabIndex = 0;
+            this.结果dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.结果dataGridView_DataError);
+            // 
             // IntersectionLineLineForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -403,8 +430,9 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "IntersectionLineLineForm";
+            this.ShowIcon = false;
             this.Tag = "1920,1080";
-            this.Text = "计算直线与直线交点";
+            this.Text = "线线交点";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DeformableMatchForm_FormClosing);
             this.Load += new System.EventHandler(this.AppBaseForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -417,13 +445,13 @@
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.结果dataGridView)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.statusStrip2.ResumeLayout(false);
             this.statusStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.结果dataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -455,10 +483,10 @@
         private System.Windows.Forms.ToolStripButton toolStripButton_3D;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView 结果dataGridView;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.DataGridView 结果dataGridView;
     }
 }

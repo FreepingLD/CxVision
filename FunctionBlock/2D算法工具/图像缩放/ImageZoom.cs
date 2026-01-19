@@ -98,14 +98,9 @@ namespace FunctionBlock
                 stopwatch.Restart();
                 HImage hImge = new HImage();
                 this.Result.Succss = this.ZoomOperator.Do(this.ImageData.Image,out hImge);
-                this._outImageData = new ImageDataClass(hImge, this._imageData.CamParams);
-                this._outImageData.CamName = this._imageData.CamName;
-                this._outImageData.ViewWindow = this._imageData.ViewWindow;
-                this._outImageData.Tag = this._imageData.Tag;
-                this._outImageData.Grab_X = this._imageData.Grab_X;
-                this._outImageData.Grab_Y = this._imageData.Grab_Y;
-                this._outImageData.Grab_Theta = this._imageData.Grab_Theta;
-                this._outImageData.Tag = this._imageData.Tag;
+                this._outImageData = this._imageData.Clone();
+                this._outImageData.Image = hImge.Clone();
+                hImge?.Dispose();
                 stopwatch.Stop();
                 if (this._outImageData != null && this._outImageData.Image.IsInitialized())
                 {

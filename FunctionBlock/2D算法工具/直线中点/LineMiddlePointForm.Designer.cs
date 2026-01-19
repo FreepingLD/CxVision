@@ -404,6 +404,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LineMiddlePointForm";
+            this.ShowIcon = false;
             this.Tag = "1920,1080";
             this.Text = "直线中点";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LineMiddlePointForm_FormClosing);

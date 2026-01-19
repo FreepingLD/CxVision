@@ -78,8 +78,8 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 339F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 271F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 260F));
             this.tableLayoutPanel1.Controls.Add(this.显示条目comboBox, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.视图工具toolStrip, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.statusStrip1, 0, 5);
@@ -105,9 +105,9 @@
             this.显示条目comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.显示条目comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.显示条目comboBox.FormattingEnabled = true;
-            this.显示条目comboBox.Location = new System.Drawing.Point(613, 3);
+            this.显示条目comboBox.Location = new System.Drawing.Point(817, 3);
             this.显示条目comboBox.Name = "显示条目comboBox";
-            this.显示条目comboBox.Size = new System.Drawing.Size(458, 20);
+            this.显示条目comboBox.Size = new System.Drawing.Size(254, 20);
             this.显示条目comboBox.TabIndex = 11;
             this.显示条目comboBox.SelectionChangeCommitted += new System.EventHandler(this.显示条目comboBox_SelectionChangeCommitted);
             // 
@@ -122,7 +122,7 @@
             this.toolStripButton_3D});
             this.视图工具toolStrip.Location = new System.Drawing.Point(339, 0);
             this.视图工具toolStrip.Name = "视图工具toolStrip";
-            this.视图工具toolStrip.Size = new System.Drawing.Size(271, 28);
+            this.视图工具toolStrip.Size = new System.Drawing.Size(475, 28);
             this.视图工具toolStrip.TabIndex = 15;
             this.视图工具toolStrip.Text = "toolStrip2";
             this.视图工具toolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.视图工具toolStrip_ItemClicked);
@@ -396,6 +396,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CircleToLineDist2DForm";
+            this.ShowIcon = false;
             this.Tag = "1920,1080";
             this.Text = "圆到直线距离";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DeformableMatchForm_FormClosing);

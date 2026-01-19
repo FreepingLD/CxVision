@@ -11,8 +11,6 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using Common;
 
-namespace FunctionBlock
-{
     /// <summary>
     /// 给脚本调用提供一个统一的操作接口
     /// </summary>
@@ -24,7 +22,7 @@ namespace FunctionBlock
         /// </summary>
         /// <param name="axisName"></param>
         /// <param name="speed"></param>
-        OperateResult RunScript(IFunction function, params object[] param);
+        bool RunScript(IFunction function, params object[] param);
 
         /// <summary>
         /// 获取属性名对应的值
@@ -41,5 +39,3 @@ namespace FunctionBlock
 
     }
 
-
-}

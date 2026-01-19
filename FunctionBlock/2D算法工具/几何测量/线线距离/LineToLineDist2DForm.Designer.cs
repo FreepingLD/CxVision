@@ -401,6 +401,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LineToLineDist2DForm";
+            this.ShowIcon = false;
             this.Tag = "1920,1080";
             this.Text = "线线距离";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DeformableMatchForm_FormClosing);

@@ -112,20 +112,15 @@ namespace FunctionBlock
                 HImage hImge2 = new HImage();
                 HImage hImge3 = new HImage();
                 this.Result.Succss = this.Param.Decompose3(this.ImageData.Image,out hImge1, out hImge2, out hImge3);
-                this._outImageData1 = new ImageDataClass(hImge1, this._imageData.CamParams);
-                this._outImageData2 = new ImageDataClass(hImge2, this._imageData.CamParams);
-                this._outImageData3 = new ImageDataClass(hImge3, this._imageData.CamParams);
-                this._outImageData1.CamName = this._imageData.CamName;
-                this._outImageData1.ViewWindow = this._imageData.ViewWindow;
-                this._outImageData1.Tag = this._imageData.Tag;
-                /////////////////////////////////////
-                this._outImageData2.CamName = this._imageData.CamName;
-                this._outImageData2.ViewWindow = this._imageData.ViewWindow;
-                this._outImageData2.Tag = this._imageData.Tag;
-                /////////////////////////////////////
-                this._outImageData3.CamName = this._imageData.CamName;
-                this._outImageData3.ViewWindow = this._imageData.ViewWindow;
-                this._outImageData3.Tag = this._imageData.Tag;
+                this._outImageData1 = this._imageData.Clone();
+                this._outImageData2 = this._imageData.Clone();
+                this._outImageData3 = this._imageData.Clone();
+                this._outImageData1.Image = hImge1.Clone();
+                this._outImageData2.Image = hImge2.Clone();
+                this._outImageData3.Image = hImge3.Clone();
+                hImge1?.Dispose();
+                hImge2?.Dispose();
+                hImge3?.Dispose();
                 stopwatch.Stop();
                 if (this._outImageData1 != null && this._outImageData1.Image.IsInitialized())
                 {

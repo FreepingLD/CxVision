@@ -90,6 +90,8 @@ namespace MotionControlCard
             if (listConfigPara == null)
                 listConfigPara = new BindingList<BindingList<CommunicationConfigParam>>();
             //////////////////////////////////////////////////////////////////////////////
+            //if (this.panel2.Width < 860)
+            //    this.panel2.Height += 20;
             this.通信配置1Btn_Click(null, null);
         }
 
@@ -203,7 +205,7 @@ namespace MotionControlCard
             this.通信配置13Btn.BackColor = SystemColors.Control;
             this.通信配置14Btn.BackColor = SystemColors.Control;
             this.通信配置15Btn.BackColor = SystemColors.Control;
-            curBtn.BackColor = SystemColors.Window;    
+            curBtn.BackColor = SystemColors.Window;
         }
 
         private void 通信配置1Btn_Click(object sender, EventArgs e)
@@ -918,6 +920,15 @@ namespace MotionControlCard
         {
             e.ThrowException = false;
         }
+
+        private void DeviceCommunicationConfigForm_ResizeEnd(object sender, EventArgs e)
+        {
+            if (panel2.Width < 860)
+                this.tableLayoutPanel1.RowStyles[2] = new RowStyle(SizeType.Absolute, 45);
+            else
+                this.tableLayoutPanel1.RowStyles[2] = new RowStyle(SizeType.AutoSize);
+        }
+
 
 
 

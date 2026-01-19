@@ -623,6 +623,13 @@
       <DependentUpon>RoundCornersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="2D算法工具\用户标签\UserLable.cs" />
+    <Compile Include="2D算法工具\直线取点\LinePickPoint.cs" />
+    <Compile Include="2D算法工具\直线取点\LinePickPointForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2D算法工具\直线取点\LinePickPointForm.Designer.cs">
+      <DependentUpon>LinePickPointForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="坐标系\坐标系-圆线\CoordSystemCircleLineAppForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1827,6 +1834,7 @@
     <Compile Include="相机采集\ImageAcqAppForm.Designer.cs">
       <DependentUpon>ImageAcqAppForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="相机采集\ImageAcqScript.cs" />
     <Compile Include="相机采集\相机配置\SensorConfig.cs" />
     <Compile Include="相机采集\相机配置\SensorConfigForm.cs">
       <SubType>Form</SubType>
@@ -3010,18 +3018,18 @@
     </Compile>
     <Compile Include="数据输出\OutputData.cs" />
     <Compile Include="相机采集\ImageAcqDevice.cs" />
-    <Compile Include="相机采集\StartAcq.cs" />
-    <Compile Include="相机采集\StopAcq.cs" />
-    <Compile Include="相机采集\StartAcqForm.cs">
+    <Compile Include="相机采集\开始采集\StartAcq.cs" />
+    <Compile Include="相机采集\停止采集\StopAcq.cs" />
+    <Compile Include="相机采集\开始采集\StartAcqForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="相机采集\StartAcqForm.Designer.cs">
+    <Compile Include="相机采集\开始采集\StartAcqForm.Designer.cs">
       <DependentUpon>StartAcqForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="相机采集\StopAcqForm.cs">
+    <Compile Include="相机采集\停止采集\StopAcqForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="相机采集\StopAcqForm.Designer.cs">
+    <Compile Include="相机采集\停止采集\StopAcqForm.Designer.cs">
       <DependentUpon>StopAcqForm.cs</DependentUpon>
     </Compile>
     <Compile Include="系统UI配置\UI视图配置\ShowDataForm.cs">
@@ -4727,6 +4735,9 @@
     <EmbeddedResource Include="2D算法工具\导圆角\RoundCornersForm.resx">
       <DependentUpon>RoundCornersForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="2D算法工具\直线取点\LinePickPointForm.resx">
+      <DependentUpon>LinePickPointForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="坐标系\坐标系-圆线\CoordSystemCircleLineAppForm.resx">
       <DependentUpon>CoordSystemCircleLineAppForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -6072,10 +6083,10 @@
     <EmbeddedResource Include="激光采集\点云采集\PointCloudAcqParamForm.resx">
       <DependentUpon>PointCloudAcqParamForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="相机采集\StartAcqForm.resx">
+    <EmbeddedResource Include="相机采集\开始采集\StartAcqForm.resx">
       <DependentUpon>StartAcqForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="相机采集\StopAcqForm.resx">
+    <EmbeddedResource Include="相机采集\停止采集\StopAcqForm.resx">
       <DependentUpon>StopAcqForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="系统UI配置\UI视图配置\ShowDataForm.resx">

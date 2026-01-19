@@ -117,7 +117,8 @@ namespace FunctionBlock
                 this.启用Z轴checkBox.DataBindings.Add("Checked", this._cameraParam, nameof(this._cameraParam.Enable_z), true, DataSourceUpdateMode.OnPropertyChanged);
                 this.扫描轴comboBox.DataBindings.Add("Text", this._cameraParam, nameof(this._cameraParam.ScanAxis), true, DataSourceUpdateMode.OnPropertyChanged);
                 this.扫描步长textBox.DataBindings.Add("Text", this._cameraParam, nameof(this._cameraParam.ScanStep), true, DataSourceUpdateMode.OnPropertyChanged);
-                // 采集参数
+                // 采集参数 
+                this.启用脚本处理checkBox.DataBindings.Add("Checked", this._cameraParam, nameof(this._acqParam.EnableScript), true, DataSourceUpdateMode.OnPropertyChanged);
                 this.视图窗口comboBox.DataBindings.Add("Text", this._acqParam, nameof(this._acqParam.ViewWindow), true, DataSourceUpdateMode.OnPropertyChanged);
                 /////////////////////
                 if (this._acqParam.Expose > 0)

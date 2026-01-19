@@ -191,21 +191,6 @@ namespace Common
                 imageData = (ImageDataClass)bf.Deserialize(ms);  //反序列化
             }
             return imageData;
-
-            //if (this == null) return null;
-            //ImageDataClass imageData = new ImageDataClass();
-            //imageData.grab_x = this.grab_x;
-            //imageData.grab_y = this.grab_y;
-            //imageData.grab_z = this.grab_z;
-            //imageData.width = this.width;
-            //imageData.height = this.height;
-            //imageData.camParams = this.camParams;
-            //imageData.CamName = this.CamName;
-            //if (this.image != null)
-            //    imageData.image = this.image.Clone();
-            //imageData.ViewWindow = this.ViewWindow;
-            //imageData.Tag = this.Tag;
-            //return imageData;
         }
 
 

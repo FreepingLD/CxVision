@@ -377,7 +377,7 @@
             this.Name = "CalculateMiddleBisectorForm";
             this.ShowIcon = false;
             this.Tag = "1920,1080";
-            this.Text = "计算中分线";
+            this.Text = "矩形中分线";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DeformableMatchForm_FormClosing);
             this.Load += new System.EventHandler(this.AppBaseForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

@@ -39,6 +39,9 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.数据视图窗口comboBox = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.轮廓匹配参数Btn = new System.Windows.Forms.Button();
             this.输出UVW坐标checkBox = new System.Windows.Forms.CheckBox();
             this.分区补偿设置Btn = new System.Windows.Forms.Button();
             this.视图窗口comboBox = new System.Windows.Forms.ComboBox();
@@ -68,9 +71,6 @@
             this.目标点坐标dataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.hWindowControl1 = new HalconDotNet.HWindowControl();
-            this.轮廓匹配参数Btn = new System.Windows.Forms.Button();
-            this.数据视图窗口comboBox = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -239,10 +239,46 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "补偿值";
             // 
+            // 数据视图窗口comboBox
+            // 
+            this.数据视图窗口comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.数据视图窗口comboBox.FormattingEnabled = true;
+            this.数据视图窗口comboBox.Items.AddRange(new object[] {
+            "单点对齐",
+            "点+角度对齐",
+            "两点对齐",
+            "三点对齐",
+            "四点对齐"});
+            this.数据视图窗口comboBox.Location = new System.Drawing.Point(87, 101);
+            this.数据视图窗口comboBox.Name = "数据视图窗口comboBox";
+            this.数据视图窗口comboBox.Size = new System.Drawing.Size(238, 20);
+            this.数据视图窗口comboBox.TabIndex = 19;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(1, 104);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(83, 12);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "数据视图窗口:";
+            // 
+            // 轮廓匹配参数Btn
+            // 
+            this.轮廓匹配参数Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.轮廓匹配参数Btn.Location = new System.Drawing.Point(136, 296);
+            this.轮廓匹配参数Btn.Name = "轮廓匹配参数Btn";
+            this.轮廓匹配参数Btn.Size = new System.Drawing.Size(93, 42);
+            this.轮廓匹配参数Btn.TabIndex = 17;
+            this.轮廓匹配参数Btn.Text = "轮廓匹配参数";
+            this.轮廓匹配参数Btn.UseVisualStyleBackColor = true;
+            this.轮廓匹配参数Btn.Click += new System.EventHandler(this.轮廓匹配参数Btn_Click);
+            // 
             // 输出UVW坐标checkBox
             // 
             this.输出UVW坐标checkBox.AutoSize = true;
-            this.输出UVW坐标checkBox.Location = new System.Drawing.Point(78, 212);
+            this.输出UVW坐标checkBox.Location = new System.Drawing.Point(87, 208);
             this.输出UVW坐标checkBox.Name = "输出UVW坐标checkBox";
             this.输出UVW坐标checkBox.Size = new System.Drawing.Size(90, 16);
             this.输出UVW坐标checkBox.TabIndex = 16;
@@ -454,7 +490,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(725, 687);
+            this.tabPage2.Size = new System.Drawing.Size(765, 687);
             this.tabPage2.TabIndex = 0;
             this.tabPage2.Text = "坐标点";
             // 
@@ -473,7 +509,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(725, 687);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(765, 687);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // groupBox6
@@ -482,7 +518,7 @@
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox6.Location = new System.Drawing.Point(3, 232);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(719, 223);
+            this.groupBox6.Size = new System.Drawing.Size(759, 223);
             this.groupBox6.TabIndex = 15;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "源点坐标(PxPy)";
@@ -494,7 +530,7 @@
             this.源点坐标dataGridView.Location = new System.Drawing.Point(3, 19);
             this.源点坐标dataGridView.Name = "源点坐标dataGridView";
             this.源点坐标dataGridView.RowTemplate.Height = 23;
-            this.源点坐标dataGridView.Size = new System.Drawing.Size(713, 201);
+            this.源点坐标dataGridView.Size = new System.Drawing.Size(753, 201);
             this.源点坐标dataGridView.TabIndex = 1;
             // 
             // groupBox5
@@ -503,7 +539,7 @@
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(3, 461);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(719, 223);
+            this.groupBox5.Size = new System.Drawing.Size(759, 223);
             this.groupBox5.TabIndex = 14;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "变换点坐标";
@@ -515,7 +551,7 @@
             this.变换点坐标dataGridView.Location = new System.Drawing.Point(3, 19);
             this.变换点坐标dataGridView.Name = "变换点坐标dataGridView";
             this.变换点坐标dataGridView.RowTemplate.Height = 23;
-            this.变换点坐标dataGridView.Size = new System.Drawing.Size(713, 201);
+            this.变换点坐标dataGridView.Size = new System.Drawing.Size(753, 201);
             this.变换点坐标dataGridView.TabIndex = 2;
             // 
             // groupBox3
@@ -524,7 +560,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(719, 223);
+            this.groupBox3.Size = new System.Drawing.Size(759, 223);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "目标点坐标(QxQy)";
@@ -536,7 +572,7 @@
             this.目标点坐标dataGridView.Location = new System.Drawing.Point(3, 19);
             this.目标点坐标dataGridView.Name = "目标点坐标dataGridView";
             this.目标点坐标dataGridView.RowTemplate.Height = 23;
-            this.目标点坐标dataGridView.Size = new System.Drawing.Size(713, 201);
+            this.目标点坐标dataGridView.Size = new System.Drawing.Size(753, 201);
             this.目标点坐标dataGridView.TabIndex = 1;
             this.目标点坐标dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.PLC信息dataGridView_DataError);
             // 
@@ -563,42 +599,6 @@
             this.hWindowControl1.Size = new System.Drawing.Size(765, 687);
             this.hWindowControl1.TabIndex = 1;
             this.hWindowControl1.WindowSize = new System.Drawing.Size(765, 687);
-            // 
-            // 轮廓匹配参数Btn
-            // 
-            this.轮廓匹配参数Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.轮廓匹配参数Btn.Location = new System.Drawing.Point(136, 296);
-            this.轮廓匹配参数Btn.Name = "轮廓匹配参数Btn";
-            this.轮廓匹配参数Btn.Size = new System.Drawing.Size(93, 42);
-            this.轮廓匹配参数Btn.TabIndex = 17;
-            this.轮廓匹配参数Btn.Text = "轮廓匹配参数";
-            this.轮廓匹配参数Btn.UseVisualStyleBackColor = true;
-            this.轮廓匹配参数Btn.Click += new System.EventHandler(this.轮廓匹配参数Btn_Click);
-            // 
-            // 数据视图窗口comboBox
-            // 
-            this.数据视图窗口comboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.数据视图窗口comboBox.FormattingEnabled = true;
-            this.数据视图窗口comboBox.Items.AddRange(new object[] {
-            "单点对齐",
-            "点+角度对齐",
-            "两点对齐",
-            "三点对齐",
-            "四点对齐"});
-            this.数据视图窗口comboBox.Location = new System.Drawing.Point(87, 101);
-            this.数据视图窗口comboBox.Name = "数据视图窗口comboBox";
-            this.数据视图窗口comboBox.Size = new System.Drawing.Size(238, 20);
-            this.数据视图窗口comboBox.TabIndex = 19;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1, 104);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 12);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "数据视图窗口:";
             // 
             // AlignCalculateForm
             // 

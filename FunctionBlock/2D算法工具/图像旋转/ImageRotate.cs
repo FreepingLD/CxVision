@@ -153,14 +153,9 @@ namespace FunctionBlock
                 stopwatch.Restart();
                 HImage hImage;
                 this.Result.Succss = this.Param.ImageRotate(this.ImageData.Image, this.PixCoordSystem, this.Param, out hImage);
-                this._rotateImage = new ImageDataClass(hImage);
-                this._rotateImage.CamName = this._imageData.CamName;
-                this._rotateImage.CamParams = this._imageData.CamParams;
-                this._rotateImage.ViewWindow = this._imageData.ViewWindow;
-                this._rotateImage.Grab_X = this._imageData.Grab_X;
-                this._rotateImage.Grab_Y = this._imageData.Grab_Y;
-                this._rotateImage.Grab_Theta = this._imageData.Grab_Theta;
-                this._rotateImage.Tag = this._imageData.Tag;
+                this._rotateImage = this._imageData.Clone();
+                this._rotateImage.Image = hImage.Clone();
+                hImage?.Dispose();
                 stopwatch.Stop();
                 if (this._rotateImage != null && this._rotateImage.Image.IsInitialized())
                 {

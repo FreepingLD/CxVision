@@ -98,10 +98,8 @@ namespace FunctionBlock
                 stopwatch.Restart();
                 HImage hImge = new HImage();
                 this.Result.Succss = this.FilterOperator.Do(this.ImageData.Image, out hImge);
-                this._outImageData = new ImageDataClass(hImge, this._imageData.CamParams);
-                this._outImageData.CamName = this._imageData.CamName;
-                this._outImageData.ViewWindow = this._imageData.ViewWindow;
-                this._outImageData.Tag = this._imageData.Tag;
+                this._outImageData = this._imageData.Clone();
+                this._outImageData.Image = hImge.Clone();
                 stopwatch.Stop();
                 if (this._outImageData != null && this._outImageData.Image.IsInitialized())
                 {

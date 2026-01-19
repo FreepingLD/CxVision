@@ -1581,8 +1581,6 @@ namespace CxVision
 
                 case "断开连机toolStripButton":
                     AutoRunThreadPlc.Instance.UnInit();
-                    //this.断开连机toolStripButton.Enabled = true;
-                    //this.联机运行toolStripButton.Enabled = true;
                     SystemParamManager.Instance.SysConfigParam.IsAutoRun = false;
                     SystemParamManager.Instance.SysConfigParam.InterruptSingle = enInterruptType.用户复位中断;
                     break;

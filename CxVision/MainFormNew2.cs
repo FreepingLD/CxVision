@@ -1688,7 +1688,7 @@ namespace CxVision
                 loginForm.Owner = this;
                 loginForm.Show();
 
-                new LoginFormNew().Show();
+                //new LoginFormNew().Show();
                 //LoginForm.Instance.Show();
             }
             catch (Exception ex)

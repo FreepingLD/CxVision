@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
             this.SaveButton = new System.Windows.Forms.Button();
             this.通信命令配置label = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -79,7 +79,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(1, 4);
+            this.SaveButton.Location = new System.Drawing.Point(1, 2);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(85, 40);
             this.SaveButton.TabIndex = 5;
@@ -94,7 +94,7 @@
             this.通信命令配置label.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.通信命令配置label.Location = new System.Drawing.Point(3, 0);
             this.通信命令配置label.Name = "通信命令配置label";
-            this.通信命令配置label.Size = new System.Drawing.Size(1538, 53);
+            this.通信命令配置label.Size = new System.Drawing.Size(1289, 53);
             this.通信命令配置label.TabIndex = 6;
             this.通信命令配置label.Text = "通信命令配置";
             this.通信命令配置label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -113,9 +113,9 @@
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1544, 822);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1295, 822);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
             // dataGridView1
@@ -142,7 +142,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 56);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(1538, 683);
+            this.dataGridView1.Size = new System.Drawing.Size(1289, 668);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
@@ -221,9 +221,9 @@
             // ReadBtn
             // 
             this.ReadBtn.DataPropertyName = "NONE";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.NullValue = "读取";
-            this.ReadBtn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle33.NullValue = "读取";
+            this.ReadBtn.DefaultCellStyle = dataGridViewCellStyle33;
             this.ReadBtn.HeaderText = "读取";
             this.ReadBtn.Name = "ReadBtn";
             this.ReadBtn.Width = 80;
@@ -237,9 +237,9 @@
             // WriteBtn
             // 
             this.WriteBtn.DataPropertyName = "NONE";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.NullValue = "写入";
-            this.WriteBtn.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle34.NullValue = "写入";
+            this.WriteBtn.DefaultCellStyle = dataGridViewCellStyle34;
             this.WriteBtn.HeaderText = "写入";
             this.WriteBtn.Name = "WriteBtn";
             this.WriteBtn.Width = 80;
@@ -247,9 +247,9 @@
             // DeleteBtn
             // 
             this.DeleteBtn.DataPropertyName = "NONE";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.NullValue = "删除";
-            this.DeleteBtn.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle35.NullValue = "删除";
+            this.DeleteBtn.DefaultCellStyle = dataGridViewCellStyle35;
             this.DeleteBtn.HeaderText = "删除";
             this.DeleteBtn.Name = "DeleteBtn";
             this.DeleteBtn.Width = 80;
@@ -257,9 +257,9 @@
             // InsertBtn
             // 
             this.InsertBtn.DataPropertyName = "NONE";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.NullValue = "插入";
-            this.InsertBtn.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle36.NullValue = "插入";
+            this.InsertBtn.DefaultCellStyle = dataGridViewCellStyle36;
             this.InsertBtn.HeaderText = "插入";
             this.InsertBtn.Name = "InsertBtn";
             this.InsertBtn.Width = 80;
@@ -272,12 +272,12 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 775);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1538, 44);
+            this.panel1.Size = new System.Drawing.Size(1289, 44);
             this.panel1.TabIndex = 7;
             // 
             // 清空配置Btn
             // 
-            this.清空配置Btn.Location = new System.Drawing.Point(219, 4);
+            this.清空配置Btn.Location = new System.Drawing.Point(219, 2);
             this.清空配置Btn.Name = "清空配置Btn";
             this.清空配置Btn.Size = new System.Drawing.Size(85, 40);
             this.清空配置Btn.TabIndex = 7;
@@ -288,7 +288,7 @@
             // 实时刷新checkBox
             // 
             this.实时刷新checkBox.AutoSize = true;
-            this.实时刷新checkBox.Location = new System.Drawing.Point(116, 28);
+            this.实时刷新checkBox.Location = new System.Drawing.Point(116, 26);
             this.实时刷新checkBox.Name = "实时刷新checkBox";
             this.实时刷新checkBox.Size = new System.Drawing.Size(72, 16);
             this.实时刷新checkBox.TabIndex = 6;
@@ -315,10 +315,10 @@
             this.panel2.Controls.Add(this.通信配置2Btn);
             this.panel2.Controls.Add(this.通信配置1Btn);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 742);
+            this.panel2.Location = new System.Drawing.Point(0, 727);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1544, 30);
+            this.panel2.Size = new System.Drawing.Size(1295, 45);
             this.panel2.TabIndex = 8;
             // 
             // 通信配置15Btn
@@ -472,15 +472,15 @@
             this.通信配置1Btn.UseVisualStyleBackColor = true;
             this.通信配置1Btn.Click += new System.EventHandler(this.通信配置1Btn_Click);
             // 
-            // DeviceCommunicationConfigFormOld
+            // DeviceCommunicationConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1544, 822);
+            this.ClientSize = new System.Drawing.Size(1295, 822);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "DeviceCommunicationConfigFormOld";
+            this.Name = "DeviceCommunicationConfigForm";
             this.Text = "通信命令配置";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DeviceCommunicationConfigForm_FormClosing);
             this.Load += new System.EventHandler(this.DeviceConfigParamManageForm_Load);

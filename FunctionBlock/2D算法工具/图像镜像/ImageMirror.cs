@@ -110,14 +110,9 @@ namespace FunctionBlock
                 stopwatch.Restart();
                 HImage hImage;
                 this.Result.Succss = this.Param.mirror_image(this.ImageData.Image, out hImage);
-                this.mirrorImage = new ImageDataClass(hImage);
-                this.mirrorImage.CamName = this._imageData.CamName;
-                this.mirrorImage.CamParams = this._imageData.CamParams;
-                this.mirrorImage.ViewWindow = this._imageData.ViewWindow;
-                this.mirrorImage.Grab_X = this._imageData.Grab_X;
-                this.mirrorImage.Grab_Y = this._imageData.Grab_Y;
-                this.mirrorImage.Grab_Theta = this._imageData.Grab_Theta;
-                this.mirrorImage.Tag = this._imageData.Tag;
+                this.mirrorImage = this._imageData.Clone();
+                this.mirrorImage.Image = hImage.Clone();
+                hImage?.Dispose();
                 stopwatch.Stop();
                 this.CreateResultInfo(6);
                 if (this.mirrorImage != null && this.mirrorImage.Image.IsInitialized())

@@ -1,6 +1,6 @@
 ﻿namespace FunctionBlock
 {
-    partial class PointToPointDist2DForm
+    partial class LinePickPointForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PointToPointDist2DForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LinePickPointForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.显示条目comboBox = new System.Windows.Forms.ComboBox();
             this.视图工具toolStrip = new System.Windows.Forms.ToolStrip();
@@ -45,10 +45,11 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.长度textBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.结果dataGridView = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton_Run = new System.Windows.Forms.ToolStripButton();
             this.statusStrip2 = new System.Windows.Forms.StatusStrip();
@@ -67,9 +68,8 @@
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.结果dataGridView)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -219,16 +219,17 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.groupBox2, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.groupBox3, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(340, 615);
             this.tableLayoutPanel2.TabIndex = 1;
@@ -242,7 +243,7 @@
             this.groupBox2.Size = new System.Drawing.Size(334, 94);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "直线2";
+            this.groupBox2.Text = "直线";
             // 
             // listBox2
             // 
@@ -254,6 +255,35 @@
             this.listBox2.Size = new System.Drawing.Size(328, 74);
             this.listBox2.TabIndex = 0;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.长度textBox);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Location = new System.Drawing.Point(3, 203);
+            this.groupBox3.Name = "groupBox3";
+            this.tableLayoutPanel2.SetRowSpan(this.groupBox3, 2);
+            this.groupBox3.Size = new System.Drawing.Size(334, 409);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "结果 ";
+            // 
+            // 长度textBox
+            // 
+            this.长度textBox.Location = new System.Drawing.Point(74, 28);
+            this.长度textBox.Name = "长度textBox";
+            this.长度textBox.Size = new System.Drawing.Size(154, 21);
+            this.长度textBox.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 12);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "取点长度:";
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.listBox1);
@@ -263,7 +293,7 @@
             this.groupBox1.Size = new System.Drawing.Size(334, 94);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "直线1";
+            this.groupBox1.Text = "参考点";
             // 
             // listBox1
             // 
@@ -274,30 +304,6 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(328, 74);
             this.listBox1.TabIndex = 0;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.结果dataGridView);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 203);
-            this.groupBox3.Name = "groupBox3";
-            this.tableLayoutPanel2.SetRowSpan(this.groupBox3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(334, 409);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "结果 ";
-            // 
-            // 结果dataGridView
-            // 
-            this.结果dataGridView.AllowUserToAddRows = false;
-            this.结果dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.结果dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.结果dataGridView.Location = new System.Drawing.Point(3, 17);
-            this.结果dataGridView.Name = "结果dataGridView";
-            this.结果dataGridView.RowTemplate.Height = 23;
-            this.结果dataGridView.Size = new System.Drawing.Size(328, 389);
-            this.结果dataGridView.TabIndex = 0;
-            this.结果dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.结果dataGridView_DataError);
             // 
             // toolStrip1
             // 
@@ -393,19 +399,19 @@
             this.hWindowControl1.TabIndex = 17;
             this.hWindowControl1.WindowSize = new System.Drawing.Size(708, 647);
             // 
-            // PointToPointDist2DForm
+            // LinePickPointForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1074, 711);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "PointToPointDist2DForm";
+            this.Name = "LinePickPointForm";
             this.ShowIcon = false;
             this.Tag = "1920,1080";
-            this.Text = "两点距离";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PointToPointDist2DForm_FormClosing);
-            this.Load += new System.EventHandler(this.PointToPointDist2DForm_Load);
+            this.Text = "直线取点";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LinePickPointForm_FormClosing);
+            this.Load += new System.EventHandler(this.LinePickPointForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.视图工具toolStrip.ResumeLayout(false);
@@ -416,9 +422,9 @@
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.结果dataGridView)).EndInit();
+            this.groupBox3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.statusStrip2.ResumeLayout(false);
@@ -454,10 +460,11 @@
         private System.Windows.Forms.ToolStripButton toolStripButton_3D;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView 结果dataGridView;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.TextBox 长度textBox;
+        private System.Windows.Forms.Label label1;
     }
 }
